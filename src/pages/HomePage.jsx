@@ -100,7 +100,7 @@ export default function HomePage() {
                 <span>Ask a Mentor</span>
               </Link>
               <Link to="/mentors" className="aym-btn aym-btn-secondary aym-btn-lg">
-                <span>Explore Mentors Directory</span>
+                <span>Meet Our Mentors</span>
                 <ArrowRight size={18} aria-hidden="true" />
               </Link>
             </div>
@@ -222,11 +222,15 @@ export default function HomePage() {
       {/* 4. FEATURED MENTORS ROW */}
       <section className="aym-section" aria-labelledby="home-mentors-title">
         <div className="aym-container">
-          <div className="aym-section-header-flex">
-            <div>
-              <p className="aym-eyebrow">MEET THE MENTORS</p>
-              <h2 id="home-mentors-title" className="aym-display">Learn from Experienced Leaders</h2>
+          <div className="aym-section-header-flex aym-mentors-section-header">
+            <div className="aym-section-header-content">
+              <div className="aym-eyebrow-accent-group">
+                <p className="aym-eyebrow">MEET THE MENTORS</p>
+                <div className="aym-eyebrow-line" aria-hidden="true" />
+              </div>
+              <h2 id="home-mentors-title" className="aym-display">Meet Your Mentors: Learn from Experienced Ayurveda Leaders</h2>
               <p className="aym-section-lead">Distinguished academicians and clinical specialists guiding BAMS mentees.</p>
+              <div className="aym-editorial-divider" aria-hidden="true" />
             </div>
             <Link to="/mentors" className="aym-btn aym-btn-outline aym-view-all-mentors-link">
               <span>View All Mentors</span>

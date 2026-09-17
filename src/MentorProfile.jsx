@@ -39,19 +39,6 @@ export default function MentorProfile({ mentorId }) {
 
   return (
     <article className="aym-mentor-profile">
-      <nav className="aym-crumbs" aria-label="Breadcrumb">
-        <ol>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/mentors">Mentors</Link></li>
-          <li aria-current="page">{mentor.name}</li>
-        </ol>
-      </nav>
-      <p className="aym-mentor-profile-back">
-        <Link to="/mentors" className="aym-mentor-back">
-          <ArrowLeft size={16} aria-hidden="true" /> Back to Mentors
-        </Link>
-      </p>
-
       <header className="aym-mentor-profile-hero">
         <div className="aym-mentor-avatar aym-mentor-avatar-xl">
           {portrait ? (

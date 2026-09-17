@@ -44,3 +44,4 @@ Thumbs.db
 
 # Local data store (Vercel Blob is used in prod)
 data/store.json
+.env*

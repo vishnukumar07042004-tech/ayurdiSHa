@@ -4203,6 +4203,11 @@ const TABS = [
 export default function App() {
   const location = useLocation();
   const navigate = useNavigate();
+
+  // Global Scroll-To-Top listener triggered by location change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname, location.search]);
   const appPath = parseAppPath(location.pathname);
   const onMentorsRoute = appPath.kind === "mentors";
   const mentorId = appPath.kind === "mentors" ? appPath.mentorId : null;
