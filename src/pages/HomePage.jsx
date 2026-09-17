@@ -1,15 +1,11 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { 
-  ArrowRight, Users, BookOpen, Calendar, HelpCircle, ShieldCheck, 
-  Sparkles, CheckCircle2, Award, FileText, ChevronRight, MessageSquare,
-  Compass, Stethoscope, Microscope, Building2, Globe2, Briefcase, GraduationCap,
-  Layers, Send, Ticket
+  ArrowRight, Users, BookOpen, Calendar, ShieldCheck, 
+  Sparkles, CheckCircle2, Award,
+  Compass, Layers, Send, Ticket
 } from "lucide-react";
 import { MENTORS, mentorsWithNames, mentorPublicPath, mentorInitials, mentorPortraitUrl } from "../mentors.js";
-import { getAllPrograms } from "../data/programs.js";
-import { getAllEvents } from "../data/events.js";
-import { getAllResources } from "../data/resources.js";
 import { setPageMeta, faqJsonLd } from "../siteMeta.js";
 
 export default function HomePage() {
@@ -156,9 +152,9 @@ export default function HomePage() {
       <section className="aym-section aym-pathways-section" aria-labelledby="pathways-title">
         <div className="aym-container">
           <div className="aym-section-header aym-text-center">
-            <p className="aym-eyebrow">QUICK ACCESS DESK</p>
-            <h2 id="pathways-title" className="aym-display">Interactive Navigation Choices</h2>
-            <p className="aym-section-lead">Select your career pathway or find important event and contact information below.</p>
+            <p className="aym-eyebrow">START HERE</p>
+            <h2 id="pathways-title" className="aym-display">Choose your next step</h2>
+            <p className="aym-section-lead">Career tracks, mentors, congress sessions, and reference guides — pick a path.</p>
           </div>
 
           <div className="aym-grid-4 aym-pathways-grid">
@@ -220,53 +216,92 @@ export default function HomePage() {
       </section>
 
       {/* 4. FEATURED MENTORS ROW */}
-      <section className="aym-section" aria-labelledby="home-mentors-title">
+      <section className="aym-section aym-home-mentors-section" aria-labelledby="home-mentors-title">
         <div className="aym-container">
-          <div className="aym-section-header-flex aym-mentors-section-header">
-            <div className="aym-section-header-content">
+          <div className="aym-home-mentors-intro">
+            <div className="aym-home-mentors-copy">
               <div className="aym-eyebrow-accent-group">
                 <p className="aym-eyebrow">MEET THE MENTORS</p>
                 <div className="aym-eyebrow-line" aria-hidden="true" />
               </div>
-              <h2 id="home-mentors-title" className="aym-display">Meet Your Mentors: Learn from Experienced Ayurveda Leaders</h2>
-              <p className="aym-section-lead">Distinguished academicians and clinical specialists guiding BAMS mentees.</p>
+              <h2 id="home-mentors-title" className="aym-display">
+                Learn from experienced Ayurveda leaders
+              </h2>
+              <p className="aym-section-lead">
+                Senior academicians and clinicians on the WAC 2026 roster — ready to guide
+                BAMS students through PG choices, clinical practice, and research pathways.
+              </p>
               <div className="aym-editorial-divider" aria-hidden="true" />
+              <Link to="/mentors" className="aym-btn aym-btn-outline aym-view-all-mentors-link">
+                <span>View all mentors</span>
+                <ArrowRight size={16} aria-hidden="true" />
+              </Link>
             </div>
-            <Link to="/mentors" className="aym-btn aym-btn-outline aym-view-all-mentors-link">
-              <span>View All Mentors</span>
-              <ArrowRight size={16} aria-hidden="true" />
-            </Link>
+            <aside className="aym-home-mentors-visual" aria-hidden="true">
+              <div className="aym-home-mentors-visual-frame">
+                <img
+                  src="/assets/hall-photo.png"
+                  alt=""
+                  className="aym-home-mentors-visual-img"
+                  width={560}
+                  height={360}
+                  loading="lazy"
+                />
+                <div className="aym-home-mentors-visual-caption">
+                  <span>Digital Meet the Mentors hall</span>
+                  <span>WAC Bhubaneswar 2026</span>
+                </div>
+              </div>
+            </aside>
           </div>
 
           <div className="aym-mentors-grid-premium">
             {featuredMentors.map((m) => {
               const portrait = mentorPortraitUrl(m);
               const initials = mentorInitials(m.name);
+              const specialty = m.expertise
+                ? String(m.expertise).split(";")[0].split("(")[0].trim()
+                : "";
               return (
                 <article key={m.id} className="aym-mentor-card-premium">
-                  <div className="aym-mentor-avatar-wrap">
-                    <div className="aym-mentor-avatar">
+                  <div className="aym-mentor-card-top-premium">
+                    <div className="aym-mentor-avatar-container">
                       {portrait ? (
-                        <img src={portrait} alt={`Portrait of ${m.name}`} width={80} height={80} loading="lazy" />
+                        <img
+                          src={portrait}
+                          alt={`Portrait of ${m.name}`}
+                          width={80}
+                          height={80}
+                          className="aym-mentor-avatar-img"
+                          loading="lazy"
+                        />
                       ) : (
-                        <span aria-hidden="true">{initials}</span>
+                        <span className="aym-mentor-avatar-initials" aria-hidden="true">
+                          {initials}
+                        </span>
                       )}
                     </div>
-                  </div>
-                  <div className="aym-mentor-body">
-                    <h3 className="aym-mentor-name">
-                      <Link to={mentorPublicPath(m)} className="aym-mentor-name-link">{m.name}</Link>
-                    </h3>
-                    <p className="aym-mentor-role">{m.designation || "Distinguished Mentor"}</p>
-                    {m.expertise && (
-                      <span className="aym-mentor-expertise-badge">
-                        {m.expertise}
-                      </span>
+                    {specialty && (
+                      <span className="aym-mentor-badge-specialty">{specialty}</span>
                     )}
                   </div>
-                  <div className="aym-mentor-card-actions">
-                    <Link to={mentorPublicPath(m)} className="aym-btn aym-mentor-card-cta" aria-label={`View profile of ${m.name}`}>
-                      <span>View Profile</span>
+                  <div className="aym-mentor-body-premium">
+                    <h3 className="aym-mentor-name-premium">
+                      <Link to={mentorPublicPath(m)} className="aym-mentor-name-link-premium">
+                        {m.name}
+                      </Link>
+                    </h3>
+                    <p className="aym-mentor-role-premium">
+                      {m.designation || "Distinguished Mentor"}
+                    </p>
+                  </div>
+                  <div className="aym-mentor-card-actions-premium">
+                    <Link
+                      to={mentorPublicPath(m)}
+                      className="aym-btn aym-mentor-card-cta-premium"
+                      aria-label={`View profile of ${m.name}`}
+                    >
+                      <span>View profile</span>
                       <ArrowRight size={14} aria-hidden="true" />
                     </Link>
                   </div>

@@ -18,15 +18,15 @@ export default function EventsPage() {
   }, []);
 
   return (
-    <div className="aym-page aym-py-12">
+    <div className="aym-page aym-py-8">
       <div className="aym-container">
         <Breadcrumbs items={[{ name: "Congress Sessions & Events" }]} />
 
-        <header className="aym-page-header">
+        <header className="aym-page-header aym-mb-8">
           <p className="aym-eyebrow">11TH WORLD AYURVEDA CONGRESS · BHUBANESWAR 2026</p>
-          <h1 className="aym-display">Meet the Mentors Hall Schedule</h1>
-          <p className="aym-lead">
-            Join in-person guider visits, digital Ask Desk reviews, and expert panel sessions from 11–13 December 2026 in Bhubaneswar, Odisha.
+          <h1 className="aym-display">Meet the Mentors hall schedule</h1>
+          <p className="aym-lead aym-max-w-3xl">
+            In-person mentor visits, Ask Desk reviews, and expert panels — 11–13 December 2026 in Bhubaneswar.
           </p>
         </header>
 

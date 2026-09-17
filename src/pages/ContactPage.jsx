@@ -13,22 +13,21 @@ export default function ContactPage() {
   }, []);
 
   return (
-    <main className="aym-page aym-py-12" id="main">
+    <main className="aym-page aym-py-8" id="main">
       <div className="aym-container aym-max-w-4xl">
         <Breadcrumbs items={[{ label: "Contact" }]} />
-        <header className="aym-page-head">
-          <p className="aym-eyebrow">Meet the Mentors desk</p>
+        <header className="aym-page-header">
+          <p className="aym-eyebrow">MEET THE MENTORS DESK</p>
           <h1 className="aym-display">Contact</h1>
-          <p>
-            AYURDISHA does not publish a public inbox on this site. Delegates use the hall:
-            register with a real email, then file one career question at the Ask Desk.
-            Staff enter through the Staff control with a PIN.
+          <p className="aym-lead">
+            AYURDISHA does not publish a public inbox on this site. Delegates register with a real email,
+            then file one career question at the Ask Desk. Staff enter through the Staff control with a PIN.
           </p>
         </header>
-        <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 18 }}>
+        <div className="aym-flex-gap-4 aym-mt-6">
           <Link to="/#register" className="aym-btn aym-btn-primary">Register</Link>
-          <Link to="/#ask" className="aym-btn aym-btn-gold">Ask Desk</Link>
-          <Link to="/#track" className="aym-btn aym-btn-ghost">Track my answer</Link>
+          <Link to="/#ask" className="aym-btn aym-btn-primary">Ask Desk</Link>
+          <Link to="/#track" className="aym-btn aym-btn-outline">Track my answer</Link>
         </div>
       </div>
     </main>

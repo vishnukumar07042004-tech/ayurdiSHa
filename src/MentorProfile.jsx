@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
 import {
   getMentorByParam,
   mentorInitials,
@@ -15,14 +14,16 @@ export default function MentorProfile({ mentorId }) {
   if (!mentor) {
     return (
       <div className="aym-mentor-profile">
-        <p className="aym-mentor-profile-back">
-          <Link to="/mentors" className="aym-mentor-back">
-            <ArrowLeft size={16} aria-hidden="true" /> Back to Mentors
-          </Link>
-        </p>
         <section className="aym-mentor-missing" aria-labelledby="mentor-missing-title">
-          <h1 id="mentor-missing-title" className="aym-display">Mentor not found</h1>
+          <h1 id="mentor-missing-title" className="aym-display">
+            Mentor not found
+          </h1>
           <p>That profile is not on the current WAC tentative roster.</p>
+          <p className="aym-mentor-missing-cta">
+            <Link to="/mentors" className="aym-btn aym-btn-outline">
+              Browse mentors
+            </Link>
+          </p>
         </section>
       </div>
     );
@@ -42,22 +43,28 @@ export default function MentorProfile({ mentorId }) {
       <header className="aym-mentor-profile-hero">
         <div className="aym-mentor-avatar aym-mentor-avatar-xl">
           {portrait ? (
-            <img src={portrait} alt={`Portrait of ${mentor.name}`} width={128} height={128} />
+            <img
+              src={portrait}
+              alt={`Portrait of ${mentor.name}`}
+              width={88}
+              height={88}
+            />
           ) : (
             <span aria-hidden="true">{mentorInitials(mentor.name)}</span>
           )}
         </div>
         <div className="aym-mentor-profile-intro">
-          <p className="aym-eyebrow aym-mentor-profile-kicker">Meet the Mentors · WAC 2026</p>
+          <p className="aym-eyebrow aym-mentor-profile-kicker">WAC 2026 Mentor</p>
           <h1 className="aym-display aym-mentor-profile-name">{mentor.name}</h1>
           {designation && <p className="aym-mentor-profile-lead">{designation}</p>}
           {credentials && <p className="aym-mentor-profile-creds">{credentials}</p>}
         </div>
-        <div className="aym-mentor-profile-rule" aria-hidden="true" />
       </header>
 
       <section className="aym-mentor-profile-main" aria-labelledby="mentor-about-title">
-        <h2 id="mentor-about-title" className="aym-visually-hidden">About this mentor</h2>
+        <h2 id="mentor-about-title" className="aym-visually-hidden">
+          About this mentor
+        </h2>
         {documentPhoto && (
           <figure className="aym-mentor-document">
             <img

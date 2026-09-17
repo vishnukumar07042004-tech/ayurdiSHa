@@ -26,7 +26,7 @@ export default function SiteFooter({ onStaff, variant = "app" }) {
           <ul className="aym-footer-list">
             <li><Link to="/">Home</Link></li>
             <li><a href="https://worldayurvedacongress.com" target="_blank" rel="noopener noreferrer">About WAC</a></li>
-            <li><Link to="/mentors">Mentors Directory</Link></li>
+            <li><Link to="/mentors">Mentors</Link></li>
             <li><Link to="/programs">Career Tracks</Link></li>
           </ul>
         </nav>

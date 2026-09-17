@@ -37,15 +37,15 @@ export default function ResourcesPage() {
   }, [resources, activeTab, query]);
 
   return (
-    <div className="aym-page aym-py-12">
+    <div className="aym-page aym-py-8">
       <div className="aym-container">
         <Breadcrumbs items={[{ name: "Resources & Knowledge Base" }]} />
 
-        <header className="aym-page-header">
+        <header className="aym-page-header aym-mb-8">
           <p className="aym-eyebrow">PODCASTS & CAREER BRIEFS</p>
-          <h1 className="aym-display">Resources & Educational Guides</h1>
-          <p className="aym-lead">
-            Recorded mentor conversations, clinical practice checklists, research funding guides, and regulatory references for BAMS graduates.
+          <h1 className="aym-display">Resources & guides</h1>
+          <p className="aym-lead aym-max-w-3xl">
+            Mentor conversations, practice checklists, research funding notes, and regulatory references for BAMS graduates.
           </p>
         </header>
 

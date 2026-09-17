@@ -74,22 +74,22 @@ export default function ProgramsPage() {
   }, [programs, query, selectedCategory]);
 
   return (
-    <div className="aym-page aym-py-12">
+    <div className="aym-page aym-py-8">
       <div className="aym-container">
         <Breadcrumbs items={[{ name: "Career Programs & Tracks" }]} />
 
-        <header className="aym-page-header aym-text-center aym-mb-10">
+        <header className="aym-page-header aym-mb-8">
           <p className="aym-eyebrow">10 NATIONAL AYURDISHA THEMES</p>
-          <h1 className="aym-display">Ayurveda Career Pathways & Programs</h1>
-          <p className="aym-lead aym-max-w-3xl aym-mx-auto">
+          <h1 className="aym-display">Career pathways & programs</h1>
+          <p className="aym-lead aym-max-w-3xl">
             Structured national roadmaps covering clinical practice, academic progression, research funding, manufacturing licenses, and global mobility after BAMS.
           </p>
         </header>
 
         {/* Search and Filters Layout */}
-        <div className="aym-programs-toolbar aym-mb-10">
+        <div className="aym-programs-toolbar aym-mb-6">
           {/* Search Input Box */}
-          <div className="aym-search-box-premium aym-mb-6">
+          <div className="aym-search-box-premium aym-mb-4">
             <Search size={18} className="aym-search-icon" aria-hidden="true" />
             <input
               type="search"

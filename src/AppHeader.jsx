@@ -1,6 +1,6 @@
 import React, { useCallback, useId, useRef, useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Lock, Unlock, Search, Ticket, Send, ChevronDown, Info, Users, BookOpen, HelpCircle, Phone, Calendar, Compass } from "lucide-react";
+import { Menu, X, Lock, Unlock, Search, Ticket, Send, ChevronDown, Info, BookOpen, HelpCircle, Phone, Compass } from "lucide-react";
 import useFocusTrap from "./useFocusTrap.js";
 import GlobalSearch from "./components/GlobalSearch.jsx";
 
@@ -179,41 +179,13 @@ export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIn
                 )}
               </div>
 
-              {/* MENTORS dropdown */}
-              <div 
-                className="aym-dropdown-container"
-                onMouseEnter={() => handleMouseEnter("mentors")}
-                onMouseLeave={handleMouseLeave}
+              <Link
+                to="/mentors"
+                className={`aym-nav-link ${isActive("/mentors") ? "aym-nav-link-active" : ""}`}
+                onClick={closeDropdowns}
               >
-                <button
-                  type="button"
-                  className={`aym-nav-link aym-dropdown-trigger ${isActive("/mentors") || isHomeTabActive("mentors") ? "aym-nav-link-active" : ""} ${activeDropdown === "mentors" ? "dropdown-open" : ""}`}
-                  aria-haspopup="true"
-                  aria-expanded={activeDropdown === "mentors"}
-                  onClick={(e) => handleDropdownClick("mentors", e)}
-                >
-                  <span>Mentors</span>
-                  <ChevronDown size={14} className="aym-chevron" aria-hidden="true" />
-                </button>
-                {activeDropdown === "mentors" && (
-                  <div className="aym-dropdown-menu">
-                    <Link to="/mentors" className="aym-dropdown-item" onClick={closeDropdowns}>
-                      <Users size={16} aria-hidden="true" />
-                      <div>
-                        <strong>Explore Mentors</strong>
-                        <span>Browse our full faculty roster</span>
-                      </div>
-                    </Link>
-                    <Link to="/#home-mentors-title" className="aym-dropdown-item" onClick={() => { closeDropdowns(); go("intro"); setTimeout(() => document.getElementById("home-mentors-title")?.scrollIntoView({ behavior: 'smooth' }), 100); }}>
-                      <Users size={16} aria-hidden="true" />
-                      <div>
-                        <strong>Featured Mentors</strong>
-                        <span>Distinguished clinical & academic leaders</span>
-                      </div>
-                    </Link>
-                  </div>
-                )}
-              </div>
+                Mentors
+              </Link>
 
               <Link
                 to="/programs"
@@ -363,16 +335,13 @@ export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIn
               </a>
             </div>
 
-            {/* Mobile Mentors Group */}
-            <div className="aym-drawer-group">
-              <span className="aym-drawer-group-label">MENTORS</span>
-              <Link to="/mentors" className={`aym-drawer-sublink ${isActive("/mentors") ? "aym-drawer-sublink-on" : ""}`} onClick={close}>
-                Explore Mentors
-              </Link>
-              <Link to="/#home-mentors-title" className="aym-drawer-sublink" onClick={() => { go("intro"); setTimeout(() => document.getElementById("home-mentors-title")?.scrollIntoView({ behavior: 'smooth' }), 100); }}>
-                Featured Mentors
-              </Link>
-            </div>
+            <Link
+              to="/mentors"
+              className={`aym-drawer-link ${isActive("/mentors") ? "aym-drawer-link-on" : ""}`}
+              onClick={close}
+            >
+              Mentors
+            </Link>
 
             {/* Mobile Programs & Events Group */}
             <div className="aym-drawer-group">

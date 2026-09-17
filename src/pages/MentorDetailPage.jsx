@@ -32,7 +32,7 @@ export default function MentorDetailPage() {
   }, [mentor, param]);
 
   return (
-    <div className="aym-page aym-py-8">
+    <div className="aym-page aym-mentor-detail-page aym-py-6">
       <div className="aym-container">
         <Breadcrumbs
           backTo="/mentors"
