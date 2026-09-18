@@ -7178,6 +7178,242 @@ body { margin: 0; background: var(--cream); }
   outline-offset: 2px !important;
 }
 
+/* ------------------------------------------------------------------ */
+/* First-visit coach guides (Track / Ask / Hall / Theme Stage)         */
+/* ------------------------------------------------------------------ */
+
+.aym-fvg-root {
+  position: fixed;
+  inset: 0;
+  z-index: 75;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  pointer-events: none;
+}
+
+.aym-fvg-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  pointer-events: auto;
+  background: rgba(15, 42, 31, 0.58);
+  animation: aym-fvg-fade 0.28s ease both;
+}
+
+.aym-fvg-panel {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+  width: min(440px, 100%);
+  max-height: min(88vh, 720px);
+  overflow: auto;
+  padding: 22px 22px 20px;
+  border-radius: 18px;
+  background:
+    linear-gradient(165deg, rgba(255, 252, 247, 0.98), var(--cream) 42%, #efe4d6),
+    var(--cream);
+  border: 1px solid rgba(196, 164, 132, 0.45);
+  box-shadow:
+    0 24px 48px rgba(15, 42, 31, 0.28),
+    0 0 0 1px rgba(255, 255, 255, 0.35) inset;
+  color: var(--forest-deep);
+  animation: aym-fvg-rise 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.aym-fvg-handle {
+  display: none;
+  width: 40px;
+  height: 4px;
+  margin: 0 auto 14px;
+  border-radius: 99px;
+  background: rgba(27, 67, 50, 0.18);
+}
+
+.aym-fvg-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.aym-fvg-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  color: var(--forest);
+  background:
+    linear-gradient(145deg, rgba(212, 168, 75, 0.28), rgba(232, 213, 183, 0.55)),
+    #fff;
+  border: 1px solid rgba(212, 168, 75, 0.4);
+}
+
+.aym-fvg-close {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  margin: -4px -4px 0 0;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--forest-mid);
+  cursor: pointer;
+}
+
+.aym-fvg-close:hover {
+  background: rgba(27, 67, 50, 0.08);
+  color: var(--forest);
+}
+
+.aym-fvg-eyebrow {
+  margin: 0 0 6px;
+  color: var(--oak);
+  letter-spacing: 0.08em;
+}
+
+.aym-fvg-title {
+  margin: 0 0 10px;
+  font-size: clamp(1.35rem, 3.5vw, 1.65rem);
+  color: var(--forest);
+  line-height: 1.2;
+}
+
+.aym-fvg-lead {
+  margin: 0 0 16px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(15, 42, 31, 0.78);
+}
+
+.aym-fvg-block {
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(27, 67, 50, 0.08);
+}
+
+.aym-fvg-block-title {
+  margin: 0 0 8px;
+  font-family: Fraunces, Georgia, serif;
+  font-size: 14px;
+  font-weight: 650;
+  color: var(--forest);
+}
+
+.aym-fvg-list {
+  margin: 0;
+  padding: 0 0 0 1.15rem;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(15, 42, 31, 0.8);
+}
+
+.aym-fvg-list li + li {
+  margin-top: 6px;
+}
+
+.aym-fvg-status-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.aym-fvg-status-list li {
+  display: grid;
+  gap: 2px;
+}
+
+.aym-fvg-status-label {
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--forest);
+}
+
+.aym-fvg-status-detail {
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(15, 42, 31, 0.72);
+}
+
+.aym-fvg-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.aym-fvg-primary {
+  width: 100%;
+  justify-content: center;
+  min-height: 46px;
+}
+
+@keyframes aym-fvg-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes aym-fvg-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 640px) {
+  .aym-fvg-root {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .aym-fvg-panel {
+    width: 100%;
+    max-height: min(92dvh, 920px);
+    border-radius: 20px 20px 0 0;
+    padding: 12px 18px calc(18px + env(safe-area-inset-bottom, 0px));
+    animation-name: aym-fvg-sheet;
+  }
+
+  .aym-fvg-handle {
+    display: block;
+  }
+}
+
+@keyframes aym-fvg-sheet {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aym-fvg-backdrop,
+  .aym-fvg-panel {
+    animation: none !important;
+  }
+}
+
+
 
 
 

@@ -14,6 +14,11 @@ import { getPodByCode, KNOWLEDGE_TABS, getSectionForTab, POD_KNOWLEDGE } from ".
 import { setPageMeta, personJsonLd, breadcrumbJsonLd, faqJsonLd } from "./siteMeta.js";
 import { getMentorByParam, mentorPublicPath, mentorsWithNames, MENTORS } from "./mentors.js";
 import { MentorAnswerLetter, trackStatusOf } from "./TrackAnswer.jsx";
+import FirstVisitGuide, {
+  FIRST_VISIT_GUIDES,
+  hasSeenFirstVisit,
+  markFirstVisitSeen,
+} from "./components/FirstVisitGuide.jsx";
 import AppHeader from "./AppHeader.jsx";
 import SiteFooter from "./SiteFooter.jsx";
 import PageSkeleton from "./PageSkeleton.jsx";
@@ -4305,9 +4310,37 @@ export default function App() {
     window.scrollTo(0, 0);
   }, [navigate]);
 
-  const goAsk = useCallback((preset) => {
-    goTab("ask", { preset: preset || null });
+  const [visitGuide, setVisitGuide] = useState(null);
+  const pendingVisitGoRef = useRef(null);
+
+  const requestGoTab = useCallback((id, opts = {}) => {
+    if (FIRST_VISIT_GUIDES[id] && !hasSeenFirstVisit(id)) {
+      pendingVisitGoRef.current = { id, opts };
+      setVisitGuide(id);
+      return;
+    }
+    goTab(id, opts);
   }, [goTab]);
+
+  const finishVisitGuide = useCallback(() => {
+    const id = visitGuide;
+    if (id) markFirstVisitSeen(id);
+    setVisitGuide(null);
+    const pending = pendingVisitGoRef.current;
+    pendingVisitGoRef.current = null;
+    if (pending) goTab(pending.id, pending.opts);
+  }, [visitGuide, goTab]);
+
+  // Deep links / homepage hash CTAs (#track, #ask, #hall, #board)
+  useEffect(() => {
+    if (!FIRST_VISIT_GUIDES[tab]) return;
+    if (hasSeenFirstVisit(tab)) return;
+    setVisitGuide(prev => prev || tab);
+  }, [tab]);
+
+  const goAsk = useCallback((preset) => {
+    requestGoTab("ask", { preset: preset || null });
+  }, [requestGoTab]);
 
   const enterStaff = useCallback(async () => {
     setStaff(true);
@@ -4492,8 +4525,8 @@ export default function App() {
   }, [onMentorsRoute, mentorId, tab, legalPage, isNotFound]);
 
   const enterFromLand = useCallback((next) => {
-    goTab(next);
-  }, [goTab]);
+    requestGoTab(next);
+  }, [requestGoTab]);
 
 
   const persistClusters = useCallback(async next => {
@@ -4631,7 +4664,7 @@ export default function App() {
         <AppHeader
           tabs={visible}
           tab={tab}
-          onGoTab={goTab}
+          onGoTab={requestGoTab}
           staff={staff}
           onStaffClick={() => { if (staff) lockAndPublic(); else setPinPrompt(true); }}
           brandToIntro={() => goTab("intro")}
@@ -4642,6 +4675,10 @@ export default function App() {
             <HelpCircle size={15} aria-hidden="true" />
             <span>Curation: one editor at a time recommended; Insights can run in parallel.</span>
           </div>
+        )}
+
+        {visitGuide && (
+          <FirstVisitGuide guideId={visitGuide} onContinue={finishVisitGuide} />
         )}
 
         {pinModal}
@@ -4656,7 +4693,7 @@ export default function App() {
                   staff={staff}
                   delegates={delegates}
                   questions={subs}
-                  onEnter={(id) => goTab(id, id === "ask" ? { preset: null } : {})}
+                  onEnter={(id) => requestGoTab(id, id === "ask" ? { preset: null } : {})}
                 />
               ) : (
                 <main className="aym-main" id="main">
@@ -4697,7 +4734,7 @@ export default function App() {
                       {tab === "exchange" && <ExchangeView onAskPath={p => goAsk({ theme: p.theme, subtheme: p.sub, question: p.prompt })} />}
                       {tab === "podcast" && (
                         <Suspense fallback={<PageSkeleton label="Loading podcast corner" />}>
-                          <PodcastView staff={staff} onAsk={goAsk} onBack={() => goTab("hall")} />
+                          <PodcastView staff={staff} onAsk={goAsk} onBack={() => requestGoTab("hall")} />
                         </Suspense>
                       )}
                       {tab === "track" && <LookupView loading={loading} />}
