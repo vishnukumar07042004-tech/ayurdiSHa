@@ -14,6 +14,7 @@ const out = join(here, "..", "public/sitemap.xml");
 
 const staticPaths = [
   "/",
+  "/welcome",
   "/about",
   "/mentors",
   "/programs",

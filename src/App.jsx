@@ -20,10 +20,10 @@ import FirstVisitGuide, {
   hasSeenFirstVisit,
   markFirstVisitSeen,
 } from "./components/FirstVisitGuide.jsx";
-import WelcomeOverlay, {
+import {
   hasSeenWelcome,
   welcomeShownThisSession,
-} from "./components/WelcomeOverlay.jsx";
+} from "./welcomeStorage.js";
 import AppHeader from "./AppHeader.jsx";
 import SiteFooter from "./SiteFooter.jsx";
 import PageSkeleton from "./PageSkeleton.jsx";
@@ -31,6 +31,7 @@ import { AboutPage, PrivacyPage, TermsPage, DisclaimerPage } from "./LegalPages.
 import NotFound from "./NotFound.jsx";
 
 import AboutPageNew from "./pages/AboutPage.jsx";
+import WelcomePage from "./pages/WelcomePage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import MentorsPage from "./pages/MentorsPage.jsx";
 import MentorDetailPage from "./pages/MentorDetailPage.jsx";
@@ -205,6 +206,7 @@ function parseMentorPath(pathname) {
 
 function parseAppPath(pathname) {
   const p = String(pathname || "/").replace(/\/+$/, "") || "/";
+  if (p === "/welcome") return { kind: "welcome" };
   if (LEGAL_PATHS[p]) return { kind: "legal", page: LEGAL_PATHS[p] };
   if (STAFF_PATHS[p]) return { kind: "staff", tab: STAFF_PATHS[p] };
   if (p === "/track-answer") return { kind: "app" };
@@ -4222,6 +4224,7 @@ export default function App() {
   const onMentorsRoute = appPath.kind === "mentors";
   const mentorId = appPath.kind === "mentors" ? appPath.mentorId : null;
   const legalPage = appPath.kind === "legal" ? appPath.page : null;
+  const onWelcomeRoute = appPath.kind === "welcome";
   const isNotFound = appPath.kind === "404";
 
   const [tab, setTab] = useState(() => {
@@ -4317,25 +4320,11 @@ export default function App() {
 
   const [visitGuide, setVisitGuide] = useState(null);
   const pendingVisitGoRef = useRef(null);
-  const [showWelcome, setShowWelcome] = useState(() => {
-    if (typeof window === "undefined") return false;
-    try {
-      return !hasSeenWelcome();
-    } catch {
-      return false;
-    }
-  });
-  const [welcomeForce, setWelcomeForce] = useState(false);
 
   const openWelcome = useCallback(() => {
-    setWelcomeForce(true);
-    setShowWelcome(true);
-  }, []);
-
-  const dismissWelcome = useCallback(() => {
-    setShowWelcome(false);
-    setWelcomeForce(false);
-  }, []);
+    navigate("/welcome");
+    window.scrollTo(0, 0);
+  }, [navigate]);
 
   const requestGoTab = useCallback((id, opts = {}) => {
     // Soften: after welcome in this session, skip feature coaches so we don't double-bomb.
@@ -4481,7 +4470,7 @@ export default function App() {
       window.scrollTo(0, 0);
       return;
     }
-    if (legalPage || isNotFound) return;
+    if (legalPage || isNotFound || onWelcomeRoute) return;
     const hashTab = tabFromHash(location.hash);
     if (hashTab === "mentors") {
       navigate("/mentors", { replace: true });
@@ -4492,10 +4481,10 @@ export default function App() {
     }
     const next = tabFromUrl(location.pathname, location.hash);
     setTab(t => (t === next ? t : next));
-  }, [location.pathname, location.hash, onMentorsRoute, mentorId, legalPage, isNotFound, navigate]);
+  }, [location.pathname, location.hash, onMentorsRoute, mentorId, legalPage, isNotFound, onWelcomeRoute, navigate]);
 
   useEffect(() => {
-    if (legalPage || isNotFound) return;
+    if (legalPage || isNotFound || onWelcomeRoute) return;
     if (onMentorsRoute && mentorId) {
       const mentor = getMentorByParam(mentorId);
       if (!mentor) {
@@ -4563,7 +4552,7 @@ export default function App() {
       robots: staffish ? "noindex, nofollow" : undefined,
       jsonLd: tab === "intro" ? faqJsonLd(LAND_FAQS) : null,
     });
-  }, [onMentorsRoute, mentorId, tab, legalPage, isNotFound]);
+  }, [onMentorsRoute, mentorId, tab, legalPage, isNotFound, onWelcomeRoute]);
 
   const enterFromLand = useCallback((next) => {
     requestGoTab(next);
@@ -4701,26 +4690,26 @@ export default function App() {
   return (
     <ErrorBoundary>
       <div className="aym" style={{ minHeight: "100vh" }}>
-        <a className="aym-skip" href="#main">Skip to content</a>
-        <AppHeader
-          tabs={visible}
-          tab={tab}
-          onGoTab={requestGoTab}
-          staff={staff}
-          onStaffClick={() => { if (staff) lockAndPublic(); else setPinPrompt(true); }}
-          brandToIntro={() => goTab("intro")}
-          onOpenWelcome={openWelcome}
-        />
+        {!onWelcomeRoute && (
+          <a className="aym-skip" href="#main">Skip to content</a>
+        )}
+        {!onWelcomeRoute && (
+          <AppHeader
+            tabs={visible}
+            tab={tab}
+            onGoTab={requestGoTab}
+            staff={staff}
+            onStaffClick={() => { if (staff) lockAndPublic(); else setPinPrompt(true); }}
+            brandToIntro={() => goTab("intro")}
+            onOpenWelcome={openWelcome}
+          />
+        )}
 
         {staff && (tab === "curate" || tab === "insights" || tab === "pack") && (
           <div className="aym-staff-tip" role="status">
             <HelpCircle size={15} aria-hidden="true" />
             <span>Curation: one editor at a time recommended; Insights can run in parallel.</span>
           </div>
-        )}
-
-        {!staff && (welcomeForce || (showWelcome && tab === "intro" && (!location.hash || location.hash === "#intro") && location.pathname === "/")) && (
-          <WelcomeOverlay onDismiss={dismissWelcome} />
         )}
 
         {visitGuide && (
@@ -4731,8 +4720,11 @@ export default function App() {
 
         <Suspense fallback={<PageSkeleton label="Loading content..." />}>
           <Routes>
+            <Route path="/welcome" element={<WelcomePage />} />
             <Route path="/" element={
-              tab === "intro" && (!location.hash || location.hash === "#intro") ? (
+              !staff && !hasSeenWelcome() && (!location.hash || location.hash === "#intro") ? (
+                <Navigate to="/welcome" replace />
+              ) : tab === "intro" && (!location.hash || location.hash === "#intro") ? (
                 <HomePage onGoTab={requestGoTab} />
               ) : fullBleed ? (
                 <HallView
@@ -4937,7 +4929,9 @@ export default function App() {
           onDismiss={() => setClusterConflict(null)}
         />
 
-        <SiteFooter onStaff={() => setPinPrompt(true)} />
+        {!onWelcomeRoute && (
+          <SiteFooter onStaff={() => setPinPrompt(true)} />
+        )}
       </div>
     </ErrorBoundary>
   );
