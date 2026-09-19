@@ -14,25 +14,31 @@ import {
   markWelcomeSession,
 } from "../welcomeStorage.js";
 
+const AUDIENCE = [
+  "BAMS students & interns",
+  "Postgraduates",
+  "Early-career practitioners",
+];
+
 const FEATURES = [
   {
     id: "mentors",
     title: "Explore Mentors",
-    how: "Browse the Meet the Mentors roster and open a profile to learn who may guide your path.",
+    how: "Browse Meet the Mentors profiles, then open one to see who may guide your path.",
     Icon: Users,
     image: "/assets/welcome/welcome-feature-mentors.png",
   },
   {
     id: "ask",
     title: "Ask a Question",
-    how: "Register once, then submit one focused Ayurveda career question at the Ask Desk.",
+    how: "Register with a real email, then submit one focused Ayurveda career question at the Ask Desk.",
     Icon: Send,
     image: "/assets/welcome/welcome-feature-ask.png",
   },
   {
     id: "track",
     title: "Track My Answer",
-    how: "Look up your Ask Desk ticket and follow it until a mentor replies in writing.",
+    how: "Look up your Ask Desk ticket with your WAC number and follow it until a mentor replies in writing.",
     Icon: Ticket,
     image: "/assets/welcome/welcome-feature-track.png",
   },
@@ -48,18 +54,38 @@ const FEATURES = [
 const STEPS = [
   {
     n: "01",
-    title: "Orient yourself",
-    body: "Learn what AYURDISHA offers — Mentors, Ask, Track, and the Hall.",
+    title: "Register & ask",
+    body: "Create your delegate profile with a verified email, then file one clear career question at the Ask Desk — PG, clinic, research, public health, start-up, or practice abroad.",
   },
   {
     n: "02",
-    title: "Enter the home hall",
-    body: "Continue to home for the full Meet the Mentors experience and career pathways.",
+    title: "Keep your ticket",
+    body: "The hall issues your unique WAC tracking number instantly. Save it — you will need it to check your Ask Desk submission.",
   },
   {
     n: "03",
-    title: "Ask when ready",
-    body: "Register with a verified email, receive your WAC number, and submit one clear career question.",
+    title: "Track the reply",
+    body: "Return to Track My Answer anytime. When a mentor responds in writing, your ticket status updates so you can read the guidance.",
+  },
+  {
+    n: "04",
+    title: "Visit the Hall",
+    body: "Between asks, explore Mentors, career tracks, podcasts, and the theme stage — the same Meet the Mentors floor, on phone or laptop.",
+  },
+];
+
+const TRUST_POINTS = [
+  {
+    title: "Official digital hall",
+    body: "AYURDISHA is the Meet the Mentors digital space of the 11th World Ayurveda Congress in Bhubaneswar.",
+  },
+  {
+    title: "Career guidance",
+    body: "Mentors offer professional direction for education and practice pathways — not clinical diagnosis or treatment advice.",
+  },
+  {
+    title: "One clear path",
+    body: "Register once, ask once, track the written reply, and learn from the open theme stage when answers are published.",
   },
 ];
 
@@ -165,11 +191,12 @@ export default function WelcomePage() {
   };
 
   const isLast = index === SLIDE_COUNT - 1;
+  const lightChrome = index === 1 || index === 2 || index === 3;
   const slideClass = `aym-welcome-slide aym-welcome-slide-${index + 1} aym-welcome-slide-enter-${dir > 0 ? "next" : "prev"}`;
 
   return (
     <div
-      className="aym-welcome-page aym-welcome-deck"
+      className={`aym-welcome-page aym-welcome-deck${lightChrome ? " aym-welcome-deck-light" : ""}`}
       role="region"
       aria-roledescription="carousel"
       aria-label="AYURDISHA welcome orientation"
@@ -193,7 +220,7 @@ export default function WelcomePage() {
         onTouchEnd={onTouchEnd}
         tabIndex={0}
       >
-        {/* Slide 1 — Hero */}
+        {/* Slide 1 — Purpose */}
         {index === 0 && (
           <article
             key="s1"
@@ -218,55 +245,29 @@ export default function WelcomePage() {
                 WAC 2026 · Bhubaneswar · 11–13 December
               </p>
               <h1 id="welcome-hero-title" className="aym-welcome-hero-title">
-                Meet the Mentors
+                AYURDISHA
                 <span className="aym-welcome-hero-title-line">
-                  shaping Ayurveda careers
+                  Meet the Mentors for Ayurveda careers
                 </span>
               </h1>
               <p className="aym-welcome-hero-lead">
                 The official digital Meet the Mentors hall of the 11th World Ayurveda
-                Congress — a calm place to learn the hall before you enter.
+                Congress — a calm place for BAMS students, postgraduates, and early-career
+                practitioners to find career direction before they enter the floor.
               </p>
+              <ul className="aym-welcome-audience" aria-label="Who AYURDISHA is for">
+                {AUDIENCE.map((label) => (
+                  <li key={label}>{label}</li>
+                ))}
+              </ul>
             </div>
           </article>
         )}
 
-        {/* Slide 2 — What is AYURDISHA */}
+        {/* Slide 2 — What you can do */}
         {index === 1 && (
           <article
             key="s2"
-            className={`${slideClass} aym-welcome-slide-about`}
-            aria-labelledby="welcome-about-title"
-          >
-            <div className="aym-welcome-slide-split">
-              <div className="aym-welcome-slide-copy">
-                <p className="aym-welcome-section-eyebrow">What is AYURDISHA</p>
-                <h2 id="welcome-about-title" className="aym-welcome-section-title">
-                  A digital hall for career guidance — not a clinic
-                </h2>
-                <p className="aym-welcome-section-lead">
-                  AYURDISHA brings BAMS students, postgraduates, and early-career
-                  practitioners into a curated Meet the Mentors space at WAC 2026.
-                  Explore mentors, ask one focused career question, track the reply,
-                  and enter the hall — without Prakriti quizzes or medical diagnosis.
-                </p>
-              </div>
-              <figure className="aym-welcome-slide-media">
-                <img
-                  src="/assets/welcome/welcome-what.png"
-                  alt="Mentors and scholars gathered around manuscripts and medicinal herbs"
-                  width={1200}
-                  height={900}
-                />
-              </figure>
-            </div>
-          </article>
-        )}
-
-        {/* Slide 3 — What you can do */}
-        {index === 2 && (
-          <article
-            key="s3"
             className={`${slideClass} aym-welcome-slide-features`}
             aria-labelledby="welcome-features-title"
           >
@@ -274,10 +275,11 @@ export default function WelcomePage() {
               <header className="aym-welcome-slide-head">
                 <p className="aym-welcome-section-eyebrow">What you can do</p>
                 <h2 id="welcome-features-title" className="aym-welcome-section-title">
-                  Four ways through the hall
+                  Four clear doors into the hall
                 </h2>
                 <p className="aym-welcome-section-lead">
-                  Mentors, Ask, Track, and the Hall — clear tools, nothing extra.
+                  Mentors, Ask, Track, and the Hall — the same tools you will use on the home
+                  floor. Nothing here is a menu button; tap anywhere to keep reading.
                 </p>
               </header>
               <ul className="aym-welcome-feature-grid aym-welcome-feature-grid-deck">
@@ -303,21 +305,25 @@ export default function WelcomePage() {
           </article>
         )}
 
-        {/* Slide 4 — How it works + Congress */}
-        {index === 3 && (
+        {/* Slide 3 — How to use */}
+        {index === 2 && (
           <article
-            key="s4"
+            key="s3"
             className={`${slideClass} aym-welcome-slide-path`}
             aria-labelledby="welcome-steps-title"
           >
             <div className="aym-welcome-slide-inner aym-welcome-slide-path-inner">
               <header className="aym-welcome-slide-head">
-                <p className="aym-welcome-section-eyebrow">How it works</p>
+                <p className="aym-welcome-section-eyebrow">How to use AYURDISHA</p>
                 <h2 id="welcome-steps-title" className="aym-welcome-section-title">
-                  Three simple steps
+                  Your first-visit path
                 </h2>
+                <p className="aym-welcome-section-lead">
+                  A short journey from registration to a written mentor reply — and the Hall
+                  while you wait.
+                </p>
               </header>
-              <ol className="aym-welcome-steps aym-welcome-steps-deck">
+              <ol className="aym-welcome-steps aym-welcome-steps-deck aym-welcome-steps-four">
                 {STEPS.map((s) => (
                   <li key={s.n} className="aym-welcome-step">
                     <span className="aym-welcome-step-n" aria-hidden="true">
@@ -330,22 +336,48 @@ export default function WelcomePage() {
                   </li>
                 ))}
               </ol>
-              <div className="aym-welcome-congress-band">
-                <figure className="aym-welcome-congress-thumb" aria-hidden="true">
-                  <img
-                    src="/assets/welcome/welcome-congress.png"
-                    alt=""
-                    width={640}
-                    height={400}
-                  />
-                </figure>
-                <div>
-                  <p className="aym-welcome-section-eyebrow">Congress context</p>
-                  <p className="aym-welcome-congress-line">
-                    11th World Ayurveda Congress · Bhubaneswar · 11–13 December 2026
-                  </p>
-                </div>
+            </div>
+          </article>
+        )}
+
+        {/* Slide 4 — Congress + trust */}
+        {index === 3 && (
+          <article
+            key="s4"
+            className={`${slideClass} aym-welcome-slide-trust`}
+            aria-labelledby="welcome-trust-title"
+          >
+            <div className="aym-welcome-slide-split aym-welcome-slide-split-trust">
+              <div className="aym-welcome-slide-copy">
+                <p className="aym-welcome-section-eyebrow">Congress &amp; trust</p>
+                <h2 id="welcome-trust-title" className="aym-welcome-section-title">
+                  Built for WAC Bhubaneswar — guidance, not diagnosis
+                </h2>
+                <p className="aym-welcome-section-lead">
+                  AYURDISHA is the official digital Meet the Mentors hall of the 11th World
+                  Ayurveda Congress. Use it for career clarity: education pathways, practice
+                  choices, and professional direction from mentors.
+                </p>
+                <ul className="aym-welcome-trust-list">
+                  {TRUST_POINTS.map((p) => (
+                    <li key={p.title}>
+                      <h3>{p.title}</h3>
+                      <p>{p.body}</p>
+                    </li>
+                  ))}
+                </ul>
+                <p className="aym-welcome-disclaimer">
+                  Career guidance only — not medical advice, Prakriti assessment, or clinical diagnosis.
+                </p>
               </div>
+              <figure className="aym-welcome-slide-media aym-welcome-slide-media-tall">
+                <img
+                  src="/assets/welcome/welcome-congress.png"
+                  alt="Warm lantern-lit World Ayurveda Congress hall with botanical panels and delegates"
+                  width={1536}
+                  height={864}
+                />
+              </figure>
             </div>
           </article>
         )}
@@ -359,11 +391,11 @@ export default function WelcomePage() {
           >
             <div className="aym-welcome-slide-bg aym-welcome-slide-bg-finale" aria-hidden="true">
               <img
-                src="/assets/welcome/welcome-hero.png"
+                src="/assets/welcome/welcome-what.png"
                 alt=""
                 className="aym-welcome-slide-bg-img"
-                width={1536}
-                height={864}
+                width={1200}
+                height={900}
               />
               <div className="aym-welcome-hero-veil" />
               <div className="aym-welcome-hero-vignette" />
@@ -377,8 +409,8 @@ export default function WelcomePage() {
                 Enter the hall
               </h2>
               <p className="aym-welcome-hero-lead">
-                Continue to the AYURDISHA home page — reopen this orientation anytime
-                from About or Help in the menu.
+                Continue to AYURDISHA home — explore mentors, open the Ask Desk when ready,
+                and track your ticket. You can reopen this orientation anytime from About or Help.
               </p>
               <div className="aym-welcome-hero-actions" data-welcome-stop>
                 <button
@@ -406,7 +438,7 @@ export default function WelcomePage() {
         <div
           className="aym-welcome-progress"
           role="tablist"
-          aria-label="Welcome slides"
+          aria-label="Welcome orientation progress"
         >
           {Array.from({ length: SLIDE_COUNT }, (_, i) => (
             <button
@@ -414,7 +446,17 @@ export default function WelcomePage() {
               type="button"
               role="tab"
               aria-selected={i === index}
-              aria-label={`Slide ${i + 1} of ${SLIDE_COUNT}`}
+              aria-label={
+                i === 0
+                  ? "Purpose"
+                  : i === 1
+                    ? "What you can do"
+                    : i === 2
+                      ? "How to use"
+                      : i === 3
+                        ? "Congress and trust"
+                        : "Enter AYURDISHA"
+              }
               className={`aym-welcome-dot${i === index ? " is-active" : ""}`}
               onClick={(e) => {
                 e.stopPropagation();
@@ -423,9 +465,6 @@ export default function WelcomePage() {
               }}
             />
           ))}
-          <span className="aym-welcome-count" aria-live="polite">
-            {index + 1} / {SLIDE_COUNT}
-          </span>
         </div>
         {!isLast && (
           <p className="aym-welcome-tap-hint" aria-hidden="true">

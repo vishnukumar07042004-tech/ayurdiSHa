@@ -7740,22 +7740,12 @@ button.aym-drawer-sublink {
   text-shadow: 0 2px 16px rgba(8, 22, 16, 0.45);
 }
 
-.aym-welcome-deck:has(.aym-welcome-slide-about),
-.aym-welcome-deck:has(.aym-welcome-slide-features),
-.aym-welcome-deck:has(.aym-welcome-slide-path) {
-  cursor: pointer;
-}
-
-.aym-welcome-deck:has(.aym-welcome-slide-about) .aym-welcome-chrome-brand,
-.aym-welcome-deck:has(.aym-welcome-slide-features) .aym-welcome-chrome-brand,
-.aym-welcome-deck:has(.aym-welcome-slide-path) .aym-welcome-chrome-brand {
+.aym-welcome-deck-light .aym-welcome-chrome-brand {
   color: var(--forest-deep);
   text-shadow: none;
 }
 
-.aym-welcome-deck:has(.aym-welcome-slide-about) .aym-welcome-skip-top,
-.aym-welcome-deck:has(.aym-welcome-slide-features) .aym-welcome-skip-top,
-.aym-welcome-deck:has(.aym-welcome-slide-path) .aym-welcome-skip-top {
+.aym-welcome-deck-light .aym-welcome-skip-top {
   border-color: rgba(27, 67, 50, 0.22);
   background: rgba(255, 254, 251, 0.72);
   color: var(--forest-deep);
@@ -7861,9 +7851,37 @@ button.aym-drawer-sublink {
   flex-direction: column;
   justify-content: flex-end;
   flex: 1;
-  width: min(720px, calc(100% - 2.5rem));
+  width: min(760px, calc(100% - 2.5rem));
   padding: 0 clamp(1.1rem, 4vw, 2.5rem) clamp(5.5rem, 12vh, 7rem);
   color: var(--aym-welcome-ivory);
+}
+
+.aym-welcome-slide-body-hero {
+  gap: 0.15rem;
+}
+
+.aym-welcome-audience {
+  list-style: none;
+  margin: 0.35rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.55rem;
+  max-width: 34rem;
+}
+
+.aym-welcome-audience li {
+  margin: 0;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: rgba(255, 254, 251, 0.92);
+  background: rgba(255, 254, 251, 0.1);
+  border: 1px solid rgba(232, 214, 176, 0.35);
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .aym-welcome-slide-body-finale {
@@ -7919,16 +7937,65 @@ button.aym-drawer-sublink {
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 20px 44px rgba(15, 42, 31, 0.14);
-  max-height: min(52vh, 420px);
+  max-height: min(58vh, 480px);
 }
 
 .aym-welcome-slide-media img {
   display: block;
   width: 100%;
   height: 100%;
-  max-height: min(52vh, 420px);
+  max-height: min(58vh, 480px);
   object-fit: cover;
   aspect-ratio: 4 / 3;
+}
+
+.aym-welcome-slide-media-tall {
+  max-height: min(64vh, 520px);
+}
+
+.aym-welcome-slide-media-tall img {
+  max-height: min(64vh, 520px);
+  aspect-ratio: 16 / 10;
+}
+
+.aym-welcome-slide-split-trust {
+  align-items: stretch;
+}
+
+.aym-welcome-trust-list {
+  list-style: none;
+  margin: 1.15rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.aym-welcome-trust-list li {
+  padding: 0.75rem 0.85rem;
+  border-left: 2px solid var(--gold);
+  background: rgba(255, 254, 251, 0.55);
+}
+
+.aym-welcome-trust-list h3 {
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 650;
+  color: var(--forest-deep);
+}
+
+.aym-welcome-trust-list p {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--aym-welcome-muted);
+}
+
+.aym-welcome-disclaimer {
+  margin: 1rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: rgba(20, 40, 31, 0.52);
+  font-style: italic;
 }
 
 .aym-welcome-eyebrow,
@@ -7999,7 +8066,7 @@ button.aym-drawer-sublink {
 
 .aym-welcome-section-lead {
   margin: 0;
-  max-width: 38rem;
+  max-width: 42rem;
   font-size: clamp(0.95rem, 1.8vw, 1.08rem);
   line-height: 1.6;
   color: var(--aym-welcome-muted);
@@ -8057,16 +8124,17 @@ button.aym-drawer-sublink {
 .aym-welcome-feature-card {
   display: flex;
   flex-direction: column;
-  background: rgba(255, 254, 251, 0.78);
+  background: rgba(255, 254, 251, 0.88);
   border: 1px solid rgba(217, 203, 184, 0.85);
   border-radius: 16px;
   overflow: hidden;
   min-height: 0;
+  box-shadow: 0 10px 28px rgba(15, 42, 31, 0.06);
 }
 
 .aym-welcome-feature-visual {
   position: relative;
-  aspect-ratio: 1.4 / 1;
+  aspect-ratio: 1.25 / 1;
   overflow: hidden;
   background: var(--forest-deep);
   flex-shrink: 0;
@@ -8097,8 +8165,8 @@ button.aym-drawer-sublink {
 .aym-welcome-feature-body {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
-  padding: 0.85rem 0.95rem 1rem;
+  gap: 0.4rem;
+  padding: 0.95rem 1rem 1.1rem;
   flex: 1;
   min-height: 0;
 }
@@ -8106,25 +8174,35 @@ button.aym-drawer-sublink {
 .aym-welcome-feature-body h3 {
   margin: 0;
   font-family: Fraunces, "Source Serif 4", Georgia, serif;
-  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  font-size: clamp(0.98rem, 1.6vw, 1.12rem);
   font-weight: 650;
   color: var(--forest-deep);
 }
 
 .aym-welcome-feature-body p {
   margin: 0;
-  font-size: clamp(0.78rem, 1.3vw, 0.88rem);
-  line-height: 1.45;
+  font-size: clamp(0.8rem, 1.35vw, 0.9rem);
+  line-height: 1.5;
   color: var(--aym-welcome-muted);
 }
 
 .aym-welcome-steps {
   list-style: none;
-  margin: 0 0 clamp(1rem, 2.5vh, 1.5rem);
+  margin: 0;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(0.75rem, 2vw, 1.35rem);
+}
+
+.aym-welcome-steps-four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  flex: 1;
+  align-content: stretch;
+}
+
+.aym-welcome-steps-deck {
+  min-height: 0;
 }
 
 .aym-welcome-step {
@@ -8132,9 +8210,11 @@ button.aym-drawer-sublink {
   grid-template-columns: auto 1fr;
   gap: 0.75rem;
   align-items: start;
-  padding: 1rem 0.9rem;
+  padding: 1.05rem 0.95rem 1.15rem;
   border-top: 2px solid var(--gold);
-  background: rgba(255, 254, 251, 0.45);
+  background: rgba(255, 254, 251, 0.72);
+  box-shadow: 0 8px 22px rgba(15, 42, 31, 0.05);
+  min-height: 0;
 }
 
 .aym-welcome-step-n {
@@ -8154,44 +8234,9 @@ button.aym-drawer-sublink {
 
 .aym-welcome-step p {
   margin: 0;
-  font-size: 0.88rem;
-  line-height: 1.45;
+  font-size: 0.86rem;
+  line-height: 1.48;
   color: var(--aym-welcome-muted);
-}
-
-.aym-welcome-congress-band {
-  display: flex;
-  align-items: center;
-  gap: 1rem 1.25rem;
-  padding: 0.85rem 1rem;
-  border-radius: 14px;
-  background: rgba(255, 254, 251, 0.65);
-  border: 1px solid rgba(217, 203, 184, 0.75);
-  flex-shrink: 0;
-}
-
-.aym-welcome-congress-thumb {
-  margin: 0;
-  width: 88px;
-  height: 64px;
-  border-radius: 8px;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.aym-welcome-congress-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.aym-welcome-congress-line {
-  margin: 0;
-  font-size: clamp(0.9rem, 1.6vw, 1.05rem);
-  font-weight: 600;
-  color: var(--forest-deep);
-  line-height: 1.35;
 }
 
 .aym-welcome-hint {
@@ -8237,9 +8282,7 @@ button.aym-drawer-sublink {
   -webkit-backdrop-filter: blur(8px);
 }
 
-.aym-welcome-deck:has(.aym-welcome-slide-about) .aym-welcome-progress,
-.aym-welcome-deck:has(.aym-welcome-slide-features) .aym-welcome-progress,
-.aym-welcome-deck:has(.aym-welcome-slide-path) .aym-welcome-progress {
+.aym-welcome-deck-light .aym-welcome-progress {
   background: rgba(255, 254, 251, 0.72);
   border: 1px solid rgba(217, 203, 184, 0.65);
 }
@@ -8255,29 +8298,13 @@ button.aym-drawer-sublink {
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.aym-welcome-deck:has(.aym-welcome-slide-about) .aym-welcome-dot,
-.aym-welcome-deck:has(.aym-welcome-slide-features) .aym-welcome-dot,
-.aym-welcome-deck:has(.aym-welcome-slide-path) .aym-welcome-dot {
+.aym-welcome-deck-light .aym-welcome-dot {
   background: rgba(27, 67, 50, 0.28);
 }
 
 .aym-welcome-dot.is-active {
   background: var(--gold);
   transform: scale(1.25);
-}
-
-.aym-welcome-count {
-  margin-left: 0.25rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  color: rgba(255, 254, 251, 0.7);
-  font-variant-numeric: tabular-nums;
-}
-
-.aym-welcome-deck:has(.aym-welcome-slide-about) .aym-welcome-count,
-.aym-welcome-deck:has(.aym-welcome-slide-features) .aym-welcome-count,
-.aym-welcome-deck:has(.aym-welcome-slide-path) .aym-welcome-count {
-  color: rgba(20, 40, 31, 0.55);
 }
 
 .aym-welcome-tap-hint {
@@ -8289,9 +8316,7 @@ button.aym-drawer-sublink {
   pointer-events: none;
 }
 
-.aym-welcome-deck:has(.aym-welcome-slide-about) .aym-welcome-tap-hint,
-.aym-welcome-deck:has(.aym-welcome-slide-features) .aym-welcome-tap-hint,
-.aym-welcome-deck:has(.aym-welcome-slide-path) .aym-welcome-tap-hint {
+.aym-welcome-deck-light .aym-welcome-tap-hint {
   color: rgba(20, 40, 31, 0.4);
 }
 
@@ -8322,6 +8347,12 @@ button.aym-drawer-sublink {
   to { transform: scale(1.08); }
 }
 
+@media (max-width: 1100px) {
+  .aym-welcome-steps-four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 900px) {
   .aym-welcome-slide-split {
     grid-template-columns: 1fr;
@@ -8329,20 +8360,23 @@ button.aym-drawer-sublink {
     padding-top: clamp(3.75rem, 9vh, 4.5rem);
   }
 
-  .aym-welcome-slide-media {
-    max-height: min(28vh, 220px);
+  .aym-welcome-slide-media,
+  .aym-welcome-slide-media-tall {
+    max-height: min(30vh, 240px);
     order: -1;
   }
 
-  .aym-welcome-slide-media img {
-    max-height: min(28vh, 220px);
+  .aym-welcome-slide-media img,
+  .aym-welcome-slide-media-tall img {
+    max-height: min(30vh, 240px);
   }
 
   .aym-welcome-feature-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .aym-welcome-steps {
+  .aym-welcome-steps,
+  .aym-welcome-steps-four {
     grid-template-columns: 1fr;
     gap: 0.5rem;
   }
@@ -8351,8 +8385,12 @@ button.aym-drawer-sublink {
     padding: 0.7rem 0.75rem;
   }
 
-  .aym-welcome-congress-band {
-    flex-direction: row;
+  .aym-welcome-trust-list {
+    gap: 0.55rem;
+  }
+
+  .aym-welcome-trust-list li {
+    padding: 0.6rem 0.7rem;
   }
 }
 
@@ -8361,9 +8399,18 @@ button.aym-drawer-sublink {
     font-size: clamp(1.85rem, 8vw, 2.4rem);
   }
 
+  .aym-welcome-hero-lead {
+    font-size: 0.95rem;
+  }
+
+  .aym-welcome-audience li {
+    font-size: 0.72rem;
+    padding: 0.38rem 0.7rem;
+  }
+
   .aym-welcome-feature-body p {
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -8373,15 +8420,14 @@ button.aym-drawer-sublink {
     max-width: 280px;
   }
 
-  .aym-welcome-congress-thumb {
-    width: 64px;
-    height: 48px;
+  .aym-welcome-disclaimer {
+    font-size: 0.74rem;
   }
 }
 
 @media (max-height: 700px) {
   .aym-welcome-feature-visual {
-    aspect-ratio: 1.6 / 1;
+    aspect-ratio: 1.55 / 1;
   }
 
   .aym-welcome-section-title {
@@ -8392,6 +8438,10 @@ button.aym-drawer-sublink {
   .aym-welcome-slide-split {
     padding-top: 3.5rem;
     padding-bottom: 3.75rem;
+  }
+
+  .aym-welcome-audience {
+    display: none;
   }
 }
 
