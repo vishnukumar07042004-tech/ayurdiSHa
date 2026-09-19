@@ -7,28 +7,30 @@ import useFocusTrap from "../useFocusTrap.js";
 export const FIRST_VISIT_GUIDES = {
   track: {
     storageKey: "aym-hint-track",
-    eyebrow: "Ask Desk follow-up",
-    title: "Track my answer",
+    eyebrow: "Ask Desk · Follow-up",
+    title: "Track My Answer",
     Icon: Ticket,
     lead:
-      "After you submit a career question at the Ask Desk, this screen is where you follow that ticket until a mentor writes back.",
+      "After you submit a career question, use this screen to look up your ticket and follow it until a mentor replies in writing.",
     howTitle: "How to look it up",
     how: [
-      "Enter your Ask Desk ticket (looks like AYM-Q-XXXXXXX), or",
-      "Use the same email you used when you asked.",
+      "Enter your Ask Desk ticket ID (format AYM-Q-XXXXXXX), or",
+      "Search with the same verified email you used when you asked.",
+      "Open the result to see status updates and the mentor letter when it is ready.",
     ],
-    statusesTitle: "What the statuses mean",
+    statusesTitle: "What each status means",
     statuses: [
-      { label: "Received", detail: "Your question is with the AYURDISHA desk." },
-      { label: "With mentor", detail: "It is sitting with a mentor for a written reply." },
-      { label: "Answered", detail: "Guidance is ready on this page as a mentor letter." },
+      { label: "Received", detail: "Logged with the AYURDISHA desk." },
+      { label: "With mentor", detail: "Sitting with a mentor for a written reply." },
+      { label: "Answered", detail: "Guidance is ready here as a mentor letter." },
     ],
-    primaryLabel: "Got it — Track my answer",
+    primaryLabel: "Continue to Track My Answer",
+    skipLabel: "Skip introduction",
   },
   ask: {
     storageKey: "aym-hint-ask",
     eyebrow: "Ask Desk",
-    title: "Ask a question",
+    title: "Ask a Question",
     Icon: Send,
     lead:
       "One focused Ayurveda career question for Meet the Mentors — PG choices, practice, research, or pathways after BAMS.",
@@ -36,14 +38,15 @@ export const FIRST_VISIT_GUIDES = {
     how: [
       "Register once with a verified email so the hall can issue your WAC number.",
       "Choose a career track, write one clear question, and submit.",
-      "Keep the ticket you receive — you will use it under Track my answer.",
+      "Keep the ticket you receive — you will use it under Track My Answer.",
     ],
-    primaryLabel: "Got it — Ask a question",
+    primaryLabel: "Continue to Ask Desk",
+    skipLabel: "Skip introduction",
   },
   hall: {
     storageKey: "aym-hint-hall",
     eyebrow: "Meet the Mentors",
-    title: "Enter the hall",
+    title: "Enter the Hall",
     Icon: Leaf,
     lead:
       "The digital Meet the Mentors floor at WAC 2026 — podcast conversations, selection results, and the open theme stage live here.",
@@ -51,23 +54,25 @@ export const FIRST_VISIT_GUIDES = {
     how: [
       "Open the podcast corner for recorded mentor talks.",
       "Check Congress selection results when the desk publishes them.",
-      "Use Ask Desk and Track my answer from the header anytime.",
+      "Use Ask Desk and Track My Answer from the header anytime.",
     ],
-    primaryLabel: "Got it — Enter the hall",
+    primaryLabel: "Continue into the Hall",
+    skipLabel: "Skip introduction",
   },
   board: {
     storageKey: "aym-hint-board",
-    eyebrow: "Open theme stage",
-    title: "Published mentor answers",
+    eyebrow: "Open Theme Stage",
+    title: "Published Mentor Answers",
     Icon: BookOpen,
     lead:
-      "When the hall is ready to share guidance, mentor answers appear here for every BAMS mentee — whether or not they reached Bhubaneswar.",
+      "When the hall is ready to share guidance, curated mentor answers appear here for every BAMS mentee — whether or not they reached Bhubaneswar.",
     howTitle: "Useful to know",
     how: [
       "These are curated, published letters from the Meet the Mentors desk.",
-      "Your personal ticket status still lives under Track my answer.",
+      "Your personal ticket status still lives under Track My Answer.",
     ],
-    primaryLabel: "Got it — Open Theme Stage",
+    primaryLabel: "Continue to Theme Stage",
+    skipLabel: "Skip introduction",
   },
 };
 
@@ -98,7 +103,27 @@ export function markFirstVisitSeen(id) {
 }
 
 /**
- * Accessible first-visit coach modal / bottom sheet.
+ * @param {string | null | undefined} href
+ * @returns {FirstVisitId | null}
+ */
+export function firstVisitIdFromHref(href) {
+  if (!href || href.startsWith("mailto:") || href.startsWith("tel:")) return null;
+  try {
+    const url = new URL(href, typeof window !== "undefined" ? window.location.origin : "https://ayushmarg.vercel.app");
+    const hash = (url.hash || "").replace(/^#/, "").split(/[?&]/)[0];
+    if (FIRST_VISIT_GUIDES[hash]) return /** @type {FirstVisitId} */ (hash);
+    const path = url.pathname.replace(/\/+$/, "") || "/";
+    if (path === "/ask") return "ask";
+    if (path === "/track-answer") return "track";
+    if (path === "/staff/theme-stage" || path === "/staff/board") return "board";
+  } catch {
+    /* ignore */
+  }
+  return null;
+}
+
+/**
+ * Heroic first-visit coach — shown only when the user taps a feature entry point.
  * @param {{ guideId: FirstVisitId, onContinue: () => void }} props
  */
 export default function FirstVisitGuide({ guideId, onContinue }) {
@@ -106,6 +131,7 @@ export default function FirstVisitGuide({ guideId, onContinue }) {
   const titleId = useId();
   const descId = useId();
   const panelRef = useRef(null);
+  const primaryRef = useRef(null);
   const finish = useCallback(() => onContinue?.(), [onContinue]);
 
   useFocusTrap(Boolean(guide), panelRef, finish);
@@ -114,8 +140,10 @@ export default function FirstVisitGuide({ guideId, onContinue }) {
     if (!guide) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    const t = window.setTimeout(() => primaryRef.current?.focus(), 30);
     return () => {
       document.body.style.overflow = prev;
+      window.clearTimeout(t);
     };
   }, [guide]);
 
@@ -140,10 +168,12 @@ export default function FirstVisitGuide({ guideId, onContinue }) {
         aria-describedby={descId}
         tabIndex={-1}
       >
+        <div className="aym-fvg-ornament" aria-hidden="true" />
         <div className="aym-fvg-handle" aria-hidden="true" />
+
         <div className="aym-fvg-head">
           <div className="aym-fvg-icon" aria-hidden="true">
-            <Icon size={22} strokeWidth={1.75} />
+            <Icon size={24} strokeWidth={1.6} />
           </div>
           <button
             type="button"
@@ -155,8 +185,8 @@ export default function FirstVisitGuide({ guideId, onContinue }) {
           </button>
         </div>
 
-        <p className="aym-eyebrow aym-fvg-eyebrow">{guide.eyebrow}</p>
-        <h2 id={titleId} className="aym-display aym-fvg-title">
+        <p className="aym-fvg-eyebrow">{guide.eyebrow}</p>
+        <h2 id={titleId} className="aym-fvg-title">
           {guide.title}
         </h2>
         <p id={descId} className="aym-fvg-lead">
@@ -166,20 +196,25 @@ export default function FirstVisitGuide({ guideId, onContinue }) {
         {guide.how?.length > 0 && (
           <div className="aym-fvg-block">
             <h3 className="aym-fvg-block-title">{guide.howTitle}</h3>
-            <ul className="aym-fvg-list">
-              {guide.how.map((line) => (
-                <li key={line}>{line}</li>
+            <ol className="aym-fvg-steps">
+              {guide.how.map((line, i) => (
+                <li key={line}>
+                  <span className="aym-fvg-step-n" aria-hidden="true">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="aym-fvg-step-text">{line}</span>
+                </li>
               ))}
-            </ul>
+            </ol>
           </div>
         )}
 
         {guide.statuses?.length > 0 && (
-          <div className="aym-fvg-block">
+          <div className="aym-fvg-block aym-fvg-block-status">
             <h3 className="aym-fvg-block-title">{guide.statusesTitle}</h3>
-            <ul className="aym-fvg-status-list">
+            <ul className="aym-fvg-status-chips">
               {guide.statuses.map((s) => (
-                <li key={s.label}>
+                <li key={s.label} className="aym-fvg-status-chip">
                   <span className="aym-fvg-status-label">{s.label}</span>
                   <span className="aym-fvg-status-detail">{s.detail}</span>
                 </li>
@@ -189,8 +224,20 @@ export default function FirstVisitGuide({ guideId, onContinue }) {
         )}
 
         <div className="aym-fvg-actions">
-          <button type="button" className="aym-btn aym-btn-primary aym-fvg-primary" onClick={finish}>
+          <button
+            ref={primaryRef}
+            type="button"
+            className="aym-btn aym-btn-primary aym-fvg-primary"
+            onClick={finish}
+          >
             {guide.primaryLabel}
+          </button>
+          <button
+            type="button"
+            className="aym-fvg-skip"
+            onClick={finish}
+          >
+            {guide.skipLabel || "Skip introduction"}
           </button>
         </div>
       </div>

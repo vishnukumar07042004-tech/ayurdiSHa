@@ -36,7 +36,7 @@ export default function SiteFooter({ onStaff, variant = "app" }) {
           <p className="aym-eyebrow-footer">RESOURCES</p>
           <ul className="aym-footer-list">
             <li><Link to="/resources">Important Guides</Link></li>
-            <li><Link to="/#faq-title" onClick={() => setTimeout(() => document.getElementById("faq-title")?.scrollIntoView({ behavior: 'smooth' }), 100)}>FAQs</Link></li>
+            <li><Link to="/resources#faq-title">FAQs</Link></li>
             <li><Link to="/contact">Help & Support</Link></li>
           </ul>
         </nav>

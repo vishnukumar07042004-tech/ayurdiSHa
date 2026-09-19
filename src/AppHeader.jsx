@@ -203,7 +203,7 @@ export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIn
               >
                 <button
                   type="button"
-                  className={`aym-nav-link aym-dropdown-trigger ${isActive("/resources") || isHomeTabActive("faq") || isActive("/contact") ? "aym-nav-link-active" : ""} ${activeDropdown === "resources" ? "dropdown-open" : ""}`}
+                  className={`aym-nav-link aym-dropdown-trigger ${isActive("/resources") || isActive("/contact") ? "aym-nav-link-active" : ""} ${activeDropdown === "resources" ? "dropdown-open" : ""}`}
                   aria-haspopup="true"
                   aria-expanded={activeDropdown === "resources"}
                   onClick={(e) => handleDropdownClick("resources", e)}
@@ -220,7 +220,7 @@ export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIn
                         <span>Guides, files, and career references</span>
                       </div>
                     </Link>
-                    <Link to="/#faq-title" className="aym-dropdown-item" onClick={() => { closeDropdowns(); go("intro"); setTimeout(() => document.getElementById("faq-title")?.scrollIntoView({ behavior: 'smooth' }), 100); }}>
+                    <Link to="/resources#faq-title" className="aym-dropdown-item" onClick={closeDropdowns}>
                       <HelpCircle size={16} aria-hidden="true" />
                       <div>
                         <strong>FAQs</strong>
@@ -360,7 +360,7 @@ export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIn
               <Link to="/resources" className={`aym-drawer-sublink ${isActive("/resources") ? "aym-drawer-sublink-on" : ""}`} onClick={close}>
                 Important Information
               </Link>
-              <Link to="/#faq-title" className="aym-drawer-sublink" onClick={() => { go("intro"); setTimeout(() => document.getElementById("faq-title")?.scrollIntoView({ behavior: 'smooth' }), 100); }}>
+              <Link to="/resources#faq-title" className="aym-drawer-sublink" onClick={close}>
                 FAQs
               </Link>
               <Link to="/contact" className={`aym-drawer-sublink ${isActive("/contact") ? "aym-drawer-sublink-on" : ""}`} onClick={close}>
@@ -371,7 +371,10 @@ export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIn
             <div className="aym-drawer-divider" />
             
             <button type="button" className="aym-drawer-link" onClick={() => go("hall")}>
-              The Curation Hall
+              Enter the Hall
+            </button>
+            <button type="button" className="aym-drawer-link" onClick={() => go("board")}>
+              Open Theme Stage
             </button>
             <button type="button" className="aym-drawer-link" onClick={() => go("register")}>
               Attendee Registration

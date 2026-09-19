@@ -1,34 +1,49 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { setPageMeta } from "../siteMeta.js";
+import { useLocation } from "react-router-dom";
+import { setPageMeta, faqJsonLd } from "../siteMeta.js";
 import Breadcrumbs from "../components/Breadcrumbs.jsx";
 import ResourceCard from "../components/ResourceCard.jsx";
 import EmptyState from "../components/EmptyState.jsx";
 import { getAllResources } from "../data/resources.js";
+import { SITE_FAQS } from "../data/faqs.js";
 import { Search } from "lucide-react";
 
 export default function ResourcesPage() {
   const [query, setQuery] = useState("");
   const [activeTab, setActiveTab] = useState("all");
+  const location = useLocation();
 
   const resources = useMemo(() => getAllResources(), []);
 
   useEffect(() => {
     setPageMeta({
       title: "Ayurveda Podcasts & Career Knowledge Guides · AYURDISHA",
-      description: "Access recorded mentor talks, clinical practice briefs, PG preparation guidelines, and regulatory resources.",
+      description:
+        "Access recorded mentor talks, clinical practice briefs, PG preparation guidelines, regulatory resources, and frequently asked questions.",
       path: "/resources",
+      jsonLd: faqJsonLd(SITE_FAQS),
     });
   }, []);
 
+  useEffect(() => {
+    if (location.hash !== "#faq-title") return;
+    const t = window.setTimeout(() => {
+      document.getElementById("faq-title")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 80);
+    return () => window.clearTimeout(t);
+  }, [location.hash, location.pathname]);
+
   const filtered = useMemo(() => {
-    return resources.filter(r => {
-      const matchTab = activeTab === "all" || 
+    return resources.filter((r) => {
+      const matchTab =
+        activeTab === "all" ||
         (activeTab === "podcasts" && r.type === "podcast") ||
         (activeTab === "guides" && r.type === "guide");
-      
+
       const q = query.trim().toLowerCase();
-      const matchQuery = !q || 
-        r.title.toLowerCase().includes(q) || 
+      const matchQuery =
+        !q ||
+        r.title.toLowerCase().includes(q) ||
         r.description.toLowerCase().includes(q) ||
         r.category.toLowerCase().includes(q);
 
@@ -51,26 +66,26 @@ export default function ResourcesPage() {
 
         <div className="aym-toolbar aym-mb-8">
           <div className="aym-filter-tabs">
-            <button 
-              type="button" 
+            <button
+              type="button"
               className={`aym-btn aym-btn-sm ${activeTab === "all" ? "aym-btn-primary" : "aym-btn-ghost"}`}
               onClick={() => setActiveTab("all")}
             >
               All Resources ({resources.length})
             </button>
-            <button 
-              type="button" 
+            <button
+              type="button"
               className={`aym-btn aym-btn-sm ${activeTab === "guides" ? "aym-btn-primary" : "aym-btn-ghost"}`}
               onClick={() => setActiveTab("guides")}
             >
-              Career Guides ({resources.filter(r => r.type === "guide").length})
+              Career Guides ({resources.filter((r) => r.type === "guide").length})
             </button>
-            <button 
-              type="button" 
+            <button
+              type="button"
               className={`aym-btn aym-btn-sm ${activeTab === "podcasts" ? "aym-btn-primary" : "aym-btn-ghost"}`}
               onClick={() => setActiveTab("podcasts")}
             >
-              Podcasts ({resources.filter(r => r.type === "podcast").length})
+              Podcasts ({resources.filter((r) => r.type === "podcast").length})
             </button>
           </div>
 
@@ -80,18 +95,21 @@ export default function ResourcesPage() {
               type="search"
               className="aym-input"
               value={query}
-              onChange={e => setQuery(e.target.value)}
+              onChange={(e) => setQuery(e.target.value)}
               placeholder="Search resources..."
             />
           </div>
         </div>
 
         {filtered.length === 0 ? (
-          <EmptyState 
+          <EmptyState
             title="No resources found"
-            message={`No items matched your filters. Try clearing your search term or switching tabs.`}
+            message="No items matched your filters. Try clearing your search term or switching tabs."
             actionLabel="Reset filters"
-            onAction={() => { setQuery(""); setActiveTab("all"); }}
+            onAction={() => {
+              setQuery("");
+              setActiveTab("all");
+            }}
           />
         ) : (
           <div className="aym-grid-3">
@@ -100,6 +118,35 @@ export default function ResourcesPage() {
             ))}
           </div>
         )}
+
+        <section
+          className="aym-section aym-resources-faq"
+          aria-labelledby="faq-title"
+          id="faq"
+        >
+          <div className="aym-section-header aym-text-center">
+            <p className="aym-eyebrow">Questions & answers</p>
+            <h2 id="faq-title" className="aym-display">
+              Frequently asked questions
+            </h2>
+            <p className="aym-section-lead aym-resources-faq-lead">
+              Common questions about AYURDISHA, Ask a Mentor, and career tracks at WAC 2026.
+            </p>
+          </div>
+
+          <div className="aym-faq-list aym-max-w-4xl aym-resources-faq-list">
+            {SITE_FAQS.map((faq, i) => (
+              <details key={i} className="aym-faq-item">
+                <summary className="aym-faq-question">
+                  <span>{faq.q}</span>
+                </summary>
+                <div className="aym-faq-answer">
+                  <p>{faq.a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   );

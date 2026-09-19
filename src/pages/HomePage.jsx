@@ -2,14 +2,10 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
-  Users,
   BookOpen,
-  Calendar,
   CheckCircle2,
-  Compass,
   Layers,
   Send,
-  Ticket,
 } from "lucide-react";
 import {
   MENTORS,
@@ -18,27 +14,13 @@ import {
   mentorInitials,
   mentorPortraitUrl,
 } from "../mentors.js";
-import { setPageMeta, faqJsonLd } from "../siteMeta.js";
+import { setPageMeta } from "../siteMeta.js";
 
-export default function HomePage() {
-  const FAQS = [
-    {
-      q: "What is AYURDISHA?",
-      a: "AYURDISHA is the official digital Meet the Mentors hall of the 11th World Ayurveda Congress (Bhubaneswar 2026). It connects BAMS students, interns, postgraduates, and practitioners with senior Ayurveda academicians, researchers, and clinicians.",
-    },
-    {
-      q: "How do I ask a mentor a career question?",
-      a: "Click 'Ask a Mentor' to register with your details and state. You will receive an official ticket ID to track your question as it is curated and answered by experienced mentors.",
-    },
-    {
-      q: "Is there any fee to use AYURDISHA?",
-      a: "No, AYURDISHA is a free institutional guidance initiative supported by the World Ayurveda Foundation for all BAMS students, scholars, and practitioners.",
-    },
-    {
-      q: "What career tracks are covered?",
-      a: "AYURDISHA covers 10 national pathways including Clinical Practice & Integrative Care, Academics & PG Entrance, Research & Evidence, Entrepreneurship, Manufacturing & GMP, Export & Global Trade, and Public Health.",
-    },
-  ];
+export default function HomePage({ onGoTab }) {
+  const goFeature = (id, e) => {
+    e?.preventDefault();
+    onGoTab?.(id);
+  };
 
   useEffect(() => {
     setPageMeta({
@@ -46,46 +28,14 @@ export default function HomePage() {
       description:
         "Digital Meet the Mentors hall of the 11th World Ayurveda Congress, Bhubaneswar 2026. Learn from experienced practitioners, explore 10 career tracks, and submit career questions.",
       path: "/",
-      jsonLd: faqJsonLd(FAQS),
     });
   }, []);
 
   const featuredMentors = mentorsWithNames(MENTORS).slice(0, 6);
 
-  const pathways = [
-    {
-      title: "10 Career Tracks",
-      desc: "Comprehensive post-BAMS career roadmaps and educational directions.",
-      link: "/programs",
-      icon: Compass,
-      label: "Explore Tracks",
-    },
-    {
-      title: "Faculty Roster",
-      desc: "Connect with 23+ distinguished clinicians and academic mentors.",
-      link: "/mentors",
-      icon: Users,
-      label: "Meet Mentors",
-    },
-    {
-      title: "Congress Events",
-      desc: "Key schedules, sessions, and theme-stage details in Bhubaneswar.",
-      link: "/events",
-      icon: Calendar,
-      label: "View Events",
-    },
-    {
-      title: "Info & Resources",
-      desc: "Access essential reference articles, files, and career guides.",
-      link: "/resources",
-      icon: BookOpen,
-      label: "Browse Resources",
-    },
-  ];
-
   return (
     <div className="aym-homepage">
-      {/* 1. HERO — editorial split, Aysa-style structure, AYURDISHA identity */}
+      {/* 1. HERO */}
       <section className="aym-home-hero" aria-labelledby="hero-title">
         <div className="aym-home-hero-wash" aria-hidden="true" />
         <div className="aym-home-hero-shell">
@@ -103,6 +53,7 @@ export default function HomePage() {
               <Link
                 to={{ pathname: "/", hash: "#ask" }}
                 className="aym-home-hero-cta"
+                onClick={(e) => goFeature("ask", e)}
               >
                 Ask a Mentor
                 <ArrowRight size={18} aria-hidden="true" />
@@ -129,44 +80,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. PATHWAYS */}
-      <section
-        className="aym-section aym-home-section aym-pathways-section"
-        aria-labelledby="pathways-title"
-      >
-        <div className="aym-container">
-          <div className="aym-section-header aym-home-section-header">
-            <p className="aym-eyebrow">Start here</p>
-            <h2 id="pathways-title" className="aym-display">
-              Choose your next step
-            </h2>
-            <p className="aym-section-lead">
-              Career tracks, mentors, congress sessions, and reference guides.
-            </p>
-          </div>
-
-          <div className="aym-grid-4 aym-pathways-grid">
-            {pathways.map((path, idx) => {
-              const Icon = path.icon;
-              return (
-                <Link key={idx} to={path.link} className="aym-pathway-card">
-                  <div className="aym-pathway-icon-wrap">
-                    <Icon size={22} aria-hidden="true" />
-                  </div>
-                  <h3 className="aym-pathway-card-title">{path.title}</h3>
-                  <p className="aym-pathway-card-desc">{path.desc}</p>
-                  <span className="aym-pathway-card-cta">
-                    {path.label}
-                    <ArrowRight size={14} aria-hidden="true" />
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 3. HOW IT WORKS */}
+      {/* 2. HOW IT WORKS */}
       <section
         className="aym-section aym-home-section aym-bg-surface"
         aria-labelledby="how-it-works-title"
@@ -222,7 +136,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. FEATURED MENTORS */}
+      {/* 3. FEATURED MENTORS */}
       <section
         className="aym-section aym-home-section aym-home-mentors-section"
         aria-labelledby="home-mentors-title"
@@ -327,7 +241,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. CONGRESS HALL */}
+      {/* 4. CONGRESS HALL */}
       <section
         className="aym-section aym-home-section aym-bg-surface"
         aria-labelledby="home-hall-title"
@@ -380,74 +294,22 @@ export default function HomePage() {
               </div>
               <div className="aym-hall-cta-group">
                 <Link
-                  to={{ pathname: "/", hash: "#board" }}
+                  to={{ pathname: "/", hash: "#hall" }}
                   className="aym-btn aym-btn-primary"
+                  onClick={(e) => goFeature("hall", e)}
                 >
-                  <span>Open Theme Stage</span>
+                  <span>Enter the Hall</span>
                   <ArrowRight size={16} aria-hidden="true" />
                 </Link>
-                <Link to="/resources" className="aym-btn aym-btn-outline">
-                  <span>Podcast Corner</span>
+                <Link
+                  to={{ pathname: "/", hash: "#board" }}
+                  className="aym-btn aym-btn-outline"
+                  onClick={(e) => goFeature("board", e)}
+                >
+                  <span>Open Theme Stage</span>
                 </Link>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. FAQ */}
-      <section
-        className="aym-section aym-home-section"
-        aria-labelledby="faq-title"
-      >
-        <div className="aym-container aym-max-w-4xl">
-          <div className="aym-section-header aym-home-section-header aym-text-center">
-            <p className="aym-eyebrow">Questions & answers</p>
-            <h2 id="faq-title" className="aym-display">
-              Frequently asked questions
-            </h2>
-          </div>
-
-          <div className="aym-faq-list">
-            {FAQS.map((faq, i) => (
-              <details key={i} className="aym-faq-item">
-                <summary className="aym-faq-question">
-                  <span>{faq.q}</span>
-                </summary>
-                <div className="aym-faq-answer">
-                  <p>{faq.a}</p>
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 7. FINAL CTA */}
-      <section className="aym-cta-banner-premium aym-home-cta">
-        <div className="aym-container aym-cta-container">
-          <h2 className="aym-display aym-cta-title">
-            Ready to ask a mentor?
-          </h2>
-          <p className="aym-cta-lead">
-            Join the 11th World Ayurveda Congress digital hall and receive
-            authentic career guidance.
-          </p>
-          <div className="aym-cta-actions">
-            <Link
-              to={{ pathname: "/", hash: "#ask" }}
-              className="aym-btn aym-btn-primary aym-btn-lg"
-            >
-              <Send size={18} aria-hidden="true" />
-              <span>Ask a Mentor</span>
-            </Link>
-            <Link
-              to={{ pathname: "/", hash: "#track" }}
-              className="aym-btn aym-btn-ghost-light aym-btn-lg"
-            >
-              <Ticket size={18} aria-hidden="true" />
-              <span>Track my answer</span>
-            </Link>
           </div>
         </div>
       </section>

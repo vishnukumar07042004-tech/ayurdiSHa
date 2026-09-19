@@ -16,6 +16,7 @@ import { getMentorByParam, mentorPublicPath, mentorsWithNames, MENTORS } from ".
 import { MentorAnswerLetter, trackStatusOf } from "./TrackAnswer.jsx";
 import FirstVisitGuide, {
   FIRST_VISIT_GUIDES,
+  firstVisitIdFromHref,
   hasSeenFirstVisit,
   markFirstVisitSeen,
 } from "./components/FirstVisitGuide.jsx";
@@ -4331,12 +4332,24 @@ export default function App() {
     if (pending) goTab(pending.id, pending.opts);
   }, [visitGuide, goTab]);
 
-  // Deep links / homepage hash CTAs (#track, #ask, #hall, #board)
+  // Intercept hash / deep-link CTAs before navigation so guides only fire on tap
+  // (never on cold load of /#ask, /#track, etc.).
   useEffect(() => {
-    if (!FIRST_VISIT_GUIDES[tab]) return;
-    if (hasSeenFirstVisit(tab)) return;
-    setVisitGuide(prev => prev || tab);
-  }, [tab]);
+    const onClick = (e) => {
+      if (e.defaultPrevented) return;
+      if (e.button !== 0) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const a = e.target instanceof Element ? e.target.closest("a[href]") : null;
+      if (!a) return;
+      const href = a.getAttribute("href");
+      const id = firstVisitIdFromHref(href);
+      if (!id) return;
+      e.preventDefault();
+      requestGoTab(id);
+    };
+    document.addEventListener("click", onClick, true);
+    return () => document.removeEventListener("click", onClick, true);
+  }, [requestGoTab]);
 
   const goAsk = useCallback((preset) => {
     requestGoTab("ask", { preset: preset || null });
@@ -4687,7 +4700,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={
               tab === "intro" && (!location.hash || location.hash === "#intro") ? (
-                <HomePage />
+                <HomePage onGoTab={requestGoTab} />
               ) : fullBleed ? (
                 <HallView
                   staff={staff}
