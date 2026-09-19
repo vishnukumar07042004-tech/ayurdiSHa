@@ -4886,81 +4886,149 @@ body { margin: 0; background: var(--cream); }
   min-height: 52px;
 }
 
+/* Full-bleed hero: photo + soft gradient wash (no hard vertical cut) */
 .aym-homepage .aym-home-hero {
   position: relative;
   overflow: hidden;
   color: #FFFEFB;
-  background:
-    linear-gradient(118deg,
-      #0c2218 0%,
-      #143d2b 38%,
-      #1b4332 62%,
-      #2a4a35 82%,
-      #3d5c40 100%);
-  min-height: min(88vh, 720px);
+  background: #0c2218;
+  min-height: min(90vh, 760px);
   display: flex;
   align-items: stretch;
 }
 
-.aym-homepage .aym-home-hero-wash {
+.aym-homepage .aym-home-hero-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.aym-homepage .aym-home-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 68% 38%;
+  display: block;
+  transform: scale(1.02);
+  filter: saturate(0.94) contrast(1.04) brightness(0.96);
+}
+
+/* Soft overlapping edge: forest wash dissolves into the photo */
+.aym-homepage .aym-home-hero-veil {
   position: absolute;
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 70% 80% at 12% 40%, rgba(245, 235, 224, 0.1), transparent 55%),
-    radial-gradient(ellipse 55% 60% at 88% 70%, rgba(212, 168, 75, 0.16), transparent 50%),
-    linear-gradient(90deg, rgba(12, 34, 24, 0.35) 0%, transparent 48%);
+    linear-gradient(105deg,
+      rgba(10, 28, 20, 0.96) 0%,
+      rgba(12, 34, 24, 0.9) 18%,
+      rgba(15, 42, 31, 0.72) 34%,
+      rgba(20, 55, 40, 0.42) 48%,
+      rgba(27, 67, 50, 0.18) 58%,
+      transparent 72%),
+    linear-gradient(180deg,
+      rgba(8, 24, 18, 0.55) 0%,
+      transparent 22%,
+      transparent 70%,
+      rgba(8, 24, 18, 0.5) 100%),
+    radial-gradient(ellipse 55% 70% at 18% 45%,
+      rgba(212, 168, 75, 0.14),
+      transparent 62%);
+}
+
+.aym-homepage .aym-home-hero-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 90% 80% at 70% 45%, transparent 35%, rgba(8, 22, 16, 0.35) 100%),
+    linear-gradient(90deg, transparent 55%, rgba(12, 34, 24, 0.22) 100%);
+  mix-blend-mode: multiply;
+  opacity: 0.9;
 }
 
 .aym-homepage .aym-home-hero-shell {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: minmax(0, 34rem) minmax(0, 1fr);
-  gap: clamp(1rem, 3vw, 2.5rem);
-  align-items: stretch;
+  display: flex;
+  align-items: center;
   width: 100%;
-  max-width: none;
-  margin: 0;
+  max-width: 1200px;
+  margin: 0 auto;
   min-height: inherit;
-  padding-left: max(1.25rem, calc((100vw - 1200px) / 2 + 20px));
+  padding: clamp(3.75rem, 9vw, 6.5rem) max(1.25rem, calc((100vw - 1200px) / 2 + 20px));
+  box-sizing: border-box;
 }
 
 .aym-homepage .aym-home-hero-copy {
-  max-width: 34rem;
-  padding: clamp(3.5rem, 8vw, 5.75rem) 0;
+  max-width: 36rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  animation: aym-home-hero-rise 0.9s cubic-bezier(0.22, 0.9, 0.28, 1) both;
+}
+
+@keyframes aym-home-hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .aym-homepage .aym-home-hero-eyebrow {
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.35rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(212, 168, 75, 0.95);
+  color: rgba(232, 196, 112, 0.98);
+}
+
+.aym-homepage .aym-home-hero-eyebrow-mark {
+  width: 2rem;
+  height: 1.5px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  flex-shrink: 0;
 }
 
 .aym-homepage .aym-home-hero-title {
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.35rem;
   font-family: Fraunces, "Source Serif 4", Georgia, serif;
-  font-weight: 640;
-  font-size: clamp(2.35rem, 5.2vw, 3.65rem);
-  line-height: 1.08;
-  letter-spacing: -0.03em;
+  font-weight: 650;
+  font-size: clamp(2.55rem, 5.6vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
   color: #FFFEFB;
-  max-width: 14ch;
+  max-width: 12ch;
+  text-shadow: 0 12px 40px rgba(8, 22, 16, 0.35);
+}
+
+.aym-homepage .aym-home-hero-title-line {
+  display: block;
+  margin-top: 0.12em;
+  font-weight: 520;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  color: rgba(245, 235, 224, 0.94);
+  max-width: 16ch;
+  font-size: 0.82em;
 }
 
 .aym-homepage .aym-home-hero-lead {
-  margin: 0 0 2rem;
-  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
-  line-height: 1.65;
-  color: rgba(245, 235, 224, 0.88);
-  max-width: 38ch;
+  margin: 0 0 2.15rem;
+  font-size: clamp(1.05rem, 1.55vw, 1.22rem);
+  line-height: 1.68;
+  color: rgba(245, 235, 224, 0.9);
+  max-width: 40ch;
   font-weight: 400;
+  text-shadow: 0 6px 24px rgba(8, 22, 16, 0.4);
 }
 
 .aym-homepage .aym-home-hero-actions {
@@ -4974,124 +5042,84 @@ body { margin: 0; background: var(--cream); }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #FFFEFB;
-  font-size: 1.05rem;
-  font-weight: 650;
-  text-decoration: underline;
-  text-underline-offset: 0.28em;
-  text-decoration-thickness: 1.5px;
+  color: #0c2218;
+  background: linear-gradient(135deg, #e8c470 0%, #d4a84b 100%);
+  font-size: 1.02rem;
+  font-weight: 700;
+  text-decoration: none;
   letter-spacing: 0.01em;
-  transition: color 0.2s ease, gap 0.2s ease;
+  padding: 0.85rem 1.35rem;
+  border-radius: 2px;
+  box-shadow: 0 10px 28px rgba(8, 22, 16, 0.28);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, gap 0.22s ease;
 }
 
 .aym-homepage .aym-home-hero-cta:hover {
-  color: var(--gold);
+  color: #0c2218;
   gap: 12px;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(8, 22, 16, 0.34);
 }
 
 .aym-homepage .aym-home-hero-cta-secondary {
-  color: rgba(255, 254, 251, 0.78);
+  color: rgba(255, 254, 251, 0.88);
   font-size: 0.98rem;
   font-weight: 600;
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 254, 251, 0.35);
+  border-bottom: 1px solid rgba(255, 254, 251, 0.4);
   padding-bottom: 2px;
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .aym-homepage .aym-home-hero-cta-secondary:hover {
   color: #FFFEFB;
-  border-color: rgba(255, 254, 251, 0.75);
+  border-color: rgba(232, 196, 112, 0.85);
 }
 
-.aym-homepage .aym-home-hero-media {
-  position: relative;
-  min-height: 280px;
-}
-
-.aym-homepage .aym-home-hero-photo {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-
-.aym-homepage .aym-home-hero-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 58% 40%;
-  display: block;
-  filter: saturate(0.92) contrast(1.02);
-}
-
-/* Soft wash so photo blends into forest/gold hero like the reference */
-.aym-homepage .aym-home-hero-photo-blend {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(90deg,
-      rgba(15, 42, 31, 0.92) 0%,
-      rgba(20, 61, 43, 0.55) 18%,
-      rgba(27, 67, 50, 0.22) 38%,
-      transparent 58%),
-    linear-gradient(180deg,
-      rgba(12, 34, 24, 0.35) 0%,
-      transparent 28%,
-      transparent 72%,
-      rgba(12, 34, 24, 0.45) 100%),
-    linear-gradient(135deg,
-      rgba(212, 168, 75, 0.18) 0%,
-      transparent 42%);
-  mix-blend-mode: multiply;
-  opacity: 0.85;
-}
-
-.aym-homepage .aym-home-hero-photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(105deg,
-    rgba(27, 67, 50, 0.55) 0%,
-    rgba(45, 106, 79, 0.2) 35%,
-    rgba(196, 164, 132, 0.12) 100%);
-  mix-blend-mode: soft-light;
+.aym-homepage .aym-home-hero-meta {
+  margin: 1.75rem 0 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(245, 235, 224, 0.55);
+  max-width: 42ch;
 }
 
 @media (max-width: 960px) {
   .aym-homepage .aym-home-hero {
-    min-height: 0;
+    min-height: min(78vh, 680px);
   }
   .aym-homepage .aym-home-hero-shell {
-    grid-template-columns: 1fr;
-    padding-left: 0;
-    gap: 0;
+    align-items: flex-end;
+    padding: 0 1.25rem 2.5rem;
   }
   .aym-homepage .aym-home-hero-copy {
     max-width: 36rem;
-    padding: 3rem 1.25rem 1.75rem;
+    padding-top: 5rem;
   }
   .aym-homepage .aym-home-hero-title {
-    max-width: 16ch;
+    max-width: 14ch;
   }
-  .aym-homepage .aym-home-hero-media {
-    position: relative;
-    width: 100%;
-    min-height: 0;
-    aspect-ratio: 16 / 11;
+  .aym-homepage .aym-home-hero-img {
+    object-position: 62% 30%;
   }
-  .aym-homepage .aym-home-hero-photo {
-    position: absolute;
-    inset: 0;
-  }
-  .aym-homepage .aym-home-hero-photo-blend {
+  .aym-homepage .aym-home-hero-veil {
     background:
       linear-gradient(180deg,
-        rgba(15, 42, 31, 0.75) 0%,
-        rgba(20, 61, 43, 0.25) 35%,
-        transparent 60%),
-      linear-gradient(135deg, rgba(212, 168, 75, 0.15), transparent 50%);
+        rgba(10, 28, 20, 0.55) 0%,
+        rgba(12, 34, 24, 0.35) 28%,
+        rgba(12, 34, 24, 0.72) 58%,
+        rgba(10, 28, 20, 0.94) 100%),
+      radial-gradient(ellipse 70% 50% at 50% 100%,
+        rgba(212, 168, 75, 0.12),
+        transparent 60%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aym-homepage .aym-home-hero-copy {
+    animation: none;
   }
 }
 
@@ -7175,6 +7203,130 @@ body { margin: 0; background: var(--cream); }
   transform: none;
   box-shadow: none;
   border-color: var(--gold);
+}
+
+/* Research / practice collage */
+.aym-homepage .aym-home-research-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: center;
+}
+
+.aym-homepage .aym-home-research-copy .aym-display {
+  margin: 0.35rem 0 0.85rem;
+  font-size: clamp(1.75rem, 3.4vw, 2.45rem);
+  line-height: 1.12;
+  color: var(--forest-deep);
+}
+
+.aym-homepage .aym-home-research-collage {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.85rem;
+  min-height: 320px;
+}
+
+.aym-homepage .aym-home-research-frame {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--sand);
+}
+
+.aym-homepage .aym-home-research-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.aym-homepage .aym-home-research-frame:hover img {
+  transform: scale(1.04);
+}
+
+.aym-homepage .aym-home-research-frame figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.5rem 0.9rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FFFEFB;
+  background: linear-gradient(180deg, transparent, rgba(12, 34, 24, 0.78));
+}
+
+.aym-homepage .aym-home-research-frame--lead {
+  grid-row: 1 / span 2;
+  min-height: 340px;
+}
+
+.aym-homepage .aym-home-research-frame--clinical,
+.aym-homepage .aym-home-research-frame--hall {
+  min-height: 160px;
+}
+
+.aym-homepage .aym-home-tracks-copy {
+  margin-bottom: 0;
+  max-width: 36rem;
+}
+
+.aym-homepage .aym-home-tracks-header {
+  align-items: flex-end;
+  margin-bottom: 2.25rem;
+}
+
+@media (max-width: 900px) {
+  .aym-homepage .aym-home-research-layout {
+    grid-template-columns: 1fr;
+  }
+  .aym-homepage .aym-home-research-collage {
+    grid-template-columns: 1fr 1fr;
+  }
+  .aym-homepage .aym-home-research-frame--lead {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    min-height: 240px;
+  }
+}
+
+/* Scroll-triggered reveal (Intersection Observer) */
+.aym-homepage [data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 0.9, 0.28, 1),
+    transform 0.75s cubic-bezier(0.22, 0.9, 0.28, 1);
+  will-change: opacity, transform;
+}
+
+.aym-homepage [data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+
+.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(1) { transition-delay: 0.04s; }
+.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(2) { transition-delay: 0.12s; }
+.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(3) { transition-delay: 0.2s; }
+.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(4) { transition-delay: 0.28s; }
+.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(5) { transition-delay: 0.36s; }
+.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(6) { transition-delay: 0.44s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .aym-homepage [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .aym-homepage .aym-home-research-frame img {
+    transition: none;
+  }
 }
 
 /* Accessibility Focus Outline override */
