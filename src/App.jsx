@@ -20,6 +20,10 @@ import FirstVisitGuide, {
   hasSeenFirstVisit,
   markFirstVisitSeen,
 } from "./components/FirstVisitGuide.jsx";
+import WelcomeOverlay, {
+  hasSeenWelcome,
+  welcomeShownThisSession,
+} from "./components/WelcomeOverlay.jsx";
 import AppHeader from "./AppHeader.jsx";
 import SiteFooter from "./SiteFooter.jsx";
 import PageSkeleton from "./PageSkeleton.jsx";
@@ -4313,9 +4317,33 @@ export default function App() {
 
   const [visitGuide, setVisitGuide] = useState(null);
   const pendingVisitGoRef = useRef(null);
+  const [showWelcome, setShowWelcome] = useState(() => {
+    if (typeof window === "undefined") return false;
+    try {
+      return !hasSeenWelcome();
+    } catch {
+      return false;
+    }
+  });
+  const [welcomeForce, setWelcomeForce] = useState(false);
+
+  const openWelcome = useCallback(() => {
+    setWelcomeForce(true);
+    setShowWelcome(true);
+  }, []);
+
+  const dismissWelcome = useCallback(() => {
+    setShowWelcome(false);
+    setWelcomeForce(false);
+  }, []);
 
   const requestGoTab = useCallback((id, opts = {}) => {
-    if (FIRST_VISIT_GUIDES[id] && !hasSeenFirstVisit(id)) {
+    // Soften: after welcome in this session, skip feature coaches so we don't double-bomb.
+    if (
+      FIRST_VISIT_GUIDES[id] &&
+      !hasSeenFirstVisit(id) &&
+      !welcomeShownThisSession()
+    ) {
       pendingVisitGoRef.current = { id, opts };
       setVisitGuide(id);
       return;
@@ -4681,6 +4709,7 @@ export default function App() {
           staff={staff}
           onStaffClick={() => { if (staff) lockAndPublic(); else setPinPrompt(true); }}
           brandToIntro={() => goTab("intro")}
+          onOpenWelcome={openWelcome}
         />
 
         {staff && (tab === "curate" || tab === "insights" || tab === "pack") && (
@@ -4688,6 +4717,10 @@ export default function App() {
             <HelpCircle size={15} aria-hidden="true" />
             <span>Curation: one editor at a time recommended; Insights can run in parallel.</span>
           </div>
+        )}
+
+        {!staff && (welcomeForce || (showWelcome && tab === "intro" && (!location.hash || location.hash === "#intro") && location.pathname === "/")) && (
+          <WelcomeOverlay onDismiss={dismissWelcome} />
         )}
 
         {visitGuide && (

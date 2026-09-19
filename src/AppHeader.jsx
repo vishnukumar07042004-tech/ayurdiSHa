@@ -62,7 +62,7 @@ export function SimpleHeader(props) {
   return <AppHeader {...props} />;
 }
 
-export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIntro }) {
+export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIntro, onOpenWelcome }) {
   const [open, setOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null); // 'about' | 'mentors' | 'resources' | null
@@ -175,6 +175,22 @@ export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIn
                         <span>11th World Ayurveda Congress</span>
                       </div>
                     </a>
+                    {onOpenWelcome && (
+                      <button
+                        type="button"
+                        className="aym-dropdown-item"
+                        onClick={() => {
+                          onOpenWelcome();
+                          closeDropdowns();
+                        }}
+                      >
+                        <HelpCircle size={16} aria-hidden="true" />
+                        <div>
+                          <strong>How AYURDISHA works</strong>
+                          <span>Quick welcome overview</span>
+                        </div>
+                      </button>
+                    )}
                   </div>
                 )}
               </div>
@@ -333,6 +349,18 @@ export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIn
               <a href="https://worldayurvedacongress.com" target="_blank" rel="noopener noreferrer" className="aym-drawer-sublink" onClick={close}>
                 About WAC 2026
               </a>
+              {onOpenWelcome && (
+                <button
+                  type="button"
+                  className="aym-drawer-sublink"
+                  onClick={() => {
+                    onOpenWelcome();
+                    close();
+                  }}
+                >
+                  How AYURDISHA works
+                </button>
+              )}
             </div>
 
             <Link

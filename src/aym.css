@@ -6006,6 +6006,15 @@ body { margin: 0; background: var(--cream); }
   transition: background 0.15s ease, color 0.15s ease !important;
 }
 
+button.aym-dropdown-item {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
 .aym-dropdown-item:hover, .aym-dropdown-item:focus {
   background: var(--cream) !important;
   outline: none;
@@ -6145,6 +6154,16 @@ body { margin: 0; background: var(--cream); }
   text-decoration: none;
   padding: 6px 0;
   opacity: 0.85;
+}
+
+button.aym-drawer-sublink {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
 }
 
 .aym-drawer-sublink:hover, .aym-drawer-sublink-on {
@@ -7664,6 +7683,384 @@ body { margin: 0; background: var(--cream); }
 
   .aym-fvg-close {
     transition: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Welcome / intro overlay (first visit on public home)                */
+/* ------------------------------------------------------------------ */
+
+.aym-welcome-root {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFEFB;
+  overflow: auto;
+  overscroll-behavior: contain;
+  animation: aym-welcome-fade-in 0.45s ease both;
+}
+
+.aym-welcome-root.is-leaving {
+  pointer-events: none;
+  animation: aym-welcome-fade-out 0.42s ease both;
+}
+
+.aym-welcome-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: #0c2218;
+}
+
+.aym-welcome-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 68% 38%;
+  display: block;
+  transform: scale(1.03);
+  filter: saturate(0.94) contrast(1.04) brightness(0.92);
+  animation: aym-welcome-ken 18s ease-in-out alternate both;
+}
+
+.aym-welcome-veil {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(105deg,
+      rgba(10, 28, 20, 0.97) 0%,
+      rgba(12, 34, 24, 0.92) 22%,
+      rgba(15, 42, 31, 0.78) 40%,
+      rgba(20, 55, 40, 0.48) 55%,
+      transparent 78%),
+    linear-gradient(180deg,
+      rgba(8, 24, 18, 0.6) 0%,
+      transparent 24%,
+      transparent 62%,
+      rgba(8, 24, 18, 0.72) 100%),
+    radial-gradient(ellipse 55% 70% at 18% 45%,
+      rgba(212, 168, 75, 0.16),
+      transparent 62%);
+}
+
+.aym-welcome-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 90% 80% at 70% 45%, transparent 35%, rgba(8, 22, 16, 0.4) 100%);
+  mix-blend-mode: multiply;
+  opacity: 0.9;
+}
+
+.aym-welcome-shell {
+  position: relative;
+  z-index: 1;
+  width: min(560px, calc(100% - 2rem));
+  max-height: min(92vh, 820px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: clamp(1.5rem, 4vw, 2.25rem) clamp(1.25rem, 3.5vw, 2rem) 1.5rem;
+  margin: 1rem 0;
+  border-radius: 22px;
+  outline: none;
+  background:
+    linear-gradient(165deg,
+      rgba(12, 34, 24, 0.55) 0%,
+      rgba(15, 42, 31, 0.42) 45%,
+      rgba(10, 28, 20, 0.62) 100%);
+  border: 1px solid rgba(212, 168, 75, 0.28);
+  box-shadow:
+    0 28px 64px rgba(8, 22, 16, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: aym-welcome-rise 0.7s cubic-bezier(0.22, 0.9, 0.28, 1) both;
+}
+
+.aym-welcome-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 254, 251, 0.2);
+  border-radius: 12px;
+  background: rgba(8, 22, 16, 0.35);
+  color: #FFFEFB;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.aym-welcome-close:hover {
+  background: rgba(8, 22, 16, 0.55);
+  border-color: rgba(212, 168, 75, 0.45);
+}
+
+.aym-welcome-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 0.65rem;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 254, 251, 0.72);
+  font-weight: 600;
+}
+
+.aym-welcome-eyebrow-mark {
+  width: 18px;
+  height: 2px;
+  border-radius: 99px;
+  background: var(--gold);
+}
+
+.aym-welcome-brand {
+  margin: 0 0 0.35rem;
+  font-family: Fraunces, "Source Serif 4", Georgia, serif;
+  font-size: clamp(1.85rem, 5vw, 2.55rem);
+  font-weight: 680;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: #FFFEFB;
+  text-shadow: 0 2px 24px rgba(8, 22, 16, 0.35);
+}
+
+.aym-welcome-title {
+  margin: 0 0 0.75rem;
+  font-family: Fraunces, "Source Serif 4", Georgia, serif;
+  font-size: clamp(1.35rem, 3.4vw, 1.75rem);
+  font-weight: 560;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: rgba(255, 254, 251, 0.94);
+}
+
+.aym-welcome-title-line {
+  display: block;
+  font-weight: 440;
+  font-style: italic;
+  color: rgba(232, 214, 176, 0.92);
+}
+
+.aym-welcome-lead {
+  margin: 0 0 1.25rem;
+  max-width: 36rem;
+  font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+  line-height: 1.55;
+  color: rgba(255, 254, 251, 0.78);
+}
+
+.aym-welcome-features {
+  list-style: none;
+  margin: 0 0 1.35rem;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.aym-welcome-feature {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.45rem 0.55rem 0.45rem 0.45rem;
+  border-radius: 14px;
+  background: rgba(255, 254, 251, 0.06);
+  border: 1px solid rgba(255, 254, 251, 0.1);
+  animation: aym-welcome-feature-in 0.55s cubic-bezier(0.22, 0.9, 0.28, 1) both;
+  animation-delay: calc(0.18s + var(--aym-welcome-stagger, 0) * 0.08s);
+}
+
+.aym-welcome-feature-media {
+  position: relative;
+  width: 72px;
+  height: 52px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.aym-welcome-feature-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.92) brightness(0.9);
+}
+
+.aym-welcome-feature-icon {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  color: var(--forest-deep);
+  background:
+    linear-gradient(145deg, rgba(212, 168, 75, 0.9), rgba(255, 254, 251, 0.95));
+  box-shadow: 0 4px 10px rgba(8, 22, 16, 0.35);
+}
+
+.aym-welcome-feature-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.aym-welcome-feature-copy strong {
+  font-size: 0.92rem;
+  font-weight: 650;
+  color: #FFFEFB;
+}
+
+.aym-welcome-feature-copy span {
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: rgba(255, 254, 251, 0.68);
+}
+
+.aym-welcome-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.55rem;
+}
+
+.aym-welcome-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0.75rem 1.25rem;
+  border: 0;
+  border-radius: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 650;
+  color: var(--forest-deep);
+  background:
+    linear-gradient(145deg, #e8d6b0 0%, var(--gold) 45%, #c4923a 100%);
+  box-shadow: 0 10px 28px rgba(8, 22, 16, 0.35);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.aym-welcome-cta:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.aym-welcome-skip {
+  border: 0;
+  background: transparent;
+  color: rgba(255, 254, 251, 0.72);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 550;
+  cursor: pointer;
+  padding: 0.45rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(212, 168, 75, 0.45);
+}
+
+.aym-welcome-skip:hover {
+  color: #FFFEFB;
+}
+
+.aym-welcome-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin: 1rem 0 0;
+  font-size: 0.75rem;
+  color: rgba(255, 254, 251, 0.5);
+}
+
+@keyframes aym-welcome-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes aym-welcome-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes aym-welcome-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aym-welcome-feature-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aym-welcome-ken {
+  from { transform: scale(1.03); }
+  to { transform: scale(1.07); }
+}
+
+@media (max-width: 560px) {
+  .aym-welcome-shell {
+    width: calc(100% - 1rem);
+    padding: 1.25rem 1rem 1.15rem;
+    border-radius: 18px;
+  }
+
+  .aym-welcome-feature {
+    grid-template-columns: 64px 1fr;
+  }
+
+  .aym-welcome-feature-media {
+    width: 64px;
+    height: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aym-welcome-root,
+  .aym-welcome-root.is-leaving,
+  .aym-welcome-shell,
+  .aym-welcome-feature,
+  .aym-welcome-hero-img,
+  .aym-welcome-cta {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .aym-welcome-hero-img {
+    transform: none;
+  }
+
+  .aym-welcome-cta:hover {
+    transform: none;
   }
 }
 
