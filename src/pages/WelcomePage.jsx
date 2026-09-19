@@ -22,6 +22,13 @@ const AUDIENCE = [
 
 const FEATURES = [
   {
+    id: "hall",
+    title: "Enter the Hall",
+    how: "Open the digital floor first — podcasts, the theme stage, and Congress selection results live here.",
+    Icon: Leaf,
+    image: "/assets/welcome/welcome-feature-hall.png",
+  },
+  {
     id: "mentors",
     title: "Explore Mentors",
     how: "Browse Meet the Mentors profiles, then open one to see who may guide your path.",
@@ -42,50 +49,43 @@ const FEATURES = [
     Icon: Ticket,
     image: "/assets/welcome/welcome-feature-track.png",
   },
-  {
-    id: "hall",
-    title: "Enter the Hall",
-    how: "Open the digital floor for podcasts, the theme stage, and Congress selection results.",
-    Icon: Leaf,
-    image: "/assets/welcome/welcome-feature-hall.png",
-  },
 ];
 
 const STEPS = [
   {
     n: "01",
+    title: "Visit the Hall",
+    body: "Start on the digital Meet the Mentors floor — browse mentors, career tracks, podcasts, and the theme stage on phone or laptop before you ask.",
+  },
+  {
+    n: "02",
     title: "Register & ask",
     body: "Create your delegate profile with a verified email, then file one clear career question at the Ask Desk — PG, clinic, research, public health, start-up, or practice abroad.",
   },
   {
-    n: "02",
+    n: "03",
     title: "Keep your ticket",
     body: "The hall issues your unique WAC tracking number instantly. Save it — you will need it to check your Ask Desk submission.",
   },
   {
-    n: "03",
+    n: "04",
     title: "Track the reply",
     body: "Return to Track My Answer anytime. When a mentor responds in writing, your ticket status updates so you can read the guidance.",
-  },
-  {
-    n: "04",
-    title: "Visit the Hall",
-    body: "Between asks, explore Mentors, career tracks, podcasts, and the theme stage — the same Meet the Mentors floor, on phone or laptop.",
   },
 ];
 
 const TRUST_POINTS = [
   {
     title: "Official digital hall",
-    body: "AYURDISHA is the Meet the Mentors digital space of the 11th World Ayurveda Congress in Bhubaneswar.",
+    body: "AYURDISHA is the Meet the Mentors digital space of the 11th World Ayurveda Congress in Bhubaneswar — the same career floor you will use before and during the Congress.",
   },
   {
-    title: "Career guidance",
-    body: "Mentors offer professional direction for education and practice pathways — not clinical diagnosis or treatment advice.",
+    title: "Live 1-on-1 mentor talks",
+    body: "Selected students may be invited to a live one-to-one mentor conversation at Meet the Mentors on the Congress floor — a focused career talk with a mentor in person.",
   },
   {
-    title: "One clear path",
-    body: "Register once, ask once, track the written reply, and learn from the open theme stage when answers are published.",
+    title: "Written guidance for everyone",
+    body: "Register once, ask once at the Ask Desk, track your written reply online, and learn from the open theme stage when shared answers are published.",
   },
 ];
 
@@ -275,11 +275,11 @@ export default function WelcomePage() {
               <header className="aym-welcome-slide-head">
                 <p className="aym-welcome-section-eyebrow">What you can do</p>
                 <h2 id="welcome-features-title" className="aym-welcome-section-title">
-                  Four clear doors into the hall
+                  Start with the Hall, then three more doors
                 </h2>
                 <p className="aym-welcome-section-lead">
-                  Mentors, Ask, Track, and the Hall — the same tools you will use on the home
-                  floor. Nothing here is a menu button; tap anywhere to keep reading.
+                  Enter the Hall first, then Mentors, Ask, and Track — the same tools you will
+                  use on the home floor. Nothing here is a menu button; tap anywhere to keep reading.
                 </p>
               </header>
               <ul className="aym-welcome-feature-grid aym-welcome-feature-grid-deck">
@@ -319,8 +319,8 @@ export default function WelcomePage() {
                   Your first-visit path
                 </h2>
                 <p className="aym-welcome-section-lead">
-                  A short journey from registration to a written mentor reply — and the Hall
-                  while you wait.
+                  Begin in the Hall, then register, keep your ticket, and track a written mentor
+                  reply — one calm path for your first visit.
                 </p>
               </header>
               <ol className="aym-welcome-steps aym-welcome-steps-deck aym-welcome-steps-four">
@@ -351,12 +351,13 @@ export default function WelcomePage() {
               <div className="aym-welcome-slide-copy">
                 <p className="aym-welcome-section-eyebrow">Congress &amp; trust</p>
                 <h2 id="welcome-trust-title" className="aym-welcome-section-title">
-                  Built for WAC Bhubaneswar — guidance, not diagnosis
+                  Built for WAC Bhubaneswar — Meet the Mentors in person and online
                 </h2>
                 <p className="aym-welcome-section-lead">
                   AYURDISHA is the official digital Meet the Mentors hall of the 11th World
-                  Ayurveda Congress. Use it for career clarity: education pathways, practice
-                  choices, and professional direction from mentors.
+                  Ayurveda Congress. Use it for career clarity — education pathways, practice
+                  choices, and professional direction — and, for selected students, a live
+                  one-to-one mentor talk on the Congress floor.
                 </p>
                 <ul className="aym-welcome-trust-list">
                   {TRUST_POINTS.map((p) => (
@@ -367,15 +368,15 @@ export default function WelcomePage() {
                   ))}
                 </ul>
                 <p className="aym-welcome-disclaimer">
-                  Career guidance only — not medical advice, Prakriti assessment, or clinical diagnosis.
+                  Career and education guidance for Congress delegates — not medical advice or treatment.
                 </p>
               </div>
               <figure className="aym-welcome-slide-media aym-welcome-slide-media-tall">
                 <img
                   src="/assets/welcome/welcome-congress.png"
-                  alt="Warm lantern-lit World Ayurveda Congress hall with botanical panels and delegates"
-                  width={1536}
-                  height={864}
+                  alt="Mentor and student in a one-to-one Meet the Mentors career conversation"
+                  width={864}
+                  height={1152}
                 />
               </figure>
             </div>
