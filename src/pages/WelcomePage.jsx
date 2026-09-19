@@ -24,7 +24,7 @@ const FEATURES = [
   {
     id: "hall",
     title: "Enter the Hall",
-    how: "Open the digital floor first — podcasts, the theme stage, and Congress selection results live here.",
+    how: "Step onto the digital Meet the Mentors floor first — podcasts, the theme stage, Congress selection results, and the map into Mentors, Ask, and Track.",
     Icon: Leaf,
     image: "/assets/welcome/welcome-feature-hall.png",
   },
@@ -392,13 +392,13 @@ export default function WelcomePage() {
           >
             <div className="aym-welcome-slide-bg aym-welcome-slide-bg-finale" aria-hidden="true">
               <img
-                src="/assets/welcome/welcome-what.png"
+                src="/assets/welcome/welcome-enter-hall.png"
                 alt=""
                 className="aym-welcome-slide-bg-img"
-                width={1200}
-                height={900}
+                width={1280}
+                height={720}
               />
-              <div className="aym-welcome-hero-veil" />
+              <div className="aym-welcome-hero-veil aym-welcome-finale-veil" />
               <div className="aym-welcome-hero-vignette" />
             </div>
             <div className="aym-welcome-slide-body aym-welcome-slide-body-finale">
@@ -408,11 +408,33 @@ export default function WelcomePage() {
               </p>
               <h2 id="welcome-finale-title" className="aym-welcome-hero-title">
                 Enter the hall
+                <span className="aym-welcome-hero-title-line">
+                  Your place on the Meet the Mentors floor
+                </span>
               </h2>
               <p className="aym-welcome-hero-lead">
-                Continue to AYURDISHA home — explore mentors, open the Ask Desk when ready,
-                and track your ticket. You can reopen this orientation anytime from About or Help.
+                Continue into AYURDISHA home — the same digital Congress floor you will use before
+                and during WAC Bhubaneswar. Browse mentors, ask once when ready, and track your
+                written reply. Reopen this orientation anytime from About or Help.
               </p>
+              <ul className="aym-welcome-finale-map" aria-label="What you will find inside">
+                <li>
+                  <span>Home floor</span>
+                  Podcasts, theme stage, Congress results
+                </li>
+                <li>
+                  <span>Mentors</span>
+                  Meet the Mentors profiles
+                </li>
+                <li>
+                  <span>Ask Desk</span>
+                  One focused career question
+                </li>
+                <li>
+                  <span>Track</span>
+                  Follow your WAC ticket
+                </li>
+              </ul>
               <div className="aym-welcome-hero-actions" data-welcome-stop>
                 <button
                   type="button"
