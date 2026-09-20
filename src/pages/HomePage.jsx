@@ -27,7 +27,7 @@ const CAREER_TRACK_VISUALS = [
     code: "T01",
     title: "Clinical Practice & Integrative Care",
     desc: "Hospital posts, private OPD setup, Nadi Pariksha, Panchakarma centers, and integrative care models.",
-    image: "/assets/ayurdisha-clinical.png",
+    image: "/assets/home/career-clinical.png",
     icon: Stethoscope,
     badge: "Clinical Track",
   },
@@ -36,7 +36,7 @@ const CAREER_TRACK_VISUALS = [
     code: "T03",
     title: "Research, Evidence & Publication",
     desc: "CCRAS research fellowships, PhD pathways, clinical trials, phytomedicine research, and publication guidance.",
-    image: "/assets/ayurdisha-research.png",
+    image: "/assets/home/career-research.png",
     icon: Microscope,
     badge: "Research Track",
   },
@@ -45,7 +45,7 @@ const CAREER_TRACK_VISUALS = [
     code: "T02",
     title: "Academics, Teaching & Higher Education",
     desc: "AIAPGET preparation, MD/MS branch selection, Assistant Professor posts, and institutional teaching careers.",
-    image: "/assets/ayurdisha-hero.png",
+    image: "/assets/home/career-academics.png",
     icon: GraduationCap,
     badge: "Academic Track",
   },
@@ -54,7 +54,7 @@ const CAREER_TRACK_VISUALS = [
     code: "T07",
     title: "Export & Global Trade",
     desc: "International licensing, WHO benchmarks, export regulations, global wellness centers, and practice abroad.",
-    image: "/assets/hall-photo.png",
+    image: "/assets/home/career-global.png",
     icon: Globe2,
     badge: "Global Track",
   },
@@ -265,7 +265,7 @@ export default function HomePage({ onGoTab }) {
               </figure>
               <figure className="aym-home-research-frame aym-home-research-frame--hall">
                 <img
-                  src="/assets/hall-photo.png"
+                  src="/assets/home/congress-booths.png"
                   alt=""
                   width={480}
                   height={320}
@@ -369,7 +369,7 @@ export default function HomePage({ onGoTab }) {
             <aside className="aym-home-mentors-visual" aria-hidden="true">
               <div className="aym-home-mentors-visual-frame">
                 <img
-                  src="/assets/hall-photo.png"
+                  src="/assets/home/mentors-gathering.png"
                   alt=""
                   className="aym-home-mentors-visual-img"
                   width={560}
