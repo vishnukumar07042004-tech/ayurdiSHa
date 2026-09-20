@@ -106,7 +106,7 @@ export default function HomePage({ onGoTab }) {
 
   return (
     <div className="aym-homepage">
-      {/* 1. HERO — full-bleed photo with soft gradient wash */}
+      {/* 1. HERO — full-bleed photo, calm hierarchy */}
       <section className="aym-home-hero" aria-labelledby="hero-title">
         <div className="aym-home-hero-stage" aria-hidden="true">
           <img
@@ -132,9 +132,8 @@ export default function HomePage({ onGoTab }) {
               <span className="aym-home-hero-title-line">shaping Ayurveda careers</span>
             </h1>
             <p className="aym-home-hero-lead">
-              The official digital Meet the Mentors hall of the 11th World Ayurveda
-              Congress — curated guidance for BAMS students, postgraduates, and
-              practitioners.
+              Official digital hall of the 11th World Ayurveda Congress —
+              curated guidance for BAMS students and practitioners.
             </p>
             <div className="aym-home-hero-actions">
               <Link
@@ -143,15 +142,12 @@ export default function HomePage({ onGoTab }) {
                 onClick={(e) => goFeature("ask", e)}
               >
                 Ask a Mentor
-                <ArrowRight size={18} aria-hidden="true" />
+                <ArrowRight size={16} aria-hidden="true" />
               </Link>
               <Link to="/mentors" className="aym-home-hero-cta-secondary">
                 Explore Mentors
               </Link>
             </div>
-            <p className="aym-home-hero-meta">
-              23+ senior mentors · 10 career tracks · World Ayurveda Foundation
-            </p>
           </div>
         </div>
 

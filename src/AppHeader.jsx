@@ -263,7 +263,7 @@ export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIn
               </Link>
             </nav>
 
-            {/* Unified & Premium Primary Actions */}
+            {/* Primary actions — one solid CTA, quiet secondary */}
             <div className="aym-top-actions unified-action-group">
               <button
                 type="button"
@@ -271,7 +271,7 @@ export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIn
                 onClick={() => { setShowSearch(true); closeDropdowns(); }}
                 aria-label="Search mentors"
               >
-                <Search size={18} aria-hidden="true" />
+                <Search size={17} aria-hidden="true" />
               </button>
 
               <button
@@ -280,17 +280,20 @@ export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIn
                 onClick={() => go("track")}
                 aria-label="Track my answer"
               >
-                <Ticket size={15} aria-hidden="true" />
-                <span className="aym-track-btn-label">Track Answer</span>
+                <Ticket size={14} aria-hidden="true" />
+                <span className="aym-track-btn-label aym-action-label-full">Track Answer</span>
+                <span className="aym-track-btn-label aym-action-label-short" aria-hidden="true">Track</span>
               </button>
 
-              <button 
-                type="button" 
-                className="aym-btn aym-btn-primary aym-desktop-only aym-ask-btn-premium" 
+              <button
+                type="button"
+                className="aym-btn aym-btn-primary aym-desktop-only aym-ask-btn-premium"
                 onClick={() => go("ask")}
+                aria-label="Ask a question"
               >
-                <Send size={15} aria-hidden="true" /> 
-                <span>Ask Question</span>
+                <Send size={14} aria-hidden="true" />
+                <span className="aym-action-label-full">Ask Question</span>
+                <span className="aym-action-label-short" aria-hidden="true">Ask</span>
               </button>
 
               {onStaffClick && (
@@ -301,8 +304,7 @@ export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIn
                   aria-label={staff ? "Staff session active" : "Staff login"}
                   title={staff ? "Staff session active" : "Staff login"}
                 >
-                  {staff ? <Unlock size={14} aria-hidden="true" /> : <Lock size={14} aria-hidden="true" />}
-                  <span className="aym-desktop-only">Staff</span>
+                  {staff ? <Unlock size={15} aria-hidden="true" /> : <Lock size={15} aria-hidden="true" />}
                 </button>
               )}
 

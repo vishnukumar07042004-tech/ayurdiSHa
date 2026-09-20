@@ -375,16 +375,16 @@ body { margin: 0; background: var(--cream); }
   opacity: 0.9;
 }
 .aym-top-inner {
-  max-width: 1180px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 8px 18px 0;
+  padding: 10px 20px;
   position: relative;
 }
 .aym-brand-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 }
 .aym-brand-btn {
   background: none;
@@ -430,13 +430,13 @@ body { margin: 0; background: var(--cream); }
   box-shadow: 0 0 0 2px rgba(212, 168, 75, 0.45);
 }
 
-/* Search trigger — quiet circle on dark header */
+/* Search trigger — quiet, borderless icon on dark header */
 .aym-search-trigger {
   background: transparent !important;
-  border: 1px solid rgba(245, 235, 224, 0.28) !important;
-  color: var(--sand, #f5ebe0) !important;
-  min-height: 34px !important;
-  width: 34px !important;
+  border: 1px solid transparent !important;
+  color: rgba(245, 235, 224, 0.72) !important;
+  min-height: 32px !important;
+  width: 32px !important;
   padding: 0 !important;
   border-radius: var(--radius-pill) !important;
   display: inline-flex !important;
@@ -444,12 +444,12 @@ body { margin: 0; background: var(--cream); }
   justify-content: center !important;
   cursor: pointer !important;
   box-shadow: none !important;
-  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
+  transition: background 0.15s ease, color 0.15s ease !important;
 }
 
 .aym-search-trigger:hover {
-  background: rgba(255, 255, 255, 0.1) !important;
-  border-color: rgba(212, 168, 75, 0.55) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: transparent !important;
   color: #fff !important;
   transform: none !important;
   box-shadow: none !important;
@@ -4940,33 +4940,50 @@ body { margin: 0; background: var(--cream); }
 .aym-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
 .aym-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
 
-/* Navigation Links */
-.aym-main-nav { display: flex; align-items: center; gap: 6px; }
+/* Navigation Links — light text, minimal active (no pill noise) */
+.aym-main-nav { display: flex; align-items: center; gap: 2px; }
 .aym-nav-link {
-  color: rgba(237, 228, 212, 0.88);
+  color: rgba(237, 228, 212, 0.78);
   text-decoration: none;
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 500;
-  padding: 6px 11px;
-  border-radius: var(--radius-pill);
+  padding: 6px 10px;
+  border-radius: 6px;
   transition: color .15s ease, background .15s ease;
   background: none;
   border: 0;
   font-family: inherit;
   cursor: pointer;
-  min-height: 34px;
+  min-height: 32px;
   display: inline-flex;
   align-items: center;
 }
-.aym-nav-link:hover { color: #fff; background: rgba(255,255,255,.08); }
-.aym-nav-link-active { color: #fff; background: rgba(212,168,75,.22); font-weight: 650; }
+.aym-nav-link:hover { color: #fff; background: rgba(255,255,255,.06); }
+.aym-nav-link-active {
+  color: #fff;
+  background: transparent;
+  font-weight: 600;
+  box-shadow: inset 0 -1.5px 0 0 rgba(212, 168, 75, 0.75);
+  border-radius: 0;
+}
 .aym-desktop-only { display: inline-flex; align-items: center; }
+
+/* Action label swap: full on wide, short on mid */
+.aym-action-label-short { display: none; }
+.aym-action-label-full { display: inline; }
+
+@media (max-width: 1180px) {
+  .aym-action-label-full { display: none; }
+  .aym-action-label-short { display: inline; }
+  .aym-main-nav { gap: 0; }
+  .aym-nav-link { padding: 6px 8px; font-size: 12.5px; }
+}
 
 @media (max-width: 900px) {
   .aym-main-nav, .aym-desktop-only { display: none !important; }
-  /* Track My Answer stays visible on mobile as a compact gold outline */
-  .aym-track-btn-premium { padding: 7px 10px; }
-  .aym-track-btn-label { display: none; }
+  /* Track stays visible on mobile as a compact gold outline */
+  .aym-track-btn-premium { padding: 0 10px !important; }
+  .aym-track-btn-label { display: none !important; }
 }
 
 /* Hero ghost — outline only over photo; no dark slab fill */
@@ -5050,13 +5067,13 @@ body { margin: 0; background: var(--cream); }
   letter-spacing: 0.01em;
 }
 
-/* Full-bleed hero: photo + soft gradient wash (no hard vertical cut) */
+/* Full-bleed hero: photo + soft atmospheric wash (no hard half-screen cut) */
 .aym-homepage .aym-home-hero {
   position: relative;
   overflow: hidden;
   color: #FFFEFB;
   background: #0c2218;
-  min-height: min(88vh, 740px);
+  min-height: min(86vh, 700px);
   display: flex;
   align-items: stretch;
 }
@@ -5074,7 +5091,7 @@ body { margin: 0; background: var(--cream); }
   object-position: 68% 38%;
   display: block;
   transform: scale(1.02);
-  filter: saturate(0.94) contrast(1.04) brightness(0.96);
+  filter: saturate(0.92) contrast(1.02) brightness(0.98);
 }
 
 /* Soft overlapping edge: forest wash dissolves into the photo */
@@ -5083,21 +5100,20 @@ body { margin: 0; background: var(--cream); }
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(105deg,
-      rgba(10, 28, 20, 0.96) 0%,
-      rgba(12, 34, 24, 0.9) 18%,
-      rgba(15, 42, 31, 0.72) 34%,
-      rgba(20, 55, 40, 0.42) 48%,
-      rgba(27, 67, 50, 0.18) 58%,
+    linear-gradient(100deg,
+      rgba(10, 28, 20, 0.88) 0%,
+      rgba(12, 34, 24, 0.72) 22%,
+      rgba(15, 42, 31, 0.48) 40%,
+      rgba(20, 55, 40, 0.22) 55%,
       transparent 72%),
     linear-gradient(180deg,
-      rgba(8, 24, 18, 0.55) 0%,
-      transparent 22%,
-      transparent 70%,
-      rgba(8, 24, 18, 0.5) 100%),
-    radial-gradient(ellipse 55% 70% at 18% 45%,
-      rgba(212, 168, 75, 0.14),
-      transparent 62%);
+      rgba(8, 24, 18, 0.42) 0%,
+      transparent 28%,
+      transparent 68%,
+      rgba(8, 24, 18, 0.55) 100%),
+    radial-gradient(ellipse 50% 65% at 16% 48%,
+      rgba(212, 168, 75, 0.1),
+      transparent 65%);
 }
 
 .aym-homepage .aym-home-hero-vignette {
@@ -5105,10 +5121,9 @@ body { margin: 0; background: var(--cream); }
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 90% 80% at 70% 45%, transparent 35%, rgba(8, 22, 16, 0.35) 100%),
-    linear-gradient(90deg, transparent 55%, rgba(12, 34, 24, 0.22) 100%);
+    radial-gradient(ellipse 95% 85% at 72% 42%, transparent 40%, rgba(8, 22, 16, 0.28) 100%);
   mix-blend-mode: multiply;
-  opacity: 0.9;
+  opacity: 0.75;
 }
 
 .aym-homepage .aym-home-hero-shell {
@@ -5120,12 +5135,12 @@ body { margin: 0; background: var(--cream); }
   max-width: 1200px;
   margin: 0 auto;
   min-height: inherit;
-  padding: clamp(3.75rem, 9vw, 6.5rem) max(1.25rem, calc((100vw - 1200px) / 2 + 20px));
+  padding: clamp(4.25rem, 10vw, 7rem) max(1.25rem, calc((100vw - 1200px) / 2 + 24px));
   box-sizing: border-box;
 }
 
 .aym-homepage .aym-home-hero-copy {
-  max-width: 36rem;
+  max-width: 32rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -5144,78 +5159,78 @@ body { margin: 0; background: var(--cream); }
 }
 
 .aym-homepage .aym-home-hero-eyebrow {
-  margin: 0 0 1.35rem;
+  margin: 0 0 1.5rem;
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(232, 196, 112, 0.98);
+  color: rgba(232, 196, 112, 0.92);
 }
 
 .aym-homepage .aym-home-hero-eyebrow-mark {
-  width: 2rem;
-  height: 1.5px;
+  width: 1.75rem;
+  height: 1px;
   background: linear-gradient(90deg, var(--gold), transparent);
   flex-shrink: 0;
 }
 
 .aym-homepage .aym-home-hero-title {
-  margin: 0 0 1.35rem;
+  margin: 0 0 1.5rem;
   font-family: Fraunces, "Source Serif 4", Georgia, serif;
   font-weight: 650;
-  font-size: clamp(2.55rem, 5.6vw, 4rem);
-  line-height: 1.05;
+  font-size: clamp(2.45rem, 5.2vw, 3.65rem);
+  line-height: 1.08;
   letter-spacing: -0.035em;
   color: #FFFEFB;
   max-width: 12ch;
-  text-shadow: 0 12px 40px rgba(8, 22, 16, 0.35);
+  text-shadow: 0 10px 36px rgba(8, 22, 16, 0.28);
 }
 
 .aym-homepage .aym-home-hero-title-line {
   display: block;
-  margin-top: 0.12em;
+  margin-top: 0.14em;
   font-weight: 520;
   font-style: italic;
   letter-spacing: -0.02em;
-  color: rgba(245, 235, 224, 0.94);
+  color: rgba(245, 235, 224, 0.92);
   max-width: 16ch;
   font-size: 0.82em;
 }
 
 .aym-homepage .aym-home-hero-lead {
-  margin: 0 0 1.65rem;
-  font-size: clamp(1.02rem, 1.5vw, 1.18rem);
-  line-height: 1.62;
-  color: rgba(245, 235, 224, 0.9);
-  max-width: 38ch;
+  margin: 0 0 2rem;
+  font-size: clamp(1rem, 1.35vw, 1.12rem);
+  line-height: 1.58;
+  color: rgba(245, 235, 224, 0.86);
+  max-width: 34ch;
   font-weight: 400;
-  text-shadow: 0 6px 24px rgba(8, 22, 16, 0.4);
+  text-shadow: 0 4px 20px rgba(8, 22, 16, 0.35);
 }
 
 .aym-homepage .aym-home-hero-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--btn-row-gap);
+  gap: 10px;
 }
 
 .aym-homepage .aym-home-hero-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
+  gap: 6px;
   color: var(--forest-deep);
   background: #FFFEFB;
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 600;
   text-decoration: none;
   letter-spacing: 0.01em;
   line-height: 1;
-  padding: 0 18px;
-  min-height: 36px;
+  padding: 0 16px;
+  min-height: 34px;
   border: 1px solid #FFFEFB;
   border-radius: var(--radius-pill);
   box-shadow: none;
@@ -5228,7 +5243,7 @@ body { margin: 0; background: var(--cream); }
 
 .aym-homepage .aym-home-hero-cta:hover {
   color: var(--forest-deep);
-  gap: 9px;
+  gap: 8px;
   background: #f3ebe0;
   border-color: #f3ebe0;
   box-shadow: none;
@@ -5249,15 +5264,15 @@ body { margin: 0; background: var(--cream); }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 254, 251, 0.95);
-  font-size: 13.5px;
-  font-weight: 600;
+  color: rgba(255, 254, 251, 0.9);
+  font-size: 13px;
+  font-weight: 550;
   text-decoration: none;
   letter-spacing: 0.01em;
   line-height: 1;
-  padding: 0 18px;
-  min-height: 36px;
-  border: 1px solid rgba(255, 254, 251, 0.55);
+  padding: 0 16px;
+  min-height: 34px;
+  border: 1px solid rgba(255, 254, 251, 0.4);
   border-radius: var(--radius-pill);
   background: transparent;
   box-shadow: none;
@@ -5269,8 +5284,8 @@ body { margin: 0; background: var(--cream); }
 
 .aym-homepage .aym-home-hero-cta-secondary:hover {
   color: #FFFEFB;
-  border-color: rgba(255, 254, 251, 0.88);
-  background: rgba(255, 254, 251, 0.1);
+  border-color: rgba(255, 254, 251, 0.72);
+  background: rgba(255, 254, 251, 0.08);
 }
 
 .aym-homepage .aym-home-hero-cta-secondary:focus-visible {
@@ -5279,29 +5294,26 @@ body { margin: 0; background: var(--cream); }
 }
 
 .aym-homepage .aym-home-hero-meta {
-  margin: 1.35rem 0 0;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(245, 235, 224, 0.52);
-  max-width: 42ch;
+  display: none;
 }
 
 @media (max-width: 960px) {
   .aym-homepage .aym-home-hero {
-    min-height: min(78vh, 680px);
+    min-height: min(76vh, 640px);
   }
   .aym-homepage .aym-home-hero-shell {
     align-items: flex-end;
-    padding: 0 1.25rem 2.5rem;
+    padding: 0 1.25rem 2.75rem;
   }
   .aym-homepage .aym-home-hero-copy {
-    max-width: 36rem;
+    max-width: 34rem;
     padding-top: 5rem;
   }
   .aym-homepage .aym-home-hero-title {
     max-width: 14ch;
+  }
+  .aym-homepage .aym-home-hero-lead {
+    margin-bottom: 1.65rem;
   }
   .aym-homepage .aym-home-hero-img {
     object-position: 62% 30%;
@@ -5309,12 +5321,12 @@ body { margin: 0; background: var(--cream); }
   .aym-homepage .aym-home-hero-veil {
     background:
       linear-gradient(180deg,
-        rgba(10, 28, 20, 0.55) 0%,
-        rgba(12, 34, 24, 0.35) 28%,
-        rgba(12, 34, 24, 0.72) 58%,
-        rgba(10, 28, 20, 0.94) 100%),
+        rgba(10, 28, 20, 0.45) 0%,
+        rgba(12, 34, 24, 0.28) 30%,
+        rgba(12, 34, 24, 0.68) 62%,
+        rgba(10, 28, 20, 0.92) 100%),
       radial-gradient(ellipse 70% 50% at 50% 100%,
-        rgba(212, 168, 75, 0.12),
+        rgba(212, 168, 75, 0.1),
         transparent 60%);
   }
   .aym-homepage .aym-home-hero-actions {
@@ -6174,11 +6186,11 @@ body { margin: 0; background: var(--cream); }
   position: sticky !important;
   top: 0 !important;
   z-index: 100 !important;
-  background: rgba(15, 42, 31, 0.92) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border-bottom: 2px solid var(--gold) !important;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15) !important;
+  background: rgba(15, 42, 31, 0.9) !important;
+  backdrop-filter: blur(14px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(1.1) !important;
+  border-bottom: 1px solid rgba(212, 168, 75, 0.38) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12) !important;
 }
 
 .aym-dropdown-container {
@@ -6277,29 +6289,30 @@ button.aym-dropdown-item {
 .unified-action-group {
   display: flex;
   align-items: center;
-  gap: var(--btn-gap) !important;
+  gap: 8px !important;
 }
 
 .aym-track-btn-premium {
   background: transparent !important;
-  border: 1px solid rgba(212, 168, 75, 0.55) !important;
-  color: var(--gold) !important;
-  font-weight: 600 !important;
+  border: 1px solid rgba(212, 168, 75, 0.42) !important;
+  color: rgba(232, 196, 112, 0.95) !important;
+  font-weight: 550 !important;
   transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
-  min-height: 34px !important;
-  padding: 0 13px !important;
+  min-height: 32px !important;
+  padding: 0 12px !important;
   border-radius: var(--radius-pill);
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   cursor: pointer;
   box-shadow: none !important;
+  font-size: 13px !important;
 }
 
 .aym-track-btn-premium:hover {
-  background: rgba(212, 168, 75, 0.14) !important;
+  background: rgba(212, 168, 75, 0.12) !important;
   color: #f3e2b4 !important;
-  border-color: var(--gold) !important;
+  border-color: rgba(212, 168, 75, 0.65) !important;
   box-shadow: none !important;
 }
 
@@ -6310,9 +6323,11 @@ button.aym-dropdown-item {
   font-weight: 600 !important;
   box-shadow: none !important;
   transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
-  min-height: 34px !important;
-  padding: 0 14px !important;
+  min-height: 32px !important;
+  padding: 0 13px !important;
   border-radius: var(--radius-pill);
+  font-size: 13px !important;
+  gap: 5px;
 }
 
 .aym-ask-btn-premium:hover {
@@ -6323,21 +6338,26 @@ button.aym-dropdown-item {
   color: var(--forest-deep) !important;
 }
 
+/* Staff — icon-only, quiet utility */
 .aym-staff-chip-premium {
   background: transparent !important;
-  border: 1px solid rgba(196, 164, 132, 0.4) !important;
-  color: var(--sand) !important;
-  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
-  min-height: 34px !important;
-  padding: 0 12px !important;
+  border: 1px solid transparent !important;
+  color: rgba(245, 235, 224, 0.55) !important;
+  transition: background 0.15s ease, color 0.15s ease !important;
+  min-height: 32px !important;
+  width: 32px !important;
+  padding: 0 !important;
   border-radius: var(--radius-pill);
   box-shadow: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .aym-staff-chip-premium:hover {
-  background: rgba(255, 255, 255, 0.1) !important;
-  border-color: rgba(212, 168, 75, 0.55) !important;
-  color: #fff !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: transparent !important;
+  color: rgba(255, 254, 251, 0.92) !important;
 }
 
 /* Mobile Navigation Drawer Custom Overrides */
