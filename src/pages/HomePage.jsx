@@ -331,7 +331,7 @@ export default function HomePage({ onGoTab }) {
                     </div>
                     <h3 className="aym-track-card-title">{track.title}</h3>
                     <p className="aym-track-card-desc">{track.desc}</p>
-                    <Link to={href} className="aym-btn aym-btn-ghost aym-track-card-cta">
+                    <Link to={href} className="aym-btn aym-btn-outline aym-btn-sm aym-track-card-cta">
                       <span>Explore pathway</span>
                       <ArrowRight size={14} aria-hidden="true" />
                     </Link>

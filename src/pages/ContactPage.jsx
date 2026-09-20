@@ -24,10 +24,10 @@ export default function ContactPage() {
             then file one career question at the Ask Desk. Staff enter through the Staff control with a PIN.
           </p>
         </header>
-        <div className="aym-flex-gap-4 aym-mt-6">
+        <div className="aym-btn-row aym-mt-6">
           <Link to="/#register" className="aym-btn aym-btn-primary">Register</Link>
-          <Link to="/#ask" className="aym-btn aym-btn-primary">Ask Desk</Link>
-          <Link to="/#track" className="aym-btn aym-btn-outline">Track my answer</Link>
+          <Link to="/#ask" className="aym-btn aym-btn-outline">Ask Desk</Link>
+          <Link to="/#track" className="aym-btn aym-btn-ghost">Track my answer</Link>
         </div>
       </div>
     </main>

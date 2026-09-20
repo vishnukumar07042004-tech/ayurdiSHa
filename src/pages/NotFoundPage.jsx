@@ -20,14 +20,14 @@ export default function NotFoundPage({ message = "The page you are looking for m
         <h1 className="aym-display aym-404-title">Page Not Found</h1>
         <p className="aym-lead aym-mb-8">{message}</p>
 
-        <div className="aym-flex-center-gap-4">
+        <div className="aym-btn-row" style={{ justifyContent: "center" }}>
           <Link to="/" className="aym-btn aym-btn-primary">
             <Home size={16} aria-hidden="true" /> Back to Home
           </Link>
-          <Link to="/mentors" className="aym-btn aym-btn-secondary">
+          <Link to="/mentors" className="aym-btn aym-btn-outline">
             <Users size={16} aria-hidden="true" /> Mentors
           </Link>
-          <Link to="/#pods" className="aym-btn aym-btn-outline">
+          <Link to="/#pods" className="aym-btn aym-btn-ghost">
             <BookOpen size={16} aria-hidden="true" /> Knowledge
           </Link>
         </div>

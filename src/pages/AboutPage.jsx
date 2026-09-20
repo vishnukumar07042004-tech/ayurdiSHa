@@ -70,7 +70,7 @@ export default function AboutPage() {
           <div className="aym-callout-box aym-mt-8">
             <h3>Get Started Today</h3>
             <p>Ready to ask a question, explore mentor profiles, or revisit the orientation?</p>
-            <div className="aym-flex-gap-4 aym-mt-4">
+            <div className="aym-btn-row aym-mt-4">
               <Link to={{ pathname: "/", hash: "#ask" }} className="aym-btn aym-btn-primary">
                 Ask a Mentor <ArrowRight size={16} />
               </Link>
