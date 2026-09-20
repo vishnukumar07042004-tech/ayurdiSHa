@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -61,6 +61,8 @@ const CAREER_TRACK_VISUALS = [
 ];
 
 export default function HomePage({ onGoTab }) {
+  const rootRef = useRef(null);
+
   const goFeature = (id, e) => {
     e?.preventDefault();
     onGoTab?.(id);
@@ -76,38 +78,66 @@ export default function HomePage({ onGoTab }) {
   }, []);
 
   useEffect(() => {
-    const root = document.querySelector(".aym-homepage");
+    const root = rootRef.current;
     if (!root) return undefined;
 
-    const nodes = root.querySelectorAll("[data-reveal]");
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const nodes = root.querySelectorAll("[data-reveal]");
+    let revealObserver = null;
 
     if (reduceMotion) {
       nodes.forEach((el) => el.classList.add("is-visible"));
-      return undefined;
+    } else {
+      revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      );
+      nodes.forEach((el) => revealObserver.observe(el));
     }
 
-    const observer = new IntersectionObserver(
+    /* Scroll-linked atmosphere: major sections shift the page wash */
+    const zones = root.querySelectorAll("[data-home-zone]");
+    root.dataset.atmosphere = "forest";
+
+    const zoneObserver = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        });
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]) {
+          const zone = visible[0].target.getAttribute("data-home-zone");
+          if (zone) root.dataset.atmosphere = zone;
+        }
       },
-      { threshold: 0.14, rootMargin: "0px 0px -6% 0px" }
+      { threshold: [0.2, 0.35, 0.5], rootMargin: "-12% 0px -28% 0px" }
     );
 
-    nodes.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    zones.forEach((el) => zoneObserver.observe(el));
+
+    return () => {
+      revealObserver?.disconnect();
+      zoneObserver.disconnect();
+    };
   }, []);
 
   const featuredMentors = mentorsWithNames(MENTORS).slice(0, 6);
 
   return (
-    <div className="aym-homepage">
+    <div className="aym-homepage" ref={rootRef} data-atmosphere="forest">
+      <div className="aym-home-atmosphere" aria-hidden="true" />
+
       {/* 1. HERO — full-bleed photo, calm hierarchy */}
-      <section className="aym-home-hero" aria-labelledby="hero-title">
+      <section
+        className="aym-home-hero"
+        aria-labelledby="hero-title"
+        data-home-zone="forest"
+      >
         <div className="aym-home-hero-stage" aria-hidden="true">
           <img
             src="/assets/ayurdisha-hero.png"
@@ -159,9 +189,10 @@ export default function HomePage({ onGoTab }) {
 
       {/* 2. HOW IT WORKS */}
       <section
-        className="aym-section aym-home-section aym-bg-surface"
+        className="aym-section aym-home-section aym-home-zone-cream"
         aria-labelledby="how-it-works-title"
         data-reveal
+        data-home-zone="cream"
       >
         <div className="aym-container">
           <div className="aym-section-header aym-home-section-header">
@@ -216,9 +247,10 @@ export default function HomePage({ onGoTab }) {
 
       {/* 3. RESEARCH & PRACTICE VISUALS */}
       <section
-        className="aym-section aym-home-section aym-home-research-section"
+        className="aym-section aym-home-section aym-home-research-section aym-home-zone-botanical"
         aria-labelledby="home-research-title"
         data-reveal
+        data-home-zone="botanical"
       >
         <div className="aym-container">
           <div className="aym-home-research-layout">
@@ -228,9 +260,8 @@ export default function HomePage({ onGoTab }) {
                 From lab benches to clinical wards
               </h2>
               <p className="aym-section-lead">
-                AYURDISHA surfaces real career settings — evidence research,
-                clinical practice, and congress-floor mentorship — so BAMS
-                scholars can picture the path ahead.
+                Real career settings — evidence research, clinical practice, and
+                congress-floor mentorship — so BAMS scholars can picture the path ahead.
               </p>
               <Link to="/programs" className="aym-home-text-link">
                 Explore all 10 career tracks
@@ -238,8 +269,8 @@ export default function HomePage({ onGoTab }) {
               </Link>
             </div>
 
-            <div className="aym-home-research-collage" aria-hidden="true">
-              <figure className="aym-home-research-frame aym-home-research-frame--lead">
+            <div className="aym-home-research-collage" aria-hidden="true" data-reveal-stagger>
+              <figure className="aym-home-research-frame aym-home-research-frame--lead" data-reveal>
                 <img
                   src="/assets/ayurdisha-research.png"
                   alt=""
@@ -249,7 +280,7 @@ export default function HomePage({ onGoTab }) {
                 />
                 <figcaption>Research & evidence pathways</figcaption>
               </figure>
-              <figure className="aym-home-research-frame aym-home-research-frame--clinical">
+              <figure className="aym-home-research-frame aym-home-research-frame--clinical" data-reveal>
                 <img
                   src="/assets/ayurdisha-clinical.png"
                   alt=""
@@ -259,7 +290,7 @@ export default function HomePage({ onGoTab }) {
                 />
                 <figcaption>Clinical practice</figcaption>
               </figure>
-              <figure className="aym-home-research-frame aym-home-research-frame--hall">
+              <figure className="aym-home-research-frame aym-home-research-frame--hall" data-reveal>
                 <img
                   src="/assets/home/congress-booths.png"
                   alt=""
@@ -276,9 +307,10 @@ export default function HomePage({ onGoTab }) {
 
       {/* 4. CAREER TRACK VISUALS */}
       <section
-        className="aym-section aym-home-section aym-bg-surface"
+        className="aym-section aym-home-section aym-home-zone-cream"
         aria-labelledby="home-tracks-title"
         data-reveal
+        data-home-zone="cream"
       >
         <div className="aym-container">
           <div className="aym-section-header-flex aym-home-tracks-header">
@@ -291,9 +323,9 @@ export default function HomePage({ onGoTab }) {
                 Visual roadmaps for clinical, research, academic, and global practice.
               </p>
             </div>
-            <Link to="/programs" className="aym-btn aym-btn-outline">
+            <Link to="/programs" className="aym-btn aym-btn-outline aym-home-pill-cta">
               <span>View all 10 tracks</span>
-              <ArrowRight size={16} aria-hidden="true" />
+              <ArrowRight size={14} aria-hidden="true" />
             </Link>
           </div>
 
@@ -327,7 +359,7 @@ export default function HomePage({ onGoTab }) {
                     </div>
                     <h3 className="aym-track-card-title">{track.title}</h3>
                     <p className="aym-track-card-desc">{track.desc}</p>
-                    <Link to={href} className="aym-btn aym-btn-outline aym-btn-sm aym-track-card-cta">
+                    <Link to={href} className="aym-btn aym-btn-outline aym-btn-sm aym-track-card-cta aym-home-pill-cta">
                       <span>Explore pathway</span>
                       <ArrowRight size={14} aria-hidden="true" />
                     </Link>
@@ -341,9 +373,10 @@ export default function HomePage({ onGoTab }) {
 
       {/* 5. FEATURED MENTORS */}
       <section
-        className="aym-section aym-home-section aym-home-mentors-section"
+        className="aym-section aym-home-section aym-home-mentors-section aym-home-zone-warm"
         aria-labelledby="home-mentors-title"
         data-reveal
+        data-home-zone="warm"
       >
         <div className="aym-container">
           <div className="aym-home-mentors-intro">
@@ -362,7 +395,7 @@ export default function HomePage({ onGoTab }) {
                 <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
-            <aside className="aym-home-mentors-visual" aria-hidden="true">
+            <aside className="aym-home-mentors-visual" aria-hidden="true" data-reveal>
               <div className="aym-home-mentors-visual-frame">
                 <img
                   src="/assets/home/mentors-gathering.png"
@@ -431,7 +464,7 @@ export default function HomePage({ onGoTab }) {
                   <div className="aym-mentor-card-actions-premium">
                     <Link
                       to={mentorPublicPath(m)}
-                      className="aym-btn aym-mentor-card-cta-premium"
+                      className="aym-btn aym-mentor-card-cta-premium aym-home-pill-cta"
                       aria-label={`View profile of ${m.name}`}
                     >
                       <span>View profile</span>
@@ -447,13 +480,14 @@ export default function HomePage({ onGoTab }) {
 
       {/* 6. CONGRESS HALL */}
       <section
-        className="aym-section aym-home-section aym-bg-surface"
+        className="aym-section aym-home-section aym-home-zone-mist"
         aria-labelledby="home-hall-title"
         data-reveal
+        data-home-zone="mist"
       >
         <div className="aym-container">
           <div className="aym-grid-2 aym-hall-preview-grid">
-            <div className="aym-hall-preview-media">
+            <div className="aym-hall-preview-media" data-reveal>
               <img
                 src="/assets/hall-photo.png"
                 alt="Meet the Mentors Digital Hall at World Ayurveda Congress"
@@ -500,15 +534,15 @@ export default function HomePage({ onGoTab }) {
               <div className="aym-hall-cta-group">
                 <Link
                   to={{ pathname: "/", hash: "#hall" }}
-                  className="aym-btn aym-btn-primary"
+                  className="aym-btn aym-btn-primary aym-home-pill-cta"
                   onClick={(e) => goFeature("hall", e)}
                 >
                   <span>Enter the Hall</span>
-                  <ArrowRight size={16} aria-hidden="true" />
+                  <ArrowRight size={14} aria-hidden="true" />
                 </Link>
                 <Link
                   to={{ pathname: "/", hash: "#board" }}
-                  className="aym-btn aym-btn-outline"
+                  className="aym-btn aym-btn-outline aym-home-pill-cta"
                   onClick={(e) => goFeature("board", e)}
                 >
                   <span>Open Theme Stage</span>

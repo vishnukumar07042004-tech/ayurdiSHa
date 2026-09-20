@@ -5073,7 +5073,7 @@ body { margin: 0; background: var(--cream); }
   overflow: hidden;
   color: #FFFEFB;
   background: #0c2218;
-  min-height: min(86vh, 700px);
+  min-height: min(88vh, 740px);
   display: flex;
   align-items: stretch;
 }
@@ -7336,22 +7336,8 @@ button.aym-drawer-sublink {
 
 /* Homepage section cohesion (scoped) */
 .aym-homepage .aym-home-section {
-  padding: clamp(3.5rem, 6.5vw, 5.25rem) 0;
+  padding: clamp(4rem, 8vw, 6.5rem) 0;
   position: relative;
-}
-
-.aym-homepage .aym-home-research-section {
-  background:
-    radial-gradient(ellipse 55% 45% at 88% 20%, rgba(45, 106, 79, 0.07), transparent 60%),
-    radial-gradient(ellipse 40% 35% at 8% 80%, rgba(212, 168, 75, 0.08), transparent 55%),
-    transparent;
-}
-
-.aym-homepage .aym-home-mentors-section {
-  background:
-    radial-gradient(ellipse 60% 50% at 15% 10%, rgba(212, 168, 75, 0.07), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 90% 70%, rgba(27, 67, 50, 0.05), transparent 50%),
-    transparent;
 }
 
 .aym-homepage .aym-home-section-header {
@@ -7607,33 +7593,129 @@ button.aym-drawer-sublink {
   }
 }
 
+/* Homepage scroll atmosphere + reveal */
+.aym-homepage {
+  position: relative;
+  isolation: isolate;
+  background: transparent;
+}
+
+.aym-home-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 50% at 12% 18%, rgba(212, 168, 75, 0.07), transparent 55%),
+    radial-gradient(ellipse 55% 45% at 88% 72%, rgba(45, 106, 79, 0.08), transparent 58%),
+    linear-gradient(180deg, #0c2218 0%, #14281f 18%, #f7f1e8 42%, var(--cream) 72%, #efe6d8 100%);
+  opacity: 0;
+  transition: opacity 0.9s cubic-bezier(0.22, 0.9, 0.28, 1), background 1.1s ease;
+}
+
+.aym-homepage[data-atmosphere="forest"] .aym-home-atmosphere {
+  opacity: 0;
+}
+
+.aym-homepage[data-atmosphere="cream"] .aym-home-atmosphere {
+  opacity: 1;
+  background:
+    radial-gradient(ellipse 65% 45% at 20% 30%, rgba(212, 168, 75, 0.1), transparent 58%),
+    radial-gradient(ellipse 50% 40% at 90% 70%, rgba(45, 106, 79, 0.05), transparent 55%),
+    linear-gradient(180deg, #FFFEFB 0%, #f7f1e8 45%, #efe6d8 100%);
+}
+
+.aym-homepage[data-atmosphere="botanical"] .aym-home-atmosphere {
+  opacity: 1;
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 25%, rgba(45, 106, 79, 0.12), transparent 58%),
+    radial-gradient(ellipse 45% 40% at 10% 80%, rgba(212, 168, 75, 0.1), transparent 55%),
+    linear-gradient(180deg, #f3ebe0 0%, #ebe6d6 40%, #e4efe8 100%);
+}
+
+.aym-homepage[data-atmosphere="warm"] .aym-home-atmosphere {
+  opacity: 1;
+  background:
+    radial-gradient(ellipse 55% 45% at 15% 20%, rgba(212, 168, 75, 0.14), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 90% 75%, rgba(27, 67, 50, 0.06), transparent 50%),
+    linear-gradient(180deg, #faf6f0 0%, #f0e4d2 50%, #ebe0d0 100%);
+}
+
+.aym-homepage[data-atmosphere="mist"] .aym-home-atmosphere {
+  opacity: 1;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(27, 67, 50, 0.06), transparent 55%),
+    linear-gradient(180deg, #FFFEFB 0%, #f5f0e8 55%, #ebe8e0 100%);
+}
+
+.aym-homepage .aym-home-zone-cream {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212, 168, 75, 0.05), transparent 55%),
+    linear-gradient(180deg, rgba(255, 254, 251, 0.92) 0%, rgba(250, 246, 240, 0.88) 100%);
+  border-top: 1px solid rgba(217, 203, 184, 0.45);
+  border-bottom: 1px solid rgba(217, 203, 184, 0.35);
+}
+
+.aym-homepage .aym-home-zone-botanical {
+  background:
+    radial-gradient(ellipse 55% 45% at 88% 20%, rgba(45, 106, 79, 0.08), transparent 60%),
+    radial-gradient(ellipse 40% 35% at 8% 80%, rgba(212, 168, 75, 0.07), transparent 55%),
+    rgba(247, 241, 232, 0.55);
+}
+
+.aym-homepage .aym-home-zone-warm {
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 10%, rgba(212, 168, 75, 0.08), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 90% 70%, rgba(27, 67, 50, 0.04), transparent 50%),
+    rgba(250, 246, 240, 0.65);
+}
+
+.aym-homepage .aym-home-zone-mist {
+  background:
+    radial-gradient(ellipse 70% 45% at 50% 100%, rgba(27, 67, 50, 0.05), transparent 55%),
+    linear-gradient(180deg, rgba(255, 254, 251, 0.95) 0%, rgba(245, 240, 232, 0.9) 100%);
+  border-top: 1px solid rgba(217, 203, 184, 0.4);
+}
+
+.aym-homepage .aym-home-pill-cta {
+  border-radius: 999px;
+  min-height: 36px;
+  padding-inline: 1rem;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
 /* Scroll-triggered reveal (Intersection Observer) */
 .aym-homepage [data-reveal] {
   opacity: 0;
-  transform: translateY(26px);
+  transform: translateY(28px) scale(0.985);
   transition:
-    opacity 0.75s cubic-bezier(0.22, 0.9, 0.28, 1),
-    transform 0.75s cubic-bezier(0.22, 0.9, 0.28, 1);
+    opacity 0.85s cubic-bezier(0.22, 0.9, 0.28, 1),
+    transform 0.85s cubic-bezier(0.22, 0.9, 0.28, 1);
   will-change: opacity, transform;
 }
 
 .aym-homepage [data-reveal].is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
   will-change: auto;
 }
 
-.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(1) { transition-delay: 0.04s; }
-.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(2) { transition-delay: 0.12s; }
-.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(3) { transition-delay: 0.2s; }
-.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(4) { transition-delay: 0.28s; }
-.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(5) { transition-delay: 0.36s; }
-.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(6) { transition-delay: 0.44s; }
+.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(1) { transition-delay: 0.05s; }
+.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(2) { transition-delay: 0.14s; }
+.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(3) { transition-delay: 0.23s; }
+.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(4) { transition-delay: 0.32s; }
+.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(5) { transition-delay: 0.41s; }
+.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(6) { transition-delay: 0.5s; }
 
 @media (prefers-reduced-motion: reduce) {
   .aym-homepage [data-reveal] {
     opacity: 1;
     transform: none;
+    transition: none;
+  }
+  .aym-home-atmosphere {
     transition: none;
   }
   .aym-homepage .aym-home-research-frame img {
@@ -7998,12 +8080,56 @@ button.aym-drawer-sublink {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background:
-    radial-gradient(ellipse 80% 50% at 10% 0%, rgba(212, 168, 75, 0.08), transparent 55%),
-    linear-gradient(180deg, #f7f1e8 0%, var(--cream) 40%, #efe6d8 100%);
+  background: #0c2218;
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
+  isolation: isolate;
+}
+
+/* Atmosphere wash — evolves with data-atmosphere */
+.aym-welcome-atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  transition: background 0.85s cubic-bezier(0.22, 0.9, 0.28, 1), opacity 0.85s ease;
+  background:
+    radial-gradient(ellipse 70% 55% at 18% 30%, rgba(212, 168, 75, 0.12), transparent 58%),
+    linear-gradient(165deg, #0a1a14 0%, #0f2a1f 45%, #14281f 100%);
+}
+
+.aym-welcome-deck[data-atmosphere="forest"] .aym-welcome-atmosphere {
+  background:
+    radial-gradient(ellipse 70% 55% at 18% 30%, rgba(212, 168, 75, 0.12), transparent 58%),
+    linear-gradient(165deg, #0a1a14 0%, #0f2a1f 45%, #14281f 100%);
+}
+
+.aym-welcome-deck[data-atmosphere="cream"] .aym-welcome-atmosphere {
+  background:
+    radial-gradient(ellipse 80% 50% at 10% 0%, rgba(212, 168, 75, 0.1), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 90% 80%, rgba(45, 106, 79, 0.06), transparent 55%),
+    linear-gradient(180deg, #FFFEFB 0%, #f7f1e8 42%, #efe6d8 100%);
+}
+
+.aym-welcome-deck[data-atmosphere="botanical"] .aym-welcome-atmosphere {
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 20%, rgba(45, 106, 79, 0.11), transparent 58%),
+    radial-gradient(ellipse 45% 40% at 8% 85%, rgba(212, 168, 75, 0.1), transparent 55%),
+    linear-gradient(180deg, #f3ebe0 0%, #ebe6d6 40%, #e4efe8 100%);
+}
+
+.aym-welcome-deck[data-atmosphere="warm"] .aym-welcome-atmosphere {
+  background:
+    radial-gradient(ellipse 55% 45% at 15% 15%, rgba(212, 168, 75, 0.14), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 92% 70%, rgba(27, 67, 50, 0.05), transparent 50%),
+    linear-gradient(180deg, #faf6f0 0%, #f0e4d2 48%, #ebe0d0 100%);
+}
+
+.aym-welcome-deck[data-atmosphere="forest-deep"] .aym-welcome-atmosphere {
+  background:
+    radial-gradient(ellipse 55% 50% at 80% 40%, rgba(212, 168, 75, 0.1), transparent 55%),
+    linear-gradient(165deg, #081610 0%, #0c2218 50%, #0f2a1f 100%);
 }
 
 .aym-welcome-chrome {
@@ -8031,6 +8157,7 @@ button.aym-drawer-sublink {
   letter-spacing: -0.03em;
   color: var(--aym-welcome-ivory);
   text-shadow: 0 2px 16px rgba(8, 22, 16, 0.45);
+  transition: color 0.5s ease, text-shadow 0.5s ease;
 }
 
 .aym-welcome-deck-light .aym-welcome-chrome-brand {
@@ -8039,8 +8166,8 @@ button.aym-drawer-sublink {
 }
 
 .aym-welcome-deck-light .aym-welcome-skip-top {
-  border-color: rgba(27, 67, 50, 0.22);
-  background: rgba(255, 254, 251, 0.72);
+  border-color: rgba(27, 67, 50, 0.2);
+  background: rgba(255, 254, 251, 0.78);
   color: var(--forest-deep);
 }
 
@@ -8049,10 +8176,10 @@ button.aym-drawer-sublink {
   background: rgba(8, 22, 16, 0.35);
   color: rgba(255, 254, 251, 0.9);
   font-family: inherit;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  padding: 0.5rem 0.95rem;
+  padding: 0.45rem 0.95rem;
   border-radius: 999px;
   cursor: pointer;
   backdrop-filter: blur(8px);
@@ -8067,6 +8194,7 @@ button.aym-drawer-sublink {
 
 .aym-welcome-stage {
   position: relative;
+  z-index: 1;
   flex: 1;
   min-height: 0;
   outline: none;
@@ -8077,11 +8205,22 @@ button.aym-drawer-sublink {
   inset: 0;
   display: flex;
   flex-direction: column;
-  animation: aym-welcome-slide-in 0.45s cubic-bezier(0.22, 0.9, 0.28, 1) both;
+  animation: aym-welcome-slide-in 0.55s cubic-bezier(0.22, 0.9, 0.28, 1) both;
 }
 
 .aym-welcome-slide-enter-prev {
   animation-name: aym-welcome-slide-in-prev;
+}
+
+/* Staggered content entrance */
+.aym-welcome-anim {
+  --aym-i: 0;
+  animation: aym-welcome-rise 0.7s cubic-bezier(0.22, 0.9, 0.28, 1) both;
+  animation-delay: calc(0.06s + var(--aym-i) * 0.07s);
+}
+
+.aym-welcome-slide-enter-prev .aym-welcome-anim {
+  animation-name: aym-welcome-rise-prev;
 }
 
 .aym-welcome-slide-bg {
@@ -8163,34 +8302,34 @@ button.aym-drawer-sublink {
   flex-direction: column;
   justify-content: flex-end;
   flex: 1;
-  width: min(760px, calc(100% - 2.5rem));
+  width: min(720px, calc(100% - 2.5rem));
   padding: 0 clamp(1.1rem, 4vw, 2.5rem) clamp(5.5rem, 12vh, 7rem);
   color: var(--aym-welcome-ivory);
 }
 
 .aym-welcome-slide-body-hero {
-  gap: 0.15rem;
+  gap: 0.1rem;
 }
 
 .aym-welcome-audience {
   list-style: none;
-  margin: 0.35rem 0 0;
+  margin: 0.45rem 0 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem 0.55rem;
+  gap: 0.4rem 0.5rem;
   max-width: 34rem;
 }
 
 .aym-welcome-audience li {
   margin: 0;
-  padding: 0.45rem 0.85rem;
-  font-size: 0.78rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   color: rgba(255, 254, 251, 0.92);
   background: rgba(255, 254, 251, 0.1);
-  border: 1px solid rgba(232, 214, 176, 0.35);
+  border: 1px solid rgba(232, 214, 176, 0.32);
   border-radius: 999px;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -8199,12 +8338,12 @@ button.aym-drawer-sublink {
 .aym-welcome-slide-body-finale {
   align-items: flex-start;
   text-align: left;
-  width: min(540px, calc(100% - 2.5rem));
+  width: min(520px, calc(100% - 2.5rem));
   margin: 0;
   margin-right: auto;
   justify-content: flex-end;
   padding-bottom: clamp(5.75rem, 13vh, 7.25rem);
-  gap: 0.1rem;
+  gap: 0.05rem;
 }
 
 .aym-welcome-slide-body-finale .aym-welcome-eyebrow {
@@ -8212,19 +8351,19 @@ button.aym-drawer-sublink {
 }
 
 .aym-welcome-slide-body-finale .aym-welcome-hero-title {
-  max-width: 18ch;
+  max-width: 16ch;
 }
 
 .aym-welcome-slide-body-finale .aym-welcome-hero-lead {
   margin-left: 0;
   margin-right: 0;
-  margin-bottom: 1rem;
-  max-width: 32rem;
+  margin-bottom: 0.9rem;
+  max-width: 30rem;
 }
 
 .aym-welcome-slide-body-finale .aym-welcome-hero-actions {
   justify-content: flex-start;
-  margin-top: 0.15rem;
+  margin-top: 0.2rem;
 }
 
 .aym-welcome-slide-body-finale .aym-welcome-hint {
@@ -8233,28 +8372,28 @@ button.aym-drawer-sublink {
 
 .aym-welcome-finale-map {
   list-style: none;
-  margin: 0 0 1.15rem;
+  margin: 0 0 1.05rem;
   padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.45rem 1rem;
+  gap: 0.4rem 1rem;
   width: 100%;
-  max-width: 28rem;
+  max-width: 26rem;
 }
 
 .aym-welcome-finale-map li {
   margin: 0;
-  padding: 0.55rem 0 0.55rem 0.75rem;
-  border-left: 2px solid rgba(232, 214, 176, 0.55);
-  font-size: 0.78rem;
+  padding: 0.5rem 0 0.5rem 0.7rem;
+  border-left: 2px solid rgba(232, 214, 176, 0.5);
+  font-size: 0.76rem;
   line-height: 1.35;
   color: rgba(255, 254, 251, 0.68);
 }
 
 .aym-welcome-finale-map li span {
   display: block;
-  margin-bottom: 0.12rem;
-  font-size: 0.72rem;
+  margin-bottom: 0.1rem;
+  font-size: 0.7rem;
   font-weight: 650;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -8268,15 +8407,16 @@ button.aym-drawer-sublink {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: min(1120px, calc(100% - 2rem));
+  width: min(1080px, calc(100% - 2.25rem));
   margin: 0 auto;
   padding: clamp(4.25rem, 10vh, 5.5rem) 0 clamp(4.5rem, 10vh, 5.5rem);
   min-height: 0;
 }
 
 .aym-welcome-slide-head {
-  margin-bottom: clamp(1rem, 2.5vh, 1.75rem);
+  margin-bottom: clamp(0.9rem, 2.2vh, 1.5rem);
   flex-shrink: 0;
+  max-width: 38rem;
 }
 
 .aym-welcome-slide-split {
@@ -8285,7 +8425,7 @@ button.aym-drawer-sublink {
   grid-template-columns: 1.05fr 0.95fr;
   gap: clamp(1.25rem, 4vw, 3rem);
   align-items: center;
-  width: min(1120px, calc(100% - 2rem));
+  width: min(1080px, calc(100% - 2.25rem));
   margin: 0 auto;
   padding: clamp(4.25rem, 10vh, 5.5rem) 0 clamp(4.5rem, 10vh, 5.5rem);
   min-height: 0;
@@ -8293,27 +8433,27 @@ button.aym-drawer-sublink {
 
 .aym-welcome-slide-media {
   margin: 0;
-  border-radius: 6px;
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 20px 44px rgba(15, 42, 31, 0.14);
-  max-height: min(58vh, 480px);
+  box-shadow: 0 24px 48px rgba(15, 42, 31, 0.12);
+  max-height: min(56vh, 460px);
 }
 
 .aym-welcome-slide-media img {
   display: block;
   width: 100%;
   height: 100%;
-  max-height: min(58vh, 480px);
+  max-height: min(56vh, 460px);
   object-fit: cover;
   aspect-ratio: 4 / 3;
 }
 
 .aym-welcome-slide-media-tall {
-  max-height: min(64vh, 520px);
+  max-height: min(62vh, 500px);
 }
 
 .aym-welcome-slide-media-tall img {
-  max-height: min(64vh, 520px);
+  max-height: min(62vh, 500px);
   aspect-ratio: 16 / 10;
 }
 
@@ -8323,98 +8463,79 @@ button.aym-drawer-sublink {
 
 .aym-welcome-trust-list {
   list-style: none;
-  margin: 1.15rem 0 0;
+  margin: 1rem 0 0;
   padding: 0;
   display: grid;
-  gap: 0.75rem;
+  gap: 0.55rem;
 }
 
 .aym-welcome-trust-list li {
-  padding: 0.75rem 0.85rem;
-  border-left: 2px solid var(--gold);
-  background: rgba(255, 254, 251, 0.55);
+  padding: 0.65rem 0 0.65rem 0.85rem;
+  border-left: 2px solid rgba(212, 168, 75, 0.65);
+  background: transparent;
 }
 
 .aym-welcome-trust-list li.aym-welcome-trust-highlight {
   border-left-width: 3px;
-  background:
-    linear-gradient(135deg, rgba(212, 168, 75, 0.14), rgba(255, 254, 251, 0.82));
-  box-shadow: 0 8px 22px rgba(15, 42, 31, 0.06);
+  border-left-color: var(--gold);
+  background: linear-gradient(90deg, rgba(212, 168, 75, 0.1), transparent 70%);
 }
 
 .aym-welcome-trust-list h3 {
-  margin: 0 0 0.25rem;
-  font-size: 0.95rem;
+  margin: 0 0 0.2rem;
+  font-size: 0.92rem;
   font-weight: 650;
   color: var(--forest-deep);
-}
-
-.aym-welcome-live-callout {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.85rem 1rem;
-  align-items: start;
-  flex-shrink: 0;
-  margin-top: clamp(0.85rem, 2vh, 1.25rem);
-  padding: 0.95rem 1.1rem 1.05rem;
-  border-radius: 14px;
-  border: 1px solid rgba(212, 168, 75, 0.55);
-  background:
-    linear-gradient(135deg, rgba(212, 168, 75, 0.16), rgba(255, 254, 251, 0.92) 42%, rgba(45, 106, 79, 0.06));
-  box-shadow: 0 10px 28px rgba(15, 42, 31, 0.07);
-}
-
-.aym-welcome-live-callout-icon {
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  color: var(--forest-deep);
-  background:
-    linear-gradient(145deg, rgba(212, 168, 75, 0.95), rgba(255, 254, 251, 0.98));
-  box-shadow: 0 6px 14px rgba(8, 22, 16, 0.16);
-}
-
-.aym-welcome-live-callout-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  margin: 0 0 0.3rem;
-  font-size: 0.72rem;
-  font-weight: 650;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--forest-mid);
-}
-
-.aym-welcome-live-callout-copy h3 {
-  margin: 0 0 0.35rem;
-  font-family: Fraunces, "Source Serif 4", Georgia, serif;
-  font-size: clamp(0.98rem, 1.7vw, 1.15rem);
-  font-weight: 650;
-  color: var(--forest-deep);
-}
-
-.aym-welcome-live-callout-copy p:last-child {
-  margin: 0;
-  font-size: clamp(0.8rem, 1.35vw, 0.9rem);
-  line-height: 1.5;
-  color: var(--aym-welcome-muted);
 }
 
 .aym-welcome-trust-list p {
   margin: 0;
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   line-height: 1.45;
   color: var(--aym-welcome-muted);
 }
 
-.aym-welcome-disclaimer {
-  margin: 1rem 0 0;
-  font-size: 0.8rem;
+/* Compact live 1:1 strip — replaces heavy callout cards */
+.aym-welcome-live-strip {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  flex-shrink: 0;
+  margin-top: clamp(0.75rem, 1.8vh, 1.1rem);
+  padding: 0.75rem 0 0;
+  border-top: 1px solid rgba(27, 67, 50, 0.12);
+  color: var(--forest-mid);
+}
+
+.aym-welcome-live-strip > svg {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  color: var(--oak-dark);
+}
+
+.aym-welcome-live-strip strong {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--forest-mid);
+}
+
+.aym-welcome-live-strip span {
+  display: block;
+  font-size: clamp(0.82rem, 1.4vw, 0.92rem);
   line-height: 1.45;
-  color: rgba(20, 40, 31, 0.52);
+  color: var(--aym-welcome-muted);
+  font-weight: 450;
+}
+
+.aym-welcome-disclaimer {
+  margin: 0.85rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: rgba(20, 40, 31, 0.5);
   font-style: italic;
 }
 
@@ -8423,7 +8544,7 @@ button.aym-drawer-sublink {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.75rem;
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -8446,9 +8567,9 @@ button.aym-drawer-sublink {
 }
 
 .aym-welcome-hero-title {
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.75rem;
   font-family: Fraunces, "Source Serif 4", Georgia, serif;
-  font-size: clamp(2.2rem, 6.5vw, 3.85rem);
+  font-size: clamp(2.2rem, 6.5vw, 3.75rem);
   font-weight: 680;
   letter-spacing: -0.035em;
   line-height: 1.02;
@@ -8458,8 +8579,8 @@ button.aym-drawer-sublink {
 
 .aym-welcome-hero-title-line {
   display: block;
-  margin-top: 0.15em;
-  font-size: 0.52em;
+  margin-top: 0.12em;
+  font-size: 0.5em;
   font-weight: 440;
   font-style: italic;
   letter-spacing: -0.01em;
@@ -8467,17 +8588,17 @@ button.aym-drawer-sublink {
 }
 
 .aym-welcome-hero-lead {
-  margin: 0 0 1.25rem;
-  max-width: 34rem;
-  font-size: clamp(1rem, 2.1vw, 1.15rem);
+  margin: 0 0 1.1rem;
+  max-width: 32rem;
+  font-size: clamp(0.98rem, 2vw, 1.12rem);
   line-height: 1.55;
   color: rgba(255, 254, 251, 0.82);
 }
 
 .aym-welcome-section-title {
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.55rem;
   font-family: Fraunces, "Source Serif 4", Georgia, serif;
-  font-size: clamp(1.55rem, 3.8vw, 2.35rem);
+  font-size: clamp(1.55rem, 3.6vw, 2.25rem);
   font-weight: 650;
   letter-spacing: -0.03em;
   line-height: 1.12;
@@ -8486,9 +8607,9 @@ button.aym-drawer-sublink {
 
 .aym-welcome-section-lead {
   margin: 0;
-  max-width: 42rem;
-  font-size: clamp(0.95rem, 1.8vw, 1.08rem);
-  line-height: 1.6;
+  max-width: 36rem;
+  font-size: clamp(0.92rem, 1.7vw, 1.05rem);
+  line-height: 1.55;
   color: var(--aym-welcome-muted);
 }
 
@@ -8505,19 +8626,19 @@ button.aym-drawer-sublink {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  min-height: 52px;
-  padding: 0.8rem 1.45rem;
+  gap: 0.45rem;
+  min-height: 42px;
+  padding: 0 1.35rem;
   border: 0;
-  border-radius: 14px;
+  border-radius: 999px;
   cursor: pointer;
   font-family: inherit;
-  font-size: 1.02rem;
+  font-size: 0.95rem;
   font-weight: 650;
   color: var(--forest-deep);
   background:
     linear-gradient(145deg, #e8d6b0 0%, var(--gold) 45%, #c4923a 100%);
-  box-shadow: 0 12px 32px rgba(8, 22, 16, 0.35);
+  box-shadow: 0 10px 28px rgba(8, 22, 16, 0.3);
   transition: transform 0.2s ease, filter 0.2s ease;
 }
 
@@ -8532,7 +8653,7 @@ button.aym-drawer-sublink {
   padding: 0;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(0.65rem, 1.5vw, 1rem);
+  gap: clamp(0.55rem, 1.4vw, 0.9rem);
   min-height: 0;
 }
 
@@ -8545,17 +8666,18 @@ button.aym-drawer-sublink {
 .aym-welcome-feature-card {
   display: flex;
   flex-direction: column;
-  background: rgba(255, 254, 251, 0.88);
-  border: 1px solid rgba(217, 203, 184, 0.85);
-  border-radius: 16px;
+  background: rgba(255, 254, 251, 0.72);
+  border: none;
+  border-top: 2px solid rgba(212, 168, 75, 0.55);
+  border-radius: 0;
   overflow: hidden;
   min-height: 0;
-  box-shadow: 0 10px 28px rgba(15, 42, 31, 0.06);
+  box-shadow: none;
 }
 
 .aym-welcome-feature-visual {
   position: relative;
-  aspect-ratio: 1.25 / 1;
+  aspect-ratio: 1.35 / 1;
   overflow: hidden;
   background: var(--forest-deep);
   flex-shrink: 0;
@@ -8566,6 +8688,11 @@ button.aym-drawer-sublink {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.7s cubic-bezier(0.22, 0.9, 0.28, 1);
+}
+
+.aym-welcome-feature-card:hover .aym-welcome-feature-visual img {
+  transform: scale(1.04);
 }
 
 .aym-welcome-feature-badge {
@@ -8574,20 +8701,20 @@ button.aym-drawer-sublink {
   bottom: 10px;
   display: grid;
   place-items: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
   color: var(--forest-deep);
   background:
     linear-gradient(145deg, rgba(212, 168, 75, 0.95), rgba(255, 254, 251, 0.98));
-  box-shadow: 0 6px 14px rgba(8, 22, 16, 0.28);
+  box-shadow: 0 4px 12px rgba(8, 22, 16, 0.22);
 }
 
 .aym-welcome-feature-body {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  padding: 0.95rem 1rem 1.1rem;
+  gap: 0.3rem;
+  padding: 0.85rem 0.15rem 0.35rem;
   flex: 1;
   min-height: 0;
 }
@@ -8595,15 +8722,15 @@ button.aym-drawer-sublink {
 .aym-welcome-feature-body h3 {
   margin: 0;
   font-family: Fraunces, "Source Serif 4", Georgia, serif;
-  font-size: clamp(0.98rem, 1.6vw, 1.12rem);
+  font-size: clamp(0.95rem, 1.5vw, 1.08rem);
   font-weight: 650;
   color: var(--forest-deep);
 }
 
 .aym-welcome-feature-body p {
   margin: 0;
-  font-size: clamp(0.8rem, 1.35vw, 0.9rem);
-  line-height: 1.5;
+  font-size: clamp(0.78rem, 1.3vw, 0.88rem);
+  line-height: 1.45;
   color: var(--aym-welcome-muted);
 }
 
@@ -8613,7 +8740,7 @@ button.aym-drawer-sublink {
   padding: 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(0.75rem, 2vw, 1.35rem);
+  gap: clamp(0.65rem, 1.8vw, 1.15rem);
 }
 
 .aym-welcome-steps-four {
@@ -8629,34 +8756,34 @@ button.aym-drawer-sublink {
 .aym-welcome-step {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 0.75rem;
+  gap: 0.65rem;
   align-items: start;
-  padding: 1.05rem 0.95rem 1.15rem;
+  padding: 0.85rem 0.15rem 0.5rem;
   border-top: 2px solid var(--gold);
-  background: rgba(255, 254, 251, 0.72);
-  box-shadow: 0 8px 22px rgba(15, 42, 31, 0.05);
+  background: transparent;
+  box-shadow: none;
   min-height: 0;
 }
 
 .aym-welcome-step-n {
   font-family: Fraunces, Georgia, serif;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 650;
   color: var(--gold);
   line-height: 1;
 }
 
 .aym-welcome-step h3 {
-  margin: 0 0 0.35rem;
-  font-size: 1.02rem;
+  margin: 0 0 0.3rem;
+  font-size: 0.98rem;
   font-weight: 650;
   color: var(--forest-deep);
 }
 
 .aym-welcome-step p {
   margin: 0;
-  font-size: 0.86rem;
-  line-height: 1.48;
+  font-size: 0.84rem;
+  line-height: 1.45;
   color: var(--aym-welcome-muted);
 }
 
@@ -8665,8 +8792,8 @@ button.aym-drawer-sublink {
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  margin: 1.15rem 0 0;
-  font-size: 0.8rem;
+  margin: 1rem 0 0;
+  font-size: 0.78rem;
   color: rgba(20, 40, 31, 0.5);
 }
 
@@ -8683,7 +8810,7 @@ button.aym-drawer-sublink {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.4rem;
   padding: 0 1rem max(0.85rem, env(safe-area-inset-bottom));
   pointer-events: none;
 }
@@ -8695,71 +8822,97 @@ button.aym-drawer-sublink {
 .aym-welcome-progress {
   display: flex;
   align-items: center;
-  gap: 0.45rem;
-  padding: 0.35rem 0.65rem;
+  gap: 0.4rem;
+  padding: 0.3rem 0.55rem;
   border-radius: 999px;
   background: rgba(8, 22, 16, 0.28);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  transition: background 0.45s ease;
 }
 
 .aym-welcome-deck-light .aym-welcome-progress {
   background: rgba(255, 254, 251, 0.72);
-  border: 1px solid rgba(217, 203, 184, 0.65);
+  border: 1px solid rgba(217, 203, 184, 0.55);
 }
 
 .aym-welcome-dot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: rgba(255, 254, 251, 0.35);
+  background: rgba(255, 254, 251, 0.32);
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background 0.25s ease, transform 0.25s ease, width 0.25s ease;
 }
 
 .aym-welcome-deck-light .aym-welcome-dot {
-  background: rgba(27, 67, 50, 0.28);
+  background: rgba(27, 67, 50, 0.25);
 }
 
 .aym-welcome-dot.is-active {
   background: var(--gold);
-  transform: scale(1.25);
+  width: 18px;
+  border-radius: 99px;
+  transform: none;
 }
 
 .aym-welcome-tap-hint {
   margin: 0;
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 254, 251, 0.42);
+  color: rgba(255, 254, 251, 0.38);
   pointer-events: none;
+  transition: color 0.45s ease;
 }
 
 .aym-welcome-deck-light .aym-welcome-tap-hint {
-  color: rgba(20, 40, 31, 0.4);
+  color: rgba(20, 40, 31, 0.38);
 }
 
 @keyframes aym-welcome-slide-in {
   from {
     opacity: 0;
-    transform: translateX(18px);
+    transform: translateX(22px) scale(0.992);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0) scale(1);
   }
 }
 
 @keyframes aym-welcome-slide-in-prev {
   from {
     opacity: 0;
-    transform: translateX(-18px);
+    transform: translateX(-22px) scale(0.992);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes aym-welcome-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes aym-welcome-rise-prev {
+  from {
+    opacity: 0;
+    transform: translateY(-14px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -8783,13 +8936,13 @@ button.aym-drawer-sublink {
 
   .aym-welcome-slide-media,
   .aym-welcome-slide-media-tall {
-    max-height: min(30vh, 240px);
+    max-height: min(28vh, 220px);
     order: -1;
   }
 
   .aym-welcome-slide-media img,
   .aym-welcome-slide-media-tall img {
-    max-height: min(30vh, 240px);
+    max-height: min(28vh, 220px);
   }
 
   .aym-welcome-feature-grid {
@@ -8798,30 +8951,12 @@ button.aym-drawer-sublink {
 
   .aym-welcome-steps,
   .aym-welcome-steps-four {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem 0.85rem;
   }
 
   .aym-welcome-step {
-    padding: 0.7rem 0.75rem;
-  }
-
-  .aym-welcome-trust-list {
-    gap: 0.55rem;
-  }
-
-  .aym-welcome-trust-list li {
-    padding: 0.6rem 0.7rem;
-  }
-
-  .aym-welcome-live-callout {
-    gap: 0.7rem;
-    padding: 0.8rem 0.9rem;
-  }
-
-  .aym-welcome-live-callout-icon {
-    width: 34px;
-    height: 34px;
+    padding: 0.65rem 0.1rem 0.35rem;
   }
 }
 
@@ -8835,30 +8970,35 @@ button.aym-drawer-sublink {
   }
 
   .aym-welcome-audience li {
-    font-size: 0.72rem;
-    padding: 0.38rem 0.7rem;
+    font-size: 0.7rem;
+    padding: 0.35rem 0.65rem;
   }
 
   .aym-welcome-feature-body p {
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
 
+  .aym-welcome-steps,
+  .aym-welcome-steps-four {
+    grid-template-columns: 1fr;
+  }
+
   .aym-welcome-cta {
-    width: 100%;
-    max-width: 280px;
+    width: auto;
+    min-width: 11rem;
   }
 
   .aym-welcome-finale-map {
     grid-template-columns: 1fr;
-    gap: 0.35rem;
+    gap: 0.3rem;
     max-width: 22rem;
   }
 
   .aym-welcome-finale-map li {
-    padding: 0.4rem 0 0.4rem 0.7rem;
+    padding: 0.35rem 0 0.35rem 0.65rem;
   }
 
   .aym-welcome-slide-body-finale .aym-welcome-hero-title {
@@ -8866,13 +9006,17 @@ button.aym-drawer-sublink {
   }
 
   .aym-welcome-disclaimer {
-    font-size: 0.74rem;
+    font-size: 0.72rem;
+  }
+
+  .aym-welcome-live-strip span {
+    font-size: 0.8rem;
   }
 }
 
 @media (max-height: 700px) {
   .aym-welcome-feature-visual {
-    aspect-ratio: 1.55 / 1;
+    aspect-ratio: 1.65 / 1;
   }
 
   .aym-welcome-section-title {
@@ -8889,14 +9033,9 @@ button.aym-drawer-sublink {
     display: none;
   }
 
-  .aym-welcome-live-callout {
-    margin-top: 0.65rem;
-    padding: 0.7rem 0.85rem;
-  }
-
-  .aym-welcome-live-callout-copy p:last-child {
+  .aym-welcome-live-strip span {
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -8905,12 +9044,20 @@ button.aym-drawer-sublink {
 @media (prefers-reduced-motion: reduce) {
   .aym-welcome-slide,
   .aym-welcome-slide-bg-img,
-  .aym-welcome-cta {
+  .aym-welcome-cta,
+  .aym-welcome-anim,
+  .aym-welcome-atmosphere {
     animation: none !important;
     transition: none !important;
   }
 
-  .aym-welcome-cta:hover {
+  .aym-welcome-anim {
+    opacity: 1;
+    transform: none;
+  }
+
+  .aym-welcome-cta:hover,
+  .aym-welcome-feature-card:hover .aym-welcome-feature-visual img {
     transform: none;
   }
 }
