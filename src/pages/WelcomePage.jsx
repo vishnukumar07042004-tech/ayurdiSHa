@@ -4,6 +4,7 @@ import {
   ArrowRight,
   BookOpen,
   Leaf,
+  MapPin,
   Send,
   Ticket,
   Users,
@@ -74,6 +75,17 @@ const STEPS = [
   },
 ];
 
+/** Shared programme pillar: live 1:1 at Bhubaneswar (Meet the Mentors). */
+const LIVE_1ON1 = {
+  badge: "Also at Bhubaneswar",
+  title: "Live 1-on-1 mentor talks for selected students",
+  body:
+    "Meet the Mentors is more than the digital hall. At the 11th World Ayurveda Congress in Bhubaneswar, selected students may be invited to a live one-to-one mentor conversation — a focused career talk in person. These sessions are facilitated by the AYURDISHA Meet the Mentors team as part of the same programme that runs Explore Mentors, Ask Desk, Track, and the Hall floor. Selection-based, not automatic for every delegate.",
+  pathTitle: "Alongside the digital path",
+  pathBody:
+    "While everyone can use the hall online, selected students may also be invited to a live one-to-one mentor talk at Meet the Mentors in Bhubaneswar. The AYURDISHA Meet the Mentors team arranges these in-person career conversations on the Congress floor — education and career direction only, not medical advice.",
+};
+
 const TRUST_POINTS = [
   {
     title: "Official digital hall",
@@ -81,7 +93,8 @@ const TRUST_POINTS = [
   },
   {
     title: "Live 1-on-1 mentor talks",
-    body: "Selected students may be invited to a live one-to-one mentor conversation at Meet the Mentors on the Congress floor — a focused career talk with a mentor in person.",
+    body: "At Meet the Mentors on the Congress floor in Bhubaneswar, selected students may be invited to a live one-to-one career conversation with a mentor. The AYURDISHA Meet the Mentors team facilitates these sessions as part of the same programme that runs the digital hall.",
+    highlight: true,
   },
   {
     title: "Written guidance for everyone",
@@ -278,8 +291,9 @@ export default function WelcomePage() {
                   Start with the Hall, then three more doors
                 </h2>
                 <p className="aym-welcome-section-lead">
-                  Enter the Hall first, then Mentors, Ask, and Track — the same tools you will
-                  use on the home floor. Nothing here is a menu button; tap anywhere to keep reading.
+                  Enter the Hall first, then Mentors, Ask, and Track — the same digital tools on
+                  the home floor. Meet the Mentors also includes live 1-on-1 mentor talks at
+                  Bhubaneswar for selected students, arranged by our team.
                 </p>
               </header>
               <ul className="aym-welcome-feature-grid aym-welcome-feature-grid-deck">
@@ -301,6 +315,19 @@ export default function WelcomePage() {
                   );
                 })}
               </ul>
+              <aside className="aym-welcome-live-callout" aria-label={LIVE_1ON1.title}>
+                <span className="aym-welcome-live-callout-icon" aria-hidden="true">
+                  <Users size={20} strokeWidth={1.7} />
+                </span>
+                <div className="aym-welcome-live-callout-copy">
+                  <p className="aym-welcome-live-callout-badge">
+                    <MapPin size={12} strokeWidth={2} aria-hidden="true" />
+                    {LIVE_1ON1.badge}
+                  </p>
+                  <h3>{LIVE_1ON1.title}</h3>
+                  <p>{LIVE_1ON1.body}</p>
+                </div>
+              </aside>
             </div>
           </article>
         )}
@@ -320,7 +347,8 @@ export default function WelcomePage() {
                 </h2>
                 <p className="aym-welcome-section-lead">
                   Begin in the Hall, then register, keep your ticket, and track a written mentor
-                  reply — one calm path for your first visit.
+                  reply — and know that live 1-on-1 mentorship at Bhubaneswar is available for
+                  selected students through the same Meet the Mentors programme.
                 </p>
               </header>
               <ol className="aym-welcome-steps aym-welcome-steps-deck aym-welcome-steps-four">
@@ -336,6 +364,22 @@ export default function WelcomePage() {
                   </li>
                 ))}
               </ol>
+              <aside
+                className="aym-welcome-live-callout aym-welcome-live-callout-path"
+                aria-label={LIVE_1ON1.pathTitle}
+              >
+                <span className="aym-welcome-live-callout-icon" aria-hidden="true">
+                  <MapPin size={20} strokeWidth={1.7} />
+                </span>
+                <div className="aym-welcome-live-callout-copy">
+                  <p className="aym-welcome-live-callout-badge">
+                    <Users size={12} strokeWidth={2} aria-hidden="true" />
+                    Live 1-on-1 at Congress
+                  </p>
+                  <h3>{LIVE_1ON1.pathTitle}</h3>
+                  <p>{LIVE_1ON1.pathBody}</p>
+                </div>
+              </aside>
             </div>
           </article>
         )}
@@ -356,12 +400,16 @@ export default function WelcomePage() {
                 <p className="aym-welcome-section-lead">
                   AYURDISHA is the official digital Meet the Mentors hall of the 11th World
                   Ayurveda Congress. Use it for career clarity — education pathways, practice
-                  choices, and professional direction — and, for selected students, a live
-                  one-to-one mentor talk on the Congress floor.
+                  choices, and professional direction. For selected students, the AYURDISHA Meet
+                  the Mentors team also facilitates live one-to-one mentor talks on the Congress
+                  floor in Bhubaneswar.
                 </p>
                 <ul className="aym-welcome-trust-list">
                   {TRUST_POINTS.map((p) => (
-                    <li key={p.title}>
+                    <li
+                      key={p.title}
+                      className={p.highlight ? "aym-welcome-trust-highlight" : undefined}
+                    >
                       <h3>{p.title}</h3>
                       <p>{p.body}</p>
                     </li>

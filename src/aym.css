@@ -8210,11 +8210,72 @@ button.aym-drawer-sublink {
   background: rgba(255, 254, 251, 0.55);
 }
 
+.aym-welcome-trust-list li.aym-welcome-trust-highlight {
+  border-left-width: 3px;
+  background:
+    linear-gradient(135deg, rgba(212, 168, 75, 0.14), rgba(255, 254, 251, 0.82));
+  box-shadow: 0 8px 22px rgba(15, 42, 31, 0.06);
+}
+
 .aym-welcome-trust-list h3 {
   margin: 0 0 0.25rem;
   font-size: 0.95rem;
   font-weight: 650;
   color: var(--forest-deep);
+}
+
+.aym-welcome-live-callout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.85rem 1rem;
+  align-items: start;
+  flex-shrink: 0;
+  margin-top: clamp(0.85rem, 2vh, 1.25rem);
+  padding: 0.95rem 1.1rem 1.05rem;
+  border-radius: 14px;
+  border: 1px solid rgba(212, 168, 75, 0.55);
+  background:
+    linear-gradient(135deg, rgba(212, 168, 75, 0.16), rgba(255, 254, 251, 0.92) 42%, rgba(45, 106, 79, 0.06));
+  box-shadow: 0 10px 28px rgba(15, 42, 31, 0.07);
+}
+
+.aym-welcome-live-callout-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  color: var(--forest-deep);
+  background:
+    linear-gradient(145deg, rgba(212, 168, 75, 0.95), rgba(255, 254, 251, 0.98));
+  box-shadow: 0 6px 14px rgba(8, 22, 16, 0.16);
+}
+
+.aym-welcome-live-callout-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0 0 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--forest-mid);
+}
+
+.aym-welcome-live-callout-copy h3 {
+  margin: 0 0 0.35rem;
+  font-family: Fraunces, "Source Serif 4", Georgia, serif;
+  font-size: clamp(0.98rem, 1.7vw, 1.15rem);
+  font-weight: 650;
+  color: var(--forest-deep);
+}
+
+.aym-welcome-live-callout-copy p:last-child {
+  margin: 0;
+  font-size: clamp(0.8rem, 1.35vw, 0.9rem);
+  line-height: 1.5;
+  color: var(--aym-welcome-muted);
 }
 
 .aym-welcome-trust-list p {
@@ -8353,6 +8414,7 @@ button.aym-drawer-sublink {
 .aym-welcome-feature-grid-deck {
   flex: 1;
   align-content: stretch;
+  min-height: 0;
 }
 
 .aym-welcome-feature-card {
@@ -8626,6 +8688,16 @@ button.aym-drawer-sublink {
   .aym-welcome-trust-list li {
     padding: 0.6rem 0.7rem;
   }
+
+  .aym-welcome-live-callout {
+    gap: 0.7rem;
+    padding: 0.8rem 0.9rem;
+  }
+
+  .aym-welcome-live-callout-icon {
+    width: 34px;
+    height: 34px;
+  }
 }
 
 @media (max-width: 560px) {
@@ -8690,6 +8762,18 @@ button.aym-drawer-sublink {
 
   .aym-welcome-audience {
     display: none;
+  }
+
+  .aym-welcome-live-callout {
+    margin-top: 0.65rem;
+    padding: 0.7rem 0.85rem;
+  }
+
+  .aym-welcome-live-callout-copy p:last-child {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }
 
