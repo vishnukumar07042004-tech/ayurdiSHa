@@ -2166,16 +2166,21 @@ const BLANK = {
 };
 
 function AskView({ onSaved, preset, profile, onGoRegister }) {
-  const blankFromProfile = (p) => ({
-    ...BLANK,
-    ...(preset || {}),
-    ...(p ? {
-      name: p.name || "",
-      email: p.email || "",
-      institution: p.institute || "",
-      regNo: p.regNo || "",
-    } : {}),
-  });
+  const blankFromProfile = (p) => {
+    const next = {
+      ...BLANK,
+      ...(preset || {}),
+      ...(p ? {
+        name: p.name || "",
+        email: p.email || "",
+        institution: p.institute || "",
+        regNo: p.regNo || "",
+      } : {}),
+    };
+    // Issued WAC number means they already registered — answer Yes without asking again.
+    if (String(next.regNo || "").trim()) next.registered = "Yes";
+    return next;
+  };
   const [f, setF] = useState(() => blankFromProfile(profile));
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState(null);
@@ -2187,31 +2192,43 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
 
   function autofill() {
     if (!profile) return;
-    setF(p => ({
-      ...p,
-      name: profile.name,
-      email: profile.email,
-      institution: profile.institute,
-      regNo: profile.regNo || p.regNo,
-    }));
+    setF(p => {
+      const regNo = profile.regNo || p.regNo;
+      return {
+        ...p,
+        name: profile.name,
+        email: profile.email,
+        institution: profile.institute,
+        regNo,
+        ...(String(regNo || "").trim() ? { registered: "Yes" } : {}),
+      };
+    });
     if (profile.regNo) setAutofillNote(`Filled from your WAC registration number ${profile.regNo}`);
     else setAutofillNote("Filled name, email, and institute from your registration.");
   }
 
   useEffect(() => {
     if (!preset) return;
-    setF(p => ({ ...p, ...preset }));
+    setF(p => {
+      const next = { ...p, ...preset };
+      if (String(next.regNo || "").trim()) next.registered = "Yes";
+      return next;
+    });
   }, [preset]);
 
   useEffect(() => {
     if (!profile) return;
-    setF(p => ({
-      ...p,
-      name: p.name || profile.name || "",
-      email: p.email || profile.email || "",
-      institution: p.institution || profile.institute || "",
-      regNo: p.regNo || profile.regNo || "",
-    }));
+    setF(p => {
+      const regNo = p.regNo || profile.regNo || "";
+      return {
+        ...p,
+        name: p.name || profile.name || "",
+        email: p.email || profile.email || "",
+        institution: p.institution || profile.institute || "",
+        regNo,
+        ...(String(regNo).trim() ? { registered: "Yes" } : {}),
+      };
+    });
     if (profile.regNo) setAutofillNote(`Filled from your WAC registration number ${profile.regNo}`);
   }, [profile]);
 
