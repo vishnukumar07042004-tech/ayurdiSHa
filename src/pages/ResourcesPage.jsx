@@ -124,23 +124,25 @@ export default function ResourcesPage() {
           aria-labelledby="faq-title"
           id="faq"
         >
-          <div className="aym-section-header aym-text-center">
+          <div className="aym-section-header aym-text-center aym-resources-faq-header">
             <p className="aym-eyebrow">Questions & answers</p>
             <h2 id="faq-title" className="aym-display">
               Frequently asked questions
             </h2>
             <p className="aym-section-lead aym-resources-faq-lead">
-              Common questions about AYURDISHA, Ask a Mentor, and career tracks at WAC 2026.
+              Clear answers about the digital Meet the Mentors hall, Ask Desk, tracking, and WAC 2026 —
+              career guidance only.
             </p>
           </div>
 
-          <div className="aym-faq-list aym-max-w-4xl aym-resources-faq-list">
-            {SITE_FAQS.map((faq, i) => (
-              <details key={i} className="aym-faq-item">
-                <summary className="aym-faq-question">
-                  <span>{faq.q}</span>
+          <div className="aym-faq-list aym-max-w-3xl aym-resources-faq-list">
+            {SITE_FAQS.map((faq) => (
+              <details key={faq.q} className="aym-faq-item aym-resources-faq-item">
+                <summary className="aym-faq-question aym-resources-faq-question">
+                  <span className="aym-resources-faq-q">{faq.q}</span>
+                  <span className="aym-resources-faq-toggle" aria-hidden="true" />
                 </summary>
-                <div className="aym-faq-answer">
+                <div className="aym-faq-answer aym-resources-faq-answer">
                   <p>{faq.a}</p>
                 </div>
               </details>
