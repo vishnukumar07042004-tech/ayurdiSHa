@@ -1,35 +1,46 @@
-export const WELCOME_STORAGE_KEY = "aym-welcome-seen";
-/** Set for the browser session after welcome is shown — softens feature guides the same visit. */
+/**
+ * Welcome dismissal is session-scoped: closing the tab/browser clears it,
+ * so returning users see /welcome again. Within one session, Skip/Enter
+ * suppresses redirect until the session ends.
+ */
 export const WELCOME_SESSION_KEY = "aym-welcome-session";
 
-export function hasSeenWelcome() {
-  try {
-    return localStorage.getItem(WELCOME_STORAGE_KEY) === "1";
-  } catch {
-    return true;
-  }
-}
+/** Legacy permanent key — cleared so old “never show again” does not stick. */
+const WELCOME_LEGACY_KEY = "aym-welcome-seen";
 
-export function markWelcomeSeen() {
+function clearLegacyWelcomeFlag() {
   try {
-    localStorage.setItem(WELCOME_STORAGE_KEY, "1");
+    localStorage.removeItem(WELCOME_LEGACY_KEY);
   } catch {
     /* ignore */
   }
 }
 
-export function markWelcomeSession() {
+/** True after Skip / Enter AYURDISHA in this browser session. */
+export function hasSeenWelcome() {
   try {
+    clearLegacyWelcomeFlag();
+    return sessionStorage.getItem(WELCOME_SESSION_KEY) === "1";
+  } catch {
+    return true;
+  }
+}
+
+/** Mark welcome dismissed for the rest of this session only. */
+export function markWelcomeSeen() {
+  try {
+    clearLegacyWelcomeFlag();
     sessionStorage.setItem(WELCOME_SESSION_KEY, "1");
   } catch {
     /* ignore */
   }
 }
 
+/** Alias used by feature-guide softening after welcome. */
+export function markWelcomeSession() {
+  markWelcomeSeen();
+}
+
 export function welcomeShownThisSession() {
-  try {
-    return sessionStorage.getItem(WELCOME_SESSION_KEY) === "1";
-  } catch {
-    return false;
-  }
+  return hasSeenWelcome();
 }

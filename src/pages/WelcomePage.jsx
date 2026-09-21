@@ -12,7 +12,6 @@ import {
 import { setPageMeta, SITE_ORIGIN } from "../siteMeta.js";
 import {
   markWelcomeSeen,
-  markWelcomeSession,
 } from "../welcomeStorage.js";
 
 const AUDIENCE = [
@@ -104,7 +103,6 @@ const TRUST_POINTS = [
 
 function finishWelcome(navigate) {
   markWelcomeSeen();
-  markWelcomeSession();
   navigate("/", { replace: true });
   window.scrollTo(0, 0);
 }
@@ -355,8 +353,7 @@ export default function WelcomePage() {
                   Your first-visit path
                 </h2>
                 <p className="aym-welcome-section-lead">
-                  Hall → register → ticket → track. Live 1-on-1 mentorship at Bhubaneswar
-                  remains available for selected students through the same programme.
+                  Hall → register → ticket → track — then follow your written reply online.
                 </p>
               </header>
               <ol className="aym-welcome-steps aym-welcome-steps-deck aym-welcome-steps-four">
@@ -383,7 +380,7 @@ export default function WelcomePage() {
               >
                 <Users size={16} strokeWidth={1.8} aria-hidden="true" />
                 <div>
-                  <strong>{LIVE_1ON1.pathTitle}</strong>
+                  <strong>{LIVE_1ON1.badge}</strong>
                   <span>{LIVE_1ON1.pathBody}</span>
                 </div>
               </aside>

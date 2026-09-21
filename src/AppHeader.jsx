@@ -72,6 +72,31 @@ export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIn
   const location = useLocation();
   const close = useCallback(() => setOpen(false), []);
 
+  useEffect(() => {
+    function onGlobalSearchHotkey(e) {
+      const el = e.target;
+      const tag = el?.tagName;
+      const typing =
+        el?.isContentEditable ||
+        tag === "INPUT" ||
+        tag === "TEXTAREA" ||
+        tag === "SELECT";
+      if ((e.key === "k" || e.key === "K") && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setShowSearch(true);
+        setActiveDropdown(null);
+        return;
+      }
+      if (e.key === "/" && !typing && !e.metaKey && !e.ctrlKey && !e.altKey) {
+        e.preventDefault();
+        setShowSearch(true);
+        setActiveDropdown(null);
+      }
+    }
+    window.addEventListener("keydown", onGlobalSearchHotkey);
+    return () => window.removeEventListener("keydown", onGlobalSearchHotkey);
+  }, []);
+
   const handleMouseEnter = (menu) => {
     if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
     setActiveDropdown(menu);
@@ -269,7 +294,8 @@ export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIn
                 type="button"
                 className="aym-btn aym-btn-ghost aym-search-trigger"
                 onClick={() => { setShowSearch(true); closeDropdowns(); }}
-                aria-label="Search mentors"
+                aria-label="Search site"
+                title="Search site (/ or ⌘K)"
               >
                 <Search size={17} aria-hidden="true" />
               </button>
