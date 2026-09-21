@@ -316,7 +316,7 @@ body { margin: 0; background: var(--cream); }
 .aym-skip {
   position: absolute;
   left: 12px;
-  top: -48px;
+  top: 12px;
   z-index: 80;
   background: var(--gold);
   color: var(--forest-deep);
@@ -327,9 +327,20 @@ body { margin: 0; background: var(--cream); }
   min-height: 44px;
   display: inline-flex;
   align-items: center;
+  /* Hide until keyboard focus — avoids gold pill peeking through overflow:hidden */
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .aym-skip:focus {
-  top: 12px;
+  clip-path: none;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
   outline: 2px solid #fff;
   outline-offset: 2px;
 }

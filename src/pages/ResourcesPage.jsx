@@ -142,7 +142,7 @@ export default function ResourcesPage() {
               Frequently asked questions
             </h2>
             <p className="aym-section-lead aym-resources-faq-lead">
-              Meet the Mentors, Ask Desk, Track, the Hall, registration, and live 1-on-1 talks at WAC Bhubaneswar.
+              Meet the Mentors, Ask Desk, Track, the Hall, theme stage, registration, and live 1-on-1 talks at WAC Bhubaneswar.
             </p>
           </div>
 
