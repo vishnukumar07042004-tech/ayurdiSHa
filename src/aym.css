@@ -7941,8 +7941,8 @@ button.aym-drawer-sublink {
   letter-spacing: 0.01em;
 }
 
-/* Scroll-triggered reveal (Intersection Observer) */
-.aym-homepage [data-reveal] {
+/* Scroll-triggered reveal (Intersection Observer — toggles is-visible) */
+[data-reveal] {
   opacity: 0;
   transform: translateY(28px) scale(0.985);
   transition:
@@ -7951,21 +7951,32 @@ button.aym-drawer-sublink {
   will-change: opacity, transform;
 }
 
-.aym-homepage [data-reveal].is-visible {
+[data-reveal].is-visible {
   opacity: 1;
   transform: translateY(0) scale(1);
   will-change: auto;
 }
 
-.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(1) { transition-delay: 0.05s; }
-.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(2) { transition-delay: 0.14s; }
-.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(3) { transition-delay: 0.23s; }
-.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(4) { transition-delay: 0.32s; }
-.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(5) { transition-delay: 0.41s; }
-.aym-homepage [data-reveal-stagger] > [data-reveal]:nth-child(6) { transition-delay: 0.5s; }
+[data-reveal-stagger] > [data-reveal]:nth-child(1) { transition-delay: 0.05s; }
+[data-reveal-stagger] > [data-reveal]:nth-child(2) { transition-delay: 0.14s; }
+[data-reveal-stagger] > [data-reveal]:nth-child(3) { transition-delay: 0.23s; }
+[data-reveal-stagger] > [data-reveal]:nth-child(4) { transition-delay: 0.32s; }
+[data-reveal-stagger] > [data-reveal]:nth-child(5) { transition-delay: 0.41s; }
+[data-reveal-stagger] > [data-reveal]:nth-child(6) { transition-delay: 0.5s; }
+[data-reveal-stagger] > [data-reveal]:nth-child(7) { transition-delay: 0.56s; }
+[data-reveal-stagger] > [data-reveal]:nth-child(8) { transition-delay: 0.62s; }
+[data-reveal-stagger] > [data-reveal]:nth-child(n + 9) { transition-delay: 0.68s; }
+
+.aym-resources-faq [data-reveal] {
+  transform: translateY(20px);
+}
+
+.aym-resources-faq [data-reveal].is-visible {
+  transform: translateY(0);
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .aym-homepage [data-reveal] {
+  [data-reveal] {
     opacity: 1;
     transform: none;
     transition: none;

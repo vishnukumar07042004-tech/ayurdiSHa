@@ -20,6 +20,7 @@ import {
 } from "../mentors.js";
 import { getProgramByCode } from "../data/programs.js";
 import { setPageMeta } from "../siteMeta.js";
+import { observeScrollReveal } from "../scrollReveal.js";
 
 const CAREER_TRACK_VISUALS = [
   {
@@ -81,25 +82,7 @@ export default function HomePage({ onGoTab }) {
     const root = rootRef.current;
     if (!root) return undefined;
 
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const nodes = root.querySelectorAll("[data-reveal]");
-    let revealObserver = null;
-
-    if (reduceMotion) {
-      nodes.forEach((el) => el.classList.add("is-visible"));
-    } else {
-      revealObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add("is-visible");
-            revealObserver.unobserve(entry.target);
-          });
-        },
-        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
-      );
-      nodes.forEach((el) => revealObserver.observe(el));
-    }
+    const disconnectReveal = observeScrollReveal(root);
 
     /* Scroll-linked atmosphere: major sections shift the page wash */
     const zones = root.querySelectorAll("[data-home-zone]");
@@ -121,7 +104,7 @@ export default function HomePage({ onGoTab }) {
     zones.forEach((el) => zoneObserver.observe(el));
 
     return () => {
-      revealObserver?.disconnect();
+      disconnectReveal();
       zoneObserver.disconnect();
     };
   }, []);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { setPageMeta, faqJsonLd } from "../siteMeta.js";
 import Breadcrumbs from "../components/Breadcrumbs.jsx";
@@ -6,12 +6,14 @@ import ResourceCard from "../components/ResourceCard.jsx";
 import EmptyState from "../components/EmptyState.jsx";
 import { getAllResources } from "../data/resources.js";
 import { SITE_FAQS } from "../data/faqs.js";
+import { observeScrollReveal } from "../scrollReveal.js";
 import { Search } from "lucide-react";
 
 export default function ResourcesPage() {
   const [query, setQuery] = useState("");
   const [activeTab, setActiveTab] = useState("all");
   const location = useLocation();
+  const faqRef = useRef(null);
 
   const resources = useMemo(() => getAllResources(), []);
 
@@ -32,6 +34,15 @@ export default function ResourcesPage() {
     }, 80);
     return () => window.clearTimeout(t);
   }, [location.hash, location.pathname]);
+
+  useEffect(() => {
+    const root = faqRef.current;
+    if (!root) return undefined;
+    return observeScrollReveal(root, {
+      threshold: 0.08,
+      rootMargin: "0px 0px -6% 0px",
+    });
+  }, []);
 
   const filtered = useMemo(() => {
     return resources.filter((r) => {
@@ -120,24 +131,24 @@ export default function ResourcesPage() {
         )}
 
         <section
+          ref={faqRef}
           className="aym-section aym-resources-faq"
           aria-labelledby="faq-title"
           id="faq"
         >
-          <div className="aym-section-header aym-text-center aym-resources-faq-header">
+          <div className="aym-section-header aym-text-center aym-resources-faq-header" data-reveal>
             <p className="aym-eyebrow">Questions & answers</p>
             <h2 id="faq-title" className="aym-display">
               Frequently asked questions
             </h2>
             <p className="aym-section-lead aym-resources-faq-lead">
-              Clear answers about the digital Meet the Mentors hall, Ask Desk, tracking, and WAC 2026 —
-              career guidance only.
+              Meet the Mentors, Ask Desk, Track, the Hall, registration, and live 1-on-1 talks at WAC Bhubaneswar.
             </p>
           </div>
 
-          <div className="aym-faq-list aym-max-w-3xl aym-resources-faq-list">
-            {SITE_FAQS.map((faq) => (
-              <details key={faq.q} className="aym-faq-item aym-resources-faq-item">
+          <div className="aym-faq-list aym-max-w-3xl aym-resources-faq-list" data-reveal-stagger>
+            {SITE_FAQS.map((faq, i) => (
+              <details key={i} className="aym-faq-item aym-resources-faq-item" data-reveal>
                 <summary className="aym-faq-question aym-resources-faq-question">
                   <span className="aym-resources-faq-q">{faq.q}</span>
                   <span className="aym-resources-faq-toggle" aria-hidden="true" />
