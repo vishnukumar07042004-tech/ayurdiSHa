@@ -4,11 +4,13 @@ import { createAymStore, K_Q, K_CLUSTERS, K_CONFIG, K_WAC_RESULTS, K_PODCASTS, C
 import {
   regStart, regResend, regVerify, regMe, regSaveWac, regRecover, regUsers, K_USER, K_EMAIL, K_REGNO, isDemoDelegate,
   upsertDelegateIntoDb, backfillDelegatesFromQuestions, delegateCardsFromDb,
-  validRegNo, publicProfile, wacOwnedByOtherEmail, ensureSessionIssuedRegNo,
+  validRegNo, publicProfile, wacOwnedByOtherEmail, ensureSessionIssuedRegNo, regnoIndexKey,
 } from "./register.js";
 import { appendCookie, readSessTicket, makeSessTicket, setSessCookie } from "./otpTicket.js";
 import { sendSelectionEmail } from "./mailer.js";
+import { notifyAnswerOnce, notifyNewlyPublishedClusters } from "./answerNotify.js";
 import { knowledgeChatHandler } from "./knowledgeChat.js";
+import { publicStats } from "./publicStats.js";
 
 const COOKIE = "aym_staff";
 
@@ -350,6 +352,12 @@ async function handleOp(req, res, msg, store) {
   const staff = isStaff(req);
   const { op, key, val, prefix, pin, query } = msg;
 
+  if (op === "publicStats") {
+    res.setHeader("Cache-Control", "no-store");
+    send(res, 200, { ok: true, ...(await publicStats(store)) });
+    return;
+  }
+
   if (op === "ping" || op === "whoami") {
     send(res, 200, { ok: true, staff, hasPin: pinConfigured(), ...backendInfo(store) });
     return;
@@ -479,7 +487,8 @@ async function handleOp(req, res, msg, store) {
     rec.individualResources = Array.isArray(msg.resources) ? msg.resources.map(a => String(a || "").trim()).filter(Boolean).slice(0, 2) : [];
     rec.individualAt = Date.now();
     await store.set(K_Q + id, rec);
-    send(res, 200, { ok: true, question: rec });
+    const notified = await notifyAnswerOnce(store, rec, { answer, mentorName: rec.individualMentor });
+    send(res, 200, { ok: true, question: notified || rec });
     return;
   }
 
@@ -488,8 +497,12 @@ async function handleOp(req, res, msg, store) {
     const clusters = Array.isArray(msg.clusters) ? msg.clusters : null;
     if (!clusters) { send(res, 400, { error: "No merged groups to save." }); return; }
     const expectedVersion = msg.version != null ? Number(msg.version) : null;
+    let prevClusters = null;
+    try { prevClusters = (await clustersMeta(store)).value; }
+    catch { prevClusters = null; }
     try {
       const saved = await persistClusters(store, clusters, expectedVersion);
+      if (prevClusters) await notifyNewlyPublishedClusters(store, prevClusters, saved.clusters);
       send(res, 200, { ok: true, clusters: saved.clusters, clustersVersion: saved.version });
     } catch (err) {
       if (err instanceof ClustersVersionConflictError) {
@@ -626,9 +639,17 @@ async function handleOp(req, res, msg, store) {
     }
     const isQuestion = String(key || "").startsWith(K_Q);
     if (!isQuestion && !staff) { send(res, 403, { error: "staff only" }); return; }
-    if (isQuestion && !staff && await store.exists(key)) {
-      send(res, 403, { error: "staff only" });
-      return;
+    if (isQuestion && !staff) {
+      const existing = await store.get(key);
+      if (existing) {
+        // A retry of a question that already landed (e.g. after a gateway timeout) is a no-op success.
+        if (val && existing.ticket && existing.ticket === val.ticket) {
+          send(res, 200, { ok: true, duplicate: true });
+          return;
+        }
+        send(res, 403, { error: "staff only" });
+        return;
+      }
     }
     if (isQuestion && val && typeof val === "object") {
       if (!val.id || !val.ticket || !val.question) {
@@ -669,18 +690,33 @@ async function handleOp(req, res, msg, store) {
         createdAt: (issuedUser && issuedUser.createdAt) || (sessProfile && sessProfile.createdAt) || val.createdAt,
       };
       let savedUser = null;
+      const writeQuestion = db => {
+        if (wac && wacOwnedByOtherEmail(db, wac, fields.email)) {
+          const err = new Error("That WAC registration number is already linked to a different AYURDISHA profile.");
+          err.code = 409;
+          throw err;
+        }
+        db[key] = val;
+        savedUser = upsertDelegateIntoDb(db, fields);
+        return db;
+      };
       try {
-        if (typeof store.transact === "function") {
-          await store.transact(db => {
-            if (wac && wacOwnedByOtherEmail(db, wac, fields.email)) {
-              const err = new Error("That WAC registration number is already linked to a different AYURDISHA profile.");
-              err.code = 409;
-              throw err;
-            }
-            db[key] = val;
-            savedUser = upsertDelegateIntoDb(db, fields);
-            return db;
-          });
+        if (typeof store.transactKeys === "function") {
+          const emailLower = String(fields.email || "").trim().toLowerCase();
+          const rawReg = String(wac || "").trim();
+          const keys = [
+            emailLower && K_EMAIL + emailLower,
+            regnoIndexKey(rawReg),
+            rawReg && K_REGNO + rawReg,
+            issuedUser && issuedUser.id && K_USER + issuedUser.id,
+            sess && sess.userId && K_USER + sess.userId,
+          ];
+          const expand = db => Object.keys(db)
+            .filter(k => k.startsWith(K_EMAIL) || k.startsWith(K_REGNO))
+            .map(k => db[k] && db[k].userId ? K_USER + db[k].userId : "");
+          await store.transactKeys(keys, writeQuestion, expand);
+        } else if (typeof store.transact === "function") {
+          await store.transact(writeQuestion);
         } else {
           const db = typeof store.snapshot === "function" ? (await store.snapshot()) || {} : {};
           if (wac && wacOwnedByOtherEmail(db, wac, fields.email)) {

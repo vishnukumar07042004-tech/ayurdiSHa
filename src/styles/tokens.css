@@ -1,0 +1,160 @@
+/* ==========================================================================
+   AYURDISHA UI tokens — Apple-clarity layer in the AYURDISHA palette.
+
+   Reference spec (measured on apple.com + apple.com/mac, 1920px, Sep 2026):
+   - Global nav: 44px tall, rgba(245,245,247,.8) + backdrop saturate(1.8)
+     blur(20px); links 12px/400 at 80% ink, 8px side padding; brand left.
+   - Body copy: 17px / 25px (1.47), tracking -0.022em (-0.374px), ink #1d1d1f,
+     secondary text #6e6e73.
+   - Page H1 (product page): 80px / 84px, 600, -0.015em (-1.2px).
+   - Hero / tile headline: 56px / 60px, 600, -0.005em. Promo tile headline
+     40px / 44px. Section headline 48px / 52px, 600, -0.003em.
+   - Tile subhead: 28px / 32px, 400, +0.007em (21px on smaller tiles).
+   - Buttons: pill radius 980px, 44px tall, 17px/400, padding 11px 21px;
+     primary = filled, secondary = 1px outline in the same hue; 17px gap
+     between CTAs; small nav CTA 12px, 4px 11px (~28px tall).
+   - Tiles: 2-up promo tiles 580px tall with 12px gutters and 12px outer
+     padding, 53px top padding, copy centred above media; full-bleed
+     alternating light (#fff / #f5f5f7) and dark (#000) tiles. Product-page
+     cards radius 18–28px. Text column 980px; wide rows ~1440px.
+   - Footer: #f5f5f7, 12px / 16px, 56% ink, hairline #d2d2d7, dense columns.
+   - Motion: scroll-linked fade/scale of headline + imagery, sticky local
+     nav (52px) with product title (21px/600) and a small pill CTA.
+
+   Applied in AYURDISHA terms: ivory/white canvas, deep forest #173F35 /
+   #386B4D for fills and links, muted gold #C49A52 for focus + accents, sage
+   #8FA58A glows, charcoal ink. No Apple colours, marks or copy.
+
+   Scope: everything here is gated by `.aym-ui` (set on the app root for
+   every route except /welcome), so the welcome deck keeps its own tokens.
+   ========================================================================== */
+
+:root {
+  /* Type — clean sans first (SF on Apple devices, Inter elsewhere) */
+  --ui-font: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ui-font-display: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ui-font-accent: "Cormorant Garamond", "Cormorant", Georgia, serif;
+
+  --ui-fs-display: clamp(2.6rem, 1.4rem + 4.6vw, 5rem);      /* 42 → 80 */
+  --ui-fs-headline: clamp(2.1rem, 1.3rem + 2.6vw, 3rem);     /* 34 → 48 */
+  --ui-fs-title: clamp(1.6rem, 1.2rem + 1.1vw, 2rem);        /* 26 → 32 */
+  --ui-fs-tile: clamp(1.5rem, 1.15rem + 1vw, 2.5rem);        /* 24 → 40 */
+  --ui-fs-subhead: clamp(1.2rem, 1rem + 0.7vw, 1.75rem);     /* 19 → 28 */
+  --ui-fs-lead: clamp(1.1rem, 1rem + 0.3vw, 1.3125rem);      /* 17.6 → 21 */
+  --ui-fs-body: 1.0625rem;                                   /* 17 */
+  --ui-fs-small: 0.875rem;                                   /* 14 */
+  --ui-fs-caption: 0.75rem;                                  /* 12 */
+  --ui-lh-body: 1.47;
+  --ui-track-display: -0.028em;
+  --ui-track-headline: -0.02em;
+  --ui-track-body: -0.011em;
+
+  /* Colour roles */
+  --ui-ink: #1D2420;
+  --ui-ink-2: #3E4843;
+  --ui-ink-3: #5B6560;
+  --ui-ink-4: #6F7873;
+  --ui-canvas: #FCFBF7;
+  --ui-white: #FFFFFF;
+  --ui-surface: #F5F3EC;
+  --ui-surface-2: #EFEDE4;
+  --ui-hairline: rgba(29, 36, 32, 0.12);
+  --ui-hairline-strong: rgba(29, 36, 32, 0.2);
+  --ui-green: #173F35;
+  --ui-green-hover: #21503F;
+  --ui-green-press: #0F2C25;
+  --ui-green-2: #386B4D;
+  --ui-link: #2F6346;
+  --ui-gold: #C49A52;
+  --ui-gold-ink: #8C6A2E;
+  --ui-gold-light: #E6CF9F;
+  --ui-sage: #8FA58A;
+  --ui-dark: #0F2C25;
+  --ui-dark-2: #143A30;
+  --ui-on-dark: #FCFBF7;
+  --ui-on-dark-2: rgba(252, 251, 247, 0.74);
+  --ui-error: #9B2C2C;
+  --ui-error-soft: #FBECEC;
+  --ui-success: #2D6A4F;
+  --ui-success-soft: #E4F0E8;
+
+  /* Buttons */
+  --ui-btn-sm: 32px;
+  --ui-btn-md: 44px;
+  --ui-btn-lg: 54px;
+  --ui-btn-pad-sm: 15px;
+  --ui-btn-pad-md: 22px;
+  --ui-btn-pad-lg: 30px;
+  --ui-btn-fs-sm: 14px;
+  --ui-btn-fs-md: 16px;
+  --ui-btn-fs-lg: 17px;
+  --ui-radius-pill: 980px;
+
+  /* Fields */
+  --ui-field-h: 48px;
+  --ui-field-radius: 12px;
+
+  /* Radii */
+  --ui-radius-sm: 12px;
+  --ui-radius-md: 18px;
+  --ui-radius-lg: 28px;
+
+  /* Spacing (4/8 base) */
+  --ui-space-1: 4px;
+  --ui-space-2: 8px;
+  --ui-space-3: 12px;
+  --ui-space-4: 16px;
+  --ui-space-5: 24px;
+  --ui-space-6: 32px;
+  --ui-space-7: 48px;
+  --ui-space-8: 64px;
+  --ui-space-9: 96px;
+  --ui-space-10: 128px;
+  --ui-section-y: clamp(64px, 5rem + 5vw, 150px);
+  --ui-gap: 12px;
+  --ui-w-text: 980px;
+  --ui-w-wide: 1200px;
+  --ui-w-max: 1440px;
+  --ui-gutter: clamp(20px, 4vw, 44px);
+
+  /* Elevation — soft, layered, mostly on hover */
+  --ui-shadow-1: 0 1px 2px rgba(15, 44, 37, 0.04), 0 2px 8px rgba(15, 44, 37, 0.04);
+  --ui-shadow-2: 0 2px 6px rgba(15, 44, 37, 0.05), 0 18px 40px -12px rgba(15, 44, 37, 0.16);
+  --ui-shadow-3: 0 4px 12px rgba(15, 44, 37, 0.06), 0 36px 80px -24px rgba(15, 44, 37, 0.28);
+
+  /* Glows */
+  --ui-glow-sage: radial-gradient(closest-side, rgba(143, 165, 138, 0.28), rgba(143, 165, 138, 0));
+  --ui-glow-gold: radial-gradient(closest-side, rgba(196, 154, 82, 0.22), rgba(196, 154, 82, 0));
+  --ui-glow-ivory: radial-gradient(closest-side, rgba(255, 253, 246, 0.9), rgba(255, 253, 246, 0));
+
+  /* Motion */
+  --ui-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ui-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-dur-1: 160ms;
+  --ui-dur-2: 240ms;
+  --ui-dur-3: 480ms;
+  --ui-dur-reveal: 900ms;
+
+  /* Chrome */
+  --ui-nav-h: 48px;
+  --ui-localnav-h: 52px;
+  --ui-nav-bg: rgba(252, 251, 247, 0.78);
+  --ui-blur: saturate(1.8) blur(20px);
+}
+
+/* Remap the shared editorial tokens for every non-welcome route. */
+.aym-ui {
+  --font-sans: var(--ui-font);
+  --font-display: var(--ui-font-display);
+  --nav-h: var(--ui-nav-h);
+  --ink: var(--ui-ink);
+  --ed-text: var(--ui-ink-2);
+  --muted: var(--ui-ink-3);
+  --line: rgba(29, 36, 32, 0.12);
+  --container: var(--ui-w-wide);
+  --gutter: var(--ui-gutter);
+  --section-y: var(--ui-section-y);
+}
+@media (max-width: 767px) {
+  .aym-ui { --nav-h: var(--ui-nav-h); }
+}

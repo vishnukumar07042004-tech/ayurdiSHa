@@ -103,7 +103,7 @@ async function applyEntries(store, entries) {
   for (const [k, v] of Object.entries(patch)) await store.set(k, v);
 }
 
-function regnoIndexKey(regNo) {
+export function regnoIndexKey(regNo) {
   const key = normRegNoKey(regNo);
   return key ? K_REGNO + key : "";
 }
@@ -119,6 +119,18 @@ function findUserIdByRegNoInDb(db, regNo) {
     if (idx2 && idx2.userId) return idx2.userId;
   }
   return null;
+}
+
+/** Registered delegate for a WAC number, read straight from the store indexes. */
+export async function findUserByRegNo(store, regNo) {
+  const raw = String(regNo || "").trim();
+  const key = regnoIndexKey(raw);
+  if (!key) return null;
+  let idx = await store.get(key);
+  if ((!idx || !idx.userId) && raw !== normRegNoKey(raw)) idx = await store.get(K_REGNO + raw);
+  if (!idx || !idx.userId) return null;
+  const user = await store.get(K_USER + idx.userId);
+  return user && user.id ? user : null;
 }
 
 /** True when this WAC number already belongs to a different email. Empty numbers never clash. */

@@ -3,21 +3,29 @@ import { useNavigate } from "react-router-dom";
 import {
   ArrowRight,
   BookOpen,
+  ChevronRight,
   Leaf,
   MapPin,
   Send,
   Ticket,
   Users,
 } from "lucide-react";
+import Button from "../components/ui/Button.jsx";
+import { Rings, Sprig } from "../components/editorial/Ornaments.jsx";
+import CountUp from "../components/editorial/CountUp.jsx";
+import { WAC } from "../content/site.js";
+import { MENTORS, mentorsWithNames } from "../mentors.js";
+import useLiveStats from "../useLiveStats.js";
 import { setPageMeta, SITE_ORIGIN } from "../siteMeta.js";
 import {
   markWelcomeSeen,
 } from "../welcomeStorage.js";
+import "../styles/welcome.css";
 
 const AUDIENCE = [
   "BAMS students & interns",
   "Postgraduates",
-  "Early-career practitioners",
+  "Young practitioners",
 ];
 
 const FEATURES = [
@@ -33,7 +41,7 @@ const FEATURES = [
     title: "Explore Mentors",
     how: "Browse Meet the Mentors profiles, then open one to see who may guide your path.",
     Icon: Users,
-    image: "/assets/welcome/welcome-feature-mentors.png",
+    image: "/assets/welcome/welcome-feature-mentors.webp",
   },
   {
     id: "ask",
@@ -101,6 +109,266 @@ const TRUST_POINTS = [
   },
 ];
 
+const MENTOR_COUNT = mentorsWithNames(MENTORS).length;
+
+const HERO_FACTS = [
+  { label: "Dates", value: "10–13 Dec 2026" },
+  { label: "Venue", value: `${WAC.city}, Odisha` },
+  { label: "Mentors", count: MENTOR_COUNT, value: " on the roster" },
+  { label: "Format", value: "Live 1:1" },
+];
+
+/** Headline words that rise out of a clipping mask, one after another. */
+function MaskWords({ text, from = 0 }) {
+  return text.split(" ").map((w, i, all) => (
+    <React.Fragment key={`${w}-${i}`}>
+      <span className="wl-mask"><span className="wl-mw" style={{ "--w": from + i }}>{w}</span></span>
+      {i < all.length - 1 ? " " : null}
+    </React.Fragment>
+  ));
+}
+
+/** Pointer parallax for the opening image: writes --px / --py (-1…1) on the deck. */
+function useStageParallax() {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return undefined;
+    const fine = window.matchMedia("(pointer: fine) and (min-width: 835px)");
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (!fine.matches || reduce.matches) return undefined;
+    let frame = 0;
+    let x = 0;
+    let y = 0;
+    const onMove = (e) => {
+      x = (e.clientX / window.innerWidth) * 2 - 1;
+      y = (e.clientY / window.innerHeight) * 2 - 1;
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        el.style.setProperty("--px", x.toFixed(3));
+        el.style.setProperty("--py", y.toFixed(3));
+      });
+    };
+    window.addEventListener("pointermove", onMove, { passive: true });
+    return () => {
+      window.removeEventListener("pointermove", onMove);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, []);
+  return ref;
+}
+
+const FINALE_CARDS = [
+  {
+    id: "hall",
+    eyebrow: "The Hall",
+    title: "Walk the digital floor",
+    body: "Podcasts, the theme stage and Congress results.",
+    Icon: Leaf,
+  },
+  {
+    id: "mentors",
+    eyebrow: "Mentors",
+    title: `${MENTOR_COUNT} senior mentors`,
+    body: "Clinical, research, academic and global career paths.",
+    Icon: Users,
+  },
+  {
+    id: "ask",
+    eyebrow: "Ask Desk",
+    title: "One focused question",
+    body: "Verify your email, then ask what matters most.",
+    Icon: Send,
+  },
+  {
+    id: "track",
+    eyebrow: "Track my answer",
+    title: "Emailed when answered",
+    body: "Follow your ticket until a mentor replies.",
+    Icon: Ticket,
+  },
+];
+
+function LiveNumber({ value, loading }) {
+  if (value == null) {
+    return <span aria-label={loading ? "Loading" : "Not available right now"}>—</span>;
+  }
+  return <CountUp value={value} duration={1500} />;
+}
+
+function FinaleSlide({ slideClass, onEnter, onAsk, onTrack, onCard }) {
+  const live = useLiveStats();
+  const d = live.data || {};
+  const loading = live.status === "loading";
+  const offline = live.status === "error";
+  const stop = (fn) => (e) => {
+    e.stopPropagation();
+    fn();
+  };
+
+  return (
+    <article className={`${slideClass} wl-finale`} aria-labelledby="welcome-finale-title">
+      <div className="wl-split wl-hero wl-finale-hero">
+        <div className="wl-copy">
+          <p className="wl-kicker wl-kicker--rule">
+            <span className="wl-rule" aria-hidden="true" />
+            <span className="wl-kicker-text wl-anim" style={{ "--i": 0 }}>
+              <span>Your hall is open</span>
+              <span className="wl-kicker-sep" aria-hidden="true">·</span>
+              <span>WAC 2026</span>
+            </span>
+          </p>
+          <h2 id="welcome-finale-title" className="wl-display wl-display--hero wl-display--finale">
+            <span className="wl-display-lead"><MaskWords text="You're ready." /></span>{" "}
+            <span className="wl-display-soft">
+              <MaskWords text="Step into the" from={2} />{" "}
+              <span className="wl-mask wl-mask--accent">
+                <em className="wl-mw" style={{ "--w": 5 }}>hall.</em>
+              </span>
+            </span>
+          </h2>
+          <div className="wl-lede wl-anim" style={{ "--i": 3 }}>
+            <p className="wl-lede-main">
+              {MENTOR_COUNT} senior mentors. One focused question. A written answer you can
+              track — <strong>emailed to you</strong> the moment a mentor replies.
+            </p>
+            <p className="wl-lede-sub">
+              Selected students also meet a mentor live, one-to-one, in {WAC.city} · 10–13 Dec 2026.
+            </p>
+          </div>
+          <div className="wl-actions wl-actions--hero wl-finale-actions" data-welcome-stop>
+            <Button
+              size="lg"
+              className="wl-enter wl-anim"
+              style={{ "--i": 4 }}
+              iconAfter={<ArrowRight size={18} aria-hidden="true" className="ed-btn-arrow" />}
+              onClick={stop(onEnter)}
+            >
+              Enter AYURDISHA
+            </Button>
+            <Button
+              size="lg"
+              variant="secondary"
+              className="wl-anim"
+              style={{ "--i": 5 }}
+              onClick={stop(onAsk)}
+            >
+              Ask a question
+            </Button>
+            <button
+              type="button"
+              className="wl-textlink wl-anim"
+              style={{ "--i": 6 }}
+              onClick={stop(onTrack)}
+            >
+              Track my answer
+              <ChevronRight size={16} strokeWidth={2.2} aria-hidden="true" />
+            </button>
+          </div>
+          <dl className="wl-facts wl-finale-live" aria-label="Live from the hall">
+            <div className="wl-anim" style={{ "--i": 7 }}>
+              <dt>
+                <span className={`wl-live-badge${offline ? " is-off" : ""}`}>
+                  <span className="wl-dot" aria-hidden="true" />
+                  {offline ? "Offline" : "Live"}
+                </span>
+              </dt>
+              <dd className="wl-sr">{offline ? "Live counts unavailable" : "Live counts"}</dd>
+            </div>
+            <div className="wl-anim" style={{ "--i": 8 }}>
+              <dt>Registered students</dt>
+              <dd><LiveNumber value={d.registeredStudents} loading={loading} /></dd>
+            </div>
+            <div className="wl-anim" style={{ "--i": 9 }}>
+              <dt>Questions asked</dt>
+              <dd><LiveNumber value={d.questionsAsked} loading={loading} /></dd>
+            </div>
+            <div className="wl-anim" style={{ "--i": 10 }}>
+              <dt>Mentors</dt>
+              <dd><CountUp value={MENTOR_COUNT} duration={1500} /></dd>
+            </div>
+          </dl>
+        </div>
+
+        <div className="wl-visual wl-visual--hero wl-visual--finale">
+          <span className="wl-stage-glow" aria-hidden="true" />
+          <div className="wl-depth wl-depth--back" aria-hidden="true">
+            <Rings className="wl-rings" />
+            <span className="wl-keyline" />
+          </div>
+          <div className="wl-depth wl-depth--media">
+            <figure className="wl-media ed-media wl-curtain">
+              <img
+                src="/assets/welcome/welcome-enter-hall.webp"
+                alt="The AYURDISHA Meet the Mentors hall: a mentor stage, curved conversation pods and the Ask Desk"
+                width={1280}
+                height={720}
+              />
+            </figure>
+          </div>
+          <div className="wl-depth wl-depth--inset">
+            <figure className="wl-inset ed-media">
+              <img
+                src="/assets/welcome/welcome-finale-lounge.webp"
+                alt="A senior mentor talks with two Ayurveda students at a table in the mentoring lounge"
+                width={960}
+                height={720}
+              />
+            </figure>
+          </div>
+          <Sprig className="wl-sprig" />
+          <div className="wl-depth wl-depth--front">
+            <p className="wl-tag wl-tag--live">
+              <span className={`wl-dot${offline ? " is-off" : ""}`} aria-hidden="true" />
+              <span className="wl-tag-label">Live now</span>
+              {d.questionsAsked != null
+                ? `${d.questionsAsked.toLocaleString("en-IN")} ${d.questionsAsked === 1 ? "question" : "questions"} asked`
+                : "— questions asked"}
+            </p>
+            <p className="wl-tag wl-tag--track">
+              <span className="wl-tag-label">Track</span>
+              Emailed when answered
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <ul className="wl-bento" aria-label="What awaits inside">
+        {FINALE_CARDS.map(({ id, eyebrow, title, body, Icon }, i) => (
+          <li key={id} className="wl-bcard-wrap wl-anim" style={{ "--i": 11 + i }}>
+            <button type="button" className="wl-bcard" onClick={stop(() => onCard(id))}>
+              <span className="wl-bcard-icon" aria-hidden="true">
+                <Icon size={18} strokeWidth={1.7} />
+              </span>
+              <span className="wl-bcard-text">
+                <span className="wl-bcard-eyebrow">{eyebrow}</span>
+                <span className="wl-bcard-title">{title}</span>
+                <span className="wl-bcard-body">{body}</span>
+              </span>
+              <ChevronRight size={16} strokeWidth={2.2} aria-hidden="true" className="wl-bcard-chev" />
+            </button>
+          </li>
+        ))}
+      </ul>
+      <p className="wl-hint wl-anim" style={{ "--i": 15 }}>
+        <BookOpen size={13} aria-hidden="true" />
+        Want this tour again? Reopen it anytime from About or the More menu.
+      </p>
+    </article>
+  );
+}
+
+const SLIDE_LABELS = ["Purpose", "What you can do", "How to use", "Congress and trust", "Enter AYURDISHA"];
+
+const SLIDE_IMAGES = [
+  ["/assets/welcome/welcome-hero.png"],
+  FEATURES.map((f) => f.image),
+  [],
+  ["/assets/welcome/welcome-congress.webp"],
+  ["/assets/welcome/welcome-enter-hall.webp", "/assets/welcome/welcome-finale-lounge.webp"],
+];
+
 function finishWelcome(navigate) {
   markWelcomeSeen();
   navigate("/", { replace: true });
@@ -109,19 +377,38 @@ function finishWelcome(navigate) {
 
 const SLIDE_COUNT = 5;
 
-/** Atmosphere tokens per slide — drives deck wash via data-atmosphere. */
-const SLIDE_ATMOSPHERE = ["forest", "cream", "botanical", "warm", "forest-deep"];
-
 export default function WelcomePage() {
   const navigate = useNavigate();
   const [index, setIndex] = useState(0);
   const [dir, setDir] = useState(1);
   const touchStartX = useRef(null);
   const skipClickRef = useRef(false);
+  const deckRef = useStageParallax();
 
   const enterHome = useCallback(() => {
     finishWelcome(navigate);
   }, [navigate]);
+
+  const askFromWelcome = useCallback(() => {
+    markWelcomeSeen();
+    navigate({ pathname: "/", hash: "#ask" }, { replace: true });
+  }, [navigate]);
+
+  const trackFromWelcome = useCallback(() => {
+    markWelcomeSeen();
+    navigate({ pathname: "/", hash: "#track" }, { replace: true });
+    window.scrollTo(0, 0);
+  }, [navigate]);
+
+  const openFromFinale = useCallback((id) => {
+    if (id === "ask") return askFromWelcome();
+    if (id === "track") return trackFromWelcome();
+    markWelcomeSeen();
+    if (id === "mentors") navigate("/mentors", { replace: true });
+    else navigate({ pathname: "/", hash: `#${id}` }, { replace: true });
+    window.scrollTo(0, 0);
+    return undefined;
+  }, [askFromWelcome, trackFromWelcome, navigate]);
 
   const goTo = useCallback((next, direction) => {
     setDir(direction);
@@ -161,6 +448,13 @@ export default function WelcomePage() {
       document.body.style.overflow = prev;
     };
   }, []);
+
+  useEffect(() => {
+    (SLIDE_IMAGES[index + 1] || []).forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, [index]);
 
   useEffect(() => {
     const onKey = (e) => {
@@ -205,35 +499,55 @@ export default function WelcomePage() {
   };
 
   const isLast = index === SLIDE_COUNT - 1;
-  const lightChrome = index === 1 || index === 2 || index === 3;
-  const atmosphere = SLIDE_ATMOSPHERE[index] || "forest";
-  const slideClass = `aym-welcome-slide aym-welcome-slide-${index + 1} aym-welcome-slide-enter-${dir > 0 ? "next" : "prev"}`;
+  const slideClass = `wl-slide wl-slide--${index + 1} is-enter-${dir > 0 ? "next" : "prev"}`;
+  const nextButton = (label = "Continue") => (
+    <Button
+      size="lg"
+      className="wl-anim"
+      style={{ "--i": 5 }}
+      iconAfter={<ChevronRight size={18} aria-hidden="true" className="ed-btn-arrow" />}
+      onClick={(e) => {
+        e.stopPropagation();
+        goNext();
+      }}
+    >
+      {label}
+    </Button>
+  );
 
   return (
     <div
-      className={`aym-welcome-page aym-welcome-deck${lightChrome ? " aym-welcome-deck-light" : ""}`}
-      data-atmosphere={atmosphere}
+      ref={deckRef}
+      className="wl-deck"
       data-slide={index + 1}
       role="region"
       aria-roledescription="carousel"
       aria-label="AYURDISHA welcome orientation"
     >
-      <div className="aym-welcome-atmosphere" aria-hidden="true" />
+      <div className="wl-bg" aria-hidden="true">
+        <span className="wl-glow wl-glow--sage" />
+        <span className="wl-glow wl-glow--gold" />
+      </div>
 
       <a className="aym-skip" href="#welcome-slide">
         Skip to welcome content
       </a>
 
-      <div className="aym-welcome-chrome">
-        <p className="aym-welcome-chrome-brand">AYURDISHA</p>
-        <button type="button" className="aym-welcome-skip-top" onClick={enterHome}>
-          Skip
-        </button>
-      </div>
+      <header className="wl-bar">
+        <div className="wl-bar-inner">
+          <p className="wl-brand">
+            <span className="wl-brand-word">AYURDISHA</span>
+            <span className="wl-brand-kicker">Meet the Mentors · WAC 2026</span>
+          </p>
+          <button type="button" className="wl-skip" onClick={enterHome}>
+            Skip
+          </button>
+        </div>
+      </header>
 
       <div
         id="welcome-slide"
-        className="aym-welcome-stage"
+        className="wl-stage"
         onClick={onDeckPointer}
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
@@ -241,195 +555,219 @@ export default function WelcomePage() {
       >
         {/* Slide 1 — Purpose */}
         {index === 0 && (
-          <article
-            key="s1"
-            className={`${slideClass} aym-welcome-slide-hero`}
-            aria-labelledby="welcome-hero-title"
-          >
-            <div className="aym-welcome-slide-bg" aria-hidden="true">
-              <img
-                src="/assets/welcome/welcome-hero.png"
-                alt=""
-                className="aym-welcome-slide-bg-img"
-                width={1536}
-                height={864}
-                fetchPriority="high"
-              />
-              <div className="aym-welcome-hero-veil" />
-              <div className="aym-welcome-hero-vignette" />
-            </div>
-            <div className="aym-welcome-slide-body aym-welcome-slide-body-hero">
-              <p className="aym-welcome-eyebrow aym-welcome-anim" style={{ "--aym-i": 0 }}>
-                <span className="aym-welcome-eyebrow-mark" aria-hidden="true" />
-                WAC 2026 · Bhubaneswar · 11–13 December
+          <article key="s1" className={`${slideClass} wl-split wl-hero`} aria-labelledby="welcome-hero-title">
+            <div className="wl-copy">
+              <p className="wl-kicker wl-kicker--rule">
+                <span className="wl-rule" aria-hidden="true" />
+                <span className="wl-kicker-text wl-anim" style={{ "--i": 0 }}>
+                  <span>11th World Ayurveda Congress</span>
+                  <span className="wl-kicker-sep" aria-hidden="true">·</span>
+                  <span>Bhubaneswar 2026</span>
+                </span>
               </p>
-              <h1 id="welcome-hero-title" className="aym-welcome-hero-title aym-welcome-anim" style={{ "--aym-i": 1 }}>
-                AYURDISHA
-                <span className="aym-welcome-hero-title-line">
-                  Meet the Mentors for Ayurveda careers
+              <h1 id="welcome-hero-title" className="wl-display wl-display--hero">
+                <span className="wl-display-lead"><MaskWords text="Wisdom, passed on." /></span>{" "}
+                <span className="wl-display-soft">
+                  <MaskWords text="One mentor, one student, one clear" from={3} />{" "}
+                  <span className="wl-mask wl-mask--accent">
+                    <em className="wl-mw" style={{ "--w": 9 }}>path.</em>
+                  </span>
                 </span>
               </h1>
-              <p className="aym-welcome-hero-lead aym-welcome-anim" style={{ "--aym-i": 2 }}>
-                The official digital Meet the Mentors hall of the 11th World Ayurveda
-                Congress — calm career direction for BAMS students, postgraduates, and
-                early-career practitioners.
-              </p>
-              <ul className="aym-welcome-audience aym-welcome-anim" style={{ "--aym-i": 3 }} aria-label="Who AYURDISHA is for">
+              <div className="wl-lede wl-anim" style={{ "--i": 4 }}>
+                <p className="wl-lede-main">
+                  Welcome to <strong>AYURDISHA</strong> — the Meet the Mentors hall of WAC 2026.
+                </p>
+                <p className="wl-lede-sub">
+                  Senior mentors guide your next step — online, and live 1:1 for selected
+                  students in Bhubaneswar.
+                </p>
+              </div>
+              <ul className="wl-pills wl-anim" style={{ "--i": 5 }} aria-label="Who AYURDISHA is for">
                 {AUDIENCE.map((label) => (
                   <li key={label}>{label}</li>
                 ))}
               </ul>
+              <div className="wl-actions wl-actions--hero" data-welcome-stop>
+                {nextButton("Take the tour")}
+                <button
+                  type="button"
+                  className="wl-textlink wl-anim"
+                  style={{ "--i": 6 }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    enterHome();
+                  }}
+                >
+                  Skip to AYURDISHA
+                  <ChevronRight size={16} strokeWidth={2.2} aria-hidden="true" />
+                </button>
+              </div>
+              <dl className="wl-facts">
+                {HERO_FACTS.map((f, i) => (
+                  <div key={f.label} className="wl-anim" style={{ "--i": 8 + i }}>
+                    <dt>{f.label}</dt>
+                    <dd>
+                      {f.count != null && <CountUp value={f.count} duration={1600} />}
+                      {f.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+            <div className="wl-visual wl-visual--hero">
+              <span className="wl-stage-glow" aria-hidden="true" />
+              <div className="wl-depth wl-depth--back" aria-hidden="true">
+                <Rings className="wl-rings" />
+                <span className="wl-keyline" />
+              </div>
+              <div className="wl-depth wl-depth--media">
+                <figure className="wl-media ed-media wl-curtain">
+                  <img
+                    src="/assets/welcome/welcome-hero.png"
+                    alt="A senior vaidya guides a young Ayurveda student across a carved table on a sunlit veranda"
+                    width={1280}
+                    height={720}
+                    fetchPriority="high"
+                  />
+                </figure>
+              </div>
+              <Sprig className="wl-sprig" />
+              <div className="wl-depth wl-depth--front">
+                <p className="wl-tag wl-tag--mentee">
+                  <span className="wl-tag-label">Mentee</span>
+                  BAMS student
+                </p>
+                <p className="wl-tag wl-tag--mentor">
+                  <span className="wl-tag-label">Mentor</span>
+                  Senior vaidya
+                </p>
+                <p className="wl-float-chip">
+                  <span className="wl-dot" aria-hidden="true" />
+                  Live 1:1 · selected students at WAC 2026
+                </p>
+              </div>
             </div>
           </article>
         )}
 
         {/* Slide 2 — What you can do */}
         {index === 1 && (
-          <article
-            key="s2"
-            className={`${slideClass} aym-welcome-slide-features`}
-            aria-labelledby="welcome-features-title"
-          >
-            <div className="aym-welcome-slide-inner">
-              <header className="aym-welcome-slide-head aym-welcome-anim" style={{ "--aym-i": 0 }}>
-                <p className="aym-welcome-section-eyebrow">What you can do</p>
-                <h2 id="welcome-features-title" className="aym-welcome-section-title">
-                  Four doors on the digital floor
+          <article key="s2" className={`${slideClass} wl-stack`} aria-labelledby="welcome-features-title">
+            <header className="wl-head wl-head--split">
+              <div>
+                <p className="wl-eyebrow wl-anim" style={{ "--i": 0 }}>What you can do</p>
+                <h2 id="welcome-features-title" className="wl-title wl-anim" style={{ "--i": 1 }}>
+                  Four doors on the <em>digital floor.</em>
                 </h2>
-                <p className="aym-welcome-section-lead">
-                  Hall, Mentors, Ask, and Track — plus live 1-on-1 mentor talks at
-                  Bhubaneswar for selected students.
-                </p>
-              </header>
-              <ul className="aym-welcome-feature-grid aym-welcome-feature-grid-deck">
-                {FEATURES.map((f, i) => {
-                  const Icon = f.Icon;
-                  return (
-                    <li
-                      key={f.id}
-                      className="aym-welcome-feature-card aym-welcome-anim"
-                      style={{ "--aym-i": i + 1 }}
-                    >
-                      <div className="aym-welcome-feature-visual" aria-hidden="true">
-                        <img src={f.image} alt="" width={640} height={640} />
-                        <span className="aym-welcome-feature-badge">
-                          <Icon size={18} strokeWidth={1.7} />
-                        </span>
-                      </div>
-                      <div className="aym-welcome-feature-body">
-                        <h3>{f.title}</h3>
-                        <p>{f.how}</p>
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-              <aside
-                className="aym-welcome-live-strip aym-welcome-anim"
-                style={{ "--aym-i": 5 }}
-                aria-label={LIVE_1ON1.title}
-              >
+              </div>
+              <p className="wl-lead wl-anim" style={{ "--i": 2 }}>
+                Hall, Mentors, Ask, and Track — plus live 1-on-1 mentor talks at
+                Bhubaneswar for selected students.
+              </p>
+            </header>
+            <ul className="wl-cards">
+              {FEATURES.map((f, i) => {
+                const Icon = f.Icon;
+                return (
+                  <li key={f.id} className="wl-card wl-anim" style={{ "--i": i + 2 }}>
+                    <div className="wl-card-media ed-media" aria-hidden="true">
+                      <img src={f.image} alt="" width={640} height={640} />
+                    </div>
+                    <div className="wl-card-body">
+                      <span className="wl-card-icon" aria-hidden="true">
+                        <Icon size={17} strokeWidth={1.8} />
+                      </span>
+                      <h3>{f.title}</h3>
+                      <p>{f.how}</p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+            <div className="wl-foot-row">
+              <aside className="wl-note wl-anim" style={{ "--i": 6 }} aria-label={LIVE_1ON1.title}>
                 <MapPin size={16} strokeWidth={1.8} aria-hidden="true" />
-                <div>
+                <p>
                   <strong>{LIVE_1ON1.badge}</strong>
-                  <span>{LIVE_1ON1.title} — selection-based, arranged by our Meet the Mentors team.</span>
-                </div>
+                  {LIVE_1ON1.title} — selection-based, arranged by our Meet the Mentors team.
+                </p>
               </aside>
+              <div className="wl-actions" data-welcome-stop>{nextButton()}</div>
             </div>
           </article>
         )}
 
         {/* Slide 3 — How to use */}
         {index === 2 && (
-          <article
-            key="s3"
-            className={`${slideClass} aym-welcome-slide-path`}
-            aria-labelledby="welcome-steps-title"
-          >
-            <div className="aym-welcome-slide-inner aym-welcome-slide-path-inner">
-              <header className="aym-welcome-slide-head aym-welcome-anim" style={{ "--aym-i": 0 }}>
-                <p className="aym-welcome-section-eyebrow">How to use AYURDISHA</p>
-                <h2 id="welcome-steps-title" className="aym-welcome-section-title">
-                  Your first-visit path
+          <article key="s3" className={`${slideClass} wl-stack`} aria-labelledby="welcome-steps-title">
+            <header className="wl-head wl-head--split">
+              <div>
+                <p className="wl-eyebrow wl-anim" style={{ "--i": 0 }}>How to use AYURDISHA</p>
+                <h2 id="welcome-steps-title" className="wl-title wl-anim" style={{ "--i": 1 }}>
+                  Your first-visit <em>path.</em>
                 </h2>
-                <p className="aym-welcome-section-lead">
-                  Hall → register → ticket → track — then follow your written reply online.
-                </p>
-              </header>
-              <ol className="aym-welcome-steps aym-welcome-steps-deck aym-welcome-steps-four">
-                {STEPS.map((s, i) => (
-                  <li
-                    key={s.n}
-                    className="aym-welcome-step aym-welcome-anim"
-                    style={{ "--aym-i": i + 1 }}
-                  >
-                    <span className="aym-welcome-step-n" aria-hidden="true">
-                      {s.n}
-                    </span>
-                    <div>
-                      <h3>{s.title}</h3>
-                      <p>{s.body}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-              <aside
-                className="aym-welcome-live-strip aym-welcome-anim"
-                style={{ "--aym-i": 5 }}
-                aria-label={LIVE_1ON1.pathTitle}
-              >
+              </div>
+              <p className="wl-lead wl-anim" style={{ "--i": 2 }}>
+                Hall, register, ticket, track — then follow your written reply online.
+              </p>
+            </header>
+            <ol className="wl-steps">
+              {STEPS.map((s, i) => (
+                <li key={s.n} className="wl-step wl-anim" style={{ "--i": i + 2 }}>
+                  <span className="wl-step-n" aria-hidden="true">{s.n}</span>
+                  <h3>{s.title}</h3>
+                  <p>{s.body}</p>
+                </li>
+              ))}
+            </ol>
+            <div className="wl-foot-row">
+              <aside className="wl-note wl-anim" style={{ "--i": 6 }} aria-label={LIVE_1ON1.pathTitle}>
                 <Users size={16} strokeWidth={1.8} aria-hidden="true" />
-                <div>
+                <p>
                   <strong>{LIVE_1ON1.badge}</strong>
-                  <span>{LIVE_1ON1.pathBody}</span>
-                </div>
+                  {LIVE_1ON1.pathBody}
+                </p>
               </aside>
+              <div className="wl-actions" data-welcome-stop>{nextButton()}</div>
             </div>
           </article>
         )}
 
         {/* Slide 4 — Congress + trust */}
         {index === 3 && (
-          <article
-            key="s4"
-            className={`${slideClass} aym-welcome-slide-trust`}
-            aria-labelledby="welcome-trust-title"
-          >
-            <div className="aym-welcome-slide-split aym-welcome-slide-split-trust">
-              <div className="aym-welcome-slide-copy">
-                <p className="aym-welcome-section-eyebrow aym-welcome-anim" style={{ "--aym-i": 0 }}>
-                  Congress &amp; trust
-                </p>
-                <h2
-                  id="welcome-trust-title"
-                  className="aym-welcome-section-title aym-welcome-anim"
-                  style={{ "--aym-i": 1 }}
-                >
-                  Built for WAC Bhubaneswar
-                </h2>
-                <p className="aym-welcome-section-lead aym-welcome-anim" style={{ "--aym-i": 2 }}>
-                  Career clarity online — and for selected students, live one-to-one mentor
-                  talks on the Congress floor, facilitated by the AYURDISHA Meet the Mentors team.
-                </p>
-                <ul className="aym-welcome-trust-list">
-                  {TRUST_POINTS.map((p, i) => (
-                    <li
-                      key={p.title}
-                      className={`aym-welcome-anim${p.highlight ? " aym-welcome-trust-highlight" : ""}`}
-                      style={{ "--aym-i": i + 3 }}
-                    >
-                      <h3>{p.title}</h3>
-                      <p>{p.body}</p>
-                    </li>
-                  ))}
-                </ul>
-                <p className="aym-welcome-disclaimer aym-welcome-anim" style={{ "--aym-i": 6 }}>
-                  Career and education guidance for Congress delegates — not medical advice or treatment.
-                </p>
-              </div>
-              <figure className="aym-welcome-slide-media aym-welcome-slide-media-tall aym-welcome-anim" style={{ "--aym-i": 2 }}>
+          <article key="s4" className={`${slideClass} wl-split wl-split--trust`} aria-labelledby="welcome-trust-title">
+            <div className="wl-copy">
+              <p className="wl-eyebrow wl-anim" style={{ "--i": 0 }}>Congress &amp; trust</p>
+              <h2 id="welcome-trust-title" className="wl-title wl-anim" style={{ "--i": 1 }}>
+                Built for WAC <em>Bhubaneswar.</em>
+              </h2>
+              <p className="wl-lead wl-anim" style={{ "--i": 2 }}>
+                Career clarity online — and for selected students, live one-to-one mentor
+                talks on the Congress floor, facilitated by the AYURDISHA Meet the Mentors team.
+              </p>
+              <ul className="wl-trust">
+                {TRUST_POINTS.map((p, i) => (
+                  <li
+                    key={p.title}
+                    className={`wl-anim${p.highlight ? " is-highlight" : ""}`}
+                    style={{ "--i": i + 3 }}
+                  >
+                    <h3>{p.title}</h3>
+                    <p>{p.body}</p>
+                  </li>
+                ))}
+              </ul>
+              <p className="wl-fine wl-anim" style={{ "--i": 6 }}>
+                Career and education guidance for Congress delegates — not medical advice or treatment.
+              </p>
+              <div className="wl-actions" data-welcome-stop>{nextButton()}</div>
+            </div>
+            <div className="wl-visual wl-visual--tall wl-anim-media">
+              <span className="wl-keyline" aria-hidden="true" />
+              <figure className="wl-media ed-media">
                 <img
-                  src="/assets/welcome/welcome-congress.png"
+                  src="/assets/welcome/welcome-congress.webp"
                   alt="Mentor and student in a one-to-one Meet the Mentors career conversation"
                   width={864}
                   height={1152}
@@ -439,117 +777,45 @@ export default function WelcomePage() {
           </article>
         )}
 
-        {/* Slide 5 — Ready / Enter CTA */}
+        {/* Slide 5 — Finale */}
         {index === 4 && (
-          <article
+          <FinaleSlide
             key="s5"
-            className={`${slideClass} aym-welcome-slide-finale`}
-            aria-labelledby="welcome-finale-title"
-          >
-            <div className="aym-welcome-slide-bg aym-welcome-slide-bg-finale" aria-hidden="true">
-              <img
-                src="/assets/welcome/welcome-enter-hall.png"
-                alt=""
-                className="aym-welcome-slide-bg-img"
-                width={1280}
-                height={720}
-              />
-              <div className="aym-welcome-hero-veil aym-welcome-finale-veil" />
-              <div className="aym-welcome-hero-vignette" />
-            </div>
-            <div className="aym-welcome-slide-body aym-welcome-slide-body-finale">
-              <p className="aym-welcome-eyebrow aym-welcome-anim" style={{ "--aym-i": 0 }}>
-                <span className="aym-welcome-eyebrow-mark" aria-hidden="true" />
-                Ready when you are
-              </p>
-              <h2 id="welcome-finale-title" className="aym-welcome-hero-title aym-welcome-anim" style={{ "--aym-i": 1 }}>
-                Enter the hall
-                <span className="aym-welcome-hero-title-line">
-                  Your place on the Meet the Mentors floor
-                </span>
-              </h2>
-              <p className="aym-welcome-hero-lead aym-welcome-anim" style={{ "--aym-i": 2 }}>
-                Continue into AYURDISHA home — browse mentors, ask once when ready, and track
-                your written reply. Reopen this orientation anytime from About or Help.
-              </p>
-              <ul className="aym-welcome-finale-map aym-welcome-anim" style={{ "--aym-i": 3 }} aria-label="What you will find inside">
-                <li>
-                  <span>Home floor</span>
-                  Podcasts, theme stage, Congress results
-                </li>
-                <li>
-                  <span>Mentors</span>
-                  Meet the Mentors profiles
-                </li>
-                <li>
-                  <span>Ask Desk</span>
-                  One focused career question
-                </li>
-                <li>
-                  <span>Track</span>
-                  Follow your WAC ticket
-                </li>
-              </ul>
-              <div className="aym-welcome-hero-actions aym-welcome-anim" style={{ "--aym-i": 4 }} data-welcome-stop>
-                <button
-                  type="button"
-                  className="aym-welcome-cta"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    enterHome();
-                  }}
-                >
-                  Enter AYURDISHA
-                  <ArrowRight size={16} aria-hidden="true" />
-                </button>
-              </div>
-              <p className="aym-welcome-hint aym-welcome-hint-on-dark aym-welcome-anim" style={{ "--aym-i": 5 }}>
-                <BookOpen size={14} aria-hidden="true" />
-                Tip: reopen this overview from About or How AYURDISHA works.
-              </p>
-            </div>
-          </article>
+            slideClass={slideClass}
+            onEnter={enterHome}
+            onAsk={askFromWelcome}
+            onTrack={trackFromWelcome}
+            onCard={openFromFinale}
+          />
         )}
       </div>
 
-      <div className="aym-welcome-footer" data-welcome-stop>
-        <div
-          className="aym-welcome-progress"
-          role="tablist"
-          aria-label="Welcome orientation progress"
-        >
-          {Array.from({ length: SLIDE_COUNT }, (_, i) => (
+      <footer className="wl-footer" data-welcome-stop>
+        <div className="wl-progress" role="tablist" aria-label="Welcome orientation progress">
+          {SLIDE_LABELS.map((label, i) => (
             <button
-              key={i}
+              key={label}
               type="button"
               role="tab"
               aria-selected={i === index}
-              aria-label={
-                i === 0
-                  ? "Purpose"
-                  : i === 1
-                    ? "What you can do"
-                    : i === 2
-                      ? "How to use"
-                      : i === 3
-                        ? "Congress and trust"
-                        : "Enter AYURDISHA"
-              }
-              className={`aym-welcome-dot${i === index ? " is-active" : ""}`}
+              aria-label={label}
+              className={`wl-seg${i === index ? " is-active" : ""}${i < index ? " is-done" : ""}`}
               onClick={(e) => {
                 e.stopPropagation();
                 if (i === index) return;
                 goTo(i, i > index ? 1 : -1);
               }}
-            />
+            >
+              <span className="wl-seg-bar" />
+            </button>
           ))}
         </div>
         {!isLast && (
-          <p className="aym-welcome-tap-hint" aria-hidden="true">
+          <p className="wl-tap-hint" aria-hidden="true">
             Tap anywhere to continue
           </p>
         )}
-      </div>
+      </footer>
     </div>
   );
 }

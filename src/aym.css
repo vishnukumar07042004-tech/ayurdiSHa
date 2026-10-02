@@ -1,17 +1,76 @@
 :root {
-  --forest: #1B4332;
-  --forest-deep: #0F2A1F;
-  --forest-mid: #2D6A4F;
+  --forest: #173F35;
+  --forest-deep: #0F2C25;
+  --forest-mid: #386B4D;
   --botanical: #143D2B;
-  --cream: #F5EBE0;
-  --sand: #EDE4D4;
-  --oak: #C4A484;
-  --oak-dark: #A07850;
-  --white: #FFFEFB;
-  --ink: #1A2E24;
-  --muted: #5C6B62;
-  --line: #D9CBB8;
-  --gold: #D4A84B;
+  --cream: #F7F4EC;
+  --sand: #F2EFE6;
+  --oak: #C49A52;
+  --oak-dark: #9C7A3E;
+  --white: #FFFFFF;
+  --ink: #1E2421;
+  --muted: #5B6560;
+  --line: #E4DED0;
+  --gold: #C49A52;
+
+  /* Editorial surfaces (65–80% of every page) */
+  --paper: #FFFFFF;
+  --ivory: #FCFBF7;
+  --parchment: #F7F4EC;
+  --linen: #F2EFE6;
+  --sage: #8FA58A;
+  --sage-soft: #E9EEE5;
+  --sage-mist: #F1F4EE;
+  --gold-soft: rgba(196, 154, 82, 0.38);
+  --clay: #A65D3B;
+  --charcoal: #1E2421;
+  --divider: rgba(143, 165, 138, 0.38);
+  --divider-gold: rgba(196, 154, 82, 0.45);
+
+  /* Type */
+  --font-display: "Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", serif;
+  --font-sans: "Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --fs-hero: clamp(2.9rem, 6.4vw, 5.6rem);
+  --fs-h2: clamp(2.2rem, 4.2vw, 3.6rem);
+  --fs-h3: clamp(1.45rem, 2vw, 1.85rem);
+  --fs-lead: clamp(1.05rem, 1.25vw, 1.2rem);
+
+  /* Space */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4.5rem;
+  --space-7: 6.5rem;
+  --space-8: 9rem;
+  --section-y: clamp(4.5rem, 10vw, 9rem);
+  --container: 1240px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+
+  /* Radii — near-square editorial edges */
+  --radius-edge: 2px;
+  --radius-soft: 6px;
+  --radius-frame: 14px;
+  --radius-organic: 46% 54% 42% 58% / 55% 45% 55% 45%;
+
+  /* Shadows */
+  --shadow-soft: 0 1px 2px rgba(23, 63, 53, 0.04), 0 10px 30px rgba(23, 63, 53, 0.06);
+  --shadow-lift: 0 2px 6px rgba(23, 63, 53, 0.05), 0 24px 50px rgba(23, 63, 53, 0.11);
+  --shadow-nav: 0 1px 0 rgba(23, 63, 53, 0.06), 0 8px 24px rgba(23, 63, 53, 0.06);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.33, 0, 0.2, 1);
+  --dur-fast: 220ms;
+  --dur-base: 420ms;
+  --dur-reveal: 800ms;
+  --dur-image: 800ms;
+  --reveal-shift: 28px;
+  --stagger: 110ms;
+
+  /* Paper grain (inline SVG noise, used at very low opacity) */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.16 0 0 0 0 0.13 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   --leaf: #95D5B2;
   --saffron: #C45C26;
   --terracotta: #B85C38;
@@ -66,23 +125,33 @@
 }
 
 html, body, #root { min-height: 100%; }
-body { margin: 0; background: var(--cream); }
+body { margin: 0; background: var(--ivory); }
 
 .aym {
-  font-family: "Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
   color: var(--ink);
   background:
-    radial-gradient(ellipse 90% 55% at 50% -8%, rgba(212, 168, 75, 0.14), transparent 52%),
-    radial-gradient(ellipse 70% 45% at 100% 18%, rgba(45, 106, 79, 0.07), transparent 55%),
-    radial-gradient(ellipse 60% 40% at 0% 42%, rgba(196, 164, 132, 0.12), transparent 50%),
-    linear-gradient(180deg, #f7f0e6 0%, var(--cream) 28%, #f3e9dc 100%);
+    radial-gradient(ellipse 80% 40% at 50% -6%, rgba(196, 154, 82, 0.06), transparent 55%),
+    linear-gradient(180deg, var(--ivory) 0%, var(--ivory) 40%, var(--parchment) 100%);
   min-height: 100%;
+  position: relative;
+  isolation: isolate;
+}
+/* Paper grain — whole-page, barely there */
+.aym::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: var(--grain);
+  background-size: 180px 180px;
+  opacity: 0.045;
 }
 .aym-display, .aym-serif {
-  font-family: Fraunces, "Source Serif 4", Georgia, serif;
-  font-optical-sizing: auto;
-  font-weight: 640;
-  letter-spacing: -.03em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -.012em;
 }
 .aym-mono {
   font-family: ui-monospace, Consolas, "Courier New", monospace;
@@ -474,7 +543,7 @@ body { margin: 0; background: var(--cream); }
   border-radius: var(--radius-pill);
 }
 .aym-wordmark {
-  font-family: Outfit, "Source Sans 3", system-ui, sans-serif;
+  font-family: var(--font-sans);
   color: #fff;
   font-size: 22px;
   margin: 0;
@@ -549,7 +618,7 @@ body { margin: 0; background: var(--cream); }
   margin: 0;
   background:
     linear-gradient(180deg, rgba(15,42,31,.18) 0%, rgba(15,42,31,.42) 38%, rgba(10,28,20,.92) 100%),
-    url("/assets/hall-photo.png") center 28% / cover no-repeat;
+    url("/assets/sections/hall-hero.webp") center 28% / cover no-repeat;
 }
 .aym-hero-leaf {
   position: absolute;
@@ -619,13 +688,13 @@ body { margin: 0; background: var(--cream); }
   overflow: hidden;
   background:
     linear-gradient(120deg, rgba(15,42,31,.72), rgba(15,42,31,.38)),
-    url("/assets/hall-photo.png") center 38% / cover no-repeat;
+    url("/assets/sections/hall-connect.webp") center 38% / cover no-repeat;
   box-shadow: 0 16px 42px rgba(0,0,0,.22);
 }
 .aym-connect-bleed {
   position: absolute;
   inset: -8%;
-  background: url("/assets/hall-pods.png") 88% 72% / 46% no-repeat;
+  background: none;
   opacity: .35;
   mix-blend-mode: soft-light;
   animation: aym-land-ken 24s ease-in-out infinite;
@@ -869,7 +938,7 @@ body { margin: 0; background: var(--cream); }
   color: var(--oak);
 }
 .aym-hall-beat h3 {
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: 22px;
   margin: 0 0 8px;
   letter-spacing: -.02em;
@@ -917,17 +986,17 @@ body { margin: 0; background: var(--cream); }
   color: var(--oak);
 }
 .aym-hall-atmo-pods {
-  background-image: url("/assets/hall-pods.png");
+  background-image: url("/assets/sections/hall-atmo-pods.webp");
   background-position: 80% 52%;
   animation: aym-land-ken 22s ease-in-out infinite reverse;
 }
 .aym-hall-atmo-stage {
-  background-image: url("/assets/hall-stage.png");
+  background-image: url("/assets/sections/hall-atmo-stage.webp");
   background-position: 62% 30%;
   animation: aym-land-ken 26s ease-in-out infinite;
 }
 .aym-hall-atmo-hall {
-  background-image: url("/assets/hall-photo.png");
+  background-image: url("/assets/sections/hall-atmo-venue.webp");
   background-position: center 28%;
   animation: aym-land-ken 28s ease-in-out infinite;
 }
@@ -964,7 +1033,7 @@ body { margin: 0; background: var(--cream); }
 }
 .aym-hall-quote blockquote p {
   margin: 0;
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(22px, 3.2vw, 32px);
   line-height: 1.28;
   letter-spacing: -.03em;
@@ -1009,7 +1078,7 @@ body { margin: 0; background: var(--cream); }
   flex-shrink: 0;
 }
 .aym-zone-podc { grid-column: span 6; background: var(--sand); border-radius: 22px; }
-.aym-zone-podc .aym-zone-media { background-image: url("/assets/hall-pods.png"); background-position: 80% 55%; }
+.aym-zone-podc .aym-zone-media { background-image: url("/assets/sections/hall-zone-podcast.webp"); background-position: 80% 55%; }
 .aym-zone-podc .aym-zone-cta { color: var(--forest); }
 .aym-zone-results {
   grid-column: span 6;
@@ -1021,7 +1090,7 @@ body { margin: 0; background: var(--cream); }
 }
 .aym-zone-results .aym-eyebrow { color: var(--oak); }
 .aym-zone-results .aym-zone-media {
-  background-image: url("/assets/hall-stage.png");
+  background-image: url("/assets/sections/hall-zone-results.webp");
   background-position: 62% 32%;
   opacity: .92;
 }
@@ -1038,7 +1107,7 @@ body { margin: 0; background: var(--cream); }
   color: var(--oak);
 }
 .aym-zone h3 {
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: 26px;
   margin: 8px 0 6px;
   letter-spacing: -.03em;
@@ -1124,7 +1193,7 @@ body { margin: 0; background: var(--cream); }
 }
 .aym-ask-register-banner-title {
   margin: 0;
-  font-family: Fraunces, "Source Serif 4", Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(15.5px, 2.6vw, 17.5px);
   font-weight: 640;
   letter-spacing: -.02em;
@@ -1233,9 +1302,15 @@ body { margin: 0; background: var(--cream); }
 }
 .aym-path-media {
   height: 92px;
-  background: url("/assets/hall-exchange.png") 72% 38% / cover no-repeat;
+  background: url("/assets/sections/hall-path-pg.webp") center 40% / cover no-repeat;
 }
-.aym-path h3 { margin: 14px 14px 6px; font-size: 18px; font-family: Fraunces, Georgia, serif; font-weight: 640; }
+.aym-path:nth-child(1) .aym-path-media { background-image: url("/assets/sections/hall-path-pg.webp"); }
+.aym-path:nth-child(2) .aym-path-media { background-image: url("/assets/sections/hall-path-clinic.webp"); }
+.aym-path:nth-child(3) .aym-path-media { background-image: url("/assets/sections/hall-path-research.webp"); }
+.aym-path:nth-child(4) .aym-path-media { background-image: url("/assets/sections/hall-path-public-health.webp"); }
+.aym-path:nth-child(5) .aym-path-media { background-image: url("/assets/sections/hall-path-startup.webp"); }
+.aym-path:nth-child(6) .aym-path-media { background-image: url("/assets/sections/hall-path-abroad.webp"); }
+.aym-path h3 { margin: 14px 14px 6px; font-size: 18px; font-family: var(--font-display); font-weight: 640; }
 .aym-path p { margin: 0 14px; font-size: 13.5px; color: var(--muted); line-height: 1.5; }
 .aym-exchange-hero {
   position: relative;
@@ -1285,7 +1360,7 @@ body { margin: 0; background: var(--cream); }
   transition: transform .16s;
 }
 .aym-pod-card:hover { transform: scale(1.03); }
-.aym-pod-card h3 { margin: 8px 0 6px; font-size: 18px; font-family: Fraunces, Georgia, serif; font-weight: 640; max-width: 180px; }
+.aym-pod-card h3 { margin: 8px 0 6px; font-size: 18px; font-family: var(--font-display); font-weight: 640; max-width: 180px; }
 .aym-pod-card p { margin: 0; font-size: 13px; color: var(--muted); max-width: 190px; line-height: 1.4; }
 
 .aym-pods-banner {
@@ -1293,7 +1368,7 @@ body { margin: 0; background: var(--cream); }
   border-radius: 18px;
   overflow: hidden;
   margin: 0 0 22px;
-  background: url("/assets/hall-pods.png") center 40% / cover no-repeat;
+  background: url("/assets/sections/hall-knowledge-banner.webp") center 40% / cover no-repeat;
 }
 
 .aym-page-head { max-width: 720px; margin: 0 auto 22px; }
@@ -1387,7 +1462,7 @@ body { margin: 0; background: var(--cream); }
 }
 .aym-insights-hero-copy .aym-eyebrow { color: var(--oak); }
 .aym-insights-hero-copy h2 {
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(28px, 4.5vw, 44px);
   margin: 4px 0 6px;
   font-weight: 640;
@@ -1436,7 +1511,7 @@ body { margin: 0; background: var(--cream); }
   justify-content: space-between;
   box-shadow: 0 6px 16px rgba(27,67,50,.08);
 }
-.aym-cell b { font-family: Fraunces, Georgia, serif; font-size: 22px; color: var(--forest); display: block; font-weight: 640; }
+.aym-cell b { font-family: var(--font-display); font-size: 22px; color: var(--forest); display: block; font-weight: 640; }
 .aym-cell span { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
 .aym-cell p { margin: 4px 0 0; font-size: 12.5px; color: var(--muted); }
 .aym-cell-stage { background: var(--forest); color: #fff; }
@@ -1479,7 +1554,7 @@ body { margin: 0; background: var(--cream); }
   line-height: 1.15;
   box-shadow: inset 0 0 0 9px rgba(245,235,224,.45);
 }
-.aym-live-pod em { font-style: normal; font-size: 16px; font-family: Fraunces, Georgia, serif; }
+.aym-live-pod em { font-style: normal; font-size: 16px; font-family: var(--font-display); }
 
 .aym-queue { display: flex; flex-direction: column; gap: 8px; }
 .aym-qstrip {
@@ -1511,7 +1586,7 @@ body { margin: 0; background: var(--cream); }
   text-align: center;
   padding: 10px;
 }
-.aym-mix-pod b { font-size: 22px; color: var(--forest); font-family: Fraunces, Georgia, serif; font-weight: 640; }
+.aym-mix-pod b { font-size: 22px; color: var(--forest); font-family: var(--font-display); font-weight: 640; }
 .aym-mix-pod span { font-size: 11px; color: var(--muted); line-height: 1.25; }
 
 .aym-trend {
@@ -1791,7 +1866,7 @@ body { margin: 0; background: var(--cream); }
   margin: 0 0 18px;
   background:
     linear-gradient(120deg, rgba(15,42,31,.55), rgba(15,42,31,.28)),
-    url("/assets/hall-photo.png") center 42% / cover no-repeat;
+    url("/assets/sections/hall-curation-desk.webp") center 42% / cover no-repeat;
 }
 .aym-desk-hero-veil {
   position: absolute;
@@ -1808,7 +1883,7 @@ body { margin: 0; background: var(--cream); }
 }
 .aym-desk-hero-copy .aym-eyebrow { color: var(--oak); }
 .aym-desk-hero-copy h2 {
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(26px, 3.6vw, 36px);
   margin: 6px 0 8px;
   font-weight: 640;
@@ -1953,7 +2028,7 @@ body { margin: 0; background: var(--cream); }
 }
 .aym-letter-prose p {
   margin: 0 0 12px;
-  font-family: Fraunces, "Source Serif 4", Georgia, serif;
+  font-family: var(--font-display);
   font-size: 17px;
   font-weight: 500;
   line-height: 1.75;
@@ -2178,7 +2253,7 @@ body { margin: 0; background: var(--cream); }
   margin-bottom: 8px;
 }
 .aym-intro-brand h1 {
-  font-family: Outfit, "Source Sans 3", system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: clamp(44px, 9vw, 86px);
   font-weight: 800;
   letter-spacing: .08em;
@@ -2268,7 +2343,7 @@ body { margin: 0; background: var(--cream); }
   margin-bottom: 6px;
 }
 .aym-intro-help-card h2 {
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: 18px;
   margin: 0 0 8px;
   font-weight: 640;
@@ -2359,7 +2434,7 @@ body { margin: 0; background: var(--cream); }
   z-index: 1;
 }
 .aym-road-step h3 {
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: 17.5px;
   margin: 0 0 6px;
   letter-spacing: -.02em;
@@ -2528,7 +2603,7 @@ body { margin: 0; background: var(--cream); }
   gap: 2px;
 }
 .aym-land-wordmark {
-  font-family: Outfit, "Source Sans 3", system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-weight: 800;
   letter-spacing: .08em;
   font-size: 22px;
@@ -2952,7 +3027,7 @@ body { margin: 0; background: var(--cream); }
 }
 .aym-land-benefit .aym-eyebrow { color: var(--oak-dark); margin: 0 20px 6px; }
 .aym-land-benefit h3 {
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: 18px;
   margin: 0 20px 8px;
   font-weight: 640;
@@ -3010,7 +3085,7 @@ body { margin: 0; background: var(--cream); }
 .aym-land-who-shot-stage { background-image: url("/assets/hall-stage.png"); background-position: 42% 28%; animation-direction: reverse; }
 .aym-land-who-card svg { color: var(--oak-dark); margin: 0 22px 10px; }
 .aym-land-who-card h3 {
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: 22px;
   margin: 0 22px 8px;
   color: var(--forest);
@@ -3141,7 +3216,7 @@ body { margin: 0; background: var(--cream); }
   inset: 0;
   background:
     linear-gradient(90deg, rgba(15,42,31,.88) 0%, rgba(15,42,31,.42) 48%, rgba(15,42,31,.2) 100%),
-    url("/assets/hall-stage.png") 70% 28% / cover no-repeat;
+    url("/assets/sections/hall-wac.webp") 70% 28% / cover no-repeat;
   mix-blend-mode: luminosity;
   opacity: .45;
   pointer-events: none;
@@ -3166,7 +3241,7 @@ body { margin: 0; background: var(--cream); }
   max-width: 56em;
 }
 .aym-wac-soon {
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(22px, 3vw, 30px) !important;
   color: #fff !important;
   margin: 8px 0 10px !important;
@@ -3314,7 +3389,7 @@ body { margin: 0; background: var(--cream); }
 }
 .aym-pod-know-hero-copy .aym-eyebrow { color: var(--oak); margin-bottom: 6px; }
 .aym-pod-know-hero-copy h2 {
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(26px, 4.2vw, 40px);
   margin: 0 0 8px;
   font-weight: 640;
@@ -3351,7 +3426,7 @@ body { margin: 0; background: var(--cream); }
 }
 .aym-pod-know-card h3 {
   margin: 0 0 12px;
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: 20px;
   font-weight: 640;
   color: var(--forest);
@@ -3378,7 +3453,7 @@ body { margin: 0; background: var(--cream); }
 }
 .aym-pod-know-refs h3 {
   margin: 0 0 6px;
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: 20px;
   color: #fff;
 }
@@ -3574,7 +3649,7 @@ body { margin: 0; background: var(--cream); }
 }
 .aym-know-glance-title {
   margin: 0 0 12px;
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: 16px;
   font-weight: 640;
   color: var(--forest);
@@ -3658,7 +3733,7 @@ body { margin: 0; background: var(--cream); }
 }
 .aym-know-pullquote p {
   margin: 0 0 8px;
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: 18px;
   line-height: 1.45;
   color: var(--forest);
@@ -3680,7 +3755,7 @@ body { margin: 0; background: var(--cream); }
   border-radius: 14px;
 }
 .aym-know-stat-num {
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: 28px;
   font-weight: 640;
   color: var(--oak);
@@ -3716,7 +3791,7 @@ body { margin: 0; background: var(--cream); }
 }
 .aym-know-journals-head h4 {
   margin: 0;
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: 20px;
   font-weight: 640;
 }
@@ -4125,7 +4200,7 @@ body { margin: 0; background: var(--cream); }
   color: #EDE4D4;
 }
 .aym-mentors-stat strong {
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: 32px;
   font-weight: 640;
   color: var(--gold);
@@ -4192,7 +4267,7 @@ body { margin: 0; background: var(--cream); }
   border-radius: 999px;
   background: var(--forest);
   color: var(--cream);
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-weight: 640;
   font-size: 15px;
   letter-spacing: 0;
@@ -4272,7 +4347,7 @@ body { margin: 0; background: var(--cream); }
   border-radius: 50%;
   display: grid;
   place-items: center;
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-weight: 640;
   font-size: 18px;
   letter-spacing: .06em;
@@ -4293,7 +4368,7 @@ body { margin: 0; background: var(--cream); }
 .aym-mentor-body { min-width: 0; flex: 1; display: flex; flex-direction: column; }
 .aym-mentor-name {
   margin: 0 0 6px;
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 640;
   color: var(--forest-deep);
@@ -4551,7 +4626,7 @@ body { margin: 0; background: var(--cream); }
 .aym-podcast-hero-bg {
   position: absolute;
   inset: -12%;
-  background: url("/assets/hall-photo.png") center 28% / cover no-repeat;
+  background: url("/assets/sections/hall-podcast-hero.webp") center 28% / cover no-repeat;
   animation: aym-land-ken 28s ease-in-out infinite;
   will-change: transform;
 }
@@ -4653,7 +4728,7 @@ body { margin: 0; background: var(--cream); }
   justify-content: flex-end;
   aspect-ratio: 16 / 9;
   background:
-    url("/assets/hall-pods.png") center 40% / cover no-repeat,
+    url("/assets/sections/hall-podcast-poster.webp") center 40% / cover no-repeat,
     var(--forest-deep);
   color: #fff;
   text-decoration: none;
@@ -4810,7 +4885,7 @@ body { margin: 0; background: var(--cream); }
   margin-bottom: 12px;
 }
 .aym-drawer-title {
-  font-family: Outfit, system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: 15px;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -5194,7 +5269,7 @@ body { margin: 0; background: var(--cream); }
 
 .aym-homepage .aym-home-hero-title {
   margin: 0 0 1.5rem;
-  font-family: Fraunces, "Source Serif 4", Georgia, serif;
+  font-family: var(--font-display);
   font-weight: 650;
   font-size: clamp(2.45rem, 5.2vw, 3.65rem);
   line-height: 1.08;
@@ -5732,7 +5807,7 @@ body { margin: 0; background: var(--cream); }
 }
 .aym-faq-question {
   font-size: 17px;
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-weight: 640;
   color: var(--forest-deep);
   cursor: pointer;
@@ -5994,7 +6069,7 @@ body { margin: 0; background: var(--cream); }
   font-size: 2rem;
   font-weight: 800;
   color: rgba(194, 139, 56, 0.15);
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
 }
 .aym-step-icon {
   width: 56px;
@@ -6011,7 +6086,7 @@ body { margin: 0; background: var(--cream); }
 }
 .aym-step-card h3 {
   font-size: 1.35rem;
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-weight: 640;
   color: var(--forest-deep);
   margin-bottom: 0.75rem;
@@ -6099,7 +6174,7 @@ body { margin: 0; background: var(--cream); }
   border: 1px solid rgba(194, 139, 56, 0.2);
 }
 .aym-track-card-title {
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 640;
   color: var(--forest-deep);
@@ -6572,7 +6647,7 @@ button.aym-drawer-sublink {
 }
 
 .aym-homepage .aym-pathway-card-title {
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.2rem;
   font-weight: 640;
   color: var(--forest-deep);
@@ -6656,7 +6731,7 @@ button.aym-drawer-sublink {
   font-size: 24px;
   font-weight: 700;
   color: var(--forest);
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
 }
 
 .aym-mentor-badge-specialty, .aym-mentor-expertise-badge {
@@ -6685,7 +6760,7 @@ button.aym-drawer-sublink {
 }
 
 .aym-mentor-name-premium {
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: 20px;
   font-weight: 700;
   margin: 0;
@@ -6982,7 +7057,7 @@ button.aym-drawer-sublink {
 }
 
 .aym-letter-title-premium {
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: 28px;
   font-weight: 700;
   color: var(--forest-deep);
@@ -7014,7 +7089,7 @@ button.aym-drawer-sublink {
 }
 
 .aym-letter-prose-premium p {
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: 17px;
   line-height: 1.8;
   color: var(--ink);
@@ -7116,7 +7191,7 @@ button.aym-drawer-sublink {
 }
 
 .aym-letter-sign-signature {
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-style: italic;
   font-weight: 700;
   color: var(--secondary);
@@ -7167,7 +7242,7 @@ button.aym-drawer-sublink {
 }
 
 .aym-footer-wordmark-premium {
-  font-family: Outfit, sans-serif;
+  font-family: var(--font-sans);
   color: var(--white);
   font-size: 26px;
   font-weight: 800;
@@ -7330,7 +7405,7 @@ button.aym-drawer-sublink {
 }
 
 .aym-display-premium {
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.75rem, 4vw, 2.35rem);
   font-weight: 700;
   color: var(--white);
@@ -8125,7 +8200,7 @@ button.aym-drawer-sublink {
 
 .aym-fvg-eyebrow {
   margin: 0 0 8px;
-  font-family: Outfit, "Source Sans 3", system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -8135,7 +8210,7 @@ button.aym-drawer-sublink {
 
 .aym-fvg-title {
   margin: 0 0 12px;
-  font-family: Fraunces, Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: clamp(1.55rem, 4vw, 1.95rem);
   font-weight: 650;
   letter-spacing: -0.02em;
@@ -8161,7 +8236,7 @@ button.aym-drawer-sublink {
 
 .aym-fvg-block-title {
   margin: 0 0 12px;
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: 14px;
   font-weight: 650;
   color: var(--forest);
@@ -8189,7 +8264,7 @@ button.aym-drawer-sublink {
   height: 28px;
   padding: 0 6px;
   border-radius: 8px;
-  font-family: Outfit, "Source Sans 3", system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -8428,7 +8503,7 @@ button.aym-drawer-sublink {
 
 .aym-welcome-chrome-brand {
   margin: 0;
-  font-family: Fraunces, "Source Serif 4", Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.2rem, 2.8vw, 1.55rem);
   font-weight: 680;
   letter-spacing: -0.03em;
@@ -8515,8 +8590,10 @@ button.aym-drawer-sublink {
   object-position: 55% 40%;
   display: block;
   transform: scale(1.04);
-  filter: saturate(0.94) contrast(1.05) brightness(0.9);
-  animation: aym-welcome-ken 22s ease-in-out alternate both;
+  filter: saturate(0.9) contrast(1.05) sepia(0.06) brightness(0.9);
+  transform-origin: 60% 45%;
+  animation: aym-welcome-ken 14s cubic-bezier(0.25, 0.4, 0.3, 1) both;
+  will-change: transform;
 }
 
 .aym-welcome-slide-bg-finale .aym-welcome-slide-bg-img {
@@ -8710,11 +8787,25 @@ button.aym-drawer-sublink {
 }
 
 .aym-welcome-slide-media {
+  position: relative;
   margin: 0;
   border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 24px 48px rgba(15, 42, 31, 0.12);
+  box-shadow:
+    0 1px 2px rgba(74, 52, 24, 0.05),
+    0 18px 36px -18px rgba(74, 52, 24, 0.24),
+    0 48px 90px -36px rgba(15, 42, 31, 0.26);
   max-height: min(56vh, 460px);
+}
+
+.aym-welcome-slide-media::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(255, 250, 238, 0.5);
+  border-radius: 2px;
+  box-shadow: inset 0 0 80px rgba(58, 40, 18, 0.14);
+  pointer-events: none;
 }
 
 .aym-welcome-slide-media img {
@@ -8724,6 +8815,14 @@ button.aym-drawer-sublink {
   max-height: min(56vh, 460px);
   object-fit: cover;
   aspect-ratio: 4 / 3;
+  filter: saturate(0.9) contrast(1.03) sepia(0.08);
+  transform-origin: 50% 40%;
+  animation: aym-welcome-media-ken 12s cubic-bezier(0.25, 0.4, 0.3, 1) both;
+}
+
+@keyframes aym-welcome-media-ken {
+  from { transform: scale(1.1); }
+  to { transform: scale(1.01); }
 }
 
 .aym-welcome-slide-media-tall {
@@ -8846,7 +8945,7 @@ button.aym-drawer-sublink {
 
 .aym-welcome-hero-title {
   margin: 0 0 0.75rem;
-  font-family: Fraunces, "Source Serif 4", Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(2.2rem, 6.5vw, 3.75rem);
   font-weight: 680;
   letter-spacing: -0.035em;
@@ -8875,7 +8974,7 @@ button.aym-drawer-sublink {
 
 .aym-welcome-section-title {
   margin: 0 0 0.55rem;
-  font-family: Fraunces, "Source Serif 4", Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.55rem, 3.6vw, 2.25rem);
   font-weight: 650;
   letter-spacing: -0.03em;
@@ -8999,7 +9098,7 @@ button.aym-drawer-sublink {
 
 .aym-welcome-feature-body h3 {
   margin: 0;
-  font-family: Fraunces, "Source Serif 4", Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(0.95rem, 1.5vw, 1.08rem);
   font-weight: 650;
   color: var(--forest-deep);
@@ -9044,7 +9143,7 @@ button.aym-drawer-sublink {
 }
 
 .aym-welcome-step-n {
-  font-family: Fraunces, Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.15rem;
   font-weight: 650;
   color: var(--gold);
@@ -9195,8 +9294,8 @@ button.aym-drawer-sublink {
 }
 
 @keyframes aym-welcome-ken {
-  from { transform: scale(1.03); }
-  to { transform: scale(1.08); }
+  from { transform: scale(1.14) translate3d(-1.2%, 0.8%, 0); }
+  to { transform: scale(1.03) translate3d(0, 0, 0); }
 }
 
 @media (max-width: 1100px) {

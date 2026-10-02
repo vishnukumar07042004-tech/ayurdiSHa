@@ -1,5 +1,6 @@
 import React from "react";
-import { SearchX, RefreshCw } from "lucide-react";
+import { SearchX } from "lucide-react";
+import Button from "./ui/Button.jsx";
 
 export default function EmptyState({
   title = "No results found",
@@ -8,16 +9,16 @@ export default function EmptyState({
   onAction,
 }) {
   return (
-    <div className="aym-empty-state" role="status" aria-live="polite">
-      <div className="aym-empty-icon">
-        <SearchX size={36} aria-hidden="true" />
-      </div>
-      <h3 className="aym-empty-title">{title}</h3>
-      <p className="aym-empty-message">{message}</p>
+    <div className="ui-empty aym-empty-state" role="status" aria-live="polite">
+      <span className="ui-icon-badge">
+        <SearchX size={24} strokeWidth={1.8} aria-hidden="true" />
+      </span>
+      <h3 className="ui-title">{title}</h3>
+      <p className="ui-body">{message}</p>
       {onAction && actionLabel && (
-        <button type="button" className="aym-btn aym-btn-outline aym-btn-sm" onClick={onAction}>
-          <RefreshCw size={14} aria-hidden="true" /> {actionLabel}
-        </button>
+        <div className="ui-btn-row">
+          <Button onClick={onAction}>{actionLabel}</Button>
+        </div>
       )}
     </div>
   );

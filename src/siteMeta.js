@@ -1,4 +1,5 @@
 /** Site-wide SEO helpers for the Vite SPA (document.head + JSON-LD). */
+import { WAC } from "./content/site.js";
 
 export const SITE_ORIGIN = "https://ayushmarg.vercel.app";
 export const SITE_NAME = "AYURDISHA";
@@ -11,15 +12,12 @@ export function orgJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${SITE_ORIGIN}/#organization`,
     name: "AYURDISHA",
     alternateName: ["AyushMarg", "Meet the Mentors"],
     url: SITE_ORIGIN,
     description:
       "Digital Meet the Mentors hall of the 11th World Ayurveda Congress, Bhubaneswar 2026 — career guidance for BAMS mentees.",
-    parentOrganization: {
-      "@type": "Organization",
-      name: "World Ayurveda Foundation",
-    },
   };
 }
 
@@ -30,7 +28,7 @@ export function websiteJsonLd() {
     name: "AYURDISHA",
     url: SITE_ORIGIN,
     description:
-      "Walk into the digital Meet the Mentors hall of the 11th World Ayurveda Congress. Register, receive your WAC number, and a mentor answers.",
+      "Discover and connect with mentors, practitioners, researchers and thought leaders from the Ayurveda community through AYURDISHA.",
     publisher: { "@id": `${SITE_ORIGIN}/#organization` },
   };
 }
@@ -39,23 +37,26 @@ export function eventJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Event",
-    name: "11th World Ayurveda Congress",
-    startDate: "2026-12-11",
-    endDate: "2026-12-13",
-    eventAttendanceMode: "https://schema.org/MixedEventAttendanceMode",
+    name: WAC.name,
+    startDate: WAC.startDate,
+    endDate: WAC.endDate,
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     eventStatus: "https://schema.org/EventScheduled",
+    url: WAC.officialUrl,
     location: {
       "@type": "Place",
-      name: "Bhubaneswar",
+      name: WAC.city,
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Bhubaneswar",
+        addressLocality: WAC.city,
+        addressRegion: "Odisha",
         addressCountry: "IN",
       },
     },
     organizer: {
       "@type": "Organization",
-      name: "World Ayurveda Foundation",
+      name: WAC.organizer,
+      url: WAC.officialUrl,
     },
     description: "Meet the Mentors hall (AYURDISHA) at the 11th World Ayurveda Congress, Bhubaneswar.",
   };
@@ -158,7 +159,7 @@ export function setPageMeta({
   robots,
 }) {
   const url = `${SITE_ORIGIN}${path === "/" ? "/" : path}`;
-  const img = image || `${SITE_ORIGIN}/assets/hall-photo.png`;
+  const img = image || `${SITE_ORIGIN}/og-image.png`;
   document.title = title;
   upsertMeta("name", "description", description);
   upsertLink("canonical", url);

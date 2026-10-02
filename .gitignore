@@ -45,3 +45,10 @@ Thumbs.db
 # Local data store (Vercel Blob is used in prod)
 data/store.json
 .env*
+
+# Scratch / QA leftovers (unreferenced image candidates and backups)
+.qa/
+public/assets/welcome/candidates/
+public/assets/**/*-prev.png
+public/assets/**/*-prev-cleaned.png
+public/assets/**/*-backup.png

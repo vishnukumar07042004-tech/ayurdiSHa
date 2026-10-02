@@ -16,13 +16,13 @@ export default function MentorsPage() {
   }, []);
 
   return (
-    <div className="aym-page aym-py-6">
-      <div className="aym-container">
+    <main className="ui-page" id="main">
+      <div className="ui-container ui-crumbs">
         <Breadcrumbs items={[{ label: "Mentors" }]} />
-        <Suspense fallback={<PageSkeleton />}>
-          <MentorsDirectory />
-        </Suspense>
       </div>
-    </div>
+      <Suspense fallback={<PageSkeleton />}>
+        <MentorsDirectory />
+      </Suspense>
+    </main>
   );
 }

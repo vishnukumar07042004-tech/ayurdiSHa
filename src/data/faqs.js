@@ -2,7 +2,7 @@
 export const SITE_FAQS = [
   {
     q: "What is AYURDISHA / Meet the Mentors?",
-    a: "AYURDISHA is the official digital Meet the Mentors hall of the 11th World Ayurveda Congress (Bhubaneswar, 11–13 December 2026). It connects BAMS students, interns, postgraduates, and early-career practitioners with senior Ayurveda academicians, researchers, and clinicians. Guidance here is career and education direction — not clinical consultation.",
+    a: "AYURDISHA is the official digital Meet the Mentors hall of the 11th World Ayurveda Congress (Bhubaneswar, 10–13 December 2026). It connects BAMS students, interns, postgraduates, and early-career practitioners with senior Ayurveda academicians, researchers, and clinicians. Guidance here is career and education direction — not clinical consultation.",
   },
   {
     q: "How does Meet the Mentors work online and on the Congress floor?",

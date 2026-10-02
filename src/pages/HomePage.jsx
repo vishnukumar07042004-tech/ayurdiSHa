@@ -1,68 +1,27 @@
 import React, { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-import {
-  ArrowRight,
-  BookOpen,
-  CheckCircle2,
-  Globe2,
-  GraduationCap,
-  Layers,
-  Microscope,
-  Send,
-  Stethoscope,
-} from "lucide-react";
-import {
-  MENTORS,
-  mentorsWithNames,
-  mentorPublicPath,
-  mentorInitials,
-  mentorPortraitUrl,
-} from "../mentors.js";
-import { getProgramByCode } from "../data/programs.js";
+import { useLocation, useNavigate } from "react-router-dom";
+import { MENTORS, mentorsWithNames } from "../mentors.js";
+import { getAllPrograms } from "../data/programs.js";
 import { setPageMeta } from "../siteMeta.js";
 import { observeScrollReveal } from "../scrollReveal.js";
+import { useParallax } from "../components/editorial/motion.js";
+import { scrollToSection } from "../AppHeader.jsx";
+import HomeHero from "./home/HomeHero.jsx";
+import { HomeIdea, HomeStats } from "./home/HomeStory.jsx";
+import HomeMentors from "./home/HomeMentors.jsx";
+import HomeHowItWorks from "./home/HomeHowItWorks.jsx";
+import HomePathways from "./home/HomePathways.jsx";
+import { HomePhotoBand, HomeQuote, HomeFinalCta } from "./home/HomeInterludes.jsx";
+import { HomeWac, HomeTimeline } from "./home/HomeWac.jsx";
+import HomeCollage from "./home/HomeCollage.jsx";
 
-const CAREER_TRACK_VISUALS = [
-  {
-    id: "clinical",
-    code: "T01",
-    title: "Clinical Practice & Integrative Care",
-    desc: "Hospital posts, private OPD setup, Nadi Pariksha, Panchakarma centers, and integrative care models.",
-    image: "/assets/home/career-clinical.png",
-    icon: Stethoscope,
-    badge: "Clinical Track",
-  },
-  {
-    id: "research",
-    code: "T03",
-    title: "Research, Evidence & Publication",
-    desc: "CCRAS research fellowships, PhD pathways, clinical trials, phytomedicine research, and publication guidance.",
-    image: "/assets/home/career-research.png",
-    icon: Microscope,
-    badge: "Research Track",
-  },
-  {
-    id: "academics",
-    code: "T02",
-    title: "Academics, Teaching & Higher Education",
-    desc: "AIAPGET preparation, MD/MS branch selection, Assistant Professor posts, and institutional teaching careers.",
-    image: "/assets/home/career-academics.png",
-    icon: GraduationCap,
-    badge: "Academic Track",
-  },
-  {
-    id: "global",
-    code: "T07",
-    title: "Export & Global Trade",
-    desc: "International licensing, WHO benchmarks, export regulations, global wellness centers, and practice abroad.",
-    image: "/assets/home/career-global.png",
-    icon: Globe2,
-    badge: "Global Track",
-  },
-];
+const MENTOR_COUNT = mentorsWithNames(MENTORS).length;
+const TRACK_COUNT = getAllPrograms().length;
 
 export default function HomePage({ onGoTab }) {
   const rootRef = useRef(null);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const goFeature = (id, e) => {
     e?.preventDefault();
@@ -71,9 +30,9 @@ export default function HomePage({ onGoTab }) {
 
   useEffect(() => {
     setPageMeta({
-      title: "AYURDISHA · Ayurveda Education, Mentors & Career Guidance · WAC 2026",
+      title: "AYURDISHA | Meet the Mentors | 11th World Ayurveda Congress",
       description:
-        "Digital Meet the Mentors hall of the 11th World Ayurveda Congress, Bhubaneswar 2026. Learn from experienced practitioners, explore 10 career tracks, and submit career questions.",
+        "Discover and connect with mentors, practitioners, researchers and thought leaders from the Ayurveda community through AYURDISHA.",
       path: "/",
     });
   }, []);
@@ -81,460 +40,37 @@ export default function HomePage({ onGoTab }) {
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return undefined;
-
-    const disconnectReveal = observeScrollReveal(root);
-
-    /* Scroll-linked atmosphere: major sections shift the page wash */
-    const zones = root.querySelectorAll("[data-home-zone]");
-    root.dataset.atmosphere = "forest";
-
-    const zoneObserver = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible[0]) {
-          const zone = visible[0].target.getAttribute("data-home-zone");
-          if (zone) root.dataset.atmosphere = zone;
-        }
-      },
-      { threshold: [0.2, 0.35, 0.5], rootMargin: "-12% 0px -28% 0px" }
-    );
-
-    zones.forEach((el) => zoneObserver.observe(el));
-
-    return () => {
-      disconnectReveal();
-      zoneObserver.disconnect();
-    };
+    return observeScrollReveal(root, { once: true, threshold: 0.14, rootMargin: "0px 0px -6% 0px" });
   }, []);
 
-  const featuredMentors = mentorsWithNames(MENTORS).slice(0, 6);
+  useParallax(rootRef);
+
+  /* Nav items like "How It Works" land here with router state, not a #hash
+     (hashes on "/" are reserved for app tabs). */
+  useEffect(() => {
+    const section = location.state?.section;
+    if (!section) return undefined;
+    const t = window.setTimeout(() => {
+      scrollToSection(section);
+      navigate(".", { replace: true, state: null });
+    }, 80);
+    return () => window.clearTimeout(t);
+  }, [location.state, navigate]);
 
   return (
-    <div className="aym-homepage" ref={rootRef} data-atmosphere="forest">
-      <div className="aym-home-atmosphere" aria-hidden="true" />
-
-      {/* 1. HERO — full-bleed photo, calm hierarchy */}
-      <section
-        className="aym-home-hero"
-        aria-labelledby="hero-title"
-        data-home-zone="forest"
-      >
-        <div className="aym-home-hero-stage" aria-hidden="true">
-          <img
-            src="/assets/ayurdisha-hero.png"
-            alt=""
-            className="aym-home-hero-img"
-            width={1536}
-            height={1024}
-            fetchPriority="high"
-          />
-          <div className="aym-home-hero-veil" />
-          <div className="aym-home-hero-vignette" />
-        </div>
-
-        <div className="aym-home-hero-shell">
-          <div className="aym-home-hero-copy">
-            <p className="aym-home-hero-eyebrow">
-              <span className="aym-home-hero-eyebrow-mark" aria-hidden="true" />
-              WAC 2026 · Bhubaneswar
-            </p>
-            <h1 id="hero-title" className="aym-home-hero-title">
-              Meet the Mentors
-              <span className="aym-home-hero-title-line">shaping Ayurveda careers</span>
-            </h1>
-            <p className="aym-home-hero-lead">
-              Official digital hall of the 11th World Ayurveda Congress —
-              curated guidance for BAMS students and practitioners.
-            </p>
-            <div className="aym-home-hero-actions">
-              <Link
-                to={{ pathname: "/", hash: "#ask" }}
-                className="aym-home-hero-cta"
-                onClick={(e) => goFeature("ask", e)}
-              >
-                Ask a Mentor
-                <ArrowRight size={16} aria-hidden="true" />
-              </Link>
-              <Link to="/mentors" className="aym-home-hero-cta-secondary">
-                Explore Mentors
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        <span className="aym-visually-hidden">
-          Senior Ayurveda mentor guiding BAMS students at the World Ayurveda Congress
-          digital hall
-        </span>
-      </section>
-
-      {/* 2. HOW IT WORKS */}
-      <section
-        className="aym-section aym-home-section aym-home-zone-cream"
-        aria-labelledby="how-it-works-title"
-        data-reveal
-        data-home-zone="cream"
-      >
-        <div className="aym-container">
-          <div className="aym-section-header aym-home-section-header">
-            <p className="aym-eyebrow">How it works</p>
-            <h2 id="how-it-works-title" className="aym-display">
-              From question to mentor guidance
-            </h2>
-            <p className="aym-section-lead">
-              A clear three-step path from Ask Desk to published mentor answers.
-            </p>
-          </div>
-
-          <div className="aym-grid-3 aym-steps-grid" data-reveal-stagger>
-            <div className="aym-step-card" data-reveal>
-              <div className="aym-step-num">01</div>
-              <div className="aym-step-icon">
-                <Send size={22} aria-hidden="true" />
-              </div>
-              <h3>Ask your question</h3>
-              <p>
-                Submit a career query on PG branches, clinical setup, or research
-                at the digital Ask Desk.
-              </p>
-            </div>
-
-            <div className="aym-step-card" data-reveal>
-              <div className="aym-step-num">02</div>
-              <div className="aym-step-icon">
-                <Layers size={22} aria-hidden="true" />
-              </div>
-              <h3>Academic curation</h3>
-              <p>
-                Desk curators review, cluster, and assign your question to the
-                right domain mentors.
-              </p>
-            </div>
-
-            <div className="aym-step-card" data-reveal>
-              <div className="aym-step-num">03</div>
-              <div className="aym-step-icon">
-                <BookOpen size={22} aria-hidden="true" />
-              </div>
-              <h3>Mentor stage letter</h3>
-              <p>
-                Mentors publish written answers on the Open Theme Stage and your
-                ticket is updated.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. RESEARCH & PRACTICE VISUALS */}
-      <section
-        className="aym-section aym-home-section aym-home-research-section aym-home-zone-botanical"
-        aria-labelledby="home-research-title"
-        data-reveal
-        data-home-zone="botanical"
-      >
-        <div className="aym-container">
-          <div className="aym-home-research-layout">
-            <div className="aym-home-research-copy">
-              <p className="aym-eyebrow">Research & practice</p>
-              <h2 id="home-research-title" className="aym-display">
-                From lab benches to clinical wards
-              </h2>
-              <p className="aym-section-lead">
-                Real career settings — evidence research, clinical practice, and
-                congress-floor mentorship — so BAMS scholars can picture the path ahead.
-              </p>
-              <Link to="/programs" className="aym-home-text-link">
-                Explore all 10 career tracks
-                <ArrowRight size={16} aria-hidden="true" />
-              </Link>
-            </div>
-
-            <div className="aym-home-research-collage" aria-hidden="true" data-reveal-stagger>
-              <figure className="aym-home-research-frame aym-home-research-frame--lead" data-reveal>
-                <img
-                  src="/assets/ayurdisha-research.png"
-                  alt=""
-                  width={720}
-                  height={480}
-                  loading="lazy"
-                />
-                <figcaption>Research & evidence pathways</figcaption>
-              </figure>
-              <figure className="aym-home-research-frame aym-home-research-frame--clinical" data-reveal>
-                <img
-                  src="/assets/ayurdisha-clinical.png"
-                  alt=""
-                  width={480}
-                  height={360}
-                  loading="lazy"
-                />
-                <figcaption>Clinical practice</figcaption>
-              </figure>
-              <figure className="aym-home-research-frame aym-home-research-frame--hall" data-reveal>
-                <img
-                  src="/assets/home/congress-booths.png"
-                  alt=""
-                  width={480}
-                  height={320}
-                  loading="lazy"
-                />
-                <figcaption>Digital hall · WAC</figcaption>
-              </figure>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. CAREER TRACK VISUALS */}
-      <section
-        className="aym-section aym-home-section aym-home-zone-cream"
-        aria-labelledby="home-tracks-title"
-        data-reveal
-        data-home-zone="cream"
-      >
-        <div className="aym-container">
-          <div className="aym-section-header-flex aym-home-tracks-header">
-            <div className="aym-home-section-header aym-home-tracks-copy">
-              <p className="aym-eyebrow">Career pathways</p>
-              <h2 id="home-tracks-title" className="aym-display">
-                Explore national career tracks
-              </h2>
-              <p className="aym-section-lead">
-                Visual roadmaps for clinical, research, academic, and global practice.
-              </p>
-            </div>
-            <Link to="/programs" className="aym-btn aym-btn-outline aym-home-pill-cta">
-              <span>View all 10 tracks</span>
-              <ArrowRight size={14} aria-hidden="true" />
-            </Link>
-          </div>
-
-          <div className="aym-grid-2 aym-visual-tracks-grid" data-reveal-stagger>
-            {CAREER_TRACK_VISUALS.map((track) => {
-              const IconComponent = track.icon;
-              const program = getProgramByCode(track.code);
-              const href = program?.path || "/programs";
-              return (
-                <article
-                  key={track.id}
-                  className="aym-track-visual-card"
-                  data-reveal
-                >
-                  <div className="aym-track-card-img-wrap">
-                    <img
-                      src={track.image}
-                      alt={track.title}
-                      className="aym-track-card-img"
-                      loading="lazy"
-                      width={640}
-                      height={400}
-                    />
-                    <span className="aym-badge aym-badge-gold aym-track-card-badge">
-                      {track.badge}
-                    </span>
-                  </div>
-                  <div className="aym-track-card-content">
-                    <div className="aym-track-card-icon">
-                      <IconComponent size={20} aria-hidden="true" />
-                    </div>
-                    <h3 className="aym-track-card-title">{track.title}</h3>
-                    <p className="aym-track-card-desc">{track.desc}</p>
-                    <Link to={href} className="aym-btn aym-btn-outline aym-btn-sm aym-track-card-cta aym-home-pill-cta">
-                      <span>Explore pathway</span>
-                      <ArrowRight size={14} aria-hidden="true" />
-                    </Link>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. FEATURED MENTORS */}
-      <section
-        className="aym-section aym-home-section aym-home-mentors-section aym-home-zone-warm"
-        aria-labelledby="home-mentors-title"
-        data-reveal
-        data-home-zone="warm"
-      >
-        <div className="aym-container">
-          <div className="aym-home-mentors-intro">
-            <div className="aym-home-mentors-copy">
-              <p className="aym-eyebrow">Meet the Mentors</p>
-              <h2 id="home-mentors-title" className="aym-display">
-                Learn from experienced Ayurveda leaders
-              </h2>
-              <p className="aym-section-lead">
-                Senior academicians and clinicians on the WAC 2026 roster —
-                ready to guide BAMS students through PG choices, clinical
-                practice, and research pathways.
-              </p>
-              <Link to="/mentors" className="aym-home-text-link">
-                View all mentors
-                <ArrowRight size={16} aria-hidden="true" />
-              </Link>
-            </div>
-            <aside className="aym-home-mentors-visual" aria-hidden="true" data-reveal>
-              <div className="aym-home-mentors-visual-frame">
-                <img
-                  src="/assets/home/mentors-gathering.png"
-                  alt=""
-                  className="aym-home-mentors-visual-img"
-                  width={560}
-                  height={360}
-                  loading="lazy"
-                />
-                <div className="aym-home-mentors-visual-caption">
-                  <span>Digital Meet the Mentors hall</span>
-                  <span>WAC Bhubaneswar 2026</span>
-                </div>
-              </div>
-            </aside>
-          </div>
-
-          <div className="aym-mentors-grid-premium" data-reveal-stagger>
-            {featuredMentors.map((m) => {
-              const portrait = mentorPortraitUrl(m);
-              const initials = mentorInitials(m.name);
-              const specialty = m.expertise
-                ? String(m.expertise).split(";")[0].split("(")[0].trim()
-                : "";
-              return (
-                <article key={m.id} className="aym-mentor-card-premium" data-reveal>
-                  <div className="aym-mentor-card-top-premium">
-                    <div className="aym-mentor-avatar-container">
-                      {portrait ? (
-                        <img
-                          src={portrait}
-                          alt={`Portrait of ${m.name}`}
-                          width={80}
-                          height={80}
-                          className="aym-mentor-avatar-img"
-                          loading="lazy"
-                        />
-                      ) : (
-                        <span
-                          className="aym-mentor-avatar-initials"
-                          aria-hidden="true"
-                        >
-                          {initials}
-                        </span>
-                      )}
-                    </div>
-                    {specialty && (
-                      <span className="aym-mentor-badge-specialty">
-                        {specialty}
-                      </span>
-                    )}
-                  </div>
-                  <div className="aym-mentor-body-premium">
-                    <h3 className="aym-mentor-name-premium">
-                      <Link
-                        to={mentorPublicPath(m)}
-                        className="aym-mentor-name-link-premium"
-                      >
-                        {m.name}
-                      </Link>
-                    </h3>
-                    <p className="aym-mentor-role-premium">
-                      {m.designation || "Distinguished Mentor"}
-                    </p>
-                  </div>
-                  <div className="aym-mentor-card-actions-premium">
-                    <Link
-                      to={mentorPublicPath(m)}
-                      className="aym-btn aym-mentor-card-cta-premium aym-home-pill-cta"
-                      aria-label={`View profile of ${m.name}`}
-                    >
-                      <span>View profile</span>
-                      <ArrowRight size={14} aria-hidden="true" />
-                    </Link>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. CONGRESS HALL */}
-      <section
-        className="aym-section aym-home-section aym-home-zone-mist"
-        aria-labelledby="home-hall-title"
-        data-reveal
-        data-home-zone="mist"
-      >
-        <div className="aym-container">
-          <div className="aym-grid-2 aym-hall-preview-grid">
-            <div className="aym-hall-preview-media" data-reveal>
-              <img
-                src="/assets/hall-photo.png"
-                alt="Meet the Mentors Digital Hall at World Ayurveda Congress"
-                className="aym-hall-img"
-                loading="lazy"
-              />
-            </div>
-            <div className="aym-hall-preview-content">
-              <p className="aym-eyebrow">Bhubaneswar hall</p>
-              <h2 id="home-hall-title" className="aym-display">
-                The digital Meet the Mentors hall
-              </h2>
-              <p className="aym-hall-lead">
-                Walk into the digital hall of the 11th World Ayurveda Congress.
-                Access knowledge pods, podcast conversations, and published
-                mentor stage letters.
-              </p>
-              <div className="aym-hall-features-list">
-                <div className="aym-hall-feat-item">
-                  <CheckCircle2
-                    size={18}
-                    className="aym-text-gold"
-                    aria-hidden="true"
-                  />
-                  <span>Knowledge Pods for 10 career pathways</span>
-                </div>
-                <div className="aym-hall-feat-item">
-                  <CheckCircle2
-                    size={18}
-                    className="aym-text-gold"
-                    aria-hidden="true"
-                  />
-                  <span>Podcast Corner recorded sessions</span>
-                </div>
-                <div className="aym-hall-feat-item">
-                  <CheckCircle2
-                    size={18}
-                    className="aym-text-gold"
-                    aria-hidden="true"
-                  />
-                  <span>Two-Chair Open Theme Stage records</span>
-                </div>
-              </div>
-              <div className="aym-hall-cta-group">
-                <Link
-                  to={{ pathname: "/", hash: "#hall" }}
-                  className="aym-btn aym-btn-primary aym-home-pill-cta"
-                  onClick={(e) => goFeature("hall", e)}
-                >
-                  <span>Enter the Hall</span>
-                  <ArrowRight size={14} aria-hidden="true" />
-                </Link>
-                <Link
-                  to={{ pathname: "/", hash: "#board" }}
-                  className="aym-btn aym-btn-outline aym-home-pill-cta"
-                  onClick={(e) => goFeature("board", e)}
-                >
-                  <span>Open Theme Stage</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+    <main id="main" className="ed-home" ref={rootRef}>
+      <HomeHero mentorCount={MENTOR_COUNT} onAsk={(e) => goFeature("ask", e)} />
+      <HomeStats mentorCount={MENTOR_COUNT} trackCount={TRACK_COUNT} />
+      <HomeIdea />
+      <HomeMentors />
+      <HomeHowItWorks onGo={goFeature} />
+      <HomePhotoBand />
+      <HomePathways trackCount={TRACK_COUNT} />
+      <HomeWac onGo={goFeature} />
+      <HomeTimeline />
+      <HomeCollage />
+      <HomeQuote />
+      <HomeFinalCta onAsk={(e) => goFeature("ask", e)} />
+    </main>
   );
 }

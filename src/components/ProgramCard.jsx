@@ -1,46 +1,39 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, BookOpen } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { programPublicPath } from "../data/programs.js";
 
-export default function ProgramCard({ program, index = 0 }) {
+export default function ProgramCard({ program }) {
   if (!program) return null;
 
   return (
-    <article 
-      className="aym-card aym-program-card"
-      style={{ animationDelay: `${Math.min(index, 12) * 0.04}s` }}
-    >
-      <div className="aym-card-header">
-        <span className="aym-badge aym-badge-gold">{program.code}</span>
-        <span className="aym-card-tag"><BookOpen size={14} aria-hidden="true" /> Track</span>
+    <article className="ui-card aym-program-card">
+      <div className="ui-card-top">
+        <span className="ui-tag ui-tag--gold">{program.code}</span>
+        <span className="ui-card-kicker">Career track</span>
       </div>
 
-      <div className="aym-card-body">
-        <h3 className="aym-card-title">
-          <Link to={programPublicPath(program)} className="aym-card-title-link">
-            {program.title}
-          </Link>
-        </h3>
-        <p className="aym-card-description">{program.tagline}</p>
-        
-        {program.sections && program.sections[1] && (
-          <div className="aym-card-sublist">
-            <span className="aym-card-subhead">Opportunities include:</span>
-            <ul className="aym-card-bullet-preview">
-              {program.sections[1].bullets.slice(0, 2).map((b, i) => (
-                <li key={i}>{b}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div>
-
-      <div className="aym-card-footer">
-        <Link to={programPublicPath(program)} className="aym-btn aym-btn-outline aym-btn-sm">
-          Explore Track <ArrowRight size={14} aria-hidden="true" />
+      <h3 className="ui-card-title">
+        <Link to={programPublicPath(program)} className="ui-card-link">
+          {program.title}
         </Link>
-      </div>
+      </h3>
+      <p className="ui-card-desc">{program.tagline}</p>
+
+      {program.sections && program.sections[1] && (
+        <div className="ui-card-sub">
+          <span className="ui-card-subhead">Opportunities include</span>
+          <ul>
+            {program.sections[1].bullets.slice(0, 2).map((b, i) => (
+              <li key={i}>{b}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <span className="ui-link ui-card-cta" aria-hidden="true">
+        Explore track <ChevronRight size={16} className="ui-link-chev" />
+      </span>
     </article>
   );
 }

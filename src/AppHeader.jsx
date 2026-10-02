@@ -1,76 +1,114 @@
-import React, { useCallback, useId, useRef, useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Lock, Unlock, Search, Ticket, Send, ChevronDown, Info, BookOpen, HelpCircle, Phone, Compass } from "lucide-react";
+import React, { useCallback, useEffect, useId, useRef, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { ChevronDown, ChevronRight, Lock, Search, Ticket, Unlock, X } from "lucide-react";
 import useFocusTrap from "./useFocusTrap.js";
 import GlobalSearch from "./components/GlobalSearch.jsx";
+import { useScrolled } from "./components/editorial/motion.js";
 
-export function NavDrawer({
-  open,
-  onClose,
-  labelledBy,
-  children,
-  title = "Menu",
-}) {
-  const panelRef = useRef(null);
-  useFocusTrap(open, panelRef, onClose);
+/** Home sections reachable from the nav (ids live in HomePage). */
+export const HOME_SECTIONS = {
+  how: "how-it-works",
+  wac: "wac-2026",
+};
 
+export function scrollToSection(id, behavior = "smooth") {
+  const el = document.getElementById(id);
+  if (!el) return false;
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  el.scrollIntoView({ behavior: reduce ? "auto" : behavior, block: "start" });
+  return true;
+}
+
+function useActiveHomeSection(enabled) {
+  const [active, setActive] = useState(null);
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
+    if (!enabled) {
+      setActive(null);
+      return undefined;
     }
+    let io;
+    const timer = window.setTimeout(() => {
+      const nodes = Object.values(HOME_SECTIONS)
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
+      if (!nodes.length) return;
+      const visible = new Map();
+      io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => visible.set(e.target.id, e.isIntersecting));
+          const hit = Object.values(HOME_SECTIONS).find((id) => visible.get(id));
+          setActive(hit || null);
+        },
+        { rootMargin: "-45% 0px -45% 0px" }
+      );
+      nodes.forEach((n) => io.observe(n));
+    }, 300);
     return () => {
-      document.body.style.overflow = "";
+      window.clearTimeout(timer);
+      io?.disconnect();
     };
-  }, [open]);
-
-  if (!open) return null;
-  return (
-    <div className="aym-drawer-root">
-      <button
-        type="button"
-        className="aym-drawer-backdrop"
-        aria-label="Close menu"
-        onClick={onClose}
-      />
-      <div
-        ref={panelRef}
-        className="aym-drawer"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby={labelledBy}
-        tabIndex={-1}
-      >
-        <div className="aym-drawer-head">
-          <h2 id={labelledBy} className="aym-drawer-title">{title}</h2>
-          <button type="button" className="aym-drawer-close" onClick={onClose} aria-label="Close menu">
-            <X size={20} aria-hidden="true" />
-          </button>
-        </div>
-        <div className="aym-drawer-body">{children}</div>
-      </div>
-    </div>
-  );
-}
-
-export function LandingHeader(props) {
-  return <AppHeader {...props} />;
-}
-
-export function SimpleHeader(props) {
-  return <AppHeader {...props} />;
+  }, [enabled]);
+  return active;
 }
 
 export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIntro, onOpenWelcome }) {
-  const [open, setOpen] = useState(false);
+  const [menu, setMenu] = useState("closed"); // closed | open | closing
   const [showSearch, setShowSearch] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null); // 'about' | 'mentors' | 'resources' | null
-  const dropdownTimeout = useRef(null);
-  
+  const [moreOpen, setMoreOpen] = useState(false);
+  const moreRef = useRef(null);
+  const flyoutRef = useRef(null);
+  const flyoutId = useId();
+  const panelRef = useRef(null);
   const menuId = useId();
   const location = useLocation();
-  const close = useCallback(() => setOpen(false), []);
+  const navigate = useNavigate();
+  const scrolled = useScrolled(24);
+
+  const onHome = location.pathname === "/" && (!location.hash || location.hash === "#intro");
+  const overHero = onHome && tab === "intro" && !scrolled;
+  const activeSection = useActiveHomeSection(onHome && tab === "intro");
+
+  const menuOpen = menu !== "closed";
+  const closeMenu = useCallback(() => {
+    setMenu((m) => (m === "open" ? "closing" : m));
+  }, []);
+
+  useEffect(() => {
+    if (menu !== "closing") return undefined;
+    const t = window.setTimeout(() => setMenu("closed"), 260);
+    return () => window.clearTimeout(t);
+  }, [menu]);
+
+  useFocusTrap(menu === "open", panelRef, closeMenu);
+
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [menuOpen]);
+
+  useEffect(() => {
+    setMoreOpen(false);
+  }, [location.pathname, location.hash]);
+
+  useEffect(() => {
+    if (!moreOpen) return undefined;
+    const onDoc = (e) => {
+      if (!moreRef.current?.contains(e.target) && !flyoutRef.current?.contains(e.target)) setMoreOpen(false);
+    };
+    const onKey = (e) => {
+      if (e.key === "Escape") setMoreOpen(false);
+    };
+    document.addEventListener("pointerdown", onDoc);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("pointerdown", onDoc);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [moreOpen]);
 
   useEffect(() => {
     function onGlobalSearchHotkey(e) {
@@ -84,360 +122,284 @@ export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIn
       if ((e.key === "k" || e.key === "K") && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         setShowSearch(true);
-        setActiveDropdown(null);
+        setMoreOpen(false);
         return;
       }
       if (e.key === "/" && !typing && !e.metaKey && !e.ctrlKey && !e.altKey) {
         e.preventDefault();
         setShowSearch(true);
-        setActiveDropdown(null);
+        setMoreOpen(false);
       }
     }
     window.addEventListener("keydown", onGlobalSearchHotkey);
     return () => window.removeEventListener("keydown", onGlobalSearchHotkey);
   }, []);
 
-  const handleMouseEnter = (menu) => {
-    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
-    setActiveDropdown(menu);
-  };
-
-  const handleMouseLeave = () => {
-    dropdownTimeout.current = setTimeout(() => {
-      setActiveDropdown(null);
-    }, 150);
-  };
-
-  const handleDropdownClick = (menu, e) => {
-    e.preventDefault();
-    setActiveDropdown(prev => prev === menu ? null : menu);
-  };
-
-  const closeDropdowns = () => {
-    setActiveDropdown(null);
-  };
-
-  function isActive(path, exact = false) {
-    if (exact) {
-      return location.pathname === path && !location.hash;
-    }
+  function isActive(path) {
     return location.pathname.startsWith(path);
-  }
-
-  function isHomeTabActive(id) {
-    return location.pathname === "/" && (location.hash === `#${id}` || (id === "intro" && (!location.hash || location.hash === "#intro") && tab === "intro"));
   }
 
   function go(id) {
     onGoTab?.(id);
-    close();
-    closeDropdowns();
+    closeMenu();
+    setMoreOpen(false);
   }
+
+  function goSection(id, e) {
+    e?.preventDefault();
+    closeMenu();
+    setMoreOpen(false);
+    if (onHome && tab === "intro" && scrollToSection(id)) return;
+    navigate("/", { state: { section: id } });
+  }
+
+  function goHome() {
+    brandToIntro?.();
+    closeMenu();
+    setMoreOpen(false);
+  }
+
+  function goTrack(e) {
+    closeMenu();
+    setMoreOpen(false);
+    // The app-wide /#track link interceptor may already have routed this click.
+    if (e?.defaultPrevented) return;
+    e?.preventDefault();
+    onGoTab?.("track");
+  }
+
+  const homeActive = onHome && tab === "intro" && !activeSection;
+  const trackActive = location.pathname === "/" && location.hash === "#track";
+
+  const primaryLinks = [
+    { key: "home", label: "Home", to: "/", active: homeActive, onClick: goHome },
+    { key: "mentors", label: "Meet Mentors", to: "/mentors", active: isActive("/mentors") },
+    { key: "about", label: "About", to: "/about", active: isActive("/about") },
+    {
+      key: "how",
+      label: "How It Works",
+      to: "/",
+      active: activeSection === HOME_SECTIONS.how,
+      onClick: (e) => goSection(HOME_SECTIONS.how, e),
+    },
+    {
+      key: "wac",
+      label: "WAC 2026",
+      to: "/",
+      active: activeSection === HOME_SECTIONS.wac,
+      onClick: (e) => goSection(HOME_SECTIONS.wac, e),
+    },
+    {
+      key: "track",
+      label: "Track my answer",
+      to: "/#track",
+      active: trackActive,
+      onClick: goTrack,
+      Icon: Ticket,
+    },
+  ];
+
+  const takePart = [
+    { label: "Enter the Hall", id: "hall" },
+    { label: "Register", id: "register" },
+    { label: "Ask a question", id: "ask" },
+    { label: "Open Theme Stage", id: "board" },
+  ];
+  const explore = [
+    { label: "Career tracks", to: "/programs" },
+    { label: "Congress events", to: "/events" },
+    { label: "Resources", to: "/resources" },
+    { label: "FAQs", to: "/resources#faq-title" },
+    { label: "Support", to: "/contact" },
+  ];
+
+  const headerClass = [
+    "ed-nav",
+    overHero ? "ed-nav--over-hero" : "ed-nav--solid",
+    scrolled ? "is-scrolled" : "",
+    moreOpen ? "is-flyout-open" : "",
+  ].join(" ");
 
   return (
     <>
-      <header className="aym-top sticky-header">
-        <div className="aym-top-inner">
-          <div className="aym-brand-row">
-            <Link
-              to="/"
-              className="aym-brand-btn"
-              aria-label="AYURDISHA home"
-              onClick={() => {
-                brandToIntro?.();
-                closeDropdowns();
-              }}
-            >
-              <span className="aym-eyebrow aym-brand-kicker">World Ayurveda Foundation · WAC 2026</span>
-              <span className="aym-display aym-wordmark">AYURDISHA</span>
-              <span className="aym-mcg">
-                <span>Meet</span><span>Connect</span><span>Grow</span>
-              </span>
-            </Link>
+      <header className={headerClass}>
+        <div className="ed-nav-inner">
+          <Link to="/" className="ed-brand" aria-label="AYURDISHA home" onClick={goHome}>
+            <span className="ed-brand-word">AYURDISHA</span>
+            <span className="ed-brand-kicker">Meet the Mentors · WAC 2026</span>
+          </Link>
 
-            {/* Desktop Dropdown Navigation */}
-            <nav className="aym-main-nav" aria-label="Primary">
+          <nav className="ed-nav-links" aria-label="Primary">
+            {primaryLinks.map((l) => (
               <Link
-                to="/"
-                className={`aym-nav-link ${isHomeTabActive("intro") ? "aym-nav-link-active" : ""}`}
-                onClick={() => {
-                  brandToIntro?.();
-                  closeDropdowns();
-                }}
+                key={l.key}
+                to={l.to}
+                className={`ed-nav-link${l.Icon ? " ed-nav-link--track" : ""}${l.active ? " is-active" : ""}`}
+                aria-current={l.active ? "page" : undefined}
+                onClick={l.onClick}
               >
-                Home
+                {l.Icon && <l.Icon size={14} strokeWidth={1.9} aria-hidden="true" />}
+                {l.label}
               </Link>
-
-              {/* ABOUT dropdown */}
-              <div 
-                className="aym-dropdown-container"
-                onMouseEnter={() => handleMouseEnter("about")}
-                onMouseLeave={handleMouseLeave}
-              >
-                <button
-                  type="button"
-                  className={`aym-nav-link aym-dropdown-trigger ${isActive("/about") ? "aym-nav-link-active" : ""} ${activeDropdown === "about" ? "dropdown-open" : ""}`}
-                  aria-haspopup="true"
-                  aria-expanded={activeDropdown === "about"}
-                  onClick={(e) => handleDropdownClick("about", e)}
-                >
-                  <span>About</span>
-                  <ChevronDown size={14} className="aym-chevron" aria-hidden="true" />
-                </button>
-                {activeDropdown === "about" && (
-                  <div className="aym-dropdown-menu">
-                    <Link to="/about" className="aym-dropdown-item" onClick={closeDropdowns}>
-                      <Info size={16} aria-hidden="true" />
-                      <div>
-                        <strong>About Ayurdisha</strong>
-                        <span>The digital mentoring initiative</span>
-                      </div>
-                    </Link>
-                    <a href="https://worldayurvedacongress.com" target="_blank" rel="noopener noreferrer" className="aym-dropdown-item" onClick={closeDropdowns}>
-                      <Compass size={16} aria-hidden="true" />
-                      <div>
-                        <strong>About WAC 2026</strong>
-                        <span>11th World Ayurveda Congress</span>
-                      </div>
-                    </a>
-                    {onOpenWelcome && (
-                      <button
-                        type="button"
-                        className="aym-dropdown-item"
-                        onClick={() => {
-                          onOpenWelcome();
-                          closeDropdowns();
-                        }}
-                      >
-                        <HelpCircle size={16} aria-hidden="true" />
-                        <div>
-                          <strong>How AYURDISHA works</strong>
-                          <span>Quick welcome overview</span>
-                        </div>
-                      </button>
-                    )}
-                  </div>
-                )}
-              </div>
-
-              <Link
-                to="/mentors"
-                className={`aym-nav-link ${isActive("/mentors") ? "aym-nav-link-active" : ""}`}
-                onClick={closeDropdowns}
-              >
-                Mentors
-              </Link>
-
-              <Link
-                to="/programs"
-                className={`aym-nav-link ${isActive("/programs") ? "aym-nav-link-active" : ""}`}
-                onClick={closeDropdowns}
-              >
-                Programs
-              </Link>
-
-              {/* RESOURCES dropdown */}
-              <div 
-                className="aym-dropdown-container"
-                onMouseEnter={() => handleMouseEnter("resources")}
-                onMouseLeave={handleMouseLeave}
-              >
-                <button
-                  type="button"
-                  className={`aym-nav-link aym-dropdown-trigger ${isActive("/resources") || isActive("/contact") ? "aym-nav-link-active" : ""} ${activeDropdown === "resources" ? "dropdown-open" : ""}`}
-                  aria-haspopup="true"
-                  aria-expanded={activeDropdown === "resources"}
-                  onClick={(e) => handleDropdownClick("resources", e)}
-                >
-                  <span>Resources</span>
-                  <ChevronDown size={14} className="aym-chevron" aria-hidden="true" />
-                </button>
-                {activeDropdown === "resources" && (
-                  <div className="aym-dropdown-menu">
-                    <Link to="/resources" className="aym-dropdown-item" onClick={closeDropdowns}>
-                      <BookOpen size={16} aria-hidden="true" />
-                      <div>
-                        <strong>Important Information</strong>
-                        <span>Guides, files, and career references</span>
-                      </div>
-                    </Link>
-                    <Link to="/resources#faq-title" className="aym-dropdown-item" onClick={closeDropdowns}>
-                      <HelpCircle size={16} aria-hidden="true" />
-                      <div>
-                        <strong>FAQs</strong>
-                        <span>Frequently asked questions</span>
-                      </div>
-                    </Link>
-                    <Link to="/contact" className="aym-dropdown-item" onClick={closeDropdowns}>
-                      <Phone size={16} aria-hidden="true" />
-                      <div>
-                        <strong>Support</strong>
-                        <span>Get in touch with our help desk</span>
-                      </div>
-                    </Link>
-                  </div>
-                )}
-              </div>
-
-              <Link
-                to="/events"
-                className={`aym-nav-link ${isActive("/events") ? "aym-nav-link-active" : ""}`}
-                onClick={closeDropdowns}
-              >
-                Events
-              </Link>
-            </nav>
-
-            {/* Primary actions — one solid CTA, quiet secondary */}
-            <div className="aym-top-actions unified-action-group">
+            ))}
+            <div className="ed-more" ref={moreRef}>
               <button
                 type="button"
-                className="aym-btn aym-btn-ghost aym-search-trigger"
-                onClick={() => { setShowSearch(true); closeDropdowns(); }}
-                aria-label="Search site"
-                title="Search site (/ or ⌘K)"
+                className={`ed-nav-link ed-more-trigger${moreOpen ? " is-open" : ""}`}
+                aria-expanded={moreOpen}
+                aria-controls={flyoutId}
+                onClick={() => setMoreOpen((o) => !o)}
               >
-                <Search size={17} aria-hidden="true" />
-              </button>
-
-              <button
-                type="button"
-                className="aym-btn aym-btn-secondary aym-track-btn-premium"
-                onClick={() => go("track")}
-                aria-label="Track my answer"
-              >
-                <Ticket size={14} aria-hidden="true" />
-                <span className="aym-track-btn-label aym-action-label-full">Track Answer</span>
-                <span className="aym-track-btn-label aym-action-label-short" aria-hidden="true">Track</span>
-              </button>
-
-              <button
-                type="button"
-                className="aym-btn aym-btn-primary aym-desktop-only aym-ask-btn-premium"
-                onClick={() => go("ask")}
-                aria-label="Ask a question"
-              >
-                <Send size={14} aria-hidden="true" />
-                <span className="aym-action-label-full">Ask Question</span>
-                <span className="aym-action-label-short" aria-hidden="true">Ask</span>
-              </button>
-
-              {onStaffClick && (
-                <button
-                  type="button"
-                  className="aym-btn aym-staff-chip-premium"
-                  onClick={() => { onStaffClick(); closeDropdowns(); }}
-                  aria-label={staff ? "Staff session active" : "Staff login"}
-                  title={staff ? "Staff session active" : "Staff login"}
-                >
-                  {staff ? <Unlock size={15} aria-hidden="true" /> : <Lock size={15} aria-hidden="true" />}
-                </button>
-              )}
-
-              <button
-                type="button"
-                className="aym-menu-btn"
-                aria-expanded={open}
-                aria-controls={menuId}
-                onClick={() => setOpen(o => !o)}
-                aria-label={open ? "Close menu" : "Open menu"}
-              >
-                {open ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
+                More
+                <ChevronDown size={13} aria-hidden="true" />
               </button>
             </div>
+          </nav>
+
+          <div className="ed-nav-actions">
+            <button
+              type="button"
+              className="ed-icon-btn"
+              onClick={() => { setShowSearch(true); setMoreOpen(false); }}
+              aria-label="Search site"
+              title="Search site (/ or ⌘K)"
+            >
+              <Search size={17} aria-hidden="true" />
+            </button>
+            {onStaffClick && (
+              <button
+                type="button"
+                className="ed-icon-btn ed-staff-btn"
+                onClick={() => { onStaffClick(); setMoreOpen(false); }}
+                aria-label={staff ? "Staff session active" : "Staff login"}
+                title={staff ? "Staff session active" : "Staff login"}
+              >
+                {staff ? <Unlock size={15} aria-hidden="true" /> : <Lock size={15} aria-hidden="true" />}
+              </button>
+            )}
+            <Link to="/mentors" className="ui-btn ui-btn--primary ui-btn--sm ed-nav-cta">
+              Meet a Mentor
+            </Link>
+            <button
+              type="button"
+              className={`ed-burger${menuOpen ? " is-open" : ""}`}
+              aria-expanded={menu === "open"}
+              aria-controls={menuId}
+              onClick={() => setMenu((m) => (m === "open" ? "closing" : "open"))}
+              aria-label={menu === "open" ? "Close menu" : "Open menu"}
+            >
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
+            </button>
           </div>
         </div>
 
-        {/* Responsive Mobile Drawer Navigation */}
-        <NavDrawer open={open} onClose={close} labelledBy={menuId} title="Navigation Menu">
-          <nav className="aym-drawer-nav" aria-label="Mobile">
-            
-            {/* Primary Actions (At the very top of drawer for prominent mobile access) */}
-            <div className="aym-drawer-actions">
-              <button type="button" className="aym-btn aym-btn-primary aym-drawer-primary-btn" onClick={() => go("ask")}>
-                <Send size={16} aria-hidden="true" /> Ask a Question
-              </button>
-              <button type="button" className="aym-btn aym-btn-secondary aym-drawer-secondary-btn" onClick={() => go("track")}>
-                <Ticket size={16} aria-hidden="true" /> Track My Answer
-              </button>
-            </div>
-
-            <div className="aym-drawer-divider" />
-
-            <Link to="/" className={`aym-drawer-link ${location.pathname === "/" && !location.hash ? "aym-drawer-link-on" : ""}`} onClick={close}>
-              Home
-            </Link>
-
-            {/* Mobile About Group */}
-            <div className="aym-drawer-group">
-              <span className="aym-drawer-group-label">ABOUT</span>
-              <Link to="/about" className={`aym-drawer-sublink ${isActive("/about") ? "aym-drawer-sublink-on" : ""}`} onClick={close}>
-                About Ayurdisha
-              </Link>
-              <a href="https://worldayurvedacongress.com" target="_blank" rel="noopener noreferrer" className="aym-drawer-sublink" onClick={close}>
-                About WAC 2026
-              </a>
-              {onOpenWelcome && (
-                <button
-                  type="button"
-                  className="aym-drawer-sublink"
-                  onClick={() => {
-                    onOpenWelcome();
-                    close();
-                  }}
-                >
-                  How AYURDISHA works
+        {moreOpen && (
+          <div className="ui-flyout" id={flyoutId} ref={flyoutRef}>
+            <div className="ui-flyout-inner">
+              <div className="ui-flyout-col ui-flyout-col--primary">
+                <p className="ui-flyout-label">Take part</p>
+                {takePart.map((t) => (
+                  <button key={t.id} type="button" onClick={() => go(t.id)}>{t.label}</button>
+                ))}
+              </div>
+              <div className="ui-flyout-col">
+                <p className="ui-flyout-label">Explore</p>
+                {explore.map((x) => (
+                  <Link key={x.label} to={x.to} onClick={() => setMoreOpen(false)}>{x.label}</Link>
+                ))}
+              </div>
+              <div className="ui-flyout-col">
+                <p className="ui-flyout-label">Orientation</p>
+                {onOpenWelcome && (
+                  <button type="button" onClick={() => { setMoreOpen(false); onOpenWelcome(); }}>
+                    Welcome overview
+                  </button>
+                )}
+                <Link to="/about" onClick={() => setMoreOpen(false)}>About AYURDISHA</Link>
+                <button type="button" onClick={() => { setMoreOpen(false); setShowSearch(true); }}>
+                  Search the site
                 </button>
-              )}
+              </div>
             </div>
-
-            <Link
-              to="/mentors"
-              className={`aym-drawer-link ${isActive("/mentors") ? "aym-drawer-link-on" : ""}`}
-              onClick={close}
-            >
-              Mentors
-            </Link>
-
-            {/* Mobile Programs & Events Group */}
-            <div className="aym-drawer-group">
-              <span className="aym-drawer-group-label">PATHWAYS & SESSIONS</span>
-              <Link to="/programs" className={`aym-drawer-sublink ${isActive("/programs") ? "aym-drawer-sublink-on" : ""}`} onClick={close}>
-                10 Career Tracks
-              </Link>
-              <Link to="/events" className={`aym-drawer-sublink ${isActive("/events") ? "aym-drawer-sublink-on" : ""}`} onClick={close}>
-                Congress Events
-              </Link>
-            </div>
-
-            {/* Mobile Resources Group */}
-            <div className="aym-drawer-group">
-              <span className="aym-drawer-group-label">RESOURCES</span>
-              <Link to="/resources" className={`aym-drawer-sublink ${isActive("/resources") ? "aym-drawer-sublink-on" : ""}`} onClick={close}>
-                Important Information
-              </Link>
-              <Link to="/resources#faq-title" className="aym-drawer-sublink" onClick={close}>
-                FAQs
-              </Link>
-              <Link to="/contact" className={`aym-drawer-sublink ${isActive("/contact") ? "aym-drawer-sublink-on" : ""}`} onClick={close}>
-                Support Desk
-              </Link>
-            </div>
-
-            <div className="aym-drawer-divider" />
-            
-            <button type="button" className="aym-drawer-link" onClick={() => go("hall")}>
-              Enter the Hall
-            </button>
-            <button type="button" className="aym-drawer-link" onClick={() => go("board")}>
-              Open Theme Stage
-            </button>
-            <button type="button" className="aym-drawer-link" onClick={() => go("register")}>
-              Attendee Registration
-            </button>
-          </nav>
-        </NavDrawer>
+          </div>
+        )}
       </header>
+      {moreOpen && <div className="ui-flyout-scrim" aria-hidden="true" />}
+
+      {menuOpen && (
+        <div
+          id={menuId}
+          ref={panelRef}
+          className={`ed-overlay${menu === "closing" ? " is-closing" : ""}`}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site menu"
+          tabIndex={-1}
+        >
+          <div className="ed-overlay-head">
+            <Link to="/" className="ed-brand" onClick={goHome}>
+              <span className="ed-brand-word">AYURDISHA</span>
+            </Link>
+            <button type="button" className="ed-icon-btn ed-overlay-close" onClick={closeMenu} aria-label="Close menu">
+              <X size={20} aria-hidden="true" />
+            </button>
+          </div>
+
+          <nav className="ed-overlay-nav" aria-label="Mobile">
+            <ul className="ed-overlay-primary">
+              {primaryLinks.map((l, i) => (
+                <li key={l.key} style={{ "--i": i }}>
+                  <Link
+                    to={l.to}
+                    className={[l.Icon ? "ed-overlay-track" : "", l.active ? "is-active" : ""].filter(Boolean).join(" ") || undefined}
+                    aria-current={l.active ? "page" : undefined}
+                    onClick={(e) => {
+                      if (l.onClick) l.onClick(e);
+                      else closeMenu();
+                    }}
+                  >
+                    <span>
+                      {l.Icon && <l.Icon size={22} strokeWidth={1.7} aria-hidden="true" className="ed-overlay-track-icon" />}
+                      {l.label}
+                    </span>
+                    <ChevronRight size={20} aria-hidden="true" className="ed-overlay-chev" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <div className="ed-overlay-actions" style={{ "--i": 6 }}>
+              <Link to="/mentors" className="ui-btn ui-btn--primary ui-btn--lg ui-btn--block" onClick={closeMenu}>
+                Meet a Mentor
+              </Link>
+              <button type="button" className="ui-btn ui-btn--secondary ui-btn--md ui-btn--block" onClick={() => go("ask")}>
+                Ask a question
+              </button>
+            </div>
+
+            <div className="ed-overlay-groups" style={{ "--i": 7 }}>
+              <div>
+                <p className="ed-more-label">Take part</p>
+                <button type="button" onClick={() => go("hall")}>Enter the Hall</button>
+                <button type="button" onClick={() => go("register")}>Register</button>
+                <button type="button" onClick={() => go("board")}>Open Theme Stage</button>
+                {onOpenWelcome && (
+                  <button type="button" onClick={() => { closeMenu(); onOpenWelcome(); }}>
+                    Welcome overview
+                  </button>
+                )}
+              </div>
+              <div>
+                <p className="ed-more-label">Explore</p>
+                {explore.map((x) => (
+                  <Link key={x.label} to={x.to} onClick={closeMenu}>{x.label}</Link>
+                ))}
+              </div>
+            </div>
+          </nav>
+        </div>
+      )}
       {showSearch && <GlobalSearch onClose={() => setShowSearch(false)} />}
     </>
   );

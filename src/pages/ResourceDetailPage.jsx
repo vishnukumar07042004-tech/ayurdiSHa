@@ -1,15 +1,21 @@
-import React, { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useEffect, useRef } from "react";
+import { useParams } from "react-router-dom";
 import { getResourceBySlug } from "../data/resources.js";
 import { parseVideo } from "../podcasts.js";
 import { setPageMeta, breadcrumbJsonLd } from "../siteMeta.js";
 import Breadcrumbs from "../components/Breadcrumbs.jsx";
-import { Mic, FileText, User, ExternalLink, ArrowRight, BookOpen } from "lucide-react";
+import { Mic, FileText, User, ArrowUpRight } from "lucide-react";
 import NotFoundPage from "./NotFoundPage.jsx";
+import Button, { MoreLink } from "../components/ui/Button.jsx";
+import { PageHero, useReveal } from "../components/ui/PageChrome.jsx";
+
+const ASK = { pathname: "/", hash: "#ask" };
 
 export default function ResourceDetailPage() {
   const { slug } = useParams();
   const resource = getResourceBySlug(slug);
+  const rootRef = useRef(null);
+  useReveal(rootRef, [slug]);
 
   useEffect(() => {
     if (resource) {
@@ -32,37 +38,42 @@ export default function ResourceDetailPage() {
   const parsedVideo = isPodcast ? parseVideo(resource.videoUrl) : null;
 
   return (
-    <div className="aym-page aym-py-12">
-      <div className="aym-container aym-max-w-4xl">
-        <Breadcrumbs 
+    <main className="ui-page ui-detail" id="main" ref={rootRef}>
+      <div className="ui-container ui-crumbs">
+        <Breadcrumbs
           backTo="/resources"
           backLabel="Back to Resources"
           items={[
             { label: "Resources", to: "/resources" },
             { label: resource.category }
-          ]} 
+          ]}
         />
+      </div>
 
-        <header className="aym-page-header">
-          <div className="aym-flex-align-center aym-gap-3 aym-mb-3">
-            <span className={`aym-badge ${isPodcast ? "aym-badge-maroon" : "aym-badge-gold"}`}>
-              {isPodcast ? <Mic size={14} aria-hidden="true" /> : <FileText size={14} aria-hidden="true" />}
+      <PageHero
+        eyebrow={isPodcast ? "Mentor podcast" : "Career guide"}
+        title={resource.title}
+        lead={resource.description}
+        meta={
+          <>
+            <span className={`ui-tag ${isPodcast ? "" : "ui-tag--gold"}`}>
+              {isPodcast ? <Mic size={13} aria-hidden="true" /> : <FileText size={13} aria-hidden="true" />}
               {resource.category}
             </span>
             {resource.author && (
-              <span className="aym-text-sm aym-text-muted aym-flex-align-center aym-gap-1">
-                <User size={14} aria-hidden="true" /> {resource.author}
+              <span className="ui-tag ui-tag--neutral">
+                <User size={13} aria-hidden="true" /> {resource.author}
               </span>
             )}
-          </div>
-          <h1 className="aym-display">{resource.title}</h1>
-          <p className="aym-lead">{resource.description}</p>
-        </header>
+          </>
+        }
+      />
 
+      <div className="ui-container ui-container--text ui-detail-body">
         {isPodcast && parsedVideo && (
-          <div className="aym-media-container aym-mb-8">
+          <div className="ui-media-frame" data-reveal>
             {parsedVideo.kind === "youtube" && (
-              <div className="aym-embed-responsive">
+              <div className="ui-embed">
                 <iframe
                   src={`https://www.youtube-nocookie.com/embed/${parsedVideo.id}`}
                   title={resource.title}
@@ -72,7 +83,7 @@ export default function ResourceDetailPage() {
               </div>
             )}
             {parsedVideo.kind === "vimeo" && (
-              <div className="aym-embed-responsive">
+              <div className="ui-embed">
                 <iframe
                   src={`https://player.vimeo.com/video/${parsedVideo.id}`}
                   title={resource.title}
@@ -82,45 +93,43 @@ export default function ResourceDetailPage() {
               </div>
             )}
             {parsedVideo.kind === "mp4" && (
-              <video controls className="aym-video-player">
+              <video controls className="ui-video">
                 <source src={parsedVideo.src} type="video/mp4" />
                 Your browser does not support HTML5 video.
               </video>
             )}
             {parsedVideo.kind === "link" && (
-              <div className="aym-callout-box">
-                <p>Watch or listen to this talk on the external platform:</p>
-                <a href={parsedVideo.href} target="_blank" rel="noopener noreferrer" className="aym-btn aym-btn-primary aym-mt-2">
-                  Open Video Stream <ExternalLink size={14} aria-hidden="true" />
-                </a>
+              <div className="ui-tile ui-tile--surface ui-tile--center">
+                <p className="ui-body">Watch or listen to this talk on the external platform:</p>
+                <div className="ui-btn-row ui-btn-row--center">
+                  <Button href={parsedVideo.href} target="_blank" rel="noopener noreferrer" iconAfter={<ArrowUpRight size={16} aria-hidden="true" />}>
+                    Open Video Stream
+                  </Button>
+                </div>
               </div>
             )}
           </div>
         )}
 
-        {resource.contentSections && (
-          <div className="aym-prose aym-mb-8">
-            {resource.contentSections.map((sec, i) => (
-              <section key={i} className="aym-program-section-card aym-mb-6">
-                <h2 className="aym-h3 aym-mb-3">{sec.title}</h2>
-                <ul className="aym-bullet-list">
-                  {sec.bullets.map((b, idx) => (
-                    <li key={idx}>{b}</li>
-                  ))}
-                </ul>
-              </section>
-            ))}
-          </div>
-        )}
+        {resource.contentSections && resource.contentSections.map((sec, i) => (
+          <section key={i} className="ui-detail-section" data-reveal>
+            <h2 className="ui-title">{sec.title}</h2>
+            <ul className="ui-checklist">
+              {sec.bullets.map((b, idx) => (
+                <li key={idx}>{b}</li>
+              ))}
+            </ul>
+          </section>
+        ))}
 
         {resource.references && resource.references.length > 0 && (
-          <section className="aym-program-section-card aym-bg-surface aym-mb-8">
-            <h2 className="aym-h3 aym-mb-4">Official References</h2>
-            <ul className="aym-ref-list">
+          <section className="ui-tile ui-tile--surface ui-detail-refs" data-reveal>
+            <h2 className="ui-title">Official References</h2>
+            <ul>
               {resource.references.map((ref, i) => (
                 <li key={i}>
-                  <a href={ref.url} target="_blank" rel="noopener noreferrer" className="aym-ref-link">
-                    {ref.label} <ExternalLink size={14} aria-hidden="true" />
+                  <a href={ref.url} target="_blank" rel="noopener noreferrer" className="ui-link">
+                    {ref.label} <ArrowUpRight size={15} aria-hidden="true" />
                   </a>
                 </li>
               ))}
@@ -128,16 +137,16 @@ export default function ResourceDetailPage() {
           </section>
         )}
 
-        <div className="aym-callout-box">
-          <h3>Need Further Guidance?</h3>
-          <p>Submit your question to the Ask Desk for personalized mentor feedback.</p>
-          <div className="aym-mt-4">
-            <Link to={{ pathname: "/", hash: "#ask" }} className="aym-btn aym-btn-primary">
-              Ask a Mentor <ArrowRight size={16} aria-hidden="true" />
-            </Link>
+        <aside className="ui-tile ui-tile--dark ui-tile--center ui-page-cta" data-reveal>
+          <p className="ui-eyebrow">Ask Desk</p>
+          <h2 className="ui-tile-title">Need further guidance?</h2>
+          <p className="ui-body">Submit your question to the Ask Desk for personalized mentor feedback.</p>
+          <div className="ui-btn-row ui-btn-row--center">
+            <Button to={ASK} size="lg" variant="on-dark">Ask a Mentor</Button>
           </div>
-        </div>
+          <MoreLink to="/resources" onDark>Back to all resources</MoreLink>
+        </aside>
       </div>
-    </div>
+    </main>
   );
 }

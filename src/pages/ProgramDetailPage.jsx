@@ -1,14 +1,28 @@
-import React, { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useEffect, useRef } from "react";
+import { useParams } from "react-router-dom";
 import { getProgramBySlug } from "../data/programs.js";
 import { setPageMeta, breadcrumbJsonLd } from "../siteMeta.js";
 import Breadcrumbs from "../components/Breadcrumbs.jsx";
-import { ArrowRight, BookOpen, ExternalLink, CheckCircle2, AlertTriangle, IndianRupee, HelpCircle } from "lucide-react";
+import { BookOpen, ArrowUpRight, CheckCircle2, AlertTriangle, IndianRupee } from "lucide-react";
 import NotFoundPage from "./NotFoundPage.jsx";
+import Button, { MoreLink } from "../components/ui/Button.jsx";
+import { PageHero, LocalNav, useReveal } from "../components/ui/PageChrome.jsx";
+
+const ASK = { pathname: "/", hash: "#ask" };
+
+function sectionIcon(title) {
+  if (title.includes("opportunities")) return CheckCircle2;
+  if (title.includes("Challenges")) return AlertTriangle;
+  if (title.includes("Income")) return IndianRupee;
+  return BookOpen;
+}
 
 export default function ProgramDetailPage() {
   const { slug } = useParams();
   const program = getProgramBySlug(slug);
+  const rootRef = useRef(null);
+  const heroRef = useRef(null);
+  useReveal(rootRef, [slug]);
 
   useEffect(() => {
     if (program) {
@@ -27,80 +41,88 @@ export default function ProgramDetailPage() {
 
   if (!program) return <NotFoundPage message="The requested career track does not exist." />;
 
+  const links = program.sections.map((sec, idx) => ({
+    label: sec.title.split(/[&(:]/)[0].trim(),
+    href: `#track-section-${idx}`,
+  }));
+  if (program.references?.length) links.push({ label: "References", href: "#track-references" });
+
   return (
-    <div className="aym-page aym-py-12">
-      <div className="aym-container aym-max-w-4xl">
-        <Breadcrumbs 
+    <main className="ui-page ui-detail" id="main" ref={rootRef}>
+      <div className="ui-container ui-crumbs">
+        <Breadcrumbs
           backTo="/programs"
           backLabel="Back to Programs"
           items={[
             { label: "Programs & Tracks", to: "/programs" },
             { label: `Track ${program.code}` }
-          ]} 
+          ]}
         />
+      </div>
 
-        <header className="aym-page-header">
-          <div className="aym-flex-align-center aym-gap-3 aym-mb-3">
-            <span className="aym-badge aym-badge-gold">{program.code}</span>
-            <span className="aym-eyebrow">NATIONAL CAREER PATHWAY</span>
-          </div>
-          <h1 className="aym-display">{program.title}</h1>
-          <p className="aym-lead">{program.tagline}</p>
-        </header>
+      <PageHero
+        ref={heroRef}
+        eyebrow="National career pathway"
+        title={program.title}
+        lead={program.tagline}
+        meta={<span className="ui-tag ui-tag--gold">Track {program.code}</span>}
+        actions={
+          <>
+            <Button to={ASK} size="lg">Ask about Track {program.code}</Button>
+            <Button to="/programs" size="lg" variant="secondary">All tracks</Button>
+          </>
+        }
+      />
+      <LocalNav
+        title={`Track ${program.code}`}
+        watchRef={heroRef}
+        links={links.slice(0, 4)}
+        cta={{ label: "Ask a mentor", to: ASK }}
+      />
 
-        <div className="aym-program-sections">
-          {program.sections.map((sec, idx) => {
-            const isOpp = sec.title.includes("opportunities");
-            const isChal = sec.title.includes("Challenges");
-            const isInc = sec.title.includes("Income");
-
-            return (
-              <section key={idx} className="aym-program-section-card">
-                <div className="aym-flex-align-center aym-gap-3 aym-mb-4">
-                  {isOpp && <CheckCircle2 className="aym-text-green" size={22} aria-hidden="true" />}
-                  {isChal && <AlertTriangle className="aym-text-warning" size={22} aria-hidden="true" />}
-                  {isInc && <IndianRupee className="aym-text-gold" size={22} aria-hidden="true" />}
-                  {!isOpp && !isChal && !isInc && <BookOpen className="aym-text-maroon" size={22} aria-hidden="true" />}
-                  <h2 className="aym-h2">{sec.title}</h2>
-                </div>
-
-                <ul className="aym-bullet-list">
-                  {sec.bullets.map((b, i) => (
-                    <li key={i}>{b}</li>
-                  ))}
-                </ul>
-              </section>
-            );
-          })}
-
-          {program.references && program.references.length > 0 && (
-            <section className="aym-program-section-card aym-bg-surface">
-              <h2 className="aym-h3 aym-mb-4">Official References & Publications</h2>
-              <ul className="aym-ref-list">
-                {program.references.map((ref, i) => (
-                  <li key={i}>
-                    <a href={ref.url} target="_blank" rel="noopener noreferrer" className="aym-ref-link">
-                      {ref.label} <ExternalLink size={14} aria-hidden="true" />
-                    </a>
-                  </li>
+      <div className="ui-container ui-container--text ui-detail-body">
+        {program.sections.map((sec, idx) => {
+          const Icon = sectionIcon(sec.title);
+          return (
+            <section key={idx} id={`track-section-${idx}`} className="ui-detail-section ui-anchor" data-reveal>
+              <div className="ui-detail-h">
+                <span className="ui-icon-badge ui-icon-badge--sm"><Icon size={18} strokeWidth={1.9} aria-hidden="true" /></span>
+                <h2 className="ui-title">{sec.title}</h2>
+              </div>
+              <ul className="ui-checklist">
+                {sec.bullets.map((b, i) => (
+                  <li key={i}>{b}</li>
                 ))}
               </ul>
             </section>
-          )}
+          );
+        })}
 
-          <div className="aym-callout-box aym-mt-8">
-            <h3 className="aym-flex-align-center aym-gap-2">
-              <HelpCircle className="aym-text-maroon" size={20} aria-hidden="true" /> Have a Specific Question About {program.title}?
-            </h3>
-            <p>Submit your question to the AYURDISHA Ask Desk and receive guidance from experienced mentors.</p>
-            <div className="aym-mt-4">
-              <Link to={{ pathname: "/", hash: "#ask" }} className="aym-btn aym-btn-primary">
-                Ask a Mentor About Track {program.code} <ArrowRight size={16} aria-hidden="true" />
-              </Link>
-            </div>
+        {program.references && program.references.length > 0 && (
+          <section id="track-references" className="ui-tile ui-tile--surface ui-detail-refs ui-anchor" data-reveal>
+            <h2 className="ui-title">Official References &amp; Publications</h2>
+            <ul>
+              {program.references.map((ref, i) => (
+                <li key={i}>
+                  <a href={ref.url} target="_blank" rel="noopener noreferrer" className="ui-link">
+                    {ref.label} <ArrowUpRight size={15} aria-hidden="true" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        <aside className="ui-tile ui-tile--dark ui-tile--center ui-page-cta" data-reveal>
+          <p className="ui-eyebrow">Ask Desk</p>
+          <h2 className="ui-tile-title">Have a specific question about {program.title}?</h2>
+          <p className="ui-body">Submit your question to the AYURDISHA Ask Desk and receive guidance from experienced mentors.</p>
+          <div className="ui-btn-row ui-btn-row--center">
+            <Button to={ASK} size="lg" variant="on-dark">Ask a Mentor About Track {program.code}</Button>
           </div>
-        </div>
+          <MoreLink to="/programs" onDark>Explore other tracks</MoreLink>
+        </aside>
       </div>
-    </div>
+    </main>
   );
 }

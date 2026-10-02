@@ -1,49 +1,44 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Mic, FileText, ArrowRight, User } from "lucide-react";
+import { Mic, FileText, ChevronRight, User } from "lucide-react";
 import { resourcePublicPath } from "../data/resources.js";
 
-export default function ResourceCard({ resource, index = 0 }) {
+export default function ResourceCard({ resource }) {
   if (!resource) return null;
 
   const isPodcast = resource.type === "podcast";
 
   return (
-    <article 
-      className="aym-card aym-resource-card"
-      style={{ animationDelay: `${Math.min(index, 12) * 0.04}s` }}
-    >
-      <div className="aym-card-header">
-        <span className={`aym-badge ${isPodcast ? "aym-badge-maroon" : "aym-badge-gold"}`}>
+    <article className="ui-card aym-resource-card">
+      <div className="ui-card-top">
+        <span className={`ui-tag ${isPodcast ? "" : "ui-tag--gold"}`}>
           {isPodcast ? <Mic size={13} aria-hidden="true" /> : <FileText size={13} aria-hidden="true" />}
           {resource.category}
         </span>
         {resource.trackCode && (
-          <span className="aym-card-track-tag">Track {resource.trackCode}</span>
+          <span className="ui-card-kicker">Track {resource.trackCode}</span>
         )}
       </div>
 
-      <div className="aym-card-body">
-        <h3 className="aym-card-title">
-          <Link to={resourcePublicPath(resource)} className="aym-card-title-link">
-            {resource.title}
-          </Link>
-        </h3>
-        <p className="aym-card-description">{resource.description}</p>
-        
-        {resource.author && (
-          <div className="aym-card-author">
-            <User size={14} aria-hidden="true" />
-            <span>{resource.author}</span>
-          </div>
-        )}
-      </div>
-
-      <div className="aym-card-footer">
-        <Link to={resourcePublicPath(resource)} className="aym-btn aym-btn-outline aym-btn-sm">
-          {isPodcast ? "Listen / Watch" : "Read Guide"} <ArrowRight size={14} aria-hidden="true" />
+      <h3 className="ui-card-title">
+        <Link to={resourcePublicPath(resource)} className="ui-card-link">
+          {resource.title}
         </Link>
-      </div>
+      </h3>
+      <p className="ui-card-desc">{resource.description}</p>
+
+      {resource.author && (
+        <ul className="ui-card-meta">
+          <li>
+            <User size={15} aria-hidden="true" />
+            <span>{resource.author}</span>
+          </li>
+        </ul>
+      )}
+
+      <span className="ui-link ui-card-cta" aria-hidden="true">
+        {isPodcast ? "Listen / Watch" : "Read guide"} <ChevronRight size={16} className="ui-link-chev" />
+      </span>
     </article>
   );
 }

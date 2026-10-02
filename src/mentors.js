@@ -22,29 +22,11 @@ export const MENTORS_META = {
  *   expertise: string,
  *   bio: string,
  *   credentials?: string,
- *   branch?: string,
  *   experienceYears?: number,
  *   photo?: string,
  *   photoKind?: "portrait" | "document"
  * }} Mentor
  */
-
-/** AYUSH streams shown on the Mentors directory filter ribbon. */
-export const MENTOR_BRANCHES = [
-  { id: "all", label: "All" },
-  { id: "ayurveda", label: "Ayurveda" },
-  { id: "yoga", label: "Yoga & Naturopathy" },
-  { id: "unani", label: "Unani" },
-  { id: "siddha", label: "Siddha" },
-  { id: "homeopathy", label: "Homeopathy" },
-];
-
-/** Current WAC roster is Ayurveda; other streams stay empty until named. */
-export const DEFAULT_MENTOR_BRANCH = "ayurveda";
-
-export function mentorBranch(m) {
-  return String(m?.branch || DEFAULT_MENTOR_BRANCH).toLowerCase();
-}
 
 const emptyProfile = () => ({
   designation: "",

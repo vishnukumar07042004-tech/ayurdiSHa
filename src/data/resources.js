@@ -59,7 +59,7 @@ export function getAllResources() {
       description: "An orientation podcast with veteran mentors discussing clinical practice, PG specialty selection, and research careers.",
       author: "AYURDISHA Meet the Mentors Session",
       videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      thumbnail: "/assets/hall-photo.png",
+      thumbnail: "/assets/sections/hall-podcast-talk.webp",
       publishedDate: "2026-09-10",
     });
   }

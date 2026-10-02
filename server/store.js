@@ -349,7 +349,7 @@ function fromQuestionDoc(data) {
 
 export async function createFirestoreStore(creds) {
   const { initializeApp, getApps, cert } = await import("firebase-admin/app");
-  const { getFirestore } = await import("firebase-admin/firestore");
+  const { getFirestore, FieldPath } = await import("firebase-admin/firestore");
 
   const appName = "aym-preview";
   const existing = getApps().find(a => a.name === appName);
@@ -422,6 +422,81 @@ export async function createFirestoreStore(creds) {
     await bumpStats(delta);
   }
 
+  function kvPrefixQuery(prefix) {
+    const lo = encodeKvId(prefix);
+    return db.collection(COL_KV)
+      .where(FieldPath.documentId(), ">=", lo)
+      .where(FieldPath.documentId(), "<", lo + "\uf8ff");
+  }
+
+  // Reading every doc is the only way to spot demo / duplicate records, so it
+  // runs on a slow cadence; the per-minute numbers come from count() aggregations.
+  const PUBLIC_SCAN_TTL_MS = 30 * 60 * 1000;
+  let publicScan = null;
+  async function publicCountsScan(userPrefix, isDemo) {
+    if (publicScan && Date.now() - publicScan.at < PUBLIC_SCAN_TTL_MS) return publicScan;
+    const [users, questions] = await Promise.all([
+      kvPrefixQuery(userPrefix).select("value.email", "value.name").get(),
+      db.collection(COL_QUESTIONS).select("id", "ticket", "email", "name").get(),
+    ]);
+    const genuineEmails = new Set();
+    users.docs.forEach(d => {
+      const v = d.get("value") || {};
+      if (!v.email || !v.name || isDemo(v)) return;
+      genuineEmails.add(String(v.email).trim().toLowerCase());
+    });
+    const demoKeys = new Set();
+    const ticketToId = new Map();
+    let demoQuestions = 0;
+    questions.docs.forEach(d => {
+      const q = d.data() || {};
+      const id = String(q.id || d.id);
+      if (q.ticket) ticketToId.set(String(q.ticket).trim(), id);
+      if (isDemo(q)) {
+        demoQuestions += 1;
+        demoKeys.add(id);
+      }
+    });
+    publicScan = {
+      at: Date.now(),
+      userOffset: Math.max(0, users.size - genuineEmails.size),
+      questionOffset: demoQuestions,
+      demoKeys,
+      ticketToId,
+    };
+    return publicScan;
+  }
+
+  async function publicCounts({ userPrefix, isDemo = () => false } = {}) {
+    const [scan, userCount, questionCount, individual, clusters] = await Promise.all([
+      publicCountsScan(userPrefix, isDemo),
+      kvPrefixQuery(userPrefix).count().get(),
+      db.collection(COL_QUESTIONS).count().get(),
+      db.collection(COL_QUESTIONS).where("individualAt", ">", 0).select("id").get(),
+      readClustersDoc(),
+    ]);
+    const registeredStudents = Math.max(0, userCount.data().count - scan.userOffset);
+    const questionsAsked = Math.max(0, questionCount.data().count - scan.questionOffset);
+    const answered = new Set();
+    individual.docs.forEach(d => {
+      const id = String(d.get("id") || d.id);
+      if (!scan.demoKeys.has(id)) answered.add(id);
+    });
+    clusters.value.forEach(c => {
+      if (!c || !String(c.answer || c.mergedAnswer || c.mentorAnswer || "").trim()) return;
+      (c.memberIds || []).forEach(m => {
+        const raw = String(m || "").trim();
+        const id = scan.ticketToId.get(raw) || raw;
+        if (id && !scan.demoKeys.has(id)) answered.add(id);
+      });
+    });
+    return {
+      registeredStudents,
+      questionsAsked,
+      questionsAnswered: Math.min(answered.size, questionsAsked),
+    };
+  }
+
   async function readClustersDoc() {
     const snap = await db.collection(COL_META).doc(DOC_CLUSTERS).get();
     if (!snap.exists) return { value: [], version: 1, updatedAt: 0 };
@@ -489,7 +564,29 @@ export async function createFirestoreStore(creds) {
       });
     },
     async merge(entries) {
-      for (const [k, v] of Object.entries(entries || {})) await this.set(k, v);
+      await Promise.all(Object.entries(entries || {}).map(([k, v]) => this.set(k, v)));
+    },
+    async getMany(keys) {
+      const list = [...new Set((keys || []).filter(Boolean))];
+      const vals = await Promise.all(list.map(k => this.get(k)));
+      const out = {};
+      list.forEach((k, i) => { if (vals[i] != null) out[k] = vals[i]; });
+      return out;
+    },
+    async writeDiff(prev, out) {
+      const keys = new Set([...Object.keys(prev), ...Object.keys(out)]);
+      const ops = [];
+      for (const k of keys) {
+        if (k === "__rev") continue;
+        const next = out[k];
+        const old = prev[k];
+        if (next === undefined) {
+          if (old !== undefined) ops.push(this.del(k));
+        } else if (JSON.stringify(next) !== JSON.stringify(old)) {
+          ops.push(this.set(k, next));
+        }
+      }
+      await Promise.all(ops);
     },
     async transact(writer) {
       const snap = await this.snapshot();
@@ -497,17 +594,19 @@ export async function createFirestoreStore(creds) {
       try { prev = JSON.parse(JSON.stringify(snap)); }
       catch { prev = { ...snap }; }
       const out = await writer(snap) || snap;
-      const keys = new Set([...Object.keys(prev), ...Object.keys(out)]);
-      for (const k of keys) {
-        if (k === "__rev") continue;
-        const next = out[k];
-        const old = prev[k];
-        if (next === undefined) {
-          if (old !== undefined) await this.del(k);
-        } else if (JSON.stringify(next) !== JSON.stringify(old)) {
-          await this.set(k, next);
-        }
+      await this.writeDiff(prev, out);
+      return out;
+    },
+    /** Like transact, but only loads `keys` (plus whatever `expand` adds) instead of every document. */
+    async transactKeys(keys, writer, expand) {
+      const db = await this.getMany(keys);
+      if (typeof expand === "function") {
+        const more = (expand(db) || []).filter(k => k && !(k in db));
+        if (more.length) Object.assign(db, await this.getMany(more));
       }
+      const prev = JSON.parse(JSON.stringify(db));
+      const out = await writer(db) || db;
+      await this.writeDiff(prev, out);
       return out;
     },
     async incrementCounter(name = WAC_SEQ_DOC) {
@@ -539,18 +638,18 @@ export async function createFirestoreStore(creds) {
     async list(prefix = "") {
       const keys = [];
       const p = prefix || "";
-      if (!p || K_Q.startsWith(p) || p.startsWith(K_Q)) {
-        const snap = await db.collection(COL_QUESTIONS).get();
-        snap.docs.forEach(d => {
-          const k = K_Q + d.id;
-          if (k.startsWith(p)) keys.push(k);
-        });
-      }
-      if (!p || K_CLUSTERS.startsWith(p)) {
-        const snap = await db.collection(COL_META).doc(DOC_CLUSTERS).get();
-        if (snap.exists) keys.push(K_CLUSTERS);
-      }
-      const kv = await db.collection(COL_KV).get();
+      const wantQuestions = !p || K_Q.startsWith(p) || p.startsWith(K_Q);
+      const wantClusters = !p || K_CLUSTERS.startsWith(p);
+      const [qs, cl, kv] = await Promise.all([
+        wantQuestions ? db.collection(COL_QUESTIONS).select().get() : null,
+        wantClusters ? db.collection(COL_META).doc(DOC_CLUSTERS).get() : null,
+        (p ? kvPrefixQuery(p) : db.collection(COL_KV)).select().get(),
+      ]);
+      if (qs) qs.docs.forEach(d => {
+        const k = K_Q + d.id;
+        if (k.startsWith(p)) keys.push(k);
+      });
+      if (cl && cl.exists) keys.push(K_CLUSTERS);
       kv.docs.forEach(d => {
         const k = decodeKvId(d.id);
         if (k.startsWith(p)) keys.push(k);
@@ -580,6 +679,7 @@ export async function createFirestoreStore(creds) {
     async listQuestions() {
       return listQuestions();
     },
+    publicCounts,
     async saveVersionedKv(key, writer, expectedVersion) {
       const ref = db.collection(COL_KV).doc(encodeKvId(key));
       return db.runTransaction(async tx => {
@@ -597,8 +697,17 @@ export async function createFirestoreStore(creds) {
     },
     async snapshot() {
       const out = {};
-      const keys = await this.list("");
-      for (const k of keys) out[k] = await this.get(k);
+      const [qs, clusters, kv] = await Promise.all([
+        db.collection(COL_QUESTIONS).get(),
+        db.collection(COL_META).doc(DOC_CLUSTERS).get(),
+        db.collection(COL_KV).get(),
+      ]);
+      qs.docs.forEach(d => { out[K_Q + d.id] = fromQuestionDoc(d.data()); });
+      if (clusters.exists) {
+        const value = clusters.data()?.value;
+        out[K_CLUSTERS] = Array.isArray(value) ? value : [];
+      }
+      kv.docs.forEach(d => { out[decodeKvId(d.id)] = d.data()?.value ?? null; });
       return out;
     },
     async getClustersMeta() {

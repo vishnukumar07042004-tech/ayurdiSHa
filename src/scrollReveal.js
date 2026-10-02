@@ -1,10 +1,10 @@
 /**
- * Intersection Observer scroll reveal that re-fires whenever elements
- * enter or leave the viewport (toggles `is-visible`, not one-shot).
- * Respects prefers-reduced-motion by forcing visible state immediately.
+ * Intersection Observer scroll reveal. By default re-fires whenever elements
+ * enter or leave the viewport (toggles `is-visible`); pass `once: true` for a
+ * one-shot reveal. Respects prefers-reduced-motion by forcing visible state.
  *
  * @param {ParentNode} root
- * @param {{ selector?: string, threshold?: number, rootMargin?: string }} [options]
+ * @param {{ selector?: string, threshold?: number, rootMargin?: string, once?: boolean }} [options]
  * @returns {() => void} disconnect / cleanup
  */
 export function observeScrollReveal(root, options = {}) {
@@ -23,6 +23,13 @@ export function observeScrollReveal(root, options = {}) {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
+        if (options.once) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+          return;
+        }
         entry.target.classList.toggle("is-visible", entry.isIntersecting);
       });
     },

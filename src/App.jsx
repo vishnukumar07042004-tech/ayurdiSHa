@@ -8,9 +8,10 @@ import {
   Leaf, Mic, Compass, Map, ArrowRight, UserPlus, Mail,
   ShieldCheck, BadgeCheck, LogOut, Sparkles, PenLine, Printer,
   Calendar, MessageCircle, HeartHandshake, HelpCircle, GraduationCap, Award,
-  ArrowLeft, ExternalLink, ChevronDown, MoreVertical, Newspaper, Copy, CopyCheck,
+  ArrowLeft, ExternalLink, ChevronDown, MoreVertical, Newspaper, Copy, CopyCheck, KeyRound,
 } from "lucide-react";
 import { getPodByCode, KNOWLEDGE_TABS, getSectionForTab, POD_KNOWLEDGE } from "./podKnowledge.js";
+import { JOURNAL_IMG } from "./podKnowledgeEnrichments.js";
 import { setPageMeta, personJsonLd, breadcrumbJsonLd, faqJsonLd } from "./siteMeta.js";
 import { getMentorByParam, mentorPublicPath, mentorsWithNames, MENTORS } from "./mentors.js";
 import { MentorAnswerLetter, trackStatusOf } from "./TrackAnswer.jsx";
@@ -30,18 +31,8 @@ import PageSkeleton from "./PageSkeleton.jsx";
 import { AboutPage, PrivacyPage, TermsPage, DisclaimerPage } from "./LegalPages.jsx";
 import NotFound from "./NotFound.jsx";
 
-import AboutPageNew from "./pages/AboutPage.jsx";
 import WelcomePage from "./pages/WelcomePage.jsx";
 import HomePage from "./pages/HomePage.jsx";
-import MentorsPage from "./pages/MentorsPage.jsx";
-import MentorDetailPage from "./pages/MentorDetailPage.jsx";
-import ProgramsPage from "./pages/ProgramsPage.jsx";
-import ProgramDetailPage from "./pages/ProgramDetailPage.jsx";
-import EventsPage from "./pages/EventsPage.jsx";
-import EventDetailPage from "./pages/EventDetailPage.jsx";
-import ResourcesPage from "./pages/ResourcesPage.jsx";
-import ResourceDetailPage from "./pages/ResourceDetailPage.jsx";
-import ContactPage from "./pages/ContactPage.jsx";
 import { PrivacyRoute, TermsRoute, DisclaimerRoute } from "./pages/LegalPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
 import ErrorBoundary from "./components/ErrorBoundary.jsx";
@@ -51,6 +42,16 @@ import StaffWorkspace from "./StaffWorkspace.jsx";
 const MentorsDirectory = lazy(() => import("./MentorsDirectory.jsx"));
 const MentorProfile = lazy(() => import("./MentorProfile.jsx"));
 const PodcastView = lazy(() => import("./PodcastView.jsx"));
+const AboutPageNew = lazy(() => import("./pages/AboutPage.jsx"));
+const MentorsPage = lazy(() => import("./pages/MentorsPage.jsx"));
+const MentorDetailPage = lazy(() => import("./pages/MentorDetailPage.jsx"));
+const ProgramsPage = lazy(() => import("./pages/ProgramsPage.jsx"));
+const ProgramDetailPage = lazy(() => import("./pages/ProgramDetailPage.jsx"));
+const EventsPage = lazy(() => import("./pages/EventsPage.jsx"));
+const EventDetailPage = lazy(() => import("./pages/EventDetailPage.jsx"));
+const ResourcesPage = lazy(() => import("./pages/ResourcesPage.jsx"));
+const ResourceDetailPage = lazy(() => import("./pages/ResourceDetailPage.jsx"));
+const ContactPage = lazy(() => import("./pages/ContactPage.jsx"));
 
 let xlsxPromise;
 function loadXlsx() {
@@ -247,7 +248,12 @@ async function api(op, payload = {}) {
     });
     const data = await r.json().catch(() => ({}));
     if (!r.ok) {
-      const err = new Error(data.error || `Request failed (${r.status}).`);
+      const fallback = r.status === 504 || r.status === 408
+        ? "The server took too long to respond. Please try again in a moment."
+        : r.status >= 500
+          ? "The server is having trouble right now. Please try again in a moment."
+          : `Request failed (${r.status}).`;
+      const err = new Error(data.error || fallback);
       err.status = r.status;
       err.data = data;
       throw err;
@@ -1000,15 +1006,15 @@ function Field({ label, hint, required, children, counter, error, htmlFor }) {
       })
     : children;
   return (
-    <div className="aym-field" style={{ marginBottom: 16 }}>
-      <label htmlFor={fid} style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 5 }}>
-        <span style={{ fontSize: 13.5, fontWeight: 700, color: C.maroon }}>
-          {label}{required && <span style={{ color: C.gold }}> *</span>}
+    <div className="aym-field">
+      <label htmlFor={fid} className="aym-field-labelrow">
+        <span className="aym-field-label">
+          {label}{required && <span className="aym-field-req"> *</span>}
         </span>
-        {counter && <span style={{ fontSize: 11.5, color: C.muted }} className="aym-mono">{counter}</span>}
+        {counter && <span className="aym-mono aym-field-counter">{counter}</span>}
       </label>
       {control}
-      {hint && <div id={hintId} style={{ fontSize: 12, color: C.muted, marginTop: 4 }}>{hint}</div>}
+      {hint && <div id={hintId} className="aym-field-hint">{hint}</div>}
       {error && <div id={errId} className="aym-field-error" role="alert">{error}</div>}
     </div>
   );
@@ -1194,7 +1200,7 @@ function LandingPage({ onGetStarted, onRegister, onAsk, onStaff }) {
             </div>
             <ul className="aym-land-trust">
               <li>World Ayurveda Foundation</li>
-              <li>11–13 December 2026</li>
+              <li>10–13 December 2026</li>
               <li>{mentorN} tentative mentors on the WAC roster</li>
             </ul>
           </div>
@@ -1330,7 +1336,7 @@ function MentorConnectScene({ compact = false }) {
         <span className="aym-connect-leaf aym-connect-leaf-c" />
       </div>
       <div className="aym-connect-frame aym-connect-frame-mentee">
-        <div className="aym-connect-frame-inner" style={{ backgroundImage: "url(/assets/hall-pods.png)" }} />
+        <div className="aym-connect-frame-inner" style={{ backgroundImage: "url(/assets/sections/hall-connect-mentee.webp)" }} />
       </div>
       <div className="aym-connect-bridge" aria-hidden="true">
         <svg viewBox="0 0 120 48" className="aym-connect-arc" preserveAspectRatio="none">
@@ -1340,7 +1346,7 @@ function MentorConnectScene({ compact = false }) {
         <HeartHandshake size={compact ? 16 : 22} className="aym-connect-icon" />
       </div>
       <div className="aym-connect-frame aym-connect-frame-mentor">
-        <div className="aym-connect-frame-inner" style={{ backgroundImage: "url(/assets/hall-stage.png)" }} />
+        <div className="aym-connect-frame-inner" style={{ backgroundImage: "url(/assets/sections/hall-connect-mentor.webp)" }} />
       </div>
       {!compact && (
         <div className="aym-connect-mcg">
@@ -1741,7 +1747,7 @@ function journalCardKey(card) {
   return `${card.url}|${card.title}`;
 }
 
-function KnowledgeJournalCarousel({ cards, onSelect }) {
+function KnowledgeJournalCarousel({ cards, onSelect, fallbackImage = JOURNAL_IMG.T01 }) {
   if (!cards?.length) return null;
   return (
     <div className="aym-know-journals">
@@ -1765,7 +1771,13 @@ function KnowledgeJournalCarousel({ cards, onSelect }) {
               <div className="aym-know-story-img-wrap">
                 <div
                   className="aym-know-story-img"
-                  style={{ backgroundImage: `url(${card.image || "/assets/hall-pods.png"})` }}
+                  role="img"
+                  aria-label={card.imageAlt || card.title}
+                  style={{
+                    backgroundImage: `url(${card.image || fallbackImage})`,
+                    ...(card.imagePosition && { backgroundPosition: card.imagePosition }),
+                    ...(card.imageSize && { backgroundSize: card.imageSize }),
+                  }}
                 />
               </div>
               <div className="aym-know-story-body">
@@ -2036,7 +2048,7 @@ function PodKnowledgeView({ pod, track, onBack, onEnterAsk }) {
         {tab === "journals" && (
           <div className="aym-know-journals-wrap">
             {pod.journalCards?.length > 0 && (
-              <KnowledgeJournalCarousel cards={pod.journalCards} />
+              <KnowledgeJournalCarousel cards={pod.journalCards} fallbackImage={JOURNAL_IMG[pod.code]} />
             )}
             <KnowledgeSourceRows rows={pod.sourceRows} />
             <section className="aym-pod-know-refs">
@@ -2095,7 +2107,7 @@ function PodsView({ onEnterAsk }) {
 
   return (
     <div className="aym-pods-hub aym-pod-know-journal">
-      <div className="aym-pods-banner" role="img" aria-label="Wooden mentor pods in the Meet the Mentors hall" />
+      <div className="aym-pods-banner" role="img" aria-label="BAMS students and a mentor comparing career briefs around an oak table" />
       <div className="aym-page-head">
         <div className="aym-eyebrow">Knowledge</div>
         <h1 className="aym-display">Ten paths after BAMS — authoritative career briefs.</h1>
@@ -2133,7 +2145,7 @@ function ExchangeView({ onAskPath }) {
   return (
     <div>
       <div className="aym-exchange-hero">
-        <img src="/assets/hall-exchange.png" alt="Opportunity Exchange wall in the Meet the Mentors hall" width={1180} height={420} />
+        <img src="/assets/sections/hall-exchange-wall.webp" alt="BAMS graduates and a mentor browsing the Opportunity Exchange wall of career-path panels" width={1200} height={675} />
       </div>
       <div className="aym-page-head">
         <div className="aym-eyebrow">Opportunity Exchange</div>
@@ -2185,6 +2197,8 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState(null);
   const [errs, setErrs] = useState([]);
+  const [submitErr, setSubmitErr] = useState("");
+  const submitting = useRef(false);
   const [autofillNote, setAutofillNote] = useState(() => (
     profile && profile.regNo ? `Filled from your WAC registration number ${profile.regNo}` : ""
   ));
@@ -2261,10 +2275,12 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
   }
 
   async function submit() {
-    if (!profile) return;
+    if (!profile || submitting.current) return;
     const e = validate();
     setErrs(e);
+    setSubmitErr("");
     if (e.length) { window.scrollTo({ top: 0, behavior: "smooth" }); return; }
+    submitting.current = true;
     setBusy(true);
     const rec = {
       ...f, id: rid(10), ticket: ticketId(), createdAt: Date.now(),
@@ -2279,7 +2295,16 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
     try {
       if (await hasApi()) {
         const s = loadLocalSession();
-        const saved = await api("set", { key: K_Q + rec.id, val: rec, token: s && s.token });
+        const payload = { key: K_Q + rec.id, val: rec, token: s && s.token };
+        let saved;
+        try {
+          saved = await api("set", payload);
+        } catch (err) {
+          // Same id + ticket makes the resend idempotent: the server answers ok if the first attempt landed.
+          if (![502, 503, 504].includes(err.status)) throw err;
+          await new Promise(r => setTimeout(r, 1500));
+          saved = await api("set", payload);
+        }
         onSaved && onSaved(rec, saved && saved.profile);
       } else {
         const ok = await store.set(K_Q + rec.id, rec);
@@ -2288,37 +2313,43 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
       }
       setDone(rec);
     } catch (err) {
-      setErrs([err.message || "We could not save your question. Check your connection and send it again."]);
+      const slow = err.status === 504 || err.status === 408 || /timed out/i.test(err.message || "");
+      setSubmitErr(slow
+        ? "The server took too long to respond. Your question may not have been saved — please try again in a moment."
+        : (err.message || "We could not save your question. Check your connection and send it again."));
+      submitting.current = false;
       setBusy(false);
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
+    submitting.current = false;
     setBusy(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   if (done) {
     return (
-      <div className="aym-card" style={{ padding: "34px 28px", textAlign: "center", maxWidth: 620, margin: "0 auto" }}>
-        <div style={{ display: "inline-flex", width: 46, height: 46, borderRadius: 23, background: C.tan, alignItems: "center", justifyContent: "center", marginBottom: 14 }}>
-          <Check size={24} color={C.maroon} />
-        </div>
-        <h2 className="aym-display" style={{ fontSize: 24, color: C.maroon, margin: "0 0 8px" }}>The Ask Desk has your question.</h2>
-        <p style={{ color: C.muted, fontSize: 14.5, margin: "0 0 20px", lineHeight: 1.6 }}>
+      <div className="aym-card ui-form-done">
+        <span className="ui-icon-badge ui-icon-badge--gold ui-form-done-icon">
+          <Check size={26} aria-hidden="true" />
+        </span>
+        <h2 className="ui-form-done-title">The Ask Desk has your question.</h2>
+        <p className="ui-form-done-lead">
           Keep this ticket. Use it under <b>Track my answer</b> when a mentor publishes the reply.
+          {(done.email || (profile && profile.email)) ? " We'll also send a short note to your registered email once it's answered." : ""}
         </p>
-        <div className="aym-mono" style={{ fontSize: 22, fontWeight: 700, color: C.maroon, background: C.tan, padding: "12px 18px", borderRadius: 14, display: "inline-block", letterSpacing: ".08em" }}>
+        <div className="aym-mono ui-ticket">
           {done.ticket}
         </div>
-        <div style={{ marginTop: 22, textAlign: "left", background: C.cream, padding: 16, borderRadius: 14, border: `1px solid ${C.line}` }}>
-          <div className="aym-eyebrow" style={{ marginBottom: 6 }}>You asked</div>
-          <div style={{ fontSize: 14.5, lineHeight: 1.55 }}>{done.question}</div>
-          <div style={{ marginTop: 10 }}><Chip>{done.theme}</Chip></div>
+        <div className="ui-form-recap">
+          <div className="aym-eyebrow">You asked</div>
+          <div className="ui-form-recap-q">{done.question}</div>
+          <div className="ui-form-recap-tag"><Chip>{done.theme}</Chip></div>
         </div>
-        <p style={{ fontSize: 12.5, color: C.muted, marginTop: 18, lineHeight: 1.55 }}>
+        <p className="ui-form-footnote">
           Questions many mentees ask are merged and answered together. Sending a question does not reserve a live mentor slot.
         </p>
-        <button className="aym-btn aym-btn-ghost" style={{ marginTop: 16 }} onClick={() => { setF(blankFromProfile(profile)); setDone(null); }}>
+        <button className="aym-btn aym-btn-outline" onClick={() => { setF(blankFromProfile(profile)); setDone(null); }}>
           Ask another question
         </button>
       </div>
@@ -2328,7 +2359,7 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
   const locked = !profile;
 
   return (
-    <div style={{ maxWidth: 660, margin: "0 auto" }}>
+    <div className="ui-form ui-form--ask">
       {locked && (
         <aside className="aym-ask-register-banner" role="status" aria-live="polite">
           <div className="aym-ask-register-banner-glow" aria-hidden="true" />
@@ -2351,17 +2382,24 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
 
       <div className="aym-desk-cap">
         <div className="aym-eyebrow">Ask Desk · Meet the Mentors</div>
-        <h1 className="aym-display" style={{ fontSize: 28, margin: "6px 0 8px", color: "#fff" }}>Walk up. Ask one question.</h1>
-        <p style={{ margin: 0, color: "rgba(245,235,224,.88)", fontSize: 15, lineHeight: 1.55, maxWidth: 520 }}>
+        <h1 className="aym-display aym-desk-cap-title">Walk up. Ask one question.</h1>
+        <p className="aym-desk-cap-lead">
           You are a BAMS mentee. Mentors are here for future development — what to do after BAMS, PG, practice, research — not a support ticket.
         </p>
       </div>
+
+      <ol className="ui-steps" aria-label="Ask Desk sections">
+        {["Introduce yourself", "The live hall", "Your question", "Permissions"].map((s, i) => (
+          <li key={s} className="ui-step"><span className="ui-step-num">{i + 1}</span><span className="ui-step-label">{s}</span></li>
+        ))}
+      </ol>
 
       {errs.length > 0 && (
         <Notice tone="bad">
           Add {errs.join(", ")} before sending.
         </Notice>
       )}
+      {submitErr && <Notice tone="bad">{submitErr}</Notice>}
 
       <div className="aym-eyebrow" style={{ marginBottom: 8 }}>Start from a hall prompt</div>
       <div className="aym-prompt-row">
@@ -2372,13 +2410,13 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
         ))}
       </div>
 
-      <div className="aym-card" style={{ padding: "24px 22px", marginBottom: 18 }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 12, marginBottom: 16 }}>
+      <div className="aym-card ui-form-card">
+        <div className="ui-form-card-head">
           <div>
-            <div className="aym-eyebrow" style={{ marginBottom: 6 }}>Who is at the desk</div>
-            <h3 className="aym-display" style={{ fontSize: 18, color: C.maroon, margin: 0 }}>Introduce yourself</h3>
+            <div className="aym-eyebrow">1 · Who is at the desk</div>
+            <h3 className="ui-form-card-title">Introduce yourself</h3>
           </div>
-          <button type="button" className="aym-btn aym-btn-gold" style={{ padding: "8px 14px", fontSize: 13, flexShrink: 0 }} onClick={autofill} disabled={locked}>
+          <button type="button" className="aym-btn aym-btn-gold aym-btn-sm ui-autofill" onClick={autofill} disabled={locked}>
             <Sparkles size={14} /> Autofill
           </button>
         </div>
@@ -2401,7 +2439,7 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
         <Field label="Email" hint="Used only to send you your answer and, if shortlisted, a slot confirmation." required>
           <input className="aym-input" type="email" value={f.email} onChange={e => set("email", e.target.value)} disabled={locked} />
         </Field>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 14 }}>
+        <div className="ui-form-grid">
           <Field label="State or union territory" required>
             <select className="aym-input" value={f.state} onChange={e => set("state", e.target.value)} disabled={locked}>
               <option value="">Select</option>{STATES.map(s => <option key={s}>{s}</option>)}
@@ -2416,10 +2454,10 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
         <Field label="Institution or college" required><input className="aym-input" value={f.institution} onChange={e => set("institution", e.target.value)} disabled={locked} /></Field>
       </div>
 
-      <div className="aym-card" style={{ padding: "24px 22px", marginBottom: 18 }}>
-        <div className="aym-eyebrow" style={{ marginBottom: 6 }}>Coming to Bhubaneswar?</div>
-        <h3 className="aym-display" style={{ fontSize: 18, color: C.maroon, margin: "0 0 6px" }}>The live hall</h3>
-        <p style={{ fontSize: 13, color: C.muted, margin: "0 0 16px" }}>
+      <div className="aym-card ui-form-card">
+        <div className="aym-eyebrow">2 · Coming to Bhubaneswar?</div>
+        <h3 className="ui-form-card-title">The live hall</h3>
+        <p className="ui-form-card-lead">
           Every BAMS student in India may ask. Only registered mentees attending in person can be considered for a live pod or stage session.
         </p>
         <Field label="Have you registered for WAC 2026?" required>
@@ -2435,13 +2473,14 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
         {f.inPerson === "Yes" && (
           <>
             <Field label="Which core days can you attend?">
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+              <div className="ui-toggle-row">
                 {CORE_DAYS.map(d => {
                   const on = f.days.includes(d);
                   return (
                     <button key={d} type="button" onClick={() => set("days", on ? f.days.filter(x => x !== d) : [...f.days, d])}
                       disabled={locked}
-                      className="aym-btn" style={{ background: on ? C.maroon : "transparent", color: on ? "#fff" : C.maroon, borderColor: C.line, fontSize: 13 }}>
+                      aria-pressed={on}
+                      className={`ui-toggle${on ? " is-on" : ""}`}>
                       {on && <Check size={14} />}{d}
                     </button>
                   );
@@ -2455,9 +2494,9 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
         )}
       </div>
 
-      <div className="aym-card" style={{ padding: "24px 22px", marginBottom: 18 }}>
-        <div className="aym-eyebrow" style={{ marginBottom: 6 }}>Your one question</div>
-        <h3 className="aym-display" style={{ fontSize: 18, color: C.maroon, margin: "0 0 16px" }}>What should I do after BAMS?</h3>
+      <div className="aym-card ui-form-card">
+        <div className="aym-eyebrow">3 · Your one question</div>
+        <h3 className="ui-form-card-title">What should I do after BAMS?</h3>
 
         <Field label="Which theme is closest to your question?" required>
           <select className="aym-input" value={f.theme} onChange={e => { set("theme", e.target.value); set("subtheme", ""); }} disabled={locked}>
@@ -2488,9 +2527,9 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
         </Field>
       </div>
 
-      <div className="aym-card" style={{ padding: "24px 22px", marginBottom: 18 }}>
-        <div className="aym-eyebrow" style={{ marginBottom: 6 }}>Permissions</div>
-        <h3 className="aym-display" style={{ fontSize: 18, color: C.maroon, margin: "0 0 16px" }}>How we may use this</h3>
+      <div className="aym-card ui-form-card">
+        <div className="aym-eyebrow">4 · Permissions</div>
+        <h3 className="ui-form-card-title">How we may use this</h3>
         <Field label="May we contact you once after the Congress about relevant opportunities?">
           <select className="aym-input" value={f.consentFollow} onChange={e => set("consentFollow", e.target.value)} disabled={locked}>
             <option value="">Select</option><option>Yes</option><option>No</option>
@@ -2498,11 +2537,11 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
         </Field>
       </div>
 
-      <button className="aym-btn aym-btn-primary" style={{ width: "100%", justifyContent: "center", padding: "13px", fontSize: 15 }} disabled={busy || locked} onClick={submit}>
+      <button className="aym-btn aym-btn-primary aym-btn-lg aym-btn-block" disabled={busy || locked} onClick={submit}>
         {busy ? <Loader2 size={17} className="animate-spin" /> : <Send size={16} />}
         {busy ? "Sending" : "Hand this to the Ask Desk"}
       </button>
-      <p style={{ fontSize: 12, color: C.muted, textAlign: "center", marginTop: 12, lineHeight: 1.55 }}>
+      <p className="ui-form-footnote">
         Your name stays with the curation desk. Similar questions may be merged by staff before a mentor answers on the stage board.
       </p>
     </div>
@@ -2513,11 +2552,24 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
 /* 2. Track my answer                                                  */
 /* ------------------------------------------------------------------ */
 
+function ticketFromUrl() {
+  if (typeof location === "undefined") return "";
+  try { return String(new URLSearchParams(location.search).get("ticket") || "").trim().slice(0, 40); }
+  catch { return ""; }
+}
+
 function LookupView({ loading }) {
-  const [q, setQ] = useState("");
+  const [q, setQ] = useState(ticketFromUrl);
   const [hit, setHit] = useState(null);
   const [searched, setSearched] = useState(false);
   const [finding, setFinding] = useState(false);
+  const autoFoundRef = useRef(false);
+
+  useEffect(() => {
+    if (autoFoundRef.current || loading || !ticketFromUrl()) return;
+    autoFoundRef.current = true;
+    find();
+  }, [loading]);
 
   async function find() {
     const needle = q.trim();
@@ -2530,10 +2582,10 @@ function LookupView({ loading }) {
   }
 
   return (
-    <div style={{ maxWidth: 680, margin: "0 auto" }}>
-      <div className="aym-card" style={{ padding: "22px", marginBottom: 20 }}>
+    <div className="ui-form ui-form--track">
+      <div className="aym-card ui-form-card">
         <Field label="Ticket number or email" hint="The ticket looks like AYM-Q-XXXXXXX." htmlFor="track-q">
-          <div style={{ display: "flex", gap: 8 }}>
+          <div className="ui-inline-field">
             <input id="track-q" className="aym-input" value={q} onChange={e => setQ(e.target.value)}
               onKeyDown={e => e.key === "Enter" && find()} placeholder="AYM-Q-M4KX2P9" autoComplete="off" />
             <button type="button" className="aym-btn aym-btn-primary" onClick={find} disabled={loading || finding}>
@@ -2559,7 +2611,7 @@ function LookupView({ loading }) {
         const status = trackStatusOf(s);
         const sharedN = c && Array.isArray(c.memberIds) ? c.memberIds.length : 0;
         return (
-          <div key={s.id} className="aym-card aym-track-card" style={{ padding: "22px", marginBottom: 16 }}>
+          <div key={s.id} className="aym-card aym-track-card ui-form-card">
             <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap", marginBottom: 12 }}>
               <span className="aym-mono" style={{ fontSize: 13, fontWeight: 700, color: C.maroon }}>{s.ticket}</span>
               <Chip tone={status.tone}>{status.label}</Chip>
@@ -3355,10 +3407,10 @@ function InsightsView({ subs, clusters, onSaveQuestion }) {
     <div>
       <section className="aym-insights-hero" aria-label="Meet the Mentors hall">
         <img
-          src="/assets/hall-photo.png"
-          alt="Meet the Mentors hall — forest-green stage, oak mentor pods, Opportunity Exchange wall"
-          width={1600}
-          height={900}
+          src="/assets/sections/hall-insights-floor.webp"
+          alt="Meet the Mentors hall floor seen from the mezzanine — mentors and students at round oak tables"
+          width={1200}
+          height={675}
           loading="lazy"
           decoding="async"
         />
@@ -3862,32 +3914,41 @@ function RegisterView({ profile, onRegistered, onSignOut, onGoAsk }) {
       <div className="aym-reg-hero">
         <div className="aym-hero-leaf" />
         <LeafDrift />
-        <div style={{ position: "relative" }}>
-          <div className="aym-eyebrow" style={{ color: C.oak }}>Registration · Meet the Mentors</div>
+        <div className="aym-reg-hero-copy">
+          <div className="aym-eyebrow">Registration · Meet the Mentors</div>
           <h1 className="aym-display">Take your place in the hall.</h1>
           <p>
             Register once with your name, institute, and email. We verify that inbox with a one-time code,
             then the hall issues your WAC registration number — you do not type one.
           </p>
-          <div className="aym-reg-steps">
-            <span className={step === "form" ? "on" : ""}>1 · Your details</span>
-            <span className={step === "otp" ? "on" : ""}>2 · Verify email</span>
-            <span>3 · Confirmed</span>
-          </div>
+          <ol className="ui-steps ui-steps--progress aym-reg-steps" aria-label="Registration steps">
+            <li className={`ui-step${step === "form" ? " on" : " is-done"}`} aria-current={step === "form" ? "step" : undefined}>
+              <span className="ui-step-num">{step === "form" ? 1 : <Check size={13} aria-hidden="true" />}</span>
+              <span className="ui-step-label">Your details</span>
+            </li>
+            <li className={`ui-step${step === "otp" ? " on" : ""}`} aria-current={step === "otp" ? "step" : undefined}>
+              <span className="ui-step-num">2</span>
+              <span className="ui-step-label">Verify email</span>
+            </li>
+            <li className="ui-step">
+              <span className="ui-step-num">3</span>
+              <span className="ui-step-label">Confirmed</span>
+            </li>
+          </ol>
         </div>
       </div>
 
       {err && step !== "otp" && <Notice tone="bad">{err}</Notice>}
 
       {step === "form" && (
-        <div className="aym-card aym-rise" style={{ padding: "26px 24px", animationDelay: ".1s" }}>
-          <div className="aym-eyebrow" style={{ marginBottom: 6 }}>Who walks in</div>
-          <h3 className="aym-display" style={{ fontSize: 19, color: C.maroon, margin: "0 0 18px" }}>Introduce yourself once</h3>
+        <div className="aym-card aym-rise ui-form-card" style={{ animationDelay: ".1s" }}>
+          <div className="aym-eyebrow">Who walks in</div>
+          <h3 className="ui-form-card-title">Introduce yourself once</h3>
 
           <Field label="Full name" required>
             <input className="aym-input" value={f.name} onChange={e => set("name", e.target.value)} autoComplete="name" />
           </Field>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(160px,1fr))", gap: 14 }}>
+          <div className="ui-form-grid ui-form-grid--narrow">
             <Field label="Age" required>
               <input className="aym-input" type="number" min="15" max="100" inputMode="numeric" value={f.age} onChange={e => set("age", e.target.value)} />
             </Field>
@@ -3903,27 +3964,27 @@ function RegisterView({ profile, onRegistered, onSignOut, onGoAsk }) {
           <Field label="Email" required hint="We send a 6-digit code here — your registration completes only after you type it in.">
             <input className="aym-input" type="email" value={f.email} onChange={e => set("email", e.target.value)} autoComplete="email" />
           </Field>
-          <p style={{ fontSize: 12.5, color: C.muted, lineHeight: 1.55, margin: "0 0 14px" }}>
+          <p className="ui-form-card-lead">
             Your WAC registration number is issued automatically after you verify this email. You will not need to type or save one.
           </p>
 
-          <button className="aym-btn aym-btn-primary" style={{ width: "100%", justifyContent: "center", padding: 13, fontSize: 15, marginTop: 4 }} disabled={busy} onClick={start}>
+          <button className="aym-btn aym-btn-primary aym-btn-lg aym-btn-block" disabled={busy} onClick={start}>
             {busy ? <Loader2 size={17} className="animate-spin" /> : <Mail size={16} />}
             {busy ? "Sending your code" : "Send my verification code"}
           </button>
-          <p style={{ fontSize: 12, color: C.muted, textAlign: "center", marginTop: 12, lineHeight: 1.55, marginBottom: 0 }}>
+          <p className="ui-form-footnote">
             Your details stay with the curation desk. The stage board never shows mentee names.
           </p>
         </div>
       )}
 
       {step === "otp" && (
-        <form className="aym-card aym-rise" style={{ padding: "30px 24px", textAlign: "center" }} onSubmit={e => { e.preventDefault(); verify(); }}>
-          <div style={{ display: "inline-flex", width: 50, height: 50, borderRadius: 25, background: C.tan, alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
-            <Mail size={24} color={C.maroon} />
-          </div>
-          <h3 className="aym-display" style={{ fontSize: 21, color: C.maroon, margin: "0 0 6px" }}>Check {f.email}</h3>
-          <p style={{ fontSize: 13.5, color: C.muted, margin: "0 auto 18px", maxWidth: 400, lineHeight: 1.6 }}>
+        <form className="aym-card aym-rise ui-form-card ui-form-card--center" onSubmit={e => { e.preventDefault(); verify(); }}>
+          <span className="ui-icon-badge ui-icon-badge--gold ui-form-done-icon">
+            <Mail size={24} aria-hidden="true" />
+          </span>
+          <h3 className="ui-form-done-title">Check {f.email}</h3>
+          <p className="ui-form-done-lead">
             Type the 6-digit code from the email. It expires in 10 minutes and must be typed by hand — it will not autofill.
           </p>
 
@@ -3962,12 +4023,12 @@ function RegisterView({ profile, onRegistered, onSignOut, onGoAsk }) {
             aria-label="6-digit verification code"
           />
 
-          <button type="button" className="aym-btn aym-btn-primary" style={{ width: "100%", justifyContent: "center", padding: 13, fontSize: 15, marginTop: 16 }} disabled={busy} onClick={verify}>
+          <button type="button" className="aym-btn aym-btn-primary aym-btn-lg aym-btn-block ui-otp-submit" disabled={busy} onClick={verify}>
             {busy ? <Loader2 size={17} className="animate-spin" /> : <ShieldCheck size={16} />}
             {busy ? "Verifying" : "Verify and complete registration"}
           </button>
 
-          <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap", marginTop: 14 }}>
+          <div className="ui-btn-row ui-btn-row--center ui-otp-actions">
             <button type="button" className="aym-btn aym-btn-ghost" disabled={busy || cooldown > 0} onClick={resend}>
               <RefreshCw size={14} />{cooldown > 0 ? `Resend in ${cooldown}s` : "Resend the code"}
             </button>
@@ -4179,15 +4240,15 @@ function StaffPinModal({ pinValue, pinError, setPinValue, setPinError, onUnlock,
     <div className="aym-modal-bg" onClick={e => { if (e.target === e.currentTarget) onClose(); }}>
       <div
         ref={panelRef}
-        className="aym-card"
+        className="aym-card ui-dialog"
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        style={{ padding: 24, maxWidth: 380, width: "100%" }}
       >
+        <span className="ui-icon-badge ui-icon-badge--gold"><KeyRound size={22} aria-hidden="true" /></span>
         <div className="aym-eyebrow">Staff</div>
-        <h2 id={titleId} className="aym-display" style={{ fontSize: 19, color: C.maroon, margin: "6px 0" }}>Staff sign-in</h2>
-        <p style={{ fontSize: 13.5, color: C.muted, margin: "0 0 16px", lineHeight: 1.55 }}>
+        <h2 id={titleId} className="ui-dialog-title">Staff sign-in</h2>
+        <p className="ui-dialog-lead">
           Enter the authority staff code. Only that provided code works. Students cannot create or set a code here.
         </p>
         <label className="aym-visually-hidden" htmlFor="staff-pin">Authority staff code</label>
@@ -4204,10 +4265,10 @@ function StaffPinModal({ pinValue, pinError, setPinValue, setPinError, onUnlock,
           onKeyDown={e => e.key === "Enter" && onUnlock()}
           placeholder="Authority staff code"
         />
-        {pinError && <div id="staff-pin-err" role="alert" style={{ color: "#8B2020", fontSize: 13, marginTop: 8 }}>{pinError}</div>}
-        <div style={{ display: "flex", gap: 8, marginTop: 16 }}>
-          <button type="button" className="aym-btn aym-btn-primary" onClick={onUnlock}>Enter</button>
-          <button type="button" className="aym-btn aym-btn-ghost" onClick={onClose}>Cancel</button>
+        {pinError && <div id="staff-pin-err" role="alert" className="aym-field-error">{pinError}</div>}
+        <div className="ui-dialog-actions">
+          <button type="button" className="aym-btn aym-btn-primary aym-btn-lg aym-btn-block" onClick={onUnlock}>Enter</button>
+          <button type="button" className="aym-btn aym-btn-ghost aym-btn-block" onClick={onClose}>Cancel</button>
         </div>
       </div>
     </div>
@@ -4546,7 +4607,7 @@ export default function App() {
       return;
     }
     const titles = {
-      intro: ["AYURDISHA · Meet the Mentors · WAC 2026", "Walk into the digital Meet the Mentors hall of the 11th World Ayurveda Congress. Register, receive your WAC number, and a mentor answers."],
+      intro: ["AYURDISHA | Meet the Mentors | 11th World Ayurveda Congress", "Discover and connect with mentors, practitioners, researchers and thought leaders from the Ayurveda community through AYURDISHA."],
       hall: ["The Hall · AYURDISHA · WAC 2026", "Enter the AYURDISHA hall — podcast corner and Congress selection results at the 11th World Ayurveda Congress."],
       register: ["Register · AYURDISHA · WAC 2026", "Register for AYURDISHA with your name, institute, and email. Your WAC registration number is issued when you verify."],
       ask: ["Ask Desk · AYURDISHA · WAC 2026", "Ask one career question at the AYURDISHA Ask Desk. Your issued WAC registration number is attached automatically."],
@@ -4706,7 +4767,7 @@ export default function App() {
 
   return (
     <ErrorBoundary>
-      <div className="aym" style={{ minHeight: "100vh" }}>
+      <div className={onWelcomeRoute ? "aym" : "aym aym-ui"} style={{ minHeight: "100vh" }}>
         {!onWelcomeRoute && (
           <a className="aym-skip" href="#main">Skip to content</a>
         )}

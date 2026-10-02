@@ -32,8 +32,8 @@ export default function MentorDetailPage() {
   }, [mentor, param]);
 
   return (
-    <div className="aym-page aym-mentor-detail-page aym-py-6">
-      <div className="aym-container">
+    <main className="ui-page aym-mentor-detail-page" id="main">
+      <div className="ui-container ui-crumbs">
         <Breadcrumbs
           backTo="/mentors"
           backLabel="Back to Mentors"
@@ -42,10 +42,10 @@ export default function MentorDetailPage() {
             { label: mentor ? mentor.name : "Mentor" },
           ]}
         />
-        <Suspense fallback={<PageSkeleton />}>
-          <MentorProfile mentorId={param} />
-        </Suspense>
       </div>
-    </div>
+      <Suspense fallback={<PageSkeleton />}>
+        <MentorProfile mentorId={param} />
+      </Suspense>
+    </main>
   );
 }

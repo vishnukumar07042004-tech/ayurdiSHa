@@ -121,6 +121,74 @@ function selectionHtml(row) {
 </div>`;
 }
 
+function clip(s, max) {
+  const t = String(s || "").replace(/\s+/g, " ").trim();
+  return t.length > max ? t.slice(0, max - 1).trimEnd() + "…" : t;
+}
+
+function answerHtml({ name, question, answerPreview, mentorName, link }) {
+  const esc = s => String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  return `<div style="font-family:Georgia,serif;background:#F5EBE0;padding:32px 16px">
+  <div style="max-width:480px;margin:0 auto;background:#FFFEFB;border:1px solid #D9CBB8;border-radius:18px;overflow:hidden">
+    <div style="background:#1B4332;color:#F5EBE0;padding:22px 26px">
+      <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#C4A484">AYURDISHA · Ask Desk</div>
+      <div style="font-size:22px;font-weight:700;margin-top:4px">Your question has been answered</div>
+    </div>
+    <div style="padding:26px">
+      <p style="margin:0 0 14px;color:#1A2E24;font-size:15px">Namaste${name ? " " + esc(name) : ""},</p>
+      <p style="margin:0 0 16px;color:#5C6B62;font-size:14px;line-height:1.6">
+        A mentor has responded to the question you shared at the AYURDISHA Ask Desk. Whenever you have a quiet moment, you can read it on the site.
+      </p>
+      ${question ? `<div style="border-left:3px solid #C4A484;background:#F7F1E8;border-radius:8px;padding:12px 14px;margin:0 0 14px">
+        <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8A7A66;margin-bottom:4px">You asked</div>
+        <div style="color:#1A2E24;font-size:14px;line-height:1.55">${esc(question)}</div>
+      </div>` : ""}
+      ${answerPreview ? `<div style="background:#EDE4D4;border-radius:8px;padding:12px 14px;margin:0 0 18px">
+        <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#1B4332;margin-bottom:4px">${mentorName ? esc(mentorName) + " wrote" : "A glimpse of the answer"}</div>
+        <div style="color:#1A2E24;font-size:14px;line-height:1.55">${esc(answerPreview)}</div>
+      </div>` : ""}
+      <div style="text-align:center;margin:6px 0 18px">
+        <a href="${esc(link)}" style="display:inline-block;background:#1B4332;color:#F5EBE0;text-decoration:none;font-size:14px;font-weight:700;padding:12px 22px;border-radius:999px">Read the full answer</a>
+      </div>
+      <p style="margin:0;color:#5C6B62;font-size:12.5px;line-height:1.6">
+        With warm regards,<br>The AYURDISHA team · World Ayurveda Foundation
+      </p>
+      <p style="margin:14px 0 0;color:#8A7A66;font-size:11.5px;line-height:1.5">
+        You are receiving this one-time note because you asked a question at the AYURDISHA Ask Desk. Mentor guidance is for career orientation only.
+      </p>
+    </div>
+  </div>
+</div>`;
+}
+
+/** One gentle note when a mentor answers a student's Ask Desk question. */
+export async function sendAnswerNotification({ to, name, question, answer, mentorName, ticket, link }) {
+  const first = String(name || "").trim().split(/\s+/)[0] || "";
+  const q = clip(question, 140);
+  const a = clip(answer, 180);
+  const subject = "Your AYURDISHA question has an answer";
+  const lines = [
+    `Namaste${first ? " " + first : ""},`,
+    "",
+    "A mentor has responded to the question you shared at the AYURDISHA Ask Desk.",
+  ];
+  if (q) lines.push("", `You asked: "${q}"`);
+  if (a) lines.push("", `${mentorName ? mentorName + " wrote" : "A glimpse of the answer"}: "${a}"`);
+  lines.push(
+    "",
+    `Read the full answer${ticket ? ` (ticket ${ticket})` : ""}: ${link}`,
+    "",
+    "With warm regards,",
+    "The AYURDISHA team · World Ayurveda Foundation",
+  );
+  const text = lines.join("\n");
+  return sendMail({
+    to, subject, text,
+    html: answerHtml({ name: first, question: q, answerPreview: a, mentorName: clip(mentorName, 80), link }),
+    logLabel: `Answer notice for ${ticket || "question"}${q ? ` ("${clip(q, 60)}")` : ""} link=${link}`,
+  });
+}
+
 /** Staff-only: notify one selected student. Same transport as OTP. */
 export async function sendSelectionEmail(row) {
   const name = String(row.name || "").trim();

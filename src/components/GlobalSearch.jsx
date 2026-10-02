@@ -9,6 +9,8 @@ import {
   FileText,
   Compass,
   HelpCircle,
+  ArrowRight,
+  ChevronRight,
 } from "lucide-react";
 import { MENTORS, mentorsWithNames, mentorPublicPath } from "../mentors.js";
 import { getAllPrograms } from "../data/programs.js";
@@ -46,6 +48,13 @@ const PAGES = [
     keywords: "welcome intro orientation overview",
   },
   {
+    id: "page-track",
+    title: "Track my answer",
+    sub: "Look up your Ask Desk ticket and mentor reply",
+    path: "/#track",
+    keywords: "track answer ticket status reply lookup ask desk",
+  },
+  {
     id: "page-mentors",
     title: "Mentors",
     sub: "Browse Meet the Mentors directory",
@@ -74,6 +83,8 @@ const PAGES = [
     keywords: "resources guides podcasts",
   },
 ];
+
+const QUICK_LINKS = ["page-mentors", "page-track", "page-programs", "page-events", "page-resources", "page-faq"];
 
 function matchesQuery(haystacks, q) {
   return haystacks.some((f) => String(f || "").toLowerCase().includes(q));
@@ -260,7 +271,7 @@ export default function GlobalSearch({
             </button>
           ) : null}
           {onClose && (
-            <button type="button" className="aym-btn aym-btn-ghost aym-btn-sm" onClick={onClose}>
+            <button type="button" className="aym-search-cancel" onClick={onClose}>
               Cancel
             </button>
           )}
@@ -276,11 +287,29 @@ export default function GlobalSearch({
             </p>
           )}
           {qLen < 2 && (
-            <p className="aym-search-hint">
-              Search mentors, career tracks, events, resources, and key pages.
-              <kbd className="aym-search-kbd">/</kbd> or{" "}
-              <kbd className="aym-search-kbd">⌘K</kbd> to open anytime.
-            </p>
+            <>
+              <div className="aym-search-group">
+                <p className="aym-search-group-title">Quick links</p>
+                <ul className="aym-search-quick">
+                  {QUICK_LINKS.map((id) => {
+                    const page = PAGES.find((p) => p.id === id);
+                    return (
+                      <li key={id}>
+                        <Link to={page.path} onClick={onClose} className="aym-search-quick-link">
+                          <ArrowRight size={15} aria-hidden="true" />
+                          <span>{page.title}</span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+              <p className="aym-search-hint">
+                Search mentors, career tracks, events, resources, and key pages.{" "}
+                <kbd className="aym-search-kbd">/</kbd> or{" "}
+                <kbd className="aym-search-kbd">⌘K</kbd> to open anytime.
+              </p>
+            </>
           )}
           {groups.map((group) => (
             <div key={group.name} className="aym-search-group">
@@ -310,6 +339,7 @@ export default function GlobalSearch({
                           ) : null}
                         </span>
                       </span>
+                      <ChevronRight size={16} aria-hidden="true" className="aym-search-item-chev" />
                     </Link>
                   );
                 })}

@@ -11,7 +11,7 @@ const POD_KNOWLEDGE_BASE = [
     id: "T01",
     code: "T01",
     title: "Clinical Practice & Integrative Care",
-    heroImage: "/assets/hall-pods.png",
+    heroImage: "/assets/sections/pod-clinical.webp",
     tagline: "Hospital posts, private clinics, Panchakarma centres, and integrative referrals after BAMS.",
     sections: [
       {
@@ -67,7 +67,7 @@ const POD_KNOWLEDGE_BASE = [
     id: "T02",
     code: "T02",
     title: "Academics, Teaching & Higher Education",
-    heroImage: "/assets/hall-photo.png",
+    heroImage: "/assets/sections/pod-academics.webp",
     tagline: "PG branches, PhD pathways, faculty posts, and academic leadership in AYUSH institutions.",
     sections: [
       {
@@ -123,7 +123,7 @@ const POD_KNOWLEDGE_BASE = [
     id: "T03",
     code: "T03",
     title: "Research, Evidence & Publication",
-    heroImage: "/assets/hall-exchange.png",
+    heroImage: "/assets/sections/pod-research.webp",
     tagline: "Framing questions, ethics, grants, and publishing credible Ayurveda evidence.",
     sections: [
       {
@@ -179,7 +179,7 @@ const POD_KNOWLEDGE_BASE = [
     id: "T04",
     code: "T04",
     title: "Entrepreneurship & Start-ups",
-    heroImage: "/assets/hall-pods.png",
+    heroImage: "/assets/sections/pod-entrepreneurship.webp",
     tagline: "Validating ideas, incubation, funding, and building Ayush-aligned ventures.",
     sections: [
       {
@@ -235,7 +235,7 @@ const POD_KNOWLEDGE_BASE = [
     id: "T05",
     code: "T05",
     title: "Manufacturing, Quality & GMP",
-    heroImage: "/assets/hall-photo.png",
+    heroImage: "/assets/sections/pod-gmp.webp",
     tagline: "Formulation R&D, GMP units, QA/QC, licensing, and pharmacovigilance in Ayush pharma.",
     sections: [
       {
@@ -291,7 +291,7 @@ const POD_KNOWLEDGE_BASE = [
     id: "T06",
     code: "T06",
     title: "Brand Building & Communication",
-    heroImage: "/assets/hall-exchange.png",
+    heroImage: "/assets/sections/pod-brand.webp",
     tagline: "Positioning, digital presence, scientific communication, and compliant Ayush marketing.",
     sections: [
       {
@@ -347,7 +347,7 @@ const POD_KNOWLEDGE_BASE = [
     id: "T07",
     code: "T07",
     title: "Export & Global Trade",
-    heroImage: "/assets/hall-pods.png",
+    heroImage: "/assets/sections/pod-export.webp",
     tagline: "Documentation, certifications, market entry, and shipping Ayush products worldwide.",
     sections: [
       {
@@ -403,7 +403,7 @@ const POD_KNOWLEDGE_BASE = [
     id: "T08",
     code: "T08",
     title: "Practice Abroad & Practitioner Mobility",
-    heroImage: "/assets/hall-photo.png",
+    heroImage: "/assets/sections/pod-abroad.webp",
     tagline: "Country recognition, visas, bridging qualifications, and wellness roles overseas.",
     sections: [
       {
@@ -459,7 +459,7 @@ const POD_KNOWLEDGE_BASE = [
     id: "T09",
     code: "T09",
     title: "Medical Value Travel & Wellness",
-    heroImage: "/assets/hall-exchange.png",
+    heroImage: "/assets/sections/pod-wellness.webp",
     tagline: "MVT ecosystem, accreditation, packages, and careers in wellness hospitality.",
     sections: [
       {
@@ -515,7 +515,7 @@ const POD_KNOWLEDGE_BASE = [
     id: "T10",
     code: "T10",
     title: "Policy, Public Health & Global Agencies",
-    heroImage: "/assets/hall-pods.png",
+    heroImage: "/assets/sections/pod-policy.webp",
     tagline: "Government service, National Ayush Mission, research councils, and global health roles.",
     sections: [
       {
