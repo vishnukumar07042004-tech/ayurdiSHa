@@ -1,0 +1,266 @@
+/* ==========================================================================
+   Home — phone layout (≤767px only). Everything is scoped to `.ed-home`
+   (the Home <main>) so tablet/desktop and every other route are untouched.
+
+   Measured on apple.com/in + /in/store at 390px, Oct 2026:
+   - 20–22px gutters; section rhythm ~48–64px; headline 28–40px / body 17px.
+   - Dense collections become edge-to-edge swipe rows: ~80vw cards, 12–20px
+     apart, scroll-snap, next card peeking, no paddles; radius 18px.
+   - CTAs are compact pills (~44px) side by side, not stacked blocks.
+   - One strong image per tile; ornaments and secondary media drop out.
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  .ed-home {
+    --hm-gutter: 20px;
+    --hm-card-w: min(80vw, 320px);
+    --hm-section-y: 56px;
+    --ui-gutter: var(--hm-gutter);
+  }
+  .ed-home .ui-container {
+    padding-left: max(var(--hm-gutter), env(safe-area-inset-left));
+    padding-right: max(var(--hm-gutter), env(safe-area-inset-right));
+  }
+  .ed-home section[id] { scroll-margin-top: var(--ui-nav-h); }
+
+  /* ---------- Rhythm + type ---------- */
+  .ed-home .ui-section { padding-block: var(--hm-section-y); }
+  .ed-home .ui-section--tight { padding-block: 40px; }
+  .ed-home .ui-head { margin-bottom: 28px; }
+  .ed-home .ui-head .ui-lead { margin-top: 12px; }
+  .ed-home .ui-headline { font-size: 30px; line-height: 1.1; letter-spacing: -0.022em; }
+  .ed-home .ui-lead { font-size: 17px; line-height: 1.47; }
+  .ed-home .ui-body { font-size: 16px; line-height: 1.5; }
+  .ed-home .ui-eyebrow { margin-bottom: 10px; font-size: 13px; }
+  .ed-home .ui-tile { padding: 24px; border-radius: 18px; }
+  .ed-home .ui-tile--flush { padding: 0; }
+  .ed-home .ui-tile-title { font-size: 22px; line-height: 1.18; }
+  .ed-home .ui-tile-foot { padding-top: 18px; }
+  .ed-home .ui-bento { gap: 12px; }
+  .ed-home .st-shelf-head--lg { margin-bottom: 20px; }
+  .ed-home .st-shelf-head--lg .st-shelf-title { font-size: 28px; line-height: 1.14; }
+  .ed-home .st-shelf-action .ui-link { font-size: 16px; }
+  .ed-home .ui-photo-caption { left: 12px; bottom: 12px; padding: 6px 11px; font-size: 12px; }
+
+  /* ---------- Buttons: compact pills, paired side by side ---------- */
+  .ed-home .ui-btn--lg { min-height: 46px; padding: 0 20px; font-size: 16px; }
+  .ed-home .ui-hero-actions,
+  .ed-home .ui-wac-actions,
+  .ed-home .ui-cta .ui-btn-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .ed-home .ui-hero-actions .ui-btn,
+  .ed-home .ui-wac-actions .ui-btn,
+  .ed-home .ui-cta .ui-btn-row .ui-btn { flex: none; width: 100%; padding: 0 12px; white-space: nowrap; }
+
+  /* ---------- Swipe rows (Apple shelf behaviour) ---------- */
+  .ed-home .ui-how-steps,
+  .ed-home .ui-paths-grid,
+  .ed-home .ui-collage-grid,
+  .ed-home .st-home-help .st-help {
+    display: flex;
+    gap: 12px;
+    margin-inline: calc(var(--hm-gutter) * -1);
+    padding: 4px var(--hm-gutter) 18px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--hm-gutter);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .ed-home .ui-how-steps::-webkit-scrollbar,
+  .ed-home .ui-paths-grid::-webkit-scrollbar,
+  .ed-home .ui-collage-grid::-webkit-scrollbar,
+  .ed-home .st-home-help .st-help::-webkit-scrollbar { display: none; }
+  .ed-home .ui-how-steps > *,
+  .ed-home .ui-paths-grid > *,
+  .ed-home .ui-collage-grid > *,
+  .ed-home .st-home-help .st-help > * {
+    flex: 0 0 var(--hm-card-w);
+    scroll-snap-align: start;
+  }
+  /* Cards beyond the right edge would never cross the viewport reveal line. */
+  .ed-home .ui-how-steps > [data-reveal],
+  .ed-home .ui-paths-grid > [data-reveal],
+  .ed-home .ui-collage-grid > [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .ed-home .ui-paths-grid [data-reveal] .ed-media > picture,
+  .ed-home .ui-collage-grid [data-reveal] .ed-media > picture { clip-path: none; transition: none; }
+
+  /* ---------- Motion: no layer parallax on phones ---------- */
+  .ed-home [data-parallax] { translate: none !important; }
+
+  /* ---------- Hero ---------- */
+  .ed-home .ui-hero {
+    --hero-stage-h: auto;
+    padding: calc(var(--ui-nav-h) + 28px) 0 40px;
+  }
+  .ed-home .ui-hero-grid { gap: 32px; }
+  .ed-home .ui-hero-copy { opacity: 1; translate: none; }
+  .ed-home .ui-hero-branch,
+  .ed-home .ui-hero-rings,
+  .ed-home .ui-hero-keyline,
+  .ed-home .ui-hero-shot--side,
+  .ed-home .ui-hero-shot--top,
+  .ed-home .ui-hero-seal { display: none; }
+  .ed-home .ui-hero-eyebrow { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.07em; }
+  .ed-home .ui-hero-title { font-size: clamp(2.25rem, 10.4vw, 2.625rem); line-height: 1; letter-spacing: -0.036em; }
+  .ed-home .ui-hero-sub { margin-top: 16px; max-width: 34ch; font-size: 17px; line-height: 1.47; }
+  .ed-home .ui-hero-actions { margin-top: 24px; }
+  .ed-home .ui-hero-aside { margin-top: 14px; }
+  .ed-home .ui-hero-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 16px;
+    margin-top: 24px;
+    padding: 16px 18px;
+    border: 0;
+    border-radius: 18px;
+    background: rgba(29, 36, 32, 0.04);
+  }
+  .ed-home .ui-hero-fact + .ui-hero-fact,
+  .ed-home .ui-hero-fact:nth-child(even) { padding-left: 0; border-left: 0; }
+  .ed-home .ui-hero-fact dt { margin-bottom: 3px; font-size: 11px; }
+  .ed-home .ui-hero-fact dd { font-size: 15px; white-space: normal; }
+  .ed-home .ui-hero-stage { height: auto; }
+  .ed-home .ui-hero-shot--main {
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 5 / 4;
+    border-radius: 22px;
+    box-shadow: var(--ui-shadow-2);
+    scale: none;
+    translate: none;
+  }
+  .ed-home .ui-hero-chip {
+    left: 12px;
+    right: auto;
+    top: auto;
+    bottom: 12px;
+    gap: 8px;
+    padding: 7px 12px;
+    font-size: 12.5px;
+  }
+
+  /* ---------- At a glance ---------- */
+  .ed-home .ui-stats { padding-top: 8px; }
+  .ed-home .ui-stats-bento { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .ed-home .ui-live--feature,
+  .ed-home .ui-live--questions { grid-column: 1 / -1; }
+  .ed-home .ui-live { min-height: 0; gap: 18px; padding: 22px; }
+  .ed-home .ui-live-value { margin-bottom: 8px !important; font-size: 52px; }
+  .ed-home .ui-live--questions .ui-live-value { font-size: 44px; }
+  .ed-home .ui-live-label { font-size: 19px; }
+  .ed-home .ui-live-note { font-size: 14px; }
+  .ed-home .ui-stats-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .ed-home .ui-stat { padding: 18px; }
+  .ed-home .ui-stat-value { margin-bottom: 8px !important; font-size: 36px; }
+  .ed-home .ui-stat-label { font-size: 15px; line-height: 1.3; }
+  .ed-home .ui-stat-note { font-size: 13px; }
+
+  /* ---------- The idea ---------- */
+  .ed-home .ui-idea-photo { min-height: 0; aspect-ratio: 4 / 3; }
+  .ed-home .ui-idea-copy { gap: 12px; }
+  .ed-home .ui-idea-q { margin-bottom: 4px; font-size: 21px; line-height: 1.25; }
+
+  /* ---------- Meet the Mentors ---------- */
+  .ed-home .st-home-mentors { padding-bottom: 40px; }
+  .ed-home .st-home-head { gap: 20px; margin-bottom: 24px; }
+  .ed-home .st-home-title { font-size: 34px; line-height: 1.08; }
+  .ed-home .st-home-title .st-title-soft { font-size: 0.6em; }
+  .ed-home .st-helpers { gap: 12px; }
+  .ed-home .st-helper-icon { width: 36px; height: 36px; }
+  .ed-home .st-home-toolbar { gap: 14px; margin-bottom: 32px; }
+  .ed-home .st-quicknav-track { gap: 8px; padding: 4px var(--hm-gutter) 8px; }
+  .ed-home .st-qn { flex: 0 0 96px; min-height: 116px; gap: 8px; padding: 14px 6px 12px; }
+  .ed-home .st-qn-icon { width: 46px; height: 46px; }
+  .ed-home .st-qn-icon svg { width: 26px; height: 26px; }
+  .ed-home .st-qn-label { font-size: 12.5px; }
+  .ed-home .st-shelf-head { margin-bottom: 8px; }
+  .ed-home .st-shelf-title { font-size: 24px; line-height: 1.17; }
+  .ed-home .st-shelf {
+    --st-card-w: var(--hm-card-w);
+    --st-card-h: 440px;
+    --st-gap: 12px;
+  }
+  .ed-home .st-shelf-scroller { scroll-padding-inline: var(--hm-gutter); }
+  .ed-home .st-shelf-track { padding: 12px var(--hm-gutter) 20px; }
+  .ed-home .st-shelf-item--wide { width: var(--hm-card-w); }
+  .ed-home .st-shelf-item--compact { width: min(62vw, 240px); }
+  .ed-home .st-spot { grid-template-rows: 170px auto; }
+  .ed-home .st-spot-copy { padding: 20px 22px 70px; }
+  .ed-home .st-spot-name { font-size: 22px; line-height: 1.18; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+  .ed-home .st-spot-role,
+  .ed-home .st-spot-inst { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+  .ed-home .st-spot-bio { display: none; }
+  .ed-home .st-endcard { min-height: 0; padding: 24px; }
+  .ed-home .st-endcard-icon { width: 60px; height: 60px; }
+  .ed-home .st-endcard-title { font-size: 20px; }
+  .ed-home .st-home-help { margin-top: 4px; }
+  .ed-home .st-home-help .st-help-item { padding: 20px; gap: 14px; }
+  .ed-home .st-help-icon { width: 44px; height: 44px; }
+  .ed-home .st-help-title { font-size: 17px; }
+  .ed-home .st-help-text { font-size: 14px; }
+
+  /* ---------- How it works ---------- */
+  .ed-home .ui-how-glow { display: none; }
+  .ed-home .ui-how-top { margin-bottom: 18px; }
+  .ed-home .ui-how-num { font-size: 44px; }
+  .ed-home .ui-how-step .ui-body { font-size: 15px; }
+  .ed-home .ui-how-note { margin-top: 12px; padding-inline: 8px; }
+
+  /* ---------- Photo band ---------- */
+  .ed-home .ui-band { min-height: 440px; }
+  .ed-home .ui-band-media { inset: 0; }
+  .ed-home .ui-band-inner { padding-block: 48px; }
+  .ed-home .ui-band-title { margin-bottom: 24px; font-size: 30px; line-height: 1.12; }
+
+  /* ---------- Career pathways ---------- */
+  .ed-home .ui-path-media { aspect-ratio: 3 / 2; }
+  .ed-home .ui-path-body { padding: 20px 22px 22px; }
+  .ed-home .ui-path-code { margin-bottom: 10px; }
+  .ed-home .ui-path-title { font-size: 20px; line-height: 1.2; }
+  .ed-home .ui-path .ui-body { font-size: 15px; line-height: 1.45; }
+
+  /* ---------- WAC 2026 ---------- */
+  .ed-home .ui-wac-grid > .ui-wac-photo { min-height: 0; aspect-ratio: 16 / 10; }
+  .ed-home .ui-wac-facts { column-gap: 16px; }
+  .ed-home .ui-wac-facts dd { font-size: 15px; }
+  .ed-home .ui-wac-hall li { font-size: 15px; }
+  .ed-home .ui-wac-actions { margin-top: 24px; }
+  .ed-home .ui-wac-more { margin-top: 16px; font-size: 15px; }
+
+  /* ---------- Timeline ---------- */
+  .ed-home .ui-timeline-grid { gap: 28px; }
+  .ed-home .ui-timeline-head .ui-lead { margin-top: 12px; }
+  .ed-home .ui-era { padding: 0 0 24px 38px; }
+  .ed-home .ui-era-title { margin-bottom: 4px; font-size: 19px; }
+  .ed-home .ui-era .ui-body { font-size: 15px; line-height: 1.45; }
+  .ed-home .ui-era.is-current .ui-era-title { font-size: 28px; }
+
+  /* ---------- Collage ---------- */
+  .ed-home .ui-collage-grid > .ui-shot { aspect-ratio: 4 / 5; border-radius: 18px; }
+
+  /* ---------- Quote ---------- */
+  .ed-home .ui-quote-text p { font-size: 28px; line-height: 1.15; }
+  .ed-home .ui-quote-sign { margin-top: 18px; }
+
+  /* ---------- Final CTA ---------- */
+  .ed-home .ui-cta-title { font-size: 34px; line-height: 1.08; }
+  .ed-home .ui-cta .ui-btn-row { margin-top: 28px; }
+}
+
+@media (max-width: 374px) {
+  .ed-home .ui-wac-actions { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 359px) {
+  .ed-home .ui-hero-actions,
+  .ed-home .ui-wac-actions,
+  .ed-home .ui-cta .ui-btn-row { grid-template-columns: minmax(0, 1fr); }
+  .ed-home .ui-hero-title { font-size: 2.125rem; }
+  .ed-home .ui-hero-facts { padding: 14px; gap: 12px; }
+}
