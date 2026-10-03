@@ -487,7 +487,7 @@ async function handleOp(req, res, msg, store) {
     rec.individualResources = Array.isArray(msg.resources) ? msg.resources.map(a => String(a || "").trim()).filter(Boolean).slice(0, 2) : [];
     rec.individualAt = Date.now();
     await store.set(K_Q + id, rec);
-    const notified = await notifyAnswerOnce(store, rec, { answer, mentorName: rec.individualMentor });
+    const notified = await notifyAnswerOnce(store, rec, { answer });
     send(res, 200, { ok: true, question: notified || rec });
     return;
   }

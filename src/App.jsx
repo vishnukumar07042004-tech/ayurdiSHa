@@ -14,7 +14,7 @@ import { getPodByCode, KNOWLEDGE_TABS, getSectionForTab, POD_KNOWLEDGE } from ".
 import { JOURNAL_IMG } from "./podKnowledgeEnrichments.js";
 import { setPageMeta, personJsonLd, breadcrumbJsonLd, faqJsonLd } from "./siteMeta.js";
 import { getMentorByParam, mentorPublicPath, mentorsWithNames, MENTORS } from "./mentors.js";
-import { MentorAnswerLetter, trackStatusOf } from "./TrackAnswer.jsx";
+import { TrackPage } from "./TrackAnswer.jsx";
 import FirstVisitGuide, {
   FIRST_VISIT_GUIDES,
   firstVisitIdFromHref,
@@ -2552,119 +2552,6 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
 /* 2. Track my answer                                                  */
 /* ------------------------------------------------------------------ */
 
-function ticketFromUrl() {
-  if (typeof location === "undefined") return "";
-  try { return String(new URLSearchParams(location.search).get("ticket") || "").trim().slice(0, 40); }
-  catch { return ""; }
-}
-
-function LookupView({ loading }) {
-  const [q, setQ] = useState(ticketFromUrl);
-  const [hit, setHit] = useState(null);
-  const [searched, setSearched] = useState(false);
-  const [finding, setFinding] = useState(false);
-  const autoFoundRef = useRef(false);
-
-  useEffect(() => {
-    if (autoFoundRef.current || loading || !ticketFromUrl()) return;
-    autoFoundRef.current = true;
-    find();
-  }, [loading]);
-
-  async function find() {
-    const needle = q.trim();
-    setSearched(true);
-    if (!needle) { setHit(null); return; }
-    setFinding(true);
-    const mine = await lookupSubmissions(needle);
-    setHit(mine.length ? mine : null);
-    setFinding(false);
-  }
-
-  return (
-    <div className="ui-form ui-form--track">
-      <div className="aym-card ui-form-card">
-        <Field label="Ticket number or email" hint="The ticket looks like AYM-Q-XXXXXXX." htmlFor="track-q">
-          <div className="ui-inline-field">
-            <input id="track-q" className="aym-input" value={q} onChange={e => setQ(e.target.value)}
-              onKeyDown={e => e.key === "Enter" && find()} placeholder="AYM-Q-M4KX2P9" autoComplete="off" />
-            <button type="button" className="aym-btn aym-btn-primary" onClick={find} disabled={loading || finding}>
-              {finding ? <Loader2 size={16} className="animate-spin" /> : <Search size={16} aria-hidden="true" />}Find
-            </button>
-          </div>
-        </Field>
-      </div>
-
-      {loading && <div style={{ textAlign: "center", color: C.muted, fontSize: 14 }}><Loader2 size={18} className="animate-spin" style={{ display: "inline" }} /> Loading the question bank</div>}
-
-      {searched && !hit && !loading && (
-        <Notice tone="warn">No question found for that ticket or email. Check the spelling, or send your question from the Ask tab.</Notice>
-      )}
-
-      {hit && hit.map(s => {
-        const c = s.cluster;
-        const mergedBody = String(c && c.answer || "").trim();
-        const individualBody = String(s.individualAnswer || "").trim();
-        const mergedReady = Boolean(mergedBody);
-        const individualReady = Boolean(individualBody);
-        const anyReady = mergedReady || individualReady;
-        const status = trackStatusOf(s);
-        const sharedN = c && Array.isArray(c.memberIds) ? c.memberIds.length : 0;
-        return (
-          <div key={s.id} className="aym-card aym-track-card ui-form-card">
-            <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap", marginBottom: 12 }}>
-              <span className="aym-mono" style={{ fontSize: 13, fontWeight: 700, color: C.maroon }}>{s.ticket}</span>
-              <Chip tone={status.tone}>{status.label}</Chip>
-            </div>
-            <div className="aym-eyebrow">Your question</div>
-            <p style={{ fontSize: 15, lineHeight: 1.6, margin: "5px 0 14px" }}>{s.question}</p>
-            <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 16 }}>
-              <Chip>{s.theme}</Chip>{s.subtheme && <Chip tone="grey">{s.subtheme}</Chip>}
-            </div>
-
-            {!anyReady && !c && (
-              <Notice tone="info">Received. Your question is with the AYURDISHA desk. Track again with this ticket after a mentor answers.</Notice>
-            )}
-
-            {!anyReady && c && (
-              <Notice tone="info">
-                {c.kind === "unique"
-                  ? <>Your question is with a mentor under {c.id}. Track again with this ticket after they write.</>
-                  : <>Sitting with a mentor, grouped with <b>{Math.max(0, sharedN - 1)} other student{sharedN === 2 ? "" : "s"}</b> under {c.id}.</>}
-              </Notice>
-            )}
-
-            {mergedReady && (
-              <MentorAnswerLetter
-                variant="hall"
-                eyebrow={sharedN > 1 ? `Shared hall guidance · ${sharedN} mentees` : "From the hall"}
-                kicker={c.composite || c.representative || ""}
-                mentorName={c.mentorName}
-                body={mergedBody}
-                actions={c.actions}
-                mistake={c.mistake}
-                resources={c.resources}
-              />
-            )}
-
-            {individualReady && (
-              <MentorAnswerLetter
-                variant="personal"
-                eyebrow={mergedReady ? "A note just for you" : "Written for you"}
-                mentorName={s.individualMentor}
-                body={individualBody}
-                actions={s.individualActions}
-                mistake={s.individualMistake}
-                resources={s.individualResources}
-              />
-            )}
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
 function AnswerExtras({ cluster: c }) {
   const acts = (c.actions || []).filter(Boolean);
   const res = (c.resources || []).filter(Boolean);
@@ -4813,13 +4700,6 @@ export default function App() {
                 />
               ) : (
                 <main className="aym-main" id="main">
-                  {tab === "track" && (
-                    <div className="aym-page-head">
-                      <div className="aym-eyebrow">Guided screens</div>
-                      <h1 className="aym-display">Track my answer</h1>
-                      <p>Enter your Ask Desk ticket. See whether your question is received, sitting with a mentor, or published on the stage. When a mentor writes, this page shows the Mentor’s answer letter. Unanswered tickets stay Received.</p>
-                    </div>
-                  )}
                   {tab === "board" && (
                     <div className="aym-page-head">
                       <div className="aym-eyebrow">Open theme stage</div>
@@ -4828,7 +4708,7 @@ export default function App() {
                     </div>
                   )}
 
-                  {loading && tab !== "ask" && tab !== "register" && tab !== "pods" && tab !== "mentors" && tab !== "exchange" && tab !== "podcast" && tab !== "hall" && tab !== "staff" ? (
+                  {loading && tab !== "track" && tab !== "ask" && tab !== "register" && tab !== "pods" && tab !== "mentors" && tab !== "exchange" && tab !== "podcast" && tab !== "hall" && tab !== "staff" ? (
                     <PageSkeleton label="Loading the question bank" />
                   ) : (
                     <>
@@ -4853,7 +4733,7 @@ export default function App() {
                           <PodcastView staff={staff} onAsk={goAsk} onBack={() => requestGoTab("hall")} />
                         </Suspense>
                       )}
-                      {tab === "track" && <LookupView loading={loading} />}
+                      {tab === "track" && <TrackPage loading={loading} lookup={lookupSubmissions} onAsk={() => goAsk(null)} />}
                       {tab === "board" && (
                         <>
                           {staff && (

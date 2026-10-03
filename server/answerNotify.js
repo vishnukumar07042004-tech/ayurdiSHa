@@ -62,7 +62,7 @@ function withTimeout(promise, ms) {
  * real delivery, so dev console runs and failed sends leave the question eligible.
  * Never throws — the answer is already saved by the time this runs.
  */
-export async function notifyAnswerOnce(store, q, { answer, mentorName } = {}) {
+export async function notifyAnswerOnce(store, q, { answer } = {}) {
   try {
     if (!q || !q.id || q.answerNotifiedAt) return null;
     const answerText = String(answer || "").trim();
@@ -76,9 +76,6 @@ export async function notifyAnswerOnce(store, q, { answer, mentorName } = {}) {
     const r = await withTimeout(sendAnswerNotification({
       to: to.email,
       name: to.name,
-      question: q.question || q.text || "",
-      answer: answerText,
-      mentorName: String(mentorName || "").trim(),
       ticket: q.ticket || "",
       link: trackLink(q.ticket),
     }), SEND_TIMEOUT_MS);
@@ -135,7 +132,7 @@ export async function notifyNewlyPublishedClusters(store, prevClusters, nextClus
           return;
         }
         budget -= 1;
-        const sent = await notifyAnswerOnce(store, q, { answer: clusterAnswerText(c), mentorName: c.mentorName });
+        const sent = await notifyAnswerOnce(store, q, { answer: clusterAnswerText(c) });
         if (sent) await sleep(CLUSTER_GAP_MS);
       }
     }

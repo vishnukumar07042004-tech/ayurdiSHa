@@ -7,6 +7,7 @@ import "./styles/tokens.css";
 import "./styles/ui.css";
 import "./styles/store.css";
 import "./styles/home-mobile.css";
+import "./styles/track.css";
 import App from "./App.jsx";
 
 /* A new deploy removes old hashed chunks; reload once so open tabs pick up the new build. */
