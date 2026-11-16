@@ -1,8 +1,10 @@
 /** Site-wide SEO helpers for the Vite SPA (document.head + JSON-LD). */
 import { WAC } from "./content/site.js";
+import { META_DESCRIPTION } from "../shared/productConfig.js";
 
 export const SITE_ORIGIN = "https://ayushmarg.vercel.app";
 export const SITE_NAME = "AYURDISHA";
+export { META_DESCRIPTION };
 
 export function getPageTitle(title) {
   return `${title} · ${SITE_NAME}`;
@@ -14,10 +16,10 @@ export function orgJsonLd() {
     "@type": "Organization",
     "@id": `${SITE_ORIGIN}/#organization`,
     name: "AYURDISHA",
-    alternateName: ["AyushMarg", "Meet the Mentors"],
+    alternateName: ["Meet the Mentors"],
     url: SITE_ORIGIN,
     description:
-      "Digital Meet the Mentors hall of the 11th World Ayurveda Congress, Bhubaneswar 2026 — career guidance for BAMS mentees.",
+      "Digital Meet the Mentors hall of the 11th World Ayurveda Congress, Bhubaneswar 2026 — career guidance for Ayurveda students, scholars and practitioners.",
   };
 }
 
@@ -27,8 +29,7 @@ export function websiteJsonLd() {
     "@type": "WebSite",
     name: "AYURDISHA",
     url: SITE_ORIGIN,
-    description:
-      "Discover and connect with mentors, practitioners, researchers and thought leaders from the Ayurveda community through AYURDISHA.",
+    description: META_DESCRIPTION,
     publisher: { "@id": `${SITE_ORIGIN}/#organization` },
   };
 }

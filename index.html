@@ -2,15 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>AYURDISHA | Meet the Mentors | 11th World Ayurveda Congress</title>
-    <meta name="description" content="Discover and connect with mentors, practitioners, researchers and thought leaders from the Ayurveda community through AYURDISHA." />
+    <meta name="description" content="AYURDISHA Meet the Mentors at the 11th World Ayurveda Congress, Bhubaneswar, 10–13 Dec 2026. Ask one focused career question; every valid ask gets a written or recorded answer via the answer bank and clustered composites — not a personal mentor slot promise." />
     <meta name="theme-color" content="#FCFBF7" />
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href="https://ayushmarg.vercel.app/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:title" content="AYURDISHA | Meet the Mentors | 11th World Ayurveda Congress" />
-    <meta property="og:description" content="Discover and connect with mentors, practitioners, researchers and thought leaders from the Ayurveda community through AYURDISHA." />
+    <meta property="og:description" content="AYURDISHA Meet the Mentors at the 11th World Ayurveda Congress, Bhubaneswar, 10–13 Dec 2026. Ask one focused career question; every valid ask gets a written or recorded answer via the answer bank and clustered composites — not a personal mentor slot promise." />
     <meta property="og:url" content="https://ayushmarg.vercel.app/" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://ayushmarg.vercel.app/og-image.png" />
@@ -21,12 +21,34 @@
     <meta property="og:locale" content="en_IN" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="AYURDISHA | Meet the Mentors | 11th World Ayurveda Congress" />
-    <meta name="twitter:description" content="Discover and connect with mentors, practitioners, researchers and thought leaders from the Ayurveda community through AYURDISHA." />
+    <meta name="twitter:description" content="AYURDISHA Meet the Mentors at the 11th World Ayurveda Congress, Bhubaneswar, 10–13 Dec 2026. Ask one focused career question; every valid ask gets a written or recorded answer via the answer bank and clustered composites — not a personal mentor slot promise." />
     <meta name="twitter:image" content="https://ayushmarg.vercel.app/og-image.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&amp;family=Source+Sans+3:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
-    <link rel="preload" as="image" href="/assets/home/home-hero.webp" type="image/webp" fetchpriority="high" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Cormorant+Garamond:ital,wght@0,600;1,500;1,600&amp;display=swap" rel="stylesheet" />
+    <script>
+      /* LCP preload: first-visit "/" and "/welcome" get slide 1 of the welcome deck; everything else the home hero. */
+      (function () {
+        var d = document, l = location, seen = true;
+        try {
+          var s = localStorage;
+          seen = !!(s.getItem("aym-welcome-v3") || s.getItem("aym-welcome-seen") || s.getItem("aym-delegate-session"));
+        } catch (e) {}
+        var deck = l.pathname === "/welcome" || (l.pathname === "/" && (!l.hash || l.hash === "#intro") && !seen);
+        function pre(href, media) {
+          var k = d.createElement("link");
+          k.rel = "preload"; k.as = "image"; k.type = "image/webp"; k.href = href;
+          if (media) k.media = media;
+          k.setAttribute("fetchpriority", "high");
+          d.head.appendChild(k);
+        }
+        if (deck) pre("/assets/slides/slide-hall.webp");
+        else {
+          pre("/assets/home/hero-hall.webp", "(min-width: 768px)");
+          pre("/assets/home/hero-hall-m.webp", "(max-width: 767px)");
+        }
+      })();
+    </script>
     <script type="application/ld+json">
       {"@context":"https://schema.org","@graph":[
         {"@type":"Organization","@id":"https://ayushmarg.vercel.app/#organization","name":"AYURDISHA","url":"https://ayushmarg.vercel.app/","logo":"https://ayushmarg.vercel.app/favicon.svg","description":"Meet the Mentors digital hall of the 11th World Ayurveda Congress, Bhubaneswar 2026."},

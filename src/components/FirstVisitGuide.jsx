@@ -8,10 +8,10 @@ export const FIRST_VISIT_GUIDES = {
   track: {
     storageKey: "aym-hint-track",
     eyebrow: "Ask Desk · Follow-up",
-    title: "Track My Answer",
+    title: "Track my answer",
     Icon: Ticket,
     lead:
-      "After you submit a career question, use this screen to look up your ticket and follow it until a mentor replies in writing.",
+      "After you submit a career question, use this screen to look up your ticket and follow it until a written or recorded answer is posted.",
     howTitle: "How to look it up",
     how: [
       "Enter your Ask Desk ticket ID (format AYM-Q-XXXXXXX), or",
@@ -24,21 +24,21 @@ export const FIRST_VISIT_GUIDES = {
       { label: "With mentor", detail: "Sitting with a mentor for a written reply." },
       { label: "Answered", detail: "Guidance is ready here as a mentor letter." },
     ],
-    primaryLabel: "Continue to Track My Answer",
+    primaryLabel: "Continue to Track my answer",
     skipLabel: "Skip introduction",
   },
   ask: {
     storageKey: "aym-hint-ask",
     eyebrow: "Ask Desk",
-    title: "Ask a Question",
+    title: "Ask Desk",
     Icon: Send,
     lead:
-      "One focused Ayurveda career question for Meet the Mentors — PG choices, practice, research, or pathways after BAMS.",
+      "One focused Ayurveda career question for Meet the Mentors — PG choices, practice, research, or your next step.",
     howTitle: "How it works",
     how: [
-      "Register once with a verified email so the hall can issue your WAC number.",
+      "Register once with a verified email so the hall can issue your pass.",
       "Choose a career track, write one clear question, and submit.",
-      "Keep the ticket you receive — you will use it under Track My Answer.",
+      "Keep the ticket ID you receive — you will use it under Track my answer.",
     ],
     primaryLabel: "Continue to Ask Desk",
     skipLabel: "Skip introduction",
@@ -54,24 +54,24 @@ export const FIRST_VISIT_GUIDES = {
     how: [
       "Open the podcast corner for recorded mentor talks.",
       "Check Congress selection results when the desk publishes them.",
-      "Use Ask Desk and Track My Answer from the header anytime.",
+      "Use Ask Desk and Track my answer from the header anytime.",
     ],
     primaryLabel: "Continue into the Hall",
     skipLabel: "Skip introduction",
   },
   board: {
     storageKey: "aym-hint-board",
-    eyebrow: "Open Theme Stage",
-    title: "Published Mentor Answers",
+    eyebrow: "Open theme stage",
+    title: "Published mentor answers",
     Icon: BookOpen,
     lead:
-      "When the hall is ready to share guidance, curated mentor answers appear here for every BAMS mentee — whether or not they reached Bhubaneswar.",
+      "When the hall is ready to share guidance, curated mentor answers appear here for every mentee — whether or not they reached Bhubaneswar.",
     howTitle: "Useful to know",
     how: [
       "These are curated, published letters from the Meet the Mentors desk.",
-      "Your personal ticket status still lives under Track My Answer.",
+      "Your personal ticket status still lives under Track my answer.",
     ],
-    primaryLabel: "Continue to Theme Stage",
+    primaryLabel: "Continue to the theme stage",
     skipLabel: "Skip introduction",
   },
 };

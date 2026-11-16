@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { MENTORS, mentorsWithNames } from "../mentors.js";
 import { getAllPrograms } from "../data/programs.js";
-import { setPageMeta } from "../siteMeta.js";
+import { setPageMeta, META_DESCRIPTION } from "../siteMeta.js";
 import { observeScrollReveal } from "../scrollReveal.js";
 import { useParallax } from "../components/editorial/motion.js";
 import { scrollToSection } from "../AppHeader.jsx";
@@ -12,8 +12,9 @@ import HomeMentors from "./home/HomeMentors.jsx";
 import HomeHowItWorks from "./home/HomeHowItWorks.jsx";
 import HomePathways from "./home/HomePathways.jsx";
 import { HomePhotoBand, HomeQuote, HomeFinalCta } from "./home/HomeInterludes.jsx";
-import { HomeWac, HomeTimeline } from "./home/HomeWac.jsx";
+import { HomeWac, HomeTimeline, HomeGoodToKnow } from "./home/HomeWac.jsx";
 import HomeCollage from "./home/HomeCollage.jsx";
+import HomeAskDesk from "./home/HomeAskDesk.jsx";
 
 const MENTOR_COUNT = mentorsWithNames(MENTORS).length;
 const TRACK_COUNT = getAllPrograms().length;
@@ -23,16 +24,15 @@ export default function HomePage({ onGoTab }) {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const goFeature = (id, e) => {
+  const goFeature = (id, e, opts) => {
     e?.preventDefault();
-    onGoTab?.(id);
+    onGoTab?.(id, opts);
   };
 
   useEffect(() => {
     setPageMeta({
       title: "AYURDISHA | Meet the Mentors | 11th World Ayurveda Congress",
-      description:
-        "Discover and connect with mentors, practitioners, researchers and thought leaders from the Ayurveda community through AYURDISHA.",
+      description: META_DESCRIPTION,
       path: "/",
     });
   }, []);
@@ -61,6 +61,7 @@ export default function HomePage({ onGoTab }) {
     <main id="main" className="ed-home" ref={rootRef}>
       <HomeHero mentorCount={MENTOR_COUNT} onAsk={(e) => goFeature("ask", e)} />
       <HomeStats mentorCount={MENTOR_COUNT} trackCount={TRACK_COUNT} />
+      <HomeAskDesk onGo={goFeature} />
       <HomeIdea />
       <HomeMentors />
       <HomeHowItWorks onGo={goFeature} />
@@ -68,6 +69,7 @@ export default function HomePage({ onGoTab }) {
       <HomePathways trackCount={TRACK_COUNT} />
       <HomeWac onGo={goFeature} />
       <HomeTimeline />
+      <HomeGoodToKnow />
       <HomeCollage />
       <HomeQuote />
       <HomeFinalCta onAsk={(e) => goFeature("ask", e)} />

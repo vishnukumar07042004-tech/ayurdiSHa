@@ -140,9 +140,9 @@ export default function ResourceDetailPage() {
         <aside className="ui-tile ui-tile--dark ui-tile--center ui-page-cta" data-reveal>
           <p className="ui-eyebrow">Ask Desk</p>
           <h2 className="ui-tile-title">Need further guidance?</h2>
-          <p className="ui-body">Submit your question to the Ask Desk for personalized mentor feedback.</p>
+          <p className="ui-body">Submit your question to the Ask Desk for a written or recorded answer via the answer bank.</p>
           <div className="ui-btn-row ui-btn-row--center">
-            <Button to={ASK} size="lg" variant="on-dark">Ask a Mentor</Button>
+            <Button to={ASK} size="lg" variant="on-dark">Ask Desk</Button>
           </div>
           <MoreLink to="/resources" onDark>Back to all resources</MoreLink>
         </aside>

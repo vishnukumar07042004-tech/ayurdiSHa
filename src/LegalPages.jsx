@@ -6,7 +6,7 @@ const PAGES = {
   about: {
     title: "About AYURDISHA · WAC 2026",
     description:
-      "AYURDISHA is the digital Meet the Mentors hall of the 11th World Ayurveda Congress, Bhubaneswar 2026 — register, receive a WAC number, and a mentor answers.",
+      "AYURDISHA is the digital Meet the Mentors hall of the 11th World Ayurveda Congress, Bhubaneswar 2026 — register, ask one question, and receive a written or recorded answer via the answer bank.",
     heading: "About this hall",
   },
   privacy: {
@@ -21,7 +21,7 @@ const PAGES = {
   },
   disclaimer: {
     title: "Disclaimer · AYURDISHA",
-    description: "AYURDISHA offers career guidance for BAMS mentees. It is not medical advice.",
+    description: "AYURDISHA offers career guidance for Ayurveda students and practitioners. It is not medical advice.",
     heading: "Disclaimer",
   },
 };
@@ -56,7 +56,7 @@ export function AboutPage() {
     <LegalShell page="about">
       <p>
         AYURDISHA is the digital Meet the Mentors hall of the 11th World Ayurveda Congress in Bhubaneswar.
-        Delegates register with a real email, receive an issued WAC registration number, ask one career
+        Delegates register with a real email, receive a pass (their WAC Delegate ID, or an AYURDISHA pass number), ask one career
         question at the Ask Desk, and track the mentor’s answer here — on a phone or laptop, before or after the floor.
       </p>
       <p>
@@ -67,7 +67,7 @@ export function AboutPage() {
       <p>
         Some mentees are invited by the guider for an in-person Meet the Mentors visit at the Congress.
         Registration on this site does not guarantee a place in that room. Everyone else keeps using the same
-        hall online: the same Track page, the same WAC number.
+        hall online: the same Track page, the same pass.
       </p>
       <p>
         Staff and mentors use a gated desk (Curation, Insights, Mentor pack) to merge similar questions and
@@ -92,19 +92,19 @@ export function PrivacyPage() {
       <h2>What we collect</h2>
       <p>
         Registration asks for your name, age, sex, institute, and email so we can send a one-time code and
-        issue your WAC registration number. Ask Desk questions, optional context, and your ticket stay with
+        issue your AYURDISHA pass number, and to link your WAC Delegate ID when your verified email is on the WAC delegate list. Ask Desk questions, optional context, and your ticket stay with
         the curation desk so a mentor can answer. Staff may also hold Congress selection lists that a guider uploads.
       </p>
       <h2>How it is used</h2>
       <p>
-        Data is used to verify you, attach your WAC number to questions, route answers, and — if you allow merging —
+        Data is used to verify you, attach your pass (WAC Delegate ID or AYURDISHA pass number) to questions, route answers, and — if you allow merging —
         group similar questions so the hall can help more mentees. Published stage answers do not include mentee names.
         OTP mail is sent only to the address you typed.
       </p>
       <h2>Where it is stored</h2>
       <p>
         Live hall data is stored in the AYURDISHA backend (serverless API plus Firestore). A session token may be
-        kept in this browser so you stay signed in as a delegate. Staff access uses a PIN cookie, not a public account.
+        kept in this browser so you stay signed in as a delegate. Staff access uses a passcode plus an emailed code and a signed session cookie, not a public account.
       </p>
       <h2>Your choices</h2>
       <p>
@@ -125,7 +125,7 @@ export function TermsPage() {
       </p>
       <h2>Who this is for</h2>
       <p>
-        AYURDISHA is for people walking into Meet the Mentors — BAMS students, interns, graduates, practitioners,
+        AYURDISHA is for people walking into Meet the Mentors — Ayurveda students, interns, PG scholars, researchers, practitioners,
         and Congress staff/mentors. You do not need a physical Congress pass to use the online hall.
       </p>
       <h2>What you may do</h2>
@@ -151,7 +151,7 @@ export function DisclaimerPage() {
   return (
     <LegalShell page="disclaimer">
       <p>
-        AYURDISHA offers <strong>career guidance for BAMS mentees</strong>. It is <strong>not medical advice</strong>,
+        AYURDISHA offers <strong>career guidance for Ayurveda students and practitioners</strong>. It is <strong>not medical advice</strong>,
         not a diagnosis, and not a prescription. Do not use Ask Desk or Knowledge pods for clinical decisions about
         a patient — including yourself.
       </p>

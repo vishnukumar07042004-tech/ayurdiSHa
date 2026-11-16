@@ -45,7 +45,7 @@ const OFFERS = [
   {
     icon: Handshake,
     eyebrow: "Live at Bhubaneswar",
-    title: "Live 1:1 mentor talks.",
+    title: "Live one-to-one talks.",
     body: "Selected students sit down one-to-one with a mentor on the Congress floor, arranged by the AYURDISHA team.",
     highlight: true,
   },
@@ -53,14 +53,14 @@ const OFFERS = [
     icon: MessageCircleQuestion,
     eyebrow: "Ask Desk",
     title: "One question. Real answers.",
-    body: "File one focused career question. We email you as soon as a mentor replies.",
-    link: { label: "Ask the desk", to: ASK },
+    body: "File one focused career question. We email you when a written or recorded answer is posted.",
+    link: { label: "Ask Desk", to: ASK },
   },
   {
     icon: Ticket,
     eyebrow: "Track my answer",
     title: "Your ticket, your reply.",
-    body: "Look up your WAC number anytime and read the mentor’s written guidance.",
+    body: "Look up your ticket ID anytime and read the mentor’s written guidance.",
     link: { label: "Track my answer", to: TRACK },
   },
   {
@@ -94,7 +94,7 @@ export default function AboutPage() {
   useEffect(() => {
     setPageMeta({
       title: "About AYURDISHA · 11th World Ayurveda Congress 2026",
-      description: "AYURDISHA is the Meet the Mentors hall of the 11th World Ayurveda Congress, Bhubaneswar 2026 — career direction for BAMS students, interns and young practitioners.",
+      description: "AYURDISHA is the Meet the Mentors hall of the 11th World Ayurveda Congress, Bhubaneswar 2026 — career direction for Ayurveda students, interns, PG scholars and young practitioners.",
       path: "/about",
     });
   }, []);
@@ -122,7 +122,7 @@ export default function AboutPage() {
           {
             icon: <MessageCircleQuestion size={22} strokeWidth={1.7} />,
             text: "Questions?",
-            label: "Ask the desk",
+            label: "Ask Desk",
             to: ASK,
           },
           {
@@ -152,7 +152,7 @@ export default function AboutPage() {
               className="st-fcard--hero"
               as="h2"
               image="/assets/sections/about-team.webp"
-              alt="AYURDISHA volunteers welcoming arriving BAMS students at a hall entrance decorated with marigold garlands"
+              alt="AYURDISHA volunteers welcoming arriving students at a hall entrance decorated with marigold garlands"
               width={1800}
               height={1013}
               sizes="(max-width: 1023px) 94vw, 700px"
@@ -164,7 +164,7 @@ export default function AboutPage() {
               <p className="ab-eyebrow">{ABOUT_MISSION.eyebrow}</p>
               <p className="ab-statement">{ABOUT_MISSION.statement}</p>
               <p className="ui-body">{ABOUT_MISSION.body}</p>
-              <MoreLink to="/welcome">Take the welcome tour</MoreLink>
+              <MoreLink to="/welcome?replay=1">Replay intro</MoreLink>
             </div>
           </div>
         </div>

@@ -11,7 +11,7 @@ export const ABOUT_HEADER = {
 
 export const ABOUT_MISSION = {
   eyebrow: "Our mission",
-  statement: "Every BAMS graduate deserves a clear next step — and a mentor who has already taken it.",
+  statement: "Everyone building a career in Ayurveda deserves a clear next step — and a mentor who has already taken it.",
   body:
     "AYURDISHA is the Meet the Mentors hall of WAC 2026. Bring your biggest career question. Leave with direction from people who lead the profession.",
   imageTitle: "Your seat at the Congress is waiting.",
@@ -32,9 +32,9 @@ export const ABOUT_WHY = {
 };
 
 export const ABOUT_STEPS = [
-  { n: "01", title: "Register", body: "Verify your email and receive your WAC number." },
+  { n: "01", title: "Register", body: "Verify your email and receive your pass (WAC Delegate ID or AYURDISHA pass number)." },
   { n: "02", title: "Ask", body: "File one focused career question at the Ask Desk." },
-  { n: "03", title: "Get notified", body: "We email you as soon as a mentor answers." },
+  { n: "03", title: "Get notified", body: "We email you when a written or recorded answer is posted to your ticket." },
   { n: "04", title: "Track", body: "Open Track my answer with your ticket to read the reply." },
 ];
 
