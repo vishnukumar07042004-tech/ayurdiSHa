@@ -5,7 +5,7 @@ import {
   Send, Search, Layers, FileSpreadsheet, BookOpen, Download, Upload,
   Check, X, ChevronRight, ChevronLeft, Loader2, RefreshCw, Lock, Unlock, Trash2,
   Merge, Scissors, AlertCircle, Ticket, Users, Eye, EyeOff,
-  Leaf, Mic, Compass, Map, ArrowRight, UserPlus, Mail,
+  Leaf, Mic, Compass, Map as MapIcon, ArrowRight, UserPlus, Mail,
   ShieldCheck, BadgeCheck, LogOut, Sparkles, PenLine, Printer,
   Calendar, MessageCircle, HeartHandshake, HelpCircle, GraduationCap, Award,
   ArrowLeft, ExternalLink, ChevronDown, MoreVertical, Newspaper, Copy, CopyCheck, KeyRound,
@@ -22,7 +22,7 @@ import FirstVisitGuide, {
   markFirstVisitSeen,
 } from "./components/FirstVisitGuide.jsx";
 import {
-  hasSeenWelcome,
+  shouldShowWelcome,
   welcomeShownThisSession,
 } from "./welcomeStorage.js";
 import AppHeader from "./AppHeader.jsx";
@@ -37,8 +37,44 @@ import { PrivacyRoute, TermsRoute, DisclaimerRoute } from "./pages/LegalPage.jsx
 import NotFoundPage from "./pages/NotFoundPage.jsx";
 import ErrorBoundary from "./components/ErrorBoundary.jsx";
 import StaffWorkspace from "./StaffWorkspace.jsx";
+import { StaffAccessDialog, StaffIdentityBar, StaffAdminPanels, rememberStaff, forgetStaffDevice } from "./staff/StaffAccess.jsx";
+import { mentorBriefRows, parseAnswerGrid, applyClusterAnswers } from "../shared/mentorWorkbook.js";
+import { WacKnowledgePanel } from "./components/WacKnowledge.jsx";
+import HallMap from "./components/HallMap.jsx";
+import { ASK_PROMPTS, pickAskExample } from "./content/askPrompts.js";
+import { DISHA_DRAFTS, DISHA_ROLE, DISHA_TRACK_NOTE } from "./content/glossary.js";
+import { displayPassId, WAC_DELEGATE_ID_LABEL, PASS_NUMBER_LABEL } from "../shared/passId.js";
+import { maskEmail } from "../shared/wacId.js";
+import { hallPassProfile, shouldDropHallPass, displayAskerName, displayAskerEmail, isDroppedHallPass, presentAskerRecord, sessionAfterStaffSignIn } from "../shared/account.js";
+import AiDraftBadge from "./staff/AiDraftBadge.jsx";
+import AskTriageHint from "./AskTriageHint.jsx";
+import { useAiDraftIndex, AI_FOCUS_KEY } from "./staff/aiApi.js";
+import { loadStaffDesk, loadDelegatesPaged, refreshDeskIncremental } from "./staff/deskLoader.js";
+import WacRegisterGate, { WacAskLink, WacLinkPrompt } from "./components/WacSignIn.jsx";
+import { currentSource, markReturnToAsk, peekReturnToAsk, takeReturnToAsk } from "./askLink.js";
+import { ASK_STAGES, ASK_STATES, ASK_REGISTERED, ASK_IN_PERSON } from "../shared/askOptions.js";
+import { askSubmitError, isRetryable } from "./askSubmitError.js";
+import { normalizeLookupQuery } from "../shared/ticket.js";
+import {
+  buildClusters, detachMember, auditClusters, isLockedCluster, suggestMerges, explainGroup, keepGroupsApart, MERGE_DEFAULTS,
+} from "../shared/merge.js";
+import {
+  TRACKS as PRODUCT_TRACKS,
+  NOT_SURE_THEME,
+  resolveTrackSelection,
+} from "../shared/tracks.js";
+import {
+  CONGRESS_CORE_DAYS,
+  KEY_DATES,
+  META_DESCRIPTION,
+  PROMISE_SHORT,
+  formatKeyDate,
+  isIntakeOpen,
+} from "../shared/productConfig.js";
+import { detectAskSafetyFlags, ASK_SAFETY_WARNING } from "../shared/askSafety.js";
 
 
+const AccountPage = lazy(() => import("./pages/AccountPage.jsx"));
 const MentorsDirectory = lazy(() => import("./MentorsDirectory.jsx"));
 const MentorProfile = lazy(() => import("./MentorProfile.jsx"));
 const PodcastView = lazy(() => import("./PodcastView.jsx"));
@@ -52,6 +88,13 @@ const EventDetailPage = lazy(() => import("./pages/EventDetailPage.jsx"));
 const ResourcesPage = lazy(() => import("./pages/ResourcesPage.jsx"));
 const ResourceDetailPage = lazy(() => import("./pages/ResourceDetailPage.jsx"));
 const ContactPage = lazy(() => import("./pages/ContactPage.jsx"));
+const HowItWorksPage = lazy(() => import("./pages/HowItWorksPage.jsx"));
+const AnswerBankPage = lazy(() => import("./pages/AnswerBankPage.jsx"));
+const AccessibilityPage = lazy(() => import("./pages/AccessibilityPage.jsx"));
+const AiReviewDesk = lazy(() => import("./staff/AiReviewDesk.jsx"));
+const SourceStats = lazy(() => import("./staff/SourceStats.jsx"));
+const WacDelegatesPanel = lazy(() => import("./staff/WacDelegatesPanel.jsx"));
+const FacultyBankPanel = lazy(() => import("./staff/FacultyBankPanel.jsx"));
 
 let xlsxPromise;
 function loadXlsx() {
@@ -82,31 +125,11 @@ const C = {
 };
 
 /* ------------------------------------------------------------------ */
-/* Domain data — 10 AYURDISHA themes                                   */
+/* Domain data — 9 product tracks (T1–T9); legacy themes still map      */
 /* ------------------------------------------------------------------ */
 
-const TRACKS = [
-  { code: "T01", name: "Clinical Practice & Integrative Care", subs: ["Choosing a clinical specialty", "Hospital employment", "Setting up private practice", "Panchakarma & therapy services", "Integrative referrals", "Records & clinical quality"] },
-  { code: "T02", name: "Academics, Teaching & Higher Education", subs: ["Choosing a PG branch", "PhD pathway", "Faculty recruitment & eligibility", "Teaching skills", "Curriculum & assessment", "Academic leadership"] },
-  { code: "T03", name: "Research, Evidence & Publication", subs: ["Framing a research question", "Study design", "Ethics & approvals", "Biostatistics", "Grants & funding", "Thesis & publication"] },
-  { code: "T04", name: "Entrepreneurship & Start-ups", subs: ["Validating the idea", "Business model", "Product & prototype", "Incubation support", "Funding & finance", "Team & intellectual property"] },
-  { code: "T05", name: "Manufacturing, Quality & GMP", subs: ["R&D and formulation", "Production & scale-up", "QA / QC and testing", "GMP and licensing", "Regulatory affairs", "Pharmacovigilance"] },
-  { code: "T06", name: "Brand Building & Communication", subs: ["Positioning a practice or product", "Digital presence", "Scientific communication", "Advertising & claims compliance", "Community education"] },
-  { code: "T07", name: "Export & Global Trade", subs: ["Getting started in export", "Documentation & shipping terms", "Certification and quality marks", "Market entry & partners", "Pricing & distribution"] },
-  { code: "T08", name: "Practice Abroad & Practitioner Mobility", subs: ["Country-wise recognition", "Licensing & registration", "Visa and employment routes", "Bridging qualifications", "Wellness centre roles abroad"] },
-  { code: "T09", name: "Medical Value Travel & Wellness", subs: ["How the MVT ecosystem works", "Accreditation and standards", "Designing packages", "Handling international patients", "Careers in wellness resorts"] },
-  { code: "T10", name: "Policy, Public Health & Global Agencies", subs: ["Government service routes", "National AYUSH Mission delivery", "Research councils", "Public health projects", "International organisations", "Policy research & advocacy"] },
-];
-const NOT_SURE = "Not sure — help me classify";
-
-const ASK_PROMPTS = [
-  { label: "What should I do after BAMS?", theme: "Academics, Teaching & Higher Education", sub: "Choosing a PG branch", text: "What should I do after BAMS — PG, clinical practice, research, or something else — and how do I choose?" },
-  { label: "PG / MD branch", theme: "Academics, Teaching & Higher Education", sub: "Choosing a PG branch", text: "How should I choose a PG / MD branch after BAMS, and when should I start preparing?" },
-  { label: "Start a clinic", theme: "Clinical Practice & Integrative Care", sub: "Setting up private practice", text: "What licences and first steps do I need to start a small Ayurveda clinic after internship?" },
-  { label: "Hospital vs practice", theme: "Clinical Practice & Integrative Care", sub: "Hospital employment", text: "Is it better to work in a hospital first after BAMS, or go into private practice straight away?" },
-  { label: "Research after BAMS", theme: "Research, Evidence & Publication", sub: "Framing a research question", text: "How do I begin a research career after BAMS if I am not yet in MD?" },
-  { label: "AYUSH / public health", theme: "Policy, Public Health & Global Agencies", sub: "Government service routes", text: "What is the route to a government AYUSH medical officer post after BAMS?" },
-];
+const TRACKS = PRODUCT_TRACKS.map((t) => ({ code: t.code, name: t.label, short: t.name, subs: t.subs }));
+const NOT_SURE = NOT_SURE_THEME;
 
 const AFTER_BAMS = [
   { id: "pg", label: "PG / MD", themes: ["Academics, Teaching & Higher Education"] },
@@ -126,21 +149,61 @@ const HALL_PODS = [
 ];
 
 const EXCHANGE_PATHS = [
-  { title: "PG / MD after BAMS", blurb: "Choose a branch, time the entrance, and plan the next three years.", theme: "Academics, Teaching & Higher Education", sub: "Choosing a PG branch", prompt: "How should I choose a PG / MD branch after BAMS, and when should I start preparing?" },
+  { title: "PG / MD", blurb: "Choose a branch, time the entrance, and plan the next three years.", theme: "Academics, Teaching & Higher Education", sub: "Choosing a PG branch", prompt: "How should I choose a PG / MD branch, and when should I start preparing?" },
   { title: "Clinical practice", blurb: "Clinic, hospital, Panchakarma — licences and first patients.", theme: "Clinical Practice & Integrative Care", sub: "Setting up private practice", prompt: "What licences and first steps do I need to start a small Ayurveda clinic after internship?" },
-  { title: "Research & evidence", blurb: "Thesis, journals, and a research career without waiting for MD.", theme: "Research, Evidence & Publication", sub: "Framing a research question", prompt: "How do I begin a research career after BAMS if I am not yet in MD?" },
+  { title: "Research & evidence", blurb: "Thesis, journals, and a research career without waiting for MD.", theme: "Research, Evidence & Publication", sub: "Framing a research question", prompt: "How do I begin a research career in Ayurveda before, or without, an MD?" },
   { title: "Public health & AYUSH", blurb: "Medical officer posts, NAM, and policy work.", theme: "Policy, Public Health & Global Agencies", sub: "Government service routes", prompt: "What is the route to a government AYUSH medical officer post after BAMS?" },
-  { title: "Start-ups & brands", blurb: "Test an idea, find a scheme, stay inside the claims rules.", theme: "Entrepreneurship & Start-ups", sub: "Validating the idea", prompt: "How do I test whether my Ayurvedic product idea has a real market before spending money after BAMS?" },
+  { title: "Start-ups & brands", blurb: "Test an idea, find a scheme, stay inside the claims rules.", theme: "Entrepreneurship & Start-ups", sub: "Validating the idea", prompt: "How do I test whether my Ayurvedic product idea has a real market before spending money?" },
   { title: "Practice abroad", blurb: "Recognition, licences, and wellness vs clinical work.", theme: "Practice Abroad & Practitioner Mobility", sub: "Country-wise recognition", prompt: "Can a BAMS graduate practise legally abroad, and what licence is required?" },
 ];
 
-const STAGES = ["BAMS student (1st–2nd prof)", "BAMS student (3rd–final prof)", "Intern", "MD / MS postgraduate", "PhD scholar", "Graduate (up to 5 years)", "Practitioner", "Faculty", "Other"];
+const STAGES = ASK_STAGES;
 
-const STATES = ["Andaman & Nicobar Islands","Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chandigarh","Chhattisgarh","Dadra & Nagar Haveli and Daman & Diu","Delhi","Goa","Gujarat","Haryana","Himachal Pradesh","Jammu & Kashmir","Jharkhand","Karnataka","Kerala","Ladakh","Lakshadweep","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Puducherry","Punjab","Rajasthan","Sikkim","Tamil Nadu","Telangana","Tripura","Uttar Pradesh","Uttarakhand","West Bengal","Outside India"];
+const STATES = ASK_STATES;
 
-const CORE_DAYS = ["11 December 2026", "12 December 2026", "13 December 2026"];
+const CORE_DAYS = CONGRESS_CORE_DAYS;
 
-const STOP = new Set("what which where when why how can could should would will the and for with from into about this that have want need must does doing dont not are was were you your our their its any some more most much many very just also than then them they there here who whom whose out off per via such only same other another each both few own too all how's ayurveda ayurvedic bams student students career mentor please kindly sir madam".split(/\s+/));
+const ASK_DRAFT_KEY = "aym-ask-draft-v1";
+
+function loadAskDraft() {
+  try {
+    const raw = localStorage.getItem(ASK_DRAFT_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === "object" ? parsed : null;
+  } catch {
+    return null;
+  }
+}
+
+function saveAskDraft(fields) {
+  try {
+    const keep = {
+      theme: fields.theme || "",
+      subtheme: fields.subtheme || "",
+      question: fields.question || "",
+      context: fields.context || "",
+      outcome: fields.outcome || "",
+      state: fields.state || "",
+      stage: fields.stage || "",
+      institution: fields.institution || "",
+      registered: fields.registered || "",
+      inPerson: fields.inPerson || "",
+      days: Array.isArray(fields.days) ? fields.days : [],
+      mobile: fields.mobile || "",
+      consentAnonPublish: !!fields.consentAnonPublish,
+      consentNamedDisplay: !!fields.consentNamedDisplay,
+      consentRecording: !!fields.consentRecording,
+      consentFollow: !!fields.consentFollow,
+    };
+    localStorage.setItem(ASK_DRAFT_KEY, JSON.stringify(keep));
+  } catch { /* private mode */ }
+}
+
+function clearAskDraft() {
+  try { localStorage.removeItem(ASK_DRAFT_KEY); } catch { /* ignore */ }
+}
+
 
 /* ------------------------------------------------------------------ */
 /* Storage layer                                                       */
@@ -155,7 +218,7 @@ const K_Q = "aym:q:";
 const K_CLUSTERS = "aym:clusters";
 const K_CONFIG = "aym:config";
 const LS_PREFIX = "aym-store:";
-const APP_TAB_IDS = ["intro", "hall", "mentors", "register", "ask", "pods", "exchange", "track", "board", "staff", "curate", "insights", "pack", "podcast"];
+const APP_TAB_IDS = ["intro", "hall", "mentors", "register", "ask", "pods", "exchange", "track", "board", "staff", "curate", "insights", "pack", "ai", "podcast", "account"];
 
 function tabFromHash(hash) {
   const raw = hash !== undefined && hash !== null
@@ -173,6 +236,8 @@ function tabFromUrl(pathname, hash) {
   if (p === "/staff/theme-stage" || p === "/staff/board") return "board";
   if (p === "/staff/insights") return "insights";
   if (p === "/staff/mentor-pack" || p === "/staff/pack") return "pack";
+  if (p === "/staff/ai-drafts" || p === "/staff/ai") return "ai";
+  if (p === "/account") return "account";
   if (p === "/track-answer") return "track";
 
   if (parseMentorPath(pathname).onMentors) return "mentors";
@@ -195,6 +260,7 @@ const STAFF_PATHS = {
   "/staff/theme-stage": "board",
   "/staff/insights": "insights",
   "/staff/mentor-pack": "pack",
+  "/staff/ai-drafts": "ai",
 };
 
 function parseMentorPath(pathname) {
@@ -208,6 +274,7 @@ function parseMentorPath(pathname) {
 function parseAppPath(pathname) {
   const p = String(pathname || "/").replace(/\/+$/, "") || "/";
   if (p === "/welcome") return { kind: "welcome" };
+  if (p === "/account") return { kind: "account" };
   if (LEGAL_PATHS[p]) return { kind: "legal", page: LEGAL_PATHS[p] };
   if (STAFF_PATHS[p]) return { kind: "staff", tab: STAFF_PATHS[p] };
   if (p === "/track-answer") return { kind: "app" };
@@ -261,23 +328,53 @@ async function api(op, payload = {}) {
     return data;
   } catch (e) {
     if (e.name === "AbortError") {
-      throw new Error("Request timed out. Check your connection and try again.");
+      const t = new Error("Request timed out. Check your connection and try again.");
+      t.timeout = true;
+      throw t;
     }
+    // fetch() itself failed (offline, DNS, blocked): no HTTP status to show.
+    if (e && e.status == null) e.network = true;
     throw e;
   } finally {
     clearTimeout(timer);
   }
 }
 
+/**
+ * `api` again on a dropped connection or a busy server (502/503/504), with jittered backoff.
+ * Only for ops the server makes idempotent (registration is keyed by email).
+ */
+async function apiRetry(op, payload = {}, { attempts = 3, onRetry } = {}) {
+  for (let i = 0; ; i++) {
+    try {
+      return await api(op, payload);
+    } catch (e) {
+      const retryable = e.network || e.timeout || [502, 503, 504].includes(e.status);
+      if (!retryable || i >= attempts - 1) throw e;
+      if (onRetry) onRetry(i + 1);
+      await new Promise(r => setTimeout(r, Math.round(1200 * 2 ** i * (0.75 + Math.random() * 0.5))));
+    }
+  }
+}
+
+// A failed ping (cold start, flaky hall Wi-Fi) is retried after a few seconds instead of
+// sending the rest of the visit to browser-only storage.
+const API_RETRY_MS = 8000;
 let apiAvailable = null;
+let apiCheckedAt = 0;
 async function hasApi() {
-  if (apiAvailable != null) return apiAvailable;
+  if (apiAvailable === true) return true;
+  if (apiAvailable === false && Date.now() - apiCheckedAt < API_RETRY_MS) return false;
   try {
     const r = await api("ping");
     apiAvailable = Boolean(r && r.ok);
   } catch { apiAvailable = false; }
+  apiCheckedAt = Date.now();
   return apiAvailable;
 }
+
+/** Built site (Vercel): the Ask Desk must reach the server — never a browser-only copy. */
+const API_REQUIRED = Boolean(import.meta.env && import.meta.env.PROD);
 
 const lsStore = {
   get(key) {
@@ -355,14 +452,6 @@ const store = {
   },
 };
 
-async function staffLogin(pin) {
-  if (!(await hasApi())) {
-    throw new Error("Staff sign-in needs the preview server.");
-  }
-  await api("login", { pin });
-  return true;
-}
-
 async function staffLogout() {
   if (await hasApi()) {
     try { await api("logout"); } catch { /* ignore */ }
@@ -370,10 +459,7 @@ async function staffLogout() {
 }
 
 async function staffWhoami() {
-  if (await hasApi()) {
-    try { return await api("whoami"); } catch { return { staff: false, hasPin: true }; }
-  }
-  return { staff: false, hasPin: true };
+  try { return await api("whoami"); } catch { return { staff: false, hasPin: true }; }
 }
 
 async function loadAllSubmissions(onProgress) {
@@ -390,6 +476,20 @@ async function loadAllSubmissions(onProgress) {
   return out;
 }
 
+/** Published groups by GET (CDN-cacheable for a crowd); the POST read is the fallback. */
+async function loadPublicClusters() {
+  if (!hasClaudeStore()) {
+    try {
+      const r = await fetch("/api/aym-store?op=publicClusters", { method: "GET" });
+      if (r.ok) {
+        const d = await r.json();
+        if (d && Array.isArray(d.value)) return d.value;
+      }
+    } catch { /* fall back below */ }
+  }
+  return store.get(K_CLUSTERS);
+}
+
 function publishedClusters(clusters) {
   return (Array.isArray(clusters) ? clusters : [])
     .filter(c => c.status === "Published" && c.answer)
@@ -399,6 +499,7 @@ function publishedClusters(clusters) {
       answer: c.answer, actions: c.actions, mistake: c.mistake,
       resources: c.resources, mentorName: c.mentorName,
       memberIds: c.memberIds || [],
+      aiAssisted: Boolean(c.aiAssisted),
     }));
 }
 
@@ -436,6 +537,7 @@ function clusterStatusFor(s, clusters) {
     mistake: ready ? (c.mistake || "") : "",
     resources: ready ? (c.resources || []) : [],
     mentorName: ready ? (c.mentorName || "") : "",
+    aiAssisted: ready ? Boolean(c.aiAssisted) : false,
   };
 }
 
@@ -450,18 +552,18 @@ function ownLookupRecord(s, clusters) {
     individualActions: s.individualActions || [],
     individualMistake: s.individualMistake || "",
     individualResources: s.individualResources || [],
+    individualAiAssisted: Boolean(pickStoredAnswer(s) && s.individualAiAssisted),
     cluster: clusterStatusFor(s, clusters),
   };
 }
 
+/** Throws when the server can't be reached, so Track says so instead of "No question found". */
 async function lookupSubmissions(query) {
-  const needle = query.trim().toLowerCase();
+  const needle = normalizeLookupQuery(query);
   if (!needle) return [];
-  if (await hasApi()) {
-    try {
-      const r = await api("lookup", { query: needle });
-      return r.hits || [];
-    } catch { return []; }
+  if (API_REQUIRED || await hasApi()) {
+    const r = await api("lookup", { query: needle });
+    return r.hits || [];
   }
   const [all, cl] = await Promise.all([loadAllSubmissions(), store.get(K_CLUSTERS)]);
   const clusters = Array.isArray(cl) ? cl : [];
@@ -489,6 +591,10 @@ function saveLocalSession(s) {
   } catch { /* private mode */ }
 }
 
+function shownPeople(list) {
+  return Array.isArray(list) ? list.map(presentAskerRecord) : [];
+}
+
 /* ------------------------------------------------------------------ */
 /* Text + clustering                                                   */
 /* ------------------------------------------------------------------ */
@@ -497,197 +603,17 @@ const rid = (n = 5) => Math.random().toString(36).slice(2, 2 + n).toUpperCase();
 const ticketId = () => "AYM-Q-" + Date.now().toString(36).toUpperCase().slice(-5) + rid(3);
 const clusterId = () => "AYM-C-" + rid(4);
 
-function normalizeText(text) {
-  return String(text || "")
-    .normalize("NFD").replace(/\p{M}/gu, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9\s]/g, " ");
-}
-
-function stemWord(w) {
-  if (w.length <= 4) return w;
-  if (w.endsWith("ing") && w.length > 5) return w.slice(0, -3);
-  if (w.endsWith("tion") && w.length > 6) return w.slice(0, -4);
-  if (w.endsWith("ment") && w.length > 6) return w.slice(0, -4);
-  if (w.endsWith("ed") && w.length > 4) return w.slice(0, -2);
-  if (w.endsWith("s") && w.length > 4 && !w.endsWith("ss")) return w.slice(0, -1);
-  return w;
-}
-
-function tokens(text, context) {
-  return new Set(
-    normalizeText(`${text || ""} ${context || ""}`)
-      .split(/\s+/)
-      .map(stemWord)
-      .filter(w => w.length > 2 && !STOP.has(w))
-  );
-}
-
-function jaccard(a, b) {
-  if (!a.size || !b.size) return 0;
-  let hit = 0;
-  a.forEach(x => { if (b.has(x)) hit++; });
-  return hit / (a.size + b.size - hit);
-}
-
-/** Sorted-token bigrams — catches phrase overlap Jaccard alone misses. */
-function bigrams(tokenSet) {
-  const arr = [...tokenSet].sort();
-  const bg = new Set();
-  for (let i = 0; i < arr.length - 1; i++) bg.add(`${arr[i]} ${arr[i + 1]}`);
-  return bg;
-}
-
-/**
- * Weighted similarity for auto-merge. All Ask Desk submissions enter the merge pool.
- *
- * Mental checks:
- * - "How to prepare for NEET PG?" vs "NEET PG preparation tips" → high (~0.5+), merge
- * - "Ayurveda diet for diabetes" vs "Career after BAMS" → low (~0.05), stay singletons
- * - "Clinical internship Kerala" vs "Clinical internship Karnataka" → moderate; strict pass keeps separate
- * - "Panchakarma training duration" vs "Panchakarma therapy steps" → partial; merges only above threshold
- */
-function questionSimilarity(a, b, dfMap) {
-  const jac = jaccard(a._t, b._t);
-  if (!jac) return 0;
-
-  const bgA = bigrams(a._t);
-  const bgB = bigrams(b._t);
-  let bgHit = 0;
-  bgA.forEach(x => { if (bgB.has(x)) bgHit++; });
-  const bgJac = bgA.size && bgB.size ? bgHit / (bgA.size + bgB.size - bgHit) : 0;
-
-  let weightedHit = 0;
-  let weightedUnion = 0;
-  const union = new Set([...a._t, ...b._t]);
-  union.forEach(t => {
-    const w = (dfMap.get(t) || 1) <= 2 ? 1.5 : 1;
-    weightedUnion += w;
-    if (a._t.has(t) && b._t.has(t)) weightedHit += w;
-  });
-  const weightedJac = weightedUnion ? weightedHit / weightedUnion : 0;
-
-  return 0.55 * weightedJac + 0.35 * jac + 0.10 * bgJac;
-}
-
-function bucketSimilarity(a, b, dfMap) {
-  let best = 0;
-  a.forEach(x => b.forEach(y => {
-    const v = questionSimilarity(x, y, dfMap);
-    if (v > best) best = v;
-  }));
-  return best;
-}
-
-function isDemoRecord(s) {
-  const email = String(s && s.email || "").trim().toLowerCase();
-  const name = String(s && s.name || "").trim();
-  if (/@example\.(com|in|org)$/i.test(email)) return true;
-  if (/^(demo\d*|finish\.agent|teststudent)@/i.test(email)) return true;
-  if (/^demo student/i.test(name)) return true;
-  if (/^(finish agent|test student)$/i.test(name)) return true;
-  return false;
-}
-
-/**
- * Groups by theme (optionally theme+subtheme), then two-pass clustering:
- * 1) Strict pass — only join when weighted similarity ≥ threshold (default 0.42).
- * 2) Pack pass — small buckets (<6) may combine if similarity ≥ packThresh (never below 0.28).
- * Singletons stay singletons when nothing clears the strict bar — avoids wrong forced merges.
- * Composite wording defaults to the longest member question (staff can edit on Curation desk).
- */
-function buildClusters(subs, threshold, useSub, prev = []) {
-  const groups = new Map();
-  (subs || []).forEach(s => {
-    const key = useSub ? `${s.theme}\u0000${s.subtheme}` : s.theme;
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push({ ...s, _t: tokens(s.question, s.context) });
-  });
-
-  const out = [];
-  groups.forEach((items, key) => {
-    const dfMap = new Map();
-    items.forEach(s => s._t.forEach(t => dfMap.set(t, (dfMap.get(t) || 0) + 1)));
-
-    items.sort((a, b) => b._t.size - a._t.size);
-    const buckets = [];
-
-    // Pass 1 — strict auto-merge
-    items.forEach(s => {
-      let best = null;
-      let score = 0;
-      buckets.forEach(b => {
-        const v = bucketSimilarity(b, [s], dfMap);
-        if (v > score) { score = v; best = b; }
-      });
-      if (best && score >= threshold) best.push(s);
-      else buckets.push([s]);
-    });
-
-    // Pass 2 — pack undersized buckets (still above a floor; no forced singleton absorption)
-    const packThresh = Math.max(0.28, threshold * 0.78);
-    let changed = true;
-    while (changed) {
-      changed = false;
-      buckets.sort((a, b) => a.length - b.length);
-      for (let i = 0; i < buckets.length; i++) {
-        if (buckets[i].length >= 6) continue;
-        let bestJ = -1;
-        let bestScore = 0;
-        for (let j = i + 1; j < buckets.length; j++) {
-          const v = bucketSimilarity(buckets[i], buckets[j], dfMap);
-          if (v >= packThresh && v > bestScore) { bestScore = v; bestJ = j; }
-        }
-        if (bestJ >= 0) {
-          buckets[bestJ] = buckets[bestJ].concat(buckets[i]);
-          buckets.splice(i, 1);
-          changed = true;
-          break;
-        }
-      }
-    }
-
-    const [theme, subtheme] = key.split("\u0000");
-    buckets.forEach(members => {
-      const rep = members.reduce((a, c) => (c.question.length > a.question.length ? c : a), members[0]);
-      const carried = prev.find(p => p.memberIds && p.memberIds.includes(rep.id));
-      out.push({
-        id: carried ? carried.id : clusterId(),
-        theme,
-        subtheme: subtheme || "",
-        kind: members.length >= 2 ? "merged" : "unique",
-        memberIds: members.map(m => m.id),
-        representative: rep.question,
-        variants: members.filter(m => m.id !== rep.id).slice(0, 6).map(m => m.question),
-        composite: carried ? carried.composite : "",
-        mentor: carried ? carried.mentor : "",
-        answer: carried ? carried.answer : "",
-        actions: carried ? carried.actions : ["", "", ""],
-        mistake: carried ? carried.mistake : "",
-        resources: carried ? carried.resources : ["", ""],
-        mentorName: carried ? carried.mentorName : "",
-        status: carried ? carried.status : "New",
-      });
-    });
-  });
-
-  out.sort((a, b) => (b.memberIds.length - a.memberIds.length) || a.theme.localeCompare(b.theme));
-  return out;
-}
-
 /* ------------------------------------------------------------------ */
 /* Excel round-trip                                                    */
 /* ------------------------------------------------------------------ */
 
-const BRIEF_COLS = [
-  "Cluster_ID", "Theme", "Subtheme", "Students_In_Cluster", "Composite_Question",
-  "Representative_Wording", "Ticket_ID", "Question_ID", "WAC_Reg_No", "Name", "Email",
-  "Original_Question", "MERGED_ANSWER", "INDIVIDUAL_ANSWER",
-  "ACTION_1", "ACTION_2", "ACTION_3", "COMMON_MISTAKE",
-  "RESOURCE_1", "RESOURCE_2", "MENTOR_NAME_DESIGNATION", "Assigned_Mentor",
-];
+
+function auditExport(filename) {
+  api("staffAuditExport", { target: filename }).catch(() => {});
+}
 
 function downloadBlob(data, filename, mime) {
+  auditExport(filename);
   const blob = new Blob([data], { type: mime });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
@@ -699,31 +625,7 @@ function downloadBlob(data, filename, mime) {
 
 async function exportMentorWorkbook(clusters, subs, label) {
   const XLSX = await loadXlsx();
-  const byId = Object.fromEntries((subs || []).map(s => [s.id, s]));
-  const rows = [BRIEF_COLS];
-  clusters.forEach(c => {
-    const members = (c.memberIds || []).map(id => byId[id]).filter(Boolean);
-    const base = [
-      c.id, c.theme, c.subtheme, c.memberIds.length,
-      c.composite || c.representative, c.representative,
-    ];
-    const mergedTail = [
-      c.answer || "",
-      "",
-      c.actions[0] || "", c.actions[1] || "", c.actions[2] || "",
-      c.mistake || "", c.resources[0] || "", c.resources[1] || "",
-      c.mentorName || "", c.mentor || "",
-    ];
-    if (!members.length) {
-      rows.push([...base, "", "", "", "", "", "", ...mergedTail]);
-      return;
-    }
-    members.forEach(m => rows.push([
-      ...base,
-      m.ticket, m.id, m.regNo || m.delegateNo || "", m.name || "", m.email || "",
-      m.question, ...mergedTail.slice(0, 1), m.individualAnswer || "", ...mergedTail.slice(1),
-    ]));
-  });
+  const rows = mentorBriefRows(clusters, subs);
 
   const ws = XLSX.utils.aoa_to_sheet(rows);
   ws["!cols"] = [
@@ -766,7 +668,7 @@ function exportMentorDoc(clusters, label) {
     <p style="margin:18pt 0 2pt"><b style="color:#5C1A2B">${i + 1}. ${esc(c.theme)} &mdash; ${esc(c.subtheme)}</b>
     <span style="color:#7A6A5C"> [${esc(c.id)} &middot; ${c.memberIds.length} students]</span></p>
     <p style="margin:0 0 6pt;font-size:12pt"><b>${esc(c.composite || c.representative)}</b></p>
-    ${c.variants.length ? `<p style="margin:0 0 6pt;color:#7A6A5C;font-size:10pt">Also asked as: ${c.variants.map(v => esc(v)).join(" &nbsp;|&nbsp; ")}</p>` : ""}
+    ${(c.variants || []).length ? `<p style="margin:0 0 6pt;color:#7A6A5C;font-size:10pt">Also asked as: ${c.variants.map(v => esc(v)).join(" &nbsp;|&nbsp; ")}</p>` : ""}
     <p style="margin:0">Answer: ${"_".repeat(110)}</p>
     <p style="margin:0">Three actions: 1. ${"_".repeat(80)} 2. ${"_".repeat(80)} 3. ${"_".repeat(80)}</p>
     <p style="margin:0">One common mistake: ${"_".repeat(88)}</p>
@@ -787,22 +689,22 @@ async function exportSubmissionRegister(subs, clusters) {
   clusters.forEach(c => c.memberIds.forEach(id => { map[id] = c; }));
   const rows = [[
     "Ticket_ID", "Submitted", "Name", "Email", "Mobile", "State_UT", "Institution", "Programme_Stage",
-    "WAC_Registered", "Registration_No", "In_Person", "Available_Days", "Theme", "Subtheme",
+    "WAC_Registered", "Pass_ID", "Pass_ID_Type", "In_Person", "Available_Days", "Theme", "Subtheme",
     "Question", "Context", "Ninety_Day_Outcome", "Anonymous_Publication_Consent", "Follow_Up_Consent",
     "Cluster_ID", "Cluster_Size", "Answer_Status",
   ]];
   subs.forEach(s => {
     const c = map[s.id];
     rows.push([
-      s.ticket, new Date(s.createdAt).toLocaleString("en-IN"), s.name, s.email, s.mobile || "",
-      s.state, s.institution, s.stage, s.registered, s.regNo || "", s.inPerson, (s.days || []).join("; "),
+      s.ticket, new Date(s.createdAt).toLocaleString("en-IN"), displayAskerName(s), displayAskerEmail(s), s.mobile || "",
+      s.state, s.institution, s.stage, s.registered, displayPassId(s).id, displayPassId(s).label, s.inPerson, (s.days || []).join("; "),
       s.theme, s.subtheme, s.question, s.context || "", s.outcome || "",
       s.consentPublish, s.consentFollow, c ? c.id : "Not clustered", c ? c.memberIds.length : "",
       c ? c.status : "Awaiting clustering",
     ]);
   });
   const ws = XLSX.utils.aoa_to_sheet(rows);
-  ws["!cols"] = rows[0].map((_, i) => ({ wch: [14, 18, 20, 26, 14, 18, 30, 24, 14, 16, 12, 30, 34, 26, 70, 46, 40, 16, 14, 12, 11, 18][i] || 18 }));
+  ws["!cols"] = rows[0].map((_, i) => ({ wch: [14, 18, 20, 26, 14, 18, 30, 24, 14, 16, 22, 12, 30, 34, 26, 70, 46, 40, 16, 14, 12, 11, 18][i] || 18 }));
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, "SUBMISSIONS");
   downloadBlob(XLSX.write(wb, { bookType: "xlsx", type: "array" }), "AYURDISHA_Submission_Register.xlsx",
@@ -848,7 +750,7 @@ async function parseWacWorkbook(file) {
     }
   }
   if (map.name == null && map.email == null && map.regNo == null) {
-    throw new Error("Could not find Name, Email, or WAC registration number columns.");
+    throw new Error("Could not find Name, Email, or WAC Delegate ID / pass number columns.");
   }
   const get = (r, k) => {
     const i = map[k];
@@ -874,7 +776,7 @@ async function exportWacResults(rows, filename) {
     r.name || "", r.email || "", r.institute || "", r.regNo || "",
     r.selected === false ? "No" : "Yes",
   ]);
-  const aoa = [["Name", "Email", "Institute", "WAC_Reg_No", "Selected"], ...body];
+  const aoa = [["Name", "Email", "Institute", "Pass_ID", "Selected"], ...body];
   const ws = XLSX.utils.aoa_to_sheet(aoa);
   ws["!cols"] = [{ wch: 28 }, { wch: 32 }, { wch: 36 }, { wch: 14 }, { wch: 12 }];
   const wb = XLSX.utils.book_new();
@@ -891,82 +793,19 @@ async function readAnswerWorkbook(file) {
   const wb = XLSX.read(buf, { type: "array" });
   const sheetName = wb.SheetNames.find(n => n.toUpperCase().includes("MENTOR")) || wb.SheetNames[0];
   const grid = XLSX.utils.sheet_to_json(wb.Sheets[sheetName], { header: 1, defval: "" });
-  if (!grid.length) throw new Error("The file has no rows.");
-  const head = grid[0].map(h => String(h).trim());
-  const at = name => head.indexOf(name);
-  const get = (r, name) => { const i = at(name); return i < 0 ? "" : String(r[i] ?? "").trim(); };
-  const extras = r => ({
-    actions: [get(r, "ACTION_1"), get(r, "ACTION_2"), get(r, "ACTION_3")],
-    mistake: get(r, "COMMON_MISTAKE"),
-    resources: [get(r, "RESOURCE_1"), get(r, "RESOURCE_2")],
-    mentorName: get(r, "MENTOR_NAME_DESIGNATION"),
-  });
-  const mergedAnswer = r => get(r, "MERGED_ANSWER") || get(r, "ANSWER");
-
-  if (at("Ticket_ID") >= 0 && at("Cluster_ID") < 0) {
-    return grid.slice(1).filter(r => get(r, "Ticket_ID")).map(r => ({
-      kind: "individual",
-      ticket: get(r, "Ticket_ID"),
-      id: get(r, "Question_ID"),
-      answer: get(r, "ANSWER") || get(r, "INDIVIDUAL_ANSWER"),
-      ...extras(r),
-    }));
-  }
-  if (at("Cluster_ID") < 0) {
-    throw new Error("Use a sheet exported from the mentor pack (Cluster_ID or Ticket_ID column).");
-  }
-
-  const clusterMap = new Map();
-  const individuals = [];
-  grid.slice(1).forEach(r => {
-    const cid = get(r, "Cluster_ID");
-    if (!cid) return;
-    const ticket = get(r, "Ticket_ID");
-    const indAns = get(r, "INDIVIDUAL_ANSWER");
-    if (ticket && indAns) {
-      individuals.push({
-        kind: "individual",
-        ticket,
-        id: get(r, "Question_ID"),
-        answer: indAns,
-        ...extras(r),
-      });
-    }
-    const mAns = mergedAnswer(r);
-    if (!clusterMap.has(cid)) {
-      clusterMap.set(cid, {
-        kind: "cluster",
-        id: cid,
-        answer: "",
-        composite: get(r, "Composite_Question"),
-        actions: ["", "", ""],
-        mistake: "",
-        resources: ["", ""],
-        mentorName: "",
-      });
-    }
-    const c = clusterMap.get(cid);
-    if (mAns && !c.answer) c.answer = mAns;
-    if (!c.composite) c.composite = get(r, "Composite_Question");
-    extras(r).actions.forEach((a, i) => { if (a && !c.actions[i]) c.actions[i] = a; });
-    if (!c.mistake) c.mistake = extras(r).mistake;
-    extras(r).resources.forEach((res, i) => { if (res && !c.resources[i]) c.resources[i] = res; });
-    if (!c.mentorName) c.mentorName = extras(r).mentorName;
-  });
-
-  return [...clusterMap.values(), ...individuals];
+  return parseAnswerGrid(grid);
 }
 
 async function exportIndividualWorkbook(subs) {
   const XLSX = await loadXlsx();
   const rows = [[
-    "Ticket_ID", "Question_ID", "WAC_Reg_No", "Name", "Email", "Institution",
+    "Ticket_ID", "Question_ID", "Pass_ID", "Name", "Email", "Institution",
     "Theme", "Subtheme", "Question", "Context", "ANSWER",
     "ACTION_1", "ACTION_2", "ACTION_3", "COMMON_MISTAKE",
     "RESOURCE_1", "RESOURCE_2", "MENTOR_NAME_DESIGNATION",
   ]];
   subs.forEach(s => rows.push([
-    s.ticket, s.id, s.regNo || s.delegateNo || "", s.name || "", s.email || "",
+    s.ticket, s.id, displayPassId(s).id, displayAskerName(s) || "", displayAskerEmail(s) || "",
     s.institution || "", s.theme, s.subtheme, s.question, s.context || "",
     s.individualAnswer || "", "", "", "", "", "", "", "",
   ]));
@@ -1094,7 +933,7 @@ function IntroLeaves() {
 
 const ROAD_STEPS = [
   { n: "01", title: "Verify email", body: "Register with a real email. Receive a 6-digit code to verify your identity.", Icon: UserPlus },
-  { n: "02", title: "Issued WAC number", body: "The hall issues your unique 11WAC/2026/NNNN number instantly — yours for the Congress.", Icon: Ticket },
+  { n: "02", title: "Your pass", body: "Registered for WAC 2026? Your WAC Delegate ID is linked by your verified email. Otherwise the hall issues an AYURDISHA pass number instantly.", Icon: Ticket },
   { n: "03", title: "Ask Desk", body: "File one focused career question. A mentor reads it — not a chatbot.", Icon: Send },
   { n: "04", title: "Track my answer", body: "A written answer lands on your ticket. Follow the guidance at your own pace.", Icon: MessageCircle },
 ];
@@ -1118,7 +957,7 @@ function RoadStep({ step, className = "" }) {
 const LAND_FAQS = [
   {
     q: "Is this medical advice?",
-    a: "No. AYURDISHA provides professional career guidance for BAMS students and practitioners. It is not for diagnosis, treatment, or patient care.",
+    a: "No. AYURDISHA provides professional career guidance for Ayurveda students and practitioners. It is not for diagnosis, treatment, or patient care.",
   },
   {
     q: "Who are the mentors?",
@@ -1184,12 +1023,12 @@ function LandingPage({ onGetStarted, onRegister, onAsk, onStaff }) {
             <h1 id="land-h1" className="aym-display">Meet the Mentors</h1>
             <p className="aym-land-lede">
               AYURDISHA is the digital Meet the Mentors hall of the World Ayurveda Congress.
-              WAC delegates register, receive an issued WAC number, and sit with a mentor —
+              WAC delegates register, receive their pass, and sit with a mentor —
               on your phone or laptop, then on the Bhubaneswar floor.
             </p>
             <div className="aym-land-hero-actions">
               <button type="button" className="aym-land-cta" onClick={onAsk || onGetStarted}>
-                Ask a question <ArrowRight size={18} aria-hidden="true" />
+                Ask Desk <ArrowRight size={18} aria-hidden="true" />
               </button>
               <Link to="/programs" className="aym-btn aym-btn-gold">
                 Explore career paths
@@ -1282,7 +1121,7 @@ function LandingPage({ onGetStarted, onRegister, onAsk, onStaff }) {
             <article className="aym-land-who-card">
               <div className="aym-land-who-shot aym-land-who-shot-pods" aria-hidden="true" />
               <GraduationCap size={22} />
-              <h3>BAMS mentees</h3>
+              <h3>Mentees</h3>
               <p>Students, interns, graduates, and practitioners. No Congress pass is required to use AYURDISHA online.</p>
             </article>
             <article className="aym-land-who-card">
@@ -1421,8 +1260,8 @@ function WacResultsSection({ staff, delegates, questions, onClose }) {
 
   function fromDelegates() {
     const next = (delegates || []).map(u => ({
-      name: u.name || "", email: u.email || "", institute: u.institute || "",
-      regNo: u.regNo || "", selected: true,
+      name: displayAskerName(u) || "", email: displayAskerEmail(u) || "", institute: u.institute || "",
+      regNo: displayPassId(u).id, selected: true,
     })).filter(r => r.email || r.regNo);
     if (!next.length) { setErr("No registered delegates on the desk yet."); return; }
     saveRows(next, "registered-delegates.xlsx");
@@ -1433,12 +1272,12 @@ function WacResultsSection({ staff, delegates, questions, onClose }) {
     const next = [];
     (questions || []).forEach(s => {
       if (String(s.inPerson || "") !== "Yes") return;
-      const key = String(s.email || s.regNo || "").toLowerCase();
+      const key = String(displayAskerEmail(s) || s.regNo || "").toLowerCase();
       if (!key || seen.has(key)) return;
       seen.add(key);
       next.push({
-        name: s.name || "", email: s.email || "", institute: s.institution || "",
-        regNo: s.delegateNo || s.regNo || "", selected: true,
+        name: displayAskerName(s) || "", email: displayAskerEmail(s) || "", institute: s.institution || "",
+        regNo: displayPassId(s).id, selected: true,
       });
     });
     if (!next.length) { setErr("No Ask Desk submissions marked in-person yet."); return; }
@@ -1514,7 +1353,7 @@ function WacResultsSection({ staff, delegates, questions, onClose }) {
           <>
             <p>
               The official list is published. Download the Excel and search your name, email,
-              or WAC registration number to see whether you are selected.
+              WAC Delegate ID or AYURDISHA pass number to see whether you are selected.
             </p>
             <div className="aym-wac-actions">
               <button type="button" className="aym-btn aym-btn-cream" onClick={() => exportWacResults(rows, meta.filename)}>
@@ -1528,7 +1367,7 @@ function WacResultsSection({ staff, delegates, questions, onClose }) {
             <p className="aym-wac-soon">Results will be published soon.</p>
             <p>
               When the guider releases the official list, you will be able to download an Excel
-              sheet here and find yourself by name, email, institute, or WAC registration number.
+              sheet here and find yourself by name, email, institute, WAC Delegate ID or AYURDISHA pass number.
             </p>
           </>
         )}
@@ -1583,7 +1422,7 @@ function WacResultsSection({ staff, delegates, questions, onClose }) {
                 <table className="aym-table">
                   <thead>
                     <tr>
-                      <th>Name</th><th>Email</th><th>Institute</th><th>WAC registration number</th><th>Selected</th>
+                      <th>Name</th><th>Email</th><th>Institute</th><th>WAC Delegate ID / pass number</th><th>Selected</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -1650,14 +1489,13 @@ function HallView({ onEnter, staff, delegates, questions }) {
         <div className="aym-hero-leaf" />
         <div className="aym-hero-glow" aria-hidden="true" />
         <div className="aym-hero-inner">
-          <div className="aym-eyebrow" style={{ color: C.oak }}>AYURDISHA · 11th World Ayurveda Congress · Bhubaneswar 2026</div>
+          <div className="aym-eyebrow aym-hall-eyebrow">AYURDISHA · 11th World Ayurveda Congress · Bhubaneswar 2026</div>
           <h1 className="aym-display">The Hall</h1>
           <div className="aym-hero-rule" aria-hidden="true" />
           <p className="aym-hero-sub">
             Meet the Mentors — a quiet career floor at World Ayurveda Congress.
             Podcast conversations and the Congress selection board live here.
           </p>
-          <MentorConnectScene />
         </div>
       </section>
 
@@ -1666,7 +1504,7 @@ function HallView({ onEnter, staff, delegates, questions }) {
           <div className="aym-eyebrow" style={{ color: C.oak }}>What happens in this hall</div>
           <h2 id="hall-beats-title" className="aym-display aym-hall-floor-title">Ask. Sit. The floor grows.</h2>
           <p className="aym-hall-floor-lede">
-            AYURDISHA is a career hall for BAMS mentees: a question, a mentor’s answer,
+            AYURDISHA is a career hall for anyone building a life in Ayurveda: a question, a mentor’s answer,
             then the Congress stage when the hall is ready to share it.
           </p>
           <ol className="aym-hall-beats">
@@ -1680,6 +1518,8 @@ function HallView({ onEnter, staff, delegates, questions }) {
             ))}
           </ol>
         </section>
+
+        <HallMap onGo={onEnter} />
 
         <section className="aym-hall-atmo" aria-label="Congress atmosphere">
           <figure className="aym-hall-atmo-shot aym-hall-atmo-pods">
@@ -2107,17 +1947,21 @@ function PodsView({ onEnterAsk }) {
 
   return (
     <div className="aym-pods-hub aym-pod-know-journal">
-      <div className="aym-pods-banner" role="img" aria-label="BAMS students and a mentor comparing career briefs around an oak table" />
+      <div className="aym-pods-banner" role="img" aria-label="Students and a mentor comparing career briefs around an oak table" />
       <div className="aym-page-head">
         <div className="aym-eyebrow">Knowledge</div>
-        <h1 className="aym-display">Ten paths after BAMS — authoritative career briefs.</h1>
-        <p>Congress-grade guidance: long-form overviews, opportunities, challenges, income ranges, and curated journal links. When you are ready for a 1:1 mentor question, walk to the Ask Desk.</p>
+        <h1 className="aym-display">Ten career paths in Ayurveda, briefed.</h1>
+        <p>Congress-grade guidance: long-form overviews, opportunities, challenges, income ranges, and curated journal links. When you are ready to ask a mentor, walk to the Ask Desk.</p>
       </div>
 
-      <div className="aym-know-tabs" role="tablist">
-        <button type="button" role="tab" aria-selected={hubTab === "overview"} className={`aym-know-tab${hubTab === "overview" ? " active" : ""}`} onClick={() => setHubTab("overview")}>Overview</button>
-        <button type="button" role="tab" aria-selected={hubTab === "journals"} className={`aym-know-tab${hubTab === "journals" ? " active" : ""}`} onClick={() => setHubTab("journals")}>Journals &amp; sources</button>
+      <div className="aym-know-tabs" role="tablist" aria-label="Knowledge hub">
+        {[["overview", "Overview"], ["wac", "About WAC"], ["journals", "Journals & sources"]].map(([id, label]) => (
+          <button key={id} type="button" role="tab" aria-selected={hubTab === id}
+            className={`aym-know-tab${hubTab === id ? " active" : ""}`} onClick={() => setHubTab(id)}>{label}</button>
+        ))}
       </div>
+
+      {hubTab === "wac" && <WacKnowledgePanel onAsk={onEnterAsk} />}
 
       {hubTab === "overview" && (
         <div className="aym-pod-grid">
@@ -2145,11 +1989,11 @@ function ExchangeView({ onAskPath }) {
   return (
     <div>
       <div className="aym-exchange-hero">
-        <img src="/assets/sections/hall-exchange-wall.webp" alt="BAMS graduates and a mentor browsing the Opportunity Exchange wall of career-path panels" width={1200} height={675} />
+        <img src="/assets/sections/hall-exchange-wall.webp" alt="Young practitioners and a mentor browsing the Opportunity Exchange wall of career-path panels" width={1200} height={675} />
       </div>
       <div className="aym-page-head">
         <div className="aym-eyebrow">Opportunity Exchange</div>
-        <h1 className="aym-display">After BAMS — which wall is yours?</h1>
+        <h1 className="aym-display">Your next step — which wall is yours?</h1>
         <p>The poster wall in the hall. Each panel is a future: PG, clinic, research, public health, start-up, or practice abroad. Tap a path to walk it to the Ask Desk.</p>
       </div>
       <div className="aym-path-grid">
@@ -2174,23 +2018,41 @@ const BLANK = {
   name: "", email: "", mobile: "", state: "", institution: "", stage: "",
   registered: "", regNo: "", inPerson: "", days: [],
   theme: "", subtheme: "", question: "", context: "", outcome: "",
-  consentFollow: "",
+  consentAnonPublish: false,
+  consentNamedDisplay: false,
+  consentRecording: false,
+  consentFollow: false,
 };
 
-function AskView({ onSaved, preset, profile, onGoRegister }) {
+/** Ask Desk note after autofill: which record the pass field came from. */
+function passAutofillNote(profile) {
+  const pid = displayPassId(profile);
+  if (!pid.id) return "";
+  return pid.kind === "wac" ? "Filled from your WAC delegate record" : `Filled from your ${PASS_NUMBER_LABEL} ${pid.id}`;
+}
+
+function AskView({ onSaved, preset, profile, onGoRegister, onProfile }) {
+  const intakeOpen = isIntakeOpen();
   const blankFromProfile = (p) => {
+    const draft = loadAskDraft() || {};
     const next = {
       ...BLANK,
+      ...draft,
       ...(preset || {}),
       ...(p ? {
-        name: p.name || "",
-        email: p.email || "",
-        institution: p.institute || "",
+        name: displayAskerName(p) || "",
+        email: displayAskerEmail(p) || "",
+        institution: p.institute || draft.institution || "",
         regNo: p.regNo || "",
       } : {}),
     };
     // Issued WAC number means they already registered — answer Yes without asking again.
     if (String(next.regNo || "").trim()) next.registered = "Yes";
+    // Consents must stay unticked unless the draft/preset explicitly set them.
+    next.consentAnonPublish = !!(preset?.consentAnonPublish ?? draft.consentAnonPublish);
+    next.consentNamedDisplay = !!(preset?.consentNamedDisplay ?? draft.consentNamedDisplay);
+    next.consentRecording = !!(preset?.consentRecording ?? draft.consentRecording);
+    next.consentFollow = !!(preset?.consentFollow ?? draft.consentFollow);
     return next;
   };
   const [f, setF] = useState(() => blankFromProfile(profile));
@@ -2199,10 +2061,22 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
   const [errs, setErrs] = useState([]);
   const [submitErr, setSubmitErr] = useState("");
   const submitting = useRef(false);
-  const [autofillNote, setAutofillNote] = useState(() => (
-    profile && profile.regNo ? `Filled from your WAC registration number ${profile.regNo}` : ""
-  ));
+  // Last unsent attempt: resending the same form reuses its id + ticket, so a send that did
+  // land before a timeout is not stored twice.
+  const pending = useRef(null);
+  const [autofillNote, setAutofillNote] = useState(() => passAutofillNote(profile));
+  const [askExample] = useState(() => pickAskExample());
   const set = (k, v) => setF(p => ({ ...p, [k]: v }));
+  const safety = useMemo(
+    () => detectAskSafetyFlags(f.question, f.context, f.outcome),
+    [f.question, f.context, f.outcome],
+  );
+
+  useEffect(() => {
+    if (done) return undefined;
+    const t = window.setTimeout(() => saveAskDraft(f), 400);
+    return () => window.clearTimeout(t);
+  }, [f, done]);
 
   function autofill() {
     if (!profile) return;
@@ -2210,15 +2084,14 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
       const regNo = profile.regNo || p.regNo;
       return {
         ...p,
-        name: profile.name,
-        email: profile.email,
+        name: displayAskerName(profile),
+        email: displayAskerEmail(profile),
         institution: profile.institute,
         regNo,
         ...(String(regNo || "").trim() ? { registered: "Yes" } : {}),
       };
     });
-    if (profile.regNo) setAutofillNote(`Filled from your WAC registration number ${profile.regNo}`);
-    else setAutofillNote("Filled name, email, and institute from your registration.");
+    setAutofillNote(passAutofillNote(profile) || "Filled name, email, and institute from your registration.");
   }
 
   useEffect(() => {
@@ -2231,19 +2104,31 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
   }, [preset]);
 
   useEffect(() => {
-    if (!profile) return;
+    if (!profile) {
+      setF(p => ({
+        ...p,
+        name: "",
+        email: "",
+        institution: "",
+        regNo: "",
+        registered: p.registered === "Yes" ? "" : p.registered,
+      }));
+      setAutofillNote("");
+      return;
+    }
     setF(p => {
       const regNo = p.regNo || profile.regNo || "";
-      return {
+      return presentAskerRecord({
         ...p,
         name: p.name || profile.name || "",
         email: p.email || profile.email || "",
         institution: p.institution || profile.institute || "",
         regNo,
         ...(String(regNo).trim() ? { registered: "Yes" } : {}),
-      };
+      });
     });
-    if (profile.regNo) setAutofillNote(`Filled from your WAC registration number ${profile.regNo}`);
+    const note = passAutofillNote(profile);
+    if (note) setAutofillNote(note);
   }, [profile]);
 
   const track = TRACKS.find(t => t.name === f.theme);
@@ -2257,6 +2142,7 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
 
   function validate() {
     const e = [];
+    if (!intakeOpen) e.push("intake is closed — browse the answer bank instead");
     if (!f.name.trim()) e.push("your name");
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email)) e.push("a valid email address");
     if (!f.state) e.push("your state or union territory");
@@ -2265,35 +2151,60 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
     if (!f.registered) e.push("whether you have registered for WAC 2026");
     const wac = String((profile && profile.regNo) || f.regNo || "").trim();
     if (!wac) {
-      e.push("your issued WAC registration number (open Register if it is missing)");
+      e.push("your AYURDISHA pass number (open Register if it is missing)");
     }
     if (!f.inPerson) e.push("whether you will attend in person");
-    if (!f.theme) e.push("a theme");
+    if (!f.theme) e.push("a career track");
     if (!f.subtheme) e.push("a sub-area");
     if (f.question.trim().length < 25) e.push("a question of at least 25 characters");
     return e;
   }
 
   async function submit() {
-    if (!profile || submitting.current) return;
+    if (!profile || submitting.current || !intakeOpen) return;
     const e = validate();
     setErrs(e);
     setSubmitErr("");
     if (e.length) { window.scrollTo({ top: 0, behavior: "smooth" }); return; }
     submitting.current = true;
     setBusy(true);
-    const rec = {
-      ...f, id: rid(10), ticket: ticketId(), createdAt: Date.now(),
+    const trackInfo = resolveTrackSelection(f.theme);
+    const sig = JSON.stringify({
+      ...f,
+      consentAnonPublish: !!f.consentAnonPublish,
+      consentNamedDisplay: !!f.consentNamedDisplay,
+      consentRecording: !!f.consentRecording,
+      consentFollow: !!f.consentFollow,
+    });
+    const again = pending.current && pending.current.sig === sig ? pending.current : null;
+    const flagged = detectAskSafetyFlags(f.question, f.context, f.outcome);
+    const rec = presentAskerRecord({
+      ...f,
+      id: again ? again.id : rid(10),
+      ticket: again ? again.ticket : ticketId(),
+      createdAt: again ? again.createdAt : Date.now(),
       question: f.question.trim(), context: f.context.trim(), outcome: f.outcome.trim(),
+      name: displayAskerName(f),
+      email: displayAskerEmail(f),
       regNo: String((profile && profile.regNo) || f.regNo || "").trim(),
-      consentPublish: "Yes",
-      consentFollow: f.consentFollow || "No",
-      anonId: await anonIdFromEmail(f.email),
+      theme: trackInfo.theme || f.theme,
+      track: trackInfo.trackLabel || f.theme,
+      trackCode: trackInfo.trackCode || "",
+      consentAnonPublish: f.consentAnonPublish ? "Yes" : "No",
+      consentNamedDisplay: f.consentNamedDisplay ? "Yes" : "No",
+      consentRecording: f.consentRecording ? "Yes" : "No",
+      consentFollow: f.consentFollow ? "Yes" : "No",
+      /* Legacy export column: anonymous publication only when explicitly ticked. */
+      consentPublish: f.consentAnonPublish ? "Yes" : "No",
+      safetyFlags: flagged.flags,
+      anonId: await anonIdFromEmail(displayAskerEmail(f) || f.email),
       // Keep legacy field in sync with the issued WAC number for older staff exports.
       delegateNo: String((profile && profile.regNo) || f.regNo || "").trim(),
-    };
+      ...(currentSource() ? { source: currentSource() } : {}),
+    });
+    pending.current = { sig, id: rec.id, ticket: rec.ticket, createdAt: rec.createdAt };
     try {
-      if (await hasApi()) {
+      if (API_REQUIRED || await hasApi()) {
         const s = loadLocalSession();
         const payload = { key: K_Q + rec.id, val: rec, token: s && s.token };
         let saved;
@@ -2301,22 +2212,24 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
           saved = await api("set", payload);
         } catch (err) {
           // Same id + ticket makes the resend idempotent: the server answers ok if the first attempt landed.
-          if (![502, 503, 504].includes(err.status)) throw err;
+          if (!isRetryable(err)) throw err;
           await new Promise(r => setTimeout(r, 1500));
           saved = await api("set", payload);
         }
+        pending.current = null;
+        clearAskDraft();
         onSaved && onSaved(rec, saved && saved.profile);
       } else {
         const ok = await store.set(K_Q + rec.id, rec);
-        if (!ok) throw new Error("We could not save your question. Check your connection and send it again.");
+        if (!ok) throw new Error("We could not save your question. Your question is still here — check your connection and press Send again.");
+        pending.current = null;
+        clearAskDraft();
         onSaved && onSaved(rec);
       }
       setDone(rec);
     } catch (err) {
-      const slow = err.status === 504 || err.status === 408 || /timed out/i.test(err.message || "");
-      setSubmitErr(slow
-        ? "The server took too long to respond. Your question may not have been saved — please try again in a moment."
-        : (err.message || "We could not save your question. Check your connection and send it again."));
+      console.error("[ask] submit failed:", err && err.status, err && err.message);
+      setSubmitErr(askSubmitError(err));
       submitting.current = false;
       setBusy(false);
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -2327,6 +2240,29 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
+  if (!intakeOpen) {
+    return (
+      <div className="aym-card ui-form-done">
+        <span className="ui-icon-badge ui-icon-badge--gold ui-form-done-icon">
+          <Check size={26} aria-hidden="true" />
+        </span>
+        <h2 className="ui-form-done-title">Question intake is closed.</h2>
+        <p className="ui-form-done-lead">
+          New Ask Desk questions closed on {formatKeyDate(KEY_DATES.intakeCloses)}.
+          Browse published answers on the open theme stage and Track any ticket you already hold.
+          The answer bank continues to fill through {formatKeyDate(KEY_DATES.answerBankBy)}.
+        </p>
+        <p className="ui-form-footnote">{PROMISE_SHORT}</p>
+        <div className="ui-form-grid" style={{ marginTop: 16 }}>
+          <a className="aym-btn aym-btn-primary" href="/answers">
+            Browse answer bank
+          </a>
+          <a className="aym-btn aym-btn-outline" href="/#track">Track my answer</a>
+        </div>
+      </div>
+    );
+  }
+
   if (done) {
     return (
       <div className="aym-card ui-form-done">
@@ -2335,19 +2271,19 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
         </span>
         <h2 className="ui-form-done-title">The Ask Desk has your question.</h2>
         <p className="ui-form-done-lead">
-          Keep this ticket. Use it under <b>Track my answer</b> when a mentor publishes the reply.
-          {(done.email || (profile && profile.email)) ? " We'll also send a short note to your registered email once it's answered." : ""}
+          Keep this reference ID. Use it under <b>Track my answer</b> when a written or recorded reply is posted.
+          {(done.email || (profile && profile.email)) ? " We will also send a short note to your registered email once it is answered." : ""}
         </p>
-        <div className="aym-mono ui-ticket">
+        <div className="aym-mono ui-ticket" aria-label="Reference ticket">
           {done.ticket}
         </div>
         <div className="ui-form-recap">
           <div className="aym-eyebrow">You asked</div>
           <div className="ui-form-recap-q">{done.question}</div>
-          <div className="ui-form-recap-tag"><Chip>{done.theme}</Chip></div>
+          <div className="ui-form-recap-tag"><Chip>{done.track || done.theme}</Chip></div>
         </div>
         <p className="ui-form-footnote">
-          Questions many mentees ask are merged and answered together. Sending a question does not reserve a live mentor slot.
+          {PROMISE_SHORT} Sending a question does not reserve a live mentor slot.
         </p>
         <button className="aym-btn aym-btn-outline" onClick={() => { setF(blankFromProfile(profile)); setDone(null); }}>
           Ask another question
@@ -2357,6 +2293,9 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
   }
 
   const locked = !profile;
+  const passId = displayPassId(profile || { regNo: f.regNo });
+  const linkedToWac = passId.kind === "wac";
+  const session = !locked ? loadLocalSession() : null;
 
   return (
     <div className="ui-form ui-form--ask">
@@ -2367,24 +2306,30 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
             <UserPlus size={22} strokeWidth={2.2} />
           </div>
           <div className="aym-ask-register-banner-copy">
-            <div className="aym-ask-register-banner-eyebrow">You’re browsing Ask Desk</div>
+            <div className="aym-ask-register-banner-eyebrow">One quick step first</div>
             <p className="aym-ask-register-banner-title">
-              Register once with your email to unlock and submit your question. The hall issues your WAC registration number when you verify.
+              Register in 30 seconds to use the Ask Desk.
             </p>
-            <p className="aym-ask-register-banner-meta">Takes a minute · OTP-verified email</p>
+            <p className="aym-ask-register-banner-meta">Email code · pass issued · we bring you straight back here</p>
+            <WacAskLink onClick={() => onGoRegister({ theme: f.theme, subtheme: f.subtheme, question: f.question })} />
           </div>
-          <button type="button" className="aym-ask-register-banner-cta" onClick={onGoRegister}>
-            Register now
+          <button type="button" className="aym-ask-register-banner-cta"
+            onClick={() => onGoRegister({ theme: f.theme, subtheme: f.subtheme, question: f.question })}>
+            Register in 30 sec
             <ArrowRight size={16} strokeWidth={2.4} aria-hidden="true" />
           </button>
         </aside>
       )}
 
       <div className="aym-desk-cap">
-        <div className="aym-eyebrow">Ask Desk · Meet the Mentors</div>
+        <div className="aym-eyebrow">Ask Desk · Meet the Mentors · AYURDISHA</div>
         <h1 className="aym-display aym-desk-cap-title">Walk up. Ask one question.</h1>
         <p className="aym-desk-cap-lead">
-          You are a BAMS mentee. Mentors are here for future development — what to do after BAMS, PG, practice, research — not a support ticket.
+          For anyone planning a career in Ayurveda. One focused question under a track (T1–T9).
+          {" "}{PROMISE_SHORT}
+        </p>
+        <p className="ui-form-footnote" style={{ marginTop: 8 }}>
+          Intake closes {formatKeyDate(KEY_DATES.intakeCloses)}. Congress {formatKeyDate(KEY_DATES.congressStart)}–{formatKeyDate(KEY_DATES.congressEnd)}.
         </p>
       </div>
 
@@ -2423,10 +2368,13 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
 
         {autofillNote && <Notice tone="ok">{autofillNote}</Notice>}
 
-        <Field label="WAC registration number" required hint="Issued when you registered. The Ask Desk uses this number — you cannot change it.">
+        <Field label={linkedToWac ? WAC_DELEGATE_ID_LABEL : PASS_NUMBER_LABEL} required
+          hint={linkedToWac
+            ? "From your WAC delegate record, linked by your verified email. You cannot change it here."
+            : "Issued when you registered. The Ask Desk uses this number — you cannot change it."}>
           <input
             className="aym-input aym-mono aym-input-issued"
-            value={f.regNo}
+            value={passId.id || f.regNo}
             readOnly
             disabled={locked}
             autoComplete="off"
@@ -2434,6 +2382,10 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
             placeholder={locked ? "Issued after you register" : "Issued on your profile"}
           />
         </Field>
+        {!locked && !linkedToWac && onProfile && (
+          <WacLinkPrompt token={session && session.token} email={profile.email} pending={Boolean(profile.wacLinkPending)}
+            onLinked={(token, prof) => { onProfile(token, prof); setAutofillNote(passAutofillNote(prof)); }} />
+        )}
 
         <Field label="Full name" required><input className="aym-input" value={f.name} onChange={e => set("name", e.target.value)} disabled={locked} /></Field>
         <Field label="Email" hint="Used only to send you your answer and, if shortlisted, a slot confirmation." required>
@@ -2458,16 +2410,16 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
         <div className="aym-eyebrow">2 · Coming to Bhubaneswar?</div>
         <h3 className="ui-form-card-title">The live hall</h3>
         <p className="ui-form-card-lead">
-          Every BAMS student in India may ask. Only registered mentees attending in person can be considered for a live pod or stage session.
+          Anyone seeking career guidance in Ayurveda may ask. Only registered mentees attending in person can be considered for a live pod or stage session.
         </p>
         <Field label="Have you registered for WAC 2026?" required>
           <select className="aym-input" value={f.registered} onChange={e => set("registered", e.target.value)} disabled={locked}>
-            <option value="">Select</option><option>Yes</option><option>Registration in process</option><option>No</option>
+            <option value="">Select</option>{ASK_REGISTERED.map(o => <option key={o}>{o}</option>)}
           </select>
         </Field>
         <Field label="Will you attend in person at Bhubaneswar?" required>
           <select className="aym-input" value={f.inPerson} onChange={e => set("inPerson", e.target.value)} disabled={locked}>
-            <option value="">Select</option><option>Yes</option><option>Not yet confirmed</option><option>No</option>
+            <option value="">Select</option>{ASK_IN_PERSON.map(o => <option key={o}>{o}</option>)}
           </select>
         </Field>
         {f.inPerson === "Yes" && (
@@ -2496,14 +2448,42 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
 
       <div className="aym-card ui-form-card">
         <div className="aym-eyebrow">3 · Your one question</div>
-        <h3 className="ui-form-card-title">What should I do after BAMS?</h3>
+        <h3 className="ui-form-card-title">What should my next career step in Ayurveda be?</h3>
 
-        <Field label="Which theme is closest to your question?" required>
-          <select className="aym-input" value={f.theme} onChange={e => { set("theme", e.target.value); set("subtheme", ""); }} disabled={locked}>
-            <option value="">Select a mentor-pod theme</option>
-            {TRACKS.map(t => <option key={t.code} value={t.name}>{t.code} — {t.name}</option>)}
-            <option value={NOT_SURE}>{NOT_SURE}</option>
-          </select>
+        <Field label="Which career track is closest to your question?" required
+          hint="Tap a track card. Legacy themes still map; your stored theme string is kept.">
+          <div className="aym-ask-track-grid" role="listbox" aria-label="Career tracks T1 to T9">
+            {TRACKS.map(t => {
+              const on = f.theme === t.name;
+              return (
+                <button
+                  key={t.code}
+                  type="button"
+                  role="option"
+                  aria-selected={on}
+                  disabled={locked}
+                  className={`aym-ask-track-card${on ? " is-on" : ""}`}
+                  onClick={() => { set("theme", t.name); set("subtheme", ""); }}
+                >
+                  <span className="aym-ask-track-code">{t.code}</span>
+                  <span className="aym-ask-track-name">{t.short}</span>
+                  <span className="aym-ask-track-label">{t.name}</span>
+                </button>
+              );
+            })}
+            <button
+              type="button"
+              role="option"
+              aria-selected={f.theme === NOT_SURE}
+              disabled={locked}
+              className={`aym-ask-track-card aym-ask-track-card--wide${f.theme === NOT_SURE ? " is-on" : ""}`}
+              onClick={() => { set("theme", NOT_SURE); set("subtheme", ""); }}
+            >
+              <span className="aym-ask-track-code">?</span>
+              <span className="aym-ask-track-name">Not sure</span>
+              <span className="aym-ask-track-label">{NOT_SURE}</span>
+            </button>
+          </div>
         </Field>
 
         {subs.length > 0 && (
@@ -2515,11 +2495,19 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
         )}
 
         <Field label="Ask one focused question" required counter={`${f.question.length} / 500`}
-          hint="One question, as specific as you can make it. Career, PG, practice, research — not patient details.">
+          hint="One decision only — not a list. Career guidance only.">
           <textarea className="aym-input" rows={4} maxLength={500} value={f.question} onChange={e => set("question", e.target.value)}
-            placeholder="For example: What should I do after BAMS if I am unsure between PG in Kayachikitsa and starting a small clinic?" disabled={locked} />
+            placeholder={`For example: ${askExample}`} disabled={locked} />
         </Field>
-        <Field label="Where you are stuck" counter={`${f.context.length} / 300`} hint="Keep it general — no unpublished data.">
+        <Notice tone="warn">{ASK_SAFETY_WARNING}</Notice>
+        {safety.flags.length > 0 && (
+          <Notice tone="bad">
+            Possible sensitive detail flagged for the curator (your question can still be sent): {safety.flags.join(", ")}.
+          </Notice>
+        )}
+        <AskTriageHint theme={f.theme} subtheme={f.subtheme} question={f.question} context={f.context}
+          onMove={(theme, subtheme) => setF(p => ({ ...p, theme, subtheme }))} />
+        <Field label="Where you are stuck" counter={`${f.context.length} / 300`} hint="Keep it general — no unpublished data or patient reports.">
           <textarea className="aym-input" rows={2} maxLength={300} value={f.context} onChange={e => set("context", e.target.value)} disabled={locked} />
         </Field>
         <Field label="What should a useful answer help you do in the next 90 days?" counter={`${f.outcome.length} / 200`}>
@@ -2529,20 +2517,39 @@ function AskView({ onSaved, preset, profile, onGoRegister }) {
 
       <div className="aym-card ui-form-card">
         <div className="aym-eyebrow">4 · Permissions</div>
-        <h3 className="ui-form-card-title">How we may use this</h3>
-        <Field label="May we contact you once after the Congress about relevant opportunities?">
-          <select className="aym-input" value={f.consentFollow} onChange={e => set("consentFollow", e.target.value)} disabled={locked}>
-            <option value="">Select</option><option>Yes</option><option>No</option>
-          </select>
-        </Field>
+        <h3 className="ui-form-card-title">Four separate consents</h3>
+        <p className="ui-form-card-lead">
+          All start unticked. Nothing is published without the matching consent, and unresolved safety flags stay off the public stage.
+        </p>
+        <label className="ui-check">
+          <input type="checkbox" checked={!!f.consentAnonPublish} disabled={locked}
+            onChange={e => set("consentAnonPublish", e.target.checked)} />
+          <span>I consent to anonymous publication of my question or a clustered composite on the answer bank / theme stage.</span>
+        </label>
+        <label className="ui-check">
+          <input type="checkbox" checked={!!f.consentNamedDisplay} disabled={locked}
+            onChange={e => set("consentNamedDisplay", e.target.checked)} />
+          <span>I consent to my name being shown with my question or answer where the desk chooses to name contributors.</span>
+        </label>
+        <label className="ui-check">
+          <input type="checkbox" checked={!!f.consentRecording} disabled={locked}
+            onChange={e => set("consentRecording", e.target.checked)} />
+          <span>I consent to audio or video recording if I am invited to a live Meet the Mentors session.</span>
+        </label>
+        <label className="ui-check">
+          <input type="checkbox" checked={!!f.consentFollow} disabled={locked}
+            onChange={e => set("consentFollow", e.target.checked)} />
+          <span>I consent to one follow-up contact after the Congress about relevant opportunities.</span>
+        </label>
       </div>
 
-      <button className="aym-btn aym-btn-primary aym-btn-lg aym-btn-block" disabled={busy || locked} onClick={submit}>
+      <button className="aym-btn aym-btn-primary aym-btn-lg aym-btn-block" disabled={busy || locked || !intakeOpen} onClick={submit}>
         {busy ? <Loader2 size={17} className="animate-spin" /> : <Send size={16} />}
         {busy ? "Sending" : "Hand this to the Ask Desk"}
       </button>
       <p className="ui-form-footnote">
-        Your name stays with the curation desk. Similar questions may be merged by staff before a mentor answers on the stage board.
+        Your name stays with the curation desk. Similar questions may be merged before a composite answer is published.
+        Draft autosaves on this device until you send.
       </p>
     </div>
   );
@@ -2616,8 +2623,9 @@ function ClusterConflictModal({ open, message, onReload, onDismiss }) {
   );
 }
 
-function CurationView({ subs, clusters, setClusters, reload, loading, saveClusters, flushClusterSave, clustersVersion, onClustersVersion, onClusterConflict, clusterSaveStatus }) {
-  const [threshold, setThreshold] = useState(0.42);
+function CurationView({ subs, clusters, setClusters, reload, loading, saveClusters, flushClusterSave, getClustersVersion, onClustersVersion, onClusterConflict, clusterSaveStatus, onOpenAi }) {
+  const aiIndex = useAiDraftIndex();
+  const [threshold, setThreshold] = useState(MERGE_DEFAULTS.threshold);
   const [useSub, setUseSub] = useState(true);
   const [running, setRunning] = useState(false);
   const [merging, setMerging] = useState(false);
@@ -2638,10 +2646,11 @@ function CurationView({ subs, clusters, setClusters, reload, loading, saveCluste
     setRunning(true);
     try {
       await new Promise(r => setTimeout(r, 40));
-      const next = buildClusters(subs, threshold, useSub, clusters);
+      const next = buildClusters(subs, threshold, useSub, clusters, { idFactory: clusterId });
       const saved = await saveClusters(next, { immediate: true });
       setClusters(saved);
-      setFlash(`Merged ${subs.length} questions into ${saved.length} groups.`);
+      const kept = saved.filter(isLockedCluster).length;
+      setFlash(`Merged ${subs.length} questions into ${saved.length} groups${kept ? ` — ${kept} answered or sent-out group${kept === 1 ? "" : "s"} kept as they were` : ""}.`);
       setTimeout(() => setFlash(""), 4000);
     } catch (e) {
       setErr(e.message || "Could not merge the questions. Sign in as staff and try again.");
@@ -2674,7 +2683,8 @@ function CurationView({ subs, clusters, setClusters, reload, loading, saveCluste
     }
     setMerging(true);
     try {
-      const r = await api("clustersMerge", { ids: pick, version: clustersVersion });
+      await flushClusterSave();
+      const r = await api("clustersMerge", { ids: pick, version: getClustersVersion() });
       const next = Array.isArray(r.clusters) ? r.clusters : clusters;
       setClusters(next);
       if (r.clustersVersion != null) onClustersVersion?.(r.clustersVersion);
@@ -2690,26 +2700,51 @@ function CurationView({ subs, clusters, setClusters, reload, loading, saveCluste
 
   async function detach(clusterIdVal, subId) {
     setErr("");
-    const src = clusters.find(c => c.id === clusterIdVal);
-    if (!src || src.memberIds.length < 2) return;
-    const left = src.memberIds.filter(i => i !== subId);
-    const leftMembers = left.map(i => byId[i]).filter(Boolean);
-    if (!leftMembers.length) return;
-    const repL = leftMembers.reduce((a, c) => (c.question.length > a.question.length ? c : a), leftMembers[0]);
-    const moved = byId[subId];
-    if (!moved) return;
-    const next = clusters.map(c => c.id === clusterIdVal
-      ? { ...c, memberIds: left, representative: repL.question, variants: left.map(i => byId[i]).filter(x => x && x.id !== repL.id).slice(0, 3).map(x => x.question) }
-      : c);
-    next.push({
-      id: clusterId(), theme: moved.theme, subtheme: moved.subtheme, memberIds: [subId],
-      representative: moved.question, variants: [], composite: "", mentor: "", answer: "",
-      actions: ["", "", ""], mistake: "", resources: ["", ""], mentorName: "", status: "New",
-    });
+    const next = detachMember(clusters, clusterIdVal, subId, byId, clusterId);
+    if (next === clusters) return;
     setClusters(next);
     try { await saveClusters(next, { immediate: true }); }
     catch (e) { setErr(e.message || "Could not split that question out."); }
   }
+
+  const suggestions = useMemo(
+    () => (clusters.length ? suggestMerges(clusters, subs, { threshold }) : []),
+    [clusters, subs, threshold],
+  );
+  const [showAllSugg, setShowAllSugg] = useState(false);
+  const [suggBusy, setSuggBusy] = useState("");
+
+  async function acceptSuggestion(s) {
+    setErr("");
+    setSuggBusy(s.key);
+    try {
+      await flushClusterSave();
+      const r = await api("clustersMerge", { ids: [s.a, s.b], version: getClustersVersion(), suggestion: true });
+      if (Array.isArray(r.clusters)) setClusters(r.clusters);
+      if (r.clustersVersion != null) onClustersVersion?.(r.clustersVersion);
+      setFlash(`Merged ${s.a} and ${s.b} — ${s.size} students now share one mentor answer.`);
+      setTimeout(() => setFlash(""), 4000);
+    } catch (e) {
+      if (e.status === 409) onClusterConflict?.(e);
+      setErr(e.message || "Could not merge those groups.");
+    }
+    setSuggBusy("");
+  }
+
+  async function rejectSuggestion(s) {
+    setErr("");
+    const next = keepGroupsApart(clusters, s.a, s.b);
+    setClusters(next);
+    try { await saveClusters(next, { immediate: true }); }
+    catch (e) { if (e.status !== 409) setErr(e.message || "Could not save that decision."); }
+  }
+
+  const clusterById = useMemo(() => Object.fromEntries(clusters.map(c => [c.id, c])), [clusters]);
+  const whyById = useMemo(() => new Map(clusters.map(c => {
+    if (c.why && c.confidence) return [c.id, { ...c.why, confidence: c.confidence }];
+    const members = (c.memberIds || []).map(i => byId[i]).filter(Boolean);
+    return [c.id, members.length > 1 ? explainGroup(members, { threshold }) : null];
+  })), [clusters, byId, threshold]);
 
   const shown = clusters.filter(c => {
     if (!filter) return true;
@@ -2717,6 +2752,11 @@ function CurationView({ subs, clusters, setClusters, reload, loading, saveCluste
     return c.theme.toLowerCase().includes(n) || c.id.toLowerCase().includes(n) ||
       c.representative.toLowerCase().includes(n) || (c.composite || "").toLowerCase().includes(n);
   });
+
+  const waiting = useMemo(
+    () => (clusters.length ? auditClusters(clusters, subs).unclustered.length : 0),
+    [clusters, subs],
+  );
 
   const stats = useMemo(() => ({
     subs: subs.length,
@@ -2752,12 +2792,17 @@ function CurationView({ subs, clusters, setClusters, reload, loading, saveCluste
             )}
           </div>
           <h2>One question, many mentees.</h2>
-          <p>Merge what BAMS students are asking — then a mentor answers the hall, not a single inbox.</p>
+          <p>Merge what students are asking — then a mentor answers the hall, not a single inbox.</p>
         </div>
       </section>
 
       {flash && <Notice tone="ok">{flash}</Notice>}
       {err && <Notice tone="bad">{err}</Notice>}
+      {waiting > 0 && (
+        <Notice tone="warn">
+          {waiting} new question{waiting === 1 ? " is" : "s are"} not in a group yet. Press <b>Re-merge</b> to place {waiting === 1 ? "it" : "them"} — answered and sent-out groups stay exactly as they are.
+        </Notice>
+      )}
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(120px,1fr))", gap: 10, marginBottom: 22 }}>
         {[["Questions in", stats.subs], ["Merged groups", stats.clusters], ["Answered", stats.answered],
@@ -2771,7 +2816,7 @@ function CurationView({ subs, clusters, setClusters, reload, loading, saveCluste
       </div>
 
       <Section number="01" title="Merge the incoming questions"
-        blurb="Edits save automatically ~1.5s after you pause typing — use Reload if another staff member is also curating. Questions are compared word-by-word inside each theme and sub-area. Similar ones pack toward groups of 6–7 (they can be larger when more students share the same ask). Distinct questions stay on this desk as their own row so a mentor still answers them. Personal one-to-one replies can be added from Insights → Briefing board.">
+        blurb="Edits save automatically ~1.5s after you pause typing — use Reload if another staff member is also curating. Precision first: questions merge automatically only when they ask the same thing about the same subject — same theme (and sub-area, when kept separate), a shared topic such as AIAPGET, clinic or UK, a compatible ask (cost is never merged with licence), no clashing country, exam, PG branch or numbers, and every pair in the group close enough. Groups hold up to 7 students, the size of one mentor table. Near misses are never merged on their own — they wait for you under Suggested merges. Personal one-to-one replies can be added from Insights → Briefing board.">
         <div className="aym-card" style={{ padding: 18 }}>
           <div style={{ display: "flex", gap: 22, flexWrap: "wrap", alignItems: "flex-end" }}>
             <div style={{ flex: "1 1 260px" }}>
@@ -2798,14 +2843,65 @@ function CurationView({ subs, clusters, setClusters, reload, loading, saveCluste
           </div>
           {clusters.length > 0 && (
             <p style={{ fontSize: 12.5, color: C.muted, marginTop: 12, marginBottom: 0 }}>
-              Re-merging keeps any composite wording and answers already attached to a group.
+              Re-merging never breaks up a group that is answered, sent to a mentor or published. Other groups keep their ID and composite wording when most of their students stay together.
             </p>
           )}
         </div>
       </Section>
 
+      {clusters.length > 0 && (
+        <Section number="02" title="Suggested merges"
+          blurb="Pairs of groups that look like the same ask but missed one automatic rule. Nothing here is merged until you accept it. Keep apart remembers your decision on later re-merges.">
+          {!suggestions.length ? (
+            <div className="aym-card aym-sugg-empty">No suggestions right now — every near miss has been reviewed or none were found.</div>
+          ) : (
+            <div className="aym-sugg-list">
+              {(showAllSugg ? suggestions : suggestions.slice(0, 6)).map(s => {
+                const A = clusterById[s.a];
+                const B = clusterById[s.b];
+                if (!A || !B) return null;
+                return (
+                  <div key={s.key} className="aym-card aym-sugg-card">
+                    <div className="aym-sugg-meta">
+                      <Chip tone="gold">Suggested · {s.score.toFixed(2)}</Chip>
+                      <span>{s.size} students</span>
+                      {s.subjects.length > 0 && <span>· {s.subjects.join(" · ")}</span>}
+                      <span>· {s.ask}</span>
+                    </div>
+                    <div className="aym-sugg-pair">
+                      {[A, B].map(c => (
+                        <div key={c.id} className="aym-sugg-side">
+                          <span className="aym-mono">{c.id} · {c.memberIds.length} student{c.memberIds.length === 1 ? "" : "s"}</span>
+                          <p>{c.composite || c.representative}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="aym-sugg-foot">
+                      <span className="aym-sugg-reason">Not merged automatically: {s.reason}.</span>
+                      <div className="aym-btn-row">
+                        <button type="button" className="aym-btn aym-btn-ghost aym-btn-sm" onClick={() => rejectSuggestion(s)} disabled={suggBusy === s.key}>
+                          <X size={14} />Keep apart
+                        </button>
+                        <button type="button" className="aym-btn aym-btn-primary aym-btn-sm" onClick={() => acceptSuggestion(s)} disabled={Boolean(suggBusy)}>
+                          {suggBusy === s.key ? <Loader2 size={14} className="animate-spin" /> : <Merge size={14} />}Merge
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+              {suggestions.length > 6 && (
+                <button type="button" className="aym-btn aym-btn-ghost aym-btn-sm" onClick={() => setShowAllSugg(v => !v)}>
+                  {showAllSugg ? "Show fewer" : `Show all ${suggestions.length} suggestions`}
+                </button>
+              )}
+            </div>
+          )}
+        </Section>
+      )}
+
       {subs.length > 0 && (
-        <Section number="02" title="Where the demand is">
+        <Section number="03" title="Where the demand is">
           <div className="aym-card" style={{ padding: 18 }}>
             {perTheme.map(t => (
               <div key={t.name} style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 7 }}>
@@ -2821,7 +2917,7 @@ function CurationView({ subs, clusters, setClusters, reload, loading, saveCluste
         </Section>
       )}
 
-      <Section number="03" title="Review each merged group"
+      <Section number="04" title="Review each merged group"
         blurb="Write the composite question a mentor will actually answer. The raw student wording stays on the left so you can check nothing was lost.">
         <div style={{ display: "flex", gap: 10, marginBottom: 14, flexWrap: "wrap", alignItems: "center" }}>
           <input className="aym-input" style={{ flex: "1 1 240px" }} placeholder="Filter by theme, group ID or wording"
@@ -2843,11 +2939,19 @@ function CurationView({ subs, clusters, setClusters, reload, loading, saveCluste
           const members = c.memberIds.map(i => byId[i]).filter(Boolean);
           const isOpen = open === c.id;
           const picked = pick.includes(c.id);
+          const why = members.length > 1 ? whyById.get(c.id) : null;
+          const conf = why && { high: ["green", "High confidence"], medium: ["tan", "Good match"], review: ["gold", "Check this group"] }[why.confidence];
           return (
             <div key={c.id} className={`aym-card aym-cluster-card${picked ? " aym-cluster-picked" : ""}`} style={{ marginBottom: 12 }}>
               <div style={{ padding: "14px 16px", display: "flex", gap: 12, alignItems: "flex-start", cursor: "pointer" }}
-                onClick={() => setOpen(isOpen ? null : c.id)}>
+                role="button" tabIndex={0} aria-expanded={isOpen} aria-controls={`cl-${c.id}`}
+                onClick={() => setOpen(isOpen ? null : c.id)}
+                onKeyDown={e => {
+                  if (e.target !== e.currentTarget) return;
+                  if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpen(isOpen ? null : c.id); }
+                }}>
                 <input type="checkbox" checked={picked} onClick={e => e.stopPropagation()}
+                  aria-label={`Select ${c.id} for manual merge`}
                   onChange={() => setPick(p => picked ? p.filter(x => x !== c.id) : [...p, c.id])}
                   style={{ accentColor: C.gold, width: 16, height: 16, marginTop: 3, flexShrink: 0 }} />
                 <div style={{ flex: 1, minWidth: 0 }}>
@@ -2856,17 +2960,36 @@ function CurationView({ subs, clusters, setClusters, reload, loading, saveCluste
                     <Chip tone="maroon">{members.length} student{members.length === 1 ? "" : "s"}</Chip>
                     <Chip tone="grey">{c.theme}</Chip>
                     {c.answer && <Chip tone="green">{c.status}</Chip>}
+                    {!c.answer && c.status === "Sent to mentor" && <Chip tone="gold">Sent to mentor</Chip>}
+                    {isLockedCluster(c) && (
+                      <span title="Re-merge keeps this group's students together" style={{ display: "inline-flex" }}>
+                        <Chip tone="tan"><Lock size={10} style={{ marginRight: 3, verticalAlign: -1 }} />Kept on re-merge</Chip>
+                      </span>
+                    )}
+                    {c.mixedThemes && <Chip tone="gold">Mixed themes</Chip>}
+                    {conf && <Chip tone={conf[0]}>{conf[1]}</Chip>}
+                    {!c.answer && <AiDraftBadge entry={aiIndex[`c:${c.id}`]} onOpen={onOpenAi ? () => onOpenAi(`c:${c.id}`) : undefined} />}
                   </div>
                   <div className="aym-serif" style={{ fontSize: 15.5, lineHeight: 1.45, fontWeight: c.composite ? 700 : 400, color: c.composite ? C.maroon : C.ink }}>
                     {c.composite || c.representative}
                   </div>
                   {!c.composite && <div style={{ fontSize: 12, color: C.muted, marginTop: 5 }}>Raw student wording — write a composite question below.</div>}
+                  {why && (
+                    <div className={`aym-cluster-why${why.confidence === "review" ? " aym-cluster-why--flag" : ""}`}>
+                      Why merged: {why.subjects && why.subjects.length ? `same subject ${why.subjects.join(" · ")}` : "same wording"}
+                      {` · same ask: ${why.ask}`}
+                      <span className="aym-mono"> · weakest pair {why.min.toFixed(2)} · average {why.avg.toFixed(2)}</span>
+                      {why.confidence === "review" && (
+                        <span> — {why.conflict ? `members differ (${why.conflict})` : "some members ask something different or overlap too little"}; split out anyone who doesn't fit.</span>
+                      )}
+                    </div>
+                  )}
                 </div>
                 <ChevronRight size={18} color={C.muted} style={{ flexShrink: 0, transform: isOpen ? "rotate(90deg)" : "none", transition: "transform .15s" }} />
               </div>
 
               {isOpen && (
-                <div style={{ borderTop: `1px solid ${C.line}`, padding: "16px", background: C.cream }}>
+                <div id={`cl-${c.id}`} style={{ borderTop: `1px solid ${C.line}`, padding: "16px", background: C.cream }}>
                   <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: 22 }}>
                     <div>
                       <div className="aym-eyebrow" style={{ marginBottom: 8 }}>What students actually wrote</div>
@@ -2879,7 +3002,8 @@ function CurationView({ subs, clusters, setClusters, reload, loading, saveCluste
                               <span>·</span><span>{m.stage}</span>
                               <span>·</span><span>{m.state}</span>
                               {members.length > 1 && (
-                                <button className="aym-btn" style={{ padding: "1px 6px", fontSize: 11, background: "transparent", color: C.maroon, borderColor: C.line }}
+                                <button type="button" className="aym-btn" style={{ padding: "1px 6px", fontSize: 11, background: "transparent", color: C.maroon, borderColor: C.line }}
+                                  aria-label={`Split ${m.ticket} out of ${c.id}`}
                                   onClick={() => detach(c.id, m.id)}><Scissors size={11} />Split out</button>
                               )}
                             </div>
@@ -2890,23 +3014,23 @@ function CurationView({ subs, clusters, setClusters, reload, loading, saveCluste
 
                     <div>
                       <Field label="Composite question for the mentor" hint="One question that fairly covers everyone in this group.">
-                        <textarea className="aym-input" rows={3} value={c.composite}
+                        <textarea className="aym-input" rows={3} value={c.composite || ""}
                           onChange={e => patch(c.id, { composite: e.target.value, status: c.status === "New" ? "Composed" : c.status })}
                           onBlur={blurSave}
                           placeholder={c.representative} />
                       </Field>
                       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
                         <Field label="Assigned mentor">
-                          <input className="aym-input" value={c.mentor} onChange={e => patch(c.id, { mentor: e.target.value })} onBlur={blurSave} />
+                          <input className="aym-input" value={c.mentor || ""} onChange={e => patch(c.id, { mentor: e.target.value })} onBlur={blurSave} />
                         </Field>
                         <Field label="Status">
-                          <select className="aym-input" value={c.status} onChange={e => patch(c.id, { status: e.target.value })} onBlur={blurSave}>
+                          <select className="aym-input" value={c.status || "New"} onChange={e => patch(c.id, { status: e.target.value })} onBlur={blurSave}>
                             {["New", "Composed", "Sent to mentor", "Answered", "Published"].map(s => <option key={s}>{s}</option>)}
                           </select>
                         </Field>
                       </div>
                       <Field label="Mentor's answer" hint="Filled here or imported from the returned Excel sheet.">
-                        <textarea className="aym-input" rows={4} value={c.answer}
+                        <textarea className="aym-input" rows={4} value={c.answer || ""}
                           onChange={e => patch(c.id, { answer: e.target.value, status: c.status === "Published" ? "Published" : "Answered" })}
                           onBlur={blurSave} />
                       </Field>
@@ -2918,7 +3042,7 @@ function CurationView({ subs, clusters, setClusters, reload, loading, saveCluste
                         </Field>
                       ))}
                       <Field label="One common mistake">
-                        <input className="aym-input" value={c.mistake} onChange={e => patch(c.id, { mistake: e.target.value })} onBlur={blurSave} />
+                        <input className="aym-input" value={c.mistake || ""} onChange={e => patch(c.id, { mistake: e.target.value })} onBlur={blurSave} />
                       </Field>
                       {[0, 1].map(i => (
                         <Field key={i} label={`Official resource ${i + 1}`}>
@@ -2928,7 +3052,7 @@ function CurationView({ subs, clusters, setClusters, reload, loading, saveCluste
                         </Field>
                       ))}
                       <Field label="Answered by">
-                        <input className="aym-input" value={c.mentorName} placeholder="Name, designation, institution"
+                        <input className="aym-input" value={c.mentorName || ""} placeholder="Name, designation, institution"
                           onChange={e => patch(c.id, { mentorName: e.target.value })}
                           onBlur={blurSave} />
                       </Field>
@@ -2965,6 +3089,16 @@ function MentorPackView({ subs, clusters, setClusters, saveClusters, onSaveQuest
   const unique = selection.filter(c => (c.memberIds || []).length < 2);
   const label = theme === "All themes" ? "All themes" : theme;
 
+  /** Exported groups are locked so a re-merge cannot reshuffle students before answers return. */
+  async function markSent() {
+    const ids = new Set(selection.filter(c => !c.answer && (c.status === "New" || c.status === "Composed")).map(c => c.id));
+    if (!ids.size) return;
+    const next = clusters.map(c => (ids.has(c.id) ? { ...c, status: "Sent to mentor" } : c));
+    setClusters(next);
+    try { await saveClusters(next, { immediate: true }); }
+    catch (err) { setResult({ ok: false, message: err.message || "Downloaded, but could not mark the groups as sent." }); }
+  }
+
   async function onFile(e) {
     const file = e.target.files && e.target.files[0];
     if (!file) return;
@@ -2978,21 +3112,10 @@ function MentorPackView({ subs, clusters, setClusters, saveClusters, onSaveQuest
       let unknown = [];
 
       if (clusterRows.length) {
-        const map = Object.fromEntries(clusterRows.map(r => [r.id, r]));
-        const next = clusters.map(c => {
-          const r = map[c.id];
-          if (!r || !r.answer) return c;
-          filledClusters++;
-          return {
-            ...c, answer: r.answer, actions: r.actions, mistake: r.mistake,
-            resources: r.resources, mentorName: r.mentorName,
-            composite: r.composite || c.composite,
-            status: "Published",
-          };
-        });
-        clusterRows.forEach(r => {
-          if (r.answer && !clusters.some(c => c.id === r.id)) unknown.push(r.id);
-        });
+        const applied = applyClusterAnswers(clusters, clusterRows);
+        const next = applied.clusters;
+        filledClusters = applied.filled;
+        unknown = unknown.concat(applied.unknown);
         setClusters(next);
         await saveClusters(next, { immediate: true });
       }
@@ -3061,10 +3184,10 @@ function MentorPackView({ subs, clusters, setClusters, saveClusters, onSaveQuest
           </div>
 
           <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 16 }}>
-            <button className="aym-btn aym-btn-primary" disabled={!selection.length} onClick={() => exportMentorWorkbook(selection, subs, label)}>
+            <button className="aym-btn aym-btn-primary" disabled={!selection.length} onClick={async () => { await exportMentorWorkbook(selection, subs, label); await markSent(); }}>
               <FileSpreadsheet size={16} />Download Excel sheet
             </button>
-            <button className="aym-btn aym-btn-ghost" disabled={!selection.length} onClick={() => exportMentorDoc(selection, label)}>
+            <button className="aym-btn aym-btn-ghost" disabled={!selection.length} onClick={async () => { exportMentorDoc(selection, label); await markSent(); }}>
               <Download size={16} />Download Word brief
             </button>
             <button className="aym-btn aym-btn-ghost" disabled={!subs.length} onClick={() => exportSubmissionRegister(subs, clusters)}>
@@ -3136,6 +3259,7 @@ function BoardView({ clusters }) {
           </h3>
           <p style={{ fontSize: 15, lineHeight: 1.65, margin: "0 0 14px", whiteSpace: "pre-wrap" }}>{c.answer}</p>
           <AnswerExtras cluster={c} />
+          {c.aiAssisted && <span className="air-assisted-note">{DISHA_TRACK_NOTE}</span>}
         </div>
       ))}
     </div>
@@ -3157,13 +3281,21 @@ function dayKey(ts) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
-function InsightsView({ subs, clusters, onSaveQuestion }) {
+function InsightsView({ subs, clusters, delegates = [], onSaveQuestion, onOpenAi }) {
+  const aiIndex = useAiDraftIndex();
   const [q, setQ] = useState("");
   const [theme, setTheme] = useState("All themes");
   const [showContacts, setShowContacts] = useState(false);
   const [draft, setDraft] = useState(null);
   const [saving, setSaving] = useState(false);
   const [draftErr, setDraftErr] = useState("");
+  const [mail, setMail] = useState(null);
+
+  useEffect(() => {
+    let alive = true;
+    api("mailHealth").then(r => { if (alive) setMail(r.mail || r); }).catch(() => { if (alive) setMail(null); });
+    return () => { alive = false; };
+  }, []);
 
   const statusOf = useCallback((s) => {
     const c = clusters.find(x => clusterOwnsQuestion(x, s));
@@ -3174,8 +3306,12 @@ function InsightsView({ subs, clusters, onSaveQuestion }) {
     if (c && c.status === "Published" && clusterAnswerText(c)) return "Published";
     if (c && clusterAnswerText(c)) return "Answered";
     if (c) return "With mentor";
+    const ai = aiIndex[`q:${s.id}`];
+    if (ai && (ai.overflow || ai.status === "quotaDeferred" || ai.status === "awaiting_ai" || ai.status === "aiPending")) {
+      return "Waiting for AI";
+    }
     return "Received";
-  }, [clusters]);
+  }, [clusters, aiIndex]);
 
   const stats = useMemo(() => {
     const now = Date.now();
@@ -3217,7 +3353,7 @@ function InsightsView({ subs, clusters, onSaveQuestion }) {
   const peakTrend = Math.max(1, ...trend.map(x => x.n));
 
   const queue = useMemo(() => {
-    return [...subs].reverse().filter(s => statusOf(s) === "Received" || statusOf(s) === "With mentor").slice(0, 8);
+    return [...subs].reverse().filter(s => statusOf(s) === "Received" || statusOf(s) === "Waiting for AI" || statusOf(s) === "With mentor").slice(0, 8);
   }, [subs, statusOf]);
 
   const podLoad = useMemo(() => {
@@ -3236,7 +3372,7 @@ function InsightsView({ subs, clusters, onSaveQuestion }) {
 
   const exchangeN = afterMix.filter(b => ["startup", "industry", "global"].includes(b.id)).reduce((n, b) => n + b.n, 0);
   const podcastN = subs.filter(s => s.theme === "Brand Building & Communication").length;
-  const deskN = subs.filter(s => statusOf(s) === "Received").length;
+  const deskN = subs.filter(s => statusOf(s) === "Received" || statusOf(s) === "Waiting for AI").length;
   const stageN = stats.published;
 
   const shown = useMemo(() => {
@@ -3244,23 +3380,24 @@ function InsightsView({ subs, clusters, onSaveQuestion }) {
     return [...subs].reverse().filter(s => {
       if (theme !== "All themes" && s.theme !== theme) return false;
       if (!needle) return true;
-      return [s.question, s.ticket, s.theme, s.subtheme, s.state, s.stage, s.anonId, s.email, s.name]
+      return [s.question, s.ticket, s.theme, s.subtheme, s.state, s.stage, s.anonId, displayAskerEmail(s), displayAskerName(s), displayPassId(s).id]
         .join(" ").toLowerCase().includes(needle);
     });
   }, [subs, q, theme]);
 
   function exportCsv() {
     const headers = ["When", "Ticket", "AnonId", "Theme", "Subtheme", "Question", "Stage", "State", "Status"];
-    if (showContacts) headers.push("Name", "Email");
+    if (showContacts) headers.push("Name", "Email", "Pass_ID", "Pass_ID_Type");
     const rows = shown.map(s => {
       const row = [
         new Date(s.createdAt).toISOString(), s.ticket, s.anonId || "",
         s.theme, s.subtheme, s.question, s.stage, s.state, statusOf(s),
       ];
-      if (showContacts) row.push(s.name || "", s.email || "");
+      if (showContacts) row.push(displayAskerName(s) || "", displayAskerEmail(s) || "", displayPassId(s).id, displayPassId(s).id ? displayPassId(s).label : "");
       return row.map(v => `"${String(v || "").replace(/"/g, '""')}"`).join(",");
     });
     const blob = new Blob([headers.join(",") + "\n" + rows.join("\n")], { type: "text/csv" });
+    auditExport("ayurdisha-questions.csv");
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
     a.download = "ayurdisha-questions.csv";
@@ -3305,7 +3442,7 @@ function InsightsView({ subs, clusters, onSaveQuestion }) {
         <div className="aym-insights-hero-copy">
           <div className="aym-eyebrow">Insights · hall floor</div>
           <h2>Meet the Mentors</h2>
-          <p>{stats.today} arrived today · {stats.week} in the last 7 days · career guidance for BAMS mentees</p>
+          <p>{stats.today} arrived today · {stats.week} in the last 7 days · Ayurveda career guidance</p>
         </div>
       </section>
       <div className="aym-floor">
@@ -3349,6 +3486,66 @@ function InsightsView({ subs, clusters, onSaveQuestion }) {
           </div>
         </div>
 
+      {mail && (mail.queued > 0 || mail.failed > 0 || mail.lastErrorClass) && (
+        <Section title="Mail health" blurb="OTP and notices keep working even when the free mailbox hits its daily cap. Queued mail retries automatically; no credentials are shown here.">
+          <div className="aym-card" style={{ padding: 16, display: "flex", gap: 16, flexWrap: "wrap", alignItems: "center" }}>
+            <Chip tone={mail.queued ? "maroon" : "grey"}>{mail.queued || 0} queued</Chip>
+            {mail.failed ? <Chip tone="grey">{mail.failed} failed</Chip> : null}
+            {mail.lastErrorClass ? <Chip tone="maroon">{mail.lastErrorClass}{mail.lastError ? ` · ${String(mail.lastError).slice(0, 80)}` : ""}</Chip> : null}
+            <span style={{ fontSize: 13, color: C.muted }}>
+              {(() => { const p = mail.providers || mail.provider || {}; return `${p.primary || "mail"}${p.fallback ? ` · fallback ${p.fallback}` : ""}`; })()}
+            </span>
+            <button type="button" className="aym-btn aym-btn-ghost aym-btn-sm" onClick={() => api("mailRetry").then(() => api("mailHealth").then(r => setMail(r.mail || r))).catch(() => {})}>Retry queued mail</button>
+          </div>
+        </Section>
+      )}
+
+      <Section title="Unanswered & deferred" blurb="Every question stays here with the person who asked it. When AI quota runs out, Hybrid drafts wait — answer later yourself, or retry DISHA after recharge. Nothing is published until a mentor sends it.">
+        <div className="aym-queue">
+          {(() => {
+            const later = [...subs].reverse().filter(s => {
+              const st = statusOf(s);
+              return st === "Received" || st === "Waiting for AI" || st === "With mentor";
+            }).slice(0, 16);
+            if (!later.length) return <div className="aym-card" style={{ padding: 20, color: C.muted }}>No unanswered questions.</div>;
+            return later.map(s => {
+              const ai = aiIndex[`q:${s.id}`];
+              const deferred = ai && (ai.overflow || ai.status === "quotaDeferred" || ai.status === "awaiting_ai" || ai.status === "aiPending");
+              return (
+                <div key={s.id} className={`aym-qstrip${deferred || statusOf(s) === "Received" ? " aym-qstrip-hot" : ""}`}>
+                  <span className="aym-mono" style={{ fontWeight: 700, color: C.forest }}>{s.ticket}</span>
+                  <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{s.question}</span>
+                  <span style={{ fontSize: 12, color: C.muted, whiteSpace: "nowrap" }}>{fmtWhen(s.createdAt)}</span>
+                  <span style={{ fontSize: 12, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} title={[displayAskerName(s), displayAskerEmail(s), s.wacId].filter(Boolean).join(" · ")}>
+                    {displayAskerName(s) || displayAskerEmail(s) || s.wacId || s.anonId || "—"}
+                  </span>
+                  <Chip tone={deferred || statusOf(s) === "Received" ? "maroon" : "grey"}>{deferred ? "Waiting for AI" : statusOf(s)}</Chip>
+                  <button type="button" className="aym-btn aym-btn-gold" style={{ padding: "6px 10px", fontSize: 12 }}
+                    onClick={() => {
+                      setDraftErr("");
+                      setDraft({
+                        id: s.id, ticket: s.ticket, name: displayAskerName(s), email: displayAskerEmail(s),
+                        question: s.question, theme: s.theme, subtheme: s.subtheme,
+                        context: s.context, stage: s.stage, state: s.state,
+                        institution: s.institution,
+                        answer: s.individualAnswer || "", mentorName: s.individualMentor || "",
+                        a1: (s.individualActions && s.individualActions[0]) || "",
+                        a2: (s.individualActions && s.individualActions[1]) || "",
+                        a3: (s.individualActions && s.individualActions[2]) || "",
+                        mistake: s.individualMistake || "",
+                        r1: (s.individualResources && s.individualResources[0]) || "",
+                        r2: (s.individualResources && s.individualResources[1]) || "",
+                      });
+                    }}>
+                    <PenLine size={13} />Answer later
+                  </button>
+                </div>
+              );
+            });
+          })()}
+        </div>
+      </Section>
+
       <Section title="Ask Desk queue" blurb="Newest unanswered or mentor-bound tickets — treat this as the curved desk strip, not a ticket dump.">
         <div className="aym-queue">
           {!queue.length && <div className="aym-card" style={{ padding: 20, color: C.muted }}>Desk is clear. No questions waiting.</div>}
@@ -3363,7 +3560,7 @@ function InsightsView({ subs, clusters, onSaveQuestion }) {
       </Section>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: 18 }}>
-        <Section title="After-BAMS topic mix">
+        <Section title="Career topic mix">
           <div className="aym-mix">
             {afterMix.map(b => (
               <div key={b.id} className="aym-mix-pod">
@@ -3400,6 +3597,24 @@ function InsightsView({ subs, clusters, onSaveQuestion }) {
             </div>
           ))}
         </div>
+      </Section>
+
+      <Section title="Sources" blurb="Anonymous visit counts from QR codes and posters (?src=…), with the registrations and questions that followed.">
+        <Suspense fallback={<PageSkeleton label="Loading sources" />}>
+          <SourceStats subs={subs} delegates={delegates} />
+        </Suspense>
+      </Section>
+
+      <Section title="WAC delegates" blurb="Upload WAC's delegate list (CSV / XLSX) so delegates can sign in with their WAC registration ID. Emails and phones stay masked unless you show contacts.">
+        <Suspense fallback={<PageSkeleton label="Loading WAC delegates" />}>
+          <WacDelegatesPanel />
+        </Suspense>
+      </Section>
+
+      <Section title="Faculty Q&A bank" blurb="Faculty-written questions and answers per career stream. Approved rows become DISHA's authoritative position when a student asks the same thing in any wording; draft rows are used only as unvalidated framing. A mentor still approves every reply.">
+        <Suspense fallback={<PageSkeleton label="Loading faculty bank" />}>
+          <FacultyBankPanel />
+        </Suspense>
       </Section>
 
       <Section title="Briefing board" blurb="Staff only. Every question that has walked up to the Ask Desk. Names stay hidden unless you open contacts.">
@@ -3445,17 +3660,18 @@ function InsightsView({ subs, clusters, onSaveQuestion }) {
                       <td className="aym-mono" style={{ whiteSpace: "nowrap", fontWeight: 700, color: C.oak }}>{s.ticket}</td>
                       <td style={{ maxWidth: 160 }}>{s.theme}{s.subtheme ? <div style={{ color: "rgba(243,235,225,.5)", fontSize: 12 }}>{s.subtheme}</div> : null}</td>
                       <td style={{ minWidth: 220 }}>{s.question}</td>
-                      <td><Chip tone={statusOf(s) === "Published" || statusOf(s) === "Both answers" || statusOf(s) === "Answered" ? "green" : "grey"}>{statusOf(s)}</Chip></td>
+                      <td><Chip tone={statusOf(s) === "Published" || statusOf(s) === "Both answers" || statusOf(s) === "Answered" ? "green" : statusOf(s) === "Waiting for AI" || statusOf(s) === "Received" ? "maroon" : "grey"}>{statusOf(s)}</Chip></td>
                       <td>{s.stage}<div style={{ color: "rgba(243,235,225,.5)", fontSize: 12 }}>{s.state}</div></td>
                       {showContacts
-                        ? <td>{s.name}<div style={{ color: "rgba(243,235,225,.5)", fontSize: 12 }}>{s.email}</div></td>
+                        ? <td>{displayAskerName(s)}<div style={{ color: "rgba(243,235,225,.5)", fontSize: 12 }}>{displayAskerEmail(s)}</div>
+                          {displayPassId(s).id && <div className="aym-mono" style={{ color: "rgba(243,235,225,.5)", fontSize: 12 }} title={displayPassId(s).label}>{displayPassId(s).text}</div>}</td>
                         : <td className="aym-mono" style={{ fontSize: 12 }}>{s.anonId || "—"}</td>}
                       <td>
                         <button type="button" className="aym-btn aym-btn-gold" style={{ padding: "6px 10px", fontSize: 12 }}
                           onClick={() => {
                             setDraftErr("");
                             setDraft({
-                              id: s.id, ticket: s.ticket, name: s.name, email: s.email,
+                              id: s.id, ticket: s.ticket, name: displayAskerName(s), email: displayAskerEmail(s),
                               question: s.question, theme: s.theme, subtheme: s.subtheme,
                               context: s.context, stage: s.stage, state: s.state,
                               institution: s.institution,
@@ -3470,6 +3686,11 @@ function InsightsView({ subs, clusters, onSaveQuestion }) {
                           }}>
                           <PenLine size={13} />{s.individualAnswer ? "Edit answer" : "Provide answer"}
                         </button>
+                        {!s.individualAnswer && aiIndex[`q:${s.id}`] && (
+                          <div style={{ marginTop: 6 }}>
+                            <AiDraftBadge entry={aiIndex[`q:${s.id}`]} onOpen={onOpenAi ? () => onOpenAi(`q:${s.id}`) : undefined} />
+                          </div>
+                        )}
                       </td>
                     </tr>
                   ))}
@@ -3559,8 +3780,9 @@ function PassRow({ label, value }) {
   );
 }
 
-function DelegatePass({ profile, onGoAsk, onSignOut }) {
-  const issued = String(profile.regNo || "").trim();
+function DelegatePass({ profile, onGoAsk, onSignOut, onViewProfile }) {
+  const passId = displayPassId(profile);
+  const issued = passId.id;
   const [copied, setCopied] = useState(false);
 
   async function copyWac() {
@@ -3593,7 +3815,7 @@ function DelegatePass({ profile, onGoAsk, onSignOut }) {
             <div>
               <div className="aym-eyebrow" style={{ color: C.oak }}>AYURDISHA · Delegate profile</div>
               <h2 className="aym-display" style={{ color: "#fff", fontSize: "clamp(26px,4vw,34px)", margin: "6px 0 4px" }}>
-                Welcome back, {String(profile.name || "").split(" ")[0]}.
+                Welcome back, {String(displayAskerName(profile) || profile.name || "").split(" ")[0]}.
               </h2>
               <p style={{ margin: 0, color: "rgba(245,235,224,.8)", fontSize: 14 }}>
                 Your seat in the Meet the Mentors hall is saved on this device.
@@ -3603,11 +3825,11 @@ function DelegatePass({ profile, onGoAsk, onSignOut }) {
           </div>
 
           <div className="aym-pass-no">
-            <span>WAC registration number</span>
+            <span>{passId.label}</span>
             {issued ? (
               <div className="aym-pass-no-row">
                 <b className="aym-mono">{issued}</b>
-                <button type="button" className="aym-pass-copy" onClick={copyWac} aria-label="Copy WAC registration number">
+                <button type="button" className="aym-pass-copy" onClick={copyWac} aria-label={`Copy ${passId.label}`}>
                   {copied ? <CopyCheck size={15} /> : <Copy size={15} />}
                   {copied ? "Copied" : "Copy"}
                 </button>
@@ -3620,11 +3842,14 @@ function DelegatePass({ profile, onGoAsk, onSignOut }) {
           </div>
 
           <div className="aym-pass-grid">
-            <PassRow label="Name" value={profile.name} />
+            <PassRow label="Name" value={displayAskerName(profile) || profile.name} />
             <PassRow label="Age" value={profile.age} />
             <PassRow label="Sex" value={profile.sex} />
             <PassRow label="Institute" value={profile.institute} />
-            <PassRow label="Email (verified)" value={profile.email} />
+            <PassRow label="Email (verified)" value={maskEmail(displayAskerEmail(profile) || profile.email)} />
+            {passId.kind === "wac" && profile.regNo && profile.regNo !== issued && (
+              <PassRow label={PASS_NUMBER_LABEL} value={profile.regNo} />
+            )}
             <PassRow label="Registered" value={new Date(profile.createdAt).toLocaleString("en-IN", { day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" })} />
           </div>
 
@@ -3632,6 +3857,11 @@ function DelegatePass({ profile, onGoAsk, onSignOut }) {
             <button className="aym-btn aym-btn-gold" onClick={onGoAsk}>
               <Sparkles size={15} /> Autofill the Ask Desk <ArrowRight size={15} />
             </button>
+            {onViewProfile && (
+              <button className="aym-btn" style={{ background: "rgba(255,255,255,.08)", color: "#fff", borderColor: "rgba(245,235,224,.3)" }} onClick={onViewProfile}>
+                View my profile
+              </button>
+            )}
             <button className="aym-btn" style={{ background: "rgba(255,255,255,.08)", color: "rgba(245,235,224,.85)", borderColor: "rgba(245,235,224,.25)" }} onClick={onSignOut}>
               <LogOut size={14} /> Sign out on this device
             </button>
@@ -3643,7 +3873,8 @@ function DelegatePass({ profile, onGoAsk, onSignOut }) {
 }
 
 function RegSuccess({ profile, onGoAsk, onViewProfile }) {
-  const issued = String(profile.regNo || "").trim();
+  const passId = displayPassId(profile);
+  const issued = passId.id;
   const chars = issued ? issued.split("") : [];
   const [copied, setCopied] = useState(false);
 
@@ -3667,10 +3898,10 @@ function RegSuccess({ profile, onGoAsk, onViewProfile }) {
           </div>
           <div className="aym-eyebrow" style={{ color: C.oak }}>Email verified · Registration complete</div>
           <h2 className="aym-display" style={{ color: "#fff", fontSize: "clamp(28px,4.6vw,40px)", margin: "8px 0 20px" }}>
-            Welcome to the hall, {String(profile.name || "").split(" ")[0]}.
+            Welcome to the hall, {String(displayAskerName(profile) || profile.name || "").split(" ")[0]}.
           </h2>
           <div className="aym-regno-reveal">
-            <span>Your WAC registration number</span>
+            <span>Your {passId.kind === "wac" ? WAC_DELEGATE_ID_LABEL : PASS_NUMBER_LABEL}</span>
             {issued ? (
               <b className="aym-mono">
                 {chars.map((d, i) => <em key={i} style={{ animationDelay: `${.12 + i * .05}s` }}>{d}</em>)}
@@ -3686,7 +3917,9 @@ function RegSuccess({ profile, onGoAsk, onViewProfile }) {
             ) : null}
           </div>
           <p style={{ color: "rgba(245,235,224,.82)", fontSize: 14.5, lineHeight: 1.6, maxWidth: 420, margin: "18px auto 24px" }}>
-            The Ask Desk recognises you by this issued WAC registration number. It is saved on this device and will autofill any questionnaire in the hall.
+            {passId.kind === "wac"
+              ? "We matched your verified email to your WAC delegate record. The Ask Desk shows this Delegate ID on your questions; it is saved on this device and will autofill any questionnaire in the hall."
+              : "The Ask Desk recognises you by this AYURDISHA pass number. It is saved on this device and will autofill any questionnaire in the hall."}
           </p>
           <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
             <button className="aym-btn aym-btn-gold" onClick={onGoAsk}>
@@ -3702,7 +3935,7 @@ function RegSuccess({ profile, onGoAsk, onViewProfile }) {
   );
 }
 
-function RegisterView({ profile, onRegistered, onSignOut, onGoAsk }) {
+function RegisterView({ profile, onRegistered, onSignOut, onGoAsk, onViewProfile }) {
   const [step, setStep] = useState("form");         // form | otp | done
   const [f, setF] = useState({ name: "", age: "", sex: "", institute: "", email: "" });
   const [busy, setBusy] = useState(false);
@@ -3711,6 +3944,10 @@ function RegisterView({ profile, onRegistered, onSignOut, onGoAsk }) {
   const [otp, setOtp] = useState("");
   const [cooldown, setCooldown] = useState(0);
   const [justDone, setJustDone] = useState(null);
+  const [busyNote, setBusyNote] = useState("");
+  const inFlight = useRef(false);
+  const [backToAsk] = useState(() => Boolean(peekReturnToAsk()));
+  const onBusyRetry = () => setBusyNote("The hall is busy — retrying…");
   // Randomised field name + autocomplete=off so browsers never autofill the code.
   const otpName = useRef("code_" + Math.random().toString(36).slice(2, 10));
   const set = (k, v) => setF(p => ({ ...p, [k]: v }));
@@ -3731,12 +3968,14 @@ function RegisterView({ profile, onRegistered, onSignOut, onGoAsk }) {
     if (f.institute.trim().length < 2) problems.push("your institute name");
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email)) problems.push("a valid email address");
     if (problems.length) { setErr(`Add ${problems.join(", ")} first.`); return; }
+    if (inFlight.current) return;
+    inFlight.current = true;
     setBusy(true);
     try {
-      const r = await api("regStart", {
+      const r = await apiRetry("regStart", {
         name: f.name.trim(), age, sex: f.sex, institute: f.institute.trim(),
         email: f.email.trim(),
-      });
+      }, { attempts: 2, onRetry: onBusyRetry });
       setDelivery(r.delivery || "email");
       setCooldown(r.resendIn || 60);
       setOtp("");
@@ -3746,19 +3985,25 @@ function RegisterView({ profile, onRegistered, onSignOut, onGoAsk }) {
       setErr(e.message || "We could not send the code. Check your connection.");
       if (e.data && e.data.retryIn) setCooldown(e.data.retryIn);
     }
+    inFlight.current = false;
+    setBusyNote("");
     setBusy(false);
   }
 
   async function resend() {
+    if (inFlight.current) return;
+    inFlight.current = true;
     setErr(""); setBusy(true);
     try {
-      const r = await api("regResend", { email: f.email.trim() });
+      const r = await apiRetry("regResend", { email: f.email.trim() }, { attempts: 2, onRetry: onBusyRetry });
       setDelivery(r.delivery || "email");
       setCooldown(r.resendIn || 60);
     } catch (e) {
       setErr(e.message || "Could not resend the code.");
       if (e.data && e.data.retryIn) setCooldown(e.data.retryIn);
     }
+    inFlight.current = false;
+    setBusyNote("");
     setBusy(false);
   }
 
@@ -3769,31 +4014,37 @@ function RegisterView({ profile, onRegistered, onSignOut, onGoAsk }) {
       setErr("Type the 6-digit code from the email.");
       return;
     }
+    if (inFlight.current) return;
+    inFlight.current = true;
     setErr("");
     setBusy(true);
     try {
-      const r = await api("regVerify", { email: f.email.trim(), otp: code });
+      const src = currentSource();
+      // Safe to repeat: the server keeps the code until the registration is saved, and one email = one pass number.
+      const r = await apiRetry("regVerify", { email: f.email.trim(), otp: code, ...(src ? { source: src } : {}) }, { attempts: 3, onRetry: onBusyRetry });
       if (!r || !r.profile || !r.token) {
         setErr("We could not complete registration. Try again.");
         return;
       }
+      if (onRegistered(r.token, r.profile) === "ask") return;
       setJustDone(r.profile);
-      onRegistered(r.token, r.profile);
       setStep("done");
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (e) {
       setErr(e.message || "That code does not match. Request a new one if it has expired.");
     } finally {
+      inFlight.current = false;
+      setBusyNote("");
       setBusy(false);
     }
   }
 
   if (step === "done" && justDone) {
-    return <RegSuccess profile={justDone} onGoAsk={onGoAsk} onViewProfile={() => { setJustDone(null); setStep("form"); }} />;
+    return <RegSuccess profile={justDone} onGoAsk={onGoAsk} onViewProfile={() => { onViewProfile?.(); }} />;
   }
 
   if (profile) {
-    return <DelegatePass profile={profile} onGoAsk={onGoAsk} onSignOut={onSignOut} />;
+    return <DelegatePass profile={profile} onGoAsk={onGoAsk} onSignOut={onSignOut} onViewProfile={onViewProfile} />;
   }
 
   return (
@@ -3806,7 +4057,8 @@ function RegisterView({ profile, onRegistered, onSignOut, onGoAsk }) {
           <h1 className="aym-display">Take your place in the hall.</h1>
           <p>
             Register once with your name, institute, and email. We verify that inbox with a one-time code,
-            then the hall issues your WAC registration number — you do not type one.
+            then the hall issues your AYURDISHA pass number — you do not type one. Registered for WAC 2026? Your WAC Delegate ID is linked by your verified email.
+            {backToAsk && " Once you verify, we take you straight back to the Ask Desk with your details filled in."}
           </p>
           <ol className="ui-steps ui-steps--progress aym-reg-steps" aria-label="Registration steps">
             <li className={`ui-step${step === "form" ? " on" : " is-done"}`} aria-current={step === "form" ? "step" : undefined}>
@@ -3828,6 +4080,12 @@ function RegisterView({ profile, onRegistered, onSignOut, onGoAsk }) {
       {err && step !== "otp" && <Notice tone="bad">{err}</Notice>}
 
       {step === "form" && (
+        <WacRegisterGate themes={TRACKS.map(t => t.name)} onSignedIn={(token, prof) => {
+          if (onRegistered(token, prof) === "ask") return;
+          setJustDone(prof);
+          setStep("done");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}>
         <div className="aym-card aym-rise ui-form-card" style={{ animationDelay: ".1s" }}>
           <div className="aym-eyebrow">Who walks in</div>
           <h3 className="ui-form-card-title">Introduce yourself once</h3>
@@ -3852,17 +4110,19 @@ function RegisterView({ profile, onRegistered, onSignOut, onGoAsk }) {
             <input className="aym-input" type="email" value={f.email} onChange={e => set("email", e.target.value)} autoComplete="email" />
           </Field>
           <p className="ui-form-card-lead">
-            Your WAC registration number is issued automatically after you verify this email. You will not need to type or save one.
+            Your AYURDISHA pass number is issued automatically after you verify this email (or your WAC Delegate ID is linked, if this email is on WAC's delegate list). You will not need to type or save one.
           </p>
 
           <button className="aym-btn aym-btn-primary aym-btn-lg aym-btn-block" disabled={busy} onClick={start}>
             {busy ? <Loader2 size={17} className="animate-spin" /> : <Mail size={16} />}
-            {busy ? "Sending your code" : "Send my verification code"}
+            {busy ? (busyNote || "Sending your code") : "Send my verification code"}
           </button>
+          <p className="aym-visually-hidden" role="status" aria-live="polite">{busyNote}</p>
           <p className="ui-form-footnote">
             Your details stay with the curation desk. The stage board never shows mentee names.
           </p>
         </div>
+        </WacRegisterGate>
       )}
 
       {step === "otp" && (
@@ -3878,7 +4138,15 @@ function RegisterView({ profile, onRegistered, onSignOut, onGoAsk }) {
           {delivery === "console" && (
             <div style={{ textAlign: "left" }}>
               <Notice tone="warn">
-                Email sending is not configured on this server yet, so the code was printed on the <b>server console</b> (dev mode). Ask the desk staff for it.
+                Email sending is not configured on this server yet, so the code was printed on the <b>server console</b> (dev mode). Ask the help desk staff for it.
+              </Notice>
+            </div>
+          )}
+
+          {delivery === "queued" && (
+            <div style={{ textAlign: "left" }}>
+              <Notice tone="warn">
+                Your details are saved. The verification email will arrive when mail capacity returns — keep this page open and type the code when it lands.
               </Notice>
             </div>
           )}
@@ -3912,8 +4180,9 @@ function RegisterView({ profile, onRegistered, onSignOut, onGoAsk }) {
 
           <button type="button" className="aym-btn aym-btn-primary aym-btn-lg aym-btn-block ui-otp-submit" disabled={busy} onClick={verify}>
             {busy ? <Loader2 size={17} className="animate-spin" /> : <ShieldCheck size={16} />}
-            {busy ? "Verifying" : "Verify and complete registration"}
+            {busy ? (busyNote || "Verifying") : "Verify and complete registration"}
           </button>
+          <p className="aym-visually-hidden" role="status" aria-live="polite">{busyNote}</p>
 
           <div className="ui-btn-row ui-btn-row--center ui-otp-actions">
             <button type="button" className="aym-btn aym-btn-ghost" disabled={busy || cooldown > 0} onClick={resend}>
@@ -3940,11 +4209,12 @@ function exportDelegatesPdf(users) {
   const rows = (users || []).map((u, i) => `
     <tr>
       <td>${i + 1}</td>
-      <td>${esc(u.regNo || "Not issued yet")}</td>
-      <td>${esc(u.name)}</td>
+      <td>${esc(displayPassId(u).id || "Not issued yet")}</td>
+      <td>${esc(displayPassId(u).id ? displayPassId(u).label : "")}</td>
+      <td>${esc(displayAskerName(u))}</td>
       <td>${esc(u.age)} · ${esc(u.sex)}</td>
       <td>${esc(u.institute)}</td>
-      <td>${esc(u.email)}</td>
+      <td>${esc(displayAskerEmail(u))}</td>
       <td>${esc(fmtWhen(u.createdAt))}</td>
     </tr>`).join("");
   const html = `<!doctype html><html><head><meta charset="utf-8"><title>AYURDISHA delegates</title>
@@ -3958,8 +4228,8 @@ function exportDelegatesPdf(users) {
     </style></head><body>
     <h1>AYURDISHA · registered delegates</h1>
     <p>Meet the Mentors · World Ayurveda Congress 2026 · ${users.length} genuine OTP-verified records · ${new Date().toLocaleString("en-IN")}</p>
-    <table><thead><tr><th>#</th><th>WAC registration number</th><th>Name</th><th>Age / sex</th><th>Institute</th><th>Email</th><th>Registered</th></tr></thead>
-    <tbody>${rows || `<tr><td colspan="7">No genuine delegates yet.</td></tr>`}</tbody></table>
+    <table><thead><tr><th>#</th><th>Pass ID</th><th>Type</th><th>Name</th><th>Age / sex</th><th>Institute</th><th>Email</th><th>Registered</th></tr></thead>
+    <tbody>${rows || `<tr><td colspan="8">No genuine delegates yet.</td></tr>`}</tbody></table>
     <script>window.onload=function(){window.print()}</script>
     </body></html>`;
   const w = window.open("", "_blank", "noopener,noreferrer");
@@ -4030,13 +4300,17 @@ function DelegatesPanel({ users: incoming, onRefresh, loading }) {
           {slice.map(u => (
             <div key={u.email || u.regNo} className="aym-delegate-card">
               <div style={{ display: "flex", justifyContent: "space-between", gap: 8, alignItems: "baseline" }}>
-                <b style={{ fontSize: 14, color: C.maroon }}>{u.name}</b>
-                <span className="aym-mono" style={{ fontSize: 12.5, fontWeight: 700, color: u.regNo ? C.oak : C.muted }} title="WAC registration number">{u.regNo || "Not issued yet"}</span>
+                <b style={{ fontSize: 14, color: C.maroon }}>{displayAskerName(u)}</b>
+                <span className="aym-mono" style={{ fontSize: 12.5, fontWeight: 700, color: displayPassId(u).id ? C.oak : C.muted }} title={displayPassId(u).label}>{displayPassId(u).id || "Not issued yet"}</span>
               </div>
-              <div style={{ fontSize: 12.5, color: C.muted, marginTop: 3 }}>{u.age} · {u.sex}</div>
+              {(u.age || u.sex) && (
+                <div style={{ fontSize: 12.5, color: C.muted, marginTop: 3 }}>{[u.age, u.sex].filter(Boolean).join(" · ")}</div>
+              )}
               <div style={{ fontSize: 12.5, color: C.ink, marginTop: 3 }}>{u.institute}</div>
-              <div style={{ fontSize: 12.5, color: C.muted, marginTop: 3, wordBreak: "break-all" }}>{u.email}</div>
-              <div style={{ fontSize: 11.5, color: C.muted, marginTop: 5 }}>Registered {fmtWhen(u.createdAt)}</div>
+              <div style={{ fontSize: 12.5, color: C.muted, marginTop: 3, wordBreak: "break-all" }}>{displayAskerEmail(u)}</div>
+              <div style={{ fontSize: 11.5, color: C.muted, marginTop: 5 }}>
+                Registered {fmtWhen(u.createdAt)} · {displayPassId(u).kind === "wac" ? WAC_DELEGATE_ID_LABEL : u.wacLinkPending ? "Several WAC Delegate IDs match — needs choosing" : PASS_NUMBER_LABEL}
+              </div>
             </div>
           ))}
         </div>
@@ -4115,53 +4389,6 @@ async function seedDemo() {
 /* App shell                                                           */
 /* ------------------------------------------------------------------ */
 
-function StaffPinModal({ pinValue, pinError, setPinValue, setPinError, onUnlock, onClose }) {
-  const titleId = useId();
-  const panelRef = useRef(null);
-  useEffect(() => {
-    const onKey = e => { if (e.key === "Escape") onClose(); };
-    document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-  }, [onClose]);
-  return (
-    <div className="aym-modal-bg" onClick={e => { if (e.target === e.currentTarget) onClose(); }}>
-      <div
-        ref={panelRef}
-        className="aym-card ui-dialog"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby={titleId}
-      >
-        <span className="ui-icon-badge ui-icon-badge--gold"><KeyRound size={22} aria-hidden="true" /></span>
-        <div className="aym-eyebrow">Staff</div>
-        <h2 id={titleId} className="ui-dialog-title">Staff sign-in</h2>
-        <p className="ui-dialog-lead">
-          Enter the authority staff code. Only that provided code works. Students cannot create or set a code here.
-        </p>
-        <label className="aym-visually-hidden" htmlFor="staff-pin">Authority staff code</label>
-        <input
-          id="staff-pin"
-          className="aym-input"
-          type="password"
-          value={pinValue}
-          autoFocus
-          autoComplete="current-password"
-          aria-invalid={pinError ? true : undefined}
-          aria-describedby={pinError ? "staff-pin-err" : undefined}
-          onChange={e => { setPinValue(e.target.value); setPinError(""); }}
-          onKeyDown={e => e.key === "Enter" && onUnlock()}
-          placeholder="Authority staff code"
-        />
-        {pinError && <div id="staff-pin-err" role="alert" className="aym-field-error">{pinError}</div>}
-        <div className="ui-dialog-actions">
-          <button type="button" className="aym-btn aym-btn-primary aym-btn-lg aym-btn-block" onClick={onUnlock}>Enter</button>
-          <button type="button" className="aym-btn aym-btn-ghost aym-btn-block" onClick={onClose}>Cancel</button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 const TABS = [
   { id: "hall", label: "The hall", icon: Leaf, public: true },
   { id: "mentors", label: "Mentors", icon: Users, public: true },
@@ -4173,8 +4400,9 @@ const TABS = [
   { id: "board", label: "Open theme stage", icon: BookOpen, public: true },
   { id: "staff", label: "Staff Portal", icon: ShieldCheck, public: false },
   { id: "curate", label: "Curation desk", icon: Layers, public: false },
-  { id: "insights", label: "Insights", icon: Map, public: false },
+  { id: "insights", label: "Insights", icon: MapIcon, public: false },
   { id: "pack", label: "Mentor pack", icon: FileSpreadsheet, public: false },
+  { id: "ai", label: DISHA_DRAFTS, icon: Sparkles, public: false },
 ];
 
 export default function App() {
@@ -4190,6 +4418,7 @@ export default function App() {
   const mentorId = appPath.kind === "mentors" ? appPath.mentorId : null;
   const legalPage = appPath.kind === "legal" ? appPath.page : null;
   const onWelcomeRoute = appPath.kind === "welcome";
+  const onAccountRoute = appPath.kind === "account";
   const isNotFound = appPath.kind === "404";
 
   const [tab, setTab] = useState(() => {
@@ -4205,20 +4434,30 @@ export default function App() {
   const clusterSaveTimerRef = useRef(null);
   const clusterSavedTimerRef = useRef(null);
   const pendingClustersRef = useRef(null);
+  const pendingSettleRef = useRef(null);
   const [delegates, setDelegates] = useState([]);
+  const [delegatesReady, setDelegatesReady] = useState(false);
+  const delegatesLoadRef = useRef(null);
+  const deskRef = useRef(null);
+  const [deskError, setDeskError] = useState("");
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState("");
   const [staff, setStaff] = useState(false);
-  const [pinPrompt, setPinPrompt] = useState(false);
-  const [pinValue, setPinValue] = useState("");
-  const [pinError, setPinError] = useState("");
+  const [staffMe, setStaffMe] = useState(null);
+  const [accessOpen, setAccessOpen] = useState(false);
   const [config, setConfig] = useState(null);
   const [seeding, setSeeding] = useState(false);
   const [askPreset, setAskPreset] = useState(null);
   const [profile, setProfile] = useState(() => {
-    const s = loadLocalSession();
+    let s = loadLocalSession();
+    if (s && sessionAfterStaffSignIn(null, s) === null) {
+      saveLocalSession(null);
+      s = null;
+    }
     return s && s.token && s.profile ? s.profile : null;
   });
+  const staffMeRef = useRef(staffMe);
+  staffMeRef.current = staffMe;
 
   // Validate + refresh the delegate session against the server.
   // Missing WAC numbers are issued on the server during regMe — retry briefly if still empty.
@@ -4238,13 +4477,25 @@ export default function App() {
             regNo: String(server.regNo || "").trim() || localWac || "",
           };
           if (cancelled) return;
+          if (shouldDropHallPass(staffMeRef.current, merged)) {
+            saveLocalSession(null);
+            setProfile(null);
+            return;
+          }
           setProfile(merged);
           saveLocalSession({ token: s.token, profile: merged });
           if (String(merged.regNo || "").trim()) return;
         } catch (e) {
           if (e.status === 403) {
             const local = loadLocalSession();
-            if (local && local.profile) setProfile(local.profile);
+            if (local && local.profile) {
+              if (shouldDropHallPass(staffMeRef.current, local.profile)) {
+                saveLocalSession(null);
+                setProfile(null);
+              } else {
+                setProfile(local.profile);
+              }
+            }
             return;
           }
         }
@@ -4254,21 +4505,36 @@ export default function App() {
     return () => { cancelled = true; };
   }, []);
 
-  const onRegistered = useCallback((token, prof) => {
-    saveLocalSession({ token, profile: prof });
-    setProfile(prof);
-  }, []);
-
   const signOutDelegate = useCallback(() => {
     saveLocalSession(null);
     setProfile(null);
   }, []);
+
+  const clearDroppedHallPass = useCallback((me) => {
+    const s = loadLocalSession();
+    if (s && (sessionAfterStaffSignIn(me, s) === null || isDroppedHallPass(s.profile))) saveLocalSession(null);
+    setProfile(prev => (prev && isDroppedHallPass(prev) ? null : prev));
+  }, []);
+
+  useEffect(() => {
+    if (!shouldDropHallPass(staffMe, profile)) return;
+    clearDroppedHallPass(staffMe);
+  }, [staffMe, profile, clearDroppedHallPass]);
+
+  const profileForHall = isDroppedHallPass(profile) ? null : profile;
+  const delegateProfile = hallPassProfile(staffMe, profileForHall);
 
   const goTab = useCallback((id, { preset, replace = false } = {}) => {
     if (id === "ask") setAskPreset(preset === undefined ? null : preset);
     if (id === "mentors") {
       setTab("mentors");
       navigate("/mentors", { replace });
+      window.scrollTo(0, 0);
+      return;
+    }
+    if (id === "account") {
+      setTab("account");
+      navigate("/account", { replace });
       window.scrollTo(0, 0);
       return;
     }
@@ -4283,11 +4549,47 @@ export default function App() {
     window.scrollTo(0, 0);
   }, [navigate]);
 
+  /** Returns "ask" when the visitor came from the Ask Desk banner and was sent back there. */
+  const onRegistered = useCallback((token, prof) => {
+    if (shouldDropHallPass(staffMeRef.current, prof)) {
+      saveLocalSession(null);
+      setProfile(null);
+    } else {
+      saveLocalSession({ token, profile: prof });
+      setProfile(prof);
+    }
+    const back = takeReturnToAsk();
+    if (!back) return null;
+    goTab("ask", { preset: Object.keys(back.draft).length ? back.draft : null, replace: true });
+    return "ask";
+  }, [goTab]);
+
+  const onProfileUpdate = useCallback((token, prof) => {
+    if (!prof) return;
+    if (shouldDropHallPass(staffMeRef.current, prof)) {
+      saveLocalSession(null);
+      setProfile(null);
+      return;
+    }
+    saveLocalSession({ token, profile: prof });
+    setProfile(prof);
+  }, []);
+
+  const goRegisterFromAsk = useCallback((draft) => {
+    markReturnToAsk(draft);
+    goTab("register");
+  }, [goTab]);
+
+  const openAiDraft = useCallback((id) => {
+    try { sessionStorage.setItem(AI_FOCUS_KEY, id); } catch { /* private mode */ }
+    goTab("ai");
+  }, [goTab]);
+
   const [visitGuide, setVisitGuide] = useState(null);
   const pendingVisitGoRef = useRef(null);
 
   const openWelcome = useCallback(() => {
-    navigate("/welcome");
+    navigate("/welcome?replay=1");
     window.scrollTo(0, 0);
   }, [navigate]);
 
@@ -4342,18 +4644,44 @@ export default function App() {
     goTab("insights");
   }, [goTab]);
 
+  const resetStaffData = useCallback(() => {
+    deskRef.current = null;
+    delegatesLoadRef.current = null;
+    setSubs([]);
+    setDelegates([]);
+    setDelegatesReady(false);
+    setDeskError("");
+  }, []);
+
   const leaveStaff = useCallback(async () => {
     await staffLogout();
     setStaff(false);
-    setSubs([]);
+    setStaffMe(null);
+    resetStaffData();
     goTab("hall");
-  }, [goTab]);
+  }, [goTab, resetStaffData]);
+
+  /** Delegate cards in pages, only when a panel that shows them is open (or on Refresh). */
+  const loadDelegates = useCallback(async (force = false) => {
+    if (delegatesLoadRef.current && !force) return delegatesLoadRef.current;
+    const p = loadDelegatesPaged(api).then(users => {
+      if (delegatesLoadRef.current !== p) return;
+      setDelegates(shownPeople(users));
+      setDelegatesReady(true);
+    });
+    delegatesLoadRef.current = p;
+    try { await p; }
+    catch (e) { if (delegatesLoadRef.current === p) delegatesLoadRef.current = null; throw e; }
+    return p;
+  }, []);
 
   const applyClustersVersion = useCallback(v => {
     if (v == null) return;
     clustersVersionRef.current = v;
     setClustersVersion(v);
   }, []);
+
+  const getClustersVersion = useCallback(() => clustersVersionRef.current, []);
 
   const reportClusterConflict = useCallback(e => {
     if (e?.status !== 409) return;
@@ -4368,29 +4696,55 @@ export default function App() {
     setClusterConflict(null);
     try {
       if (asStaff) {
-        const snap = await api("staffSnapshot");
-        setSubs(Array.isArray(snap.questions) ? snap.questions : []);
-        setClusters(Array.isArray(snap.clusters) ? snap.clusters : []);
-        applyClustersVersion(snap.clustersVersion ?? 1);
-        setDelegates(Array.isArray(snap.users) ? snap.users : []);
-        setConfig(c => ({ ...(c || {}), hasPin: true, backend: snap.backend }));
+        const desk = await loadStaffDesk(api, {
+          onProgress: (n, total) => setProgress(total
+            ? `Loading the question bank — ${Math.min(n, total).toLocaleString()} of ${total.toLocaleString()}`
+            : "Loading the question bank"),
+        });
+        deskRef.current = desk;
+        setSubs(shownPeople(desk.questions));
+        setClusters(desk.clusters);
+        applyClustersVersion(desk.clustersVersion);
+        if (desk.users) {
+          delegatesLoadRef.current = Promise.resolve();
+          setDelegates(shownPeople(desk.users));
+          setDelegatesReady(true);
+        } else if (delegatesLoadRef.current) {
+          loadDelegates(true).catch(err => console.error(err));
+        }
+        setConfig(c => ({ ...(c || {}), hasPin: true, backend: desk.counts && desk.counts.backend }));
+        setDeskError("");
       } else {
-        const [cl, cfg] = await Promise.all([store.get(K_CLUSTERS), store.get(K_CONFIG)]);
-        setConfig(cfg || {});
         setSubs([]);
         setDelegates([]);
-        setClusters(publishedClusters(cl));
+        setClusters(publishedClusters(await loadPublicClusters()));
       }
     } catch (e) {
       console.error(e);
+      if (asStaff) setDeskError(e.message || "Could not load the live desk.");
     } finally {
       setProgress("");
       setLoading(false);
     }
-  }, [staff, applyClustersVersion]);
+  }, [staff, applyClustersVersion, loadDelegates]);
+
+  /** After a staff-side submit: fetch only what is new; fall back to a full reload when unsure. */
+  const refreshDesk = useCallback(async () => {
+    let next = null;
+    try { next = await refreshDeskIncremental(api, deskRef.current); }
+    catch (e) { console.error(e); }
+    if (!next) { await reload(true); return; }
+    deskRef.current = next;
+    setSubs(shownPeople(next.questions));
+  }, [reload]);
+
+  useEffect(() => {
+    if (!staff || !["curate", "insights", "pack", "hall"].includes(tab)) return;
+    loadDelegates().catch(err => console.error(err));
+  }, [staff, tab, loadDelegates]);
 
   const onAskSaved = useCallback((rec, serverProfile) => {
-    if (staff) reload(true);
+    if (staff) refreshDesk();
     const wac = String((serverProfile && serverProfile.regNo) || (rec && rec.regNo) || "").trim();
     if (!wac) return;
     setProfile(prev => {
@@ -4400,15 +4754,19 @@ export default function App() {
       if (s && s.token) saveLocalSession({ token: s.token, profile: next });
       return next;
     });
-  }, [staff, reload]);
+  }, [staff, refreshDesk]);
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
       const me = await staffWhoami();
       if (cancelled) return;
+      staffMeRef.current = me;
       setConfig({ hasPin: me.hasPin });
+      setStaffMe(me);
       if (me.staff) {
+        clearDroppedHallPass(me);
+        if (me.email) rememberStaff(me.email, true);
         setStaff(true);
         await reload(true);
       } else {
@@ -4417,6 +4775,24 @@ export default function App() {
     })();
     return () => { cancelled = true; };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const refreshStaffMe = useCallback(async () => {
+    const me = await staffWhoami();
+    staffMeRef.current = me;
+    setStaffMe(me);
+    if (me.staff) clearDroppedHallPass(me);
+    if (!me.staff && me.status !== "unavailable") {
+      setStaff(false);
+      resetStaffData();
+    }
+    return me;
+  }, [resetStaffData, clearDroppedHallPass]);
+
+  useEffect(() => {
+    if (!staff) return undefined;
+    const t = setInterval(() => { if (document.visibilityState !== "hidden") refreshStaffMe(); }, 60000);
+    return () => clearInterval(t);
+  }, [staff, refreshStaffMe]);
 
   useEffect(() => {
     if (onMentorsRoute && mentorId) {
@@ -4435,10 +4811,14 @@ export default function App() {
       window.scrollTo(0, 0);
       return;
     }
-    if (legalPage || isNotFound || onWelcomeRoute) return;
+    if (legalPage || isNotFound || onWelcomeRoute || onAccountRoute) return;
     const hashTab = tabFromHash(location.hash);
     if (hashTab === "mentors") {
       navigate("/mentors", { replace: true });
+      return;
+    }
+    if (hashTab === "account") {
+      navigate("/account", { replace: true });
       return;
     }
     if (hashTab === "intro") {
@@ -4446,10 +4826,10 @@ export default function App() {
     }
     const next = tabFromUrl(location.pathname, location.hash);
     setTab(t => (t === next ? t : next));
-  }, [location.pathname, location.hash, onMentorsRoute, mentorId, legalPage, isNotFound, onWelcomeRoute, navigate]);
+  }, [location.pathname, location.hash, onMentorsRoute, mentorId, legalPage, isNotFound, onWelcomeRoute, onAccountRoute, navigate]);
 
   useEffect(() => {
-    if (legalPage || isNotFound || onWelcomeRoute) return;
+    if (legalPage || isNotFound || onWelcomeRoute || onAccountRoute) return;
     if (onMentorsRoute && mentorId) {
       const mentor = getMentorByParam(mentorId);
       if (!mentor) {
@@ -4484,7 +4864,7 @@ export default function App() {
       setPageMeta({
         title: "Meet the Mentors · AYURDISHA · WAC 2026",
         description:
-          "Browse the tentative mentor roster for AYURDISHA at the 11th World Ayurveda Congress, Bhubaneswar — Ayurveda career guides for BAMS mentees.",
+          "Browse the tentative mentor roster for AYURDISHA at the 11th World Ayurveda Congress, Bhubaneswar — Ayurveda career guides for students and practitioners.",
         path: "/mentors",
         breadcrumbLd: breadcrumbJsonLd([
           { name: "Home", path: "/" },
@@ -4494,22 +4874,23 @@ export default function App() {
       return;
     }
     const titles = {
-      intro: ["AYURDISHA | Meet the Mentors | 11th World Ayurveda Congress", "Discover and connect with mentors, practitioners, researchers and thought leaders from the Ayurveda community through AYURDISHA."],
+      intro: ["AYURDISHA | Meet the Mentors | 11th World Ayurveda Congress", META_DESCRIPTION],
       hall: ["The Hall · AYURDISHA · WAC 2026", "Enter the AYURDISHA hall — podcast corner and Congress selection results at the 11th World Ayurveda Congress."],
-      register: ["Register · AYURDISHA · WAC 2026", "Register for AYURDISHA with your name, institute, and email. Your WAC registration number is issued when you verify."],
-      ask: ["Ask Desk · AYURDISHA · WAC 2026", "Ask one career question at the AYURDISHA Ask Desk. Your issued WAC registration number is attached automatically."],
-      pods: ["Knowledge · AYURDISHA · WAC 2026", "Explore AYURDISHA knowledge pods for BAMS career pathways at the World Ayurveda Congress."],
-      exchange: ["Opportunity Exchange · AYURDISHA", "Career paths after BAMS — PG, practice, research, public health, start-ups, and practice abroad."],
-      track: ["Track my answer · AYURDISHA", "Track your Ask Desk ticket and see when a mentor answers."],
-      board: ["Open theme stage · AYURDISHA", "Published mentor answers from the AYURDISHA Meet the Mentors hall."],
+      register: ["Register · AYURDISHA · WAC 2026", "Register for AYURDISHA with your name, institute, and email. Your AYURDISHA pass number is issued when you verify."],
+      ask: ["Ask Desk · AYURDISHA · WAC 2026", "Ask one career question at the AYURDISHA Ask Desk. Your WAC Delegate ID or AYURDISHA pass number is attached automatically."],
+      pods: ["Knowledge · AYURDISHA · WAC 2026", "Explore AYURDISHA knowledge pods for Ayurveda career pathways at the World Ayurveda Congress."],
+      exchange: ["Opportunity Exchange · AYURDISHA", "Career paths in Ayurveda — PG, practice, research, public health, start-ups, and practice abroad."],
+      track: ["Track my answer · AYURDISHA", "Track your Ask Desk ticket until a written or recorded answer is posted."],
+      board: ["Answer bank · AYURDISHA", "Published clustered answers from the AYURDISHA Meet the Mentors hall."],
       podcast: ["Podcast · AYURDISHA · WAC 2026", "Watch recorded mentor conversations from the AYURDISHA hall at the 11th World Ayurveda Congress."],
       staff: ["Staff Portal · AYURDISHA", "Official staff curation & management portal."],
       curate: ["Curation Desk · AYURDISHA Staff", "Review and group submitted delegate questions."],
       insights: ["Insights · AYURDISHA Staff", "View delegate question trends and briefing summaries."],
       pack: ["Mentor Pack · AYURDISHA Staff", "Mentor briefing packs and export tools."],
+      ai: [`${DISHA_DRAFTS} · AYURDISHA Staff`, `${DISHA_ROLE}: review its draft answers before they reach students.`],
     };
     const pair = titles[tab] || titles.intro;
-    const staffish = tab === "staff" || tab === "curate" || tab === "insights" || tab === "pack";
+    const staffish = tab === "staff" || tab === "curate" || tab === "insights" || tab === "pack" || tab === "ai";
     setPageMeta({
       title: pair[0],
       description: pair[1],
@@ -4517,7 +4898,7 @@ export default function App() {
       robots: staffish ? "noindex, nofollow" : undefined,
       jsonLd: tab === "intro" ? faqJsonLd(LAND_FAQS) : null,
     });
-  }, [onMentorsRoute, mentorId, tab, legalPage, isNotFound, onWelcomeRoute]);
+  }, [onMentorsRoute, mentorId, tab, legalPage, isNotFound, onWelcomeRoute, onAccountRoute]);
 
   const enterFromLand = useCallback((next) => {
     requestGoTab(next);
@@ -4565,6 +4946,9 @@ export default function App() {
         clusterSaveTimerRef.current = null;
       }
       pendingClustersRef.current = null;
+      const superseded = pendingSettleRef.current;
+      pendingSettleRef.current = null;
+      if (superseded) superseded.resolve(next);
       return runSave();
     }
 
@@ -4572,8 +4956,13 @@ export default function App() {
     setClusterSaveStatus("pending");
     return new Promise((resolve, reject) => {
       if (clusterSaveTimerRef.current) clearTimeout(clusterSaveTimerRef.current);
+      // A newer edit supersedes this one; settle the older caller instead of leaving it hanging.
+      const superseded = pendingSettleRef.current;
+      pendingSettleRef.current = { resolve, reject };
+      if (superseded) superseded.resolve(next);
       clusterSaveTimerRef.current = setTimeout(async () => {
         clusterSaveTimerRef.current = null;
+        pendingSettleRef.current = null;
         const pending = pendingClustersRef.current;
         if (!pending) { resolve(next); return; }
         try {
@@ -4591,16 +4980,20 @@ export default function App() {
       clusterSaveTimerRef.current = null;
     }
     const pending = pendingClustersRef.current;
-    if (!pending) return null;
+    const waiter = pendingSettleRef.current;
+    pendingSettleRef.current = null;
+    if (!pending) { if (waiter) waiter.resolve(null); return null; }
     pendingClustersRef.current = null;
     setClusterSaveStatus("saving");
     try {
       const saved = await persistClusters(pending);
       markClusterSaved();
+      if (waiter) waiter.resolve(saved);
       return saved;
     } catch (e) {
       setClusterSaveStatus("idle");
       reportClusterConflict(e);
+      if (waiter) waiter.reject(e);
       throw e;
     }
   }, [persistClusters, reportClusterConflict, markClusterSaved]);
@@ -4613,20 +5006,17 @@ export default function App() {
     }
   }, [persistClusters]);
 
-  async function unlock() {
-    const pin = pinValue.trim();
-    if (pin.length < 4) { setPinError("Use at least four characters."); return; }
-    try {
-      await staffLogin(pin);
-      setPinPrompt(false); setPinValue(""); setPinError("");
-      await enterStaff();
-      await reload(true);
-    } catch (e) {
-      setPinError(e.message || "That code does not match.");
-    }
+  async function onStaffSignedIn(me) {
+    staffMeRef.current = me;
+    setStaffMe(me);
+    if (me && me.staff) clearDroppedHallPass(me);
+    setAccessOpen(false);
+    await enterStaff();
+    await reload(true);
   }
 
   async function lockAndPublic() {
+    forgetStaffDevice();
     await leaveStaff();
     await reload(false);
   }
@@ -4640,20 +5030,21 @@ export default function App() {
 
   const visible = TABS.filter(t => t.public || staff);
   const fullBleed = tab === "hall" && !legalPage && !isNotFound;
-  const closePin = useCallback(() => { setPinPrompt(false); setPinValue(""); setPinError(""); }, []);
-  const pinModal = pinPrompt ? (
-    <StaffPinModal
-      pinValue={pinValue}
-      pinError={pinError}
-      setPinValue={setPinValue}
-      setPinError={setPinError}
-      onUnlock={unlock}
-      onClose={closePin}
+  const closeAccess = useCallback(() => setAccessOpen(false), []);
+  const openAccess = useCallback(() => setAccessOpen(true), []);
+  const pendingStatus = staffMe && !staffMe.staff && ["pending", "denied", "revoked", "signed-out"].includes(staffMe.status) ? staffMe.status : "";
+  const accessModal = accessOpen ? (
+    <StaffAccessDialog
+      onClose={closeAccess}
+      onSignedIn={onStaffSignedIn}
+      onSignOut={() => setStaffMe(null)}
+      initialStatus={pendingStatus}
+      initialEmail={pendingStatus ? staffMe.email || "" : ""}
     />
   ) : null;
 
   return (
-    <ErrorBoundary>
+    <ErrorBoundary resetKey={`${location.pathname}${location.hash}`}>
       <div className={onWelcomeRoute ? "aym" : "aym aym-ui"} style={{ minHeight: "100vh" }}>
         {!onWelcomeRoute && (
           <a className="aym-skip" href="#main">Skip to content</a>
@@ -4664,11 +5055,16 @@ export default function App() {
             tab={tab}
             onGoTab={requestGoTab}
             staff={staff}
-            onStaffClick={() => { if (staff) lockAndPublic(); else setPinPrompt(true); }}
+            staffBadge={staff && staffMe && staffMe.role === "admin" ? staffMe.pendingCount || 0 : 0}
+            onStaffClick={() => { if (staff) goTab("staff"); else openAccess(); }}
             brandToIntro={() => goTab("intro")}
             onOpenWelcome={openWelcome}
+            profile={delegateProfile}
+            staffMe={staffMe}
           />
         )}
+
+        {staff && !onWelcomeRoute && <StaffIdentityBar me={staffMe} onSignOut={lockAndPublic} />}
 
         {staff && (tab === "curate" || tab === "insights" || tab === "pack") && (
           <div className="aym-staff-tip" role="status">
@@ -4677,20 +5073,32 @@ export default function App() {
           </div>
         )}
 
+        {staff && deskError && !loading && (tab === "curate" || tab === "insights" || tab === "pack" || tab === "staff") && (
+          <div className="aym-staff-tip aym-staff-tip--error" role="alert">
+            <AlertCircle size={15} aria-hidden="true" />
+            <span>The live desk did not load: {deskError} Nothing was lost — press Retry.</span>
+            <button type="button" className="aym-btn aym-btn-sm aym-btn-ghost" onClick={() => reload(true)}>
+              <RefreshCw size={13} aria-hidden="true" /> Retry
+            </button>
+          </div>
+        )}
+
         {visitGuide && (
           <FirstVisitGuide guideId={visitGuide} onContinue={finishVisitGuide} />
         )}
 
-        {pinModal}
+        {accessModal}
 
         <Suspense fallback={<PageSkeleton label="Loading content..." />}>
           <Routes>
             <Route path="/welcome" element={<WelcomePage />} />
             <Route path="/" element={
-              !staff && !hasSeenWelcome() && (!location.hash || location.hash === "#intro") ? (
+              shouldShowWelcome({ pathname: location.pathname, hash: location.hash, staff }) ? (
                 <Navigate to="/welcome" replace />
               ) : tab === "intro" && (!location.hash || location.hash === "#intro") ? (
                 <HomePage onGoTab={requestGoTab} />
+              ) : tab === "account" ? (
+                <Navigate to="/account" replace />
               ) : fullBleed ? (
                 <HallView
                   staff={staff}
@@ -4704,20 +5112,20 @@ export default function App() {
                     <div className="aym-page-head">
                       <div className="aym-eyebrow">Open theme stage</div>
                       <h1 className="aym-display">The two-chair conversation</h1>
-                      <p>Published mentor answers — the record the Congress leaves for every BAMS mentee, whether or not they reached Bhubaneswar.</p>
+                      <p>Published mentor answers — the record the Congress leaves for every mentee, whether or not they reached Bhubaneswar.</p>
                     </div>
                   )}
 
-                  {loading && tab !== "track" && tab !== "ask" && tab !== "register" && tab !== "pods" && tab !== "mentors" && tab !== "exchange" && tab !== "podcast" && tab !== "hall" && tab !== "staff" ? (
-                    <PageSkeleton label="Loading the question bank" />
+                  {loading && tab !== "track" && tab !== "ask" && tab !== "register" && tab !== "pods" && tab !== "mentors" && tab !== "exchange" && tab !== "podcast" && tab !== "hall" && tab !== "staff" && tab !== "ai" ? (
+                    <PageSkeleton label={progress || "Loading the question bank"} />
                   ) : (
                     <>
                       {tab === "register" && (
-                        <RegisterView profile={profile} onRegistered={onRegistered} onSignOut={signOutDelegate} onGoAsk={() => goAsk(null)} />
+                        <RegisterView profile={delegateProfile} onRegistered={onRegistered} onSignOut={signOutDelegate} onGoAsk={() => goAsk(null)} onViewProfile={() => goTab("account")} />
                       )}
                       {tab === "ask" && (
-                        <AskView preset={askPreset} profile={profile} onGoRegister={() => goTab("register")}
-                          onSaved={onAskSaved} />
+                        <AskView preset={askPreset} profile={delegateProfile} onGoRegister={goRegisterFromAsk}
+                          onSaved={onAskSaved} onProfile={onProfileUpdate} />
                       )}
                       {tab === "pods" && <PodsView onEnterAsk={goAsk} />}
                       {tab === "mentors" && (
@@ -4744,41 +5152,47 @@ export default function App() {
                                   <span>Back to Staff Portal</span>
                                 </button>
                                 <span style={{ color: "var(--muted)" }}>/</span>
-                                <span style={{ fontWeight: 600, color: "var(--forest)", fontSize: 14 }}>Open Theme Stage</span>
+                                <span style={{ fontWeight: 600, color: "var(--forest)", fontSize: 14 }}>Open theme stage</span>
                               </div>
                               <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                                 <button type="button" className="aym-btn aym-btn-sm aym-btn-ghost" onClick={() => goTab("curate")}>Curation Desk</button>
                                 <button type="button" className="aym-btn aym-btn-sm aym-btn-primary" onClick={() => goTab("board")}>Theme Stage</button>
                                 <button type="button" className="aym-btn aym-btn-sm aym-btn-ghost" onClick={() => goTab("insights")}>Insights</button>
                                 <button type="button" className="aym-btn aym-btn-sm aym-btn-ghost" onClick={() => goTab("pack")}>Mentor Pack</button>
+                                <button type="button" className="aym-btn aym-btn-sm aym-btn-ghost" onClick={() => goTab("ai")}>{DISHA_DRAFTS}</button>
                               </div>
                             </div>
                           )}
-                          <BoardView clusters={clusters} />
+                          <ErrorBoundary compact name="Theme Stage" resetKey={tab}>
+                            <BoardView clusters={clusters} />
+                          </ErrorBoundary>
                         </>
                       )}
 
                       {tab === "staff" && (
                         staff ? (
-                          <StaffWorkspace
-                            onGoTab={goTab}
-                            onLogout={lockAndPublic}
-                            questionsCount={subs.length}
-                            clustersCount={clusters.length}
-                          />
+                          <ErrorBoundary compact name="Staff Workspace" resetKey={tab}>
+                            <StaffWorkspace
+                              onGoTab={goTab}
+                              onLogout={lockAndPublic}
+                              questionsCount={subs.length}
+                              clustersCount={clusters.length}
+                            />
+                            <StaffAdminPanels me={staffMe} onChange={refreshStaffMe} />
+                          </ErrorBoundary>
                         ) : (
                           <div className="aym-empty-state" style={{ margin: "3rem auto", maxWidth: 540 }}>
                             <div className="aym-empty-icon"><Lock size={32} /></div>
-                            <h2 className="aym-empty-title">Staff Authentication Required</h2>
-                            <p className="aym-empty-message">Please enter the authority staff code to access the staff portal and curation tools.</p>
-                            <button type="button" className="aym-btn aym-btn-primary" onClick={() => setPinPrompt(true)}>
-                              Enter Staff Code
+                            <h1 className="aym-empty-title">Staff access required</h1>
+                            <p className="aym-empty-message">Sign in with the staff passcode and a code sent to your email. New staff need the admin's approval.</p>
+                            <button type="button" className="aym-btn aym-btn-primary" onClick={openAccess}>
+                              Staff access
                             </button>
                           </div>
                         )
                       )}
 
-                      {(tab === "curate" || tab === "insights" || tab === "pack") && (
+                      {(tab === "curate" || tab === "insights" || tab === "pack" || tab === "ai") && (
                         staff ? (
                           <div className="aym-staff-wrapper">
                             <div className="aym-staff-subnav" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, padding: "12px 18px", background: "var(--white)", border: "1px solid var(--line)", borderRadius: "var(--radius-md)", marginBottom: 24, flexWrap: "wrap" }}>
@@ -4789,7 +5203,7 @@ export default function App() {
                                 </button>
                                 <span style={{ color: "var(--muted)" }}>/</span>
                                 <span style={{ fontWeight: 600, color: "var(--forest)", fontSize: 14 }}>
-                                  {tab === "curate" ? "Curation Desk" : tab === "insights" ? "Insights" : "Mentor Pack"}
+                                  {tab === "curate" ? "Curation Desk" : tab === "insights" ? "Insights" : tab === "ai" ? DISHA_DRAFTS : "Mentor Pack"}
                                 </span>
                               </div>
                               <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
@@ -4797,37 +5211,55 @@ export default function App() {
                                 <button type="button" className={`aym-btn aym-btn-sm ${tab === "board" ? "aym-btn-primary" : "aym-btn-ghost"}`} onClick={() => goTab("board")}>Theme Stage</button>
                                 <button type="button" className={`aym-btn aym-btn-sm ${tab === "insights" ? "aym-btn-primary" : "aym-btn-ghost"}`} onClick={() => goTab("insights")}>Insights</button>
                                 <button type="button" className={`aym-btn aym-btn-sm ${tab === "pack" ? "aym-btn-primary" : "aym-btn-ghost"}`} onClick={() => goTab("pack")}>Mentor Pack</button>
+                                <button type="button" className={`aym-btn aym-btn-sm ${tab === "ai" ? "aym-btn-primary" : "aym-btn-ghost"}`} onClick={() => goTab("ai")}>{DISHA_DRAFTS}</button>
                               </div>
                             </div>
 
+                            {tab === "ai" ? (
+                              <ErrorBoundary compact name={DISHA_DRAFTS} resetKey={tab}>
+                                <Suspense fallback={<PageSkeleton label={`Loading ${DISHA_DRAFTS}`} />}>
+                                  <AiReviewDesk />
+                                </Suspense>
+                              </ErrorBoundary>
+                            ) : (
                             <div className="aym-staff-grid">
                               <div style={{ minWidth: 0 }}>
                                 {tab === "curate" && (
-                                  <CurationView subs={subs} clusters={clusters} setClusters={setClusters}
-                                    reload={() => reload(true)} loading={loading} saveClusters={saveClusters}
-                                    flushClusterSave={flushClusterSave} clustersVersion={clustersVersion}
-                                    clusterSaveStatus={clusterSaveStatus}
-                                    onClustersVersion={applyClustersVersion} onClusterConflict={reportClusterConflict} />
+                                  <ErrorBoundary compact name="Curation Desk" resetKey={tab}>
+                                    <CurationView subs={subs} clusters={clusters} setClusters={setClusters}
+                                      reload={() => reload(true)} loading={loading} saveClusters={saveClusters}
+                                      flushClusterSave={flushClusterSave} getClustersVersion={getClustersVersion}
+                                      clusterSaveStatus={clusterSaveStatus}
+                                      onClustersVersion={applyClustersVersion} onClusterConflict={reportClusterConflict}
+                                      onOpenAi={openAiDraft} />
+                                  </ErrorBoundary>
                                 )}
                                 {tab === "insights" && (
-                                  <InsightsView subs={subs} clusters={clusters}
-                                    onSaveQuestion={rec => setSubs(prev => prev.map(s => s.id === rec.id ? rec : s))} />
+                                  <ErrorBoundary compact name="Insights" resetKey={tab}>
+                                    <InsightsView subs={subs} clusters={clusters} delegates={delegates} onOpenAi={openAiDraft}
+                                      onSaveQuestion={rec => setSubs(prev => prev.map(s => s.id === rec.id ? presentAskerRecord(rec) : s))} />
+                                  </ErrorBoundary>
                                 )}
                                 {tab === "pack" && (
-                                  <MentorPackView subs={subs} clusters={clusters} setClusters={setClusters} saveClusters={saveClusters}
-                                    onSaveQuestion={rec => setSubs(prev => prev.map(s => s.id === rec.id ? rec : s))} />
+                                  <ErrorBoundary compact name="Mentor Pack" resetKey={tab}>
+                                    <MentorPackView subs={subs} clusters={clusters} setClusters={setClusters} saveClusters={saveClusters}
+                                      onSaveQuestion={rec => setSubs(prev => prev.map(s => s.id === rec.id ? presentAskerRecord(rec) : s))} />
+                                  </ErrorBoundary>
                                 )}
                               </div>
-                              <DelegatesPanel users={delegates} loading={loading} onRefresh={() => reload(true)} />
+                              <ErrorBoundary compact name="Delegates panel" resetKey={tab}>
+                                <DelegatesPanel users={delegatesReady ? delegates : null} loading={!delegatesReady} onRefresh={() => loadDelegates(true)} />
+                              </ErrorBoundary>
                             </div>
+                            )}
                           </div>
                         ) : (
                           <div className="aym-empty-state" style={{ margin: "3rem auto", maxWidth: 540 }}>
                             <div className="aym-empty-icon"><Lock size={32} /></div>
-                            <h2 className="aym-empty-title">Staff Authentication Required</h2>
-                            <p className="aym-empty-message">Please enter the authority staff code to access this curation view.</p>
-                            <button type="button" className="aym-btn aym-btn-primary" onClick={() => setPinPrompt(true)}>
-                              Enter Staff Code
+                            <h1 className="aym-empty-title">Staff access required</h1>
+                            <p className="aym-empty-message">Sign in with the staff passcode and a code sent to your email to open this view.</p>
+                            <button type="button" className="aym-btn aym-btn-primary" onClick={openAccess}>
+                              Staff access
                             </button>
                           </div>
                         )
@@ -4835,7 +5267,7 @@ export default function App() {
                     </>
                   )}
 
-                  {staff && (tab === "curate" || tab === "pack" || tab === "insights") && (
+                  {import.meta.env.DEV && staff && (tab === "curate" || tab === "pack" || tab === "insights") && (
                     <div style={{ marginTop: 40, paddingTop: 18, borderTop: `1px solid ${C.line}`, display: "flex", gap: 10, flexWrap: "wrap", alignItems: "center" }}>
                       <span className="aym-eyebrow">Demo controls</span>
                       <button type="button" className="aym-btn aym-btn-ghost" disabled={seeding} onClick={async () => {
@@ -4853,8 +5285,24 @@ export default function App() {
               )
             } />
 
+            <Route path="/account" element={
+              <AccountPage
+                profile={delegateProfile}
+                staffMe={staffMe}
+                staff={staff}
+                sessionToken={delegateProfile ? ((loadLocalSession() || {}).token || "") : ""}
+                onGoRegister={() => goTab("register")}
+                onGoStaff={() => goTab("staff")}
+                onStaffAccess={() => { if (staff) goTab("staff"); else openAccess(); }}
+                onSignOutDelegate={signOutDelegate}
+                onSignOutStaff={lockAndPublic}
+                onProfile={onProfileUpdate}
+                apiFn={api}
+              />
+            } />
             <Route path="/ask" element={<Navigate to="/#ask" replace />} />
             <Route path="/about" element={<AboutPageNew />} />
+            <Route path="/how-it-works" element={<HowItWorksPage />} />
             <Route path="/mentors" element={<MentorsPage />} />
             <Route path="/mentors/:slug" element={<MentorDetailPage />} />
             <Route path="/programs" element={<ProgramsPage />} />
@@ -4863,6 +5311,9 @@ export default function App() {
             <Route path="/events/:slug" element={<EventDetailPage />} />
             <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/resources/:slug" element={<ResourceDetailPage />} />
+            <Route path="/answers" element={<AnswerBankPage />} />
+            <Route path="/answer-bank" element={<Navigate to="/answers" replace />} />
+            <Route path="/accessibility" element={<AccessibilityPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/track-answer" element={<Navigate to="/#track" replace />} />
             <Route path="/careers" element={<Navigate to="/programs" replace />} />
@@ -4888,7 +5339,7 @@ export default function App() {
         />
 
         {!onWelcomeRoute && (
-          <SiteFooter onStaff={() => setPinPrompt(true)} />
+          <SiteFooter onStaff={() => { if (staff) goTab("staff"); else openAccess(); }} />
         )}
       </div>
     </ErrorBoundary>
