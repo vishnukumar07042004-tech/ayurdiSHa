@@ -268,3 +268,24 @@ Legend: **EXISTS** / **PARTIAL** / **MISSING**
 3. **Recording consent** before any hall AV exists — store flag only?
 4. **Job Fair** scope for Dec 2026 — separate app vs same host path stub?
 5. Whether **public Answer Bank** may show composites that lack anonymous-publication consent (spec says never without consent).
+
+---
+
+## 11. Post-ship status (16 Nov 2026)
+
+Explore audits of frontend/backend completed after the refine loop and confirm the **pre-ship** gaps in §7. The following were then shipped to production (`https://ayushmarg.vercel.app`, deploy `dpl_6vUMmVjxkkYCX51js4q2tdz5tmgZ`):
+
+| Former P0 / P1 gap | Now |
+|--------------------|-----|
+| Personal-mentor promise in meta/copy | **Shipped** — `META_DESCRIPTION` / Ask / HIW / Home copy |
+| Four unticked consents | **Shipped** — Ask checkboxes; no hardcoded publish Yes |
+| T1–T9 tracks (+ legacy map) | **Shipped** — `shared/tracks.js`; dual-write `track`/`trackCode` |
+| Key dates + intake-closed UX | **Shipped** — `shared/productConfig.js`; Ask + server gate |
+| Ask rate limit + safety flags | **Shipped** — IP/user limiters; `safetyFlags` on submit |
+| Autosave draft | **Shipped** — `localStorage` ask draft |
+| HIW 7-step Ask→Act | **Shipped** — `/how-it-works` |
+| Public answer bank page | **Shipped** — `/answers` (approved slice) |
+| Accessibility page | **Shipped** — `/accessibility` |
+| Job Fair separation | **Stub only** — `docs/JOB-FAIR.md` |
+
+**Still open (unchanged):** full live-slot ladder / 80–20 / institution caps; curator vs coordinator roles; student Action Card image/PDF/WhatsApp; mentor directory filter by T1–T9; destructive 90-day PII erase (needs decision § above).
