@@ -18,6 +18,30 @@
       ]
     },
     {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
+      ]
+    },
+    {
+      "source": "/mentors/(.*)\\.(png|jpg|jpeg|webp|avif|svg)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
+      ]
+    },
+    {
+      "source": "/(favicon\\.svg|og-image\\.png)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
+      ]
+    },
+    {
+      "source": "/assets/app/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
       "source": "/sitemap.xml",
       "headers": [
         { "key": "Content-Type", "value": "application/xml; charset=utf-8" },
@@ -33,13 +57,20 @@
   ],
   "functions": {
     "api/aym-store.js": {
-      "includeFiles": "data/store.json",
-      "maxDuration": 30
+      "includeFiles": "{data/store.json,data/kb/chunks.jsonl,data/golden/**,data/faculty/*.json,config/ai-sources.json,server/ai/personas/**}",
+      "maxDuration": 60
     },
     "api/knowledge-chat.js": {
       "maxDuration": 60
+    },
+    "api/ai-worker.js": {
+      "includeFiles": "{data/kb/chunks.jsonl,data/golden/**,data/faculty/*.json,config/ai-sources.json,server/ai/personas/**}",
+      "maxDuration": 60
     }
   },
+  "crons": [
+    { "path": "/api/ai-worker", "schedule": "30 2 * * *" }
+  ],
   "rewrites": [
     { "source": "/robots.txt", "destination": "/robots.txt" },
     { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
@@ -47,9 +78,12 @@
     { "source": "/mentors", "destination": "/index.html" },
     { "source": "/mentors/:id", "destination": "/index.html" },
     { "source": "/about", "destination": "/index.html" },
+    { "source": "/how-it-works", "destination": "/index.html" },
+    { "source": "/answers", "destination": "/index.html" },
+    { "source": "/accessibility", "destination": "/index.html" },
     { "source": "/privacy", "destination": "/index.html" },
     { "source": "/terms", "destination": "/index.html" },
     { "source": "/disclaimer", "destination": "/index.html" },
-    { "source": "/((?!api/|robots\\.txt|sitemap\\.xml|favicon\\.svg).*)", "destination": "/index.html" }
+    { "source": "/((?!api/|assets/|robots\\.txt|sitemap\\.xml|favicon\\.svg).*)", "destination": "/index.html" }
   ]
 }

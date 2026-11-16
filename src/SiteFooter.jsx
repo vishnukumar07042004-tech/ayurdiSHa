@@ -2,11 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, ShieldAlert } from "lucide-react";
 import { WAC, PLACEHOLDERS } from "./content/site.js";
-import { HOME_SECTIONS } from "./AppHeader.jsx";
 import { Watermark } from "./components/editorial/Ornaments.jsx";
+import AskDeskFab from "./components/AskDeskFab.jsx";
 
 export default function SiteFooter({ onStaff, variant = "app" }) {
   return (
+    <>
+    <AskDeskFab />
     <footer className={`ed-footer ui-footer${variant === "land" ? " ed-footer--land" : ""}`}>
       <Watermark className="ed-footer-watermark" />
       <div className="ui-footer-inner">
@@ -17,8 +19,8 @@ export default function SiteFooter({ onStaff, variant = "app" }) {
           </div>
           <p className="ui-footer-desc">
             The official digital “Meet the Mentors” hall of the 11th World Ayurveda Congress,
-            Bhubaneswar 2026. A structured career guidance platform for BAMS students,
-            interns, and postgraduates.
+            Bhubaneswar 2026. Structured career guidance for Ayurveda students, interns,
+            PG scholars and practitioners.
           </p>
         </div>
 
@@ -34,7 +36,9 @@ export default function SiteFooter({ onStaff, variant = "app" }) {
               <li><Link to="/#register">Register</Link></li>
               <li><Link to="/#ask">Ask Desk</Link></li>
               <li><Link to="/#track">Track my answer</Link></li>
+              <li><Link to="/answers">Answer bank</Link></li>
               <li><Link to="/#board">Open theme stage</Link></li>
+              <li><Link to="/answers">Answer bank</Link></li>
             </ul>
           </nav>
 
@@ -42,20 +46,22 @@ export default function SiteFooter({ onStaff, variant = "app" }) {
             <p className="ui-footer-label">Explore</p>
             <ul>
               <li><Link to="/">Home</Link></li>
+              <li><Link to="/#hall">The Hall</Link></li>
               <li><Link to="/mentors">Mentors</Link></li>
-              <li><Link to="/" state={{ section: HOME_SECTIONS.how }}>How It Works</Link></li>
+              <li><Link to="/how-it-works">How It Works</Link></li>
               <li><Link to="/about">About</Link></li>
-              <li><Link to="/programs">Career Tracks</Link></li>
+              <li><Link to="/programs">Career tracks</Link></li>
             </ul>
           </nav>
 
           <nav className="ui-footer-col" aria-label="Resources">
             <p className="ui-footer-label">Resources</p>
             <ul>
-              <li><Link to="/resources">Important Guides</Link></li>
+              <li><Link to="/resources">Guides</Link></li>
               <li><Link to="/resources#faq-title">FAQs</Link></li>
-              <li><Link to="/events">Congress Events</Link></li>
-              <li><Link to="/contact">Help &amp; Support</Link></li>
+              <li><Link to="/accessibility">Accessibility</Link></li>
+              <li><Link to="/events">Congress events</Link></li>
+              <li><Link to="/contact">Help &amp; support</Link></li>
             </ul>
           </nav>
 
@@ -86,7 +92,7 @@ export default function SiteFooter({ onStaff, variant = "app" }) {
             </ul>
             {onStaff && (
               <button type="button" className="ui-footer-staff" onClick={onStaff}>
-                Staff Portal Login
+                Staff access
               </button>
             )}
           </div>
@@ -96,11 +102,14 @@ export default function SiteFooter({ onStaff, variant = "app" }) {
           <p>© 2026 AYURDISHA · Supported by the World Ayurveda Foundation. All rights reserved.</p>
           <ul>
             <li><Link to="/privacy">Privacy</Link></li>
+            <li><Link to="/accessibility">Accessibility</Link></li>
             <li><Link to="/terms">Terms</Link></li>
-            <li><Link to="/disclaimer">Medical Disclaimer</Link></li>
+            <li><Link to="/disclaimer">Medical disclaimer</Link></li>
+            <li><Link to="/welcome?replay=1">Replay intro</Link></li>
           </ul>
         </div>
       </div>
     </footer>
+    </>
   );
 }
