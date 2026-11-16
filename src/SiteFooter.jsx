@@ -36,7 +36,6 @@ export default function SiteFooter({ onStaff, variant = "app" }) {
               <li><Link to="/#register">Register</Link></li>
               <li><Link to="/#ask">Ask Desk</Link></li>
               <li><Link to="/#track">Track my answer</Link></li>
-              <li><Link to="/answers">Answer bank</Link></li>
               <li><Link to="/#board">Open theme stage</Link></li>
               <li><Link to="/answers">Answer bank</Link></li>
             </ul>

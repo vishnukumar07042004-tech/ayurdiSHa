@@ -191,3 +191,28 @@ DISHA: Hybrid GPT draft + Gemini verify; **never auto-publishes** (`docs/ai/AI-A
 3. P1 as time allows: Answer Bank page, FAQ contact fields, institution-cap stub + tests.  
 4. Small git commits per chunk; **no push** unless asked.  
 5. One `npx vercel --prod --yes` when solid.
+
+---
+
+## 10. Status after this pass (16 Nov 2026)
+
+### P0 done
+- Branding + `META_DESCRIPTION` / `PROMISE_SHORT` via `shared/productConfig.js` (no personal-mentor guarantee)
+- Four unticked consents + never hardcode `consentPublish: "Yes"`
+- Ask polish: char counters, T1–T9 track cards, autosave draft, double-submit guard, PII/patient flag (not block)
+- Intake closed UI + server gate; key dates single config
+- Ask IP/user rate limits; file-store relaxed for QA
+- Ticket/reference confirmation without requiring PII lookup
+
+### P1 done / stubbed
+- `/answers` Answer Bank (approved/public clusters only) + sitemap/footer
+- `/accessibility` page
+- How-it-works seven-step Ask→…→Act
+- `shared/liveSlotRules.js` institution cap / 80–20 / eligibility helpers + admin note (no destructive migration)
+- Focused tests: `tests/product-config.test.mjs`
+
+### Deferred (still Needs decision / P2)
+- Destructive 10→9 theme remap of stored questions
+- Full scheduling ladder / MFA / Sentry / i18n / Playwright suite / Job Fair app
+- 90-day contact erasure job
+- Student shareable Action Card (not staff `ActionCard.jsx`)
