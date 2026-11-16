@@ -3310,6 +3310,8 @@ function InsightsView({ subs, clusters, delegates = [], onSaveQuestion, onOpenAi
     if (ai && (ai.overflow || ai.status === "quotaDeferred" || ai.status === "awaiting_ai" || ai.status === "aiPending")) {
       return "Waiting for AI";
     }
+    // Match Track: a reviewable DISHA draft is on the desk, not still "Received".
+    if (ai && ai.status === "pending") return "Being reviewed";
     return "Received";
   }, [clusters, aiIndex]);
 
@@ -3353,7 +3355,10 @@ function InsightsView({ subs, clusters, delegates = [], onSaveQuestion, onOpenAi
   const peakTrend = Math.max(1, ...trend.map(x => x.n));
 
   const queue = useMemo(() => {
-    return [...subs].reverse().filter(s => statusOf(s) === "Received" || statusOf(s) === "Waiting for AI" || statusOf(s) === "With mentor").slice(0, 8);
+    return [...subs].reverse().filter(s => {
+      const st = statusOf(s);
+      return st === "Received" || st === "Waiting for AI" || st === "Being reviewed" || st === "With mentor";
+    }).slice(0, 8);
   }, [subs, statusOf]);
 
   const podLoad = useMemo(() => {
@@ -3372,7 +3377,10 @@ function InsightsView({ subs, clusters, delegates = [], onSaveQuestion, onOpenAi
 
   const exchangeN = afterMix.filter(b => ["startup", "industry", "global"].includes(b.id)).reduce((n, b) => n + b.n, 0);
   const podcastN = subs.filter(s => s.theme === "Brand Building & Communication").length;
-  const deskN = subs.filter(s => statusOf(s) === "Received" || statusOf(s) === "Waiting for AI").length;
+  const deskN = subs.filter(s => {
+    const st = statusOf(s);
+    return st === "Received" || st === "Waiting for AI" || st === "Being reviewed";
+  }).length;
   const stageN = stats.published;
 
   const shown = useMemo(() => {
@@ -3505,7 +3513,7 @@ function InsightsView({ subs, clusters, delegates = [], onSaveQuestion, onOpenAi
           {(() => {
             const later = [...subs].reverse().filter(s => {
               const st = statusOf(s);
-              return st === "Received" || st === "Waiting for AI" || st === "With mentor";
+              return st === "Received" || st === "Waiting for AI" || st === "Being reviewed" || st === "With mentor";
             }).slice(0, 16);
             if (!later.length) return <div className="aym-card" style={{ padding: 20, color: C.muted }}>No unanswered questions.</div>;
             return later.map(s => {
@@ -3660,7 +3668,7 @@ function InsightsView({ subs, clusters, delegates = [], onSaveQuestion, onOpenAi
                       <td className="aym-mono" style={{ whiteSpace: "nowrap", fontWeight: 700, color: C.oak }}>{s.ticket}</td>
                       <td style={{ maxWidth: 160 }}>{s.theme}{s.subtheme ? <div style={{ color: "rgba(243,235,225,.5)", fontSize: 12 }}>{s.subtheme}</div> : null}</td>
                       <td style={{ minWidth: 220 }}>{s.question}</td>
-                      <td><Chip tone={statusOf(s) === "Published" || statusOf(s) === "Both answers" || statusOf(s) === "Answered" ? "green" : statusOf(s) === "Waiting for AI" || statusOf(s) === "Received" ? "maroon" : "grey"}>{statusOf(s)}</Chip></td>
+                      <td><Chip tone={statusOf(s) === "Published" || statusOf(s) === "Both answers" || statusOf(s) === "Answered" ? "green" : statusOf(s) === "Waiting for AI" || statusOf(s) === "Received" ? "maroon" : statusOf(s) === "Being reviewed" ? "gold" : "grey"}>{statusOf(s)}</Chip></td>
                       <td>{s.stage}<div style={{ color: "rgba(243,235,225,.5)", fontSize: 12 }}>{s.state}</div></td>
                       {showContacts
                         ? <td>{displayAskerName(s)}<div style={{ color: "rgba(243,235,225,.5)", fontSize: 12 }}>{displayAskerEmail(s)}</div>
