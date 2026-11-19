@@ -5,7 +5,7 @@
 **Live:** https://ayushmarg.vercel.app (Vercel `bom1`, Hobby)  
 **Stack:** Vite + React SPA; `/api/aym-store`, `/api/ai-worker`; Firestore Admin SDK (Spark); DISHA = GPT draft + Gemini verify (staff pilot).
 
-**Method:** Docs (`AUDIT.md`, `AI-ANSWER-PIPELINE.md`, `STAFF-ACCESS-SPEC.md`, `STAFF-REVIEW-LINK.md`, `DATA-STORAGE.md`, `LOAD-READINESS.md`, `BACKUPS.md`) + code in `server/`, `shared/`, `api/`, `vercel.json`, `src/`.
+**Method:** Docs (`AUDIT.md`, `AI-ANSWER-PIPELINE.md`, `STAFF-ACCESS-SPEC.md`, `STAFF-REVIEW-LINK.md`, `DATA-STORAGE.md`, `LOAD-READINESS.md`, `BACKUPS.md`) + code in `server/`, `shared/`, `api/`, `vercel.json`, `src/`. Deep-dive supplements: [Audit auth and ops matrix](07f033e6-84e7-42a8-bbec-c4b020624474), [Audit quota and public abuse](954745af-c3ca-42d6-bfc2-cec7ebb7adcc). (AI-pipeline deep-dive agent was blocked by provider policy; B-section relies on direct code review.)
 
 **Legend:** **Confirmed** = gap exists in code/docs · **Not an issue** = already adequate for free-plan Congress · **Needs decision** = blocked on owner choice.
 
@@ -29,7 +29,7 @@
 
 ## Executive summary
 
-The app already has strong foundations: Firestore deny-all client rules, staff passcode+OTP+roles (admin/co-admin/review), AI never auto-publishes, PII redaction before model calls, paged staff data ops, spend-cap checks, daily cron. Congress-week risk on the **free plan** is dominated by **Firestore read hotspots**, **weak ticket entropy**, **hard-coded intake close**, **service token = full admin**, **no step-up OTP**, and **role model too coarse** for publication approval.
+The app already has strong foundations: Firestore deny-all client rules, staff passcode+OTP+roles (admin/co-admin/review), AI never auto-publishes, PII redaction before model calls, paged staff data ops, spend-cap checks, daily cron. Congress-week risk on the **free plan** is dominated by **Firestore write exhaustion on ~2,000 registrations alone (~16–20k writes → Spark 20k/day)**, **weak ticket entropy + no Track lookup rate limit**, **hard-coded intake close**, **service token = full admin**, **no step-up OTP**, and **role model too coarse** for publication approval. Docs (`LOAD-READINESS.md`) already call for **Blaze** before open — **Needs decision** vs staying on Spark with lite mode.
 
 **Do not start Phase A until this audit is approved.**
 
@@ -41,17 +41,17 @@ The app already has strong foundations: Firestore deny-all client rules, staff p
 
 | ID | Item | Status | Notes |
 |----|------|--------|-------|
-| A1 | Quota safety (no full lists, cache, meter, lite mode) | **Confirmed** (partial) | Paged ops exist (`staffQuestionsPage` default 250 — still high). `staffSnapshot` + `listQuestions()` remain hot paths. Insights cache ~4s instance only. No staff Quota meter / lite mode. |
-| A2 | `STAFF_SERVICE_TOKEN` scoped + rotate | **Confirmed** | Accepts as **full admin** via Bearer (`staffAuth.js` ~638–639). Length ≥32, SHA-256 + timing-safe compare. Not scoped, not IP-restricted, not rate-limited separately, use not specially audited as service. **Rotate now** after Phase A ships. |
-| A3 | `ADMIN_PIN` ≥12 fail-closed | **Confirmed** | `passcodeConfigured()` only requires length ≥4 (`staffAuth.js` 129–131). Weak pin warned (`weakPasscode`) but still works. Lockout/backoff per IP+email exists. |
-| A4 | Step-up OTP + trusted device 7–14d | **Confirmed** | Spec explicitly: “Not enabled: re-asking passcode for admin-only destructive actions.” Trusted devices roll up to **180d** cookie / **90d** idle — longer than 7–14d. Sign-out-all invalidates server-side (good). |
-| A5 | Fine-grained roles + deny-by-default matrix test | **Confirmed** | Roles today: `admin` \| `co-admin` \| `service` \| `review` (read-only). Missing: curator, appointment coordinator, mentor, **publication approver**. `ADMIN_ONLY_OPS` + `STAFF_ONLY_OPS` exist but many ops fall through without an explicit allow-list test. |
-| A6 | Review links + refused redeem alert | **Partial / Confirmed** | Single-use hashed token, TTL, cookie exchange, audited `review.redeem` (success + `bad_token`). Investigate 17 Nov 18:23 refused redeem in audit export (staging/prod). No alert on refused redeems. Confirm `history.replaceState` in UI. |
-| A7 | Crawling / security headers | **Partial** | CSP, X-Frame-Options, Referrer-Policy, Permissions-Policy in `vercel.json`. **No HSTS.** `robots.txt` Disallows `/api/` but **not** `/staff*`, `/account`. No `X-Robots-Tag` / staff noindex. |
-| A8 | Public abuse (Turnstile, shared RL) | **Confirmed** | OTP limits strong; ask IP/user limiters exist (post-audit). **No Turnstile/CAPTCHA.** Limits are mostly in-memory/per-instance → weak under multi-instance. |
-| A9 | Track ticket = bearer secret | **Confirmed** | Ticket = `AYM-Q-` + time slice + `Math.random` 3 chars (`App.jsx` 629–630) — **well under 40 bits crypto entropy**; predictable time component. Lookup is public by ticket. |
-| A10 | PII mask; remove Age/Sex; no delegate phones | **Confirmed** | Registration still requires **age** + **sex** (`register.js` 71–78, 365–398). Delegate cards expose age/sex (`staffData.js` 60–67). WAC panel shows phone columns. Masking exists but not default-everywhere. Exports need super-admin + reveal audit. |
-| A11 | Delegate import + verify tool + relink | **Partial** | Import is admin-only. Need step-up, diff preview hardening, formula injection audit, late “Verify/Add delegate”, keep link-conflict flow. |
+| A1 | Quota safety (no full lists, cache, meter, lite mode) | **Confirmed** (partial) | Public paths OK (no list-all; CDN `publicClusters`/`publicStats`). Staff desk **paged** (default **250** — still high). Legacy `staffSnapshot` fallback remains. No Quota meter / lite mode. **~2k regs alone can exhaust Spark writes.** |
+| A2 | `STAFF_SERVICE_TOKEN` scoped + rotate | **Confirmed** / **Needs decision** | One acceptance path in `resolveStaff` (aym-store + ai-worker staff path). Length ≥32, SHA-256 + timing-safe compare. **Full admin**, not scoped/rate-limited/IP-bound; reads not audited. **Rotate after scoping.** |
+| A3 | `ADMIN_PIN` ≥12 fail-closed | **Confirmed** / **Needs decision** | Effective min **≥4**; weak banner if &lt;12. Lockout 5 fails / 15 min; OTP 6 digits, 10 min, ≤5 tries. |
+| A4 | Step-up OTP + trusted device 7–14d | **Confirmed** / **Needs decision** | Spec: step-up **not enabled**. Trusted idle **90 days** (not 7–14). Sign-out-all + epoch bump on revoke = server-side OK. |
+| A5 | Fine-grained roles + deny-by-default matrix test | **Confirmed** | Only admin / co-admin / review / service. Missing curator, coordinator, mentor, **publication approver**. Opt-in staff sets — new handler can forget the set. |
+| A6 | Review links + refused redeem alert | **Not an issue** (alerts open) | Single-use, hashed, TTL, read-only, cookie exchange; URL cleared via `navigate(..., { replace: true })`. Refused redeems audited (`ok: false` + reason). **No automated alert.** Live 17 Nov entry = store lookup later. |
+| A7 | Crawling / security headers | **Partial** | CSP / XFO / Referrer / Permissions in `vercel.json`. **No HSTS** in app config. Staff/account meta `noindex` in UI; `robots.txt` missing `/staff*` `/account` Disallow. |
+| A8 | Public abuse (Turnstile, shared RL) | **Confirmed** | **No CAPTCHA.** OTP email limits shared in Firestore; OTP/ask IP limits mostly **in-memory** (multi-instance weak). |
+| A9 | Track ticket = bearer secret | **Confirmed** | Weak entropy (`App.jsx` 629–630). Lookup returns no name/email (**OK**) but **no rate limit** on `lookup`. |
+| A10 | PII mask; remove Age/Sex; no delegate phones | **Confirmed** | Age/sex required at register; on staff cards. Insights can hide contacts; **Mentor Pack Excel always exports Name/Email**. Phones from WAC often masked in API. |
+| A11 | Delegate import + verify tool + relink | **Needs decision** | Admin-only, ≤2000 rows, schema-validated, audited. **No** step-up, WAC diff preview, Verify/Add tool, or formula-injection hardening found. Link-conflict 409 exists. |
 
 ### Phase B — AI
 
@@ -70,11 +70,11 @@ The app already has strong foundations: Firestore deny-all client rules, staff p
 
 | ID | Item | Status |
 |----|------|--------|
-| C1 | CI + Playwright all routes + ShieldCheck fix | **Partial** — unit tests strong; full route smoke + error monitoring incomplete. Confirm ShieldCheck deploy. |
+| C1 | CI + Playwright all routes + ShieldCheck fix | **Confirmed** gap — **no** `.github/workflows`; local `npm test` only. Full route smoke incomplete. |
 | C2 | Four consents + retention erase | **Partial** — four consents shipped earlier; retention job exists but **does not** hard-delete questions/delegates without decision. |
 | C3 | Privacy config (owner/approver/contact TBC) | **Confirmed** — placeholders needed; region + DPDP/GDPR notice. |
 | C4 | Encrypted nightly backup (GHA) | **Confirmed** — docs exist; automated encrypted export not production-proven on free plan. |
-| C5 | Mentor Pack Excel + podcast URL allow-list | **Confirmed** — blank render / formula injection / PII strip / CSP frame-src already partial. |
+| C5 | Mentor Pack Excel + podcast URL allow-list | **Confirmed** — workbook always includes Name/Email today (`shared/mentorWorkbook.js`); need PII-off default + formula-injection prefix. |
 | C6 | System health panel | **Confirmed** — missing unified panel. |
 | C7 | Email deliverability | **Needs decision** — confirm provider free-tier + SPF/DKIM/DMARC. |
 
@@ -136,42 +136,54 @@ Effort: **S** ≤0.5d · **M** 1–3d · **L** ≥1w.
 
 ## Op-by-op auth matrix (current)
 
-Gates today: **Pub** = unauthenticated · **Sess** = delegate session · **Staff** = approved admin/co-admin cookie · **Admin** = admin or service token · **Rev** = review-only cookie · **Svc** = Bearer `STAFF_SERVICE_TOKEN` (acts as Admin).  
-**Step-up:** none implemented.  
-**Audit:** subset via `AUDITED_OPS` / staff decisions / review.redeem / exports.
+Gates: **Pub** · **Sess** (delegate) · **Staff** (admin/co-admin) · **Admin** (admin or service Bearer) · **Rev** (review-only).  
+**Step-up:** none. **Service token ≡ admin.** Unknown op → 400.
 
-| Op | Gate | Step-up | Audited | Notes |
-|----|------|---------|---------|-------|
-| `ping`, `whoami`, `staffMe`, `publicStats`, `visitSource` | Pub | — | no | |
-| `lookup` | Pub (ticket) / Sess (email) | — | no | Ticket is secret — strengthen |
-| `get` clusters public slice | Pub | — | no | Published only |
-| `podcastsList`, `wacResultsGet` | Pub | — | no | Results if published |
-| `regStart/Resend/Verify/Me/Recover`, WAC sign-in | Pub/Sess | — | partial | OTP limited |
-| `set` new `aym:q:*` | Sess | — | no | Ask submit |
-| `accountGet`, `accountWacShare` | Sess | — | no | |
-| `staffStart`, `staffVerify` | Pub | — | yes (fail paths) | Passcode+OTP |
-| `logout` / `staffLogout` | Staff/Rev | — | yes | |
-| `staffSessions`, `staffSessionRevoke` | Staff | — | yes | Co-admin: self only |
-| `staffSessionRevokeAll` | Staff/Admin rules | — | yes | |
-| `staffRequests`, `staffDecide`, `staffAudit` | Admin | — | yes | |
-| `staffRetentionGet/Set`, `staffCleanup` | Admin | — | yes | Need step-up |
-| `staffReviewInviteCreate` | Admin | — | yes | Need step-up |
-| `staffReviewInviteRedeem` | Pub (token) | — | yes | success + refused |
-| `staffAuditExport` | Staff | — | yes | |
-| `staffCounts/Clusters/QuestionsPage/DelegatesPage` | Staff/Rev | — | no | Prefer these over snapshot |
-| `staffSnapshot` | Staff | — | no | **Hotspot — deprecate** |
-| `list`, `stats`, `get` (full) | Staff | — | no | |
-| `answerIndividual`, `clustersSave/Merge` | Staff | — | partial | |
-| `aiQueue`, `aiIndex`, `aiStats`, `aiConfigGet`, `aiRunNow`, `aiProviderTest`, `aiRetry*` | Staff | — | no | |
-| `aiApprove/EditApprove/Reject/SendToMentor/Regenerate`, `aiRefile`, `aiAskRephrase` | Staff | — | partial | Need publication approver for bank |
-| `aiConfigSet`, `aiBackfill`, `aiCompareBackfill` | Admin | — | partial | Need step-up |
-| `wacDelegatesImport/Clear`, `wacAutoLinkAll` | Admin | — | yes | Need step-up + diff |
-| `wacDelegatesStats`, results save/publish/mail | Staff/Admin mix | — | partial | |
-| `faculty*` | Staff; import Admin | — | partial | |
-| `del`, `testProbe*` | Admin | — | yes | |
-| `/api/ai-worker` | `CRON_SECRET` or staff kick | — | no | |
+### Public / delegate / auth
 
-**Gap:** No single deny-by-default table tested in CI. Ops not in `STAFF_ONLY_OPS` / `ADMIN_ONLY_OPS` can be mishandled. **P1:** generate matrix from code + fail test if op lacks explicit rule.
+| Op | Gate | Audited | Notes |
+|----|------|---------|-------|
+| `ping`, `whoami`, `staffMe`, `publicStats`, `visitSource`, `podcastsList` | Pub | no | |
+| `lookup` | Pub ticket; email needs Sess match or Staff | no | No RL; empty hits if unauthorized |
+| `get` | Pub for config + published clusters; else Staff/Rev | no | |
+| `wacResultsGet` | Pub (filtered if non-staff) | no | |
+| `set` new `aym:q:*` | Sess + intake + RL | no | |
+| `reg*`, `account*`, `wacConfig/Start/Verify/Me/Confirm` | Pub/Sess | no | OTP / WAC limits |
+| `login` | Pub | no | **410** |
+| `staffStart`, `staffVerify` | Pub | yes | passcode + OTP |
+| `staffReviewRedeem` | Pub | yes | success + refused |
+| `logout` / `staffLogout` | anyone | yes | |
+
+### Staff (co-admin+); review read-only where noted
+
+| Op | Gate | Audited | Notes |
+|----|------|---------|-------|
+| `staffCounts/Clusters/QuestionsPage/DelegatesPage`, `staffSnapshot`, `regUsers`, `list`, `stats`, `visitSourcesGet`, `mailHealth` | Staff/Rev | no | **PII** on pages/snapshot |
+| `aiQueue/Index/ConfigGet/Stats/CompareStats` | Staff/Rev | no | |
+| `aiApprove/EditApprove/Reject/SendToMentor/Regenerate`, `aiRefile`, `aiAskRephrase` | Staff | yes | No publication-approver split |
+| `aiRunNow`, `aiRetryFailed/Deferred` | Staff | partial | |
+| `aiProviderTest` | Staff | no | |
+| `answerIndividual`, `clustersSave/Merge`, `podcastsSave` | Staff | yes | |
+| `wacResultsSave/Publish/Mail` | Staff | yes | Co-admin can publish |
+| `wacDelegatesStats`, `facultyStreams/List/Preview/Review/Export/MatchTest` | Staff | partial | |
+| `staffAuditExport`, `staffSessions`, `staffSessionRevoke(_All)` | Staff | yes (revokes) | Co-admin: self devices |
+| `mailRetry` | Staff | yes | |
+| `set` non-Q (clusters etc.) | Staff | yes | Co-admin: Q+clusters only |
+
+### Admin / service only (`ADMIN_ONLY_OPS`)
+
+| Op | Audited | Needs step-up (Phase A) |
+|----|---------|-------------------------|
+| `aiConfigSet`, `aiBackfill`, `aiCompareBackfill` | yes | yes |
+| `wacDelegatesImport/Clear`, `wacAutoLinkAll` | yes | yes (+ diff) |
+| `facultyImport`, `del`, `testProbe*` | yes | yes |
+| `staffRequests`, `staffDecide`, `staffAudit` | decide yes | decide yes |
+| `staffRetentionGet/Set`, `staffCleanup` | set/cleanup yes | yes |
+| `staffReviewInviteCreate` | yes | yes |
+
+**Not routed:** `mailQueue` (defined, unused on this handler).
+
+**Gap:** No CI test that every op has an explicit allow/deny rule. **P1.**
 
 ---
 
@@ -194,7 +206,10 @@ Daily budget (order of magnitude): **50k reads · 20k writes · 20k deletes · 1
 
 ### Load sketch: ~2,000 student-active day
 
-Assume 2,000 Track lookups × 3 retries ≈ 6k reads; 800 asks × 10 reads ≈ 8k; public stats/CDN small; **one** careless staff full snapshot of 3k questions ≈ 3k+ reads; 200 AI drafts × 40 ≈ 8k. **Total easily 25–40k reads** before abuse — **margin thin**. Top 5 hotspots to fix first: (1) `staffSnapshot`/full `listQuestions`, (2) Insights uncached scans, (3) AI backfill listing all questions, (4) delegate full export/UI, (5) multi-instance rate-limit miss → OTP/ask storms.
+**Writes:** ~2,000 registrations × ~8–10 writes ≈ **16–20k writes** → **Spark daily write quota exhausted before asks/staff/OTP/mail.**  
+**Reads:** Track lookups + staff pages (250/page × ~2k Q ≈ ~2k reads per full desk load) + AI drafts + any `lookup` abuse (uncapped). Margin thin even before abuse.
+
+Top 5 hotspots: (1) registration write volume / Spark vs Blaze, (2) staff page size 250 + `staffSnapshot`, (3) uncapped Track `lookup`, (4) AI backfill `listQuestions`, (5) in-memory-only IP rate limits under multi-instance.
 
 ---
 
@@ -222,6 +237,8 @@ Assume 2,000 Track lookups × 3 retries ≈ 6k reads; 800 asks × 10 reads ≈ 8
 7. **KB licensing** OK to keep excerpt+citation model for post-Congress answer bank?
 8. **Email provider** confirmation for free-tier OTP volume during Congress.
 9. **Tracks copy:** confirm public UI should say “10 career tracks” (not T1–T9) everywhere.
+10. **Firestore plan for Congress:** stay Spark + hard lite mode, or upgrade to **Blaze** (docs already recommend Blaze for ~2k-delegate day)?
+11. **CAPTCHA / Turnstile** on Ask + OTP: yes/no for venue NAT shared IPs?
 
 ---
 
