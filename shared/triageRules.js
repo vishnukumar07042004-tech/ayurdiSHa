@@ -539,13 +539,15 @@ function result(category, subtype, confidence, reason, extra = {}) {
 /**
  * Rules-only triage.
  * @param {{question:string, context?:string, theme?:string, subtheme?:string}} input  (redacted on the server)
- * @param {{ medical?: {verdict:string, reasons:string[]} }} [opts]  classify.medicalScreen() result
+ * @param {{ medical?: {verdict:string, reasons:string[]}, scopePolicyVersion?: "v1"|"v2" }} [opts]
+ *   classify.medicalScreen() result; scopePolicyVersion defaults to v2 (welcome-by-default).
  */
 export function rulesTriage(input, opts = {}) {
   const question = String((input && input.question) || "");
   const context = String((input && input.context) || "");
   const theme = String((input && input.theme) || "");
   const subtheme = String((input && input.subtheme) || "");
+  const scopeV1 = String(opts.scopePolicyVersion || "v2").toLowerCase() === "v1";
   const q = norm(question);
   const all = norm(`${question}\n${context}`);
   const lang = detectLanguage(`${question} ${context}`);
@@ -554,7 +556,7 @@ export function rulesTriage(input, opts = {}) {
   const careerWords = new Set(all.match(CAREER_WORDS) || []).size;
   const career = Math.min(3, careerWords) + top.score;
   const signals = { career, careerWords, topTheme: top.key || "", topScore: top.score, second: top.second };
-  const out = (r) => ({ ...r, lang, signals });
+  const out = (r) => ({ ...r, lang, signals, scopePolicyVersion: scopeV1 ? "v1" : "v2" });
 
   // 1. Restricted, in precedence order.
   let hit = anyMatch(SELF_HARM, all);
@@ -602,18 +604,27 @@ export function rulesTriage(input, opts = {}) {
   if (hit) return out(result("RESTRICTED", "LEGAL_FINANCIAL", 0.9, `Asks for specific legal or financial advice ("${hit}")`));
 
   // 2. Off-topic — but genuine skill / coding / app-building asks stay ON_TOPIC.
+  // V2 (welcome-by-default): keyword OFF_TOPIC for sport/films/etc is killed; only empty
+  // chit-chat and pure homework dumps stay hard OFF_TOPIC. Abuse/unsafe already returned above.
   if (CHITCHAT.test(q)) return out(result("OFF_TOPIC", "chit-chat", 0.95, "Greeting or test message with no question"));
   if (HOMEWORK_DUMP.test(all)) {
     const hw = anyMatch([HOMEWORK_DUMP], all) || "homework";
-    return out(result("OFF_TOPIC", "", 0.9, `Not about an Ayurveda / AYUSH career ("${hw}")`));
+    return out(result("OFF_TOPIC", "homework", 0.9, `Homework dump / assignment request ("${hw}")`));
   }
   if (SKILL_LEARNING.test(all)) {
     return out(result("ON_TOPIC", "skill-learning", 0.9, "Professional skill / learning question (apps, coding, digital tools)"));
   }
   const off = anyMatch(OFF_TOPIC, all);
-  if (off && (career <= 1 || (careerWords === 0 && top.score <= 2))) return out(result("OFF_TOPIC", "", career === 0 ? 0.9 : 0.75, `Not about an Ayurveda / AYUSH career ("${off}")`));
+  if (scopeV1) {
+    if (off && (career <= 1 || (careerWords === 0 && top.score <= 2))) {
+      return out(result("OFF_TOPIC", "", career === 0 ? 0.9 : 0.75, `Not about an Ayurveda / AYUSH career ("${off}")`));
+    }
+  } else if (off && career === 0 && top.score === 0) {
+    // Soft label for the desk / LLM router — never a high-confidence scripted decline.
+    return out(result("OFF_TOPIC", "soft", 0.55, `Possibly unrelated ("${off}"); welcome-by-default — draft unless LLM confirms`));
+  }
 
-  // 3. Unfocused.
+  // 3. Unfocused — V2 keeps the label for the desk but confidence stays below RULES_SURE so the LLM router can override; scripted rephrase is off by default.
   const sig = scores.sig;
   const strong = sig ? sig.strong.size : 0;
   const meaningful = (() => { try { return analyzeQuestion(question, "").q.size; } catch { return 0; } })();
@@ -621,22 +632,35 @@ export function rulesTriage(input, opts = {}) {
   const general = GENERAL_CAREER.test(q);
   if (!general) {
     const vague = anyMatch(VAGUE, q);
-    if (vague && strong === 0 && top.score <= 2) return out(result("UNFOCUSED", "", 0.88, `Too broad to answer well ("${vague}")`));
-    if (meaningful <= 2 && asks === 0 && top.score < 3 && (careerWords === 0 || meaningful <= 1)) return out(result("UNFOCUSED", "", 0.86, "Too short to know what is being asked"));
-    if (meaningful <= 3 && strong === 0 && top.score < 2 && careerWords === 0) return out(result("UNFOCUSED", "", 0.8, "Very short with no clear subject"));
+    if (vague && strong === 0 && top.score <= 2) {
+      if (scopeV1) return out(result("UNFOCUSED", "", 0.88, `Too broad to answer well ("${vague}")`));
+      return out(result("UNFOCUSED", "", 0.7, `Broad ask ("${vague}"); draft with clarifying next steps`));
+    }
+    if (meaningful <= 2 && asks === 0 && top.score < 3 && (careerWords === 0 || meaningful <= 1)) {
+      if (scopeV1) return out(result("UNFOCUSED", "", 0.86, "Too short to know what is being asked"));
+      return out(result("UNFOCUSED", "", 0.7, "Short ask; draft with clarifying next steps"));
+    }
+    if (meaningful <= 3 && strong === 0 && top.score < 2 && careerWords === 0) {
+      if (scopeV1) return out(result("UNFOCUSED", "", 0.8, "Very short with no clear subject"));
+      return out(result("UNFOCUSED", "", 0.65, "Short ask with no clear subject; welcome-by-default"));
+    }
   }
 
-  // 4. No career signal at all: probably off-topic, but let the LLM decide.
+  // 4. No career signal: V1 declined; V2 welcomes and lets the LLM router confirm.
   if (career === 0 && !general) {
-    return out(result("OFF_TOPIC", "", off ? 0.85 : 0.55, off ? `Not about an Ayurveda / AYUSH career ("${off}")` : "No Ayurveda / career signal found"));
+    if (scopeV1) {
+      return out(result("OFF_TOPIC", "", off ? 0.85 : 0.55, off ? `Not about an Ayurveda / AYUSH career ("${off}")` : "No Ayurveda / career signal found"));
+    }
+    return out(result("ON_TOPIC", "welcome", 0.6, "Welcome-by-default — no strong career keyword; draft with track as hint"));
   }
 
-  // 5. Wrong area.
+  // 5. Wrong area — track is a hint, not a gate. Still suggest the closer theme for routing.
   const picked = themeByName(theme);
   if (theme === NOT_SURE_THEME || (!picked && theme)) {
     if (top.key && top.score >= 2) {
       return out(result("WRONG_AREA", "not-sure", top.score >= 3 ? 0.85 : 0.7, `Student was not sure; reads as ${themeByCode(top.key).name}`, {
         suggestedTheme: themeByCode(top.key).name, suggestedSubtheme: bestSubFor(top.key, scores.subs),
+        trackHint: true,
       }));
     }
     return out(result("ON_TOPIC", "", 0.6, "Career question; theme not chosen"));
@@ -649,6 +673,7 @@ export function rulesTriage(input, opts = {}) {
       const t = themeByCode(top.key);
       return out(result("WRONG_AREA", "theme", margin >= 3 ? 0.9 : 0.75, `Filed under ${picked.name}, but reads as ${t.name}`, {
         suggestedTheme: t.name, suggestedSubtheme: bestSubFor(top.key, scores.subs),
+        trackHint: true,
       }));
     }
     if (subtheme && picked.subs.includes(subtheme)) {
@@ -657,12 +682,13 @@ export function rulesTriage(input, opts = {}) {
       if (bestSub.key && bestSub.key !== `${picked.code}/${subtheme}` && bestSub.score >= 3 && pickedSub === 0) {
         return out(result("WRONG_AREA", "sub-area", 0.6, `Fits the theme, but the sub-area "${bestSub.key.slice(4)}" is closer than "${subtheme}"`, {
           suggestedTheme: picked.name, suggestedSubtheme: bestSub.key.slice(4),
+          trackHint: true,
         }));
       }
     }
   }
 
-  const anchored = strong > 0 || top.score >= 2 || general;
+  const anchored = strong > 0 || top.score >= 2 || general || SKILL_LEARNING.test(all);
   return out(result("ON_TOPIC", "", anchored ? 0.9 : 0.65, anchored ? "Career question that fits the chosen area" : "Career words present but no clear subject"));
 }
 
@@ -678,7 +704,10 @@ export function askDeskHint(input, opts = {}) {
     if (["EXAM_INTEGRITY", "UNSAFE_ILLEGAL", "PERSONAL_DATA", "LEGAL_FINANCIAL"].includes(r.subtype)) return { kind: "scope", category: r.category, subtype: r.subtype };
     return null;
   }
-  if (r.category === "OFF_TOPIC" && r.confidence >= 0.75) return { kind: "off-topic", category: r.category, example: examples[0] };
+  // Soft OFF_TOPIC (v2 entertainment label) still gets a non-blocking hint; it never blocks send.
+  if (r.category === "OFF_TOPIC" && (r.confidence >= 0.75 || r.subtype === "soft" || r.subtype === "homework" || r.subtype === "chit-chat")) {
+    return { kind: "off-topic", category: r.category, example: examples[0] };
+  }
   if (r.category === "UNFOCUSED") return { kind: "unfocused", category: r.category, example: examples[0] };
   if (r.category === "WRONG_AREA" && r.suggestedTheme && r.confidence >= 0.75) {
     return { kind: "wrong-area", category: r.category, theme: r.suggestedTheme, subtheme: r.suggestedSubtheme, code: (themeByName(r.suggestedTheme) || {}).code || "" };

@@ -25,6 +25,7 @@
 
 import { prepareDraft, composeDraft, envModels, providerDeadline, withDeadline, DRAFT_TIMEOUT_MS, VERIFY_TIMEOUT_MS } from "./draft.js";
 import { getCompareProviders, envValue, HYBRID_DEFAULT_DRAFT_MODEL } from "./runtime.js";
+import { shouldSampleCompare } from "./scopePolicy.js";
 import { normalizeUsage, sumUsage, providerFamily } from "./usage.js";
 import { PROVIDER_LABELS, COMPARE_PROVIDERS, cleanPrimary } from "./config.js";
 import { draftLetter } from "../../shared/draftLetter.js";
@@ -216,13 +217,17 @@ export function compareSkipReason(aiDraft) {
  * Compare-mode settings for a job, or null when compare mode is off.
  * `only` ("hybrid" | "gemini", or "openai" on a legacy record) redrafts one side.
  */
-export async function compareSetup({ cfg = {}, provider, compareProviders, compareOnly } = {}) {
-  const ids = compareOnly ? [compareOnly] : (cfg.compareMode ? (cfg.providers || [...COMPARE_PROVIDERS]) : null);
+export async function compareSetup({ cfg = {}, provider, compareProviders, compareOnly, sampleSeed } = {}) {
+  // Production default: compareMode off. AI_COMPARE_SAMPLE_RATE can still sample a % of jobs for eval.
+  const sampled = !cfg.compareMode && !compareOnly && shouldSampleCompare(sampleSeed ?? Date.now());
+  const ids = compareOnly
+    ? [compareOnly]
+    : ((cfg.compareMode || sampled) ? (cfg.providers || [...COMPARE_PROVIDERS]) : null);
   if (!ids || !ids.length) return null;
   const providers = compareProviders || await getCompareProviders(provider, ids, { hybrid: hybridOptions(cfg) });
   const models = {};
   for (const id of ids) models[id] = compareModels(id, cfg, providers[id]);
-  return { ids, only: compareOnly || "", primary: primaryOf(cfg), providers, models };
+  return { ids, only: compareOnly || "", primary: primaryOf(cfg), providers, models, sampled: Boolean(sampled) };
 }
 
 export const isMedical = a => Boolean(a && a.status === "blocked" && a.blockedReason === "medical");

@@ -87,20 +87,29 @@ export function medicalScreen(question, context = "") {
  * registry's so `ai.streams` flags mean the same thing either way.
  */
 export const FALLBACK_STREAMS = [
-  { id: "pg-entrance", label: "PG entrance (AIAPGET) & choosing an MD/MS branch", themes: ["Academics, Teaching & Higher Education"] },
-  { id: "govt-jobs", label: "Government jobs — AYUSH MO, PSC, UPSC, NAM", themes: ["Policy, Public Health & Global Agencies"] },
+  { id: "pg-entrance", label: "PG entrance (AIAPGET) & choosing an MD/MS branch", themes: ["Academics, Teaching & Higher Education", "Academia & Higher Education"] },
+  { id: "govt-jobs", label: "Government jobs — AYUSH MO, PSC, UPSC, NAM", themes: ["Policy, Public Health & Global Agencies", "Public Health, Policy & Agencies"] },
   { id: "clinical-practice", label: "Clinical practice & clinic set-up", themes: ["Clinical Practice & Integrative Care"] },
   { id: "panchakarma-wellness", label: "Panchakarma, wellness & MVT", themes: ["Medical Value Travel & Wellness"] },
-  { id: "research-phd", label: "Research, PhD & publication", themes: ["Research, Evidence & Publication"] },
-  { id: "teaching-academia", label: "Teaching & academic careers", themes: ["Academics, Teaching & Higher Education"] },
-  { id: "industry-pharma", label: "Industry — manufacturing, QA/QC, GMP", themes: ["Manufacturing, Quality & GMP"] },
-  { id: "entrepreneurship", label: "Start-ups, products & funding", themes: ["Entrepreneurship & Start-ups"] },
+  { id: "research-phd", label: "Research, PhD & publication", themes: ["Research, Evidence & Publication", "Medicinal Plants, Sustainability & Traditional Knowledge"] },
+  { id: "teaching-academia", label: "Teaching & academic careers", themes: ["Academics, Teaching & Higher Education", "Academia & Higher Education"] },
+  { id: "industry-pharma", label: "Industry — manufacturing, QA/QC, GMP", themes: ["Manufacturing, Quality & GMP", "Industry, Manufacturing & Quality"] },
+  { id: "entrepreneurship", label: "Start-ups, products & funding", themes: ["Entrepreneurship & Start-ups", "Tech, AI & Digital Health"] },
   { id: "export-trade", label: "Export & global trade", themes: ["Export & Global Trade"] },
-  { id: "digital-branding", label: "Digital presence & branding", themes: ["Brand Building & Communication"] },
+  { id: "digital-branding", label: "Digital presence & branding", themes: ["Brand Building & Communication", "Tech, AI & Digital Health"] },
   { id: "practice-abroad", label: "Practising abroad", themes: ["Practice Abroad & Practitioner Mobility"] },
-  { id: "public-health-policy", label: "Public health & policy", themes: ["Policy, Public Health & Global Agencies"] },
+  { id: "public-health-policy", label: "Public health & policy", themes: ["Policy, Public Health & Global Agencies", "Public Health, Policy & Agencies"] },
   { id: "internship-early-career", label: "Internship & early-career choices", themes: [] },
 ];
+
+/** Product-track labels → persona theme names (keep in sync with triageRules / personas aliases). */
+const THEME_ALIASES = Object.freeze({
+  "Tech, AI & Digital Health": "Entrepreneurship & Start-ups",
+  "Academia & Higher Education": "Academics, Teaching & Higher Education",
+  "Industry, Manufacturing & Quality": "Manufacturing, Quality & GMP",
+  "Public Health, Policy & Agencies": "Policy, Public Health & Global Agencies",
+  "Medicinal Plants, Sustainability & Traditional Knowledge": "Research, Evidence & Publication",
+});
 
 const GOVT_SUBJECTS = ["psc", "upsc", "medicalofficer", "government", "nam"];
 
@@ -117,14 +126,18 @@ export function refineStream(sig, theme, subtheme, available) {
 export function fallbackStreamFor(theme, subtheme, sig) {
   const refined = refineStream(sig, theme, subtheme, FALLBACK_STREAMS);
   if (refined) return refined;
-  if (theme === "Academics, Teaching & Higher Education") {
+  const aliased = THEME_ALIASES[theme] || theme;
+  // Prefer entrepreneurship for app / coding cues so Tech never falls through to Internship.
+  const text = `${theme} ${subtheme || ""}`;
+  if (/tech|digital|health-?tech|ai\b|app|coding|software/i.test(text)) return "entrepreneurship";
+  if (aliased === "Academics, Teaching & Higher Education" || theme === "Academics, Teaching & Higher Education") {
     if (/phd/i.test(subtheme || "")) return "research-phd";
     if (/PG branch/i.test(subtheme || "")) return "pg-entrance";
     return "teaching-academia";
   }
-  if (theme === "Policy, Public Health & Global Agencies") return /research council/i.test(subtheme || "") ? "research-phd" : "public-health-policy";
-  if (theme === "Clinical Practice & Integrative Care" && /panchakarma/i.test(subtheme || "")) return "panchakarma-wellness";
-  const hit = FALLBACK_STREAMS.find(s => s.themes.includes(theme));
+  if (aliased === "Policy, Public Health & Global Agencies") return /research council/i.test(subtheme || "") ? "research-phd" : "public-health-policy";
+  if (aliased === "Clinical Practice & Integrative Care" && /panchakarma/i.test(subtheme || "")) return "panchakarma-wellness";
+  const hit = FALLBACK_STREAMS.find(s => s.themes.includes(theme) || s.themes.includes(aliased));
   return hit ? hit.id : "internship-early-career";
 }
 
