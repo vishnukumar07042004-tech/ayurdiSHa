@@ -26,12 +26,12 @@ export const EVENTS = [
     date: "11 December 2026",
     isoDate: "2026-12-11",
     time: "09:30 AM – 05:00 PM IST",
-    location: "Meet the Mentors Digital Hall, WAC Convention Centre, Bhubaneswar, Odisha",
+    location: "Meet the Mentors Digital Hall, Janata Maidan, Bhubaneswar, Odisha",
     category: "Congress Session",
     description: "Opening day of AYURDISHA Meet the Mentors at the 11th World Ayurveda Congress. In-person guider visits, Ask Desk ticket routing, and Track T01 (Clinical Practice) & T02 (Academics) mentor discussions.",
     highlights: [
-      "Digital Ask Desk check-in & WAC Registration Number verification",
-      "Keynote orientation on choosing clinical specialties & hospital posts after BAMS",
+      "Digital Ask Desk check-in & WAC Delegate ID verification",
+      "Keynote orientation on choosing clinical specialties & hospital posts after graduation",
       "Interactive Q&A on AIAPGET entrance preparation & PG branch selection",
     ],
     mentorsInvolved: ["m03", "m04", "m06", "m07", "m17"],
@@ -44,7 +44,7 @@ export const EVENTS = [
     date: "12 December 2026",
     isoDate: "2026-12-12",
     time: "09:30 AM – 05:00 PM IST",
-    location: "Meet the Mentors Digital Hall, WAC Convention Centre, Bhubaneswar, Odisha",
+    location: "Meet the Mentors Digital Hall, Janata Maidan, Bhubaneswar, Odisha",
     category: "Workshop & Panel",
     description: "Focus on Track T03 (Research & Evidence), T04 (Entrepreneurship & Start-ups), and T05 (Manufacturing & Quality). Mentors unpack CCRAS grants, ethics approvals, formulation licensing, and D2C brand building.",
     highlights: [
@@ -62,7 +62,7 @@ export const EVENTS = [
     date: "13 December 2026",
     isoDate: "2026-12-13",
     time: "09:30 AM – 04:00 PM IST",
-    location: "Meet the Mentors Digital Hall, WAC Convention Centre, Bhubaneswar, Odisha",
+    location: "Meet the Mentors Digital Hall, Janata Maidan, Bhubaneswar, Odisha",
     category: "Global Policy Forum",
     description: "Concluding day covering Track T07 (Export & Global Trade), T08 (Practice Abroad), T09 (Medical Value Travel), and T10 (Public Health & Policy). Insights into international licensing, WHO GTMC initiatives, and government medical officer posts.",
     highlights: [

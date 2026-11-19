@@ -5,7 +5,7 @@
 import { ASK_EXAMPLES } from "./askPrompts.js";
 import { DISHA_TRACK_NOTE } from "./glossary.js";
 import { WAC } from "./site.js";
-import { KEY_DATES, PROMISE_SHORT, formatKeyDate } from "../../shared/productConfig.js";
+import { KEY_DATES, PROMISE_SHORT, formatKeyDate, intakeStatusLine, DATES_ANNOUNCED_COPY } from "../../shared/productConfig.js";
 
 export const HOW_PATH = "/how-it-works";
 
@@ -33,7 +33,7 @@ export const HOW_STEPS = [
     title: "Ask",
     lead: "File one focused career question at the Ask Desk after you verify your email and receive a pass.",
     do: "Choose a track (T1–T9), write one decision (not a list), and set the four consents — all start unticked.",
-    get: "A ticket (AYM-Q-…) and a receipt email. Intake closes " + formatKeyDate(KEY_DATES.intakeCloses) + ".",
+    get: "A ticket (AYM-Q-…) and a receipt email. " + intakeStatusLine(),
     time: "A few minutes once your email code arrives.",
     action: { label: "Register & ask", tab: "register" },
   },
@@ -189,7 +189,7 @@ export const HOW_PRIVACY = {
     },
     {
       title: "Contact data after Congress",
-      body: `Contact review/delete is planned for about 90 days after Congress (after ${formatKeyDate(KEY_DATES.congressEnd)}). Retention tooling exists; the exact erase policy needs an owner decision before any destructive job runs.`,
+      body: `Contact review/delete is planned for about 90 days after Congress (${KEY_DATES.congressEnd ? `after ${formatKeyDate(KEY_DATES.congressEnd)}` : DATES_ANNOUNCED_COPY}). Retention tooling exists; the exact erase policy needs an owner decision before any destructive job runs.`,
     },
   ],
 };

@@ -226,19 +226,22 @@ Top 5 hotspots: (1) registration write volume / Spark vs Blaze, (2) staff page s
 
 ---
 
-## Decisions needed before Phase 1
+## Owner answers (19 Nov 2026) — Phase A unlocked
 
-1. **Approve this Phase 0 audit** and priority order (recommend P0-1…P0-10 then A2 token rotation).
-2. **Privacy contact** name/email (or confirm leave “to be confirmed”).
-3. **Age/Sex migration:** drop fields going forward only vs backfill anonymise existing `age`/`sex` (destructive needs explicit OK).
-4. **Delegate phones:** strip from import schema only vs purge existing phone fields (OK required).
-5. **Trusted device TTL:** pick 7 vs 14 days.
-6. **Publication Approver** identity (WAC Secretariat emails for `STAFF_*` list or new role env).
-7. **KB licensing** OK to keep excerpt+citation model for post-Congress answer bank?
-8. **Email provider** confirmation for free-tier OTP volume during Congress.
-9. **Tracks copy:** confirm public UI should say “10 career tracks” (not T1–T9) everywhere.
-10. **Firestore plan for Congress:** stay Spark + hard lite mode, or upgrade to **Blaze** (docs already recommend Blaze for ~2k-delegate day)?
-11. **CAPTCHA / Turnstile** on Ask + OTP: yes/no for venue NAT shared IPs?
+| # | Topic | Decision |
+|---|--------|----------|
+| 1 | Phase 0 audit | **Approved** — proceed Phase A |
+| 2 | Privacy contact | **Leave for now** (TBC placeholder) |
+| 3–4 | Age / Sex / phone | **No change** — keep registration + delegate phone behaviour as today |
+| 5 | Trusted-device TTL | **Leave for now** |
+| 6 | Fine-grained roles / Publication Approver | **Leave** — owner will provide roles later |
+| 7 | KB licensing (excerpt + citation) | **Yes for now**; paid/licensed path when funded |
+| 8 | Email / deliverability section | **Leave as earlier** — no change this phase |
+| — | Firestore plan | **Free for now**; **pay-as-you-go (Blaze) when funded** — design `PLAN_MODE=free\|paid`, do not force Blaze yet |
+| — | CAPTCHA | Not decided — defer Turnstile unless needed for a P0 abuse fix |
+
+**Phase A in-scope now:** A1 quota safety (page caps, cache, meter, lite mode), A2 scoped service token (+ rotate reminder), A3 ADMIN_PIN ≥12 fail-closed, A7 headers/robots, A9 ticket entropy + lookup rate limit, P0 dates empty + Janata Maidan venue, A6 refused-redeem alert (lightweight), A11 import hardening **without** dropping phone fields.  
+**Out of scope until owner says:** age/sex/phone, trusted-device TTL, new roles, privacy contact text, email stack rewrite, CAPTCHA, forcing Blaze.
 
 ---
 
@@ -266,6 +269,6 @@ Top 5 hotspots: (1) registration write volume / Spark vs Blaze, (2) staff page s
 
 ## Phase gate
 
-**STOP.** No Phase A implementation until you approve this audit (and answer Decisions 1–9 as needed).
+**Owner decisions (2026-11-19) received — Phase A unlocked.** Keep age/sex/phone; leave privacy contact, trusted-device TTL, roles, email stack; KB OK for now; Firestore free until funded (payg later).
 
-Next after approval: Phase A starting with **P0 quota + ticket entropy + PIN fail-closed + date config empty + venue fix + service-token scope**, then token rotation reminder.
+Next: finish Phase A deploy (token rotation reminder after scoped service token ships).

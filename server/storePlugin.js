@@ -4,7 +4,8 @@ import {
   resolveStaff, staffRefusal, staffStart, staffVerify, staffMe, staffLogout, staffRequests, staffDecide,
   staffAuditList, staffRetentionSet, getRetention, runRetentionCleanup, probeStaffRequest, probeStaffPurge,
   staffSessionsList, staffSessionRevoke, clearStaffCookie,
-  audit, loadPasscode, passcodeConfigured, ADMIN_ONLY_OPS, K_STAFF,
+  staffReviewInviteCreate, staffReviewRedeem, REVIEW_ALLOWED_OPS,
+  audit, loadPasscode, passcodeConfigured, ADMIN_ONLY_OPS, SERVICE_ALLOWED_OPS, K_STAFF,
 } from "./staffAuth.js";
 import { isProbeQuestion } from "../shared/probe.js";
 import { createAymStore, K_Q, K_CLUSTERS, K_CONFIG, K_WAC_RESULTS, K_PODCASTS, ClustersVersionConflictError, WacVersionConflictError } from "./store.js";
@@ -33,6 +34,8 @@ const askLimitsRelaxed = process.env.AYM_STORE === "file" || process.env.AYM_ASK
 const askIpLimiter = makeWindowLimiter({ windowMs: 10 * 60 * 1000, max: askLimitsRelaxed ? 500 : 40 });
 /** Per signed-in pass / email key: tighter anti double-spam. */
 const askUserLimiter = makeWindowLimiter({ windowMs: 10 * 60 * 1000, max: askLimitsRelaxed ? 200 : 8 });
+/** Track ticket lookup: tickets are bearer secrets — throttle guessing. */
+const lookupIpLimiter = makeWindowLimiter({ windowMs: 10 * 60 * 1000, max: askLimitsRelaxed ? 500 : 30 });
 import { WAC_OPS, handleWacOp } from "./wacSignIn.js";
 import { accountGet, accountWacShare } from "./account.js";
 import { FACULTY_OPS, handleFacultyOp } from "./ai/facultyOps.js";
@@ -44,6 +47,7 @@ import { runWorker, WORKER_BUDGET_MS } from "./ai/queue.js";
 import { mailHealth, retryMail, runMailQueue, tickMailQueue, sendOrQueue } from "./mailQueue.js";
 import { aiStoreFor } from "./ai/aiStore.js";
 import { STAFF_DATA_OPS, handleStaffDataOp, invalidateStaffData } from "./staffData.js";
+import { isLiteMode, noteRead, noteWrite, quotaSnapshot } from "./quota.js";
 
 const AI_KICK_HEADER = "x-aym-ai-kick";
 const AI_UNAUTH_MIN_GAP_MS = 60000;
@@ -503,6 +507,28 @@ async function handleOp(req, res, msg, store) {
   const op = msg && msg.op;
   const t0 = Date.now();
   const who = await resolveStaff(req, res, store);
+  // Service bearer: scoped allow-list only (not full interactive admin).
+  if (who.ok && who.via === "service") {
+    if (!SERVICE_ALLOWED_OPS.has(op)) {
+      send(res, 403, { error: "This service token cannot run that operation.", code: "service_scope" });
+      try {
+        await audit(store, req, who, "service.denied", { target: String(op || "").slice(0, 80), ok: false });
+      } catch { /* never block on audit */ }
+      return;
+    }
+    try {
+      await audit(store, req, who, "service.use", { target: String(op || "").slice(0, 80), ok: true });
+    } catch { /* never block on audit */ }
+  }
+  // Review sessions may browse staff read ops; never approve / publish / import / pin / mail / delete.
+  if (who.ok && who.reviewOnly && !REVIEW_ALLOWED_OPS.has(op)) {
+    const staffGated = ADMIN_ONLY_OPS.has(op) || STAFF_ONLY_OPS.has(op);
+    const deskWrite = op === "set" || op === "del" || op === "clustersSave" || op === "clustersMerge" || op === "answerIndividual";
+    if (staffGated || deskWrite) {
+      send(res, 403, { error: "This review session is read-only.", code: "review_only" });
+      return;
+    }
+  }
   if (ADMIN_ONLY_OPS.has(op) || STAFF_ONLY_OPS.has(op)) {
     if (!who.ok) { send(res, 403, staffRefusal(who)); return; }
     if (ADMIN_ONLY_OPS.has(op) && who.role !== "admin") {
@@ -513,7 +539,10 @@ async function handleOp(req, res, msg, store) {
   try {
     await handleOpInner(req, res, msg, store, who);
   } finally {
-    if (!NO_DESK_WRITE_OPS.has(op)) invalidateStaffData();
+    if (!NO_DESK_WRITE_OPS.has(op)) {
+      invalidateStaffData();
+      if (res.statusCode < 400) noteWrite(1);
+    }
     const ms = Date.now() - t0;
     if (ms >= SLOW_OP_MS) console.warn(`[aym-store] slow op=${String(op).slice(0, 40)} ms=${ms} status=${res.statusCode}`);
   }
@@ -558,7 +587,9 @@ async function handleOpInner(req, res, msg, store, who) {
 
   if (op === "whoami" || op === "staffMe") {
     if (staff) tickMailQueue(store);
-    send(res, 200, { ok: true, ...(await staffMe(store, req, res, { ctx: who })), hasPin: passcodeConfigured(), ...backendInfo(store) });
+    const me = await staffMe(store, req, res, { ctx: who });
+    const extra = me.staff ? { quota: quotaSnapshot() } : {};
+    send(res, 200, { ok: true, ...me, hasPin: passcodeConfigured(), ...backendInfo(store), ...extra });
     return;
   }
   if (op === "mailHealth") {
@@ -594,6 +625,16 @@ async function handleOpInner(req, res, msg, store, who) {
   }
   if (op === "staffVerify") {
     const r = await staffVerify(msg, store, req, res);
+    send(res, r.code, r.body);
+    return;
+  }
+  if (op === "staffReviewInviteCreate") {
+    const r = await staffReviewInviteCreate(msg, store, req, who);
+    send(res, r.code, r.body);
+    return;
+  }
+  if (op === "staffReviewRedeem") {
+    const r = await staffReviewRedeem(msg, store, req, res);
     send(res, r.code, r.body);
     return;
   }
@@ -721,8 +762,17 @@ async function handleOpInner(req, res, msg, store, who) {
 
   if (op === "staffSnapshot") {
     if (!staff) { send(res, 403, { error: "staff only" }); return; }
+    if (isLiteMode()) {
+      send(res, 503, {
+        error: "Full desk dump is paused in lite mode. Use paged staff ops, or clear AYM_LITE_MODE after quota recovers.",
+        code: "lite_mode",
+        quota: quotaSnapshot(),
+      });
+      return;
+    }
     const t0 = Date.now();
     try {
+      noteRead(50);
       const targeted = await buildStaffSnapshot(store);
       if (targeted) {
         const body = JSON.stringify({ ok: true, ...targeted, ...backendInfo(store) });
@@ -877,6 +927,11 @@ async function handleOpInner(req, res, msg, store, who) {
   if (op === "lookup") {
     const needle = normalizeLookupQuery(query);
     if (!needle) { send(res, 200, { hits: [] }); return; }
+    const lookupHit = lookupIpLimiter.hit(`lookup:${clientIp(req)}`);
+    if (!lookupHit.ok) {
+      send(res, 429, { error: "Too many lookups from this network. Please wait a few minutes.", code: "rate", retryIn: lookupHit.retryIn });
+      return;
+    }
     // Ticket lookup is public; email lookup requires staff or a matching delegate session.
     if (needle.includes("@") && !staff) {
       let sessEmail = "";

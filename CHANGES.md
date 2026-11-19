@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-11-19 — Phase A (security & quota, slice 1)
+
+- Empty intake deadlines + Janata Maidan venue; `PLAN_MODE=free` (Blaze later when funded).
+- ADMIN_PIN fail-closed if &lt;12; service token scoped allow-list (rotate `STAFF_SERVICE_TOKEN` after deploy).
+- Crypto track tickets (~50 bits) + Track lookup rate limit; staff page default/max **50**; HSTS + robots `/staff` `/account`.
+- Quota meter on staff `whoami`/`staffMe`; opt-in `AYM_LITE_MODE` (page cap 25, no `staffSnapshot`).
+- Refused review-link redeem → staff `aym:wacalert:` (lightweight); import formula sanitise **keeps phones**.
+- No change: age/sex/phone, roles, privacy contact, trusted-device TTL, email stack.
+
+## 2026-11-19 — Phase 0 decisions (owner)
+
+- Audit **approved**; Phase A unlocked.
+- Keep age/sex/phone as today; leave privacy contact, trusted-device TTL, roles, and email stack for later.
+- KB excerpt+citation OK for now; Firestore stays free until funded (pay-as-you-go later).
+
 ## 2026-11-19 — Phase 0 backend audit (read-only)
 
 - Added `docs/BACKEND_AUDIT.md`: P0/P1/P2 findings with file cites, op auth matrix, Firestore read/write estimates, checklist (Confirmed / Not an issue / Needs decision), owner overrides (10 tracks, no deadlines, mentor-only student attribution — no student-facing AI disclosure), decisions-needed, draft Congress runbook.

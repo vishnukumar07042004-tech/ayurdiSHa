@@ -70,7 +70,9 @@ import {
   PROMISE_SHORT,
   formatKeyDate,
   isIntakeOpen,
+  intakeStatusLine,
 } from "../shared/productConfig.js";
+import { WAC } from "./content/site.js";
 import { detectAskSafetyFlags, ASK_SAFETY_WARNING } from "../shared/askSafety.js";
 
 
@@ -220,17 +222,44 @@ const K_CONFIG = "aym:config";
 const LS_PREFIX = "aym-store:";
 const APP_TAB_IDS = ["intro", "hall", "mentors", "register", "ask", "pods", "exchange", "track", "board", "staff", "curate", "insights", "pack", "ai", "podcast", "account"];
 
+/** Parse `#staff?review=<token>` (and plain `#staff`) without treating the query as part of the tab id. */
+function parseAppHash(hash) {
+  const raw = String(
+    hash !== undefined && hash !== null
+      ? hash
+      : (typeof location !== "undefined" ? location.hash : ""),
+  ).replace(/^#/, "");
+  const q = raw.indexOf("?");
+  const tabPart = (q >= 0 ? raw.slice(0, q) : raw).toLowerCase();
+  const query = q >= 0 ? raw.slice(q + 1) : "";
+  let reviewToken = "";
+  if (query) {
+    try { reviewToken = String(new URLSearchParams(query).get("review") || "").trim(); }
+    catch { reviewToken = ""; }
+  }
+  return {
+    tab: APP_TAB_IDS.includes(tabPart) ? tabPart : null,
+    reviewToken,
+  };
+}
+
 function tabFromHash(hash) {
-  const raw = hash !== undefined && hash !== null
-    ? hash
-    : (typeof location !== "undefined" ? location.hash : "");
-  const h = String(raw || "").replace(/^#/, "").toLowerCase();
-  return APP_TAB_IDS.includes(h) ? h : null;
+  return parseAppHash(hash).tab;
+}
+
+/** `/staff/review/<token>` path form of the one-time review invite. */
+function reviewTokenFromPath(pathname) {
+  const p = String(pathname || "/").replace(/\/+$/, "") || "/";
+  const m = p.match(/^\/staff\/review\/([^/]+)$/i);
+  if (!m) return "";
+  try { return decodeURIComponent(m[1]).trim(); }
+  catch { return String(m[1] || "").trim(); }
 }
 
 /** `/` and `/#intro` are the cinematic landing; other hashes & staff paths are in-app tabs. */
 function tabFromUrl(pathname, hash) {
   const p = String(pathname || "/").replace(/\/+$/, "") || "/";
+  if (/^\/staff\/review\//i.test(p)) return "staff";
   if (p === "/staff" || p === "/staff/login" || p === "/staff/workspace") return "staff";
   if (p === "/staff/curation" || p === "/staff/curate") return "curate";
   if (p === "/staff/theme-stage" || p === "/staff/board") return "board";
@@ -599,8 +628,16 @@ function shownPeople(list) {
 /* Text + clustering                                                   */
 /* ------------------------------------------------------------------ */
 
-const rid = (n = 5) => Math.random().toString(36).slice(2, 2 + n).toUpperCase();
-const ticketId = () => "AYM-Q-" + Date.now().toString(36).toUpperCase().slice(-5) + rid(3);
+const TICKET_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+const rid = (n = 5) => {
+  const bytes = new Uint8Array(n);
+  (globalThis.crypto || window.crypto).getRandomValues(bytes);
+  let out = "";
+  for (let i = 0; i < n; i++) out += TICKET_ALPHABET[bytes[i] % TICKET_ALPHABET.length];
+  return out;
+};
+/** ≥40 bits: 10 chars from 32-symbol alphabet ≈ 50 bits. */
+const ticketId = () => "AYM-Q-" + rid(10);
 const clusterId = () => "AYM-C-" + rid(4);
 
 /* ------------------------------------------------------------------ */
@@ -2248,9 +2285,13 @@ function AskView({ onSaved, preset, profile, onGoRegister, onProfile }) {
         </span>
         <h2 className="ui-form-done-title">Question intake is closed.</h2>
         <p className="ui-form-done-lead">
-          New Ask Desk questions closed on {formatKeyDate(KEY_DATES.intakeCloses)}.
+          {KEY_DATES.intakeClosesAt
+            ? <>New Ask Desk questions closed on {formatKeyDate(KEY_DATES.intakeClosesAt)}. </>
+            : null}
           Browse published answers on the open theme stage and Track any ticket you already hold.
-          The answer bank continues to fill through {formatKeyDate(KEY_DATES.answerBankBy)}.
+          {KEY_DATES.answerBankPublishAt
+            ? <> The answer bank continues to fill through {formatKeyDate(KEY_DATES.answerBankPublishAt)}.</>
+            : null}
         </p>
         <p className="ui-form-footnote">{PROMISE_SHORT}</p>
         <div className="ui-form-grid" style={{ marginTop: 16 }}>
@@ -2329,7 +2370,7 @@ function AskView({ onSaved, preset, profile, onGoRegister, onProfile }) {
           {" "}{PROMISE_SHORT}
         </p>
         <p className="ui-form-footnote" style={{ marginTop: 8 }}>
-          Intake closes {formatKeyDate(KEY_DATES.intakeCloses)}. Congress {formatKeyDate(KEY_DATES.congressStart)}–{formatKeyDate(KEY_DATES.congressEnd)}.
+          {intakeStatusLine()} Congress {WAC.dates} at {WAC.venue}, {WAC.city}.
         </p>
       </div>
 
@@ -3307,7 +3348,8 @@ function InsightsView({ subs, clusters, delegates = [], onSaveQuestion, onOpenAi
     if (c && clusterAnswerText(c)) return "Answered";
     if (c) return "With mentor";
     const ai = aiIndex[`q:${s.id}`];
-    if (ai && (ai.overflow || ai.status === "quotaDeferred" || ai.status === "awaiting_ai" || ai.status === "aiPending")) {
+    // Trust aiIndex status only — a leftover overflow flag on a pending letter is not "Waiting for AI".
+    if (ai && (ai.status === "awaiting_ai" || ai.status === "quotaDeferred" || ai.status === "aiPending")) {
       return "Waiting for AI";
     }
     // Match Track: a reviewable DISHA draft is on the desk, not still "Received".
@@ -3517,17 +3559,17 @@ function InsightsView({ subs, clusters, delegates = [], onSaveQuestion, onOpenAi
             }).slice(0, 16);
             if (!later.length) return <div className="aym-card" style={{ padding: 20, color: C.muted }}>No unanswered questions.</div>;
             return later.map(s => {
-              const ai = aiIndex[`q:${s.id}`];
-              const deferred = ai && (ai.overflow || ai.status === "quotaDeferred" || ai.status === "awaiting_ai" || ai.status === "aiPending");
+              const st = statusOf(s);
+              const deferred = st === "Waiting for AI";
               return (
-                <div key={s.id} className={`aym-qstrip${deferred || statusOf(s) === "Received" ? " aym-qstrip-hot" : ""}`}>
+                <div key={s.id} className={`aym-qstrip${deferred || st === "Received" ? " aym-qstrip-hot" : ""}`}>
                   <span className="aym-mono" style={{ fontWeight: 700, color: C.forest }}>{s.ticket}</span>
                   <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{s.question}</span>
                   <span style={{ fontSize: 12, color: C.muted, whiteSpace: "nowrap" }}>{fmtWhen(s.createdAt)}</span>
                   <span style={{ fontSize: 12, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} title={[displayAskerName(s), displayAskerEmail(s), s.wacId].filter(Boolean).join(" · ")}>
                     {displayAskerName(s) || displayAskerEmail(s) || s.wacId || s.anonId || "—"}
                   </span>
-                  <Chip tone={deferred || statusOf(s) === "Received" ? "maroon" : "grey"}>{deferred ? "Waiting for AI" : statusOf(s)}</Chip>
+                  <Chip tone={deferred || st === "Received" ? "maroon" : "grey"}>{st}</Chip>
                   <button type="button" className="aym-btn aym-btn-gold" style={{ padding: "6px 10px", fontSize: 12 }}
                     onClick={() => {
                       setDraftErr("");
@@ -4452,6 +4494,8 @@ export default function App() {
   const [progress, setProgress] = useState("");
   const [staff, setStaff] = useState(false);
   const [staffMe, setStaffMe] = useState(null);
+  const [reviewRedeemError, setReviewRedeemError] = useState("");
+  const [reviewRedeemBusy, setReviewRedeemBusy] = useState(false);
   const [accessOpen, setAccessOpen] = useState(false);
   const [config, setConfig] = useState(null);
   const [seeding, setSeeding] = useState(false);
@@ -4774,7 +4818,7 @@ export default function App() {
       setStaffMe(me);
       if (me.staff) {
         clearDroppedHallPass(me);
-        if (me.email) rememberStaff(me.email, true);
+        if (me.email && !me.reviewOnly) rememberStaff(me.email, true);
         setStaff(true);
         await reload(true);
       } else {
@@ -4783,6 +4827,41 @@ export default function App() {
     })();
     return () => { cancelled = true; };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // One-time review invite: `/#staff?review=<token>` or `/staff/review/<token>`.
+  useEffect(() => {
+    const token = reviewTokenFromPath(location.pathname) || parseAppHash(location.hash).reviewToken;
+    if (!token) return undefined;
+    let cancelled = false;
+    setReviewRedeemBusy(true);
+    setReviewRedeemError("");
+    (async () => {
+      try {
+        await api("staffReviewRedeem", { token });
+        if (cancelled) return;
+        navigate({ pathname: "/", hash: "#staff" }, { replace: true });
+        const me = await staffWhoami();
+        if (cancelled) return;
+        staffMeRef.current = me;
+        setStaffMe(me);
+        setConfig({ hasPin: me.hasPin });
+        if (me.staff) {
+          clearDroppedHallPass(me);
+          setStaff(true);
+          await reload(true);
+        } else {
+          setReviewRedeemError("This review link is already used or expired.");
+        }
+      } catch (e) {
+        if (cancelled) return;
+        navigate({ pathname: "/", hash: "#staff" }, { replace: true });
+        setReviewRedeemError((e && e.message) || "This review link is already used or expired.");
+      } finally {
+        if (!cancelled) setReviewRedeemBusy(false);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [location.pathname, location.hash]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const refreshStaffMe = useCallback(async () => {
     const me = await staffWhoami();
@@ -5192,10 +5271,18 @@ export default function App() {
                           <div className="aym-empty-state" style={{ margin: "3rem auto", maxWidth: 540 }}>
                             <div className="aym-empty-icon"><Lock size={32} /></div>
                             <h1 className="aym-empty-title">Staff access required</h1>
-                            <p className="aym-empty-message">Sign in with the staff passcode and a code sent to your email. New staff need the admin's approval.</p>
-                            <button type="button" className="aym-btn aym-btn-primary" onClick={openAccess}>
-                              Staff access
-                            </button>
+                            {reviewRedeemBusy ? (
+                              <p className="aym-empty-message">Opening one-time review access…</p>
+                            ) : reviewRedeemError ? (
+                              <p className="aym-empty-message" role="alert">{reviewRedeemError}</p>
+                            ) : (
+                              <p className="aym-empty-message">Sign in with the staff passcode and a code sent to your email. New staff need the admin's approval.</p>
+                            )}
+                            {!reviewRedeemBusy && (
+                              <button type="button" className="aym-btn aym-btn-primary" onClick={openAccess}>
+                                Staff access
+                              </button>
+                            )}
                           </div>
                         )
                       )}
@@ -5327,6 +5414,7 @@ export default function App() {
             <Route path="/careers" element={<Navigate to="/programs" replace />} />
             <Route path="/staff" element={<Navigate to="/#staff" replace />} />
             <Route path="/staff/login" element={<Navigate to="/#staff" replace />} />
+            <Route path="/staff/review/:token" element={null} />
             <Route path="/staff/curation" element={<Navigate to="/#curate" replace />} />
             <Route path="/staff/theme-stage" element={<Navigate to="/#board" replace />} />
             <Route path="/staff/insights" element={<Navigate to="/#insights" replace />} />

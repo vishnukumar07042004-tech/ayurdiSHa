@@ -2,6 +2,9 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /docs/
+Disallow: /staff
+Disallow: /staff/
+Disallow: /account
+Disallow: /account/
 
 Sitemap: https://ayushmarg.vercel.app/sitemap.xml
-

@@ -4,9 +4,12 @@ import {
   KEY_DATES,
   META_DESCRIPTION,
   PROMISE_SHORT,
+  PLAN_MODE,
   isIntakeOpen,
   intakeClosesAt,
   formatKeyDate,
+  intakeStatusLine,
+  DATES_ANNOUNCED_COPY,
 } from "../shared/productConfig.js";
 import { detectAskSafetyFlags } from "../shared/askSafety.js";
 import { TRACKS, resolveTrackSelection, LEGACY_THEME_TO_TRACK } from "../shared/tracks.js";
@@ -18,18 +21,32 @@ import {
 } from "../shared/liveSlotRules.js";
 import { normalizeAskRecord, normalizeConsent } from "../shared/askOptions.js";
 
-test("KEY_DATES cover intake through answer bank", () => {
-  assert.match(KEY_DATES.intakeCloses, /^\d{4}-\d{2}-\d{2}$/);
+test("deadline fields default empty; congress event days stay informational", () => {
+  assert.equal(KEY_DATES.intakeClosesAt, "");
+  assert.equal(KEY_DATES.intakeOpensAt, "");
+  assert.equal(KEY_DATES.mentorBriefsAt, "");
+  assert.equal(KEY_DATES.rosterConfirmedAt, "");
+  assert.equal(KEY_DATES.answerBankPublishAt, "");
   assert.equal(KEY_DATES.congressStart, "2026-12-10");
   assert.equal(KEY_DATES.congressEnd, "2026-12-13");
-  assert.ok(intakeClosesAt() > Date.parse("2026-11-25T00:00:00+05:30"));
-  assert.ok(formatKeyDate(KEY_DATES.intakeCloses).includes("2026"));
+  assert.equal(intakeClosesAt(), null);
+  assert.equal(PLAN_MODE, "free");
 });
 
-test("intake open before close; closed after", () => {
-  assert.equal(isIntakeOpen(Date.parse("2026-11-20T12:00:00+05:30")), true);
-  assert.equal(isIntakeOpen(Date.parse("2026-11-25T23:59:00+05:30")), true);
-  assert.equal(isIntakeOpen(Date.parse("2026-11-26T00:00:01+05:30")), false);
+test("intake stays open when close date is unset; closes only after a set date", () => {
+  assert.equal(isIntakeOpen(Date.now()), true);
+  assert.equal(isIntakeOpen(Date.parse("2030-01-01T00:00:00+05:30")), true);
+  const closed = { ...KEY_DATES, intakeClosesAt: "2026-11-25" };
+  assert.equal(isIntakeOpen(Date.parse("2026-11-20T12:00:00+05:30"), closed), true);
+  assert.equal(isIntakeOpen(Date.parse("2026-11-25T23:59:00+05:30"), closed), true);
+  assert.equal(isIntakeOpen(Date.parse("2026-11-26T00:00:01+05:30"), closed), false);
+});
+
+test("intake status line has no hard-coded close date when unset", () => {
+  assert.equal(intakeStatusLine(), DATES_ANNOUNCED_COPY);
+  assert.doesNotMatch(intakeStatusLine(), /25 Nov|November 25|2026-11-25/i);
+  assert.match(intakeStatusLine({ ...KEY_DATES, intakeClosesAt: "2026-12-01" }), /1 Dec|Dec 2026|December/i);
+  assert.equal(formatKeyDate(""), "");
 });
 
 test("meta and promise never guarantee a personal mentor slot", () => {
@@ -38,6 +55,7 @@ test("meta and promise never guarantee a personal mentor slot", () => {
     assert.doesNotMatch(s, /personal mentor (reply|letter) guaranteed/i);
     assert.match(s, /not a personal/i);
   }
+  assert.match(META_DESCRIPTION, /Janata Maidan/i);
 });
 
 test("nine product tracks T1–T9; legacy themes map without drop", () => {

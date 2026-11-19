@@ -44,7 +44,7 @@ export default function EventsPage() {
           },
           {
             icon: <MapPin size={22} strokeWidth={1.7} />,
-            text: `WAC Convention Centre, ${WAC.city}`,
+            text: `${WAC.venue}, ${WAC.city}`,
             label: "Official WAC 2026 site",
             href: WAC.officialUrl,
           },
@@ -73,7 +73,7 @@ export default function EventsPage() {
               <dl className="st-facts">
                 <div>
                   <dt>Where</dt>
-                  <dd>WAC Convention Centre, {WAC.city}, Odisha</dd>
+                  <dd>{WAC.venue}, {WAC.city}, Odisha</dd>
                 </div>
                 <div>
                   <dt>When</dt>
@@ -81,10 +81,10 @@ export default function EventsPage() {
                 </div>
                 <div>
                   <dt>Who</dt>
-                  <dd>BAMS students, interns and young practitioners</dd>
+                  <dd>Ayurveda students, interns, PG scholars and young practitioners</dd>
                 </div>
               </dl>
-              <MoreLink to={ASK}>Ask a question before you arrive</MoreLink>
+              <MoreLink to={ASK}>Use the Ask Desk before you arrive</MoreLink>
             </div>
           </div>
         </div>
@@ -110,7 +110,7 @@ export default function EventsPage() {
             {
               icon: <UserPlus size={26} strokeWidth={1.6} />,
               title: "Register once",
-              text: "Get your WAC registration number so the desk can route your question.",
+              text: "Get your pass — your WAC Delegate ID, or an AYURDISHA pass number — so the desk can route your question.",
               label: "Register for the Hall",
               to: REGISTER,
             },
@@ -118,7 +118,7 @@ export default function EventsPage() {
               icon: <MessageCircleQuestion size={26} strokeWidth={1.6} />,
               title: "Bring one focused question",
               text: "File it at the Ask Desk now and follow the reply in Track.",
-              label: "Go to the Ask Desk",
+              label: "Ask Desk",
               to: ASK,
             },
           ]}
