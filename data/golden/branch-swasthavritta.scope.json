@@ -1,0 +1,103 @@
+{
+  "intentId": "branch-swasthavritta.scope",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "subject": "branch:swasthavritta",
+  "ask": "scope",
+  "question": "What is the scope of MD Swasthavritta for BAMS graduates?",
+  "stream": "pg-entrance",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.059Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "f339c0fa977417d9f3e9533b282bdc3b77ba046a",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/",
+      "title": "AACCC",
+      "score": 1.13,
+      "bm25": 17.18,
+      "coverage": 0
+    },
+    {
+      "chunkId": "8ca8571616adb1b3be056733e1e86c88b70ce2bf",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 1.074,
+      "bm25": 16.33,
+      "coverage": 0.33
+    },
+    {
+      "chunkId": "ce409105de473cb872e317ef6da0ecaf69b04608",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33358095/",
+      "title": "A cross-sectional study on the attitude and knowledge assessment of ayurveda teachers, practitioners and students about practical application of Agadatantra.",
+      "score": 1.05,
+      "bm25": 21.86,
+      "coverage": 0.33
+    },
+    {
+      "chunkId": "ed9137e8bd8cf9935f813ab6952b7c570fdc0a37",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.027,
+      "bm25": 15.61,
+      "coverage": 0.38
+    },
+    {
+      "chunkId": "1b9de81169847f747b8da710af926e93bafc7d8d",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 0.977,
+      "bm25": 14.85,
+      "coverage": 0.38
+    },
+    {
+      "chunkId": "91841282d2557c3d741e613edab41462781e3e01",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/Central_Government_Nomination_to_MD_Ayurveda.pdf",
+      "title": "Central Government Nomination to MD Ayurveda",
+      "score": 0.948,
+      "bm25": 14.41,
+      "coverage": 0.33
+    },
+    {
+      "chunkId": "ced167f0756b13afc6c64a860c0d135365bb1b59",
+      "url": "https://aaccc.gov.in/",
+      "title": "Ayush Admissions Central Counselling Committee (AACCC)",
+      "score": 0.882,
+      "bm25": 13.41,
+      "coverage": 0.33
+    },
+    {
+      "chunkId": "319cc1b74f508f4beedb6ca8c7ebcf812f2f11c4",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/Central_Government_Nomination_to_MD_Ayurveda.pdf",
+      "title": "Central Government Nomination to MD Ayurveda",
+      "score": 0.774,
+      "bm25": 14.72,
+      "coverage": 0.33
+    }
+  ]
+}

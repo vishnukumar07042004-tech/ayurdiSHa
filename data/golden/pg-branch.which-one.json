@@ -1,0 +1,103 @@
+{
+  "intentId": "pg-branch.which-one",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "subject": "pg",
+  "ask": "which one",
+  "question": "Which PG branch should I choose?",
+  "stream": "pg-entrance",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.391Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "8ca8571616adb1b3be056733e1e86c88b70ce2bf",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 1.214,
+      "bm25": 16.33,
+      "coverage": 0.21
+    },
+    {
+      "chunkId": "91841282d2557c3d741e613edab41462781e3e01",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/Central_Government_Nomination_to_MD_Ayurveda.pdf",
+      "title": "Central Government Nomination to MD Ayurveda",
+      "score": 1.071,
+      "bm25": 14.41,
+      "coverage": 0.21
+    },
+    {
+      "chunkId": "ce409105de473cb872e317ef6da0ecaf69b04608",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33358095/",
+      "title": "A cross-sectional study on the attitude and knowledge assessment of ayurveda teachers, practitioners and students about practical application of Agadatantra.",
+      "score": 1.05,
+      "bm25": 19.34,
+      "coverage": 0.55
+    },
+    {
+      "chunkId": "ced167f0756b13afc6c64a860c0d135365bb1b59",
+      "url": "https://aaccc.gov.in/",
+      "title": "Ayush Admissions Central Counselling Committee (AACCC)",
+      "score": 0.997,
+      "bm25": 13.41,
+      "coverage": 0.21
+    },
+    {
+      "chunkId": "f86683e495b71ef670c74a7a949a2b2fefd621e7",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27449208/",
+      "title": "Attitude of interns towards research as a career option.",
+      "score": 0.917,
+      "bm25": 16.89,
+      "coverage": 0
+    },
+    {
+      "chunkId": "69371b0b04c5034e00d8d754211abd4877b4cd03",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/STG_Dermatological_Disorders_Ayurveda.pdf",
+      "title": "STG Dermatological Disorders Ayurveda",
+      "score": 0.885,
+      "bm25": 14.88,
+      "coverage": 0.21
+    },
+    {
+      "chunkId": "319cc1b74f508f4beedb6ca8c7ebcf812f2f11c4",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/Central_Government_Nomination_to_MD_Ayurveda.pdf",
+      "title": "Central Government Nomination to MD Ayurveda",
+      "score": 0.875,
+      "bm25": 14.72,
+      "coverage": 0.21
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 0.837,
+      "bm25": 14.08,
+      "coverage": 0
+    }
+  ]
+}

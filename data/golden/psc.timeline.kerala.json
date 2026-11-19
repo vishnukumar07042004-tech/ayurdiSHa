@@ -1,0 +1,103 @@
+{
+  "intentId": "psc.timeline.kerala",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "subject": "psc",
+  "ask": "timeline",
+  "question": "When should I start preparing for the Kerala PSC Ayurveda Medical Officer exam?",
+  "stream": "govt-jobs",
+  "region": "kerala",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.652Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.438,
+      "bm25": 27.9,
+      "coverage": 0.32
+    },
+    {
+      "chunkId": "ad2ce5d5f7d0c4c9f21b28171da7caffe456548d",
+      "url": "https://rpsc.rajasthan.gov.in/Static/InformationForCandidates/FAQ.pdf",
+      "title": "Rajasthan Public Service Commission — FAQ",
+      "score": 0.828,
+      "bm25": 16.07,
+      "coverage": 0.36
+    },
+    {
+      "chunkId": "96059e644fb8b1a29fb490662f53e706cf9d64d0",
+      "url": "https://rpsc.rajasthan.gov.in/Static/InformationForCandidates/FAQ.pdf",
+      "title": "Rajasthan Public Service Commission — FAQ",
+      "score": 0.78,
+      "bm25": 15.14,
+      "coverage": 0.3
+    },
+    {
+      "chunkId": "f0078d54b17d92fd4dbdaa2add34848049260765",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 0.725,
+      "bm25": 14.07,
+      "coverage": 0.16
+    },
+    {
+      "chunkId": "7570883c7ce2a21d175a0e6b4f0b004c39acfdc3",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/ep3ayurveda.pdf",
+      "title": "ep3ayurveda",
+      "score": 0.72,
+      "bm25": 13.97,
+      "coverage": 0.16
+    },
+    {
+      "chunkId": "6768d8d1c5f53e25963e53f29388dc2afa9fa8c1",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 0.718,
+      "bm25": 17.43,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "7c9f45f1464f01bf057556e222be2415738cff54",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 0.709,
+      "bm25": 17.2,
+      "coverage": 0.1
+    },
+    {
+      "chunkId": "d1ef6004340bcc6ae18c7ccbe2182bde1dcbceb5",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 0.708,
+      "bm25": 17.17,
+      "coverage": 0.22
+    }
+  ]
+}

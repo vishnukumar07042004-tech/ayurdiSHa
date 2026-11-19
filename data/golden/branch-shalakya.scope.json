@@ -1,0 +1,103 @@
+{
+  "intentId": "branch-shalakya.scope",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "subject": "branch:shalakya",
+  "ask": "scope",
+  "question": "What is the scope of MS Shalakya Tantra for BAMS graduates?",
+  "stream": "pg-entrance",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.951Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "1a328ba322438093e3b469498577c74d8538223b",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.231,
+      "bm25": 21.07,
+      "coverage": 0.52
+    },
+    {
+      "chunkId": "93c211aefe722ef80b8dff84cdb4b8e9bdbaf67c",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.226,
+      "bm25": 20.97,
+      "coverage": 0.52
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 1.05,
+      "bm25": 24.6,
+      "coverage": 0.23
+    },
+    {
+      "chunkId": "ce409105de473cb872e317ef6da0ecaf69b04608",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33358095/",
+      "title": "A cross-sectional study on the attitude and knowledge assessment of ayurveda teachers, practitioners and students about practical application of Agadatantra.",
+      "score": 0.975,
+      "bm25": 22.84,
+      "coverage": 0
+    },
+    {
+      "chunkId": "ced167f0756b13afc6c64a860c0d135365bb1b59",
+      "url": "https://aaccc.gov.in/",
+      "title": "Ayush Admissions Central Counselling Committee (AACCC)",
+      "score": 0.952,
+      "bm25": 16.29,
+      "coverage": 0.23
+    },
+    {
+      "chunkId": "7e42c4398cd485f91bed6b24473ffdb0d08baa71",
+      "url": "https://ism.kerala.gov.in/eng/index.php/about/about-us/about-ayurveda",
+      "title": "About Ayurveda - Department of Indian Systems of Medicine",
+      "score": 0.95,
+      "bm25": 20.32,
+      "coverage": 0.52
+    },
+    {
+      "chunkId": "7570883c7ce2a21d175a0e6b4f0b004c39acfdc3",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/ep3ayurveda.pdf",
+      "title": "ep3ayurveda",
+      "score": 0.932,
+      "bm25": 19.94,
+      "coverage": 0.52
+    },
+    {
+      "chunkId": "c7b66b8a69527d6d3bcdf795f7438c5cdb48280b",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/Central-Government-Nomination-to-MD-(Ayurveda)-NIA-Jaipur-2024-25.pdf",
+      "title": "Central Government Nomination to MD (Ayurveda) NIA Jaipur 2024 25",
+      "score": 0.914,
+      "bm25": 19.55,
+      "coverage": 0.52
+    }
+  ]
+}

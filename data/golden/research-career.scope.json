@@ -1,0 +1,102 @@
+{
+  "intentId": "research-career.scope",
+  "theme": "Research, Evidence & Publication",
+  "subtheme": "Framing a research question",
+  "subject": "research",
+  "ask": "scope",
+  "question": "What is the scope of a research career in Ayurveda for BAMS graduates?",
+  "stream": "research-phd",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf"
+    },
+    {
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.521Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "267d3873c1ce6e39a1077d7408d0f9de26e7ba5f",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 1.313,
+      "bm25": 32.32,
+      "coverage": 1
+    },
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 1.245,
+      "bm25": 30.67,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "188547e1a2888ae150f974658b920be4cebbdadf",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20938581/",
+      "title": "An overview of education and training of medical informatics in India.",
+      "score": 1.195,
+      "bm25": 29.43,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "d4d49bed74285e0e3f306718d6da49d0cd047524",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19687194/",
+      "title": "The ayurveda education in India: how well are the graduates exposed to basic clinical skills?",
+      "score": 1.049,
+      "bm25": 25.83,
+      "coverage": 0
+    },
+    {
+      "chunkId": "1e8c572d520bfc79e5a87f6452ee396e83a4c5f3",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29861594/",
+      "title": "A causal relationship between knowledge of Sanskrit language and results of Bachelor of Ayurvedic Medicine and Surgery examination: An analytical study.",
+      "score": 0.935,
+      "bm25": 23.02,
+      "coverage": 0.78
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 0.893,
+      "bm25": 21.99,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "c0ba3194ae2fdd0c70a001935adf6ea141c1ebd3",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20532099/",
+      "title": "Global challenges of graduate level Ayurvedic education: A survey.",
+      "score": 0.889,
+      "bm25": 21.89,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "ad569dd2af74979f312a0769d3bce896c6834ad7",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40561743/",
+      "title": "Perceptions, knowledge, attitude, practices and barriers towards research among Ayurveda interns: A cross - sectional pilot study.",
+      "score": 0.873,
+      "bm25": 21.49,
+      "coverage": 0.22
+    }
+  ]
+}

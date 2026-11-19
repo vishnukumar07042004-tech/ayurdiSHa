@@ -1,0 +1,102 @@
+{
+  "intentId": "abroad-country.cost.gulf",
+  "theme": "Practice Abroad & Practitioner Mobility",
+  "subtheme": "Licensing & registration",
+  "subject": "country:gulf",
+  "ask": "cost",
+  "question": "How much does practising Ayurveda in the UAE (Dubai / Abu Dhabi) cost?",
+  "stream": "abroad-gulf",
+  "region": "gulf",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "UAE Integrative Medicine Council announces commitments to advance evidence-based integrative medicine",
+      "url": "https://www.who.int/news/item/21-10-2026-united-arab-emirates-announces-national-commitments-to-advance-evidence-based-integrative-medicine"
+    },
+    {
+      "title": "Traditional medicine",
+      "url": "https://www.emro.who.int/health-topics/traditional-medicine/"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.498Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "d744b4c5cd795d42c266683a93f7b8a4ab431a28",
+      "url": "https://www.who.int/news/item/21-10-2026-united-arab-emirates-announces-national-commitments-to-advance-evidence-based-integrative-medicine",
+      "title": "UAE Integrative Medicine Council announces commitments to advance evidence-based integrative medicine",
+      "score": 1.438,
+      "bm25": 29.81,
+      "coverage": 0.61
+    },
+    {
+      "chunkId": "16c7519e59bbce72dafa1d52ca479125b52c47f7",
+      "url": "https://www.who.int/news/item/21-10-2026-united-arab-emirates-announces-national-commitments-to-advance-evidence-based-integrative-medicine",
+      "title": "UAE Integrative Medicine Council announces commitments to advance evidence-based integrative medicine",
+      "score": 1.227,
+      "bm25": 25.46,
+      "coverage": 0.61
+    },
+    {
+      "chunkId": "a9badec24d397a7f69ac2c51095d5bcbe157964b",
+      "url": "https://www.emro.who.int/health-topics/traditional-medicine/",
+      "title": "Traditional medicine",
+      "score": 0.866,
+      "bm25": 17.95,
+      "coverage": 0.44
+    },
+    {
+      "chunkId": "10769430a3bfe12bc89be903c81db6780a22746a",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 0.827,
+      "bm25": 19.73,
+      "coverage": 0.36
+    },
+    {
+      "chunkId": "fc4201ebdcab52cb1d6ed96c29c40d27e68ed857",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 0.807,
+      "bm25": 19.25,
+      "coverage": 0.18
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.768,
+      "bm25": 15.93,
+      "coverage": 0
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 0.691,
+      "bm25": 14.32,
+      "coverage": 0
+    },
+    {
+      "chunkId": "7d122d03fdf5c54dca9a838addb1e6542f9a48f8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 0.689,
+      "bm25": 17.86,
+      "coverage": 0.08
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "intentId": "wellness-abroad.income",
+  "theme": "Practice Abroad & Practitioner Mobility",
+  "subtheme": "Wellness centre roles abroad",
+  "subject": "abroad",
+  "ask": "income",
+  "question": "What salary or income can I expect from a wellness centre job abroad?",
+  "stream": "practice-abroad",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.898Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "95dc782aaa3ac8021d952a78d2c4dc6aab1fcc74",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.438,
+      "bm25": 19.18,
+      "coverage": 0.42
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.396,
+      "bm25": 18.63,
+      "coverage": 0.13
+    },
+    {
+      "chunkId": "eaaded765eb50d16ffc6a7cfa69d4bed5d730787",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.311,
+      "bm25": 17.5,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 1.265,
+      "bm25": 16.88,
+      "coverage": 0.13
+    },
+    {
+      "chunkId": "8ca8571616adb1b3be056733e1e86c88b70ce2bf",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 1.058,
+      "bm25": 14.12,
+      "coverage": 0.13
+    },
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 0.884,
+      "bm25": 16.16,
+      "coverage": 0.12
+    },
+    {
+      "chunkId": "6c84f50cdb8d13cd35485fa09359912b48e37910",
+      "url": "https://www.ayurvedanama.org/pace",
+      "title": "Professional Development — National Ayurvedic Medical Association",
+      "score": 0.875,
+      "bm25": 14.93,
+      "coverage": 0.12
+    },
+    {
+      "chunkId": "9ff78ef7e00abdfc642401872b5b0b8caee80b5b",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.859,
+      "bm25": 13.18,
+      "coverage": 0.12
+    }
+  ]
+}

@@ -154,6 +154,22 @@ export function setSessCookie(res, ticket) {
   appendCookie(res, `${SESS_COOKIE}=${b64urlEncode(ticket)}; ${cookieAttrs(maxAge)}`);
 }
 
+/** Signed base64url cookie value for other server modules (staff session, staff OTP). */
+export function encodeSigned(body) {
+  return b64urlEncode(sign(body));
+}
+
+/** Verified body of `encodeSigned` output, or null. Throws only when no secret is configured. */
+export function decodeSigned(raw) {
+  if (!raw) return null;
+  return unsign(b64urlDecode(raw));
+}
+
+/** Keyed hash (same secret, own domain) for identifiers that must not be stored in clear. */
+export function keyedHash(text) {
+  return hmac("kh:" + String(text));
+}
+
 /** Re-sign an existing OTP ticket (keep otpMac + exp) while updating attempts. */
 export function resignOtpTicket(ticket, extra = {}) {
   if (!ticket) return null;

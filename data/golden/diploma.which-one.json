@@ -1,0 +1,103 @@
+{
+  "intentId": "diploma.which-one",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "subject": "diploma",
+  "ask": "which one",
+  "question": "Which diploma or certificate course after BAMS should I choose?",
+  "stream": "pg-entrance",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.932Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "a0f787476ccb772516aa91ef4b85b17984a77701",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.438,
+      "bm25": 19.93,
+      "coverage": 0.5
+    },
+    {
+      "chunkId": "ed9137e8bd8cf9935f813ab6952b7c570fdc0a37",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.341,
+      "bm25": 18.6,
+      "coverage": 0.4
+    },
+    {
+      "chunkId": "17faf02c65ba459498c90ca44c8dcd8c63c99986",
+      "url": "https://ayush.gov.in/assets/pdf/careers/pasighat-vacancy.pdf",
+      "title": "pasighat vacancy",
+      "score": 1.147,
+      "bm25": 15.9,
+      "coverage": 0.66
+    },
+    {
+      "chunkId": "f339c0fa977417d9f3e9533b282bdc3b77ba046a",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/",
+      "title": "AACCC",
+      "score": 0.938,
+      "bm25": 13.01,
+      "coverage": 0.14
+    },
+    {
+      "chunkId": "c50e73f75882957c5f64566b6b1237174fbc4fa7",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_denied.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 0.788,
+      "bm25": 13.67,
+      "coverage": 0.14
+    },
+    {
+      "chunkId": "352e95127054ef9780a71fe4581080c6cbfe9468",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 0.786,
+      "bm25": 13.63,
+      "coverage": 0.41
+    },
+    {
+      "chunkId": "72538333a7d258e26d40c58fd50f6f8c4c1b5bbf",
+      "url": "https://ayush.gov.in/assets/pdf/careers/pasighat-vacancy.pdf",
+      "title": "pasighat vacancy",
+      "score": 0.779,
+      "bm25": 13.51,
+      "coverage": 0.56
+    },
+    {
+      "chunkId": "794601b43a17086089519c4d17f1a5a1321de893",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_denied.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 0.751,
+      "bm25": 13.02,
+      "coverage": 0.14
+    }
+  ]
+}

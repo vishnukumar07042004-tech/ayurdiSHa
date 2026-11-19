@@ -1,0 +1,103 @@
+{
+  "intentId": "ccras.how-to",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Research councils",
+  "subject": "ccras",
+  "ask": "how-to",
+  "question": "How do I get a research job at CCRAS?",
+  "stream": "research-phd",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.586Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "267d3873c1ce6e39a1077d7408d0f9de26e7ba5f",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 1.313,
+      "bm25": 22.11,
+      "coverage": 1
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 1.06,
+      "bm25": 17.86,
+      "coverage": 0.39
+    },
+    {
+      "chunkId": "754fc033a34a240900c0b83d35db5c669650e123",
+      "url": "https://ccras.nic.in/services/public-health-research/",
+      "title": "Public Health Research - Central Council for Research in Ayurvedic Sciences",
+      "score": 0.977,
+      "bm25": 16.46,
+      "coverage": 0.39
+    },
+    {
+      "chunkId": "211be5e407cee4df6ff691456655c9799773f2ea",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 0.899,
+      "bm25": 13.83,
+      "coverage": 0.11
+    },
+    {
+      "chunkId": "d4d49bed74285e0e3f306718d6da49d0cd047524",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19687194/",
+      "title": "The ayurveda education in India: how well are the graduates exposed to basic clinical skills?",
+      "score": 0.884,
+      "bm25": 14.89,
+      "coverage": 0
+    },
+    {
+      "chunkId": "f04c26eaa3a3064fab11ff243d5dcfa752f69e03",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/07/15032023_AYUR-PRAKRITI-WEB-PORTAL-Manual.pdf",
+      "title": "15032023 AYUR PRAKRITI WEB PORTAL Manual",
+      "score": 0.871,
+      "bm25": 14.68,
+      "coverage": 0.28
+    },
+    {
+      "chunkId": "7ff198c5e0c3996e1078f0bcab7eecd8c8ebee46",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 0.853,
+      "bm25": 14.37,
+      "coverage": 0.39
+    },
+    {
+      "chunkId": "17faf02c65ba459498c90ca44c8dcd8c63c99986",
+      "url": "https://ayush.gov.in/assets/pdf/careers/pasighat-vacancy.pdf",
+      "title": "pasighat vacancy",
+      "score": 0.81,
+      "bm25": 12.46,
+      "coverage": 0.11
+    }
+  ]
+}

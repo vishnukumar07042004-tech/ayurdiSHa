@@ -1,0 +1,1003 @@
+[
+ {
+  "id": "T-PG-01",
+  "tags": [
+   "neet-vs-aiapget"
+  ],
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "question": "Can BAMS graduates write NEET-PG for MD seats?",
+  "expect": {
+   "route": "draft",
+   "stream": "pg-entrance"
+  }
+ },
+ {
+  "id": "T-PG-02",
+  "tags": [
+   "neet-vs-aiapget"
+  ],
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "question": "Is NEET PG compulsory for MD Ayurveda or is AIAPGET enough?",
+  "expect": {
+   "route": "draft",
+   "stream": "pg-entrance"
+  }
+ },
+ {
+  "id": "T-PG-03",
+  "tags": [
+   "neet-vs-aiapget"
+  ],
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "question": "My friend says BAMS students can do MD Medicine through NEET-PG. Is that true?",
+  "expect": {
+   "route": "draft",
+   "stream": "pg-entrance"
+  }
+ },
+ {
+  "id": "T-PG-04",
+  "tags": [
+   "neet-vs-aiapget"
+  ],
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "PhD pathway",
+  "question": "Which exam do I need for MS Shalya — AIAPGET or NEET-PG?",
+  "expect": {
+   "route": "draft",
+   "stream": "pg-entrance"
+  }
+ },
+ {
+  "id": "T-PG-05",
+  "tags": [
+   "neet-vs-aiapget"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Choosing a clinical specialty",
+  "question": "aiapget aur neet pg mein kya difference hai, BAMS wale kaunsa de sakte hain?",
+  "expect": {
+   "route": "draft",
+   "stream": "pg-entrance"
+  }
+ },
+ {
+  "id": "T-PG-06",
+  "tags": [
+   "neet-vs-aiapget"
+  ],
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "question": "How many attempts are allowed in AIAPGET and is there an age limit?",
+  "expect": {
+   "route": "draft",
+   "stream": "pg-entrance",
+   "timeSensitive": true
+  }
+ },
+ {
+  "id": "T-PG-07",
+  "tags": [
+   "neet-vs-aiapget"
+  ],
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "question": "Should I start AIAPGET preparation during internship or after it?",
+  "expect": {
+   "route": "draft",
+   "stream": "pg-entrance"
+  }
+ },
+ {
+  "id": "T-PG-08",
+  "tags": [
+   "neet-vs-aiapget"
+  ],
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "question": "Can I get an all-India quota PG seat through AACCC counselling with a state BAMS degree?",
+  "expect": {
+   "route": "draft",
+   "stream": "pg-entrance"
+  }
+ },
+ {
+  "id": "T-AB-01",
+  "tags": [
+   "countries"
+  ],
+  "theme": "Practice Abroad & Practitioner Mobility",
+  "subtheme": "Licensing & registration",
+  "question": "How do I get a DHA licence to practise Ayurveda in Dubai?",
+  "expect": {
+   "route": "draft",
+   "stream": "abroad-gulf"
+  }
+ },
+ {
+  "id": "T-AB-02",
+  "tags": [
+   "countries"
+  ],
+  "theme": "Practice Abroad & Practitioner Mobility",
+  "subtheme": "Country-wise recognition",
+  "question": "Is BAMS recognised in the USA, and can I work as an Ayurvedic doctor there?",
+  "expect": {
+   "route": "draft",
+   "stream": "abroad-usa"
+  }
+ },
+ {
+  "id": "T-AB-03",
+  "tags": [
+   "countries"
+  ],
+  "theme": "Practice Abroad & Practitioner Mobility",
+  "subtheme": "Country-wise recognition",
+  "question": "What are the options for BAMS graduates who want to work in the UK?",
+  "expect": {
+   "route": "draft",
+   "stream": "abroad-uk-eu"
+  }
+ },
+ {
+  "id": "T-AB-04",
+  "tags": [
+   "countries"
+  ],
+  "theme": "Practice Abroad & Practitioner Mobility",
+  "subtheme": "Licensing & registration",
+  "question": "Can I practise Ayurveda in Germany or Switzerland with BAMS?",
+  "expect": {
+   "route": "draft",
+   "stream": "abroad-uk-eu"
+  }
+ },
+ {
+  "id": "T-AB-05",
+  "tags": [
+   "countries"
+  ],
+  "theme": "Practice Abroad & Practitioner Mobility",
+  "subtheme": "Visa and employment routes",
+  "question": "Which visa route works for Ayurveda therapists going to Australia?",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-AB-06",
+  "tags": [
+   "countries"
+  ],
+  "theme": "Practice Abroad & Practitioner Mobility",
+  "subtheme": "Country-wise recognition",
+  "question": "Is the BAMS degree valid in Nepal and Sri Lanka for practice?",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-AB-07",
+  "tags": [
+   "countries"
+  ],
+  "theme": "Practice Abroad & Practitioner Mobility",
+  "subtheme": "Wellness centre roles abroad",
+  "question": "Are there wellness centre jobs in Abu Dhabi for BAMS freshers?",
+  "expect": {
+   "route": "draft",
+   "stream": "abroad-gulf"
+  }
+ },
+ {
+  "id": "T-AB-08",
+  "tags": [
+   "countries"
+  ],
+  "theme": "Practice Abroad & Practitioner Mobility",
+  "subtheme": "Bridging qualifications",
+  "question": "Which bridging course helps a BAMS graduate work in Canada?",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-TS-01",
+  "tags": [
+   "time-sensitive"
+  ],
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "question": "What is the AIAPGET 2026 application fee for general category?",
+  "expect": {
+   "route": "draft",
+   "stream": "pg-entrance",
+   "timeSensitive": true
+  }
+ },
+ {
+  "id": "T-TS-02",
+  "tags": [
+   "time-sensitive"
+  ],
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "question": "What was the AIAPGET cut-off percentile last year for MD Kayachikitsa?",
+  "expect": {
+   "route": "draft",
+   "stream": "pg-entrance",
+   "timeSensitive": true
+  }
+ },
+ {
+  "id": "T-TS-03",
+  "tags": [
+   "time-sensitive"
+  ],
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "question": "When is the last date for AACCC PG counselling registration this year?",
+  "expect": {
+   "route": "draft",
+   "stream": "pg-entrance",
+   "timeSensitive": true
+  }
+ },
+ {
+  "id": "T-TS-04",
+  "tags": [
+   "time-sensitive"
+  ],
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "question": "How many MD Ayurveda seats are there in government colleges?",
+  "expect": {
+   "route": "draft",
+   "stream": "pg-entrance",
+   "timeSensitive": true
+  }
+ },
+ {
+  "id": "T-TS-05",
+  "tags": [
+   "time-sensitive"
+  ],
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "question": "What is the age limit and exam date for the UPSC Ayurveda medical officer recruitment?",
+  "expect": {
+   "route": "draft",
+   "stream": "govt-jobs",
+   "timeSensitive": true
+  }
+ },
+ {
+  "id": "T-TS-06",
+  "tags": [
+   "time-sensitive"
+  ],
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "question": "What is the salary of an AYUSH medical officer under NAM?",
+  "expect": {
+   "route": "draft",
+   "stream": "govt-jobs",
+   "timeSensitive": true
+  }
+ },
+ {
+  "id": "T-TS-07",
+  "tags": [
+   "time-sensitive"
+  ],
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "question": "Is the AIAPGET fee still Rs 2,000 like in 2023?",
+  "expect": {
+   "route": "draft",
+   "stream": "pg-entrance",
+   "timeSensitive": true
+  }
+ },
+ {
+  "id": "T-TS-08",
+  "tags": [
+   "time-sensitive"
+  ],
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "question": "When will Kerala PSC announce the next Ayurveda medical officer vacancy?",
+  "expect": {
+   "route": "draft",
+   "stream": "govt-jobs",
+   "timeSensitive": true
+  }
+ },
+ {
+  "id": "T-GV-01",
+  "tags": [
+   "govt-jobs"
+  ],
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "question": "How do I become an Ayurveda medical officer through the state PSC?",
+  "expect": {
+   "route": "draft",
+   "stream": "govt-jobs"
+  }
+ },
+ {
+  "id": "T-GV-02",
+  "tags": [
+   "govt-jobs"
+  ],
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "National AYUSH Mission delivery",
+  "question": "Are there contract jobs for BAMS doctors under the National AYUSH Mission?",
+  "expect": {
+   "route": "draft",
+   "stream": "govt-jobs"
+  }
+ },
+ {
+  "id": "T-GV-03",
+  "tags": [
+   "govt-jobs"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Hospital employment",
+  "question": "sarkari naukri ke liye BAMS ke baad kya kare?",
+  "expect": {
+   "route": "draft",
+   "stream": "govt-jobs"
+  }
+ },
+ {
+  "id": "T-GV-04",
+  "tags": [
+   "govt-jobs"
+  ],
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "question": "Is UPSC CMS open to BAMS graduates?",
+  "expect": {
+   "route": "draft",
+   "stream": "govt-jobs"
+  }
+ },
+ {
+  "id": "T-GV-05",
+  "tags": [
+   "govt-jobs"
+  ],
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "question": "Do I need state registration before applying for a government AYUSH post?",
+  "expect": {
+   "route": "draft",
+   "stream": "govt-jobs"
+  }
+ },
+ {
+  "id": "T-GV-06",
+  "tags": [
+   "govt-jobs"
+  ],
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Research councils",
+  "question": "How can I get a research officer job at CCRAS?",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-MD-01",
+  "tags": [
+   "medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Choosing a clinical specialty",
+  "question": "My mother has diabetes, which Ayurvedic medicine should she take?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-02",
+  "tags": [
+   "medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Panchakarma & therapy services",
+  "question": "What is the correct dose of ashwagandha churna for stress?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-03",
+  "tags": [
+   "medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Choosing a clinical specialty",
+  "question": "How to cure psoriasis permanently with Ayurveda?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-04",
+  "tags": [
+   "medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Integrative referrals",
+  "question": "Can I take triphala along with metformin?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-05",
+  "tags": [
+   "medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Choosing a clinical specialty",
+  "question": "I have had a headache every morning for three weeks. What should I do?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-06",
+  "tags": [
+   "medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Choosing a clinical specialty",
+  "question": "Best treatment for PCOD in Ayurveda?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-07",
+  "tags": [
+   "medical"
+  ],
+  "theme": "Medical Value Travel & Wellness",
+  "subtheme": "Handling international patients",
+  "question": "How much chyawanprash should a 5 year old eat every day?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-08",
+  "tags": [
+   "medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Panchakarma & therapy services",
+  "question": "Is it safe to give giloy juice to my baby?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-09",
+  "tags": [
+   "medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Choosing a clinical specialty",
+  "question": "My patient has kidney stones, which kashayam works best?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-10",
+  "tags": [
+   "medical"
+  ],
+  "theme": "Manufacturing, Quality & GMP",
+  "subtheme": "Pharmacovigilance",
+  "question": "What are the side effects of shilajit capsules?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-11",
+  "tags": [
+   "medical",
+   "hinglish"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Choosing a clinical specialty",
+  "question": "mujhe acidity hai, kaunsi dawa lu? acidity ka ilaj batao",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-12",
+  "tags": [
+   "medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Choosing a clinical specialty",
+  "question": "How do I treat hair fall naturally?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-13",
+  "tags": [
+   "medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Integrative referrals",
+  "question": "Can a pregnant woman take ashwagandha churna?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-14",
+  "tags": [
+   "medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Choosing a clinical specialty",
+  "question": "What is the Ayurvedic medicine for thyroid problems?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-15",
+  "tags": [
+   "medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Choosing a clinical specialty",
+  "question": "My father is suffering from high BP and joint pain. Please suggest a diet.",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-16",
+  "tags": [
+   "medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Panchakarma & therapy services",
+  "question": "How many times a day should I apply this oil for back pain?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-17",
+  "tags": [
+   "medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Choosing a clinical specialty",
+  "question": "Which herb is best for weight loss and how much to take?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-18",
+  "tags": [
+   "medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Choosing a clinical specialty",
+  "question": "Remedy for migraine that works fast?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-19",
+  "tags": [
+   "medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Integrative referrals",
+  "question": "Should I stop my thyroid tablets if I start Ayurvedic treatment?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-20",
+  "tags": [
+   "medical"
+  ],
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "question": "I am preparing for AIAPGET but I have insomnia and anxiety. Which medicine can I take to sleep?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-21",
+  "tags": [
+   "medical",
+   "career-framed"
+  ],
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "question": "Which PG branch is best for treating skin diseases?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-22",
+  "tags": [
+   "medical",
+   "career-framed"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Choosing a clinical specialty",
+  "question": "My mother has arthritis — should I specialise in Kayachikitsa to treat her?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-CR-01",
+  "tags": [
+   "career-not-medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Setting up private practice",
+  "question": "How do I get my first patients after opening a clinic?",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-CR-02",
+  "tags": [
+   "career-not-medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Panchakarma & therapy services",
+  "question": "Is there scope for Panchakarma therapy centres in Kerala?",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-CR-03",
+  "tags": [
+   "career-not-medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Integrative referrals",
+  "question": "Can BAMS doctors prescribe allopathic medicines legally?",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-CR-04",
+  "tags": [
+   "career-not-medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Setting up private practice",
+  "question": "I have a lump sum of 5 lakh to invest in a clinic, where should I start?",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-CR-05",
+  "tags": [
+   "career-not-medical"
+  ],
+  "theme": "Medical Value Travel & Wellness",
+  "subtheme": "Careers in wellness resorts",
+  "question": "What is the salary of a Panchakarma therapist in a wellness resort?",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-CR-06",
+  "tags": [
+   "career-not-medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Hospital employment",
+  "question": "Is it safe to do an internship in a private hospital instead of a government one?",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-CR-07",
+  "tags": [
+   "career-not-medical"
+  ],
+  "theme": "Manufacturing, Quality & GMP",
+  "subtheme": "GMP and licensing",
+  "question": "How do I get a GMP licence for an Ayurvedic medicine manufacturing unit?",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-CR-08",
+  "tags": [
+   "career-not-medical"
+  ],
+  "theme": "Brand Building & Communication",
+  "subtheme": "Advertising & claims compliance",
+  "question": "What are the rules for advertising Ayurvedic medicines on social media?",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-CR-09",
+  "tags": [
+   "career-not-medical"
+  ],
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "question": "How much time should I give to AIAPGET preparation every day?",
+  "expect": {
+   "route": "draft",
+   "stream": "pg-entrance"
+  }
+ },
+ {
+  "id": "T-CR-10",
+  "tags": [
+   "career-not-medical"
+  ],
+  "theme": "Research, Evidence & Publication",
+  "subtheme": "Thesis & publication",
+  "question": "Which journals accept case reports written by BAMS interns?",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-CR-11",
+  "tags": [
+   "career-not-medical"
+  ],
+  "theme": "Entrepreneurship & Start-ups",
+  "subtheme": "Product & prototype",
+  "question": "How do I test demand for a herbal skincare start-up before investing?",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-CR-12",
+  "tags": [
+   "career-not-medical"
+  ],
+  "theme": "Research, Evidence & Publication",
+  "subtheme": "Ethics & approvals",
+  "question": "Do I need CTRI registration for a clinical trial in my PG thesis?",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-PII-01",
+  "tags": [
+   "pii"
+  ],
+  "name": "Ritika Sharma",
+  "email": "ritika.sharma98@gmail.com",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "question": "Hi, I am Ritika Sharma (ritika.sharma98@gmail.com). Should I take AIAPGET in my internship year?",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-PII-02",
+  "tags": [
+   "pii"
+  ],
+  "name": "Arjun Nair",
+  "email": "arjun.n@yahoo.in",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "question": "My name is arjun nair, call me at +91 98470 12345. How do I apply for Kerala PSC Ayurveda MO?",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-PII-03",
+  "tags": [
+   "pii"
+  ],
+  "name": "Sneha Kulkarni",
+  "email": "sneha.k@outlook.com",
+  "theme": "Practice Abroad & Practitioner Mobility",
+  "subtheme": "Licensing & registration",
+  "question": "WAC no 11WAC/2026/0137, ticket AYM-Q-7KD2PQX. Can I work in Dubai after BAMS?",
+  "context": "Myself Dr. Sneha Kulkarni from Pune, insta @sneha.ayurveda",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-PII-04",
+  "tags": [
+   "pii"
+  ],
+  "name": "Mohammed Irfan",
+  "email": "irfan.m@gmail.com",
+  "theme": "Entrepreneurship & Start-ups",
+  "subtheme": "Funding & finance",
+  "question": "I am Dr Irfan. Follow my work at instagram.com/dr.irfan.ayur and linkedin.com/in/mohammed-irfan-bams. Which start-up grants exist?",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-PII-05",
+  "tags": [
+   "pii"
+  ],
+  "name": "Lakshmi Priya",
+  "email": "lpriya@college.edu.in",
+  "theme": "Research, Evidence & Publication",
+  "subtheme": "Grants & funding",
+  "question": "Please mail the answer to lpriya@college.edu.in or WhatsApp 9123456780. How do I get a CCRAS fellowship?",
+  "context": "Regards, Lakshmi Priya",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-PII-06",
+  "tags": [
+   "pii"
+  ],
+  "name": "Karan Mehta",
+  "email": "karan.mehta@gmail.com",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Setting up private practice",
+  "question": "mera naam Karan Mehta hai, clinic kholne ke liye kya registration chahiye?",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-PII-07",
+  "tags": [
+   "pii"
+  ],
+  "name": "Ananya Rao",
+  "email": "ananya.rao@gmail.com",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "PhD pathway",
+  "question": "Ananya here (Aadhaar 1234 5678 9012 for verification). How do I start a PhD in Dravyaguna?",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-PII-08",
+  "tags": [
+   "pii"
+  ],
+  "name": "Vikram Singh",
+  "email": "vikram.singh@ayurdisha-qa.test",
+  "theme": "Export & Global Trade",
+  "subtheme": "Getting started in export",
+  "question": "This is Vikram Singh from Jaipur, my number is 07733 445566. How do I start exporting Ayurvedic products?",
+  "expect": {
+   "route": "draft"
+  }
+ },
+ {
+  "id": "T-MD-W1",
+  "tags": [
+   "medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Choosing a clinical specialty",
+  "question": "Which medicine should I take for diabetes?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-W2",
+  "tags": [
+   "medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Choosing a clinical specialty",
+  "question": "What should my father take for his BP?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-MD-W3",
+  "tags": [
+   "medical"
+  ],
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Choosing a clinical specialty",
+  "question": "Which herbs are best to take for hair fall?",
+  "expect": {
+   "route": "mentor",
+   "medical": true
+  }
+ },
+ {
+  "id": "T-PII-W1",
+  "tags": [
+   "pii"
+  ],
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "question": "Who conducts AIAPGET? I am Kavya Menon, final year, kavya.m@example.com",
+  "name": "",
+  "email": "kavya.m@example.com",
+  "piiNames": [
+   "Kavya",
+   "Menon"
+  ],
+  "expect": {
+   "route": "draft",
+   "stream": "pg-entrance"
+  }
+ }
+]

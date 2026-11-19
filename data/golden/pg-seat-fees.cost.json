@@ -1,0 +1,103 @@
+{
+  "intentId": "pg-seat-fees.cost",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "subject": "pg",
+  "ask": "cost",
+  "question": "What are the fees for MD Ayurveda in government vs private colleges?",
+  "stream": "pg-entrance",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.627Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "8ca8571616adb1b3be056733e1e86c88b70ce2bf",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 1.438,
+      "bm25": 23.85,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "91841282d2557c3d741e613edab41462781e3e01",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/Central_Government_Nomination_to_MD_Ayurveda.pdf",
+      "title": "Central Government Nomination to MD Ayurveda",
+      "score": 1.113,
+      "bm25": 18.47,
+      "coverage": 0.27
+    },
+    {
+      "chunkId": "644723ff22d13175827f9751fb5fb6ea8370ae17",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/",
+      "title": "AACCC",
+      "score": 1.02,
+      "bm25": 16.92,
+      "coverage": 0.58
+    },
+    {
+      "chunkId": "03b9019a201a690da7595715c4486eaaada57132",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 0.998,
+      "bm25": 16.56,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "ced167f0756b13afc6c64a860c0d135365bb1b59",
+      "url": "https://aaccc.gov.in/",
+      "title": "Ayush Admissions Central Counselling Committee (AACCC)",
+      "score": 0.935,
+      "bm25": 15.52,
+      "coverage": 0.38
+    },
+    {
+      "chunkId": "319cc1b74f508f4beedb6ca8c7ebcf812f2f11c4",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/Central_Government_Nomination_to_MD_Ayurveda.pdf",
+      "title": "Central Government Nomination to MD Ayurveda",
+      "score": 0.914,
+      "bm25": 18.96,
+      "coverage": 0.27
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 0.892,
+      "bm25": 20.26,
+      "coverage": 0.39
+    },
+    {
+      "chunkId": "c7b66b8a69527d6d3bcdf795f7438c5cdb48280b",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/Central-Government-Nomination-to-MD-(Ayurveda)-NIA-Jaipur-2024-25.pdf",
+      "title": "Central Government Nomination to MD (Ayurveda) NIA Jaipur 2024 25",
+      "score": 0.874,
+      "bm25": 18.12,
+      "coverage": 0.27
+    }
+  ]
+}

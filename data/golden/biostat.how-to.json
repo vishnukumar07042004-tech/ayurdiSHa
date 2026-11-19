@@ -1,0 +1,103 @@
+{
+  "intentId": "biostat.how-to",
+  "theme": "Research, Evidence & Publication",
+  "subtheme": "Biostatistics",
+  "subject": "statistic",
+  "ask": "how-to",
+  "question": "How do I learn biostatistics and SPSS for research?",
+  "stream": "research-phd",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.977Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "dc0891cd4944a228c734e7e79cb79fc095458594",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 1.25,
+      "bm25": 18.19,
+      "coverage": 0.61
+    },
+    {
+      "chunkId": "6dd8a2e78183ee9810c6885c7997d796a6f65327",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37267855/",
+      "title": "\"Classes beyond the walls\" - A reexploring method of teaching in ayurveda education over conventional approach.",
+      "score": 0.986,
+      "bm25": 13.67,
+      "coverage": 0.6
+    },
+    {
+      "chunkId": "84006f4f01bf90b6b2f4c3f0ae2c693bbac0221d",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ayurgyan.pdf",
+      "title": "ayurgyan",
+      "score": 0.922,
+      "bm25": 11.66,
+      "coverage": 0.26
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 0.915,
+      "bm25": 12.68,
+      "coverage": 0.06
+    },
+    {
+      "chunkId": "0995b0c2cf13f5bd2a27180fed585f255d305eeb",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 0.799,
+      "bm25": 11.08,
+      "coverage": 0.4
+    },
+    {
+      "chunkId": "a3385a8efaad4556b479152ee4359af936a12324",
+      "url": "https://ayush.gov.in/assets/pdf/education/CGN_PG_Guidelines_2026-27.pdf",
+      "title": "CGN PG Guidelines 2026 27",
+      "score": 0.779,
+      "bm25": 9.86,
+      "coverage": 0.06
+    },
+    {
+      "chunkId": "f339c0fa977417d9f3e9533b282bdc3b77ba046a",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/",
+      "title": "AACCC",
+      "score": 0.776,
+      "bm25": 12.27,
+      "coverage": 0
+    },
+    {
+      "chunkId": "177a2b486cf4863b965a61edada7e93b299c87c4",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.764,
+      "bm25": 11.12,
+      "coverage": 0.4
+    }
+  ]
+}

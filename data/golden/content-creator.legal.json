@@ -1,0 +1,103 @@
+{
+  "intentId": "content-creator.legal",
+  "theme": "Brand Building & Communication",
+  "subtheme": "Digital presence",
+  "subject": "socialmedia",
+  "ask": "legal",
+  "question": "What licence or registration is required for being an Ayurveda doctor on YouTube and social media?",
+  "stream": "digital-branding",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.022Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "fcc807f941626b1eb539457146a6b9365f4c1b61",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/iec.pdf",
+      "title": "Ministry of Ayush, Government of India — iec",
+      "score": 1.438,
+      "bm25": 26.95,
+      "coverage": 0.63
+    },
+    {
+      "chunkId": "6f03f0a6c4ee6d73105ed83a3ff78ffa43a585ea",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/iec.pdf",
+      "title": "Ministry of Ayush, Government of India — iec",
+      "score": 1.372,
+      "bm25": 25.73,
+      "coverage": 0.54
+    },
+    {
+      "chunkId": "c080d7b84c9145e3f272dc055d82a8af6ebd18d6",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._140(E)_dated_14th_February,_2025.pdf",
+      "title": "Gazette Notification No. G.S.R. 140(E) dated 14th February, 2025",
+      "score": 0.968,
+      "bm25": 18.15,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "b72cbc0e8f18ab3812bd1e14daa53b01a93e171b",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 0.878,
+      "bm25": 20.59,
+      "coverage": 0.37
+    },
+    {
+      "chunkId": "f1b5fd63024b166f343c34e340811d68be96869d",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Young_Profassional_1_1.pdf",
+      "title": "Young Profassional 1 1",
+      "score": 0.867,
+      "bm25": 16.25,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "0995afb9e8ffdce4331620a1d9c591cd3358b50e",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 0.866,
+      "bm25": 20.31,
+      "coverage": 0.38
+    },
+    {
+      "chunkId": "41c8049f9698f7e79a02545902ad3eaf971d2e3a",
+      "url": "https://ayush.gov.in/assets/pdf/awards/Advertisement_for_National_Ayurved_Dhanwantari_Award.pdf",
+      "title": "Advertisement for National Ayurved Dhanwantari Award",
+      "score": 0.797,
+      "bm25": 14.94,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "cf3708b12822d2aab9b83b9fad0d183c39e6a0c5",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._669(E)_dated_28th_October,_2024.pdf",
+      "title": "Gazette Notification No. G.S.R. 669(E) dated 28th October, 2024",
+      "score": 0.767,
+      "bm25": 14.39,
+      "coverage": 0.34
+    }
+  ]
+}

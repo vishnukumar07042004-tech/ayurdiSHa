@@ -1,0 +1,103 @@
+{
+  "intentId": "mph.income",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Public health projects",
+  "subject": "mph",
+  "ask": "income",
+  "question": "What salary or income can I expect from an MPH after BAMS?",
+  "stream": "public-health-policy",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.870Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "7d122d03fdf5c54dca9a838addb1e6542f9a48f8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.438,
+      "bm25": 25.24,
+      "coverage": 0.53
+    },
+    {
+      "chunkId": "0c25bbd9b19f1559015d14ea460ffde1de8b8fc8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.435,
+      "bm25": 25.2,
+      "coverage": 0.53
+    },
+    {
+      "chunkId": "280cf8415f41ab4804b4016e646867c8bba55e92",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 1.361,
+      "bm25": 23.9,
+      "coverage": 0
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.025,
+      "bm25": 22.49,
+      "coverage": 0.09
+    },
+    {
+      "chunkId": "843c8415e5241df8d3150c18fb5c6db3dcbfc20e",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 1.011,
+      "bm25": 17.75,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 0.97,
+      "bm25": 18.66,
+      "coverage": 0
+    },
+    {
+      "chunkId": "fe681eb2fd2c1831d1753c36d7e29f1e01d91e6c",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Recruitment_Notice_13072026.pdf",
+      "title": "Recruitment Notice 13072026",
+      "score": 0.967,
+      "bm25": 16.99,
+      "coverage": 0
+    },
+    {
+      "chunkId": "790c92ece537aabf2aeed6d93e8e786e47273101",
+      "url": "https://ccras.nic.in/wp-content/uploads/2026/05/29052026-Scheme-CCRAS_POST_DOCTORAL_FELLOWSHIP_PROGRAMME.pdf",
+      "title": "CCRAS POST DOCTORAL FELLOWSHIP SCHEME",
+      "score": 0.936,
+      "bm25": 17.99,
+      "coverage": 0.47
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "intentId": "qc.how-to",
+  "theme": "Manufacturing, Quality & GMP",
+  "subtheme": "QA / QC and testing",
+  "subject": "qc",
+  "ask": "how-to",
+  "question": "How do I build a QA/QC career in Ayurveda pharma?",
+  "stream": "industry-pharma",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf"
+    },
+    {
+      "title": "ResearchAndInv",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.006Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "267d3873c1ce6e39a1077d7408d0f9de26e7ba5f",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 1.313,
+      "bm25": 22.56,
+      "coverage": 0
+    },
+    {
+      "chunkId": "280cf8415f41ab4804b4016e646867c8bba55e92",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 1.256,
+      "bm25": 19.71,
+      "coverage": 0.13
+    },
+    {
+      "chunkId": "95234d83ee6b27a5f526647fb7ea3ce8c349e36a",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._140(E)_dated_14th_February,_2025.pdf",
+      "title": "Gazette Notification No. G.S.R. 140(E) dated 14th February, 2025",
+      "score": 1.238,
+      "bm25": 19.43,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 1.178,
+      "bm25": 20.25,
+      "coverage": 0
+    },
+    {
+      "chunkId": "64afae035c68835d8968200c0c1734b2048b0cae",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._140(E)_dated_14th_February,_2025.pdf",
+      "title": "Gazette Notification No. G.S.R. 140(E) dated 14th February, 2025",
+      "score": 1.142,
+      "bm25": 17.92,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.103,
+      "bm25": 21.63,
+      "coverage": 0
+    },
+    {
+      "chunkId": "ffebd58898efe3c8f2f85dd59ba9ec3dfeced23a",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/07/CCRAS_Guideline-of-Clinical_Evaluation.pdf",
+      "title": "CCRS_Clinical _BOOK-6_945-CD MATTER.pdf",
+      "score": 1.046,
+      "bm25": 17.97,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "c29c71b7774762248517815693eb6d908b769eac",
+      "url": "https://ccras.nic.in/services/microbiology-research/",
+      "title": "Microbiology and Biotechnology - Central Council for Research in Ayurvedic Sciences",
+      "score": 0.988,
+      "bm25": 16.99,
+      "coverage": 0.62
+    }
+  ]
+}

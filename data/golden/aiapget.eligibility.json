@@ -1,0 +1,102 @@
+{
+  "intentId": "aiapget.eligibility",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "subject": "aiapget",
+  "ask": "eligibility",
+  "question": "What is the eligibility for AIAPGET?",
+  "stream": "pg-entrance",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "AACCC",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/"
+    },
+    {
+      "title": "CGN PG Guidlines 2023 24",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.373Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "f339c0fa977417d9f3e9533b282bdc3b77ba046a",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/",
+      "title": "AACCC",
+      "score": 1.438,
+      "bm25": 28.47,
+      "coverage": 1
+    },
+    {
+      "chunkId": "f30f33ff0cf8e89e62f7f3b48f8bcb67791b5aa9",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 1.144,
+      "bm25": 22.66,
+      "coverage": 0.68
+    },
+    {
+      "chunkId": "ced167f0756b13afc6c64a860c0d135365bb1b59",
+      "url": "https://aaccc.gov.in/",
+      "title": "Ayush Admissions Central Counselling Committee (AACCC)",
+      "score": 1.06,
+      "bm25": 20.99,
+      "coverage": 0.68
+    },
+    {
+      "chunkId": "280cf8415f41ab4804b4016e646867c8bba55e92",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 0.958,
+      "bm25": 18.97,
+      "coverage": 0.32
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 0.84,
+      "bm25": 20.79,
+      "coverage": 0
+    },
+    {
+      "chunkId": "3c029ac1fcc30f59bab729951e0d27c1ac82dd06",
+      "url": "https://ayush.gov.in/assets/pdf/careers/English_Application_Form_04082026.pdf",
+      "title": "English Application Form 04082026",
+      "score": 0.805,
+      "bm25": 19.92,
+      "coverage": 0.32
+    },
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 0.803,
+      "bm25": 15.91,
+      "coverage": 0.32
+    },
+    {
+      "chunkId": "d5b781393f39c837175a3fda6285484f216c91cd",
+      "url": "https://nabh.co/assessor-training/three-day-assessors-training-programme-as-per-nabh-2nd-edition-standards-for-entry-level-hospitals/",
+      "title": "Three-Day Assessors’ Training Programme as per NABH 2nd Edition Standards for Entry level Hospitals - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 0.803,
+      "bm25": 19.88,
+      "coverage": 0
+    }
+  ]
+}

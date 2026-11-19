@@ -1,0 +1,103 @@
+{
+  "intentId": "mph.scope",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Public health projects",
+  "subject": "mph",
+  "ask": "scope",
+  "question": "What is the scope of an MPH after BAMS for BAMS graduates?",
+  "stream": "public-health-policy",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.800Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "e6ccc3645d279eb9a59ab67779e573df6669dc83",
+      "url": "https://ccras.nic.in/directory/it-internship-program-at-ccras-headquarters-from-19th-june-2025/",
+      "title": "IT internship program at CCRAS Headquarters from 19th June 2025 - Central Council for Research in Ayurvedic Sciences",
+      "score": 1.313,
+      "bm25": 29.18,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "280cf8415f41ab4804b4016e646867c8bba55e92",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 1.177,
+      "bm25": 23.9,
+      "coverage": 0
+    },
+    {
+      "chunkId": "267d3873c1ce6e39a1077d7408d0f9de26e7ba5f",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 1.15,
+      "bm25": 25.58,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "0c25bbd9b19f1559015d14ea460ffde1de8b8fc8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.051,
+      "bm25": 21.33,
+      "coverage": 0.56
+    },
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 1.038,
+      "bm25": 28.85,
+      "coverage": 0.15
+    },
+    {
+      "chunkId": "119b8e31c8366a1694b562dd7f25f13231297dce",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 0.897,
+      "bm25": 18.2,
+      "coverage": 0
+    },
+    {
+      "chunkId": "c48105ae857646d8c9561a8a39cb9f6f228b2558",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 0.895,
+      "bm25": 19.9,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.886,
+      "bm25": 22.49,
+      "coverage": 0.15
+    }
+  ]
+}

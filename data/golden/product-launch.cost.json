@@ -1,0 +1,103 @@
+{
+  "intentId": "product-launch.cost",
+  "theme": "Entrepreneurship & Start-ups",
+  "subtheme": "Product & prototype",
+  "subject": "product",
+  "ask": "cost",
+  "question": "How much does launching my own Ayurvedic product cost?",
+  "stream": "entrepreneurship",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.806Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "7d122d03fdf5c54dca9a838addb1e6542f9a48f8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.086,
+      "bm25": 17.86,
+      "coverage": 0.16
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.987,
+      "bm25": 16.22,
+      "coverage": 0
+    },
+    {
+      "chunkId": "1d6976fc5089e7b1be2757c43bad3e1090524c15",
+      "url": "https://pharmexcil.com/v1/docs/MDA/MAI_RevisedGuidelinesFromAugust2014_4web.pdf",
+      "title": "MAI RevisedGuidelinesFromAugust2014 4web",
+      "score": 0.958,
+      "bm25": 15.74,
+      "coverage": 0.5
+    },
+    {
+      "chunkId": "f126541e6131c5fbd71e535139c780e0e4b43acc",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 0.917,
+      "bm25": 15.07,
+      "coverage": 0.16
+    },
+    {
+      "chunkId": "1c767d8a629f061105c8d7f57b12f1627169d081",
+      "url": "https://www.ayurvedanama.org/prospective-students-frequently-asked-questions",
+      "title": "Prospective Students FAQs — National Ayurvedic Medical Association",
+      "score": 0.9,
+      "bm25": 18.9,
+      "coverage": 0.12
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 0.888,
+      "bm25": 14.6,
+      "coverage": 0
+    },
+    {
+      "chunkId": "6f2cfe69bbde1dbee4bde0941b38fc8b2a300965",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/08/Ayurworld-May-June-2026.pdf",
+      "title": "Ayurworld May June 2026",
+      "score": 0.855,
+      "bm25": 16.16,
+      "coverage": 0.12
+    },
+    {
+      "chunkId": "0bfd4c4d5d32097e92862f5fb0d063bc17d014f3",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.848,
+      "bm25": 16.03,
+      "coverage": 0.47
+    }
+  ]
+}

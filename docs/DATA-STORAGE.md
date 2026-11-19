@@ -29,8 +29,16 @@ All access is through `server/store.js` (Admin SDK only):
 |------------------|------------|----------|
 | `questions/{id}` | `aym:q:*` | Submitted questions (+ normalized `emailLower`, `ticketLower` for lookup) |
 | `meta/clusters` | `aym:clusters` | Merged mentor answer groups |
-| `meta/stats` | — | Aggregated question stats (maintained on write) |
-| `kv/{encodedKey}` | `aym:user:*`, `aym:email:*`, `aym:regno:*`, `aym:sess:*`, `aym:wac-results`, etc. | User profiles, indexes, sessions, WAC selection |
+| `meta/stats` | — | Staff question stats (recomputed on read, at most every 5 min — never written on submit) |
+| `meta/wac-seq` | — | Legacy single pass-number counter; now only holds `blockBase` for the shards |
+| `meta/wac-seq~s0` … `~s7` | — | Pass-number shards: each reservation takes a block of 10 numbers (`server/passIssuer.js`) |
+| `meta/wac-seq-loadtest~s*` | — | Load-test pass numbers (11WAC/2026/9xxxxx), never the real sequence |
+| `meta/visit-sources~s0` … `~s9` | — | QR visit counters, sharded (plus the legacy `meta/visit-sources`) |
+| `kv/{encodedKey}` | `aym:user:*`, `aym:email:*`, `aym:regno:*`, `aym:sess:*`, `aym:otp:*`, `aym:mail:*`, `aym:meta:public-stats`, `aym:wac-results`, etc. | User profiles, indexes, sessions, per-email OTP send records (hashed key), queued outbound mail (OTP sealed AES-256-GCM; staff list never sees digits), shared public-stats cache, WAC selection |
+
+Burst safety (see `docs/qa/LOAD-READINESS.md`): no registration or submit writes a shared
+document; the only shared writes are one block reservation per 10 pass numbers per instance,
+spread over 8 shards.
 
 `firestore.rules` denies **all** client reads and writes. Even if someone adds the
 Firebase browser SDK later, rules block direct database access.
@@ -39,7 +47,7 @@ Firebase browser SDK later, rules block direct database access.
 
 ### Server-only secrets
 
-- `ADMIN_PIN`, `OTP_COOKIE_SECRET`, SMTP/Resend keys, Firebase service account
+- `ADMIN_PIN`, `STAFF_SERVICE_TOKEN`, `OTP_COOKIE_SECRET`, SMTP/Resend keys, Firebase service account
 - Pending OTP state lives in a signed **HttpOnly** cookie only (never in the store)
 - Staff auth is an **HttpOnly** `aym_staff` cookie (HMAC of PIN)
 
@@ -55,6 +63,7 @@ Firebase browser SDK later, rules block direct database access.
 | `get` `aym:clusters` | Anyone | **Published** cluster answers only (no PII) |
 | `wacResultsGet` | Anyone if published | Selected student rows (name, email, institute) |
 | `ping`, `whoami` | Anyone | Backend name, staff flag, `hasPin` |
+| `publicStats` (also `GET /api/aym-store?op=publicStats`, CDN-cacheable ~30 s) | Anyone | Aggregate counts only (probe / demo data excluded) |
 
 ### Staff-only API (requires `aym_staff` cookie)
 

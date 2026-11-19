@@ -1,0 +1,103 @@
+{
+  "intentId": "abroad-country.income.usa",
+  "theme": "Practice Abroad & Practitioner Mobility",
+  "subtheme": "Licensing & registration",
+  "subject": "country:usa",
+  "ask": "income",
+  "question": "What salary or income can I expect from practising Ayurveda in the USA?",
+  "stream": "abroad-usa",
+  "region": "usa",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.647Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.223,
+      "bm25": 15.93,
+      "coverage": 0
+    },
+    {
+      "chunkId": "95dc782aaa3ac8021d952a78d2c4dc6aab1fcc74",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.21,
+      "bm25": 15.76,
+      "coverage": 0.44
+    },
+    {
+      "chunkId": "1c767d8a629f061105c8d7f57b12f1627169d081",
+      "url": "https://www.ayurvedanama.org/prospective-students-frequently-asked-questions",
+      "title": "Prospective Students FAQs — National Ayurvedic Medical Association",
+      "score": 1.125,
+      "bm25": 18.72,
+      "coverage": 0
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 1.1,
+      "bm25": 14.32,
+      "coverage": 0
+    },
+    {
+      "chunkId": "eaaded765eb50d16ffc6a7cfa69d4bed5d730787",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.066,
+      "bm25": 13.88,
+      "coverage": 0.25
+    },
+    {
+      "chunkId": "ce0eb3fabdf9e5d05833d0756a3abbea86a41693",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/aoushdhi.pdf",
+      "title": "aoushdhi",
+      "score": 1.049,
+      "bm25": 13.66,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 0.977,
+      "bm25": 15.91,
+      "coverage": 0
+    },
+    {
+      "chunkId": "f70c622054a18efc61cfba9579df3cf47963d024",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 0.949,
+      "bm25": 12.36,
+      "coverage": 0.19
+    }
+  ]
+}

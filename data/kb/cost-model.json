@@ -1,0 +1,73 @@
+{
+ "measuredAt": "2026-10-28T10:24:56.192Z",
+ "priceDay": "2026-12-10",
+ "provider": {
+  "provider": "gemini",
+  "label": "Gemini API",
+  "configured": true,
+  "draftModel": "gemini-4-argon",
+  "verifyModel": "gemini-3.8-flash",
+  "escalateModel": "gemini-4-argon",
+  "classifyModel": "gemini-3.5-flash-lite",
+  "thinking": {
+   "draft": "low",
+   "verify": "low",
+   "classify": "minimal"
+  },
+  "embedProvider": "gemini",
+  "embedConfigured": true,
+  "embedModel": "gemini-embedding-001",
+  "embedDimensions": 768
+ },
+ "questions": 30,
+ "drafted": 24,
+ "blocked": [
+  "T-MD-01:medical",
+  "T-MD-02:medical",
+  "T-MD-03:medical",
+  "T-MD-04:medical",
+  "T-MD-05:medical",
+  "T-MD-06:medical"
+ ],
+ "medicalRouted": "6/6",
+ "tokenSource": "countTokens (57/57 prompts)",
+ "inputTokensAvg": {
+  "draftIn": 3576,
+  "verifyIn": 1871,
+  "classifyIn": 0
+ },
+ "assumptions": {
+  "draftVisible": 650,
+  "draftThinking": 600,
+  "verifyVisible": 450,
+  "verifyThinking": 300,
+  "escalateRate": 0.25,
+  "queryEmbedTokens": 40
+ },
+ "perAnswerUsd": {
+  "recommended": {
+   "models": "gemini-4-argon draft · gemini-3.8-flash verify · 25% re-checked by gemini-4-argon",
+   "draft": 0.0393,
+   "verify": 0.00422,
+   "escalate": 0.00562,
+   "embed": 0.000006,
+   "total": 0.04915
+  },
+  "allPro": {
+   "models": "gemini-4-argon draft + verify",
+   "draft": 0.0393,
+   "verify": 0.02248,
+   "escalate": 0,
+   "embed": 0.000006,
+   "total": 0.06179
+  },
+  "allFlash": {
+   "models": "gemini-3.8-flash draft + verify",
+   "draft": 0.00737,
+   "verify": 0.00422,
+   "escalate": 0,
+   "embed": 0.000006,
+   "total": 0.01159
+  }
+ }
+}

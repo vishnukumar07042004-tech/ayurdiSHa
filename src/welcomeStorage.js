@@ -1,46 +1,63 @@
 /**
- * Welcome dismissal is session-scoped: closing the tab/browser clears it,
- * so returning users see /welcome again. Within one session, Skip/Enter
- * suppresses redirect until the session ends.
+ * The welcome deck is shown once per device (versioned localStorage key). Registered delegates
+ * (aym-delegate-session) never see it. Storage failures count as "seen" so nobody is ever trapped.
+ * A separate sessionStorage flag keeps FirstVisitGuide softening scoped to the current session.
  */
+export const WELCOME_KEY = "aym-welcome-v3";
 export const WELCOME_SESSION_KEY = "aym-welcome-session";
-
-/** Legacy permanent key — cleared so old “never show again” does not stick. */
 const WELCOME_LEGACY_KEY = "aym-welcome-seen";
+const DELEGATE_SESSION_KEY = "aym-delegate-session";
 
-function clearLegacyWelcomeFlag() {
-  try {
-    localStorage.removeItem(WELCOME_LEGACY_KEY);
-  } catch {
-    /* ignore */
-  }
-}
-
-/** True after Skip / Enter AYURDISHA in this browser session. */
+/** True if this device has seen (or should skip) the welcome deck. */
 export function hasSeenWelcome() {
   try {
-    clearLegacyWelcomeFlag();
-    return sessionStorage.getItem(WELCOME_SESSION_KEY) === "1";
+    const ls = globalThis.localStorage;
+    if (!ls) return true;
+    if (ls.getItem(WELCOME_KEY)) return true;
+    if (ls.getItem(WELCOME_LEGACY_KEY)) {
+      ls.setItem(WELCOME_KEY, JSON.stringify({ seenAt: new Date().toISOString(), completed: false }));
+      return true;
+    }
+    if (ls.getItem(DELEGATE_SESSION_KEY)) return true;
+    return globalThis.sessionStorage?.getItem(WELCOME_SESSION_KEY) === "1";
   } catch {
     return true;
   }
 }
 
-/** Mark welcome dismissed for the rest of this session only. */
-export function markWelcomeSeen() {
+/** Record that the deck was dismissed (Skip / Enter) on this device and in this session. */
+export function markWelcomeSeen({ completed = false } = {}) {
   try {
-    clearLegacyWelcomeFlag();
-    sessionStorage.setItem(WELCOME_SESSION_KEY, "1");
+    globalThis.localStorage?.setItem(
+      WELCOME_KEY,
+      JSON.stringify({ seenAt: new Date().toISOString(), completed: !!completed }),
+    );
   } catch {
-    /* ignore */
+    /* private mode */
+  }
+  markWelcomeSession();
+}
+
+export function markWelcomeSession() {
+  try {
+    globalThis.sessionStorage?.setItem(WELCOME_SESSION_KEY, "1");
+  } catch {
+    /* private mode */
   }
 }
 
-/** Alias used by feature-guide softening after welcome. */
-export function markWelcomeSession() {
-  markWelcomeSeen();
+/** Session-scoped flag used to soften feature coaches right after the deck. */
+export function welcomeShownThisSession() {
+  try {
+    return globalThis.sessionStorage?.getItem(WELCOME_SESSION_KEY) === "1";
+  } catch {
+    return true;
+  }
 }
 
-export function welcomeShownThisSession() {
-  return hasSeenWelcome();
+/** Only a bare "/" (or "/#intro") for a non-staff visitor who hasn't seen the deck redirects to it. */
+export function shouldShowWelcome({ pathname = "/", hash = "", staff = false } = {}) {
+  if (staff || pathname !== "/") return false;
+  if (hash && hash !== "#" && hash !== "#intro") return false;
+  return !hasSeenWelcome();
 }

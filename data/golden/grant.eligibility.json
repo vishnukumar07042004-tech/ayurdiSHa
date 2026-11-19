@@ -1,0 +1,102 @@
+{
+  "intentId": "grant.eligibility",
+  "theme": "Research, Evidence & Publication",
+  "subtheme": "Grants & funding",
+  "subject": "grant",
+  "ask": "eligibility",
+  "question": "What is the eligibility for research grants for young Ayurveda researchers?",
+  "stream": "research-phd",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "RAV Vacancy",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/RAV_Vacancy.pdf"
+    },
+    {
+      "title": "English Application Form 04082026",
+      "url": "https://ayush.gov.in/assets/pdf/careers/English_Application_Form_04082026.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.914Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "1339780f823240b66f91f9cb034e91836d90a8a6",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/RAV_Vacancy.pdf",
+      "title": "RAV Vacancy",
+      "score": 1.259,
+      "bm25": 26.81,
+      "coverage": 0.61
+    },
+    {
+      "chunkId": "3c029ac1fcc30f59bab729951e0d27c1ac82dd06",
+      "url": "https://ayush.gov.in/assets/pdf/careers/English_Application_Form_04082026.pdf",
+      "title": "English Application Form 04082026",
+      "score": 1.15,
+      "bm25": 30.63,
+      "coverage": 0.54
+    },
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.124,
+      "bm25": 23.94,
+      "coverage": 0.54
+    },
+    {
+      "chunkId": "280cf8415f41ab4804b4016e646867c8bba55e92",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 1.102,
+      "bm25": 23.47,
+      "coverage": 0.61
+    },
+    {
+      "chunkId": "668cf83613427dd99fd8c593e819ee64cd89b5a3",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ayurgyan.pdf",
+      "title": "ayurgyan",
+      "score": 1.012,
+      "bm25": 21.56,
+      "coverage": 0.3
+    },
+    {
+      "chunkId": "c7b296354b65e1ecd0f045cb90f3c9f10c8964ac",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 0.943,
+      "bm25": 20.1,
+      "coverage": 0.47
+    },
+    {
+      "chunkId": "a62ab6dac878ea991763d56b9920c2d6bb02e647",
+      "url": "https://ayush.gov.in/assets/pdf/careers/NEIAH_Director.pdf",
+      "title": "NEIAH Director",
+      "score": 0.943,
+      "bm25": 20.09,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "efd782edd9713f50d66e002df081bbaceeff8096",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/VacancyCircularSiddhaUnani.pdf",
+      "title": "VacancyCircularSiddhaUnani",
+      "score": 0.933,
+      "bm25": 19.88,
+      "coverage": 0.31
+    }
+  ]
+}

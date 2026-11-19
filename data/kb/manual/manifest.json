@@ -1,0 +1,200 @@
+[
+  {
+    "file": "ayushportal-nic-in-pdf-ccim-telemedicine-guidelines-08-04-2020-7c9c7215.pdf",
+    "url": "https://ayushportal.nic.in/pdf/CCIM_Telemedicine_Guidelines_08-04-2020.pdf",
+    "title": "CCIM Telemedicine Guidelines 08 04 2020",
+    "publishedAt": "2020-04-08",
+    "fetchedAt": "2026-11-07T17:20:14.344Z",
+    "authority": "research",
+    "gap": "faculty-clinical-practice",
+    "kind": "pdf",
+    "bytes": 1533647
+  },
+  {
+    "file": "clinicalestablishments-mohfw-gov-in-sites-default-files-2025-12-6-ayush-minimum--284bee7d.pdf",
+    "url": "https://clinicalestablishments.mohfw.gov.in/sites/default/files/2025-12/6.%20AYUSH%20minimum%20standrds%20Clinic_0.pdf",
+    "title": "6. AYUSH minimum standrds Clinic 0",
+    "publishedAt": "2025-12-05",
+    "fetchedAt": "2026-11-07T17:20:14.344Z",
+    "authority": "regulator",
+    "gap": "faculty-clinical-practice",
+    "kind": "pdf",
+    "bytes": 428538
+  },
+  {
+    "file": "clinicalestablishments-mohfw-gov-in-faq-aff6895a.html",
+    "url": "https://www.clinicalestablishments.mohfw.gov.in/faq",
+    "title": "FAQ (Frequently Asked Questions)",
+    "publishedAt": null,
+    "fetchedAt": "2026-11-07T17:20:14.344Z",
+    "authority": "regulator",
+    "gap": "faculty-clinical-practice",
+    "kind": "html",
+    "bytes": 68888
+  },
+  {
+    "file": "doh-gov-ae-en-b4c5d264.html",
+    "url": "https://www.doh.gov.ae/en",
+    "title": "Home | Department of Health Abu Dhabi",
+    "publishedAt": "2026-10-28",
+    "fetchedAt": "2026-10-31T06:09:22.068Z",
+    "authority": "regulator",
+    "gap": "gulf",
+    "kind": "html",
+    "bytes": 60093
+  },
+  {
+    "file": "doh-gov-ae-en-pqr-f5265426.html",
+    "url": "https://www.doh.gov.ae/en/pqr",
+    "title": "Introduction to Professional Qualification Requirement (PQR) | Department of Health Abu Dhabi",
+    "publishedAt": "2026-10-28",
+    "fetchedAt": "2026-10-31T06:09:22.068Z",
+    "authority": "regulator",
+    "gap": "gulf",
+    "kind": "html",
+    "bytes": 28950
+  },
+  {
+    "file": "natboard-edu-in-parinam-neetpg-index-e1518429.html",
+    "url": "https://natboard.edu.in/parinam/neetpg/index",
+    "title": "नीट पीजी परिणाम NEET PG RESULT",
+    "publishedAt": null,
+    "fetchedAt": "2026-10-31T06:09:22.068Z",
+    "authority": "regulator",
+    "gap": "neetpg",
+    "kind": "html",
+    "bytes": 6396
+  },
+  {
+    "file": "natboard-edu-in-pdoof-user-manual-neetpg-2024-0f41d6a2.pdf",
+    "url": "https://natboard.edu.in/pdoof/User_Manual_NEETPG_2024.pdf",
+    "title": "User_Manual_for_NEET_PG_2024.doc",
+    "publishedAt": "2024-04-16",
+    "fetchedAt": "2026-10-31T06:09:22.068Z",
+    "authority": "regulator",
+    "gap": "neetpg",
+    "kind": "pdf",
+    "bytes": 142501
+  },
+  {
+    "file": "natboard-edu-in-viewnbeexam-exam-neetpg-9e79f66b.html",
+    "url": "https://natboard.edu.in/viewnbeexam?exam=neetpg",
+    "title": "एनबीईएमएस NBEMS",
+    "publishedAt": null,
+    "fetchedAt": "2026-10-31T06:09:22.068Z",
+    "authority": "regulator",
+    "gap": "neetpg",
+    "kind": "html",
+    "bytes": 103716
+  },
+  {
+    "file": "natboard-edu-in-viewupload-xyz-adzadzvxlzgzvglmtw5fshirekvlqt09-e43a771d.pdf",
+    "url": "https://natboard.edu.in/viewUpload?xyz=aDZadzVxLzgzVGlMTW5FSHIrekVlQT09",
+    "title": "Information Bulletin NEET SS 2021 (Old Scheme).pages",
+    "publishedAt": "2021-11-01",
+    "fetchedAt": "2026-10-31T06:09:22.068Z",
+    "authority": "regulator",
+    "gap": "neetpg",
+    "kind": "pdf",
+    "bytes": 3884488
+  },
+  {
+    "file": "rpsc-rajasthan-gov-in-static-result-29c9a8de1cca460fa8da0f862f483fec-eddb0b0f.pdf",
+    "url": "https://rpsc.rajasthan.gov.in/Static/Result/29C9A8DE1CCA460FA8DA0F862F483FEC.pdf",
+    "title": "29C9A8DE1CCA460FA8DA0F862F483FEC",
+    "publishedAt": "2026-10-28",
+    "fetchedAt": "2026-10-31T06:09:22.068Z",
+    "authority": "regulator",
+    "gap": "state-psc",
+    "kind": "pdf",
+    "bytes": 162895
+  },
+  {
+    "file": "rpsc-rajasthan-gov-in-static-result-349b44ef74af49ae8aba16f40efe9a6a-5023e6ba.pdf",
+    "url": "https://rpsc.rajasthan.gov.in/Static/Result/349B44EF74AF49AE8ABA16F40EFE9A6A.pdf",
+    "title": "349B44EF74AF49AE8ABA16F40EFE9A6A",
+    "publishedAt": "2026-10-28",
+    "fetchedAt": "2026-10-31T06:09:22.068Z",
+    "authority": "regulator",
+    "gap": "state-psc",
+    "kind": "pdf",
+    "bytes": 163384
+  },
+  {
+    "file": "rpsc-rajasthan-gov-in-static-result-61f2afa092e3466685607fefbb2f6925-a1fbd01f.pdf",
+    "url": "https://rpsc.rajasthan.gov.in/Static/Result/61F2AFA092E3466685607FEFBB2F6925.pdf",
+    "title": "61F2AFA092E3466685607FEFBB2F6925",
+    "publishedAt": "2026-10-28",
+    "fetchedAt": "2026-10-31T06:09:22.068Z",
+    "authority": "regulator",
+    "gap": "state-psc",
+    "kind": "pdf",
+    "bytes": 162638
+  },
+  {
+    "file": "rpsc-rajasthan-gov-in-static-result-6ebaeae80ff7472baf4f59248337c718-3e05b367.pdf",
+    "url": "https://rpsc.rajasthan.gov.in/Static/Result/6EBAEAE80FF7472BAF4F59248337C718.pdf",
+    "title": "6EBAEAE80FF7472BAF4F59248337C718",
+    "publishedAt": "2026-10-28",
+    "fetchedAt": "2026-10-31T06:09:22.068Z",
+    "authority": "regulator",
+    "gap": "state-psc",
+    "kind": "pdf",
+    "bytes": 162918
+  },
+  {
+    "file": "rpsc-rajasthan-gov-in-static-result-7bfa12adc3b9465089f8ecc415d34b5f-d8d67e51.pdf",
+    "url": "https://rpsc.rajasthan.gov.in/Static/Result/7BFA12ADC3B9465089F8ECC415D34B5F.pdf",
+    "title": "7BFA12ADC3B9465089F8ECC415D34B5F",
+    "publishedAt": "2026-10-28",
+    "fetchedAt": "2026-10-31T06:09:22.068Z",
+    "authority": "regulator",
+    "gap": "state-psc",
+    "kind": "pdf",
+    "bytes": 163009
+  },
+  {
+    "file": "rpsc-rajasthan-gov-in-static-result-8f246b4170c24d3d850cd9e14ad83ba2-f81c0b67.pdf",
+    "url": "https://rpsc.rajasthan.gov.in/Static/Result/8F246B4170C24D3D850CD9E14AD83BA2.pdf",
+    "title": "8F246B4170C24D3D850CD9E14AD83BA2",
+    "publishedAt": "2026-10-28",
+    "fetchedAt": "2026-10-31T06:09:22.068Z",
+    "authority": "regulator",
+    "gap": "state-psc",
+    "kind": "pdf",
+    "bytes": 50704
+  },
+  {
+    "file": "rpsc-rajasthan-gov-in-static-result-8fb8cf472f684aaf9234bf92d19e61dc-33922267.pdf",
+    "url": "https://rpsc.rajasthan.gov.in/Static/Result/8FB8CF472F684AAF9234BF92D19E61DC.pdf",
+    "title": "8FB8CF472F684AAF9234BF92D19E61DC",
+    "publishedAt": "2026-10-28",
+    "fetchedAt": "2026-10-31T06:09:22.068Z",
+    "authority": "regulator",
+    "gap": "state-psc",
+    "kind": "pdf",
+    "bytes": 163036
+  },
+  {
+    "file": "rpsc-rajasthan-gov-in-static-result-dc1ef1d976a44dde83c434a5f49683c3-8ee4f672.pdf",
+    "url": "https://rpsc.rajasthan.gov.in/Static/Result/DC1EF1D976A44DDE83C434A5F49683C3.pdf",
+    "title": "DC1EF1D976A44DDE83C434A5F49683C3",
+    "publishedAt": "2026-10-28",
+    "fetchedAt": "2026-10-31T06:09:22.068Z",
+    "authority": "regulator",
+    "gap": "state-psc",
+    "kind": "pdf",
+    "bytes": 163063
+  },
+  {
+    "file": "upsc-gov-in-6ca066b1.html",
+    "url": "https://www.upsc.gov.in/",
+    "title": "Sorry, you need to enable JavaScript to visit this website.",
+    "publishedAt": "2026-10-29",
+    "fetchedAt": "2026-10-31T06:09:22.068Z",
+    "authority": "regulator",
+    "gap": "upsc-ayush",
+    "kind": "html",
+    "bytes": 102963
+  }
+]

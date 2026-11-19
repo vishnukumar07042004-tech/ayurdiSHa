@@ -1,0 +1,103 @@
+{
+  "intentId": "psc.how-to.maharashtra",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "subject": "psc",
+  "ask": "how-to",
+  "question": "How do I prepare for the Maharashtra PSC Ayurveda Medical Officer exam?",
+  "stream": "govt-jobs",
+  "region": "maharashtra",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.514Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "ad2ce5d5f7d0c4c9f21b28171da7caffe456548d",
+      "url": "https://rpsc.rajasthan.gov.in/Static/InformationForCandidates/FAQ.pdf",
+      "title": "Rajasthan Public Service Commission — FAQ",
+      "score": 1.258,
+      "bm25": 16.07,
+      "coverage": 0.42
+    },
+    {
+      "chunkId": "96059e644fb8b1a29fb490662f53e706cf9d64d0",
+      "url": "https://rpsc.rajasthan.gov.in/Static/InformationForCandidates/FAQ.pdf",
+      "title": "Rajasthan Public Service Commission — FAQ",
+      "score": 1.185,
+      "bm25": 15.14,
+      "coverage": 0.35
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.15,
+      "bm25": 18.36,
+      "coverage": 0
+    },
+    {
+      "chunkId": "1f711f42f39e3cf1fefa3e692e9ea1b40ffbfba3",
+      "url": "https://ayush.gov.in/assets/pdf/careers/CGN_UG_Guideline_Session_2025-26.pdf",
+      "title": "CGN UG Guideline Session 2025 26",
+      "score": 1.125,
+      "bm25": 17.96,
+      "coverage": 0.35
+    },
+    {
+      "chunkId": "f0078d54b17d92fd4dbdaa2add34848049260765",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 1.101,
+      "bm25": 14.07,
+      "coverage": 0.18
+    },
+    {
+      "chunkId": "7570883c7ce2a21d175a0e6b4f0b004c39acfdc3",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/ep3ayurveda.pdf",
+      "title": "ep3ayurveda",
+      "score": 1.093,
+      "bm25": 13.97,
+      "coverage": 0.18
+    },
+    {
+      "chunkId": "8a340157092cd6cdd3ac79bb8b85b4b0d6cb1323",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_LOP.pdf",
+      "title": "Ayurveda LOP",
+      "score": 1.092,
+      "bm25": 17.44,
+      "coverage": 0.24
+    },
+    {
+      "chunkId": "280cf8415f41ab4804b4016e646867c8bba55e92",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 1.088,
+      "bm25": 13.89,
+      "coverage": 0.28
+    }
+  ]
+}

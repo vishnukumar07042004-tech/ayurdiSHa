@@ -1,0 +1,103 @@
+{
+  "intentId": "socialmedia.legal",
+  "theme": "Brand Building & Communication",
+  "subtheme": "Digital presence",
+  "subject": "socialmedia",
+  "ask": "legal",
+  "question": "What licence or registration is required for social media for my practice?",
+  "stream": "digital-branding",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.677Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "6f03f0a6c4ee6d73105ed83a3ff78ffa43a585ea",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/iec.pdf",
+      "title": "Ministry of Ayush, Government of India — iec",
+      "score": 1.344,
+      "bm25": 19.24,
+      "coverage": 0.44
+    },
+    {
+      "chunkId": "34e6ce6c265dee76e062001431a383e52c284f8b",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/iec.pdf",
+      "title": "Ministry of Ayush, Government of India — iec",
+      "score": 1.303,
+      "bm25": 18.66,
+      "coverage": 0.44
+    },
+    {
+      "chunkId": "b72cbc0e8f18ab3812bd1e14daa53b01a93e171b",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.15,
+      "bm25": 20.59,
+      "coverage": 0.56
+    },
+    {
+      "chunkId": "cb20b23616f8c35f3fc7d28b697a7456180bf2b2",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.052,
+      "bm25": 18.84,
+      "coverage": 0.56
+    },
+    {
+      "chunkId": "41c8049f9698f7e79a02545902ad3eaf971d2e3a",
+      "url": "https://ayush.gov.in/assets/pdf/awards/Advertisement_for_National_Ayurved_Dhanwantari_Award.pdf",
+      "title": "Advertisement for National Ayurved Dhanwantari Award",
+      "score": 0.921,
+      "bm25": 13.2,
+      "coverage": 0.44
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 0.884,
+      "bm25": 15.82,
+      "coverage": 0.11
+    },
+    {
+      "chunkId": "5ae496edb053a5aa83b8e10dd77857c458ae8f54",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 0.863,
+      "bm25": 16.92,
+      "coverage": 0.44
+    },
+    {
+      "chunkId": "cf3708b12822d2aab9b83b9fad0d183c39e6a0c5",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._669(E)_dated_28th_October,_2024.pdf",
+      "title": "Gazette Notification No. G.S.R. 669(E) dated 28th October, 2024",
+      "score": 0.859,
+      "bm25": 12.3,
+      "coverage": 0.38
+    }
+  ]
+}

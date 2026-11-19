@@ -77,7 +77,7 @@ export default function ProgramDetailPage() {
         title={`Track ${program.code}`}
         watchRef={heroRef}
         links={links.slice(0, 4)}
-        cta={{ label: "Ask a mentor", to: ASK }}
+        cta={{ label: "Ask Desk", to: ASK }}
       />
 
       <div className="ui-container ui-container--text ui-detail-body">
@@ -118,7 +118,7 @@ export default function ProgramDetailPage() {
           <h2 className="ui-tile-title">Have a specific question about {program.title}?</h2>
           <p className="ui-body">Submit your question to the AYURDISHA Ask Desk and receive guidance from experienced mentors.</p>
           <div className="ui-btn-row ui-btn-row--center">
-            <Button to={ASK} size="lg" variant="on-dark">Ask a Mentor About Track {program.code}</Button>
+            <Button to={ASK} size="lg" variant="on-dark">Ask Desk</Button>
           </div>
           <MoreLink to="/programs" onDark>Explore other tracks</MoreLink>
         </aside>

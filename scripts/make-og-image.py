@@ -27,7 +27,7 @@ img = Image.composite(Image.new("RGB", (W, H), (200, 190, 170)), img, grain.poin
 
 d = ImageDraw.Draw(img)
 
-hero = Image.open(ROOT / "public/assets/home/home-hero.png").convert("RGB")
+hero = Image.open(ROOT / "public/assets/home/home-hero.jpg").convert("RGB")
 PX, PY, PW, PH = 680, 60, 460, 510
 hero = ImageOps.fit(hero, (PW, PH), centering=(0.5, 0.45))
 mask = Image.new("L", (PW, PH), 0)

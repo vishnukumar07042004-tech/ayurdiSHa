@@ -1,0 +1,103 @@
+{
+  "intentId": "branch-prasuti.cutoff",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "subject": "branch:prasuti",
+  "ask": "cutoff",
+  "question": "What rank or score is needed in MS Prasuti Tantra (Obstetrics & Gynaecology)?",
+  "stream": "pg-entrance",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.926Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "7e42c4398cd485f91bed6b24473ffdb0d08baa71",
+      "url": "https://ism.kerala.gov.in/eng/index.php/about/about-us/about-ayurveda",
+      "title": "About Ayurveda - Department of Indian Systems of Medicine",
+      "score": 1.15,
+      "bm25": 28.68,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "93c211aefe722ef80b8dff84cdb4b8e9bdbaf67c",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.097,
+      "bm25": 21.89,
+      "coverage": 0.21
+    },
+    {
+      "chunkId": "1a328ba322438093e3b469498577c74d8538223b",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.033,
+      "bm25": 20.62,
+      "coverage": 0.21
+    },
+    {
+      "chunkId": "1e8c572d520bfc79e5a87f6452ee396e83a4c5f3",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29861594/",
+      "title": "A causal relationship between knowledge of Sanskrit language and results of Bachelor of Ayurvedic Medicine and Surgery examination: An analytical study.",
+      "score": 0.927,
+      "bm25": 25.33,
+      "coverage": 0.13
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 0.9,
+      "bm25": 24.6,
+      "coverage": 0.1
+    },
+    {
+      "chunkId": "f339c0fa977417d9f3e9533b282bdc3b77ba046a",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/",
+      "title": "AACCC",
+      "score": 0.861,
+      "bm25": 17.18,
+      "coverage": 0
+    },
+    {
+      "chunkId": "ced167f0756b13afc6c64a860c0d135365bb1b59",
+      "url": "https://aaccc.gov.in/",
+      "title": "Ayush Admissions Central Counselling Committee (AACCC)",
+      "score": 0.816,
+      "bm25": 16.29,
+      "coverage": 0.1
+    },
+    {
+      "chunkId": "c7b66b8a69527d6d3bcdf795f7438c5cdb48280b",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/Central-Government-Nomination-to-MD-(Ayurveda)-NIA-Jaipur-2024-25.pdf",
+      "title": "Central Government Nomination to MD (Ayurveda) NIA Jaipur 2024 25",
+      "score": 0.76,
+      "bm25": 18.95,
+      "coverage": 0.21
+    }
+  ]
+}

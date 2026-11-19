@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Welcome to DHA" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="apple-touch-icon" href="/logo192.png" />
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="manifest" href="/manifest.json" />
+    <title>Welcome to DHA</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@dubai-design-system/components-js@3.12.10/dist/dda/dda.css"
+    />
+
+    <script defer="defer" src="/ui-engine/static/js/bundle.js"></script>
+    <link href="/assets/main.c6cf0868.css" rel="stylesheet" />
+    <link href="/css/dha.css" rel="stylesheet" />
+
+     <script>
+      window.isHome = true;
+    </script>
+
+    <script type="module">
+      import { defineCustomElements } from "https://cdn.jsdelivr.net/npm/@dubai-design-system/components-js@3.12.10/loader/index.js";
+      defineCustomElements();
+    </script>
+
+    <script>
+      function getCookie(name) {
+        // Split cookie string into individual cookies
+        const cookies = document.cookie.split(";");
+
+        for (let i = 0; i < cookies.length; i++) {
+          // Trim spaces and split into [key, value]
+          const [cookieName, cookieValue] = cookies[i].trim().split("=");
+
+          // Return decoded value if the name matches
+          if (cookieName === name) {
+            return decodeURIComponent(cookieValue);
+          }
+        }
+        return ""; // Return null if cookie is not found
+      }
+
+      window.sessionName = getCookie("dha_session_name") || "";
+    </script>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+
+.homeBannerButton {
+background: #fff !important;
+}
+.homeBannerButton:hover {
+background: var(--dda-primary-40) !important;
+}
+.home-image-card{
+height: calc(100% - 16px);
+}
+
+.dda-card.home-image-card,.home-news-wide {
+border: 1px solid #eee;
+}
+.home-image-card .dda-image-card-content {
+	padding: 15px !important;
+}
+
+
+.home-news-wide .news-side-content h5{
+display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+font-size: var(--font-h6) !important;
+}
+
+.dda-image-card-content h5{
+font-size: var(--font-h6) !important;
+}
+
+
+
+ .dda-slide-contant h3{
+  font-family: "Tajawal", sans-serif !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+}
+
+.dda-slide-contant h5{
+  font-family: "Tajawal", sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
+
+.dda-slide-contant .homeBannerButton{
+  font-family: "Tajawal", sans-serif !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+}
+
+
+.home-service-card{
+height: 100%;
+justify-content: space-between;
+}
+    </style>
+
+    <script>
+      console.log("Scripts Loaded");
+      
+    </script>
+    <!-- Google Analytics -->
+<!-- <script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=GTM-M9XKDTG"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "GTM-M9XKDTG");
+</script> -->
+
+  </head>
+  <body class="pb-[85px]">
+    <a class="skip-to-content" href="#pageMain" data-skip-to-content>
+  Skip to main content
+</a>
+
+<style>
+  .skip-to-content {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    margin-left: -65px;
+    z-index: 100000;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 8px;
+    color: #ffffff;
+    background: #006874;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-150%);
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease;
+  }
+
+  body.portal-keyboard-navigation .skip-to-content:focus {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    outline-offset: 0px;
+    outline-color: #66eee9;
+  }
+</style>
+
+<script>
+  (function () {
+    function getSkipTarget() {
+      return (
+        document.getElementById("pageMain") ||
+        document.querySelector("main") ||
+        document.getElementById("root") ||
+        document.querySelector("[role='main']") ||
+        document.body
+      );
+    }
+
+    function prepareSkipTarget() {
+      const target = getSkipTarget();
+      const isHomepage = window.isHome || false;
+
+      if (!!isHomepage) {
+        const elements = document.getElementsByClassName("dda-banner-card");
+        return elements[0] || target;
+      }
+      if (target && !target.hasAttribute("tabindex")) {
+        target.setAttribute("tabindex", "-1");
+      }
+
+      return target;
+    }
+
+    window.skipToContent = function (event) {
+      if (event) {
+        event.preventDefault();
+      }
+
+      const target = prepareSkipTarget();
+      const isHomepage = window.isHome || false;
+
+      if (!target) {
+        return false;
+      }
+
+      try {
+        target.focus({ preventScroll: true });
+      } catch (error) {
+        target.focus();
+      }
+
+      if (!!isHomepage) {
+      } else {
+        try {
+          target.scrollIntoView({ block: "start" });
+        } catch (error) {
+          target.scrollIntoView();
+        }
+      }
+
+      return false;
+    };
+
+    const skipLink = document.querySelector("[data-skip-to-content]");
+
+    if (skipLink) {
+      skipLink.addEventListener("click", window.skipToContent);
+    }
+
+    document.addEventListener(
+      "keydown",
+      function (event) {
+        if (event.key === "Tab") {
+          document.body.classList.add("portal-keyboard-navigation");
+        }
+      },
+      true,
+    );
+
+    document.addEventListener(
+      "pointerdown",
+      function () {
+        document.body.classList.remove("portal-keyboard-navigation");
+      },
+      true,
+    );
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const language = String(
+        document.documentElement.getAttribute("lang") || window.language || "",
+      ).toLowerCase();
+
+      if (skipLink && language.startsWith("ar")) {
+        skipLink.textContent = "تخطي إلى المحتوى الرئيسي";
+      }
+
+      prepareSkipTarget();
+    });
+  })();
+</script>
+
+
+
+
+
+    
+<h1 class="visually-hidden-page-title">Welcome to DHA</h1>
+
+<style>
+  .visually-hidden-page-title {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+</style>
+
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="dhaheader" class="transparent"></div>
+    <div id="pageMain"></div>
+    <div id="pageReview"></div>
+    <div
+      id="dhafootercontent"
+      style="box-shadow: 0px -15px 20px rgba(0, 0, 0, 0.05)"
+    ></div>
+    <div id="dhafooter"></div>
+    <div
+  id="SuggestionsComplaintsModal"
+  class="fixed inset-0 z-[99999] hidden items-center align-center justify-center bg-black/60"
+>
+  <div
+    class="relative w-[95vw] max-w-6xl h-[90vh] overflow-hidden rounded-xl bg-white shadow-2xl"
+  >
+    <button
+      type="button"
+      onclick="closeSuggestionsModal()"
+      class="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/70 text-2xl text-white transition hover:bg-black"
+      aria-label="Close"
+    >
+      &times;
+    </button>
+
+    <iframe
+      title="Suggestions and Complaints"
+      src="/04modalgoeshere"
+      class="h-full w-full border-0"
+      id="04modaliframe"
+    ></iframe>
+  </div>
+</div>
+
+<div
+  id="HappinessMeterModal"
+  class="fixed inset-0 z-[99999] hidden items-center align-center justify-center bg-black/60"
+>
+  <div
+    class="relative w-[95vw] max-w-6xl h-[90vh] overflow-hidden rounded-xl bg-white shadow-2xl"
+  >
+    <button
+      type="button"
+      onclick="closeHappinessMeterModal()"
+      class="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/70 text-2xl text-white transition hover:bg-black"
+      aria-label="Close"
+    >
+      &times;
+    </button>
+
+    <iframe
+      id="HappinessMeterIframe"
+      title="Happiness Meter"
+      src="/happinessMeter"
+      data-default-src="/happinessMeter"
+      class="h-full w-full border-0"
+    ></iframe>
+  </div>
+</div>
+
+
+    <script>
+            jQuery(document).ready(async function () {
+              const pageContent = {"breadcrumbs":[],"id":1210,"dguid":"445ecc27-5581-414e-b657-9f5d513d4296","parent":null,"titleEn":"Welcome to DHA","titleAr":"مرحباً بكم في هيئة الصحة في دبي","content":null,"slug":"home","layout":"default","status":"published","metaTitleEn":"Welcome to DHA","metaDescriptionEn":"Welcome to DHA","metaKeywordsEn":"dha","metaTitleAr":"مرحباً بكم في هيئة الصحة في دبي","metaDescriptionAr":"مرحباً بكم في هيئة الصحة بدبي","metaKeywordsAr":"dha","seoImageUrl":"","javascript":"","css":"@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');\r\n\r\n.homeBannerButton {\r\nbackground: #fff !important;\r\n}\r\n.homeBannerButton:hover {\r\nbackground: var(--dda-primary-40) !important;\r\n}\r\n.home-image-card{\r\nheight: calc(100% - 16px);\r\n}\r\n\r\n.dda-card.home-image-card,.home-news-wide {\r\nborder: 1px solid #eee;\r\n}\r\n.home-image-card .dda-image-card-content {\r\n\tpadding: 15px !important;\r\n}\r\n\r\n\r\n.home-news-wide .news-side-content h5{\r\ndisplay: -webkit-box;\r\n  -webkit-line-clamp: 2; \r\n  -webkit-box-orient: vertical;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\nfont-size: var(--font-h6) !important;\r\n}\r\n\r\n.dda-image-card-content h5{\r\nfont-size: var(--font-h6) !important;\r\n}\r\n\r\n\r\n\r\n .dda-slide-contant h3{\r\n  font-family: \"Tajawal\", sans-serif !important;\r\n  font-weight: 700 !important;\r\n  font-style: normal !important;\r\n}\r\n\r\n.dda-slide-contant h5{\r\n  font-family: \"Tajawal\", sans-serif !important;\r\n  font-weight: 400 !important;\r\n  font-style: normal !important;\r\n}\r\n\r\n.dda-slide-contant .homeBannerButton{\r\n  font-family: \"Tajawal\", sans-serif !important;\r\n  font-weight: 700 !important;\r\n  font-style: normal !important;\r\n}\r\n\r\n\r\n.home-service-card{\r\nheight: 100%;\r\njustify-content: space-between;\r\n}","createdBy":"system","updatedBy":"admin","deployed":false,"createdAt":"2025-09-01T05:15:30.344Z","updatedAt":"2026-08-14T09:12:45.837Z","blocks":[{"_id":"bloqweqweqweassadeewqck5","type":"static_home","props":{"bannerCard":[{"banner_card_id":"for_individuals","type":"G-C","image_src":"/attachments/medialib/d52536a8-310e-42c6-a80b-2f90182754b3-1758786348892-863265438-health_individual.svg","banner_card_href":"javascript:void(0)","image_alt":"for_individuals","banner_card_title":"For Individuals","banner_card_title_ar":"خدمات الأفراد","banner_card_description":"Access a comprehensive range of educational, medical, and research services.","banner_card_description_ar":"احصل على مجموعة متكاملة من الخدمات التعليمية والطبية والبحثية","detail":[{"image_src":"/attachments/medialib/fbf04be3-1285-4121-bb6c-d62cb26cdbf0-1761305459452-302574603-For Individuals_Request Birth certificate.jpg","header_text":"Issue Death notification / Certificate / Certificate copy / lost replacement","header_text_ar":"إصدار بلاغ وفاة/شهادة/نسخة/بدل فاقد","left_button_name":"View Service","left_button_name_ar":"عرض الخدمة","left_button_href":"/services/serviceDetails/822fc9c8-368d-11ea-0723-005056ad1b09"},{"image_src":"/attachments/medialib/6d7c0ff5-c307-44b6-b374-4a76ed2845fc-1780648002799-124220388-Issue vaccination certificate.jpg","header_text":"Issue vaccination certificate","header_text_ar":"إصدار شهادة تطعيم","left_button_name":"View Service","left_button_name_ar":"عرض الخدمة","left_button_href":"/services/serviceDetails/6e1fde82-ac9d-11ef-1c1d-0a0027000004"},{"image_src":"/attachments/medialib/2ad2bebf-c2b9-4a8c-83a1-be79c777e021-1761305441512-424936458-For Individuals_ Oversease Treatment.jpg","header_text":"Request for Overseas treatment Services","header_text_ar":"تقديم طلب العلاج في الخارج","left_button_name":"View Service","left_button_name_ar":"عرض الخدمة","left_button_href":"/services/serviceDetails/7e805e90-ca2a-11e9-0722-005056ad1b09"}]},{"banner_card_id":"For_Health_Professionals","type":"G-CP","banner_card_href":"javascript:void(0)","image_alt":"for_health_professionals","image_src":"/attachments/medialib/cb4b7101-9d76-441c-8c24-7ca1e7afdb30-1758786355042-508993476-health_professional.svg","banner_card_title":"For Health Professionals","banner_card_title_ar":"خدمات المهنيين الصحيين","banner_card_description":"Empower your career with proper licensing and training","banner_card_description_ar":"تابع مسيرتك المهنية بالترخيص والتدريب الملائمين","detail":[{"image_src":"/attachments/medialib/0b9978b9-be41-410d-ace3-fdc3ac36aee8-1781689090827-988446544-Issue Sick Leave Certificate .jpg","header_text":"Issue Sick Leave Certificate","header_text_ar":"إصدار شهادة إجازة مرضية","left_button_name":"View Service","left_button_name_ar":"عرض الخدمة","left_button_href":"/services/serviceDetails/a648105f-c4b7-11e8-0721-005056ad1b09"},{"image_src":"/attachments/medialib/0f7acb7e-8f32-4733-850a-c44faa074274-1781689049021-421740337-Request to update CPD points.jpg","header_text":"Request to update CPD points","header_text_ar":"طلب إضافة نقاط التطوير المهني المستمر","left_button_name":"View Service","left_button_name_ar":"عرض الخدمة","left_button_href":"/services/serviceDetails/a6481056-c4b7-11e8-0721-005056ad1b09"},{"image_src":"/attachments/medialib/670d77fb-5338-4536-b3ba-80ed2dcd5bb5-1761305415323-155620430-For Health Professionals_Renew Professional License.jpg","header_text":"Request for Renew Professional Registration","header_text_ar":"طلب تجديد التسجيل المهني","left_button_name":"View Service","left_button_name_ar":"عرض الخدمة","left_button_href":"/services/serviceDetails/b894ffbd-c4b4-11e8-0721-005056ad1b09"}]},{"banner_card_id":"for_health_acilities","type":"G-F","image_src":"/attachments/medialib/e39fdc0c-6bf3-4481-a976-666baeb4fdb7-1758786360770-729109822-health_facilities.svg","banner_card_href":"javascript:void(0)","image_alt":"for_health_acilities","banner_card_title":"For Health Facilities","banner_card_title_ar":"خدمات المنشآت الصحية","banner_card_description":"Ensure your facility meets top quality and safety standards","banner_card_description_ar":"اعتمد منشأتك الصحية وفق أفضل معايير الجودة والسلامة","detail":[{"image_src":"/attachments/medialib/8c2dbce2-f0cb-4c0d-8dd7-8616eca739bc-1781688995301-448647625-Request to purchase sick leave certificates.jpg","header_text":"Request to purchase sick leave certificates","header_text_ar":"شراء شهادات إجازات مرضية","left_button_name":"View Service","left_button_name_ar":"عرض الخدمة","left_button_href":"/services/serviceDetails/fbf410e9-c4d3-11e8-0721-005056ad1b09"},{"image_src":"/attachments/medialib/9ba3a9bc-e3c6-4e7d-abe3-6be56eb25433-1761305434164-901391616-For Healthcare Facility_Renew facility License.jpg","header_text":"Request to Renew healthcare Facility License","header_text_ar":"طلب تجديد ترخيص المنشأة الصحية","left_button_name":"View Service","left_button_name_ar":"عرض الخدمة","left_button_href":"/services/serviceDetails/7862fb6b-c4ce-11e8-0721-005056ad1b09"},{"image_src":"/attachments/medialib/a366a192-1e00-4911-9db9-33833efb1601-1761305421987-675236785-For Healthcare Facility_Amend facility License.jpg","header_text":"Request to Amend healthcare Facility License","header_text_ar":"طلب تعديل ترخيص المنشأة الصحية","left_button_name":"View Service","left_button_name_ar":"عرض الخدمة","left_button_href":"/services/serviceDetails/7862fb6e-c4ce-11e8-0721-005056ad1b09"}]},{"banner_card_id":"for_government_entities","type":"G-G","image_src":"/attachments/medialib/db74e191-a05e-4984-9d0a-ed6c8b6e99eb-1758786342828-536887505-health_gov.svg","banner_card_href":"javascript:void(0)","image_alt":"for_government_entities","banner_card_title":"For Government Entities","banner_card_title_ar":"خدمات الجهات الحكومية","banner_card_description":"Collaborate with us to deliver better community services","banner_card_description_ar":"تعاون معنا لتقديم أفضل الخدمات للمجتمع","detail":[{"image_src":"/attachments/medialib/00040eee-9b3d-4f9c-9f30-f794c5c079d0-1761305397206-634264409-For Government Entities_Medically Auditing the request from HR Departments.jpg","header_text":"Medically Auditing the request from HR Departments of Dubai Government","header_text_ar":"التدقيق الطبي على طلبات إدارات الموارد البشرية قي حكومة دبي","left_button_name":"View Service","left_button_name_ar":"عرض الخدمة","left_button_href":"/services/serviceDetails/fd870585-4005-11ea-0723-005056ad1b09"},{"image_src":"/attachments/medialib/1769da5b-a9d0-49c0-9299-bfbec84e0c79-1781688789024-962649360-SanadCardService.jpg","header_text":"Medically Auditing applications of “SANAD” card for people of determination","header_text_ar":"التدقيق الطبي على طلبات بطاقة سند لأصحاب الهمم","left_button_name":"View Service","left_button_name_ar":"عرض الخدمة","left_button_href":"/services/serviceDetails/5b4eb9d0-40d1-11ea-0723-005056ad1b09"},{"image_src":"/attachments/medialib/c9bab082-44f0-4c71-a2d2-41fd2f7d2a5a-1761324924893-582465218-auditing.jpg","header_text":"Medically Auditing special parking permit for People of determination","header_text_ar":"التدقيق الطبي على طلبات منح تصاريح المواقف الخاصة لأصحاب الهمم","left_button_name":"View Service","left_button_name_ar":"عرض الخدمة","left_button_href":"/services/serviceDetails/fd87058b-4005-11ea-0723-005056ad1b09"}]},{"banner_card_id":"for_businesses_corporatesx","type":"G-B","image_src":"/attachments/medialib/f0f209f3-2ffe-4c3a-9329-9395c56500ac-1758786330908-355306769-health_businesses.svg","banner_card_href":"javascript:void(0)","image_alt":"for_businesses_corporates","banner_card_title":"For Businesses & Corporates","banner_card_title_ar":"خدمات الأعمال والشركات","banner_card_description":"Access regulatory, licensing, and support services for corporates","banner_card_description_ar":"خدمات تنظيم وترخيص ودعم للشركات والأعمال","detail":[{"image_src":"/attachments/medialib/fbb672cd-9f6c-4ab9-9cca-65b178fe96a6-1781688948620-228655809-IssuanceRenewal permit for a health service provider.jpg","header_text":"Issuance/Renewal permit for a health service provider","header_text_ar":"إصدار/ تجديد التصريح لمقدم الخدمة الصحية","left_button_name":"View Service","left_button_name_ar":"عرض الخدمة","left_button_href":"/services/serviceDetails/b98d35b0-cbc1-11ee-1c1d-0a0027000004"},{"image_src":"/attachments/medialib/aea213a1-292e-4175-9697-62a4ecdf582d-1781688891036-199779960-Provide vaccine services request for the Dubai Private Schools.jpg","header_text":"Provide vaccine services request for the Dubai Private Schools","header_text_ar":"طلب توفير التطعيم للمدارس الخاصة","left_button_name":"View Service","left_button_name_ar":"عرض الخدمة","left_button_href":"/services/serviceDetails/52a53ba0-c1b0-11ef-1c1d-0a0027000004"},{"image_src":"/attachments/medialib/61e7cf26-a382-4196-925e-952fa3e5d32f-1781688831107-787374147-Conduct Final Inspection for Healthcare Facility.jpg","header_text":"Conduct Final Inspection for Healthcare Facility","header_text_ar":"إجراء التفتيش النهائي لمنشأة صحية","left_button_name":"View Service","left_button_name_ar":"عرض الخدمة","left_button_href":"/services/serviceDetails/3e27ec84-2a0d-11ef-1c1d-0a0027000004"}]}]}},{"_id":"cecb8b27-59a2-421f-9336-8d88697a580b","type":"div","classname":"md:w-[90vw] m-auto px-[20px]","children":[{"_id":"fedba5ba-ed99-4ff5-ad00-aabf192a2563","type":"static_home_app","props":{"mobile_title":"Dubai Health Authority App","mobile_title_ar":"تطبيق هيئة الصحة في دبي ","mobile_subtitle":"Unified Platform for Accessing all DHA Services","mobile_subtitle_ar":"بوابة موحدة للوصول إلى جميع خدمات الهيئة","mobile_body":"A unified platform for accessing a wide range of\n\nDHA services through a single, smart application.\n\nIt allows users to view appointments, lab results,\n\nand medication details with ease, while\n\nregistered healthcare professionals can access\n\ndedicated Professional and Facility Dashboards.","mobile_body_ar":"منصة موحّدة للوصول إلى مجموعة واسعة من خدمات هيئة الصحة في دبي عبر تطبيق ذكي واحد. يتيح للمستخدمين عرض المواعيد ونتائج المختبرات ومعلومات الأدوية بسهولة، كما يوفّر للمهنيين الصحيين المسجّلين لوحات مخصّصة للمهنيين والمنشآت الصحية","mobile_ios_link":"https://apps.apple.com/bg/app/dha/id6471334093","mobile_android_link":"https://play.google.com/store/apps/details?id=ae.gov.dhamobile&hl=en","app_image":"/attachments/medialib/3c2d4c39-40ff-44a8-9233-813259761825-1780664385922-329822079-DHAApp_EN (1).png","app_image_ar":"/attachments/medialib/506bf043-b06a-42f5-9b0a-9d7a834889de-1780664395603-856480347-DHAApp_AR.png"}},{"_id":"68866129-1735-498f-aaec-f50d68903b19","type":"static_home_news","props":{"latest_media":"DHA News","latest_media_ar":"أخبار الهيئة","latest_media_body":"","latest_media_body_ar":"","media_button":"View All","media_button_ar":"عرض الكل"}}],"prebuildClass":[]}],"isHome":true};
+
+              var logincookie = null;
+            try {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; dha_session_id_wp=`);
+            if (parts.length === 2) logincookie = parts.pop().split(';').shift();
+            } catch {}
+
+              window.renderCMS({ JSONDATA: pageContent, DIVID:"pageMain", LANGUAGE: 'en' });
+        window.attachPortalSearch();
+
+        window.renderPortalStickyFooter({
+          language: "en",
+          chatIconHref: "javascript:openGenesysMessenger()",
+        });
+
+        const { headerNav, sideNav } = await window.fetchPortalNavigations();
+
+        window.renderPortalHeader({
+          language: "en",
+          headerNav,
+          sideNav,
+          loginMode: "session",
+        });
+
+        window.renderPortalFooterContent({
+          language: "en",
+          lastModified: "30/10/2026",
+        });
+        window.renderPortalPageReview({ language: "en" });
+      });
+    </script>
+    <script>
+  (function (g, e, n, es, ys) {
+    g["_genesysJs"] = e;
+
+    g[e] =
+      g[e] ||
+      function () {
+        (g[e].q = g[e].q || []).push(arguments);
+      };
+
+    g[e].t = 1 * new Date();
+
+    g[e].c = es;
+
+    ys = document.createElement("script");
+    ys.async = 1;
+    ys.src = n;
+    ys.charset = "utf-8";
+    document.head.appendChild(ys);
+  })(
+    window,
+    "Genesys",
+    "https://apps.mec1.pure.cloud/genesys-bootstrap/genesys.min.js",
+    {
+      environment: "prod-euc1",
+      deploymentId: "9f2eb3f8-bea1-4fbc-97ef-94c10d3130bf",
+    },
+  );
+</script>
+
+<script>
+  var isMesgrOpen = false;
+  Genesys("subscribe", "Messenger.opened", function () {
+    isMesgrOpen = true;
+  });
+  Genesys("subscribe", "Messenger.closed", function () {
+    isMesgrOpen = false;
+  });
+  const openGenesysMessenger = () => {
+    if (!!isMesgrOpen) {
+      console.log("Closing Genesys Messenger...");
+      Genesys("command", "Messenger.close");
+    } else {
+      console.log("Opening Genesys Messenger...");
+      Genesys("command", "Messenger.open");
+    }
+  };
+</script>
+
+
+    <script defer="defer" src="/js/portal-common.js"></script>
+<script defer="defer" src="/js/04modal.js"></script>
+
+<script src="https://cdn.mindrocketsapis.com/client/Latest/jquery.js"></script>
+<script src="https://cdn.mindrocketsapis.com/client/Latest/jquery.cookie.js"></script>
+<script src="https://cdn.mindrocketsapis.com/client/Latest/toolkit.js"></script>
+<script src="https://cdn.mindrocketsapis.com/client/Latest/signsplayer.js"></script>
+<script src="https://cdn.mindrocketsapis.com/client/Latest/tooltip_add.js"></script>
+<script src="https://cdn.mindrocketsapis.com/client/Latest/mr_advwinr1.js"></script>
+<script src="https://cdn.mindrocketsapis.com/client/dhaSl/integrator.js"></script>
+<script src="https://cdn.mindrocketsapis.com/client/Latest/jquery.js"></script>
+<script src="https://cdn.mindrocketsapis.com/client/Latest/jquery.cookie.js"></script>
+<script src="https://cdn.mindrocketsapis.com/client/Latest/toolkit.js"></script>
+<script src="https://cdn.mindrocketsapis.com/client/Latest/mrmegapack.bundle.js"></script>
+<script src="https://cdn.mindrocketsapis.com/client/MRUAP/dhaAIH/integrator-uap.js"></script>
+
+  </body>
+</html>

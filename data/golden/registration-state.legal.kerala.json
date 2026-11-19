@@ -1,0 +1,102 @@
+{
+  "intentId": "registration-state.legal.kerala",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Setting up private practice",
+  "subject": "general",
+  "ask": "legal",
+  "question": "How do I register with the Kerala state board of Indian medicine after my BAMS internship?",
+  "stream": "internship-early-career",
+  "region": "kerala",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular"
+    },
+    {
+      "title": "pasighat vacancy",
+      "url": "https://ayush.gov.in/assets/pdf/careers/pasighat-vacancy.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.619Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.15,
+      "bm25": 38.57,
+      "coverage": 0.74
+    },
+    {
+      "chunkId": "352e95127054ef9780a71fe4581080c6cbfe9468",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 0.747,
+      "bm25": 25.07,
+      "coverage": 0.74
+    },
+    {
+      "chunkId": "17faf02c65ba459498c90ca44c8dcd8c63c99986",
+      "url": "https://ayush.gov.in/assets/pdf/careers/pasighat-vacancy.pdf",
+      "title": "pasighat vacancy",
+      "score": 0.667,
+      "bm25": 17.91,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "e6ccc3645d279eb9a59ab67779e573df6669dc83",
+      "url": "https://ccras.nic.in/directory/it-internship-program-at-ccras-headquarters-from-19th-june-2025/",
+      "title": "IT internship program at CCRAS Headquarters from 19th June 2025 - Central Council for Research in Ayurvedic Sciences",
+      "score": 0.646,
+      "bm25": 23.74,
+      "coverage": 0.28
+    },
+    {
+      "chunkId": "dce915e0e8afe93c3182b503bc1f57fc2f2fb766",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Group-A-posts-comments-of-sttakeholders.pdf",
+      "title": "Group A posts comments of sttakeholders",
+      "score": 0.632,
+      "bm25": 21.19,
+      "coverage": 0.51
+    },
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 0.629,
+      "bm25": 23.12,
+      "coverage": 0.38
+    },
+    {
+      "chunkId": "c9cef37ab65df64d294eca695cb8db27044aa5b3",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Group-A-posts-comments-of-sttakeholders.pdf",
+      "title": "Group A posts comments of sttakeholders",
+      "score": 0.62,
+      "bm25": 20.81,
+      "coverage": 0.51
+    },
+    {
+      "chunkId": "25a823fd0f4f5a556ea6c0f65dd3ee4e3e53ccd3",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 0.617,
+      "bm25": 16.55,
+      "coverage": 0.2
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "intentId": "socialmedia-platform.which-one",
+  "theme": "Brand Building & Communication",
+  "subtheme": "Digital presence",
+  "subject": "socialmedia",
+  "ask": "which one",
+  "question": "Which social media platform for my clinic should I choose?",
+  "stream": "digital-branding",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.115Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "6f03f0a6c4ee6d73105ed83a3ff78ffa43a585ea",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/iec.pdf",
+      "title": "Ministry of Ayush, Government of India — iec",
+      "score": 1.438,
+      "bm25": 22.45,
+      "coverage": 0.51
+    },
+    {
+      "chunkId": "34e6ce6c265dee76e062001431a383e52c284f8b",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/iec.pdf",
+      "title": "Ministry of Ayush, Government of India — iec",
+      "score": 1.398,
+      "bm25": 21.83,
+      "coverage": 0.51
+    },
+    {
+      "chunkId": "f1b5fd63024b166f343c34e340811d68be96869d",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Young_Profassional_1_1.pdf",
+      "title": "Young Profassional 1 1",
+      "score": 1.167,
+      "bm25": 18.22,
+      "coverage": 0.51
+    },
+    {
+      "chunkId": "41c8049f9698f7e79a02545902ad3eaf971d2e3a",
+      "url": "https://ayush.gov.in/assets/pdf/awards/Advertisement_for_National_Ayurved_Dhanwantari_Award.pdf",
+      "title": "Advertisement for National Ayurved Dhanwantari Award",
+      "score": 1.033,
+      "bm25": 16.14,
+      "coverage": 0.51
+    },
+    {
+      "chunkId": "2dcefcf31fd73e390809370f82a9621448f1da59",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.973,
+      "bm25": 17.48,
+      "coverage": 0.51
+    },
+    {
+      "chunkId": "1c202ae53de923174d94f70d371d4df05363a826",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37358535/",
+      "title": "Covid-19 cure perceptions and media use in India.",
+      "score": 0.943,
+      "bm25": 20.15,
+      "coverage": 0.51
+    },
+    {
+      "chunkId": "c080d7b84c9145e3f272dc055d82a8af6ebd18d6",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._140(E)_dated_14th_February,_2025.pdf",
+      "title": "Gazette Notification No. G.S.R. 140(E) dated 14th February, 2025",
+      "score": 0.83,
+      "bm25": 12.96,
+      "coverage": 0.36
+    },
+    {
+      "chunkId": "af49e6406da5ca108176dd9b7c4d429bd3303ee0",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/02/Ayur-World-Jan-Feb-2026.pdf",
+      "title": "Ayur World Jan Feb 2026",
+      "score": 0.794,
+      "bm25": 17.83,
+      "coverage": 0.52
+    }
+  ]
+}

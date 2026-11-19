@@ -1,0 +1,103 @@
+{
+  "intentId": "abroad-country.cost.canada",
+  "theme": "Practice Abroad & Practitioner Mobility",
+  "subtheme": "Licensing & registration",
+  "subject": "country:canada",
+  "ask": "cost",
+  "question": "How much does practising Ayurveda in Canada cost?",
+  "stream": "practice-abroad",
+  "region": "canada",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.789Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.223,
+      "bm25": 15.93,
+      "coverage": 0
+    },
+    {
+      "chunkId": "1c767d8a629f061105c8d7f57b12f1627169d081",
+      "url": "https://www.ayurvedanama.org/prospective-students-frequently-asked-questions",
+      "title": "Prospective Students FAQs — National Ayurvedic Medical Association",
+      "score": 1.125,
+      "bm25": 18.72,
+      "coverage": 0
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 1.1,
+      "bm25": 14.32,
+      "coverage": 0
+    },
+    {
+      "chunkId": "546f6c2d626c7f33514b5f8ad3bd987e387b02f8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ic.pdf",
+      "title": "Ministry of Ayush, Government of India — ic",
+      "score": 1.007,
+      "bm25": 13.11,
+      "coverage": 0.66
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 0.977,
+      "bm25": 15.91,
+      "coverage": 0
+    },
+    {
+      "chunkId": "42d78027c951fd072d0ae6dbb8c6e93fac73f5ac",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 0.879,
+      "bm25": 11.45,
+      "coverage": 0
+    },
+    {
+      "chunkId": "ac3a8b78d48253292dbb6989ced91209fcf344a0",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/ClarificationManufacturingLicensed_under_ASU_FSSAI.pdf",
+      "title": "ClarificationManufacturingLicensed under ASU FSSAI",
+      "score": 0.866,
+      "bm25": 14.09,
+      "coverage": 0
+    },
+    {
+      "chunkId": "8ca8571616adb1b3be056733e1e86c88b70ce2bf",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 0.852,
+      "bm25": 11.1,
+      "coverage": 0
+    }
+  ]
+}

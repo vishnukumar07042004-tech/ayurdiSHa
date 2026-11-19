@@ -1,0 +1,102 @@
+{
+  "intentId": "manufacturing.legal",
+  "theme": "Manufacturing, Quality & GMP",
+  "subtheme": "Production & scale-up",
+  "subject": "manufacturing",
+  "ask": "legal",
+  "question": "What licence or registration is required for an Ayurvedic medicine manufacturing unit?",
+  "stream": "industry-pharma",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Gazette Notification No. G.S.R. 669(E) dated 28th October, 2024",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._669(E)_dated_28th_October,_2024.pdf"
+    },
+    {
+      "title": "Drugs and Cosmetics Act Rules",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.918Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "6efae72d78b02260c7bfd5bf3c2b2f0c843fec2e",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._669(E)_dated_28th_October,_2024.pdf",
+      "title": "Gazette Notification No. G.S.R. 669(E) dated 28th October, 2024",
+      "score": 1.163,
+      "bm25": 22.1,
+      "coverage": 0.7
+    },
+    {
+      "chunkId": "cb20b23616f8c35f3fc7d28b697a7456180bf2b2",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.15,
+      "bm25": 27.31,
+      "coverage": 0.92
+    },
+    {
+      "chunkId": "9ae0abd27e371250544557f4a5dbfd83d179c88b",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.125,
+      "bm25": 26.71,
+      "coverage": 0.92
+    },
+    {
+      "chunkId": "56f9a05350240d3775342b016735fbd374895c7c",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/07/CCRAS_Guideline-of-Drug-Development.pdf",
+      "title": "CCRS_Guidline of Drug_Book-7_CD MATTER.pdf",
+      "score": 1.017,
+      "bm25": 21.17,
+      "coverage": 0.54
+    },
+    {
+      "chunkId": "2207c7f07443578fecce3f87e7873e469117082a",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._669(E)_dated_28th_October,_2024.pdf",
+      "title": "Gazette Notification No. G.S.R. 669(E) dated 28th October, 2024",
+      "score": 0.952,
+      "bm25": 18.09,
+      "coverage": 0.63
+    },
+    {
+      "chunkId": "e898fd58352f20e8669fab414c963a117b73eed8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/aoushdhi.pdf",
+      "title": "aoushdhi",
+      "score": 0.916,
+      "bm25": 17.4,
+      "coverage": 0.36
+    },
+    {
+      "chunkId": "f5e6c0fe073d45b44753201a3c6d11fccb47b430",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/07/CCRAS_Guideline-of-Safety_Toxicity.pdf",
+      "title": "CCRS_Guidline of Toxicity_Book-5_945-CD MATTER.pdf",
+      "score": 0.824,
+      "bm25": 17.15,
+      "coverage": 0.3
+    },
+    {
+      "chunkId": "ac3a8b78d48253292dbb6989ced91209fcf344a0",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/ClarificationManufacturingLicensed_under_ASU_FSSAI.pdf",
+      "title": "ClarificationManufacturingLicensed under ASU FSSAI",
+      "score": 0.794,
+      "bm25": 15.1,
+      "coverage": 0.37
+    }
+  ]
+}

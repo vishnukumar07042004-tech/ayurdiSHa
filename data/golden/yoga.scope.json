@@ -1,0 +1,102 @@
+{
+  "intentId": "yoga.scope",
+  "theme": "Medical Value Travel & Wellness",
+  "subtheme": "Careers in wellness resorts",
+  "subject": "yoga",
+  "ask": "scope",
+  "question": "What is the scope of yoga certification for an Ayurveda doctor for BAMS graduates?",
+  "stream": "panchakarma-wellness",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/"
+    },
+    {
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.075Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 1.05,
+      "bm25": 28.23,
+      "coverage": 0
+    },
+    {
+      "chunkId": "267d3873c1ce6e39a1077d7408d0f9de26e7ba5f",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 0.913,
+      "bm25": 24.55,
+      "coverage": 0.39
+    },
+    {
+      "chunkId": "6689d56615f380c4573828473ccb2e96f6152c19",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.883,
+      "bm25": 19.95,
+      "coverage": 0.61
+    },
+    {
+      "chunkId": "2d6be1199bd5531e47ab1e83d8d07edd90fe5fb9",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/02/Ayur-World-Jan-Feb-2026.pdf",
+      "title": "Ayur World Jan Feb 2026",
+      "score": 0.762,
+      "bm25": 17.21,
+      "coverage": 0.61
+    },
+    {
+      "chunkId": "d4d49bed74285e0e3f306718d6da49d0cd047524",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19687194/",
+      "title": "The ayurveda education in India: how well are the graduates exposed to basic clinical skills?",
+      "score": 0.735,
+      "bm25": 19.75,
+      "coverage": 0
+    },
+    {
+      "chunkId": "789868a471b849300130d703464baa8039b69ccf",
+      "url": "https://nabh.co/programmes/entry-level-hospitals-certification-programme/",
+      "title": "Entry Level Hospitals - NABH",
+      "score": 0.734,
+      "bm25": 14.41,
+      "coverage": 1
+    },
+    {
+      "chunkId": "3322c263d1e61610005c94df25f6afab01adc417",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.728,
+      "bm25": 16.44,
+      "coverage": 0
+    },
+    {
+      "chunkId": "f86683e495b71ef670c74a7a949a2b2fefd621e7",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27449208/",
+      "title": "Attitude of interns towards research as a career option.",
+      "score": 0.713,
+      "bm25": 19.18,
+      "coverage": 0
+    }
+  ]
+}

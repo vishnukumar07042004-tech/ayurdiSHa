@@ -1,0 +1,102 @@
+{
+  "intentId": "panchakarma-centre.scope",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Panchakarma & therapy services",
+  "subject": "panchakarma",
+  "ask": "scope",
+  "question": "What is the scope of a Panchakarma centre for BAMS graduates?",
+  "stream": "panchakarma-wellness",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Panchkarma Clinic - NABH",
+      "url": "https://nabh.co/programmes/panchakarma-clinic-accreditation-programme/"
+    },
+    {
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.511Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "2651cb543ed0819760b58dbb8c9c4e126bbc99f0",
+      "url": "https://nabh.co/programmes/panchakarma-clinic-accreditation-programme/",
+      "title": "Panchkarma Clinic - NABH",
+      "score": 1.077,
+      "bm25": 16.61,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 1.05,
+      "bm25": 22.17,
+      "coverage": 0
+    },
+    {
+      "chunkId": "267d3873c1ce6e39a1077d7408d0f9de26e7ba5f",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 1.038,
+      "bm25": 21.91,
+      "coverage": 0.38
+    },
+    {
+      "chunkId": "e6ccc3645d279eb9a59ab67779e573df6669dc83",
+      "url": "https://ccras.nic.in/directory/it-internship-program-at-ccras-headquarters-from-19th-june-2025/",
+      "title": "IT internship program at CCRAS Headquarters from 19th June 2025 - Central Council for Research in Ayurvedic Sciences",
+      "score": 0.973,
+      "bm25": 20.54,
+      "coverage": 0.38
+    },
+    {
+      "chunkId": "57a524892b4c7dba71fbccf08e64745429e128a6",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 0.966,
+      "bm25": 14.89,
+      "coverage": 0.35
+    },
+    {
+      "chunkId": "0aabb9b08f85e97fef3416ddacafe8dafdc3f0d5",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 0.945,
+      "bm25": 14.58,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 0.913,
+      "bm25": 14.08,
+      "coverage": 0
+    },
+    {
+      "chunkId": "c48105ae857646d8c9561a8a39cb9f6f228b2558",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 0.883,
+      "bm25": 18.65,
+      "coverage": 0.72
+    }
+  ]
+}

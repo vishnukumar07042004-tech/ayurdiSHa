@@ -1,0 +1,103 @@
+{
+  "intentId": "clinic.legal",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Setting up private practice",
+  "subject": "clinic",
+  "ask": "legal",
+  "question": "What licence or registration is required for starting my own Ayurveda clinic?",
+  "stream": "clinical-practice",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.376Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eff7d3787fb6df305d3b3cc48b261f61156f43d4",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.438,
+      "bm25": 26.6,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "b72cbc0e8f18ab3812bd1e14daa53b01a93e171b",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.402,
+      "bm25": 25.94,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "50131e4c199869e2fd9147a8a0a8e519c54bc720",
+      "url": "https://nabh.co/e-mitra-step-by-step-guide-for-entry-level-certification/",
+      "title": "E-Mitra Step-By-Step Guide for Entry Level Certification - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.338,
+      "bm25": 24.76,
+      "coverage": 0.41
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.222,
+      "bm25": 22.62,
+      "coverage": 0.09
+    },
+    {
+      "chunkId": "cf3708b12822d2aab9b83b9fad0d183c39e6a0c5",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._669(E)_dated_28th_October,_2024.pdf",
+      "title": "Gazette Notification No. G.S.R. 669(E) dated 28th October, 2024",
+      "score": 1.144,
+      "bm25": 21.18,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "c74ade5923ac877fc821da19b43952c831bfec17",
+      "url": "https://nabh.co/e-mitra-step-by-step-guide-for-entry-level-certification/",
+      "title": "E-Mitra Step-By-Step Guide for Entry Level Certification - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.128,
+      "bm25": 20.88,
+      "coverage": 0.24
+    },
+    {
+      "chunkId": "c8aac2a3f972222ddf7020bbd59f98f0e811fa84",
+      "url": "https://nabh.co/programmes/allopathic-clinics-accreditation-programme/",
+      "title": "Allopathic Clinics 2nd Edition - NABH",
+      "score": 1.059,
+      "bm25": 19.6,
+      "coverage": 0.33
+    },
+    {
+      "chunkId": "789868a471b849300130d703464baa8039b69ccf",
+      "url": "https://nabh.co/programmes/entry-level-hospitals-certification-programme/",
+      "title": "Entry Level Hospitals - NABH",
+      "score": 1.028,
+      "bm25": 19.03,
+      "coverage": 0.09
+    }
+  ]
+}

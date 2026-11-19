@@ -1,0 +1,103 @@
+{
+  "intentId": "camp.legal",
+  "theme": "Brand Building & Communication",
+  "subtheme": "Community education",
+  "subject": "camp",
+  "ask": "legal",
+  "question": "What licence or registration is required for a free health camp?",
+  "stream": "digital-branding",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.019Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eff7d3787fb6df305d3b3cc48b261f61156f43d4",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.15,
+      "bm25": 22.42,
+      "coverage": 0.67
+    },
+    {
+      "chunkId": "b72cbc0e8f18ab3812bd1e14daa53b01a93e171b",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.056,
+      "bm25": 20.59,
+      "coverage": 0.49
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 0.874,
+      "bm25": 17.03,
+      "coverage": 0.17
+    },
+    {
+      "chunkId": "1c767d8a629f061105c8d7f57b12f1627169d081",
+      "url": "https://www.ayurvedanama.org/prospective-students-frequently-asked-questions",
+      "title": "Prospective Students FAQs — National Ayurvedic Medical Association",
+      "score": 0.868,
+      "bm25": 21.62,
+      "coverage": 0.25
+    },
+    {
+      "chunkId": "b5d730eb24b30d316c291b234a64ea85f7d519a8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 0.854,
+      "bm25": 16.66,
+      "coverage": 0.51
+    },
+    {
+      "chunkId": "c48105ae857646d8c9561a8a39cb9f6f228b2558",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 0.847,
+      "bm25": 18.08,
+      "coverage": 0.33
+    },
+    {
+      "chunkId": "644723ff22d13175827f9751fb5fb6ea8370ae17",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/",
+      "title": "AACCC",
+      "score": 0.827,
+      "bm25": 16.12,
+      "coverage": 0.16
+    },
+    {
+      "chunkId": "c0ba3194ae2fdd0c70a001935adf6ea141c1ebd3",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20532099/",
+      "title": "Global challenges of graduate level Ayurvedic education: A survey.",
+      "score": 0.814,
+      "bm25": 17.37,
+      "coverage": 0.1
+    }
+  ]
+}

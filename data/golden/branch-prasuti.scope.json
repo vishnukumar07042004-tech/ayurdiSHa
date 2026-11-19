@@ -1,0 +1,103 @@
+{
+  "intentId": "branch-prasuti.scope",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "subject": "branch:prasuti",
+  "ask": "scope",
+  "question": "What is the scope of MS Prasuti Tantra (Obstetrics & Gynaecology) for BAMS graduates?",
+  "stream": "pg-entrance",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.795Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "7e42c4398cd485f91bed6b24473ffdb0d08baa71",
+      "url": "https://ism.kerala.gov.in/eng/index.php/about/about-us/about-ayurveda",
+      "title": "About Ayurveda - Department of Indian Systems of Medicine",
+      "score": 1.15,
+      "bm25": 27.48,
+      "coverage": 0.75
+    },
+    {
+      "chunkId": "93c211aefe722ef80b8dff84cdb4b8e9bdbaf67c",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.145,
+      "bm25": 21.89,
+      "coverage": 0.26
+    },
+    {
+      "chunkId": "1a328ba322438093e3b469498577c74d8538223b",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.078,
+      "bm25": 20.62,
+      "coverage": 0.26
+    },
+    {
+      "chunkId": "f339c0fa977417d9f3e9533b282bdc3b77ba046a",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/",
+      "title": "AACCC",
+      "score": 0.899,
+      "bm25": 17.18,
+      "coverage": 0
+    },
+    {
+      "chunkId": "c7b66b8a69527d6d3bcdf795f7438c5cdb48280b",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/Central-Government-Nomination-to-MD-(Ayurveda)-NIA-Jaipur-2024-25.pdf",
+      "title": "Central Government Nomination to MD (Ayurveda) NIA Jaipur 2024 25",
+      "score": 0.793,
+      "bm25": 18.95,
+      "coverage": 0.26
+    },
+    {
+      "chunkId": "7570883c7ce2a21d175a0e6b4f0b004c39acfdc3",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/ep3ayurveda.pdf",
+      "title": "ep3ayurveda",
+      "score": 0.733,
+      "bm25": 17.52,
+      "coverage": 0.26
+    },
+    {
+      "chunkId": "ce409105de473cb872e317ef6da0ecaf69b04608",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33358095/",
+      "title": "A cross-sectional study on the attitude and knowledge assessment of ayurveda teachers, practitioners and students about practical application of Agadatantra.",
+      "score": 0.683,
+      "bm25": 17.88,
+      "coverage": 0
+    },
+    {
+      "chunkId": "319cc1b74f508f4beedb6ca8c7ebcf812f2f11c4",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/Central_Government_Nomination_to_MD_Ayurveda.pdf",
+      "title": "Central Government Nomination to MD Ayurveda",
+      "score": 0.586,
+      "bm25": 13.99,
+      "coverage": 0.26
+    }
+  ]
+}

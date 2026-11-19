@@ -1,0 +1,844 @@
+{
+ "at": "2026-11-07T15:18:20.953Z",
+ "pricesChecked": "2026-11-07",
+ "eventPriceDay": "2026-12-10",
+ "cap": 4,
+ "spentUsd": 0.0017,
+ "stoppedAt": null,
+ "openaiAdapter": "script (reasoning.effort + headroom + store:false)",
+ "judges": [
+  "gemini-3.1-pro-preview"
+ ],
+ "skipped": [],
+ "questions": [
+  {
+   "id": "T-PG-01",
+   "group": "pg",
+   "lang": "en"
+  },
+  {
+   "id": "T-PG-05",
+   "group": "lang",
+   "lang": "hinglish"
+  },
+  {
+   "id": "T-GV-01",
+   "group": "govt",
+   "lang": "en"
+  },
+  {
+   "id": "T-TS-01",
+   "group": "numbers",
+   "lang": "en"
+  },
+  {
+   "id": "T-AB-01",
+   "group": "abroad",
+   "lang": "en"
+  },
+  {
+   "id": "T-CR-01",
+   "group": "clinic",
+   "lang": "en"
+  },
+  {
+   "id": "T-MD-01",
+   "group": "medical",
+   "lang": "en"
+  },
+  {
+   "id": "T-PII-01",
+   "group": "pii",
+   "lang": "en"
+  },
+  {
+   "id": "T-AB-05",
+   "group": "thin",
+   "lang": "en"
+  },
+  {
+   "id": "T-PG-02",
+   "group": "pg",
+   "lang": "en"
+  },
+  {
+   "id": "T-GV-03",
+   "group": "lang",
+   "lang": "hinglish"
+  },
+  {
+   "id": "T-GV-02",
+   "group": "govt",
+   "lang": "en"
+  },
+  {
+   "id": "T-TS-02",
+   "group": "numbers",
+   "lang": "en"
+  },
+  {
+   "id": "T-AB-02",
+   "group": "abroad",
+   "lang": "en"
+  },
+  {
+   "id": "T-CR-03",
+   "group": "clinic",
+   "lang": "en"
+  },
+  {
+   "id": "T-MD-11",
+   "group": "medical",
+   "lang": "hinglish"
+  },
+  {
+   "id": "T-PII-02",
+   "group": "pii",
+   "lang": "en"
+  },
+  {
+   "id": "T-AB-08",
+   "group": "thin",
+   "lang": "en"
+  },
+  {
+   "id": "T-PG-03",
+   "group": "pg",
+   "lang": "en"
+  },
+  {
+   "id": "on-55",
+   "group": "lang",
+   "lang": "hinglish"
+  },
+  {
+   "id": "T-GV-04",
+   "group": "govt",
+   "lang": "en"
+  },
+  {
+   "id": "T-TS-07",
+   "group": "numbers",
+   "lang": "en"
+  },
+  {
+   "id": "T-AB-03",
+   "group": "abroad",
+   "lang": "en"
+  },
+  {
+   "id": "T-CR-04",
+   "group": "clinic",
+   "lang": "en"
+  },
+  {
+   "id": "T-MD-20",
+   "group": "medical",
+   "lang": "en"
+  },
+  {
+   "id": "T-PII-03",
+   "group": "pii",
+   "lang": "en"
+  },
+  {
+   "id": "T-TS-08",
+   "group": "thin",
+   "lang": "en"
+  },
+  {
+   "id": "T-PG-04",
+   "group": "pg",
+   "lang": "en"
+  },
+  {
+   "id": "on-56",
+   "group": "lang",
+   "lang": "hinglish"
+  },
+  {
+   "id": "T-TS-05",
+   "group": "govt",
+   "lang": "en"
+  },
+  {
+   "id": "T-AB-06",
+   "group": "abroad",
+   "lang": "en"
+  },
+  {
+   "id": "T-CR-07",
+   "group": "clinic",
+   "lang": "en"
+  },
+  {
+   "id": "T-MD-21",
+   "group": "medical",
+   "lang": "en"
+  },
+  {
+   "id": "T-PII-06",
+   "group": "pii",
+   "lang": "hinglish"
+  },
+  {
+   "id": "X-THIN-01",
+   "group": "thin",
+   "lang": "en"
+  },
+  {
+   "id": "T-PG-06",
+   "group": "pg",
+   "lang": "en"
+  },
+  {
+   "id": "on-57",
+   "group": "lang",
+   "lang": "hinglish"
+  },
+  {
+   "id": "T-CR-08",
+   "group": "clinic",
+   "lang": "en"
+  },
+  {
+   "id": "T-MD-22",
+   "group": "medical",
+   "lang": "en"
+  },
+  {
+   "id": "T-PII-W1",
+   "group": "pii",
+   "lang": "en"
+  },
+  {
+   "id": "T-PG-08",
+   "group": "pg",
+   "lang": "en"
+  },
+  {
+   "id": "on-62",
+   "group": "lang",
+   "lang": "hindi"
+  },
+  {
+   "id": "on-63",
+   "group": "lang",
+   "lang": "hindi"
+  },
+  {
+   "id": "on-64",
+   "group": "lang",
+   "lang": "hindi"
+  }
+ ],
+ "pairings": {
+  "gpt-54": {
+   "label": "GPT-5.4 draft + GPT-5.4 mini verify",
+   "models": {
+    "draft": "gpt-5.4 (low)",
+    "verify": "gpt-5.4-mini (low)",
+    "escalate": "gpt-5.4 (low)",
+    "classify": "gpt-5.6-luna (none)"
+   },
+   "summary": {
+    "questions": 4,
+    "drafted": 0,
+    "grounded": 0,
+    "mentorAssist": 0,
+    "errors": 4,
+    "errorSamples": [
+     "T-PG-01: openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par",
+     "T-PG-05: openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par",
+     "T-GV-01: openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par"
+    ],
+    "supportRatePct": null,
+    "unsupportedClaims": 0,
+    "unsupportedInLowRisk": 0,
+    "unsourcedNumbers": 0,
+    "outdatedClaims": 0,
+    "citationValidityPct": null,
+    "invalidCitationMarks": 0,
+    "jsonFailures": 0,
+    "jsonCalls": 0,
+    "truncated": 0,
+    "draftNoJsonErrors": 0,
+    "medicalRoutedPct": null,
+    "careerFalselyBlocked": 0,
+    "piiLeaks": 0,
+    "thinHandled": "0/0",
+    "thinToMentorAssist": 0,
+    "numbersStrippedByPostCheck": 0,
+    "riskMix": {
+     "low": 0,
+     "medium": 0,
+     "high": 0
+    },
+    "escalatedPct": null,
+    "triageOnTopicPct": 100,
+    "triageMedicalRestrictedPct": null,
+    "judge": null,
+    "latencyMs": {
+     "p50": 1003,
+     "p95": 2466,
+     "draftCallP50": null,
+     "draftCallP95": null
+    },
+    "tokens": {
+     "draftIn": null,
+     "draftOut": null,
+     "draftReasoning": null,
+     "draftCached": null,
+     "verifyIn": null,
+     "verifyOut": null
+    },
+    "costUsd": 0,
+    "eventCostPerDraftUsd": null
+   },
+   "rows": [
+    {
+     "id": "T-PG-01",
+     "group": "pg",
+     "lang": "en",
+     "triage": {
+      "category": "ON_TOPIC",
+      "subtype": "",
+      "llm": false
+     },
+     "status": "error",
+     "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par",
+     "ms": 2466,
+     "leak": false,
+     "calls": [
+      {
+       "role": "classify",
+       "model": "gpt-5.6-luna",
+       "ms": 1463,
+       "ok": false,
+       "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par"
+      },
+      {
+       "role": "draft",
+       "model": "gpt-5.4",
+       "ms": 924,
+       "ok": false,
+       "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par"
+      }
+     ],
+     "usd": 0,
+     "eventUsd": 0
+    },
+    {
+     "id": "T-PG-05",
+     "group": "lang",
+     "lang": "hinglish",
+     "triage": {
+      "category": "WRONG_AREA",
+      "subtype": "theme",
+      "llm": false
+     },
+     "status": "error",
+     "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par",
+     "ms": 1003,
+     "leak": false,
+     "calls": [
+      {
+       "role": "classify",
+       "model": "gpt-5.6-luna",
+       "ms": 398,
+       "ok": false,
+       "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par"
+      },
+      {
+       "role": "draft",
+       "model": "gpt-5.4",
+       "ms": 595,
+       "ok": false,
+       "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par"
+      }
+     ],
+     "usd": 0,
+     "eventUsd": 0
+    },
+    {
+     "id": "T-GV-01",
+     "group": "govt",
+     "lang": "en",
+     "triage": {
+      "category": "ON_TOPIC",
+      "subtype": "",
+      "llm": false
+     },
+     "status": "error",
+     "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par",
+     "ms": 777,
+     "leak": false,
+     "calls": [
+      {
+       "role": "classify",
+       "model": "gpt-5.6-luna",
+       "ms": 378,
+       "ok": false,
+       "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par"
+      },
+      {
+       "role": "draft",
+       "model": "gpt-5.4",
+       "ms": 389,
+       "ok": false,
+       "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par"
+      }
+     ],
+     "usd": 0,
+     "eventUsd": 0
+    },
+    {
+     "id": "T-TS-01",
+     "group": "numbers",
+     "lang": "en",
+     "triage": {
+      "category": "ON_TOPIC",
+      "subtype": "",
+      "llm": false
+     },
+     "status": "error",
+     "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par",
+     "ms": 796,
+     "leak": false,
+     "calls": [
+      {
+       "role": "classify",
+       "model": "gpt-5.6-luna",
+       "ms": 384,
+       "ok": false,
+       "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par"
+      },
+      {
+       "role": "draft",
+       "model": "gpt-5.4",
+       "ms": 392,
+       "ok": false,
+       "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par"
+      }
+     ],
+     "usd": 0,
+     "eventUsd": 0
+    }
+   ]
+  },
+  "gpt-mini": {
+   "label": "GPT small-only (GPT-5.4 mini)",
+   "models": {
+    "draft": "gpt-5.4-mini (low)",
+    "verify": "gpt-5.4-mini (low)",
+    "escalate": "off",
+    "classify": "gpt-5.6-luna (none)"
+   },
+   "summary": {
+    "questions": 4,
+    "drafted": 0,
+    "grounded": 0,
+    "mentorAssist": 0,
+    "errors": 4,
+    "errorSamples": [
+     "T-PG-01: openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par",
+     "T-PG-05: openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par",
+     "T-GV-01: openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par"
+    ],
+    "supportRatePct": null,
+    "unsupportedClaims": 0,
+    "unsupportedInLowRisk": 0,
+    "unsourcedNumbers": 0,
+    "outdatedClaims": 0,
+    "citationValidityPct": null,
+    "invalidCitationMarks": 0,
+    "jsonFailures": 0,
+    "jsonCalls": 0,
+    "truncated": 0,
+    "draftNoJsonErrors": 0,
+    "medicalRoutedPct": null,
+    "careerFalselyBlocked": 0,
+    "piiLeaks": 0,
+    "thinHandled": "0/0",
+    "thinToMentorAssist": 0,
+    "numbersStrippedByPostCheck": 0,
+    "riskMix": {
+     "low": 0,
+     "medium": 0,
+     "high": 0
+    },
+    "escalatedPct": null,
+    "triageOnTopicPct": 100,
+    "triageMedicalRestrictedPct": null,
+    "judge": null,
+    "latencyMs": {
+     "p50": 1722,
+     "p95": 2539,
+     "draftCallP50": null,
+     "draftCallP95": null
+    },
+    "tokens": {
+     "draftIn": null,
+     "draftOut": null,
+     "draftReasoning": null,
+     "draftCached": null,
+     "verifyIn": null,
+     "verifyOut": null
+    },
+    "costUsd": 0,
+    "eventCostPerDraftUsd": null
+   },
+   "rows": [
+    {
+     "id": "T-PG-01",
+     "group": "pg",
+     "lang": "en",
+     "triage": {
+      "category": "ON_TOPIC",
+      "subtype": "",
+      "llm": false
+     },
+     "status": "error",
+     "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par",
+     "ms": 2539,
+     "leak": false,
+     "calls": [
+      {
+       "role": "classify",
+       "model": "gpt-5.6-luna",
+       "ms": 1612,
+       "ok": false,
+       "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par"
+      },
+      {
+       "role": "draft",
+       "model": "gpt-5.4-mini",
+       "ms": 903,
+       "ok": false,
+       "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par"
+      }
+     ],
+     "usd": 0,
+     "eventUsd": 0
+    },
+    {
+     "id": "T-PG-05",
+     "group": "lang",
+     "lang": "hinglish",
+     "triage": {
+      "category": "WRONG_AREA",
+      "subtype": "theme",
+      "llm": false
+     },
+     "status": "error",
+     "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par",
+     "ms": 1722,
+     "leak": false,
+     "calls": [
+      {
+       "role": "classify",
+       "model": "gpt-5.6-luna",
+       "ms": 412,
+       "ok": false,
+       "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par"
+      },
+      {
+       "role": "draft",
+       "model": "gpt-5.4-mini",
+       "ms": 1303,
+       "ok": false,
+       "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par"
+      }
+     ],
+     "usd": 0,
+     "eventUsd": 0
+    },
+    {
+     "id": "T-GV-01",
+     "group": "govt",
+     "lang": "en",
+     "triage": {
+      "category": "ON_TOPIC",
+      "subtype": "",
+      "llm": false
+     },
+     "status": "error",
+     "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par",
+     "ms": 813,
+     "leak": false,
+     "calls": [
+      {
+       "role": "classify",
+       "model": "gpt-5.6-luna",
+       "ms": 414,
+       "ok": false,
+       "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par"
+      },
+      {
+       "role": "draft",
+       "model": "gpt-5.4-mini",
+       "ms": 391,
+       "ok": false,
+       "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par"
+      }
+     ],
+     "usd": 0,
+     "eventUsd": 0
+    },
+    {
+     "id": "T-TS-01",
+     "group": "numbers",
+     "lang": "en",
+     "triage": {
+      "category": "ON_TOPIC",
+      "subtype": "",
+      "llm": false
+     },
+     "status": "error",
+     "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par",
+     "ms": 850,
+     "leak": false,
+     "calls": [
+      {
+       "role": "classify",
+       "model": "gpt-5.6-luna",
+       "ms": 414,
+       "ok": false,
+       "error": "openai 400: {\"error\":{\"message\":\"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\"type\":\"invalid_request_error\",\"param\":\"input\",\"code\":nu"
+      },
+      {
+       "role": "draft",
+       "model": "gpt-5.4-mini",
+       "ms": 423,
+       "ok": false,
+       "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par"
+      }
+     ],
+     "usd": 0,
+     "eventUsd": 0
+    }
+   ]
+  },
+  "hybrid-gpt-draft": {
+   "label": "Hybrid: GPT-5.4 draft + Gemini 3.8 Flash verify",
+   "models": {
+    "draft": "gpt-5.4 (low)",
+    "verify": "gemini-3.8-flash (low)",
+    "escalate": "gemini-4-argon (low)",
+    "classify": "gemini-3.5-flash-lite (minimal)"
+   },
+   "summary": {
+    "questions": 4,
+    "drafted": 0,
+    "grounded": 0,
+    "mentorAssist": 0,
+    "errors": 4,
+    "errorSamples": [
+     "T-PG-01: openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par",
+     "T-PG-05: openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par",
+     "T-GV-01: openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par"
+    ],
+    "supportRatePct": null,
+    "unsupportedClaims": 0,
+    "unsupportedInLowRisk": 0,
+    "unsourcedNumbers": 0,
+    "outdatedClaims": 0,
+    "citationValidityPct": null,
+    "invalidCitationMarks": 0,
+    "jsonFailures": 0,
+    "jsonCalls": 4,
+    "truncated": 0,
+    "draftNoJsonErrors": 0,
+    "medicalRoutedPct": null,
+    "careerFalselyBlocked": 0,
+    "piiLeaks": 0,
+    "thinHandled": "0/0",
+    "thinToMentorAssist": 0,
+    "numbersStrippedByPostCheck": 0,
+    "riskMix": {
+     "low": 0,
+     "medium": 0,
+     "high": 0
+    },
+    "escalatedPct": null,
+    "triageOnTopicPct": 100,
+    "triageMedicalRestrictedPct": null,
+    "judge": null,
+    "latencyMs": {
+     "p50": 2131,
+     "p95": 2208,
+     "draftCallP50": null,
+     "draftCallP95": null
+    },
+    "tokens": {
+     "draftIn": null,
+     "draftOut": null,
+     "draftReasoning": null,
+     "draftCached": null,
+     "verifyIn": null,
+     "verifyOut": null
+    },
+    "costUsd": 0.0017,
+    "eventCostPerDraftUsd": null
+   },
+   "rows": [
+    {
+     "id": "T-PG-01",
+     "group": "pg",
+     "lang": "en",
+     "triage": {
+      "category": "ON_TOPIC",
+      "subtype": "",
+      "llm": true
+     },
+     "status": "error",
+     "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par",
+     "ms": 1894,
+     "leak": false,
+     "calls": [
+      {
+       "role": "classify",
+       "model": "gemini-3.5-flash-lite",
+       "ms": 1475,
+       "ok": true,
+       "inputTokens": 878,
+       "outputTokens": 65,
+       "cachedTokens": 0,
+       "reasoningTokens": 0,
+       "usd": 0.0004259,
+       "eventUsd": 0.0004259,
+       "json": true,
+       "incomplete": false
+      },
+      {
+       "role": "draft",
+       "model": "gpt-5.4",
+       "ms": 411,
+       "ok": false,
+       "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par"
+      }
+     ],
+     "usd": 0.0004259,
+     "eventUsd": 0.0004259
+    },
+    {
+     "id": "T-PG-05",
+     "group": "lang",
+     "lang": "hinglish",
+     "triage": {
+      "category": "ON_TOPIC",
+      "subtype": "",
+      "llm": true
+     },
+     "status": "error",
+     "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par",
+     "ms": 2131,
+     "leak": false,
+     "calls": [
+      {
+       "role": "classify",
+       "model": "gemini-3.5-flash-lite",
+       "ms": 1688,
+       "ok": true,
+       "inputTokens": 884,
+       "outputTokens": 75,
+       "cachedTokens": 0,
+       "reasoningTokens": 0,
+       "usd": 0.0004527,
+       "eventUsd": 0.0004527,
+       "json": true,
+       "incomplete": false
+      },
+      {
+       "role": "draft",
+       "model": "gpt-5.4",
+       "ms": 427,
+       "ok": false,
+       "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par"
+      }
+     ],
+     "usd": 0.0004527,
+     "eventUsd": 0.0004527
+    },
+    {
+     "id": "T-GV-01",
+     "group": "govt",
+     "lang": "en",
+     "triage": {
+      "category": "ON_TOPIC",
+      "subtype": "",
+      "llm": true
+     },
+     "status": "error",
+     "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par",
+     "ms": 1892,
+     "leak": false,
+     "calls": [
+      {
+       "role": "classify",
+       "model": "gemini-3.5-flash-lite",
+       "ms": 1313,
+       "ok": true,
+       "inputTokens": 878,
+       "outputTokens": 55,
+       "cachedTokens": 0,
+       "reasoningTokens": 0,
+       "usd": 0.0004009,
+       "eventUsd": 0.0004009,
+       "json": true,
+       "incomplete": false
+      },
+      {
+       "role": "draft",
+       "model": "gpt-5.4",
+       "ms": 561,
+       "ok": false,
+       "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par"
+      }
+     ],
+     "usd": 0.0004009,
+     "eventUsd": 0.0004009
+    },
+    {
+     "id": "T-TS-01",
+     "group": "numbers",
+     "lang": "en",
+     "triage": {
+      "category": "ON_TOPIC",
+      "subtype": "",
+      "llm": true
+     },
+     "status": "error",
+     "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par",
+     "ms": 2208,
+     "leak": false,
+     "calls": [
+      {
+       "role": "classify",
+       "model": "gemini-3.5-flash-lite",
+       "ms": 1784,
+       "ok": true,
+       "inputTokens": 880,
+       "outputTokens": 80,
+       "cachedTokens": 0,
+       "reasoningTokens": 0,
+       "usd": 0.000464,
+       "eventUsd": 0.000464,
+       "json": true,
+       "incomplete": false
+      },
+      {
+       "role": "draft",
+       "model": "gpt-5.4",
+       "ms": 403,
+       "ok": false,
+       "error": "openai 400: {\n  \"error\": {\n    \"message\": \"Response input messages must contain the word 'json' in some form to use 'text.format' of type 'json_object'.\",\n    \"type\": \"invalid_request_error\",\n    \"par"
+      }
+     ],
+     "usd": 0.000464,
+     "eventUsd": 0.000464
+    }
+   ]
+  }
+ }
+}

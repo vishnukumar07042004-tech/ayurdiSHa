@@ -1,0 +1,103 @@
+{
+  "intentId": "pharma-job.income",
+  "theme": "Manufacturing, Quality & GMP",
+  "subtheme": "R&D and formulation",
+  "subject": "pharma",
+  "ask": "income",
+  "question": "What salary or income can I expect from an R&D job in an Ayurveda pharma company?",
+  "stream": "industry-pharma",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.878Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "ce0eb3fabdf9e5d05833d0756a3abbea86a41693",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/aoushdhi.pdf",
+      "title": "aoushdhi",
+      "score": 1.207,
+      "bm25": 17.67,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "f339c0fa977417d9f3e9533b282bdc3b77ba046a",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/",
+      "title": "AACCC",
+      "score": 1.15,
+      "bm25": 21.05,
+      "coverage": 0
+    },
+    {
+      "chunkId": "6ad7d736883e67fe4c2886076f72ba07c56c7037",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/aoushdhi.pdf",
+      "title": "aoushdhi",
+      "score": 0.984,
+      "bm25": 14.4,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "267d3873c1ce6e39a1077d7408d0f9de26e7ba5f",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 0.924,
+      "bm25": 14.82,
+      "coverage": 0.21
+    },
+    {
+      "chunkId": "8ca8571616adb1b3be056733e1e86c88b70ce2bf",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 0.907,
+      "bm25": 16.6,
+      "coverage": 0
+    },
+    {
+      "chunkId": "7d122d03fdf5c54dca9a838addb1e6542f9a48f8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 0.885,
+      "bm25": 16.2,
+      "coverage": 0.17
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.87,
+      "bm25": 15.93,
+      "coverage": 0
+    },
+    {
+      "chunkId": "95dc782aaa3ac8021d952a78d2c4dc6aab1fcc74",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 0.861,
+      "bm25": 15.76,
+      "coverage": 0.29
+    }
+  ]
+}

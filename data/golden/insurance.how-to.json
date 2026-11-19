@@ -1,0 +1,102 @@
+{
+  "intentId": "insurance.how-to",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Records & clinical quality",
+  "subject": "insurance",
+  "ask": "how-to",
+  "question": "How do I get my Ayurveda hospital empanelled with insurance?",
+  "stream": "clinical-practice",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "AB-PMJAY Quality Certification - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "url": "https://nabh.co/programmes/ab-pmjay-empanelment-programme/"
+    },
+    {
+      "title": "About FAQs - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "url": "https://nabh.co/about-faqs/"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.992Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "2bad6019b8e3a725c05b83fe80e58f44c2c9e710",
+      "url": "https://nabh.co/programmes/ab-pmjay-empanelment-programme/",
+      "title": "AB-PMJAY Quality Certification - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.438,
+      "bm25": 22.12,
+      "coverage": 1
+    },
+    {
+      "chunkId": "441010f4091721ea16a2e5eae90fe5a2ccf2237f",
+      "url": "https://nabh.co/programmes/ab-pmjay-empanelment-programme/",
+      "title": "AB-PMJAY Quality Certification - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.265,
+      "bm25": 19.47,
+      "coverage": 1
+    },
+    {
+      "chunkId": "ad90d5b368b0971805f1f1e628741b355bef86d2",
+      "url": "https://nabh.co/about-faqs/",
+      "title": "About FAQs - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.257,
+      "bm25": 19.35,
+      "coverage": 1
+    },
+    {
+      "chunkId": "a61ed3697335838cedbcb83424c33b81e04b5375",
+      "url": "https://nabh.co/programmes/ayush-hospitals-accreditation-programme/",
+      "title": "AYUSH Hospitals - NABH",
+      "score": 1.238,
+      "bm25": 19.06,
+      "coverage": 0.49
+    },
+    {
+      "chunkId": "d14edf03579ce6a27f957a8fd97e33e9e244fe37",
+      "url": "https://nabh.co/",
+      "title": "National Accreditation Board for Hospitals & Healthcare Providers",
+      "score": 1.235,
+      "bm25": 19.01,
+      "coverage": 0.49
+    },
+    {
+      "chunkId": "e92383a6a70d8ad24ea76f59f95bd88657d535fc",
+      "url": "https://nabh.co/",
+      "title": "National Accreditation Board for Hospitals & Healthcare Providers",
+      "score": 1.192,
+      "bm25": 18.34,
+      "coverage": 1
+    },
+    {
+      "chunkId": "71b63e35eec0b211b126a7a789deff144ca46a08",
+      "url": "https://nabh.co/programmes/eye-care-organisations-accreditation-programme/",
+      "title": "Eye Care Organisation - NABH",
+      "score": 1.177,
+      "bm25": 18.11,
+      "coverage": 1
+    },
+    {
+      "chunkId": "1ec20cc85aec2fbce68c6aeba1b7ce17e81275b3",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 1.107,
+      "bm25": 19.6,
+      "coverage": 0.49
+    }
+  ]
+}

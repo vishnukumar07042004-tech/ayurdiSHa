@@ -1,9 +1,11 @@
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadServerEnv, PREVIEW_ROOT } from "./env.js";
 import { blobTokenPresent, createBlobStore } from "./blobStore.js";
 import { bumpWacCounterInDb, WAC_SEQ_DOC } from "./wacRegNo.js";
+import { withContentionRetry, isContention, planShardReservation, shardOrder } from "./passIssuer.js";
 
 export const K_Q = "aym:q:";
 export const K_CLUSTERS = "aym:clusters";
@@ -37,6 +39,12 @@ const DOC_STATS = "stats";
 const bundledStorePath = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../data/store.json");
 
 function fileStorePath() {
+  const override = String(process.env.AYM_STORE_FILE || "").trim();
+  if (override && !process.env.VERCEL) {
+    const p = path.resolve(override);
+    if (!fs.existsSync(p)) fs.writeFileSync(p, "{}");
+    return p;
+  }
   if (!process.env.VERCEL) return bundledStorePath;
   // Never seed Vercel /tmp from the bundled demo file — that fake pair of
   // delegates is what staff were seeing while real registrations vanished.
@@ -170,44 +178,26 @@ function statsFromQuestions(questions) {
   };
 }
 
-function emptyStatsDelta() {
-  return { total: 0, last14Days: 0, byTheme: {}, byStage: {}, byState: {} };
-}
+/** Staff stats are recomputed on read at most this often (no per-submit write to one hot doc). */
+const STATS_TTL_MS = 5 * 60 * 1000;
+/** Visit counters are spread over this many docs so a QR rush never queues on one document. */
+export const VISIT_SHARDS = 10;
 
-function statsDeltaForQuestion(q, sign = 1) {
-  if (!q) return emptyStatsDelta();
-  const theme = q.theme || "Unknown";
-  const stage = q.stage || "Unknown";
-  const state = q.state || "Unknown";
-  const in14 = (q.createdAt || 0) >= statsCutoff14() ? sign : 0;
-  return {
-    total: sign,
-    last14Days: in14,
-    byTheme: { [theme]: sign },
-    byStage: { [stage]: sign },
-    byState: { [state]: sign },
-  };
-}
-
-function mergeStatsDeltas(a, b) {
-  const out = emptyStatsDelta();
-  out.total = (a.total || 0) + (b.total || 0);
-  out.last14Days = (a.last14Days || 0) + (b.last14Days || 0);
-  for (const bucket of ["byTheme", "byStage", "byState"]) {
-    const merged = { ...(a[bucket] || {}) };
-    for (const [k, v] of Object.entries(b[bucket] || {})) {
-      merged[k] = (merged[k] || 0) + v;
+/** Sum the legacy `visit-sources` doc and its shards into one `{ totals, days, updatedAt }`. */
+export function mergeVisitDocs(docs) {
+  const totals = {};
+  const days = {};
+  let updatedAt = 0;
+  for (const d of docs || []) {
+    if (!d) continue;
+    for (const [src, n] of Object.entries(d.totals || {})) totals[src] = (totals[src] || 0) + (Number(n) || 0);
+    for (const [day, bySrc] of Object.entries(d.days || {})) {
+      const out = days[day] || (days[day] = {});
+      for (const [src, n] of Object.entries(bySrc || {})) out[src] = (out[src] || 0) + (Number(n) || 0);
     }
-    out[bucket] = merged;
+    updatedAt = Math.max(updatedAt, Number(d.updatedAt) || 0);
   }
-  return out;
-}
-
-function applyCounterMap(target, delta, clampZero = true) {
-  for (const [k, v] of Object.entries(delta || {})) {
-    const next = (target[k] || 0) + v;
-    target[k] = clampZero ? Math.max(0, next) : next;
-  }
+  return docs && docs.length ? { totals, days, updatedAt } : null;
 }
 
 function fileLoad() {
@@ -251,6 +241,9 @@ function saveClustersInDb(db, clusters, expectedVersion) {
 }
 
 export function createFileStore() {
+  // Every write is load → change → save with no await in between, so it is atomic within this
+  // process; async transact writers are serialised so nothing can interleave with them.
+  let lock = Promise.resolve();
   return {
     name: "file",
     async get(key) {
@@ -272,10 +265,35 @@ export function createFileStore() {
       fileSave(db);
     },
     async transact(writer) {
+      const run = async () => {
+        const db = fileLoad();
+        let out = writer(db);
+        if (out && typeof out.then === "function") out = await out;
+        out = out || db;
+        fileSave(out);
+        return out;
+      };
+      const p = lock.then(run, run);
+      lock = p.catch(() => {});
+      return p;
+    },
+    async update(key, fn) {
+      await lock;
       const db = fileLoad();
-      const out = await writer(db) || db;
-      fileSave(out);
-      return out;
+      const cur = key in db ? db[key] : null;
+      const next = fn(cur == null ? null : JSON.parse(JSON.stringify(cur)));
+      if (next === undefined) return cur;
+      db[key] = next;
+      fileSave(db);
+      return next;
+    },
+    async create(key, val) {
+      await lock;
+      const db = fileLoad();
+      if (db[key] != null) return false;
+      db[key] = val;
+      fileSave(db);
+      return true;
     },
     async incrementCounter(name = WAC_SEQ_DOC) {
       let next = 0;
@@ -308,6 +326,35 @@ export function createFileStore() {
     async listQuestions() {
       return questionsFromDb(fileLoad());
     },
+    async pageQuestions({ after = "", limit = 250, sinceCreated = 0 } = {}) {
+      const all = questionsFromDb(fileLoad());
+      if (sinceCreated > 0) {
+        const items = all.filter(s => (s.createdAt || 0) >= sinceCreated)
+          .sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0)).slice(0, limit);
+        return { items, scanned: items.length, done: items.length < limit };
+      }
+      const sorted = all.sort((a, b) => (String(a.id) < String(b.id) ? -1 : String(a.id) > String(b.id) ? 1 : 0));
+      const rest = after ? sorted.filter(s => String(s.id) > String(after)) : sorted;
+      const items = rest.slice(0, limit);
+      return { items, scanned: items.length, done: rest.length <= limit };
+    },
+    async countQuestions() {
+      return questionsFromDb(fileLoad()).length;
+    },
+    async pageKv(prefix, { after = "", limit = 250 } = {}) {
+      const db = fileLoad();
+      const keys = Object.keys(db).filter(k => k.startsWith(prefix) && (!after || k > after)).sort();
+      return { items: keys.slice(0, limit).map(key => ({ key, value: db[key] })), done: keys.length <= limit };
+    },
+    async countKv(prefix) {
+      return Object.keys(fileLoad()).filter(k => k.startsWith(prefix)).length;
+    },
+    async getPrefix(prefix) {
+      const db = fileLoad();
+      const out = {};
+      for (const k of Object.keys(db)) if (k.startsWith(prefix)) out[k] = db[k];
+      return out;
+    },
     async snapshot() {
       return fileLoad();
     },
@@ -325,6 +372,33 @@ export function createFileStore() {
 
 function encodeKvId(key) {
   return encodeURIComponent(String(key));
+}
+
+const DAY_MS = 24 * 60 * 60 * 1000;
+/**
+ * Short-lived KV records carry a top-level `expireAt` (Firestore Timestamp) so a Firestore TTL
+ * policy on `kv.expireAt` can back up the daily retention sweep. Each TTL is at or above the longest
+ * retention an admin may set for that kind (server/staffAuth.js RETENTION_LIMITS) or its use window.
+ */
+export const KV_TTL_MS = Object.freeze({
+  "aym:otp:": 7 * DAY_MS,
+  "aym:wacrate:": 7 * DAY_MS,
+  "aym:sess:": 365 * DAY_MS,
+  "aym:wacalert:": 400 * DAY_MS,
+  "aym:mail:": 30 * DAY_MS,
+});
+
+export function kvTtlMs(key) {
+  const k = String(key);
+  for (const [prefix, ms] of Object.entries(KV_TTL_MS)) if (k.startsWith(prefix)) return ms;
+  return 0;
+}
+
+function kvDoc(key, value, now = Date.now()) {
+  const doc = { value, updatedAt: now };
+  const ttl = kvTtlMs(key);
+  if (ttl) doc.expireAt = new Date(now + ttl);
+  return doc;
 }
 
 function decodeKvId(id) {
@@ -369,57 +443,13 @@ export async function createFirestoreStore(creds) {
     return snap.docs.map(d => fromQuestionDoc(d.data())).filter(s => s && s.id);
   }
 
-  let statsRefreshTimer = null;
+  // Staff-only aggregate. It used to be bumped in a transaction on every question write, which
+  // made meta/stats a single-document hotspot during submit bursts; now it is recomputed on read.
   async function refreshStats() {
     const stats = statsFromQuestions(await listQuestions());
-    await db.collection(COL_META).doc(DOC_STATS).set(stripUndefined(stats));
+    try { await db.collection(COL_META).doc(DOC_STATS).set(stripUndefined(stats)); }
+    catch (err) { console.error("[aym-store] stats cache write failed:", err && err.message ? err.message : err); }
     return stats;
-  }
-  function scheduleRefreshStats() {
-    if (statsRefreshTimer) clearTimeout(statsRefreshTimer);
-    statsRefreshTimer = setTimeout(() => {
-      statsRefreshTimer = null;
-      refreshStats().catch(err => {
-        console.error("[aym-store] refreshStats failed:", err && err.message ? err.message : err);
-      });
-    }, 2000);
-  }
-
-  async function bumpStats(delta) {
-    if (!delta || (!delta.total && !delta.last14Days
-      && !Object.keys(delta.byTheme || {}).length
-      && !Object.keys(delta.byStage || {}).length
-      && !Object.keys(delta.byState || {}).length)) return;
-    const ref = db.collection(COL_META).doc(DOC_STATS);
-    try {
-      const applied = await db.runTransaction(async tx => {
-        const snap = await tx.get(ref);
-        if (!snap.exists || typeof snap.data()?.total !== "number") return false;
-        const stats = { ...snap.data() };
-        stats.total = Math.max(0, (stats.total || 0) + (delta.total || 0));
-        stats.last14Days = Math.max(0, (stats.last14Days || 0) + (delta.last14Days || 0));
-        stats.byTheme = { ...(stats.byTheme || {}) };
-        stats.byStage = { ...(stats.byStage || {}) };
-        stats.byState = { ...(stats.byState || {}) };
-        applyCounterMap(stats.byTheme, delta.byTheme);
-        applyCounterMap(stats.byStage, delta.byStage);
-        applyCounterMap(stats.byState, delta.byState);
-        stats.updatedAt = Date.now();
-        tx.set(ref, stripUndefined(stats));
-        return true;
-      });
-      if (!applied) scheduleRefreshStats();
-    } catch (err) {
-      console.error("[aym-store] bumpStats failed:", err && err.message ? err.message : err);
-      scheduleRefreshStats();
-    }
-  }
-
-  async function bumpStatsForQuestionChange(prev, next) {
-    let delta = emptyStatsDelta();
-    if (prev) delta = mergeStatsDeltas(delta, statsDeltaForQuestion(prev, -1));
-    if (next) delta = mergeStatsDeltas(delta, statsDeltaForQuestion(next, 1));
-    await bumpStats(delta);
   }
 
   function kvPrefixQuery(prefix) {
@@ -541,11 +571,7 @@ export async function createFirestoreStore(creds) {
         const rec = toQuestionDoc(val);
         const id = String(rec.id || String(key).slice(K_Q.length));
         rec.id = id;
-        const ref = db.collection(COL_QUESTIONS).doc(id);
-        const prevSnap = await ref.get();
-        const prev = prevSnap.exists ? fromQuestionDoc(prevSnap.data()) : null;
-        await ref.set(rec);
-        await bumpStatsForQuestionChange(prev, rec);
+        await db.collection(COL_QUESTIONS).doc(id).set(rec);
         return;
       }
       if (key === K_CLUSTERS) {
@@ -558,10 +584,7 @@ export async function createFirestoreStore(creds) {
         });
         return;
       }
-      await db.collection(COL_KV).doc(encodeKvId(key)).set({
-        value: stripUndefined(val),
-        updatedAt: Date.now(),
-      });
+      await db.collection(COL_KV).doc(encodeKvId(key)).set(kvDoc(key, stripUndefined(val)));
     },
     async merge(entries) {
       await Promise.all(Object.entries(entries || {}).map(([k, v]) => this.set(k, v)));
@@ -609,6 +632,73 @@ export async function createFirestoreStore(creds) {
       await this.writeDiff(prev, out);
       return out;
     },
+    /** Atomic read-modify-write of one KV document (per-user / per-email docs, never a shared one). */
+    async update(key, fn) {
+      if (String(key).startsWith(K_Q) || key === K_CLUSTERS) throw new Error("update() is for KV keys only");
+      const ref = db.collection(COL_KV).doc(encodeKvId(key));
+      return withContentionRetry(() => db.runTransaction(async tx => {
+        const snap = await tx.get(ref);
+        const cur = snap.exists ? (snap.data()?.value ?? null) : null;
+        const next = fn(cur == null ? null : JSON.parse(JSON.stringify(cur)));
+        if (next === undefined) return cur;
+        const clean = stripUndefined(next);
+        tx.set(ref, kvDoc(key, clean));
+        return clean;
+      }));
+    },
+    /** Create-if-absent; false when the document already exists (the uniqueness guarantee). */
+    async create(key, val) {
+      const ref = db.collection(COL_KV).doc(encodeKvId(key));
+      try {
+        await withContentionRetry(() => ref.create(kvDoc(key, stripUndefined(val))));
+        return true;
+      } catch (err) {
+        if (err && (err.code === 6 || err.code === "already-exists" || /ALREADY_EXISTS/i.test(String(err.message || "")))) return false;
+        throw err;
+      }
+    },
+    /**
+     * Reserve a block of pass numbers from a random shard of `meta/<name>~s<k>`. The first
+     * reservation on a shard fixes `base` from the legacy `meta/<name>` counter (stored there as
+     * `blockBase`, so every shard agrees). See server/passIssuer.js.
+     */
+    async reserveBlock(name, size, { shards = 8, initialBase } = {}) {
+      const legacyRef = db.collection(COL_META).doc(String(name || WAC_SEQ_DOC));
+      const shardRef = k => db.collection(COL_META).doc(`${name}~s${k}`);
+      // Peek at two shards outside the transaction (cheap reads) and use the less-used one.
+      const peek = new Map();
+      const probe = shardOrder(shards, () => null);
+      try {
+        const snaps = await db.getAll(shardRef(probe[0]), shardRef(probe[1]));
+        snaps.forEach((s, i) => peek.set(probe[i], s.exists ? Number(s.data().blocks) || 0 : 0));
+      } catch { /* order stays random */ }
+      const order = peek.size === 2
+        ? (peek.get(probe[1]) < peek.get(probe[0]) ? [probe[1], probe[0]] : [probe[0], probe[1]]).concat(probe.slice(2))
+        : probe;
+      let lastErr;
+      for (const shard of order) {
+        const ref = shardRef(shard);
+        try {
+          return await withContentionRetry(() => db.runTransaction(async tx => {
+            const snap = await tx.get(ref);
+            const shardDoc = snap.exists ? snap.data() || {} : null;
+            const args = { name, shard, shards, size, shardDoc, initialBase };
+            let plan = planShardReservation(args);
+            if (plan.needsLegacy) {
+              const legacy = await tx.get(legacyRef);
+              plan = planShardReservation({ ...args, legacyDoc: legacy.exists ? legacy.data() || {} : null });
+            }
+            if (plan.legacyWrite) tx.set(legacyRef, plan.legacyWrite, { merge: true });
+            tx.set(ref, plan.shardWrite, { merge: true });
+            return plan.range;
+          }, { maxAttempts: 3 }), { attempts: 4 });
+        } catch (err) {
+          lastErr = err;
+          if (!isContention(err)) throw err;
+        }
+      }
+      throw lastErr;
+    },
     async incrementCounter(name = WAC_SEQ_DOC) {
       const ref = db.collection(COL_META).doc(String(name || WAC_SEQ_DOC));
       return db.runTransaction(async tx => {
@@ -619,14 +709,25 @@ export async function createFirestoreStore(creds) {
         return next;
       });
     },
+    /** Blind increments on one of VISIT_SHARDS docs — no read, no transaction, no single hot doc. */
+    async incrementVisitSource(src, day) {
+      const { FieldValue } = await import("firebase-admin/firestore");
+      const shard = crypto.randomInt(0, VISIT_SHARDS);
+      await db.collection(COL_META).doc(`visit-sources~s${shard}`).set({
+        totals: { [src]: FieldValue.increment(1) },
+        days: { [day]: { [src]: FieldValue.increment(1) } },
+        updatedAt: Date.now(),
+      }, { merge: true });
+    },
+    async getVisitSources() {
+      const ids = ["visit-sources", ...Array.from({ length: VISIT_SHARDS }, (_, k) => `visit-sources~s${k}`)];
+      const snaps = await db.getAll(...ids.map(id => db.collection(COL_META).doc(id)));
+      return mergeVisitDocs(snaps.filter(s => s.exists).map(s => s.data()));
+    },
     async del(key) {
       if (String(key).startsWith(K_Q)) {
         const id = String(key).slice(K_Q.length);
-        const ref = db.collection(COL_QUESTIONS).doc(id);
-        const prevSnap = await ref.get();
-        const prev = prevSnap.exists ? fromQuestionDoc(prevSnap.data()) : null;
-        await ref.delete();
-        if (prev) await bumpStatsForQuestionChange(prev, null);
+        await db.collection(COL_QUESTIONS).doc(id).delete();
         return;
       }
       if (key === K_CLUSTERS) {
@@ -673,11 +774,54 @@ export async function createFirestoreStore(creds) {
     },
     async stats() {
       const snap = await db.collection(COL_META).doc(DOC_STATS).get();
-      if (snap.exists) return snap.data();
+      const cached = snap.exists ? snap.data() : null;
+      if (cached && typeof cached.total === "number" && Date.now() - (cached.updatedAt || 0) < STATS_TTL_MS) return cached;
       return refreshStats();
     },
     async listQuestions() {
       return listQuestions();
+    },
+    /**
+     * One page of questions in document-id order (`after` = last id of the previous page), or the
+     * questions created at / after `sinceCreated` (newest edits are caught by the counts check).
+     */
+    async pageQuestions({ after = "", limit = 250, sinceCreated = 0 } = {}) {
+      let q = db.collection(COL_QUESTIONS);
+      if (sinceCreated > 0) q = q.where("createdAt", ">=", sinceCreated).orderBy("createdAt");
+      else {
+        q = q.orderBy(FieldPath.documentId());
+        if (after) q = q.startAfter(String(after));
+      }
+      const snap = await q.limit(limit).get();
+      return {
+        items: snap.docs.map(d => fromQuestionDoc(d.data())).filter(s => s && s.id),
+        scanned: snap.size,
+        done: snap.size < limit,
+      };
+    },
+    async countQuestions() {
+      return (await db.collection(COL_QUESTIONS).count().get()).data().count;
+    },
+    /** One page of KV docs under `prefix` in key order; `fields` projects `value.<field>` only. */
+    async pageKv(prefix, { after = "", limit = 250, fields = null } = {}) {
+      let q = kvPrefixQuery(prefix).orderBy(FieldPath.documentId());
+      if (after) q = q.startAfter(encodeKvId(after));
+      if (Array.isArray(fields) && fields.length) q = q.select(...fields.map(f => `value.${f}`));
+      const snap = await q.limit(limit).get();
+      return {
+        items: snap.docs.map(d => ({ key: decodeKvId(d.id), value: d.get("value") ?? null })),
+        done: snap.size < limit,
+      };
+    },
+    async countKv(prefix) {
+      return (await kvPrefixQuery(prefix).count().get()).data().count;
+    },
+    /** Every KV doc under `prefix` in one query (instead of a list + one get per key). */
+    async getPrefix(prefix) {
+      const snap = await kvPrefixQuery(prefix).get();
+      const out = {};
+      snap.docs.forEach(d => { out[decodeKvId(d.id)] = d.data()?.value ?? null; });
+      return out;
     },
     publicCounts,
     async saveVersionedKv(key, writer, expectedVersion) {
@@ -741,6 +885,11 @@ export async function createFirestoreStore(creds) {
 }
 
 export async function createAymStore() {
+  // Local QA: AYM_STORE=file keeps tests off the shared Firestore / Blob stores.
+  if (!process.env.VERCEL && String(process.env.AYM_STORE || "").trim().toLowerCase() === "file") {
+    console.log(`[aym-store] AYM_STORE=file — using ${fileStorePath()}`);
+    return createFileStore();
+  }
   const creds = resolveFirebaseCreds();
   if (creds) {
     try {

@@ -1,0 +1,103 @@
+{
+  "intentId": "aiapget.resources",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "subject": "aiapget",
+  "ask": "resources",
+  "question": "Which books and study resources should I use for AIAPGET?",
+  "stream": "pg-entrance",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.414Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "f30f33ff0cf8e89e62f7f3b48f8bcb67791b5aa9",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 1.438,
+      "bm25": 27.35,
+      "coverage": 0.57
+    },
+    {
+      "chunkId": "ced167f0756b13afc6c64a860c0d135365bb1b59",
+      "url": "https://aaccc.gov.in/",
+      "title": "Ayush Admissions Central Counselling Committee (AACCC)",
+      "score": 0.709,
+      "bm25": 13.49,
+      "coverage": 0.47
+    },
+    {
+      "chunkId": "f339c0fa977417d9f3e9533b282bdc3b77ba046a",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/",
+      "title": "AACCC",
+      "score": 0.681,
+      "bm25": 12.97,
+      "coverage": 0.47
+    },
+    {
+      "chunkId": "75bcd520b490a4834eab57f02769d55ab7937f18",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.647,
+      "bm25": 14.16,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "8a93df763bfbe23038ec8fd2868d5b76a4eaf8b1",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/STG_Dermatological_Disorders_Ayurveda.pdf",
+      "title": "STG Dermatological Disorders Ayurveda",
+      "score": 0.621,
+      "bm25": 11.82,
+      "coverage": 0
+    },
+    {
+      "chunkId": "7e93df6c0bae6a292c92499cd74f46e4d0afdc59",
+      "url": "https://www.ayurvedanama.org/pace",
+      "title": "Professional Development — National Ayurvedic Medical Association",
+      "score": 0.613,
+      "bm25": 18.64,
+      "coverage": 0.35
+    },
+    {
+      "chunkId": "307eddb57cd07d922e7a3eced234308706d28e87",
+      "url": "https://www.ayurvedanama.org/pace",
+      "title": "Professional Development — National Ayurvedic Medical Association",
+      "score": 0.609,
+      "bm25": 18.51,
+      "coverage": 0.35
+    },
+    {
+      "chunkId": "53399ce63a89d5cad20012c6f1e96259404f4198",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27637447/",
+      "title": "\"What do Ayurveda Postgraduate Entrance Examinations actually assess?\" - Results of a five-year period question-paper analysis based on Bloom's taxonomy.",
+      "score": 0.607,
+      "bm25": 15.82,
+      "coverage": 0.1
+    }
+  ]
+}

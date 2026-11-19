@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AYURDISHA — Product, Technology &amp; ayurworld.org Integration Brief</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --forest: #173F35; --forest-deep: #0F2C25; --forest-mid: #386B4D;
+    --cream: #F7F4EC; --sand: #F2EFE6; --gold: #C49A52; --gold-soft: #EBDDBF;
+    --ink: #1E2421; --muted: #5B6560; --line: #E4DED0;
+    --live: #2E7D4F; --pilot: #A8741A; --planned: #6B5B95; --rec: #33658A;
+  }
+  @page {
+    size: A4; margin: 18mm 16mm 20mm 16mm;
+    @bottom-left { content: "AYURDISHA · Product & Integration Brief · 4 Nov 2026"; font: 8pt -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; color: #5B6560; }
+    @bottom-right { content: "Page " counter(page) " of " counter(pages); font: 8pt -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; color: #5B6560; }
+  }
+  @page cover { margin: 0; @bottom-left { content: none; } @bottom-right { content: none; } }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; font: 10pt/1.5 -apple-system, "SF Pro Text", "Segoe UI", Helvetica, Arial, sans-serif; color: var(--ink); background: #fff; }
+  h1, h2, h3, h4 { color: var(--forest); line-height: 1.2; margin: 0 0 .5em; }
+  h1 { font-size: 22pt; letter-spacing: -.01em; }
+  h2 { font-size: 15pt; margin-top: 1.2em; }
+  h3 { font-size: 11.5pt; margin-top: 1.1em; }
+  h4 { font-size: 10pt; margin-top: .9em; }
+  p { margin: 0 0 .6em; }
+  ul, ol { margin: 0 0 .7em; padding-left: 1.3em; }
+  li { margin: .15em 0; }
+  a { color: var(--forest-mid); text-decoration: none; }
+  code { font: 8.6pt/1.4 "SF Mono", Menlo, Consolas, monospace; background: var(--sand); padding: 0 3px; border-radius: 3px; }
+  small, .small { font-size: 8.5pt; color: var(--muted); }
+  .section { break-before: page; }
+  .avoid { break-inside: avoid; }
+  .eyebrow { font-size: 8pt; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 4px; }
+  .lede { font-size: 11pt; color: var(--muted); }
+  .rule { height: 3px; width: 56px; background: var(--gold); border: 0; margin: 6px 0 14px; }
+
+  /* cover */
+  .cover { page: cover; height: 297mm; width: 210mm; background: var(--forest-deep); color: var(--cream); position: relative; overflow: hidden; padding: 28mm 20mm; }
+  .cover .band { position: absolute; left: 0; right: 0; bottom: 0; height: 92mm; background: linear-gradient(180deg, rgba(15,44,37,0) 0%, rgba(15,44,37,.7) 30%, var(--forest-deep) 100%), url(img/welcome.jpg) center/cover; opacity: .9; }
+  .cover .brand { font-size: 12pt; letter-spacing: .32em; color: var(--gold); font-weight: 600; }
+  .cover h1 { color: #fff; font-size: 34pt; margin: 18mm 0 6mm; line-height: 1.08; }
+  .cover h1 em { font-family: Georgia, "Times New Roman", serif; font-style: italic; color: var(--gold); font-weight: 400; }
+  .cover .sub { font-size: 12.5pt; color: #E9E3D3; max-width: 150mm; }
+  .cover .meta { margin-top: 14mm; font-size: 9.5pt; color: #CFC8B6; line-height: 1.8; position: relative; z-index: 1; }
+  .cover .meta b { color: #fff; font-weight: 600; }
+  .cover .stamp { display: inline-block; margin-top: 8mm; border: 1px solid var(--gold); color: var(--gold); padding: 4px 10px; border-radius: 999px; font-size: 8.5pt; letter-spacing: .08em; position: relative; z-index: 1; }
+
+  /* cards, callouts */
+  .grid { display: grid; gap: 10px; }
+  .g2 { grid-template-columns: 1fr 1fr; } .g3 { grid-template-columns: repeat(3, 1fr); } .g4 { grid-template-columns: repeat(4, 1fr); }
+  .kpi { background: var(--cream); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; break-inside: avoid; }
+  .kpi .n { font-size: 18pt; font-weight: 700; color: var(--forest); line-height: 1.1; }
+  .kpi .l { font-size: 8.5pt; color: var(--muted); }
+  .note { border-left: 3px solid var(--gold); background: #FBF7EE; padding: 8px 12px; margin: 8px 0 12px; border-radius: 0 8px 8px 0; break-inside: avoid; }
+  .warn { border-left: 3px solid #B5512F; background: #FBF1EC; padding: 8px 12px; margin: 8px 0 12px; border-radius: 0 8px 8px 0; break-inside: avoid; }
+  .rec { border-left: 3px solid var(--rec); background: #EEF3F8; padding: 8px 12px; margin: 8px 0 12px; border-radius: 0 8px 8px 0; break-inside: avoid; }
+  .card { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; background: #fff; break-inside: avoid; }
+  .card h4 { margin-top: 0; }
+
+  /* tags */
+  .tag { display: inline-block; font-size: 7.5pt; font-weight: 700; letter-spacing: .04em; padding: 1px 7px; border-radius: 999px; color: #fff; white-space: nowrap; vertical-align: 1px; }
+  .t-live { background: var(--live); } .t-pilot { background: var(--pilot); } .t-planned { background: var(--planned); } .t-rec { background: var(--rec); } .t-off { background: #8A8F8C; }
+
+  /* tables */
+  table { width: 100%; border-collapse: collapse; margin: 6px 0 12px; font-size: 8.8pt; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  th { background: var(--forest); color: #fff; text-align: left; font-weight: 600; padding: 5px 7px; }
+  td { border-bottom: 1px solid var(--line); padding: 5px 7px; vertical-align: top; }
+  tbody tr:nth-child(even) td { background: #FCFAF5; }
+  td.num, th.num { text-align: right; white-space: nowrap; }
+
+  /* figures */
+  figure { margin: 8px 0 14px; break-inside: avoid; }
+  figure img { width: 100%; border: 1px solid var(--line); border-radius: 8px; display: block; }
+  figcaption { font-size: 8pt; color: var(--muted); margin-top: 4px; }
+  .figpair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+  /* steps */
+  ol.steps { counter-reset: s; list-style: none; padding-left: 0; }
+  ol.steps > li { counter-increment: s; position: relative; padding-left: 30px; margin: 6px 0; break-inside: avoid; }
+  ol.steps > li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--forest); color: #fff; font-size: 8.5pt; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+
+  /* TOC */
+  .toc ol { list-style: none; padding: 0; columns: 1; }
+  .toc li { display: flex; gap: 8px; border-bottom: 1px dotted var(--line); padding: 5px 0; font-size: 10.5pt; }
+  .toc li span.n { color: var(--gold); font-weight: 700; width: 26px; }
+  .toc li a { color: var(--ink); }
+  .toc li a::after { content: leader(dotted) target-counter(attr(href), page); }
+
+  /* diagram */
+  .flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; align-items: stretch; margin: 8px 0; }
+  .flow .box { border: 1.5px solid var(--forest); border-radius: 8px; padding: 6px 7px; font-size: 8pt; background: #fff; position: relative; }
+  .flow .box b { display: block; color: var(--forest); font-size: 8.6pt; margin-bottom: 2px; }
+  .flow .box.gold { border-color: var(--gold); background: #FBF7EE; }
+  .flow .box.red { border-color: #B5512F; background: #FBF1EC; }
+  .flow .box.green { background: var(--forest); color: #EAF2EC; }
+  .flow .box.green b { color: #fff; }
+  .arrow { text-align: center; color: var(--gold); font-weight: 700; font-size: 11pt; line-height: 1; margin: 2px 0; }
+  .lane { border: 1px dashed var(--line); border-radius: 10px; padding: 8px; margin: 6px 0; background: var(--cream); break-inside: avoid; }
+  .lane-title { font-size: 7.5pt; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 4px; }
+
+  .two-col { columns: 2; column-gap: 18px; }
+  .two-col > * { break-inside: avoid; }
+  .src { font-size: 7.8pt; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<section class="cover">
+  <div class="brand">AYURDISHA</div>
+  <h1>Meet the Mentors,<br><em>digitally.</em><br>Product, technology &amp; ayurworld.org integration brief</h1>
+  <p class="sub">A fact-checked overview of the AYURDISHA web app built for the Meet the Mentors programme at the 11th World Ayurveda Congress &amp; Arogya Expo 2026 (Bhubaneswar, 10–13 December 2026), and how it could connect with the World Ayurveda Foundation website.</p>
+  <div class="meta">
+    <div><b>Live app:</b> https://ayushmarg.vercel.app</div>
+    <div><b>Document date:</b> 4 November 2026 (facts checked the same day)</div>
+    <div><b>Prepared for:</b> Manager review · internal</div>
+    <div><b>Sources:</b> project codebase and docs, the live app, ayurworld.org and the official 11th WAC brochure (V15)</div>
+  </div>
+  <div class="stamp">STATUS LABELS: LIVE · PILOT · PLANNED · RECOMMENDATION</div>
+  <div class="band"></div>
+</section>
+
+<!-- ============ EXECUTIVE SUMMARY ============ -->
+<section class="section" id="exec">
+  <div class="eyebrow">Executive summary</div>
+  <h1>AYURDISHA in one page</h1>
+  <hr class="rule">
+  <p><b>What it is.</b> AYURDISHA is a web app for the <b>Meet the Mentors</b> zone of the 11th World Ayurveda Congress (WAC). Ayurveda students, interns, PG scholars and young practitioners register with an email one-time code. They then ask one career question at the <b>Ask Desk</b> and read a mentor's written answer on <b>Track my answer</b>. Staff use PIN-protected tools to group similar questions, prepare mentor packs and review AI-drafted answers. Nothing an AI writes reaches a student until an official approves it.</p>
+  <p><b>Where it stands.</b> The app is live at <code>ayushmarg.vercel.app</code>, hosted on Vercel in Mumbai (<code>bom1</code>), with Google Firestore as the database. The live API confirmed this on 4 Nov 2026. The Ask Desk fix from 4 Nov is in the live build. The AI drafting pipeline is built and tested, but it ships switched <b>off</b>. Turning on the pilot (two streams: PG entrance and government jobs) is still a to-do, and the AI provider's billing is unresolved (see section 4).</p>
+  <div class="grid g4" style="margin:10px 0 12px">
+    <div class="kpi"><div class="n">23</div><div class="l">mentors on the tentative WAC 2026 roster (19 with profile details)</div></div>
+    <div class="kpi"><div class="n">273 / 273</div><div class="l">unit and API tests passing (<code>npm test</code>, run 4 Nov 2026)</div></div>
+    <div class="kpi"><div class="n">41 / 41</div><div class="l">end-to-end journey steps passing (<code>npm run e2e</code>, run 4 Nov 2026)</div></div>
+    <div class="kpi"><div class="n">32 · 14 · 2</div><div class="l">registered · questions asked · answered, from the site's public counter on 4 Nov (may include test records)</div></div>
+    <div class="kpi"><div class="n">10 / 56</div><div class="l">career themes and sub-areas students can file a question under</div></div>
+    <div class="kpi"><div class="n">35</div><div class="l">trusted domains the AI may cite (27 regulators, 6 research bodies, ayurworld.org, 1 other)</div></div>
+    <div class="kpi"><div class="n">0.2%</div><div class="l">students sent a mismatched group answer on a frozen 499-question benchmark (previous engine: 1.6%)</div></div>
+    <div class="kpi"><div class="n">≈ $0.05</div><div class="l">estimated AI cost per drafted answer; about $22 a day at 1,000 delegates (estimate, Oct 2026 docs)</div></div>
+  </div>
+  <h3>Relationship to WAC and ayurworld.org</h3>
+  <p>The official 11th WAC brochure (V15, hosted on ayurworld.org) lists <b>"Meet the Mentors"</b> as one of its Experience Zones and "Career Zone: Meet the mentors / Job Fair" among its associated events. <b>ayurworld.org does not currently mention or link to AYURDISHA.</b> The app's footer and FAQ call it "the official digital Meet the Mentors hall". We found no public organiser confirmation of that wording, so it needs organiser sign-off.</p>
+  <h3>Recommended next steps <span class="tag t-rec">RECOMMENDATION</span></h3>
+  <ol>
+    <li><b>This week:</b> get organiser approval for the "official" wording. Add an "Ask a mentor" button on ayurworld.org that links to <code>/ask?src=ayurworld</code>. Source tracking for that link already exists.</li>
+    <li><b>Before the Congress:</b> move to a subdomain such as <code>mentors.ayurworld.org</code> (a DNS record pointing to Vercel). Name a data controller and grievance contact, and decide on the AI pilot and its daily spend cap.</li>
+    <li><b>After the Congress:</b> consider single sign-on with WAC delegate registration and an automatic mentor-roster sync. Both need an API from the organisers' registration system.</li>
+  </ol>
+</section>
+
+<!-- ============ TOC ============ -->
+<section class="section toc">
+  <div class="eyebrow">Contents</div>
+  <h1>Table of contents</h1>
+  <hr class="rule">
+  <ol>
+    <li><span class="n">0</span><a href="#exec">Executive summary</a></li>
+    <li><span class="n">1</span><a href="#s1">Context: World Ayurveda Foundation &amp; the 11th WAC</a></li>
+    <li><span class="n">2</span><a href="#s2">User journeys</a></li>
+    <li><span class="n">3</span><a href="#s3">Feature catalogue</a></li>
+    <li><span class="n">4</span><a href="#s4">AI answer system</a></li>
+    <li><span class="n">5</span><a href="#s5">Question-merge engine</a></li>
+    <li><span class="n">6</span><a href="#s6">Languages</a></li>
+    <li><span class="n">7</span><a href="#s7">Technology stack &amp; architecture</a></li>
+    <li><span class="n">8</span><a href="#s8">Data &amp; privacy</a></li>
+    <li><span class="n">9</span><a href="#s9">Integration options with ayurworld.org</a></li>
+    <li><span class="n">10</span><a href="#s10">Operations</a></li>
+    <li><span class="n">11</span><a href="#s11">Roadmap, remaining items &amp; open decisions</a></li>
+    <li><span class="n">A</span><a href="#appA">Appendix: URLs, routes, staff operations, glossary, sources</a></li>
+  </ol>
+  <div class="note" style="margin-top:18px">
+    <b>How to read the labels.</b>
+    <span class="tag t-live">LIVE</span> means deployed at ayushmarg.vercel.app or present in the current code and covered by passing tests.
+    <span class="tag t-pilot">PILOT</span> means built and tested but switched off or limited in production.
+    <span class="tag t-planned">PLANNED</span> means in project docs or the budget, but not built.
+    <span class="tag t-rec">RECOMMENDATION</span> means a proposal in this brief, not yet agreed with anyone.
+    Every figure gives its source. Estimates are marked as estimates.
+  </div>
+  <div class="note">
+    <b>Screenshots.</b> Images come from the project's UI audit (captured 29 Oct 2026) and the AI pipeline docs, which used a local test environment with sample questions. The live UI has changed slightly since then; for example, "The Hall" now sits in the main navigation. No screenshot shows a real student's personal data.
+  </div>
+</section>
+
+<!-- ============ 1. CONTEXT ============ -->
+<section class="section" id="s1">
+  <div class="eyebrow">Section 1</div>
+  <h1>Context: World Ayurveda Foundation &amp; the 11th WAC</h1>
+  <hr class="rule">
+  <p>Everything in this section is quoted or paraphrased from ayurworld.org or from the official brochure it hosts, as fetched on <b>4 November 2026</b>. The URLs are listed with each fact.</p>
+  <table>
+    <thead><tr><th style="width:34%">Fact (as stated by the source)</th><th>Detail</th><th style="width:30%">Source</th></tr></thead>
+    <tbody>
+      <tr><td>Event</td><td>11th World Ayurveda Congress &amp; Arogya Expo 2026</td><td class="src">ayurworld.org (home)</td></tr>
+      <tr><td>Dates &amp; place</td><td>10–13 December 2026, Bhubaneswar, Odisha, India</td><td class="src">ayurworld.org/11th-wac-arogya-expo-2026/</td></tr>
+      <tr><td>Theme</td><td>"Integrative Ayurveda for Global Health"</td><td class="src">ayurworld.org (home and 11th WAC page)</td></tr>
+      <tr><td>Organiser and support</td><td>Organised by World Ayurveda Foundation, with the active support of the Ministry of Ayush (Government of India) and the Government of Odisha (host state)</td><td class="src">ayurworld.org/11th-wac-arogya-expo-2026/</td></tr>
+      <tr><td>What WAC is</td><td>"A platform established by World Ayurveda Foundation to propagate Ayurveda globally in its true sense"; the first WAC was held in Kochi in 2002</td><td class="src">ayurworld.org/about-wac-2/</td></tr>
+      <tr><td>Scientific programme</td><td>11 major themes, including NCDs, Wellness, Technology, Medical Emergencies, Oncology, Dietetics &amp; Nutrition, One Health, Antimicrobial Resistance, Drug Development, Pashu Ayurveda, Vriksha Ayurveda</td><td class="src">ayurworld.org/11th-wac-arogya-expo-2026/</td></tr>
+      <tr><td>Arogya Expo</td><td>A platform for Ayurvedic pharmaceutical companies, healthcare providers, educational institutions, research organisations and others to showcase products and services</td><td class="src">ayurworld.org/11th-wac-arogya-expo-2026/</td></tr>
+      <tr><td><b>Meet the Mentors</b></td><td>Listed as an <b>Experience Zone</b> ("7. Meet the Mentors"). "Career Zone: Meet the mentors / Job Fair" appears in the list of associated events, and a Meet the Mentors convenor is named on page 18.</td><td class="src">Official brochure V15 (PDF, pp. 10 and 18): ayurworld.org/wp-content/uploads/2026/09/11th-WAC-Main-Brochure-V15.pdf</td></tr>
+      <tr><td>Scale the brochure projects</td><td>"6000 Plus Delegates", "11 Experience Zones", "Participation from over 50 countries" (the organisers' projections, not AYURDISHA data)</td><td class="src">Brochure V15, p. 13</td></tr>
+      <tr><td>Delegate registration</td><td>"Last Date For Delegate Registration: 31-October-2026". Indian delegate fee ₹4,000 + 18% GST; BAMS students ₹3,500 + GST; spot registration ₹5,000 (brochure); international delegates $100 + 18% GST</td><td class="src">ayurworld.org/delegate-fee-structure/ and brochure p. 12</td></tr>
+      <tr><td>Secretariat</td><td>WAC Secretariat, World Ayurveda Foundation, Sadashivnagar, Bengaluru. General queries: info@ayurworld.org (the organisation's public contact)</td><td class="src">ayurworld.org/contact-us-2/</td></tr>
+      <tr><td>Official mobile app</td><td>The privacy policy mentions an "Android &amp; IOS Mobile Application of the 11th World Ayurveda Congress"</td><td class="src">ayurworld.org/terms-conditions-privacy-refund-policy/</td></tr>
+    </tbody>
+  </table>
+  <h3>What the ayurworld.org site runs on (only what is visible)</h3>
+  <ul>
+    <li>The page source declares <b>WordPress 7.1.4</b> as its generator. The Slider Revolution plugin and Google Site Kit are also present. The server reports <code>nginx</code> and <code>PHP/8.1</code>.</li>
+    <li>The WordPress REST API is linked at <code>/wp-json/</code>. The site has a delegate login at <code>/wac-manager/login</code> and an exhibitor login at <code>/wac-manager/exhibitor-login</code>.</li>
+    <li>The homepage response had no <code>X-Frame-Options</code> or <code>Content-Security-Policy</code> header, so the site itself puts no restriction on embedding other pages.</li>
+    <li>The homepage HTML contains no mention of AYURDISHA or "Meet the Mentors". The only Experience Zone links are to the Lab Tech and Pharma Tech flyers.</li>
+  </ul>
+  <h3>How AYURDISHA supports Meet the Mentors</h3>
+  <p>The brochure names the zone but does not describe a digital process. AYURDISHA provides one:</p>
+  <ul>
+    <li>Delegates register online and ask a focused career question before or during the Congress.</li>
+    <li>Staff merge near-identical questions so that one mentor answer serves a small group (a "mentor table" of up to 7 students).</li>
+    <li>Mentors get printable question packs.</li>
+    <li>Every student can read their written answer afterwards, including those who could not travel to Bhubaneswar.</li>
+  </ul>
+  <p>The app's terms say registration does not require a Congress pass. The app also states that its own pass number is separate from WAC delegate registration.</p>
+  <div class="warn"><b>Endorsement status.</b> The app's footer says "The official digital 'Meet the Mentors' hall of the 11th World Ayurveda Congress", and its FAQ repeats this. Neither ayurworld.org nor the brochure mentions AYURDISHA. The project's own UX audit (29 Oct) flags that this "needs sign-off", and the app's Terms page says its terms are "not a substitute for a signed contract with the World Ayurveda Foundation". <b>Get written organiser approval before presenting this as official.</b></div>
+</section>
+
+<!-- ============ 2. JOURNEYS ============ -->
+<section class="section" id="s2">
+  <div class="eyebrow">Section 2</div>
+  <h1>User journeys</h1>
+  <hr class="rule">
+  <h2 style="margin-top:0">2.1 Student or delegate <span class="tag t-live">LIVE</span></h2>
+  <div class="figpair">
+    <figure><img src="img/welcome.jpg" alt="Welcome slides"><figcaption>Welcome deck (<code>/welcome</code>): 6 slides covering Welcome, Register, Ask, Merge, Answer and Track. Captured 29 Oct 2026.</figcaption></figure>
+    <figure><img src="img/home.jpg" alt="Home page"><figcaption>Home (<code>/</code>). The hero now has a gold "Career question? Ask Desk →" button, and the nav includes "The Hall". Captured 29 Oct 2026, before those changes.</figcaption></figure>
+  </div>
+  <ol class="steps">
+    <li><b>Arrive.</b> New sessions see the 6-slide welcome deck at <code>/welcome</code> (skippable). Short links <code>/ask</code> and <code>/a</code> open the Ask Desk directly. Any <code>?src=</code> tag, such as <code>?src=qr</code>, is stored for the visit, counted once and removed from the address bar.</li>
+    <li><b>Explore the Hall.</b> <code>/#hall</code> has an interactive "How the hall works" map with 8 zones: Welcome, Ask kiosks, Organiser desk, Career videos, Mentor pods, Theme stage, One-to-one room and Podcast room. Each zone links to the matching part of the app.</li>
+    <li><b>Register</b> (<code>/#register</code>). The student enters name, age, sex, institute and email. A <b>6-digit code</b> is emailed; it is valid for <b>10 minutes</b>, can be resent after <b>60 s</b> and allows <b>5 wrong attempts</b>. Once verified, the app issues a pass number in the format <code>11WAC/2026/NNNN</code> (sequential and server-assigned; the student never types it).</li>
+    <li><b>Ask</b> (<code>/#ask</code>). The student picks one of 10 career themes and 56 sub-areas, writes the question and adds optional context and profile fields (stage, state, registration status, attending in person). A rules-only hint can suggest a better theme, ask for more detail, or show a helpline for distress messages; it never blocks sending. The student receives a ticket number such as <code>AYM-Q-XXXXXXXX</code>.</li>
+    <li><b>Track my answer</b> (<code>/#track</code>). The student looks up the ticket (case, spaces and a missing prefix are tolerated) or, if signed in, their own email. Status moves from Received to Being reviewed to Answered. An answer that started as an AI draft carries the note "Prepared with AI assistance, reviewed by WAC officials".</li>
+    <li><b>Mentors</b> (<code>/mentors</code>, <code>/mentors/:slug</code>). A searchable directory of the 23-name tentative roster, filterable by domain, with profile pages.</li>
+    <li><b>Learn.</b> Career tracks (<code>/programs</code>, 10 tracks), Knowledge pods (<code>/#pods</code>, with a server-side journal search), Opportunity Exchange (<code>/#exchange</code>), Resources, Events (3), the Podcast corner (<code>/#podcast</code>, where staff add recorded talks), the published Theme Stage answers (<code>/#board</code>), and FAQs (16).</li>
+    <li><b>Legal pages.</b> <code>/privacy</code>, <code>/terms</code>, <code>/disclaimer</code>. Privacy and Terms are labelled "Placeholder" until the organisers supply their details (see section 8).</li>
+  </ol>
+  <div class="figpair">
+    <figure><img src="img/register.jpg" alt="Register"><figcaption>Register: details, then email verification, then confirmation. Captured 29 Oct 2026.</figcaption></figure>
+    <figure><img src="img/trackreview.jpg" alt="Track"><figcaption>Track my answer while an official reviews a draft (sample ticket from the local test environment).</figcaption></figure>
+  </div>
+  <div class="grid g2">
+    <figure><img src="img/hallmap.jpg" alt="Hall map"><figcaption>Interactive hall map at <code>/#hall</code>. A simulated preview of the illustrative layout (not a real floor plan).</figcaption></figure>
+    <div class="card"><h4>Ask Desk QR short link</h4>
+      <img src="img/qr.png" alt="Ask QR" style="width:120px;float:right;margin-left:8px;border:0">
+      <p class="small">A branded QR code in the repo encodes <code>https://ayushmarg.vercel.app/ask?src=qr</code>. Scanning it opens the Ask Desk, and the visit is counted under "qr" in <b>Insights → Sources</b>, which shows visits, registrations and questions per source. Any poster or partner can use its own tag, for example <code>?src=ayurworld</code> or <code>?src=poster-hall-a</code>. Tags are anonymous: lower-case letters, digits and dashes, up to 32 characters. Visit pings are rate-limited to 12 per network every 10 minutes.</p>
+    </div>
+  </div>
+
+  <h2>2.2 Staff and officials <span class="tag t-live">LIVE</span></h2>
+  <ol class="steps">
+    <li><b>Sign in with the staff PIN</b> (the lock icon, or <code>/#staff</code>). A wrong PIN returns 403. A correct PIN sets an HttpOnly staff cookie. All staff operations are checked on the server.</li>
+    <li><b>Curation desk</b> (<code>/#curate</code>). Questions are grouped automatically by the precision-first merge engine (section 5). Each group card shows a confidence badge: <i>High confidence</i>, <i>Good match</i> or <i>Check this group</i>. A <b>"Why merged"</b> line lists the shared subject, the shared ask and the weakest and average pair scores. A <b>Suggested merges</b> panel offers Merge or Keep apart, and Keep apart decisions survive re-merges. Staff can <b>Split out</b> one student from a group. Saves are version-locked, so a stale save is refused with <b>HTTP 409</b> rather than overwriting someone else's work.</li>
+    <li><b>Insights.</b> A briefing board where staff can answer a single question, plus <b>Sources</b> statistics for QR and partner links.</li>
+    <li><b>Mentor pack.</b> Exports mentor question sheets to an Excel workbook (<code>xlsx</code> library) and imports answers back. The end-to-end test checks the round trip.</li>
+    <li><b>AI drafts desk</b> (<code>/#ai</code>, <span class="tag t-pilot">PILOT</span>). See section 4 for detail. It has a queue sorted urgent first, then normal drafts by risk and age, then "Limited sources" drafts, then blocked or medical ones. Each draft shows a triage badge, source cards and claim checks. The actions are <b>Approve and send</b>, <b>Edit then send</b>, <b>Reject</b> (with a reason), <b>Send to mentor</b>, <b>Regenerate</b>, <b>Re-file</b> and <b>Ask student to rephrase</b>. Settings cover the on/off switch, per-stream switches, shadow mode, a borderline-medical second opinion, the daily spend cap, <b>Draft existing questions</b> (backfill, with a dry-run preview and cost estimate) and <b>Test connection</b>.</li>
+    <li><b>Theme Stage and Podcast.</b> Publish group answers to the public board, and add recorded talks without a redeploy.</li>
+    <li><b>Selection list.</b> Staff can upload a Congress selection list, publish it and email the selected students (operations <code>wacResultsSave</code>, <code>wacResultsPublish</code>, <code>wacResultsMail</code>).</li>
+  </ol>
+  <figure><img src="img/aiqueue.jpg" alt="AI drafts desk"><figcaption>AI drafts desk in a local test environment with sample questions and a mock provider. The red banner shows how the desk explains a missing provider key.</figcaption></figure>
+
+  <h2>2.3 Mentors</h2>
+  <p>Mentors have no login. They receive the printed or Excel <b>mentor pack</b> with each group's representative question, sit at mentor tables in the hall, and their answers are entered by staff. Drafts that need expertise are sent to them with <b>Send to mentor</b>. A mentor portal is <span class="tag t-planned">PLANNED</span>: it does not appear in the code or the roadmap and would be a new feature.</p>
+</section>
+
+<!-- ============ 3. FEATURE CATALOGUE ============ -->
+<section class="section" id="s3">
+  <div class="eyebrow">Section 3</div>
+  <h1>Feature catalogue</h1>
+  <hr class="rule">
+  <table>
+    <thead><tr><th style="width:20%">Feature</th><th>What it does</th><th style="width:13%">Used by</th><th style="width:11%">Status</th></tr></thead>
+    <tbody>
+      <tr><td>Welcome deck</td><td>6 slides; autoplay respects reduced-motion settings; skippable</td><td>Students</td><td><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td>Hall + interactive hall map</td><td>8 clickable zones, each linking into the app</td><td>Students</td><td><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td>Registration with email code</td><td>6-digit code, 10 min validity, 60 s resend, 5 attempts; issues an <code>11WAC/2026/NNNN</code> pass number; email via Resend or SMTP</td><td>Students</td><td><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td>Ask Desk</td><td>10 themes and 56 sub-areas; inclusive stage list including "Outside India"; ticket number; automatic resend on network errors</td><td>Students</td><td><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td>QR / partner short links</td><td><code>/ask</code>, <code>/a</code>, <code>?src=</code> attribution; Sources statistics</td><td>Students, staff</td><td><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td>Floating "Ask Desk" button</td><td>Appears after the main calls to action scroll out of view; dismissible</td><td>Students</td><td><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td>Track my answer</td><td>Lookup by ticket or by own email; status steps; AI-assistance note</td><td>Students</td><td><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td>Mentors directory and profiles</td><td>23 tentative names, domain filters, search, profile pages</td><td>Students</td><td><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td>Career tracks, Knowledge pods, Exchange, Resources, Events</td><td>Curated career content (10 tracks); journal search in Knowledge pods uses the same AI provider and falls back to curated sources</td><td>Students</td><td><span class="tag t-live">LIVE</span> (the AI search part depends on provider billing)</td></tr>
+      <tr><td>Podcast corner</td><td>Staff add talks (YouTube no-cookie or Vimeo embeds) without a deploy; currently empty by design</td><td>Students, staff</td><td><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td>Theme Stage (published board)</td><td>Public answers with no student names</td><td>Everyone</td><td><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td>FAQs and legal pages</td><td>16 FAQs; privacy, terms and disclaimer (placeholders pending organiser input)</td><td>Everyone</td><td><span class="tag t-live">LIVE</span> / inputs pending</td></tr>
+      <tr><td>Staff PIN and workspace</td><td>HttpOnly cookie; every operation checked on the server; per-view error boundaries</td><td>Staff</td><td><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td>Curation desk with precision-first merge</td><td>Automatic and suggested merges, "Why merged", Keep apart, Split out, manual merge, 409 version lock</td><td>Staff</td><td><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td>Insights briefing board and Sources</td><td>Answer single questions; attribution statistics</td><td>Staff</td><td><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td>Mentor pack (Excel)</td><td>Export question sheets and import answers</td><td>Staff, mentors</td><td><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td>Selection list</td><td>Upload, publish and email the Congress selection list</td><td>Staff</td><td><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td>Answer notification email</td><td>Emails the student once when an answer is published (<code>server/answerNotify.js</code>)</td><td>Students</td><td><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td>AI drafts desk</td><td>Triage, grounded drafts, claim checks, mentor-assist drafts, backfill, spend cap, shadow mode</td><td>Officials</td><td><span class="tag t-pilot">PILOT</span> (ships off)</td></tr>
+      <tr><td>Question triage (9 restricted subtypes)</td><td>Rules first, with an AI classifier only when the rules are unsure; scripted replies in English, Hinglish and Hindi</td><td>Officials</td><td><span class="tag t-pilot">PILOT</span> (runs only when AI is on)</td></tr>
+      <tr><td>Vector search over the knowledge base</td><td>Firestore <code>findNearest</code> on a 768-dimension index</td><td>System</td><td><span class="tag t-planned">PLANNED</span> (needs an index-admin role; production uses keyword search, BM25)</td></tr>
+      <tr><td>Knowledge-base gap fill</td><td>Fetches the AIAPGET, NEET-PG, UPSC/PSC, NCISM and Gulf licensing documents</td><td>System</td><td><span class="tag t-planned">PLANNED</span> (script ready; needs open network to run)</td></tr>
+      <tr><td>Uptime and error monitoring (Sentry / UptimeRobot), Firebase App Check</td><td>Listed in the Sept 2026 budget proposal</td><td>Operations</td><td><span class="tag t-planned">PLANNED</span> (not in the code)</td></tr>
+      <tr><td>Custom domain <code>ayurdisha.ai</code></td><td>Listed in the budget proposal (registrar quote ₹4,761)</td><td>Everyone</td><td><span class="tag t-planned">PLANNED</span> (purchase not verified)</td></tr>
+      <tr><td>ayurworld.org integration</td><td>See section 9</td><td>Everyone</td><td><span class="tag t-rec">RECOMMENDATION</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ 4. AI SYSTEM ============ -->
+<section class="section" id="s4">
+  <div class="eyebrow">Section 4</div>
+  <h1>AI answer system</h1>
+  <hr class="rule">
+  <p class="lede">AI drafts career answers <b>for officials to review</b>. Nothing is ever auto-published, and production ships with AI <b>off</b>. With AI off, students see no change.</p>
+  <div class="note"><b>Pilot status (4 Nov 2026).</b> "E. Live AI ON" is still a to-do in the project log. On 28 Oct, the project's Google AI Studio key could list models but generation returned "prepaid credits are depleted". The Vertex AI route (Google Cloud credits) was waiting for three console steps: link billing, enable the API, grant a role. Whether AI is currently switched on in production cannot be checked without staff access, so it is reported here as <b>not verified</b>.</div>
+
+  <h3>Architecture</h3>
+  <div class="lane"><div class="lane-title">Student side (public)</div>
+    <div class="flow">
+      <div class="box"><b>Ask Desk</b>Question saved to Firestore; ticket returned</div>
+      <div class="box gold"><b>Queue</b><code>ai_jobs</code> entry, only if AI and the stream are on</div>
+      <div class="box"><b>Worker trigger</b>Signed call right after submit, daily Vercel cron, or desk open</div>
+      <div class="box"><b>Track</b>"Being reviewed" while a non-shadow draft is pending</div>
+      <div class="box green"><b>Answer</b>Shown only after an official approves</div>
+    </div>
+  </div>
+  <div class="arrow">▼</div>
+  <div class="lane"><div class="lane-title">Worker (serverless, 45 s budget per run, job locks, retries, daily spend cap)</div>
+    <div class="flow">
+      <div class="box"><b>1 · Redact</b>Removes names, emails, phones, WAC numbers, ticket ids and personal URLs before any AI call</div>
+      <div class="box"><b>2 · Triage &amp; classify</b>Rules in English, Hinglish and Hindi; AI classifier only when unsure; medical screen</div>
+      <div class="box red"><b>Medical or restricted</b>Never drafted; a scripted reply or mentor route instead</div>
+      <div class="box"><b>3 · Reuse or retrieve</b>Approved-answer bank, then trusted chunks (BM25, plus vectors when enabled)</div>
+      <div class="box gold"><b>Thin sources</b>Mentor-assist draft: general guidance with unsourced numbers removed</div>
+    </div>
+    <div class="arrow">▼</div>
+    <div class="flow">
+      <div class="box"><b>4 · Draft</b>Stream persona (17); JSON answer with <code>[c:chunkId]</code> citations</div>
+      <div class="box"><b>5 · Verify</b>A separate model checks each claim; deterministic number, date and authority checks override it</div>
+      <div class="box"><b>6 · Re-check</b>Stronger model only for borderline confidence (0.6–0.75)</div>
+      <div class="box gold"><b>Draft record</b><code>ai_drafts</code>: risk, confidence, claims; staff-only</div>
+      <div class="box green"><b>7 · Official review</b>Approve, Edit then send, Reject, Send to mentor, Regenerate</div>
+    </div>
+  </div>
+  <p class="small">Redrawn from the Mermaid diagram in <code>docs/ai/AI-ANSWER-PIPELINE.md</code>. Code lives in <code>server/ai/*</code>, the desk in <code>src/staff/AiReviewDesk.jsx</code>.</p>
+
+  <h3>Models (defaults from <code>server/ai/provider.js</code>)</h3>
+  <table>
+    <thead><tr><th>Step</th><th>Default model</th><th>Fallbacks</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Draft</td><td><code>gemini-4-argon</code>, thinking "low"</td><td><code>gemini-3.1-pro-preview</code>, then <code>gemini-3.8-flash</code></td><td>900 visible output tokens</td></tr>
+      <tr><td>Verify</td><td><code>gemini-3.8-flash</code></td><td><code>gemini-3.6-flash</code></td><td>Checks each claim against the quoted passage</td></tr>
+      <tr><td>Re-check</td><td><code>gemini-4-argon</code></td><td>—</td><td>Assumed for about 25% of drafts</td></tr>
+      <tr><td>Classify / triage</td><td><code>gemini-3.5-flash-lite</code>, thinking "minimal"</td><td><code>gemini-3.1-flash-lite</code>, then <code>gemini-3.8-flash</code></td><td>Only for borderline cases; about $0.0005 per call</td></tr>
+      <tr><td>Embeddings</td><td><code>gemini-embedding-001</code>, 768 dimensions</td><td>—</td><td>Not yet computed for the bundled knowledge base</td></tr>
+      <tr><td>Knowledge-pod search</td><td><code>gemini-3.6-flash</code></td><td>—</td><td>Counts toward the same daily cap</td></tr>
+    </tbody>
+  </table>
+  <p class="small">The provider is switchable to Google Vertex AI with <code>AI_PROVIDER=vertex</code>. The code also supports Anthropic and OpenAI, but only Gemini/Vertex is configured. The models were listed as available for the configured key on 28 Oct 2026.</p>
+
+  <div class="figpair">
+    <figure><img src="img/aiclaims.jpg" alt="Sources and claim checks"><figcaption>Source card with a regulator badge, plus claim checks marked green for supported (local test environment, mock drafter).</figcaption></figure>
+    <figure><img src="img/aisettings.jpg" alt="AI settings"><figcaption>Settings: AI switch, shadow mode, per-stream pilot switches, daily spend cap (local test environment).</figcaption></figure>
+  </div>
+
+  <h3>Safety design</h3>
+  <ul>
+    <li><b>Privacy.</b> Redaction runs before every AI call, and the triage classifier never sees raw personal data. Drafts are stored in staff-only <code>ai_*</code> collections, never on the public question record. The offline evaluation gate requires zero leaks.</li>
+    <li><b>Triage categories.</b> On-topic, Wrong area (with a one-click Re-file), Unfocused (asks clarifying questions), Off-topic, Duplicate, and Restricted. Restricted has nine subtypes: medical, legal/financial, exam integrity, unsafe/illegal, personal data, abusive, self-harm (urgent and pinned to the top, with the Tele-MANAS 14416 / 1-800-891-4416 helplines and 112), promotional, and prompt injection. Scripted replies contain no fees, dates or rules.</li>
+    <li><b>Medical routing.</b> Medical and treatment questions are blocked before drafting and go to a mentor. Approving them as-is is impossible.</li>
+    <li><b>Trusted sources.</b> A citation to any domain outside the allow-list is invalid. Fees, dates, cut-offs, seats and eligibility need a regulator source no older than 12 months, and any number in an answer must appear in the cited passage.</li>
+    <li><b>Mentor-assist drafts.</b> When sources are thin, the draft gets an amber "Limited sources — mentor to complete" label. Any sentence containing an unsourced digit, month, currency, percentage or link is removed automatically. These drafts are always high risk with confidence of 0.4 or less.</li>
+    <li><b>Controls.</b> Shadow mode (on by default) generates drafts but hides them from the queue. The daily spend cap defaults to $5 per India-time day. An unauthenticated worker call is refused when <code>CRON_SECRET</code> is set, and limited to one run a minute otherwise.</li>
+  </ul>
+
+  <h3>Trusted-source allow-list (<code>config/ai-sources.json</code>, 35 domains)</h3>
+  <table>
+    <thead><tr><th style="width:14%">Authority</th><th>Domains</th></tr></thead>
+    <tbody>
+      <tr><td>Regulator (27)</td><td class="small">ncismindia.org, ayush.gov.in, exams.nta.ac.in, natboard.edu.in, aaccc.gov.in, nam.ayush.gov.in, upsc.gov.in, keralapsc.gov.in, uppsc.up.nic.in, mpsc.gov.in, ism.kerala.gov.in, mppsc.mp.gov.in, rpsc.rajasthan.gov.in, ayurved.rajasthan.gov.in, ayush.gujarat.gov.in, clinicalestablishments.gov.in, nabh.co, qcin.org, pharmexcil.com, startupindia.gov.in, ipindia.gov.in, who.int, dha.gov.ae, doh.gov.ae, mohap.gov.ae, gov.uk, oda-am.ch</td></tr>
+      <tr><td>Research (6)</td><td class="small">ccras.nic.in, aiia.gov.in, nia.nic.in, ayushportal.nic.in, pubmed.ncbi.nlm.nih.gov, nccih.nih.gov</td></tr>
+      <tr><td>Congress (1)</td><td class="small"><b>ayurworld.org</b> (already trusted, which is relevant to the integration in section 9)</td></tr>
+      <tr><td>Other (1)</td><td class="small">ayurvedanama.org</td></tr>
+    </tbody>
+  </table>
+  <p class="small">Knowledge base: the bundled <code>data/kb/chunks.jsonl</code> has 3,189 passages (8.4 MB) as of 4 Nov 2026. The KB doc reports coverage from 19 of 31 sources at the time. Known gaps are AIAPGET (NTA), NEET-PG (NBEMS) and UPSC medical officer notices.</p>
+
+  <h3>Evaluation results (from the project's reports)</h3>
+  <table>
+    <thead><tr><th>Evaluation</th><th>Result</th><th style="width:28%">Source and date</th></tr></thead>
+    <tbody>
+      <tr><td>Offline gate, 400-question frozen set (25 medical, 40 with synthetic personal data)</td><td>Medical sent to a mentor 25/25 · personal-data leaks after redaction 0/40 · career questions wrongly held back 0/375 · stream routing 282/282 · time-sensitive asks flagged 9/9 — <b>PASS</b></td><td class="src">tests/ai-eval/reports/eval-2026-10-28.md</td></tr>
+      <tr><td>Live run, 30 questions (second run, before mentor-assist existed)</td><td>4 drafted, 23 stopped for insufficient sources · factual support 96.9% · citation validity 100% · unsupported claims missed by the verifier: 0 · approvable with light edits: 3 of 4 drafts · p50 latency 4.3 s, p95 27.6 s · run cost $0.33</td><td class="src">eval-2026-10-28-live30-v2.json</td></tr>
+      <tr><td>Same live run: personal-data metric</td><td>The leak metric flagged 7 items. It was later corrected because it had been counting public contact details inside source passages; it still checks the student's name and email in the prompt. <b>No re-run with the corrected metric has been recorded.</b></td><td class="src">PROGRESS.md log; live30 reports</td></tr>
+      <tr><td>Triage, rules only, labelled set of 239 items (30 Hinglish, 14 Hindi)</td><td>Category accuracy 100% · restricted-subtype accuracy 100% · false restrictions 0/122 · self-harm recall 100% · hold-out set (44 items) 100%</td><td class="src">Recomputed for this brief on 4 Nov 2026 from <code>tests/ai-eval/triage-set.json</code></td></tr>
+    </tbody>
+  </table>
+  <p class="small">Caveat: the evaluation sets were written by the project team. Real Ask Desk questions may be phrased in ways these sets don't anticipate.</p>
+
+  <h3>Cost (estimates from <code>docs/ai/AI-ANSWER-PIPELINE.md</code>; prices checked 28 Oct 2026; December rates)</h3>
+  <table>
+    <thead><tr><th>Scenario (per event day)</th><th class="num">Questions</th><th class="num">Drafts</th><th class="num">Recommended setup</th><th class="num">All-Pro</th><th class="num">All-Flash</th></tr></thead>
+    <tbody>
+      <tr><td>Low (30% of 1,000 delegates ask)</td><td class="num">300</td><td class="num">182</td><td class="num">$8.92 (₹785)</td><td class="num">$11.21</td><td class="num">$2.10</td></tr>
+      <tr><td><b>Expected</b> (50% ask 1.25 questions each)</td><td class="num">625</td><td class="num">440</td><td class="num"><b>$21.63 (₹1,903)</b></td><td class="num">$27.19</td><td class="num">$5.10</td></tr>
+      <tr><td>High (80% ask 1.5 questions each)</td><td class="num">1,200</td><td class="num">1,056</td><td class="num">$51.90 (₹4,567)</td><td class="num">$65.25</td><td class="num">$12.24</td></tr>
+    </tbody>
+  </table>
+  <p class="small">About <b>$0.049 per drafted answer</b> with the recommended setup (Pro-class draft, Flash-class verify). Four event days at the expected rate come to about $86.50 (₹7,612 at an assumed ₹88/USD). Output token counts are assumptions until a live run is measured. The docs recommend a <b>$30/day cap during the event</b>, raised to $60 if traffic looks like the "high" row, and keeping the $5 default until launch. Medical questions, reused answers and caching discounts are not counted, so the real bill should be lower.</p>
+</section>
+
+<!-- ============ 5. MERGE ============ -->
+<section class="section" id="s5">
+  <div class="eyebrow">Section 5</div>
+  <h1>Question-merge engine</h1>
+  <hr class="rule">
+  <p>Many students ask the same thing. The merge engine (<code>shared/merge.js</code>, the same module in the browser and on the server) groups questions so that one mentor answer serves up to <b>7</b> students. It is <b>precision-first</b>: a wrong merge means a student gets an answer to a question they didn't ask, so when in doubt the engine only <i>suggests</i> a merge to staff.</p>
+  <h3>How it works</h3>
+  <ol>
+    <li><b>Same theme only</b>, and by default the same sub-area too ("Keep sub-areas separate" is on). Questions from different themes are never merged automatically.</li>
+    <li><b>Intent signature for each question.</b> Greetings, self-introductions and sign-offs are stripped, with stop-words in English, Hinglish and Devanagari. Synonyms are folded together ("MD/MS" becomes PG, "sarkari" becomes government), words are stemmed and typos snapped. The engine then extracts <b>subject anchors</b> from a curated Ayurveda-career taxonomy (PG branches, AIAPGET, PSC, clinic, countries…), the <b>ask type</b> (cost, salary, books, syllabus, cut-off, eligibility, licence…) and <b>specifics</b> (country, exam, branch, numbers, with or without PG).</li>
+    <li><b>Hard rules for an automatic pair.</b> No conflicting specifics (UK vs Germany never merge), at least one shared subject, a compatible ask, at least two shared content words, and a score at or above the threshold. The score is 0.55 × weighted overlap + 0.35 × word overlap + 0.10 × word-pair overlap, damped when ask types differ.</li>
+    <li><b>Complete linkage.</b> Every pair inside a group must qualify, which removed the chained-merge errors. Groups never exceed 7 students.</li>
+    <li><b>Three tiers.</b> AUTO (merged; badge "High confidence" or "Good match"), SUGGESTED (shown to staff with a reason, never merged until a person decides), and LOW (never shown).</li>
+    <li><b>Locks.</b> Groups that are answered, sent to a mentor or published never change on re-merge. Answers are never copied between groups. Re-merging is deterministic and idempotent, and a stale save returns 409.</li>
+  </ol>
+  <h3>Accuracy on data never used for tuning (threshold 0.48, sub-areas kept)</h3>
+  <table>
+    <thead><tr><th>Benchmark set</th><th>Engine</th><th class="num">Students given a mismatched answer</th><th class="num">Auto-pair precision</th><th class="num">Auto recall</th><th class="num">Recall with accepted suggestions</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="2">B held-out (163 questions)</td><td>Previous live engine</td><td class="num">0.6%</td><td class="num">0.981</td><td class="num">0.167</td><td class="num">—</td></tr>
+      <tr><td><b>Precision-first (current)</b></td><td class="num"><b>0.0%</b></td><td class="num"><b>1.000</b></td><td class="num">0.123</td><td class="num">0.277</td></tr>
+      <tr><td rowspan="2">NEW-2 (499 questions, frozen 25 Oct, never inspected)</td><td>Previous live engine</td><td class="num">1.6%</td><td class="num">0.923</td><td class="num">0.284</td><td class="num">—</td></tr>
+      <tr><td><b>Precision-first (current)</b></td><td class="num"><b>0.2%</b></td><td class="num"><b>0.995</b></td><td class="num">0.219</td><td class="num">0.490</td></tr>
+    </tbody>
+  </table>
+  <ul class="small">
+    <li>Invariants held on all 6 datasets: 0 cross-theme groups, 0 groups over 7, 0 lost or duplicated questions; results are independent of input order and stable on re-merge.</li>
+    <li>Speed at 1,500 questions: 92 ms to build groups and 75 ms to compute suggestions.</li>
+    <li>The trade-off: fewer students are merged automatically (40% vs 47.5% on NEW-2). Staff recover the rest through Suggested merges, and 96% of suggested pairs on NEW-2 were correct.</li>
+  </ul>
+  <div class="rec"><b>Recommended threshold: 0.48 with "Keep sub-areas separate" on.</b> This is the shipped default and is confirmed by the engine comparison report (24 Oct). 0.46 is a safe "more merges" setting. Avoid going below 0.46 with sub-areas mixed. An older benchmark doc recommends 0.45, but that was for a candidate engine that was never shipped.</div>
+  <p class="small">Known limits (from the spec): words that signal an ask can hide inside a back-story; the representative question may carry a typo; subjects missing from the taxonomy fall back to word overlap; benchmarks are synthetic. On event day, watch for "Check this group" flags.</p>
+  <p class="src">Sources: docs/merge/PRECISION-FIRST-SPEC.md, precision-bench-tables.md, MERGE-ENGINE-REPORT.md, ENGINE-COMPARISON.md.</p>
+</section>
+
+<!-- ============ 6. LANGUAGES ============ -->
+<section class="section" id="s6">
+  <div class="eyebrow">Section 6</div>
+  <h1>Languages</h1>
+  <hr class="rule">
+  <div class="grid g2">
+    <div class="card"><h4>Human languages</h4>
+      <ul>
+        <li><b>Interface: English only.</b> The page declares <code>&lt;html lang="en"&gt;</code>, and the code has no translation (i18n) framework. A Hindi or other-language interface would be a <span class="tag t-planned">PLANNED</span> or <span class="tag t-rec">RECOMMENDATION</span> item.</li>
+        <li><b>Understanding questions: English, Hinglish (Hindi in Latin script) and Hindi in Devanagari.</b> Triage rules, the medical screen and the merge engine's stop-words cover all three. The labelled triage set includes 30 Hinglish and 14 Hindi items.</li>
+        <li><b>Scripted replies:</b> English and Hinglish templates for every category, plus Hindi for some. Where no Hindi template exists, the reply falls back to Hinglish, then English.</li>
+        <li><b>Content</b> (mentor profiles, career tracks, FAQs, legal pages, AI answers): English.</li>
+      </ul>
+    </div>
+    <div class="card"><h4>Programming languages and formats</h4>
+      <ul>
+        <li><b>JavaScript (ES modules) and JSX</b>: React front end, Node.js serverless functions, and shared modules in <code>shared/</code> used by both browser and server.</li>
+        <li><b>CSS</b> with design tokens (<code>src/styles/*</code>, <code>src/aym.css</code>).</li>
+        <li><b>Python</b> for asset scripts only: Open Graph image, branded QR, hall-map preview, and PDF text extraction (pypdf) in the knowledge-base gap fetcher.</li>
+        <li><b>Data formats:</b> JSON (config, store, benchmarks), JSONL (knowledge-base chunks), Markdown (stream personas, docs), Excel <code>.xlsx</code> (mentor pack, selection list), XML (sitemap), SVG and PNG (QR).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. STACK ============ -->
+<section class="section" id="s7">
+  <div class="eyebrow">Section 7</div>
+  <h1>Technology stack &amp; architecture</h1>
+  <hr class="rule">
+  <table>
+    <thead><tr><th style="width:18%">Layer</th><th>What is used (versions from <code>package.json</code>)</th></tr></thead>
+    <tbody>
+      <tr><td>Front end</td><td>React <code>^19.1.0</code>, React DOM <code>^19.1.0</code>, React Router <code>^7.18.3</code>, lucide-react icons <code>^0.525.0</code>; built with Vite <code>^7.0.0</code> and <code>@vitejs/plugin-react ^4.7.0</code>. A single-page app with lazy-loaded pages.</td></tr>
+      <tr><td>Back end</td><td>Vercel serverless functions in Node.js: <code>api/aym-store.js</code> (one operation-based API, 30 s limit), <code>api/ai-worker.js</code> (60 s), <code>api/knowledge-chat.js</code> (60 s). Logic lives in <code>server/</code>.</td></tr>
+      <tr><td>Database</td><td>Google Cloud Firestore through <code>firebase-admin ^14.3.0</code>, server-side only. <code>firestore.rules</code> denies all browser reads and writes. Fallbacks for development: Vercel Blob (<code>@vercel/blob ^2.8.0</code>) or a local file.</td></tr>
+      <tr><td>Firestore collections</td><td><code>questions</code>, <code>meta/clusters</code>, <code>meta/stats</code>, <code>kv</code> (profiles, indexes, sessions, pass-number counter, selection list, visit sources, podcasts), <code>ai_config</code>, <code>ai_jobs</code>, <code>ai_drafts</code>, <code>ai_answer_bank</code>, <code>ai_usage</code>, <code>kb_chunks</code></td></tr>
+      <tr><td>Hosting</td><td>Vercel, region <code>bom1</code> (Mumbai); daily cron <code>30 2 * * *</code> UTC (08:00 IST) calls the AI worker. The docs note the Hobby plan allows only daily crons; a 5-minute cron needs Pro.</td></tr>
+      <tr><td>Email</td><td>Resend API when <code>RESEND_API_KEY</code> is set, otherwise SMTP through <code>nodemailer ^9.0.5</code>, otherwise a console fallback in development. Which one production uses is set in Vercel and was not inspected.</td></tr>
+      <tr><td>AI provider</td><td>Google Gemini API, or Vertex AI when switched (section 4)</td></tr>
+      <tr><td>Documents</td><td>Excel through <code>xlsx ^0.18.5</code>. The app has no runtime PDF library; project PDFs are rendered from HTML with headless Chrome scripts. PowerPoint via <code>pptxgenjs</code> (development only).</td></tr>
+      <tr><td>Testing</td><td>Node's built-in test runner: <b>273/273</b> (<code>npm test</code>). End-to-end journey script: <b>41/41</b> (<code>npm run e2e</code>). Both run on 4 Nov 2026. The QA report also lists a render smoke test (29/29), a UI smoke test (23/23) and an Ask render check (6/6) using happy-dom (not a project dependency). AI evaluation: <code>npm run eval:ai</code>. Merge benchmark: <code>npm run bench:merge</code>.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Security (verified in code and live headers)</h3>
+  <ul>
+    <li><b>Headers on every route:</b> a strict Content-Security-Policy (<code>default-src 'self'</code>; scripts from self only; <code>connect-src 'self'</code>; frames only from youtube-nocookie and Vimeo; <code>object-src 'none'</code>; <code>frame-ancestors 'self'</code>), plus <code>X-Frame-Options: SAMEORIGIN</code>, <code>nosniff</code>, a strict referrer policy, and a Permissions-Policy that disables camera, microphone and geolocation.</li>
+    <li><b>Staff access:</b> the PIN is read only from server environment variables and never returned. The staff cookie is an HMAC of the PIN, set with <code>HttpOnly; SameSite=Lax; Secure</code>. Every staff operation is checked on the server, and the e2e test confirms anonymous callers get 403.</li>
+    <li><b>Email codes:</b> the pending code lives only in a signed HttpOnly cookie, never in the database. Limits: 10 minutes validity, 60 s resend wait, 5 attempts.</li>
+    <li><b>Rate limits and secrets:</b> visit pings 12 per network per 10 minutes; unauthenticated worker calls get 401 when <code>CRON_SECRET</code> is set (otherwise one run a minute); a daily AI spend cap.</li>
+    <li><b>Demo controls are off in production.</b> Seeding and wiping are allowed only in local development or on a non-production deploy with <code>AYM_DEMO_OPS=1</code>, and the buttons render only in development builds.</li>
+    <li><b>Input handling:</b> question records are normalised (string fields only, length caps, staff-only fields stripped). Test-probe operations are PIN-gated and limited to <code>[TEST]</code> data.</li>
+  </ul>
+
+  <h3>Accessibility, performance and SEO</h3>
+  <ul>
+    <li><b>Lighthouse, 29 Oct 2026 (before later fixes):</b> desktop home scored 98 for performance and 100 for accessibility, best practices and SEO. Mobile home scored 69 for performance (largest paint 5.7 s); mentors on mobile scored 60 with a layout shift of 0.94. These have not been re-measured since.</li>
+    <li><b>Accessibility features:</b> skip link, focus trap in dialogs, respect for reduced-motion settings (including the welcome deck), and "opens in a new tab" hints. The UX audit noted remaining contrast and heading-order issues.</li>
+    <li><b>SEO:</b> meta description, canonical URL, Open Graph image (1200×630), <code>robots.txt</code> (blocks <code>/api/</code> and <code>/docs/</code>), and a generated <code>sitemap.xml</code> with 58 URLs.</li>
+    <li><b>Resilience:</b> per-view error boundaries, a one-time reload after a new deploy, and an automatic resend on network errors when asking a question.</li>
+  </ul>
+</section>
+
+<!-- ============ 8. DATA & PRIVACY ============ -->
+<section class="section" id="s8">
+  <div class="eyebrow">Section 8</div>
+  <h1>Data &amp; privacy</h1>
+  <hr class="rule">
+  <table>
+    <thead><tr><th style="width:18%">Data</th><th>Fields</th><th style="width:22%">Where stored</th><th style="width:20%">Who can read it</th></tr></thead>
+    <tbody>
+      <tr><td>Delegate profile</td><td>Name, age, sex, institute, email, issued pass number, created date, optional source tag</td><td>Firestore <code>kv</code> (user record plus email and pass-number indexes)</td><td>The signed-in delegate (own record); staff</td></tr>
+      <tr><td>Question</td><td>Ticket, theme and sub-area, question (up to 2,000 characters), context, stage, state, institution, registration and attendance status, consent flags (follow-up, publish), optional mobile, anonymous id, source</td><td>Firestore <code>questions</code></td><td>Staff; the public Track lookup returns only that ticket's question and answer, with no email or name</td></tr>
+      <tr><td>Groups and answers</td><td>Members, representative question, answer, status</td><td><code>meta/clusters</code></td><td>Public: <b>published</b> answers only, with no personal data</td></tr>
+      <tr><td>AI records</td><td>Jobs, drafts, claims, usage</td><td><code>ai_*</code></td><td>Staff only</td></tr>
+      <tr><td>Sessions and staff auth</td><td>Signed HttpOnly cookies; the email code is never stored in the database</td><td>Browser cookie</td><td>—</td></tr>
+      <tr><td>Selection list</td><td>Selected student rows (name, email, institute)</td><td><code>kv</code></td><td>Staff; public only once staff publish it</td></tr>
+    </tbody>
+  </table>
+  <ul>
+    <li><b>No student personal data is sent to the AI.</b> Redaction runs before every AI call (section 4). The offline gate shows 0/40 leaks, and the live metric needs a re-run.</li>
+    <li><b>Firestore region and backups</b> are not recorded in the repo. The storage doc recommends <code>asia-south1</code> for India, and the hosting functions run in Mumbai.</li>
+    <li><b>Retention and deletion:</b> no automated retention or deletion exists. The Privacy page tells students to contact the curation desk "through Congress / World Ayurveda Foundation channels" and says the site "does not yet publish a dedicated privacy email".</li>
+  </ul>
+  <div class="warn"><b>Organiser inputs pending (from the app's legal pages and the UX audit).</b> The data controller or legal entity, privacy officer, grievance contact (India's DPDP Act requires a named grievance contact), registered address, a retention period, a deletion process, and whether age and sex need to stay mandatory (the purpose is not stated). Privacy and Terms are labelled "Placeholder" until these are supplied.</div>
+</section>
+
+<!-- ============ 9. INTEGRATION ============ -->
+<section class="section" id="s9">
+  <div class="eyebrow">Section 9 · Recommendations</div>
+  <h1>Integration options with ayurworld.org</h1>
+  <hr class="rule">
+  <p>Everything in this section is a <span class="tag t-rec">RECOMMENDATION</span>; none of it has been agreed with the World Ayurveda Foundation. Effort figures are rough engineering estimates for the AYURDISHA side unless stated otherwise. Some building blocks already exist: <code>?src=</code> source tracking, deep links to mentor profiles, and ayurworld.org on the AI trusted-source list.</p>
+
+  <h3>Constraints found in the code today</h3>
+  <ul>
+    <li><b>Embedding is blocked by design.</b> AYURDISHA sends <code>frame-ancestors 'self'</code> and <code>X-Frame-Options: SAMEORIGIN</code>, so no other site can show it in an iframe until those headers change.</li>
+    <li><b>Cookies are <code>SameSite=Lax</code>.</b> Inside an iframe on a <i>different</i> site (ayurworld.org embedding ayushmarg.vercel.app), browsers will not send the delegate or staff cookies. Registration, Ask and staff tools would fail inside such an embed. A subdomain of ayurworld.org counts as the same site, so this problem goes away there.</li>
+    <li><b>The domain is hard-coded</b> in <code>src/siteMeta.js</code> (<code>SITE_ORIGIN</code>), <code>scripts/write-sitemap.js</code>, <code>index.html</code> (canonical and Open Graph), <code>robots.txt</code>, the answer-email link base (<code>server/answerNotify.js</code>) and the QR script. All need updating for a new domain.</li>
+    <li><b>Pass-number naming.</b> AYURDISHA issues its own <code>11WAC/2026/NNNN</code> and calls it a "WAC registration number". The UX audit flags that this collides with real Congress registration. The official delegate system lives at <code>ayurworld.org/wac-manager/</code>, and its number format is unknown.</li>
+  </ul>
+
+  <table>
+    <thead><tr><th style="width:17%">Option</th><th>What it involves</th><th style="width:12%">Effort (estimate)</th><th style="width:20%">Needed from the ayurworld.org team</th><th style="width:18%">Risks</th></tr></thead>
+    <tbody>
+      <tr><td><b>(a) Prominent link and co-branded landing</b></td><td>A "Meet the Mentors · Ask a mentor" button or menu item on the ayurworld.org home and 11th WAC pages, linking to <code>/ask?src=ayurworld</code> or <code>/?src=ayurworld</code>. Optionally a WordPress landing page using official wording and logos.</td><td>AYURDISHA: none (works today). WAF: about 1 hour in WordPress admin.</td><td>Approval of wording and logo use; a person to add the link</td><td>Minimal. "Official" claims must match what is approved.</td></tr>
+      <tr><td><b>(b) Subdomain, e.g. <code>mentors.ayurworld.org</code></b></td><td>Add the domain to the Vercel project, have WAF create a DNS CNAME pointing at Vercel, then update the canonical URL, sitemap, robots, Open Graph, QR codes and email sender branding. The old URL keeps working.</td><td>About 1 day, including retesting and new QR codes</td><td>DNS access (one CNAME record), agreement on the name, possibly SPF/DKIM if mail is sent from an ayurworld.org address</td><td>DNS mistakes; printed QR codes must be regenerated before printing</td></tr>
+      <tr><td><b>(c) Embedded widgets</b></td><td>Read-only widgets (mentor list, published answers, an "Ask" button that opens a new tab) through an iframe or a small script. This requires adding <code>https://ayurworld.org</code> (and <code>www</code>) to <code>frame-ancestors</code> and dropping <code>X-Frame-Options</code> for widget routes only.</td><td>2–4 days for widget routes, headers and tests</td><td>A WordPress page with a Custom HTML block; agreement on placement</td><td>Cookie limits mean Ask and Register should <b>not</b> run inside a cross-site iframe; loosening the headers needs care</td></tr>
+      <tr><td><b>(d) Deep links with source tracking</b></td><td>Use links like <code>/ask?src=ayurworld</code>, <code>/mentors/:slug?src=ayurworld</code> (e.g. <code>/mentors/hiten-vaja</code>), <code>/programs/:slug</code> and <code>/#track</code> in WAF pages, newsletters, the official WAC mobile app and emails. Staff see the visits, registrations and questions per tag in Insights → Sources.</td><td>Built (0 days)</td><td>Placing the links; using one tag per channel (e.g. <code>ayurworld-home</code>, <code>wac-app</code>)</td><td>None significant; tags are anonymous</td></tr>
+      <tr><td><b>(e) Shared registration or single sign-on</b> <span class="tag t-planned">FUTURE</span></td><td>Let WAC delegates sign in to AYURDISHA with their WAC Manager account (OAuth/OpenID Connect, or a signed one-time link), or prefill the profile from WAC registration.</td><td>2–4 weeks, depending on the organisers' system</td><td>An API or identity provider on the WAC Manager side, technical contact, data-sharing agreement</td><td>High: an unknown system, privacy obligations, and not advisable before 10 Dec</td></tr>
+      <tr><td><b>(f) Data exchange</b> <span class="tag t-planned">FUTURE</span></td><td>(1) A mentor roster feed from WAF (confirmed mentors, photos, bios) replacing the tentative 23-name list. (2) Delegate verification: the student enters their official WAC registration number and AYURDISHA checks it through an organiser API. (3) Optionally an export of published answers for the WAF magazine or website.</td><td>Roster CSV or JSON import: 2–3 days. Verification API: 1–2 weeks</td><td>The roster file or API; a verification endpoint (number in, valid yes/no; no personal data back)</td><td>Personal data moving between systems; must be agreed under the DPDP Act</td></tr>
+      <tr><td><b>(g) Brand and legal alignment</b></td><td>Approve the "official" wording, WAC logo use and footer text. Name the data controller, grievance officer and privacy email. Link the AYURDISHA privacy page from or to the WAF policy. Rename the pass number (e.g. "AYURDISHA pass number") unless (f) makes it the real WAC number.</td><td>AYURDISHA copy changes: 0.5–1 day</td><td>Decisions and text from WAF's legal or communications team</td><td>Without this, presenting the app as "official" is unsupported</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Phased plan <span class="tag t-rec">RECOMMENDATION</span></h3>
+  <table>
+    <thead><tr><th style="width:18%">Phase</th><th style="width:20%">Target window</th><th>Scope</th></tr></thead>
+    <tbody>
+      <tr><td>0 · Approvals</td><td>Week of 4–8 Nov 2026</td><td>Organiser sign-off on wording, logo, data controller and grievance contact; choice between (a), (b) and (c); a named WAF technical contact for DNS and WordPress</td></tr>
+      <tr><td>1 · Link and track</td><td>By about 14 Nov</td><td>(a) button on ayurworld.org with <code>?src=ayurworld</code>; (d) deep links in WAF channels; (g) copy updates on AYURDISHA (rename pass number, update legal pages)</td></tr>
+      <tr><td>2 · Own the address</td><td>By about 25 Nov (before QR printing)</td><td>(b) subdomain live; QR codes and posters regenerated; optionally the (c) read-only mentor widget; mentor roster confirmed through a one-time (f1) import</td></tr>
+      <tr><td>3 · Event</td><td>10–13 Dec 2026</td><td>Watch Sources statistics per channel; no integration changes during the event (change freeze)</td></tr>
+      <tr><td>4 · After the event</td><td>Jan 2027 onwards</td><td>(e) single sign-on and (f2) delegate verification if WAF exposes an API; a published-answers archive on ayurworld.org</td></tr>
+    </tbody>
+  </table>
+  <p class="small">The timeline assumes organiser responses within days. WAC delegate registration closed on 31 Oct 2026 according to ayurworld.org, while AYURDISHA registration does not require a Congress pass. The organisers should confirm whether that should stay so (section 11).</p>
+</section>
+
+<!-- ============ 10. OPERATIONS ============ -->
+<section class="section" id="s10">
+  <div class="eyebrow">Section 10</div>
+  <h1>Operations</h1>
+  <hr class="rule">
+  <div class="grid g2">
+    <div class="card"><h4>Daily event checklist (from the project's operator docs)</h4>
+      <ol class="small">
+        <li>Before doors open, check the app is reachable and the API reports <code>"backend":"firestore"</code>. After any deploy, run the production probe script with the PIN supplied via environment variable. It creates and then removes <code>[TEST]</code> data.</li>
+        <li>AI desk (if the pilot is on): check the spend cap for the day, provider status in <b>Test connection</b>, and the banners. Press <b>Process queue now</b> while jobs are waiting.</li>
+        <li>Curation: <b>Re-merge every 30–60 minutes</b>, clear Suggested merges from the top, review "Check this group" cards, then write group answers.</li>
+        <li>Review urgent (self-harm) items first; the student's contact details are on the briefing board.</li>
+        <li>Export the mentor pack for each session, then import the answers.</li>
+        <li>Check Insights → Sources to see which QR codes and posters are working.</li>
+        <li>At the end of the day, confirm answered groups are published and notification emails have gone out.</li>
+      </ol>
+    </div>
+    <div class="card"><h4>Monitoring today</h4>
+      <ul class="small">
+        <li>Vercel function logs and deployment status (Vercel dashboard).</li>
+        <li>The API <code>ping</code> operation (backend health) and the <code>publicStats</code> counters.</li>
+        <li>Desk banners for AI off, shadow mode, spend cap reached and provider errors.</li>
+        <li>Scripts: <code>scripts/e2e/prod-ask-probe.mjs</code>, <code>scripts/ai/enable-pilot.mjs --status</code> (read-only).</li>
+        <li><b>No external uptime or error monitor is installed.</b> Sentry and UptimeRobot are <span class="tag t-planned">PLANNED</span> in the budget proposal.</li>
+      </ul>
+      <h4>Support</h4>
+      <p class="small">The budget proposal includes an event-day helpdesk for registration and Track queries, plus on-call technical support during the 3-day Congress. Staffing is not yet confirmed in project files.</p>
+    </div>
+  </div>
+  <h3>Costs</h3>
+  <table>
+    <thead><tr><th>Item</th><th>Figure</th><th style="width:34%">Source and status</th></tr></thead>
+    <tbody>
+      <tr><td>Total infrastructure and operations budget, recommended scenario</td><td>₹1,00,000 (≈ $1,176 at ₹85/USD): Phase 1 ₹60,000 (cloud ₹26,361, engineering ₹30,000, event-week assurance ₹3,639), Phase 2 personnel ₹29,000, contingency ₹11,000. Alternatives: minimum ₹75,000, maximum ₹1,30,000</td><td class="src">docs/INFRASTRUCTURE-BUDGET.md (Sept 2026). A proposal: "Committee Decision Requested"</td></tr>
+      <tr><td>Hosting (Vercel Pro, 2-month event period)</td><td>₹7,500 (recommended line)</td><td class="src">Budget proposal; current plan appears to be Hobby (daily cron only)</td></tr>
+      <tr><td>Database (Firebase Blaze buffer)</td><td>₹5,500</td><td class="src">Budget proposal</td></tr>
+      <tr><td>AI (Gemini buffer)</td><td>₹3,500 in the budget, versus about ₹7,612 estimated for 4 event days at the expected rate (section 4)</td><td class="src">Budget (Sept) vs AI pipeline doc (Oct). <b>The AI estimate is higher than the budget line</b>; the contingency or Google Cloud credits could cover it</td></tr>
+      <tr><td>Email (Resend Pro or SendGrid)</td><td>₹1,800</td><td class="src">Budget proposal</td></tr>
+      <tr><td>Domain <code>ayurdisha.ai</code> (first year)</td><td>₹4,761 (registrar quote ₹4,760.95)</td><td class="src">Budget proposal, Annexure A; purchase not verified. Option (b) in section 9 would make it unnecessary</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ 11. ROADMAP ============ -->
+<section class="section" id="s11">
+  <div class="eyebrow">Section 11</div>
+  <h1>Roadmap, remaining items &amp; open decisions</h1>
+  <hr class="rule">
+  <h3>Remaining items (from <code>docs/PROGRESS.md</code> and the design audits)</h3>
+  <table>
+    <thead><tr><th style="width:32%">Item</th><th>Detail</th><th style="width:12%">Status</th></tr></thead>
+    <tbody>
+      <tr><td>E · Live AI on (pilot)</td><td>Close the knowledge-base gaps, run evaluations before and after, prepare golden drafts, enable the pilot (PG entrance and government jobs), run 3 [TEST] questions, cleanup. Budget $20.</td><td><span class="tag t-pilot">TO DO</span></td></tr>
+      <tr><td>AI provider billing</td><td>Either top up AI Studio or complete the Vertex steps (link billing, enable the API, grant the Vertex AI User role)</td><td><span class="tag t-pilot">TO DO</span></td></tr>
+      <tr><td>Vector search</td><td>Grant the Datastore Index Admin role or create the 768-dimension index on <code>kb_chunks</code>; until then, keyword search (BM25) only</td><td><span class="tag t-planned">ORGANISER ACTION</span></td></tr>
+      <tr><td>Knowledge-base gap fetch</td><td>Run <code>node scripts/kb/fetch-gaps.mjs</code> on an open network (AIAPGET, NEET-PG, UPSC/PSC, NCISM, Clinical Establishments Act, Gulf licensing), then redeploy and redraft</td><td><span class="tag t-planned">READY, NOT RUN</span></td></tr>
+      <tr><td>Production verification</td><td>Run the Ask probe after each deploy. The 4 Nov Ask-submit fix is present in the live bundle (checked 4 Nov).</td><td><span class="tag t-live">PARTLY DONE</span></td></tr>
+      <tr><td>Questions lost in the incident</td><td>Questions "saved" only in the visitor's browser during the Ask-submit incident cannot be recovered. The QA report suggests a notice asking students to check Track and ask again.</td><td><span class="tag t-rec">DECISION</span></td></tr>
+      <tr><td>F · Audit fixes, priority 1</td><td>Trust and privacy surface, Ask/Register redesign, removing the forced welcome redirect, layout shift and first-load performance, a single Career tracks hub, overlays closing on navigation</td><td><span class="tag t-planned">TO DO</span></td></tr>
+      <tr><td>G / H · Audit fixes, priorities 2 and 3</td><td>Home edit down to 7 sections, design-system convergence, imagery, accessibility polish (contrast, headings), staff shell, copy, soft 404</td><td><span class="tag t-planned">TO DO</span></td></tr>
+      <tr><td>Already fixed from the audit</td><td>Curation desk crash, error-boundary reset, demo controls hidden in production, The Hall in the nav, Ask Desk call to action, inclusive copy</td><td><span class="tag t-live">DONE</span></td></tr>
+    </tbody>
+  </table>
+  <p class="small">UX audit baseline (29 Oct 2026, measured against apple.com/in): overall 5.3/10. Strengths were Track, the security headers and Lighthouse accessibility, best-practices and SEO scores. Weaknesses were information architecture (4.0), trust (4.0) and staff tools (3.5). Several of the top issues have since been fixed, as listed above.</p>
+
+  <h3>Open decisions for the organisers</h3>
+  <ol>
+    <li><b>Endorsement and branding:</b> may AYURDISHA call itself "the official digital Meet the Mentors hall"? Which logo and wording are allowed?</li>
+    <li><b>Legal:</b> who is the data controller, privacy officer and grievance contact? What address and email should be published? What is the retention period after the Congress?</li>
+    <li><b>Integration:</b> which of options (a) to (d) should go ahead before the Congress? Who controls ayurworld.org DNS and WordPress? Is a subdomain acceptable?</li>
+    <li><b>Pass number:</b> keep the AYURDISHA-issued <code>11WAC/2026/NNNN</code>, rename it, or verify against the official WAC registration?</li>
+    <li><b>Eligibility:</b> WAC delegate registration closed on 31 Oct (per ayurworld.org). Should AYURDISHA stay open to anyone (the current terms say no Congress pass is needed), or only to registered delegates?</li>
+    <li><b>Mentor roster:</b> confirm the 23 tentative names and supply photos, bios and consent for each mentor.</li>
+    <li><b>AI pilot:</b> go or no-go, which streams, who reviews drafts, billing route (AI Studio or Vertex with Cloud credits), and the event cap ($30/day suggested).</li>
+    <li><b>Budget:</b> approve the proposal (₹1,00,000 recommended) and the Vercel Pro upgrade; decide whether to buy <code>ayurdisha.ai</code> if a subdomain is chosen instead.</li>
+    <li><b>Data minimisation:</b> should age and sex stay mandatory at registration?</li>
+  </ol>
+</section>
+
+<!-- ============ APPENDIX ============ -->
+<section class="section" id="appA">
+  <div class="eyebrow">Appendix</div>
+  <h1>URLs, routes, staff operations, glossary &amp; sources</h1>
+  <hr class="rule">
+  <div class="two-col">
+    <div>
+      <h3 style="margin-top:0">A1 · Key URLs</h3>
+      <ul class="small">
+        <li>Live app: https://ayushmarg.vercel.app</li>
+        <li>Ask short link (QR): https://ayushmarg.vercel.app/ask?src=qr</li>
+        <li>ayurworld.org home: https://ayurworld.org/</li>
+        <li>11th WAC page: https://ayurworld.org/11th-wac-arogya-expo-2026/</li>
+        <li>About WAC: https://ayurworld.org/about-wac-2/</li>
+        <li>Delegate fees: https://ayurworld.org/delegate-fee-structure/</li>
+        <li>Contact: https://ayurworld.org/contact-us-2/</li>
+        <li>Terms and privacy: https://ayurworld.org/terms-conditions-privacy-refund-policy/</li>
+        <li>Brochure V15: https://ayurworld.org/wp-content/uploads/2026/09/11th-WAC-Main-Brochure-V15.pdf</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="margin-top:0">A2 · Public routes</h3>
+      <p class="small"><code>/</code> · <code>/welcome</code> · <code>/ask</code> and <code>/a</code> (go to <code>/#ask</code>) · <code>/#hall</code> · <code>/#register</code> · <code>/#ask</code> · <code>/#track</code> (<code>/track-answer</code> redirects) · <code>/#pods</code> · <code>/#exchange</code> · <code>/#podcast</code> · <code>/#board</code> · <code>/mentors</code> · <code>/mentors/:slug</code> · <code>/programs</code> · <code>/programs/:slug</code> (<code>/careers</code> redirects) · <code>/events</code> · <code>/events/:slug</code> · <code>/resources</code> · <code>/resources/:slug</code> · <code>/about</code> · <code>/contact</code> · <code>/privacy</code> · <code>/terms</code> · <code>/disclaimer</code> · 404 page</p>
+      <h3>A3 · Staff routes (PIN)</h3>
+      <p class="small"><code>/#staff</code> · <code>/#curate</code> · <code>/#insights</code> · <code>/#pack</code> · <code>/#board</code> (Theme Stage) · <code>/#ai</code>. Aliases: <code>/staff</code>, <code>/staff/login</code>, <code>/staff/curation</code>, <code>/staff/insights</code>, <code>/staff/mentor-pack</code>, <code>/staff/theme-stage</code>.</p>
+    </div>
+  </div>
+  <h3>A4 · API operations (<code>POST /api/aym-store</code>, from <code>server/storePlugin.js</code> and <code>server/ai/ops.js</code>)</h3>
+  <table>
+    <thead><tr><th style="width:18%">Access</th><th>Operations</th></tr></thead>
+    <tbody>
+      <tr><td>Public</td><td class="small"><code>ping</code>, <code>whoami</code>, <code>publicStats</code>, <code>visitSource</code>, <code>login</code>, <code>logout</code>, <code>regStart</code>, <code>regResend</code>, <code>regVerify</code>, <code>lookup</code> (by ticket), <code>get</code> (published groups only), <code>podcastsList</code>, <code>wacResultsGet</code> (once published)</td></tr>
+      <tr><td>Delegate-facing (the server checks the delegate session where needed)</td><td class="small"><code>regMe</code>, <code>regRecover</code>, <code>regSaveWac</code>, <code>set</code> (new question, signed-in delegate), <code>lookup</code> (own email, signed-in delegate)</td></tr>
+      <tr><td>Staff (PIN cookie)</td><td class="small"><code>staffSnapshot</code>, <code>regUsers</code>, <code>list</code>, <code>stats</code>, <code>get</code>/<code>set</code>/<code>del</code>, <code>answerIndividual</code>, <code>clustersSave</code>, <code>clustersMerge</code>, <code>visitSourcesGet</code>, <code>podcastsSave</code>, <code>wacResultsSave</code>, <code>wacResultsPublish</code>, <code>wacResultsMail</code>, <code>testProbeSession</code>, <code>testProbePurge</code></td></tr>
+      <tr><td>Staff: AI</td><td class="small"><code>aiQueue</code>, <code>aiIndex</code>, <code>aiApprove</code>, <code>aiEditApprove</code>, <code>aiReject</code>, <code>aiSendToMentor</code>, <code>aiRegenerate</code>, <code>aiConfigGet</code>, <code>aiConfigSet</code>, <code>aiStats</code>, <code>aiRunNow</code>, <code>aiRetryFailed</code>, <code>aiProviderTest</code>, <code>aiBackfill</code>, <code>aiRefile</code>, <code>aiAskRephrase</code></td></tr>
+      <tr><td>Development only</td><td class="small">Demo seed and wipe: refused in production</td></tr>
+    </tbody>
+  </table>
+  <h3>A5 · Glossary</h3>
+  <table>
+    <tbody>
+      <tr><td style="width:22%"><b>WAC / WAF</b></td><td>World Ayurveda Congress / World Ayurveda Foundation (its organiser)</td></tr>
+      <tr><td><b>Ask Desk / ticket</b></td><td>Where a student asks one career question / the <code>AYM-Q-…</code> number used to track it</td></tr>
+      <tr><td><b>Pass number</b></td><td>The <code>11WAC/2026/NNNN</code> number AYURDISHA issues after email verification. It is <i>not</i> the official WAC delegate registration.</td></tr>
+      <tr><td><b>Group (cluster) / mentor table</b></td><td>Up to 7 questions with the same intent, answered by one mentor answer</td></tr>
+      <tr><td><b>Curation desk</b></td><td>The staff view where groups are reviewed, merged and split</td></tr>
+      <tr><td><b>Triage</b></td><td>Sorting a question by relevance and safety before any AI draft</td></tr>
+      <tr><td><b>Shadow mode</b></td><td>Drafts are generated but hidden from reviewers and students</td></tr>
+      <tr><td><b>Mentor-assist draft</b></td><td>A general-guidance draft for thin topics, labelled "Limited sources", that a mentor completes</td></tr>
+      <tr><td><b>BM25 / vector search</b></td><td>Keyword ranking / meaning-based search over the knowledge base</td></tr>
+      <tr><td><b>Stream / persona</b></td><td>One of 17 career areas (e.g. PG entrance) and its drafting instructions</td></tr>
+      <tr><td><b>CSP / frame-ancestors</b></td><td>Browser security header / the part that controls which sites may embed this one</td></tr>
+      <tr><td><b>DPDP Act</b></td><td>India's Digital Personal Data Protection Act</td></tr>
+    </tbody>
+  </table>
+  <h3>A6 · Sources used for this brief</h3>
+  <ul class="small">
+    <li><b>Codebase</b> (<code>ayurmarg-preview/</code>): <code>package.json</code>, <code>vercel.json</code>, <code>index.html</code>, <code>src/App.jsx</code>, <code>src/main.jsx</code>, <code>src/AppHeader.jsx</code>, <code>src/askLink.js</code>, <code>src/mentors.js</code>, <code>src/LegalPages.jsx</code>, <code>src/data/*</code>, <code>src/welcome/slides.js</code>, <code>server/storePlugin.js</code>, <code>server/register.js</code>, <code>server/otpTicket.js</code>, <code>server/mailer.js</code>, <code>server/wacRegNo.js</code>, <code>server/visitSources.js</code>, <code>server/ai/*</code>, <code>shared/*</code>, <code>config/ai-sources.json</code>, <code>firestore.rules</code>.</li>
+    <li><b>Docs:</b> <code>docs/HOW-IT-WORKS.md</code>, <code>docs/PROGRESS.md</code>, <code>docs/DATA-STORAGE.md</code>, <code>docs/INFRASTRUCTURE-BUDGET.md</code>, <code>docs/ai/AI-ANSWER-PIPELINE.md</code>, <code>docs/ai/KNOWLEDGE-BASE.md</code>, <code>docs/ai/QUESTION-TRIAGE-SPEC.md</code>, <code>docs/merge/*</code>, <code>docs/qa/QA-REPORT-2026-11-04.md</code>, <code>docs/design/audit/UX-AUDIT-vs-APPLE.md</code>, <code>FIX-PROMPT.md</code>, the Lighthouse JSON files, and <code>tests/ai-eval/reports/*</code>.</li>
+    <li><b>Commands run on 4 Nov 2026:</b> <code>npm test</code> (273/273), <code>npm run e2e</code> (41/41), an offline recomputation of triage metrics, and read-only live checks (<code>ping</code>, <code>publicStats</code>, response headers, live bundle string check).</li>
+    <li><b>Web, fetched 4 Nov 2026:</b> ayurworld.org home, /about-wac-2/, /11th-wac-arogya-expo-2026/, /delegate-fee-structure/, /contact-us-2/, /terms-conditions-privacy-refund-policy/, the home-page HTML and headers, and Brochure V15 (PDF text). Also ayushmarg.vercel.app (public pages only).</li>
+  </ul>
+  <h3>A7 · Not verified (stated as unknown in this brief)</h3>
+  <ul class="small">
+    <li>Any organiser endorsement of AYURDISHA, or permission to call it "official".</li>
+    <li>Whether AI drafting is currently switched on in production, and the current AI provider billing status after 28 Oct.</li>
+    <li>Which email provider production uses (Resend or SMTP); the Firestore region; the Vercel plan tier.</li>
+    <li>Whether <code>ayurdisha.ai</code> has been registered.</li>
+    <li>Whether the WAC Manager registration system offers an API, and its registration-number format.</li>
+    <li>Whether the 23 mentors have confirmed. The roster is labelled tentative and was taken from organiser presentation slides.</li>
+    <li>Lighthouse scores after the 30 Oct–4 Nov changes (not re-measured).</li>
+  </ul>
+</section>
+
+</body>
+</html>

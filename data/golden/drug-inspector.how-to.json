@@ -1,0 +1,102 @@
+{
+  "intentId": "drug-inspector.how-to",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "subject": "government",
+  "ask": "how-to",
+  "question": "How do I become an AYUSH drug inspector in government service?",
+  "stream": "govt-jobs",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Rajasthan Public Service Commission — FAQ",
+      "url": "https://rpsc.rajasthan.gov.in/Static/InformationForCandidates/FAQ.pdf"
+    },
+    {
+      "title": "aoushdhi",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/aoushdhi.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.823Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "96059e644fb8b1a29fb490662f53e706cf9d64d0",
+      "url": "https://rpsc.rajasthan.gov.in/Static/InformationForCandidates/FAQ.pdf",
+      "title": "Rajasthan Public Service Commission — FAQ",
+      "score": 1.353,
+      "bm25": 14.74,
+      "coverage": 0.86
+    },
+    {
+      "chunkId": "e898fd58352f20e8669fab414c963a117b73eed8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/aoushdhi.pdf",
+      "title": "aoushdhi",
+      "score": 1.291,
+      "bm25": 14.06,
+      "coverage": 0.73
+    },
+    {
+      "chunkId": "43e7b988aacad350bb76bafe66a801d8abd94880",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/doctor-award",
+      "title": "Best Ayurveda Doctor Award - Department of Indian Systems of Medicine",
+      "score": 1.288,
+      "bm25": 14.03,
+      "coverage": 0.41
+    },
+    {
+      "chunkId": "f0078d54b17d92fd4dbdaa2add34848049260765",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 1.238,
+      "bm25": 13.49,
+      "coverage": 0.41
+    },
+    {
+      "chunkId": "8db61f8bef6045ab756594637e6906cad9b560f4",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.221,
+      "bm25": 13.3,
+      "coverage": 0.73
+    },
+    {
+      "chunkId": "525f2f69cfb08897302c45f0691b5383edd99c49",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.177,
+      "bm25": 12.82,
+      "coverage": 0.73
+    },
+    {
+      "chunkId": "c9a29c07d06bcb2afd6a3fb632d3bc394b9a5d40",
+      "url": "https://ayush.gov.in/assets/pdf/nam/NAM_Guideline_English.pdf",
+      "title": "NAM Guideline English",
+      "score": 1.058,
+      "bm25": 11.52,
+      "coverage": 0.28
+    },
+    {
+      "chunkId": "dacdecb724d0992197116ae0b9d76e967813e0fc",
+      "url": "https://ayush.gov.in/assets/pdf/nam/NAM_Guideline_English.pdf",
+      "title": "NAM Guideline English",
+      "score": 1.05,
+      "bm25": 11.44,
+      "coverage": 0.14
+    }
+  ]
+}

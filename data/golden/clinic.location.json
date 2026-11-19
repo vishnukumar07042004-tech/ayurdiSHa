@@ -1,0 +1,103 @@
+{
+  "intentId": "clinic.location",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Setting up private practice",
+  "subject": "clinic",
+  "ask": "location",
+  "question": "Is a city or a small town better for starting my own Ayurveda clinic?",
+  "stream": "clinical-practice",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.589Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "0a17c07017f94c85021e0141fb9dd659d6e2382b",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.349,
+      "bm25": 23.07,
+      "coverage": 0.16
+    },
+    {
+      "chunkId": "5a182696fdb03911bc9b295d95406e382af766e0",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.231,
+      "bm25": 21.05,
+      "coverage": 0.16
+    },
+    {
+      "chunkId": "53f1e37e694a029e6e5026a1fa33a9cac7aebb75",
+      "url": "https://ayush.gov.in/assets/pdf/careers/NIT.pdf",
+      "title": "Ministry of Ayush, Government of India — NIT",
+      "score": 1.104,
+      "bm25": 18.88,
+      "coverage": 0.13
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 0.979,
+      "bm25": 22.92,
+      "coverage": 0
+    },
+    {
+      "chunkId": "93abe7d24b9a9896e460f9bf3242979d7fd62e60",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/iec.pdf",
+      "title": "Ministry of Ayush, Government of India — iec",
+      "score": 0.969,
+      "bm25": 16.58,
+      "coverage": 0.28
+    },
+    {
+      "chunkId": "a61ed3697335838cedbcb83424c33b81e04b5375",
+      "url": "https://nabh.co/programmes/ayush-hospitals-accreditation-programme/",
+      "title": "AYUSH Hospitals - NABH",
+      "score": 0.96,
+      "bm25": 16.41,
+      "coverage": 0.12
+    },
+    {
+      "chunkId": "3ceb245de7e9fa5e0cb8e281bc298fb3335dbc4a",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41819018/",
+      "title": "Knowledge, Attitude and Practice of selected Dinacarya practices among BAMS Students in Kerala - A Cross Sectional Study.",
+      "score": 0.937,
+      "bm25": 21.93,
+      "coverage": 0
+    },
+    {
+      "chunkId": "04120ad10636ee738ce2784ca0fe2dd7054c779a",
+      "url": "https://nabh.co/nabh-emitra/",
+      "title": "NABH E-Mitra - NABH",
+      "score": 0.928,
+      "bm25": 15.87,
+      "coverage": 0.37
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "intentId": "who.eligibility",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "International organisations",
+  "subject": "whoorg",
+  "ask": "eligibility",
+  "question": "What is the eligibility for working with WHO?",
+  "stream": "public-health-policy",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Ministry of Ayush, Government of India — acg",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf"
+    },
+    {
+      "title": "English Application Form 04082026",
+      "url": "https://ayush.gov.in/assets/pdf/careers/English_Application_Form_04082026.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.681Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.332,
+      "bm25": 20,
+      "coverage": 1
+    },
+    {
+      "chunkId": "3c029ac1fcc30f59bab729951e0d27c1ac82dd06",
+      "url": "https://ayush.gov.in/assets/pdf/careers/English_Application_Form_04082026.pdf",
+      "title": "English Application Form 04082026",
+      "score": 1.15,
+      "bm25": 21.58,
+      "coverage": 1
+    },
+    {
+      "chunkId": "fe681eb2fd2c1831d1753c36d7e29f1e01d91e6c",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Recruitment_Notice_13072026.pdf",
+      "title": "Recruitment Notice 13072026",
+      "score": 1.096,
+      "bm25": 16.45,
+      "coverage": 0.35
+    },
+    {
+      "chunkId": "edda68b3b78bf195db59780ae0ddce9bea92ea11",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/VacancyDepAdviserYN.pdf",
+      "title": "VacancyDepAdviserYN",
+      "score": 1.016,
+      "bm25": 19.07,
+      "coverage": 1
+    },
+    {
+      "chunkId": "5c12b8dfb3d4904410fa23b266d93b7342945c83",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/deptuadvisor_vacancy.pdf",
+      "title": "deptuadvisor vacancy",
+      "score": 1.006,
+      "bm25": 18.87,
+      "coverage": 1
+    },
+    {
+      "chunkId": "1339780f823240b66f91f9cb034e91836d90a8a6",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/RAV_Vacancy.pdf",
+      "title": "RAV Vacancy",
+      "score": 0.976,
+      "bm25": 14.66,
+      "coverage": 1
+    },
+    {
+      "chunkId": "cfe8c12bcb2a6dfb7c69b596d1b7f3bb3729a88c",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 0.926,
+      "bm25": 17.37,
+      "coverage": 0.35
+    },
+    {
+      "chunkId": "60ac1562a1f48e239ea6721cecb5e18ecf5b64ff",
+      "url": "https://ayush.gov.in/assets/pdf/awards/Guidelines.pdf",
+      "title": "Guidelines",
+      "score": 0.923,
+      "bm25": 13.85,
+      "coverage": 1
+    }
+  ]
+}

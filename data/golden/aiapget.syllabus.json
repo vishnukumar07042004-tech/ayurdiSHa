@@ -1,0 +1,103 @@
+{
+  "intentId": "aiapget.syllabus",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "subject": "aiapget",
+  "ask": "syllabus",
+  "question": "What is the syllabus and exam pattern of AIAPGET?",
+  "stream": "pg-entrance",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.404Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "f339c0fa977417d9f3e9533b282bdc3b77ba046a",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/",
+      "title": "AACCC",
+      "score": 1.419,
+      "bm25": 24.85,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "ced167f0756b13afc6c64a860c0d135365bb1b59",
+      "url": "https://aaccc.gov.in/",
+      "title": "Ayush Admissions Central Counselling Committee (AACCC)",
+      "score": 1.199,
+      "bm25": 20.99,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "ce409105de473cb872e317ef6da0ecaf69b04608",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33358095/",
+      "title": "A cross-sectional study on the attitude and knowledge assessment of ayurveda teachers, practitioners and students about practical application of Agadatantra.",
+      "score": 1.05,
+      "bm25": 25.16,
+      "coverage": 0.25
+    },
+    {
+      "chunkId": "f30f33ff0cf8e89e62f7f3b48f8bcb67791b5aa9",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 1.026,
+      "bm25": 17.96,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 0.892,
+      "bm25": 21.38,
+      "coverage": 0
+    },
+    {
+      "chunkId": "1e8c572d520bfc79e5a87f6452ee396e83a4c5f3",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29861594/",
+      "title": "A causal relationship between knowledge of Sanskrit language and results of Bachelor of Ayurvedic Medicine and Surgery examination: An analytical study.",
+      "score": 0.833,
+      "bm25": 19.96,
+      "coverage": 0.25
+    },
+    {
+      "chunkId": "8ca8571616adb1b3be056733e1e86c88b70ce2bf",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 0.783,
+      "bm25": 13.7,
+      "coverage": 0
+    },
+    {
+      "chunkId": "280cf8415f41ab4804b4016e646867c8bba55e92",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 0.741,
+      "bm25": 12.98,
+      "coverage": 0
+    }
+  ]
+}

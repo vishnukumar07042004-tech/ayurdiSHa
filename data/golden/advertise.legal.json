@@ -1,0 +1,103 @@
+{
+  "intentId": "advertise.legal",
+  "theme": "Brand Building & Communication",
+  "subtheme": "Advertising & claims compliance",
+  "subject": "advertise",
+  "ask": "legal",
+  "question": "What are the legal rules for advertising an Ayurveda clinic or product and its claims?",
+  "stream": "digital-branding",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.658Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "af09588e5107b2f95e64b2dbcd2456b77db3c2c1",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Advisory.pdf",
+      "title": "Advisory",
+      "score": 1.43,
+      "bm25": 22.07,
+      "coverage": 0.37
+    },
+    {
+      "chunkId": "77d779cad5cd48ad0cee7354a31fcd18ae75cdbc",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/iec.pdf",
+      "title": "Ministry of Ayush, Government of India — iec",
+      "score": 1.191,
+      "bm25": 18.38,
+      "coverage": 0.37
+    },
+    {
+      "chunkId": "dacdecb724d0992197116ae0b9d76e967813e0fc",
+      "url": "https://ayush.gov.in/assets/pdf/nam/NAM_Guideline_English.pdf",
+      "title": "NAM Guideline English",
+      "score": 1.101,
+      "bm25": 16.99,
+      "coverage": 0.17
+    },
+    {
+      "chunkId": "3b71513c7b89387422427a98108d3145818bc082",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Advisory.pdf",
+      "title": "Advisory",
+      "score": 1.072,
+      "bm25": 16.54,
+      "coverage": 0.43
+    },
+    {
+      "chunkId": "c080d7b84c9145e3f272dc055d82a8af6ebd18d6",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._140(E)_dated_14th_February,_2025.pdf",
+      "title": "Gazette Notification No. G.S.R. 140(E) dated 14th February, 2025",
+      "score": 1.039,
+      "bm25": 16.03,
+      "coverage": 0.21
+    },
+    {
+      "chunkId": "2dcefcf31fd73e390809370f82a9621448f1da59",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 1.031,
+      "bm25": 18.3,
+      "coverage": 0.1
+    },
+    {
+      "chunkId": "fa1ea9df334f0fd10e5f8b23bd6f9e53282b15d1",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/iec.pdf",
+      "title": "Ministry of Ayush, Government of India — iec",
+      "score": 1.024,
+      "bm25": 15.81,
+      "coverage": 0.1
+    },
+    {
+      "chunkId": "af49e6406da5ca108176dd9b7c4d429bd3303ee0",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/02/Ayur-World-Jan-Feb-2026.pdf",
+      "title": "Ayur World Jan Feb 2026",
+      "score": 1,
+      "bm25": 22.18,
+      "coverage": 0.57
+    }
+  ]
+}

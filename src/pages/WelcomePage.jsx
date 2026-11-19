@@ -1,435 +1,149 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import {
-  ArrowRight,
-  BookOpen,
-  ChevronRight,
-  Leaf,
-  MapPin,
-  Send,
-  Ticket,
-  Users,
-} from "lucide-react";
-import Button from "../components/ui/Button.jsx";
-import { Rings, Sprig } from "../components/editorial/Ornaments.jsx";
-import CountUp from "../components/editorial/CountUp.jsx";
-import { WAC } from "../content/site.js";
+import React, { useCallback, useEffect, useLayoutEffect, useReducer, useRef, useState } from "react";
+import { flushSync } from "react-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { ArrowRight, ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
+import { ASK_PROMPTS } from "../content/askPrompts.js";
 import { MENTORS, mentorsWithNames } from "../mentors.js";
-import useLiveStats from "../useLiveStats.js";
 import { setPageMeta, SITE_ORIGIN } from "../siteMeta.js";
+import { hasSeenWelcome, markWelcomeSeen } from "../welcomeStorage.js";
+import { SLIDES } from "../welcome/slides.js";
 import {
-  markWelcomeSeen,
-} from "../welcomeStorage.js";
+  classifyPointer,
+  HOLD_MS,
+  initialState,
+  initialWheel,
+  isRunning,
+  isSwipe,
+  keyAction,
+  reduce,
+  stepWheel,
+  TAP_MAX_MOVE,
+} from "../welcome/deckMachine.js";
+import { trackWelcome } from "../welcome/welcomeAnalytics.js";
 import "../styles/welcome.css";
 
-const AUDIENCE = [
-  "BAMS students & interns",
-  "Postgraduates",
-  "Young practitioners",
-];
-
-const FEATURES = [
-  {
-    id: "hall",
-    title: "Enter the Hall",
-    how: "Podcasts, theme stage, Congress results, and the map into Mentors, Ask, and Track.",
-    Icon: Leaf,
-    image: "/assets/welcome/welcome-feature-hall.png",
-  },
-  {
-    id: "mentors",
-    title: "Explore Mentors",
-    how: "Browse Meet the Mentors profiles, then open one to see who may guide your path.",
-    Icon: Users,
-    image: "/assets/welcome/welcome-feature-mentors.webp",
-  },
-  {
-    id: "ask",
-    title: "Ask a Question",
-    how: "Register with a real email, then submit one focused Ayurveda career question.",
-    Icon: Send,
-    image: "/assets/welcome/welcome-feature-ask.png",
-  },
-  {
-    id: "track",
-    title: "Track My Answer",
-    how: "Look up your ticket with your WAC number and follow it until a mentor replies.",
-    Icon: Ticket,
-    image: "/assets/welcome/welcome-feature-track.png",
-  },
-];
-
-const STEPS = [
-  {
-    n: "01",
-    title: "Visit the Hall",
-    body: "Browse mentors, career tracks, podcasts, and the theme stage before you ask.",
-  },
-  {
-    n: "02",
-    title: "Register & ask",
-    body: "Verify your email, then file one clear career question at the Ask Desk.",
-  },
-  {
-    n: "03",
-    title: "Keep your ticket",
-    body: "Save your unique WAC tracking number — you will need it to check your submission.",
-  },
-  {
-    n: "04",
-    title: "Track the reply",
-    body: "When a mentor responds in writing, your ticket status updates so you can read it.",
-  },
-];
-
-/** Shared programme pillar: live 1:1 at Bhubaneswar (Meet the Mentors). */
-const LIVE_1ON1 = {
-  badge: "Also at Bhubaneswar",
-  title: "Live 1-on-1 mentor talks for selected students",
-  body:
-    "At the 11th World Ayurveda Congress, selected students may be invited to a live one-to-one mentor conversation — facilitated by the AYURDISHA Meet the Mentors team. Selection-based, not automatic for every delegate.",
-  pathTitle: "Alongside the digital path",
-  pathBody:
-    "Selected students may also be invited to a live one-to-one mentor talk at Meet the Mentors in Bhubaneswar — career direction only, not medical advice.",
-};
-
-const TRUST_POINTS = [
-  {
-    title: "Official digital hall",
-    body: "AYURDISHA is the Meet the Mentors digital space of the 11th World Ayurveda Congress in Bhubaneswar — the same career floor before and during Congress.",
-  },
-  {
-    title: "Live 1-on-1 mentor talks",
-    body: "On the Congress floor, selected students may be invited to a live one-to-one career conversation with a mentor, facilitated by the AYURDISHA team.",
-    highlight: true,
-  },
-  {
-    title: "Written guidance for everyone",
-    body: "Register once, ask once at the Ask Desk, track your written reply online, and learn from the open theme stage.",
-  },
-];
-
 const MENTOR_COUNT = mentorsWithNames(MENTORS).length;
+const COUNT = SLIDES.length;
+const NO_TAP = 'a, button, input, textarea, select, [role="button"], [data-wl-no-tap]';
+const HINT_DELAY_MS = 1200;
+const EXIT_MS = 320;
 
-const HERO_FACTS = [
-  { label: "Dates", value: "10–13 Dec 2026" },
-  { label: "Venue", value: `${WAC.city}, Odisha` },
-  { label: "Mentors", count: MENTOR_COUNT, value: " on the roster" },
-  { label: "Format", value: "Live 1:1" },
-];
+function useMedia(query) {
+  const get = () => typeof window !== "undefined" && !!window.matchMedia?.(query).matches;
+  const [on, setOn] = useState(get);
+  useEffect(() => {
+    const mq = window.matchMedia?.(query);
+    if (!mq) return undefined;
+    const onChange = () => setOn(mq.matches);
+    onChange();
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, [query]);
+  return on;
+}
 
-/** Headline words that rise out of a clipping mask, one after another. */
+function focusHeroTitle() {
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    const h = document.getElementById("hero-title");
+    if (!h) return;
+    if (!h.hasAttribute("tabindex")) h.setAttribute("tabindex", "-1");
+    h.focus({ preventScroll: true });
+  }));
+}
+
+/** Headline words rising out of a clipping mask, one after another. */
 function MaskWords({ text, from = 0 }) {
   return text.split(" ").map((w, i, all) => (
     <React.Fragment key={`${w}-${i}`}>
-      <span className="wl-mask"><span className="wl-mw" style={{ "--w": from + i }}>{w}</span></span>
+      <span className="wl2-mask"><span className="wl2-word" style={{ "--w": from + i }}>{w}</span></span>
       {i < all.length - 1 ? " " : null}
     </React.Fragment>
   ));
 }
 
-/** Pointer parallax for the opening image: writes --px / --py (-1…1) on the deck. */
-function useStageParallax() {
-  const ref = useRef(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return undefined;
-    const fine = window.matchMedia("(pointer: fine) and (min-width: 835px)");
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (!fine.matches || reduce.matches) return undefined;
-    let frame = 0;
-    let x = 0;
-    let y = 0;
-    const onMove = (e) => {
-      x = (e.clientX / window.innerWidth) * 2 - 1;
-      y = (e.clientY / window.innerHeight) * 2 - 1;
-      if (frame) return;
-      frame = requestAnimationFrame(() => {
-        frame = 0;
-        el.style.setProperty("--px", x.toFixed(3));
-        el.style.setProperty("--py", y.toFixed(3));
-      });
-    };
-    window.addEventListener("pointermove", onMove, { passive: true });
-    return () => {
-      window.removeEventListener("pointermove", onMove);
-      if (frame) cancelAnimationFrame(frame);
-    };
-  }, []);
-  return ref;
-}
-
-const FINALE_CARDS = [
-  {
-    id: "hall",
-    eyebrow: "The Hall",
-    title: "Walk the digital floor",
-    body: "Podcasts, the theme stage and Congress results.",
-    Icon: Leaf,
-  },
-  {
-    id: "mentors",
-    eyebrow: "Mentors",
-    title: `${MENTOR_COUNT} senior mentors`,
-    body: "Clinical, research, academic and global career paths.",
-    Icon: Users,
-  },
-  {
-    id: "ask",
-    eyebrow: "Ask Desk",
-    title: "One focused question",
-    body: "Verify your email, then ask what matters most.",
-    Icon: Send,
-  },
-  {
-    id: "track",
-    eyebrow: "Track my answer",
-    title: "Emailed when answered",
-    body: "Follow your ticket until a mentor replies.",
-    Icon: Ticket,
-  },
-];
-
-function LiveNumber({ value, loading }) {
-  if (value == null) {
-    return <span aria-label={loading ? "Loading" : "Not available right now"}>—</span>;
-  }
-  return <CountUp value={value} duration={1500} />;
-}
-
-function FinaleSlide({ slideClass, onEnter, onAsk, onTrack, onCard }) {
-  const live = useLiveStats();
-  const d = live.data || {};
-  const loading = live.status === "loading";
-  const offline = live.status === "error";
-  const stop = (fn) => (e) => {
-    e.stopPropagation();
-    fn();
-  };
-
-  return (
-    <article className={`${slideClass} wl-finale`} aria-labelledby="welcome-finale-title">
-      <div className="wl-split wl-hero wl-finale-hero">
-        <div className="wl-copy">
-          <p className="wl-kicker wl-kicker--rule">
-            <span className="wl-rule" aria-hidden="true" />
-            <span className="wl-kicker-text wl-anim" style={{ "--i": 0 }}>
-              <span>Your hall is open</span>
-              <span className="wl-kicker-sep" aria-hidden="true">·</span>
-              <span>WAC 2026</span>
-            </span>
-          </p>
-          <h2 id="welcome-finale-title" className="wl-display wl-display--hero wl-display--finale">
-            <span className="wl-display-lead"><MaskWords text="You're ready." /></span>{" "}
-            <span className="wl-display-soft">
-              <MaskWords text="Step into the" from={2} />{" "}
-              <span className="wl-mask wl-mask--accent">
-                <em className="wl-mw" style={{ "--w": 5 }}>hall.</em>
-              </span>
-            </span>
-          </h2>
-          <div className="wl-lede wl-anim" style={{ "--i": 3 }}>
-            <p className="wl-lede-main">
-              {MENTOR_COUNT} senior mentors. One focused question. A written answer you can
-              track — <strong>emailed to you</strong> the moment a mentor replies.
-            </p>
-            <p className="wl-lede-sub">
-              Selected students also meet a mentor live, one-to-one, in {WAC.city} · 10–13 Dec 2026.
-            </p>
-          </div>
-          <div className="wl-actions wl-actions--hero wl-finale-actions" data-welcome-stop>
-            <Button
-              size="lg"
-              className="wl-enter wl-anim"
-              style={{ "--i": 4 }}
-              iconAfter={<ArrowRight size={18} aria-hidden="true" className="ed-btn-arrow" />}
-              onClick={stop(onEnter)}
-            >
-              Enter AYURDISHA
-            </Button>
-            <Button
-              size="lg"
-              variant="secondary"
-              className="wl-anim"
-              style={{ "--i": 5 }}
-              onClick={stop(onAsk)}
-            >
-              Ask a question
-            </Button>
-            <button
-              type="button"
-              className="wl-textlink wl-anim"
-              style={{ "--i": 6 }}
-              onClick={stop(onTrack)}
-            >
-              Track my answer
-              <ChevronRight size={16} strokeWidth={2.2} aria-hidden="true" />
-            </button>
-          </div>
-          <dl className="wl-facts wl-finale-live" aria-label="Live from the hall">
-            <div className="wl-anim" style={{ "--i": 7 }}>
-              <dt>
-                <span className={`wl-live-badge${offline ? " is-off" : ""}`}>
-                  <span className="wl-dot" aria-hidden="true" />
-                  {offline ? "Offline" : "Live"}
-                </span>
-              </dt>
-              <dd className="wl-sr">{offline ? "Live counts unavailable" : "Live counts"}</dd>
-            </div>
-            <div className="wl-anim" style={{ "--i": 8 }}>
-              <dt>Registered students</dt>
-              <dd><LiveNumber value={d.registeredStudents} loading={loading} /></dd>
-            </div>
-            <div className="wl-anim" style={{ "--i": 9 }}>
-              <dt>Questions asked</dt>
-              <dd><LiveNumber value={d.questionsAsked} loading={loading} /></dd>
-            </div>
-            <div className="wl-anim" style={{ "--i": 10 }}>
-              <dt>Mentors</dt>
-              <dd><CountUp value={MENTOR_COUNT} duration={1500} /></dd>
-            </div>
-          </dl>
-        </div>
-
-        <div className="wl-visual wl-visual--hero wl-visual--finale">
-          <span className="wl-stage-glow" aria-hidden="true" />
-          <div className="wl-depth wl-depth--back" aria-hidden="true">
-            <Rings className="wl-rings" />
-            <span className="wl-keyline" />
-          </div>
-          <div className="wl-depth wl-depth--media">
-            <figure className="wl-media ed-media wl-curtain">
-              <img
-                src="/assets/welcome/welcome-enter-hall.webp"
-                alt="The AYURDISHA Meet the Mentors hall: a mentor stage, curved conversation pods and the Ask Desk"
-                width={1280}
-                height={720}
-              />
-            </figure>
-          </div>
-          <div className="wl-depth wl-depth--inset">
-            <figure className="wl-inset ed-media">
-              <img
-                src="/assets/welcome/welcome-finale-lounge.webp"
-                alt="A senior mentor talks with two Ayurveda students at a table in the mentoring lounge"
-                width={960}
-                height={720}
-              />
-            </figure>
-          </div>
-          <Sprig className="wl-sprig" />
-          <div className="wl-depth wl-depth--front">
-            <p className="wl-tag wl-tag--live">
-              <span className={`wl-dot${offline ? " is-off" : ""}`} aria-hidden="true" />
-              <span className="wl-tag-label">Live now</span>
-              {d.questionsAsked != null
-                ? `${d.questionsAsked.toLocaleString("en-IN")} ${d.questionsAsked === 1 ? "question" : "questions"} asked`
-                : "— questions asked"}
-            </p>
-            <p className="wl-tag wl-tag--track">
-              <span className="wl-tag-label">Track</span>
-              Emailed when answered
-            </p>
-          </div>
-        </div>
+function SlideDetail({ kind }) {
+  if (kind === "badge") {
+    return (
+      <div className="wl2-detail wl2-badge wl2-anim" style={{ "--i": 4 }} aria-label="AYURDISHA pass number format: 11WAC/2026/ followed by four digits">
+        <span className="wl2-detail-label">Your AYURDISHA pass number</span>
+        <span className="wl2-badge-num" aria-hidden="true">11WAC/2026/<span>NNNN</span></span>
+        <span className="wl2-detail-note">Issued on email verification · WAC delegates see their Delegate ID</span>
       </div>
-
-      <ul className="wl-bento" aria-label="What awaits inside">
-        {FINALE_CARDS.map(({ id, eyebrow, title, body, Icon }, i) => (
-          <li key={id} className="wl-bcard-wrap wl-anim" style={{ "--i": 11 + i }}>
-            <button type="button" className="wl-bcard" onClick={stop(() => onCard(id))}>
-              <span className="wl-bcard-icon" aria-hidden="true">
-                <Icon size={18} strokeWidth={1.7} />
-              </span>
-              <span className="wl-bcard-text">
-                <span className="wl-bcard-eyebrow">{eyebrow}</span>
-                <span className="wl-bcard-title">{title}</span>
-                <span className="wl-bcard-body">{body}</span>
-              </span>
-              <ChevronRight size={16} strokeWidth={2.2} aria-hidden="true" className="wl-bcard-chev" />
-            </button>
-          </li>
-        ))}
-      </ul>
-      <p className="wl-hint wl-anim" style={{ "--i": 15 }}>
-        <BookOpen size={13} aria-hidden="true" />
-        Want this tour again? Reopen it anytime from About or the More menu.
+    );
+  }
+  if (kind === "question") {
+    return (
+      <figure className="wl2-detail wl2-qcard wl2-anim" style={{ "--i": 4 }}>
+        <figcaption className="wl2-detail-label">A question students ask</figcaption>
+        <blockquote>{ASK_PROMPTS[1].text}</blockquote>
+        <span className="wl2-detail-note">{ASK_PROMPTS[1].theme}</span>
+      </figure>
+    );
+  }
+  if (kind === "merge") {
+    return (
+      <div className="wl2-detail wl2-merge wl2-anim" style={{ "--i": 4 }} role="img" aria-label="Up to seven similar questions grouped into one answer">
+        <span className="wl2-merge-dots" aria-hidden="true">
+          {Array.from({ length: 7 }, (_, i) => <span key={i} style={{ "--d": i }} />)}
+        </span>
+        <span className="wl2-merge-arrow" aria-hidden="true"><ArrowRight size={18} strokeWidth={2} /></span>
+        <span className="wl2-merge-one" aria-hidden="true" />
+        <span className="wl2-detail-note">Up to 7 questions · 1 answer</span>
+      </div>
+    );
+  }
+  if (kind === "mentors") {
+    return (
+      <p className="wl2-detail wl2-stat wl2-anim" style={{ "--i": 4 }}>
+        <span className="wl2-stat-num">{MENTOR_COUNT}</span>
+        <span className="wl2-stat-text">WAC mentors</span>
       </p>
-    </article>
-  );
+    );
+  }
+  return null;
 }
-
-const SLIDE_LABELS = ["Purpose", "What you can do", "How to use", "Congress and trust", "Enter AYURDISHA"];
-
-const SLIDE_IMAGES = [
-  ["/assets/welcome/welcome-hero.png"],
-  FEATURES.map((f) => f.image),
-  [],
-  ["/assets/welcome/welcome-congress.webp"],
-  ["/assets/welcome/welcome-enter-hall.webp", "/assets/welcome/welcome-finale-lounge.webp"],
-];
-
-function finishWelcome(navigate) {
-  markWelcomeSeen();
-  navigate("/", { replace: true });
-  window.scrollTo(0, 0);
-}
-
-const SLIDE_COUNT = 5;
 
 export default function WelcomePage() {
   const navigate = useNavigate();
-  const [index, setIndex] = useState(0);
-  const [dir, setDir] = useState(1);
-  const touchStartX = useRef(null);
-  const skipClickRef = useRef(false);
-  const deckRef = useStageParallax();
+  const location = useLocation();
+  const replay = new URLSearchParams(location.search).get("replay") === "1";
+  const [bounce] = useState(() => !replay && hasSeenWelcome());
+  const reducedMotion = useMedia("(prefers-reduced-motion: reduce)");
+  const coarse = useMedia("(pointer: coarse)");
+  const fine = useMedia("(pointer: fine)");
 
-  const enterHome = useCallback(() => {
-    finishWelcome(navigate);
-  }, [navigate]);
+  const [state, dispatch] = useReducer(reduce, undefined, () =>
+    initialState({ count: COUNT, reducedMotion, showHint: !replay }),
+  );
+  const [leaving, setLeaving] = useState(-1);
+  const [maxSeen, setMaxSeen] = useState(0);
+  const [announce, setAnnounce] = useState("");
+  const [exiting, setExiting] = useState(false);
 
-  const askFromWelcome = useCallback(() => {
-    markWelcomeSeen();
-    navigate({ pathname: "/", hash: "#ask" }, { replace: true });
-  }, [navigate]);
+  const rootRef = useRef(null);
+  const ctaRef = useRef(null);
+  const nextBtnRef = useRef(null);
+  const stateRef = useRef(state);
+  stateRef.current = state;
+  const startedAt = useRef(0);
+  const pointer = useRef(null);
+  const wheel = useRef(initialWheel());
+  const leaveTimer = useRef(0);
+  const exitingRef = useRef(false);
+  const focusCta = useRef(false);
+  const lastFocus = useRef(null);
 
-  const trackFromWelcome = useCallback(() => {
-    markWelcomeSeen();
-    navigate({ pathname: "/", hash: "#track" }, { replace: true });
-    window.scrollTo(0, 0);
-  }, [navigate]);
+  const { index, nudge } = state;
+  const last = index === COUNT - 1;
+  const running = isRunning(state);
 
-  const openFromFinale = useCallback((id) => {
-    if (id === "ask") return askFromWelcome();
-    if (id === "track") return trackFromWelcome();
-    markWelcomeSeen();
-    if (id === "mentors") navigate("/mentors", { replace: true });
-    else navigate({ pathname: "/", hash: `#${id}` }, { replace: true });
-    window.scrollTo(0, 0);
-    return undefined;
-  }, [askFromWelcome, trackFromWelcome, navigate]);
+  useEffect(() => {
+    if (bounce) navigate("/", { replace: true });
+  }, [bounce, navigate]);
 
-  const goTo = useCallback((next, direction) => {
-    setDir(direction);
-    setIndex(next);
-  }, []);
-
-  const goNext = useCallback(() => {
-    setIndex((i) => {
-      if (i >= SLIDE_COUNT - 1) return i;
-      setDir(1);
-      return i + 1;
-    });
-  }, []);
-
-  const goPrev = useCallback(() => {
-    setIndex((i) => {
-      if (i <= 0) return i;
-      setDir(-1);
-      return i - 1;
-    });
-  }, []);
+  useEffect(() => {
+    dispatch({ type: "REDUCED_MOTION", on: reducedMotion });
+  }, [reducedMotion]);
 
   useEffect(() => {
     setPageMeta({
@@ -437,385 +151,433 @@ export default function WelcomePage() {
       description:
         "Orient yourself in AYURDISHA — the digital Meet the Mentors hall of the 11th World Ayurveda Congress, Bhubaneswar 2026.",
       path: "/welcome",
-      image: `${SITE_ORIGIN}/assets/welcome/welcome-hero.png`,
+      image: `${SITE_ORIGIN}/assets/slides/slide-hall.jpg`,
     });
   }, []);
 
   useEffect(() => {
-    const prev = document.body.style.overflow;
+    if (bounce) return undefined;
+    startedAt.current = performance.now();
+    trackWelcome("welcome_view", { replay });
+    const html = document.documentElement;
+    const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    html.classList.add("wl2-lock");
+    const onVis = () => dispatch({ type: "VISIBILITY", hidden: document.hidden });
+    document.addEventListener("visibilitychange", onVis);
     return () => {
-      document.body.style.overflow = prev;
+      document.body.style.overflow = prevOverflow;
+      html.classList.remove("wl2-lock");
+      document.removeEventListener("visibilitychange", onVis);
+      window.clearTimeout(leaveTimer.current);
     };
-  }, []);
+  }, [bounce, replay]);
+
+  const elapsed = () => Math.round(performance.now() - startedAt.current);
+
+  const finish = useCallback((completed) => {
+    if (exitingRef.current) return;
+    exitingRef.current = true;
+    markWelcomeSeen({ completed });
+    if (completed) trackWelcome("welcome_enter", { ms: elapsed(), replay });
+    else trackWelcome("welcome_skip", { index: stateRef.current.index, ms: elapsed() });
+    const go = () => {
+      navigate("/", { replace: true });
+      window.scrollTo(0, 0);
+    };
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+      go();
+      focusHeroTitle();
+      return;
+    }
+    if (typeof document.startViewTransition === "function") {
+      try {
+        const t = document.startViewTransition(() => flushSync(go));
+        t.finished.finally(focusHeroTitle);
+        return;
+      } catch {
+        /* fall through to the fade */
+      }
+    }
+    setExiting(true);
+    window.setTimeout(() => { go(); focusHeroTitle(); }, EXIT_MS);
+  }, [navigate, replay]);
+
+  const act = useCallback((kind, method) => {
+    if (exitingRef.current) return;
+    const s = stateRef.current;
+    switch (kind) {
+      case "next":
+      case "nudge":
+        if ((method === "key" || method === "button") && s.index === COUNT - 2) focusCta.current = true;
+        dispatch({ type: "NEXT", source: method });
+        break;
+      case "prev":
+        dispatch({ type: "PREV", source: method });
+        break;
+      case "first":
+        dispatch({ type: "GOTO", index: 0, source: method });
+        break;
+      case "last":
+        if (method === "key") focusCta.current = true;
+        dispatch({ type: "GOTO", index: COUNT - 1, source: method });
+        break;
+      case "pause":
+        if (s.index === COUNT - 1 || s.reducedMotion) break;
+        if (s.playing) trackWelcome("welcome_pause", { method });
+        dispatch({ type: "TOGGLE_PLAY" });
+        break;
+      case "skip":
+        finish(false);
+        break;
+      default:
+    }
+  }, [finish]);
+
+  // Side effects of an index change: crossfade bookkeeping, announcement, analytics.
+  useEffect(() => {
+    const nav = state.nav;
+    if (!nav) return;
+    setLeaving(nav.from);
+    setMaxSeen((m) => Math.max(m, nav.to));
+    window.clearTimeout(leaveTimer.current);
+    leaveTimer.current = window.setTimeout(() => setLeaving(-1), 1000);
+    const s = SLIDES[nav.to];
+    if (nav.source !== "auto") setAnnounce(`Slide ${nav.to + 1} of ${COUNT}. ${s.lead} ${s.accent}`);
+    trackWelcome("welcome_slide", { index: nav.to, method: nav.source });
+    if (nav.to === COUNT - 1) trackWelcome("welcome_complete", { ms: elapsed() });
+  }, [state.nav]);
+
+  // Keep focus somewhere sensible when the focused control is hidden or its slide goes inert.
+  useLayoutEffect(() => {
+    const lf = lastFocus.current;
+    const lost = lf && (!lf.isConnected || lf.closest("[hidden], [inert]"));
+    if (last && (focusCta.current || lost)) ctaRef.current?.focus({ preventScroll: true });
+    else if (lost) nextBtnRef.current?.focus({ preventScroll: true });
+    focusCta.current = false;
+  }, [index, last]);
 
   useEffect(() => {
-    (SLIDE_IMAGES[index + 1] || []).forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
+    if (state.hintDismissed || index !== 0) return undefined;
+    const t = window.setTimeout(() => dispatch({ type: "SHOW_HINT" }), HINT_DELAY_MS);
+    return () => window.clearTimeout(t);
+  }, [state.hintDismissed, index]);
+
+  useEffect(() => {
+    const nextSlide = SLIDES[index + 1];
+    if (!nextSlide) return;
+    const img = new Image();
+    img.src = `${nextSlide.img}.webp`;
+    img.decode?.().catch(() => {});
   }, [index]);
 
   useEffect(() => {
     const onKey = (e) => {
-      if (e.key === "ArrowRight" || e.key === " " || e.key === "Enter") {
-        if (e.target instanceof HTMLButtonElement) return;
-        e.preventDefault();
-        if (index < SLIDE_COUNT - 1) goNext();
-      } else if (e.key === "ArrowLeft") {
-        e.preventDefault();
-        goPrev();
-      }
+      if (e.defaultPrevented || (e.repeat && e.key !== "ArrowRight" && e.key !== "ArrowLeft")) return;
+      const t = e.target instanceof HTMLElement ? e.target : null;
+      const kind = keyAction({
+        key: e.key,
+        altKey: e.altKey,
+        ctrlKey: e.ctrlKey,
+        metaKey: e.metaKey,
+        onControl: !!t?.closest("button, a, [role='button']"),
+        inField: !!t?.closest("input, textarea, select, [contenteditable='true']"),
+        isLast: stateRef.current.index === COUNT - 1,
+      });
+      if (!kind) return;
+      e.preventDefault();
+      act(kind, "key");
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [goNext, goPrev, index]);
+  }, [act]);
 
-  const onDeckPointer = (e) => {
-    if (skipClickRef.current) {
-      skipClickRef.current = false;
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el || !fine) return undefined;
+    const onWheel = (e) => {
+      if (e.ctrlKey) return;
+      const { gate, action } = stepWheel(wheel.current, {
+        deltaX: e.deltaX,
+        deltaY: e.deltaY,
+        deltaMode: e.deltaMode,
+        now: performance.now(),
+        pageHeight: window.innerHeight,
+      });
+      wheel.current = gate;
+      if (action) act(action, "wheel");
+    };
+    el.addEventListener("wheel", onWheel, { passive: true });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, [act, fine]);
+
+  const releasePointer = () => {
+    const p = pointer.current;
+    pointer.current = null;
+    if (!p) return null;
+    window.clearTimeout(p.timer);
+    return p;
+  };
+
+  const onPointerDown = (e) => {
+    if (!e.isPrimary || e.button !== 0 || exitingRef.current) return;
+    if (e.target instanceof Element && e.target.closest(NO_TAP)) return;
+    releasePointer();
+    const p = { id: e.pointerId, x0: e.clientX, y0: e.clientY, t0: performance.now(), held: false, timer: 0 };
+    p.timer = window.setTimeout(() => {
+      if (pointer.current !== p) return;
+      p.held = true;
+      dispatch({ type: "HOLD_START" });
+      if (isRunning(stateRef.current)) trackWelcome("welcome_pause", { method: "hold" });
+    }, HOLD_MS);
+    pointer.current = p;
+    try { e.currentTarget.setPointerCapture(e.pointerId); } catch { /* unsupported */ }
+  };
+
+  const onPointerMove = (e) => {
+    const p = pointer.current;
+    if (!p || p.id !== e.pointerId || p.held) return;
+    if (Math.hypot(e.clientX - p.x0, e.clientY - p.y0) >= TAP_MAX_MOVE) window.clearTimeout(p.timer);
+  };
+
+  const onPointerUp = (e) => {
+    const p = pointer.current;
+    if (!p || p.id !== e.pointerId) return;
+    releasePointer();
+    if (p.held) {
+      dispatch({ type: "HOLD_END" });
       return;
     }
+    const rect = e.currentTarget.getBoundingClientRect();
+    const dx = e.clientX - p.x0;
+    const dy = e.clientY - p.y0;
+    const kind = classifyPointer({
+      dx,
+      dy,
+      dt: performance.now() - p.t0,
+      x: e.clientX - rect.left,
+      width: rect.width,
+      isFirst: stateRef.current.index === 0,
+      isLast: stateRef.current.index === COUNT - 1,
+    });
+    if (kind === "next" || kind === "prev" || kind === "nudge") act(kind, isSwipe({ dx, dy }) ? "swipe" : "tap");
+  };
+
+  const onPointerCancel = (e) => {
+    const p = pointer.current;
+    if (!p || p.id !== e.pointerId) return;
+    releasePointer();
+    if (p.held) dispatch({ type: "HOLD_END" });
+  };
+
+  const onContextMenu = (e) => {
+    if (coarse && !(e.target instanceof Element && e.target.closest("a"))) e.preventDefault();
+  };
+
+  const onFocus = (e) => {
     const t = e.target;
-    if (t.closest("button, a, [data-welcome-stop]")) return;
-    if (index < SLIDE_COUNT - 1) goNext();
+    if (!(t instanceof HTMLElement)) return;
+    lastFocus.current = t;
+    if (t.closest(".wl2-content") && t.matches(":focus-visible")) dispatch({ type: "FOCUS_HOLD", on: true });
+  };
+  const onBlur = (e) => {
+    const to = e.relatedTarget;
+    if (!(to instanceof HTMLElement) || !to.closest(".wl2-content")) dispatch({ type: "FOCUS_HOLD", on: false });
   };
 
-  const onTouchStart = (e) => {
-    touchStartX.current = e.changedTouches[0]?.clientX ?? null;
-  };
+  if (bounce) return null;
 
-  const onTouchEnd = (e) => {
-    const start = touchStartX.current;
-    touchStartX.current = null;
-    if (start == null) return;
-    const end = e.changedTouches[0]?.clientX;
-    if (end == null) return;
-    const dx = end - start;
-    if (Math.abs(dx) < 56) return;
-    skipClickRef.current = true;
-    if (dx < 0) goNext();
-    else goPrev();
-  };
-
-  const isLast = index === SLIDE_COUNT - 1;
-  const slideClass = `wl-slide wl-slide--${index + 1} is-enter-${dir > 0 ? "next" : "prev"}`;
-  const nextButton = (label = "Continue") => (
-    <Button
-      size="lg"
-      className="wl-anim"
-      style={{ "--i": 5 }}
-      iconAfter={<ChevronRight size={18} aria-hidden="true" className="ed-btn-arrow" />}
-      onClick={(e) => {
-        e.stopPropagation();
-        goNext();
-      }}
-    >
-      {label}
-    </Button>
-  );
+  const hintText = coarse ? "Tap to continue" : null;
+  const classes = [
+    "wl2",
+    running && "is-running",
+    state.held && "is-held",
+    last && "is-last",
+    exiting && "is-exiting",
+  ].filter(Boolean).join(" ");
 
   return (
-    <div
-      ref={deckRef}
-      className="wl-deck"
-      data-slide={index + 1}
-      role="region"
+    <section
+      ref={rootRef}
+      className={classes}
       aria-roledescription="carousel"
-      aria-label="AYURDISHA welcome orientation"
+      aria-label="Welcome to AYURDISHA. Use the arrow keys or the next button to continue."
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
+      onPointerCancel={onPointerCancel}
+      onContextMenu={onContextMenu}
+      onFocus={onFocus}
+      onBlur={onBlur}
     >
-      <div className="wl-bg" aria-hidden="true">
-        <span className="wl-glow wl-glow--sage" />
-        <span className="wl-glow wl-glow--gold" />
+      <p className="wl2-brand wl2-chrome">
+        <span className="wl2-brand-word">AYURDISHA</span>
+        <span className="wl2-brand-kicker">Meet the Mentors · WAC 2026</span>
+      </p>
+
+      <div className="wl2-top-actions wl2-chrome">
+        <button
+          type="button"
+          className="wl2-round wl2-pause"
+          aria-label={state.playing ? "Pause slideshow" : "Play slideshow"}
+          aria-pressed={!state.playing}
+          hidden={last || state.reducedMotion}
+          onClick={() => act("pause", "button")}
+        >
+          {state.playing
+            ? <Pause size={16} strokeWidth={2.2} aria-hidden="true" />
+            : <Play size={16} strokeWidth={2.2} aria-hidden="true" />}
+        </button>
+        <button type="button" className="wl2-skip" hidden={last} onClick={() => act("skip", "button")}>
+          Skip
+        </button>
       </div>
 
-      <a className="aym-skip" href="#welcome-slide">
-        Skip to welcome content
-      </a>
-
-      <header className="wl-bar">
-        <div className="wl-bar-inner">
-          <p className="wl-brand">
-            <span className="wl-brand-word">AYURDISHA</span>
-            <span className="wl-brand-kicker">Meet the Mentors · WAC 2026</span>
-          </p>
-          <button type="button" className="wl-skip" onClick={enterHome}>
-            Skip
-          </button>
-        </div>
-      </header>
-
-      <div
-        id="welcome-slide"
-        className="wl-stage"
-        onClick={onDeckPointer}
-        onTouchStart={onTouchStart}
-        onTouchEnd={onTouchEnd}
-        tabIndex={0}
-      >
-        {/* Slide 1 — Purpose */}
-        {index === 0 && (
-          <article key="s1" className={`${slideClass} wl-split wl-hero`} aria-labelledby="welcome-hero-title">
-            <div className="wl-copy">
-              <p className="wl-kicker wl-kicker--rule">
-                <span className="wl-rule" aria-hidden="true" />
-                <span className="wl-kicker-text wl-anim" style={{ "--i": 0 }}>
-                  <span>11th World Ayurveda Congress</span>
-                  <span className="wl-kicker-sep" aria-hidden="true">·</span>
-                  <span>Bhubaneswar 2026</span>
-                </span>
-              </p>
-              <h1 id="welcome-hero-title" className="wl-display wl-display--hero">
-                <span className="wl-display-lead"><MaskWords text="Wisdom, passed on." /></span>{" "}
-                <span className="wl-display-soft">
-                  <MaskWords text="One mentor, one student, one clear" from={3} />{" "}
-                  <span className="wl-mask wl-mask--accent">
-                    <em className="wl-mw" style={{ "--w": 9 }}>path.</em>
-                  </span>
-                </span>
-              </h1>
-              <div className="wl-lede wl-anim" style={{ "--i": 4 }}>
-                <p className="wl-lede-main">
-                  Welcome to <strong>AYURDISHA</strong> — the Meet the Mentors hall of WAC 2026.
-                </p>
-                <p className="wl-lede-sub">
-                  Senior mentors guide your next step — online, and live 1:1 for selected
-                  students in Bhubaneswar.
-                </p>
-              </div>
-              <ul className="wl-pills wl-anim" style={{ "--i": 5 }} aria-label="Who AYURDISHA is for">
-                {AUDIENCE.map((label) => (
-                  <li key={label}>{label}</li>
-                ))}
-              </ul>
-              <div className="wl-actions wl-actions--hero" data-welcome-stop>
-                {nextButton("Take the tour")}
-                <button
-                  type="button"
-                  className="wl-textlink wl-anim"
-                  style={{ "--i": 6 }}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    enterHome();
-                  }}
-                >
-                  Skip to AYURDISHA
-                  <ChevronRight size={16} strokeWidth={2.2} aria-hidden="true" />
-                </button>
-              </div>
-              <dl className="wl-facts">
-                {HERO_FACTS.map((f, i) => (
-                  <div key={f.label} className="wl-anim" style={{ "--i": 8 + i }}>
-                    <dt>{f.label}</dt>
-                    <dd>
-                      {f.count != null && <CountUp value={f.count} duration={1600} />}
-                      {f.value}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-            <div className="wl-visual wl-visual--hero">
-              <span className="wl-stage-glow" aria-hidden="true" />
-              <div className="wl-depth wl-depth--back" aria-hidden="true">
-                <Rings className="wl-rings" />
-                <span className="wl-keyline" />
-              </div>
-              <div className="wl-depth wl-depth--media">
-                <figure className="wl-media ed-media wl-curtain">
-                  <img
-                    src="/assets/welcome/welcome-hero.png"
-                    alt="A senior vaidya guides a young Ayurveda student across a carved table on a sunlit veranda"
-                    width={1280}
-                    height={720}
-                    fetchPriority="high"
-                  />
-                </figure>
-              </div>
-              <Sprig className="wl-sprig" />
-              <div className="wl-depth wl-depth--front">
-                <p className="wl-tag wl-tag--mentee">
-                  <span className="wl-tag-label">Mentee</span>
-                  BAMS student
-                </p>
-                <p className="wl-tag wl-tag--mentor">
-                  <span className="wl-tag-label">Mentor</span>
-                  Senior vaidya
-                </p>
-                <p className="wl-float-chip">
-                  <span className="wl-dot" aria-hidden="true" />
-                  Live 1:1 · selected students at WAC 2026
-                </p>
-              </div>
-            </div>
-          </article>
-        )}
-
-        {/* Slide 2 — What you can do */}
-        {index === 1 && (
-          <article key="s2" className={`${slideClass} wl-stack`} aria-labelledby="welcome-features-title">
-            <header className="wl-head wl-head--split">
-              <div>
-                <p className="wl-eyebrow wl-anim" style={{ "--i": 0 }}>What you can do</p>
-                <h2 id="welcome-features-title" className="wl-title wl-anim" style={{ "--i": 1 }}>
-                  Four doors on the <em>digital floor.</em>
-                </h2>
-              </div>
-              <p className="wl-lead wl-anim" style={{ "--i": 2 }}>
-                Hall, Mentors, Ask, and Track — plus live 1-on-1 mentor talks at
-                Bhubaneswar for selected students.
-              </p>
-            </header>
-            <ul className="wl-cards">
-              {FEATURES.map((f, i) => {
-                const Icon = f.Icon;
-                return (
-                  <li key={f.id} className="wl-card wl-anim" style={{ "--i": i + 2 }}>
-                    <div className="wl-card-media ed-media" aria-hidden="true">
-                      <img src={f.image} alt="" width={640} height={640} />
-                    </div>
-                    <div className="wl-card-body">
-                      <span className="wl-card-icon" aria-hidden="true">
-                        <Icon size={17} strokeWidth={1.8} />
-                      </span>
-                      <h3>{f.title}</h3>
-                      <p>{f.how}</p>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
-            <div className="wl-foot-row">
-              <aside className="wl-note wl-anim" style={{ "--i": 6 }} aria-label={LIVE_1ON1.title}>
-                <MapPin size={16} strokeWidth={1.8} aria-hidden="true" />
-                <p>
-                  <strong>{LIVE_1ON1.badge}</strong>
-                  {LIVE_1ON1.title} — selection-based, arranged by our Meet the Mentors team.
-                </p>
-              </aside>
-              <div className="wl-actions" data-welcome-stop>{nextButton()}</div>
-            </div>
-          </article>
-        )}
-
-        {/* Slide 3 — How to use */}
-        {index === 2 && (
-          <article key="s3" className={`${slideClass} wl-stack`} aria-labelledby="welcome-steps-title">
-            <header className="wl-head wl-head--split">
-              <div>
-                <p className="wl-eyebrow wl-anim" style={{ "--i": 0 }}>How to use AYURDISHA</p>
-                <h2 id="welcome-steps-title" className="wl-title wl-anim" style={{ "--i": 1 }}>
-                  Your first-visit <em>path.</em>
-                </h2>
-              </div>
-              <p className="wl-lead wl-anim" style={{ "--i": 2 }}>
-                Hall, register, ticket, track — then follow your written reply online.
-              </p>
-            </header>
-            <ol className="wl-steps">
-              {STEPS.map((s, i) => (
-                <li key={s.n} className="wl-step wl-anim" style={{ "--i": i + 2 }}>
-                  <span className="wl-step-n" aria-hidden="true">{s.n}</span>
-                  <h3>{s.title}</h3>
-                  <p>{s.body}</p>
-                </li>
-              ))}
-            </ol>
-            <div className="wl-foot-row">
-              <aside className="wl-note wl-anim" style={{ "--i": 6 }} aria-label={LIVE_1ON1.pathTitle}>
-                <Users size={16} strokeWidth={1.8} aria-hidden="true" />
-                <p>
-                  <strong>{LIVE_1ON1.badge}</strong>
-                  {LIVE_1ON1.pathBody}
-                </p>
-              </aside>
-              <div className="wl-actions" data-welcome-stop>{nextButton()}</div>
-            </div>
-          </article>
-        )}
-
-        {/* Slide 4 — Congress + trust */}
-        {index === 3 && (
-          <article key="s4" className={`${slideClass} wl-split wl-split--trust`} aria-labelledby="welcome-trust-title">
-            <div className="wl-copy">
-              <p className="wl-eyebrow wl-anim" style={{ "--i": 0 }}>Congress &amp; trust</p>
-              <h2 id="welcome-trust-title" className="wl-title wl-anim" style={{ "--i": 1 }}>
-                Built for WAC <em>Bhubaneswar.</em>
-              </h2>
-              <p className="wl-lead wl-anim" style={{ "--i": 2 }}>
-                Career clarity online — and for selected students, live one-to-one mentor
-                talks on the Congress floor, facilitated by the AYURDISHA Meet the Mentors team.
-              </p>
-              <ul className="wl-trust">
-                {TRUST_POINTS.map((p, i) => (
-                  <li
-                    key={p.title}
-                    className={`wl-anim${p.highlight ? " is-highlight" : ""}`}
-                    style={{ "--i": i + 3 }}
-                  >
-                    <h3>{p.title}</h3>
-                    <p>{p.body}</p>
-                  </li>
-                ))}
-              </ul>
-              <p className="wl-fine wl-anim" style={{ "--i": 6 }}>
-                Career and education guidance for Congress delegates — not medical advice or treatment.
-              </p>
-              <div className="wl-actions" data-welcome-stop>{nextButton()}</div>
-            </div>
-            <div className="wl-visual wl-visual--tall wl-anim-media">
-              <span className="wl-keyline" aria-hidden="true" />
-              <figure className="wl-media ed-media">
-                <img
-                  src="/assets/welcome/welcome-congress.webp"
-                  alt="Mentor and student in a one-to-one Meet the Mentors career conversation"
-                  width={864}
-                  height={1152}
-                />
-              </figure>
-            </div>
-          </article>
-        )}
-
-        {/* Slide 5 — Finale */}
-        {index === 4 && (
-          <FinaleSlide
-            key="s5"
-            slideClass={slideClass}
-            onEnter={enterHome}
-            onAsk={askFromWelcome}
-            onTrack={trackFromWelcome}
-            onCard={openFromFinale}
-          />
-        )}
-      </div>
-
-      <footer className="wl-footer" data-welcome-stop>
-        <div className="wl-progress" role="tablist" aria-label="Welcome orientation progress">
-          {SLIDE_LABELS.map((label, i) => (
-            <button
-              key={label}
-              type="button"
-              role="tab"
-              aria-selected={i === index}
-              aria-label={label}
-              className={`wl-seg${i === index ? " is-active" : ""}${i < index ? " is-done" : ""}`}
-              onClick={(e) => {
-                e.stopPropagation();
-                if (i === index) return;
-                goTo(i, i > index ? 1 : -1);
+      <div className="wl2-stage">
+        <span className="wl2-zone wl2-zone--prev" aria-hidden="true" />
+        <span className="wl2-zone wl2-zone--next" aria-hidden="true" />
+        {SLIDES.map((s, i) => {
+          const active = i === index;
+          const loaded = i <= maxSeen + 1;
+          const Title = i === 0 ? "h1" : "h2";
+          const leadWords = s.lead.split(" ").length;
+          const ms = s.ms ?? 8000;
+          return (
+            <div
+              key={s.id}
+              className={`wl2-slide wl2-slide--${s.id}${active ? " is-active" : ""}${i === leaving ? " is-leaving" : ""}`}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`${i + 1} of ${COUNT}`}
+              aria-hidden={!active}
+              inert={!active}
+              style={{
+                "--kb-x": s.pan.x,
+                "--kb-y": s.pan.y,
+                "--kb-ms": `${ms + 2400}ms`,
+                "--pos-d": s.pos.d,
+                "--pos-m": s.pos.m,
               }}
             >
-              <span className="wl-seg-bar" />
+              <div className="wl2-media" aria-hidden="true">
+                {loaded && (
+                  <picture>
+                    {s.hasPortrait && (
+                      <source media="(max-aspect-ratio: 4/5)" srcSet={`${s.img}-m.webp`} type="image/webp" />
+                    )}
+                    <source srcSet={`${s.img}.webp`} type="image/webp" />
+                    <img
+                      src={`${s.img}.jpg`}
+                      alt=""
+                      width={1920}
+                      height={1080}
+                      draggable={false}
+                      decoding="async"
+                      fetchPriority={i === 0 ? "high" : undefined}
+                    />
+                  </picture>
+                )}
+              </div>
+              <span className="wl2-scrim" aria-hidden="true" />
+
+              <div className="wl2-content">
+                <p className="wl2-kicker wl2-anim" style={{ "--i": 0 }}>{s.kicker}</p>
+                <Title className="wl2-title">
+                  <MaskWords text={s.lead} />{" "}
+                  <span className="wl2-mask wl2-mask--accent">
+                    <em className="wl2-word" style={{ "--w": leadWords }}>{s.accent}</em>
+                  </span>
+                </Title>
+                <p className="wl2-support wl2-anim" style={{ "--i": 3 }}>{s.support}</p>
+
+                {s.detail && <SlideDetail kind={s.detail} />}
+
+                {i === 0 && (
+                  <p className={`wl2-hint${state.hintVisible ? " is-visible" : ""}`} aria-hidden="true">
+                    {hintText ? (
+                      <>
+                        <span>{hintText}</span>
+                        <ChevronRight className="wl2-hint-chev" size={16} strokeWidth={2.4} />
+                      </>
+                    ) : (
+                      <span>Click or press <kbd className="wl2-hint-key">→</kbd> to continue</span>
+                    )}
+                  </p>
+                )}
+
+                {s.finale && (
+                  <>
+                    <div className="wl2-actions wl2-anim" style={{ "--i": 5 }}>
+                      <button
+                        ref={ctaRef}
+                        type="button"
+                        className={`wl2-btn wl2-btn--primary wl2-enter${nudge ? ` is-nudge-${nudge % 2 ? "a" : "b"}` : ""}`}
+                        onClick={() => finish(true)}
+                      >
+                        Enter AYURDISHA
+                        <ArrowRight size={18} strokeWidth={2.1} aria-hidden="true" />
+                      </button>
+                    </div>
+                    <p className="wl2-fine wl2-anim" style={{ "--i": 6 }}>
+                      Career and education guidance only — not medical advice.
+                    </p>
+                  </>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <ol className="wl2-progress wl2-chrome" aria-label="Slides">
+        {SLIDES.map((s, i) => (
+          <li key={s.id}>
+            <button
+              type="button"
+              className={`wl2-seg${i === index ? " is-active" : ""}${i < index || last ? " is-done" : ""}`}
+              aria-label={`Go to slide ${i + 1} of ${COUNT}: ${s.chapter}`}
+              aria-current={i === index ? "step" : undefined}
+              onClick={() => dispatch({ type: "GOTO", index: i, source: "bar" })}
+            >
+              <span className="wl2-seg-label" aria-hidden="true">{s.chapter}</span>
+              <span className="wl2-seg-track" aria-hidden="true">
+                <span
+                  className="wl2-seg-fill"
+                  style={i === index && SLIDES[i].ms ? { "--slide-ms": `${SLIDES[i].ms}ms` } : undefined}
+                  onAnimationEnd={i === index ? (e) => {
+                    if (e.animationName === "wl2-fill") dispatch({ type: "TICK_END" });
+                  } : undefined}
+                />
+              </span>
             </button>
-          ))}
-        </div>
-        {!isLast && (
-          <p className="wl-tap-hint" aria-hidden="true">
-            Tap anywhere to continue
-          </p>
-        )}
-      </footer>
-    </div>
+          </li>
+        ))}
+      </ol>
+
+      <div className="wl2-nav wl2-chrome">
+        <button
+          type="button"
+          className="wl2-round"
+          aria-label="Previous slide"
+          aria-disabled={index === 0 || undefined}
+          onClick={() => act("prev", "button")}
+        >
+          <ChevronLeft size={20} strokeWidth={2.2} aria-hidden="true" />
+        </button>
+        <button
+          ref={nextBtnRef}
+          type="button"
+          className="wl2-round wl2-round--next"
+          aria-label="Next slide"
+          data-slide-next
+          hidden={last}
+          onClick={() => act("next", "button")}
+        >
+          <ChevronRight size={20} strokeWidth={2.2} aria-hidden="true" />
+        </button>
+      </div>
+
+      <p className="wl2-sr" aria-live="polite" aria-atomic="true">{announce}</p>
+    </section>
   );
 }

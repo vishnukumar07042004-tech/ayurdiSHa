@@ -1,0 +1,102 @@
+{
+  "intentId": "journal-choice.which-one",
+  "theme": "Research, Evidence & Publication",
+  "subtheme": "Thesis & publication",
+  "subject": "publish",
+  "ask": "which one",
+  "question": "Which journal should I publish my case report in, and how do I avoid predatory journals?",
+  "stream": "research-phd",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "safetyReportAshwagandha",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/safetyReportAshwagandha.pdf"
+    },
+    {
+      "title": "CCRAS Publication policy.pdf",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/04/25042025-CCRAS-Publication-Policy.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.743Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "6866707067784b17b265f4e5e1f03f36005da23d",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/safetyReportAshwagandha.pdf",
+      "title": "safetyReportAshwagandha",
+      "score": 1.438,
+      "bm25": 24.46,
+      "coverage": 0.7
+    },
+    {
+      "chunkId": "0f2c817b3b24b3ae9c3679b9d1144d71cf43cd86",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/04/25042025-CCRAS-Publication-Policy.pdf",
+      "title": "CCRAS Publication policy.pdf",
+      "score": 1.237,
+      "bm25": 23.06,
+      "coverage": 0.9
+    },
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.057,
+      "bm25": 17.99,
+      "coverage": 0.37
+    },
+    {
+      "chunkId": "99edcf5250097686e5a6197d62c11beb79657872",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40862845/",
+      "title": "Bibliometric Analysis of India's Ayush Systems of Medicine Using Ayush Research Portal Data from 1954-2020: Current Status, Challenges, and the Way Forward for Future Research.",
+      "score": 0.966,
+      "bm25": 18,
+      "coverage": 0.47
+    },
+    {
+      "chunkId": "333cc3c36deb1db2a36ff95fe50b045e7e4ee584",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/safetyReportAshwagandha.pdf",
+      "title": "safetyReportAshwagandha",
+      "score": 0.963,
+      "bm25": 16.4,
+      "coverage": 0.7
+    },
+    {
+      "chunkId": "f9af59d1e6a722e27bc220cf58fbe3f77d57bc68",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/04/25042025-CCRAS-Publication-Policy.pdf",
+      "title": "CCRAS Publication policy.pdf",
+      "score": 0.93,
+      "bm25": 17.32,
+      "coverage": 0.56
+    },
+    {
+      "chunkId": "de69084dd3270b2178df5903f8ac3fe4f7d88e4a",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 0.902,
+      "bm25": 15.34,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "9007f661c7d91cff09453a3f93c9b00b380a0545",
+      "url": "https://ccras.nic.in/national-research-professor-ayush/",
+      "title": "National Research Professor-Ayush - Central Council for Research in Ayurvedic Sciences",
+      "score": 0.867,
+      "bm25": 16.16,
+      "coverage": 0.61
+    }
+  ]
+}

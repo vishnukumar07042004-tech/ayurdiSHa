@@ -1,0 +1,103 @@
+{
+  "intentId": "internship.how-to",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Hospital employment",
+  "subject": "internship",
+  "ask": "how-to",
+  "question": "How do I make the best use of my internship year?",
+  "stream": "internship-early-career",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.389Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.15,
+      "bm25": 32.53,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "dd1bbe2461f956bf42664d800ef3d4dc7b99f079",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 0.873,
+      "bm25": 27.05,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "5ae496edb053a5aa83b8e10dd77857c458ae8f54",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 0.843,
+      "bm25": 26.11,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 0.789,
+      "bm25": 24.43,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "e6ccc3645d279eb9a59ab67779e573df6669dc83",
+      "url": "https://ccras.nic.in/directory/it-internship-program-at-ccras-headquarters-from-19th-june-2025/",
+      "title": "IT internship program at CCRAS Headquarters from 19th June 2025 - Central Council for Research in Ayurvedic Sciences",
+      "score": 0.749,
+      "bm25": 23.21,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.663,
+      "bm25": 15.01,
+      "coverage": 0.12
+    },
+    {
+      "chunkId": "5e8046edfeff9b9e119821821bbeff49338c1426",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29526234/",
+      "title": "Awareness, practice and views about integrating AYUSH in allopathic curriculum of allopathic doctors and interns in a tertiary care teaching hospital in New Delhi, India.",
+      "score": 0.649,
+      "bm25": 20.11,
+      "coverage": 0.15
+    },
+    {
+      "chunkId": "09ea88e4b4659c7bf3cdf196308a4ceb3db49349",
+      "url": "https://ayush.gov.in/assets/pdf/careers/CGN_UG_Guideline_Session_2025-26.pdf",
+      "title": "CGN UG Guideline Session 2025 26",
+      "score": 0.625,
+      "bm25": 14.15,
+      "coverage": 0.12
+    }
+  ]
+}

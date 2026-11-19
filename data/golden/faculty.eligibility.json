@@ -1,0 +1,103 @@
+{
+  "intentId": "faculty.eligibility",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Faculty recruitment & eligibility",
+  "subject": "faculty",
+  "ask": "eligibility",
+  "question": "What is the eligibility for a teaching job in an Ayurveda college?",
+  "stream": "teaching-academia",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.523Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "3c029ac1fcc30f59bab729951e0d27c1ac82dd06",
+      "url": "https://ayush.gov.in/assets/pdf/careers/English_Application_Form_04082026.pdf",
+      "title": "English Application Form 04082026",
+      "score": 1.15,
+      "bm25": 24.89,
+      "coverage": 0.23
+    },
+    {
+      "chunkId": "319cc1b74f508f4beedb6ca8c7ebcf812f2f11c4",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/Central_Government_Nomination_to_MD_Ayurveda.pdf",
+      "title": "Central Government Nomination to MD Ayurveda",
+      "score": 1.12,
+      "bm25": 19.39,
+      "coverage": 0.4
+    },
+    {
+      "chunkId": "84006f4f01bf90b6b2f4c3f0ae2c693bbac0221d",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ayurgyan.pdf",
+      "title": "ayurgyan",
+      "score": 1.119,
+      "bm25": 19.38,
+      "coverage": 0.23
+    },
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.04,
+      "bm25": 18,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "efd782edd9713f50d66e002df081bbaceeff8096",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/VacancyCircularSiddhaUnani.pdf",
+      "title": "VacancyCircularSiddhaUnani",
+      "score": 1.022,
+      "bm25": 17.69,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "c7b66b8a69527d6d3bcdf795f7438c5cdb48280b",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/Central-Government-Nomination-to-MD-(Ayurveda)-NIA-Jaipur-2024-25.pdf",
+      "title": "Central Government Nomination to MD (Ayurveda) NIA Jaipur 2024 25",
+      "score": 1.019,
+      "bm25": 17.65,
+      "coverage": 0.4
+    },
+    {
+      "chunkId": "244638951e4a356c5699abbd7749ae2b209bcb53",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ayurgyan.pdf",
+      "title": "ayurgyan",
+      "score": 0.994,
+      "bm25": 17.22,
+      "coverage": 0.4
+    },
+    {
+      "chunkId": "3b6682aa3ac7c931a29d79dc8c343b9cfa5c996d",
+      "url": "https://ayush.gov.in/assets/pdf/careers/NIC,_Ministry_of_Ayush,_New_Delhi.pdf",
+      "title": "NIC, Ministry of Ayush, New Delhi",
+      "score": 0.98,
+      "bm25": 16.97,
+      "coverage": 0.23
+    }
+  ]
+}

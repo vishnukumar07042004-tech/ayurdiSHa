@@ -1,0 +1,102 @@
+{
+  "intentId": "mvt.eligibility",
+  "theme": "Medical Value Travel & Wellness",
+  "subtheme": "How the MVT ecosystem works",
+  "subject": "mvt",
+  "ask": "eligibility",
+  "question": "What is the eligibility for medical value travel (MVT) in Ayurveda?",
+  "stream": "panchakarma-wellness",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Ayur World March April 2026",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf"
+    },
+    {
+      "title": "Magazine AW Nov Dec25",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.921Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "a9d9e8b77b852456c1b48131db2191c73977b948",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 1.25,
+      "bm25": 24.18,
+      "coverage": 0.81
+    },
+    {
+      "chunkId": "71b511d030e5ff12a6c8720223aefc536afa73b4",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 1.184,
+      "bm25": 22.9,
+      "coverage": 0.81
+    },
+    {
+      "chunkId": "78d0e7e69132dcf479bcfa706a99380ab9f1e28f",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Consultant(OL)Advertisement.pdf",
+      "title": "Consultant(OL)Advertisement",
+      "score": 1.17,
+      "bm25": 19.67,
+      "coverage": 0.39
+    },
+    {
+      "chunkId": "cfe8c12bcb2a6dfb7c69b596d1b7f3bb3729a88c",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 1.051,
+      "bm25": 17.68,
+      "coverage": 0.08
+    },
+    {
+      "chunkId": "d5b781393f39c837175a3fda6285484f216c91cd",
+      "url": "https://nabh.co/assessor-training/three-day-assessors-training-programme-as-per-nabh-2nd-edition-standards-for-entry-level-hospitals/",
+      "title": "Three-Day Assessors’ Training Programme as per NABH 2nd Edition Standards for Entry level Hospitals - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.033,
+      "bm25": 17.37,
+      "coverage": 0
+    },
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 0.999,
+      "bm25": 21.01,
+      "coverage": 0.27
+    },
+    {
+      "chunkId": "2b928ac00369dc9c0d92e7ad3e7caf26c45d5124",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.946,
+      "bm25": 19.89,
+      "coverage": 0.19
+    },
+    {
+      "chunkId": "ec49cf7fbd059b5bf4390ad6bc490e98a9ead4aa",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 0.946,
+      "bm25": 18.3,
+      "coverage": 0.61
+    }
+  ]
+}

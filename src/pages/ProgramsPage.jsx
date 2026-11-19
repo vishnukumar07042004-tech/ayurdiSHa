@@ -60,7 +60,7 @@ export default function ProgramsPage() {
   useEffect(() => {
     setPageMeta({
       title: "Ayurveda Career & Academic Programs (10 Core Tracks) · AYURDISHA",
-      description: "Explore 10 national AYURDISHA career tracks after BAMS — Clinical Practice, PG Entrance, Research, Entrepreneurship, Manufacturing, Export, and Public Health.",
+      description: "Explore 10 national AYURDISHA career tracks in Ayurveda — Clinical Practice, PG Entrance, Research, Entrepreneurship, Manufacturing, Export, and Public Health.",
       path: "/programs",
     });
   }, []);
@@ -108,12 +108,12 @@ export default function ProgramsPage() {
         ref={heroRef}
         eyebrow="10 national AYURDISHA themes"
         title="Career tracks."
-        soft="Ten roadmaps for life after BAMS."
+        soft="Ten roadmaps for a life in Ayurveda."
         helpers={[
           {
             icon: <MessageCircleQuestion size={22} strokeWidth={1.7} />,
             text: "Unsure which track fits?",
-            label: "Ask the desk",
+            label: "Ask Desk",
             to: ASK,
           },
           {
@@ -128,7 +128,7 @@ export default function ProgramsPage() {
         title="Programs"
         watchRef={heroRef}
         links={[{ label: "All tracks", href: "#program-tracks" }]}
-        cta={{ label: "Ask the desk", to: ASK }}
+        cta={{ label: "Ask Desk", to: ASK }}
       />
 
       <section id="program-tracks" className="st-explorer ui-anchor" aria-label="Career tracks">
@@ -233,7 +233,7 @@ export default function ProgramsPage() {
                 icon: <MessageCircleQuestion size={26} strokeWidth={1.6} />,
                 title: "Ask one clear question",
                 text: "The desk routes it to a mentor who works in that track.",
-                label: "Go to the Ask Desk",
+                label: "Ask Desk",
                 to: ASK,
               },
               {

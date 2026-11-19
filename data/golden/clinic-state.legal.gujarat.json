@@ -1,0 +1,103 @@
+{
+  "intentId": "clinic-state.legal.gujarat",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Setting up private practice",
+  "subject": "clinic",
+  "ask": "legal",
+  "question": "What registrations and licences do I need to open an Ayurveda clinic in Gujarat?",
+  "stream": "clinical-practice",
+  "region": "gujarat",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.846Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "57a524892b4c7dba71fbccf08e64745429e128a6",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.294,
+      "bm25": 22.14,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "5a182696fdb03911bc9b295d95406e382af766e0",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.164,
+      "bm25": 19.91,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "c1ad6dda2084eda565a8ea490c6775069f3356da",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_LOP.pdf",
+      "title": "Ayurveda LOP",
+      "score": 1.047,
+      "bm25": 17.92,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 0.992,
+      "bm25": 23.24,
+      "coverage": 0
+    },
+    {
+      "chunkId": "7e7ce2a66cb298b2932adc2a3db5d686c1a62654",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_LOP.pdf",
+      "title": "Ayurveda LOP",
+      "score": 0.972,
+      "bm25": 16.64,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 0.929,
+      "bm25": 15.91,
+      "coverage": 0
+    },
+    {
+      "chunkId": "1c767d8a629f061105c8d7f57b12f1627169d081",
+      "url": "https://www.ayurvedanama.org/prospective-students-frequently-asked-questions",
+      "title": "Prospective Students FAQs — National Ayurvedic Medical Association",
+      "score": 0.9,
+      "bm25": 24.6,
+      "coverage": 0.16
+    },
+    {
+      "chunkId": "eb6a81e165c2b9e314df309065b3f8e5cc253f7a",
+      "url": "https://ayush.gujarat.gov.in/images/teaching-staff-final.pdf",
+      "title": "teaching staff final excel, gandhinagar (2).xls",
+      "score": 0.873,
+      "bm25": 14.94,
+      "coverage": 0.37
+    }
+  ]
+}

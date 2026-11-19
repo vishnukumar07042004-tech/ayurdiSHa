@@ -1,0 +1,103 @@
+{
+  "intentId": "panchakarma-centre.cost",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Panchakarma & therapy services",
+  "subject": "panchakarma",
+  "ask": "cost",
+  "question": "How much does a Panchakarma centre cost?",
+  "stream": "panchakarma-wellness",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.509Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "52fe5a225264ba7a60aff4c61a25e5e34e1de08e",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.438,
+      "bm25": 21.82,
+      "coverage": 0.47
+    },
+    {
+      "chunkId": "7d122d03fdf5c54dca9a838addb1e6542f9a48f8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.33,
+      "bm25": 20.19,
+      "coverage": 0.47
+    },
+    {
+      "chunkId": "2651cb543ed0819760b58dbb8c9c4e126bbc99f0",
+      "url": "https://nabh.co/programmes/panchakarma-clinic-accreditation-programme/",
+      "title": "Panchkarma Clinic - NABH",
+      "score": 1.278,
+      "bm25": 19.41,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "53f1e37e694a029e6e5026a1fa33a9cac7aebb75",
+      "url": "https://ayush.gov.in/assets/pdf/careers/NIT.pdf",
+      "title": "Ministry of Ayush, Government of India — NIT",
+      "score": 1.017,
+      "bm25": 15.44,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "38045328833c2c8b0c7760f64d65f0ce65dc9f27",
+      "url": "https://nabh.co/programmes/advanced-stroke-centres-certification-programme-copy/",
+      "title": "NABH–WSO Stroke Centre Certification Programme - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.004,
+      "bm25": 15.25,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "8f82805ab267d61ee290ca200333a47bb5856cc0",
+      "url": "https://www.who.int/teams/who-global-traditional-medicine-centre/overview",
+      "title": "Overview",
+      "score": 0.952,
+      "bm25": 14.45,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "aeb5c485e79f9385ed35f671ae3f7761b32d6e3b",
+      "url": "https://ayush.gov.in/assets/pdf/nam/NAM_Guideline_English.pdf",
+      "title": "NAM Guideline English",
+      "score": 0.913,
+      "bm25": 17.32,
+      "coverage": 0.42
+    },
+    {
+      "chunkId": "2b0db532652a2f5e7aa5aa8db68b663ad298a9e9",
+      "url": "https://ayurworld.org/pain-management-through-ayurveda/",
+      "title": "PAIN MANAGEMENT THROUGH AYURVEDA - 11th World Ayurveda Congress And Arogya Expo 2026",
+      "score": 0.9,
+      "bm25": 15.71,
+      "coverage": 0.46
+    }
+  ]
+}

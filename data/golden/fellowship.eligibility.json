@@ -1,0 +1,102 @@
+{
+  "intentId": "fellowship.eligibility",
+  "theme": "Research, Evidence & Publication",
+  "subtheme": "Grants & funding",
+  "subject": "research",
+  "ask": "eligibility",
+  "question": "Which research fellowships can BAMS or MD Ayurveda graduates apply for, and what is the eligibility?",
+  "stream": "research-phd",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "CCRAS POST DOCTORAL FELLOWSHIP SCHEME",
+      "url": "https://ccras.nic.in/wp-content/uploads/2026/05/29052026-Scheme-CCRAS_POST_DOCTORAL_FELLOWSHIP_PROGRAMME.pdf"
+    },
+    {
+      "title": "CGN PG Guidlines 2023 24",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.909Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "9effe09b32a42bec5383ed1df94c98ac1173246a",
+      "url": "https://ccras.nic.in/wp-content/uploads/2026/05/29052026-Scheme-CCRAS_POST_DOCTORAL_FELLOWSHIP_PROGRAMME.pdf",
+      "title": "CCRAS POST DOCTORAL FELLOWSHIP SCHEME",
+      "score": 1.267,
+      "bm25": 24.22,
+      "coverage": 0.74
+    },
+    {
+      "chunkId": "8ca8571616adb1b3be056733e1e86c88b70ce2bf",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 1.15,
+      "bm25": 25.09,
+      "coverage": 0.26
+    },
+    {
+      "chunkId": "f339c0fa977417d9f3e9533b282bdc3b77ba046a",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/",
+      "title": "AACCC",
+      "score": 1.131,
+      "bm25": 24.67,
+      "coverage": 0.21
+    },
+    {
+      "chunkId": "0c744844d7dc3c6d48843c390770ba37155df553",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.123,
+      "bm25": 19.61,
+      "coverage": 0.06
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 1.08,
+      "bm25": 20.66,
+      "coverage": 0.48
+    },
+    {
+      "chunkId": "267d3873c1ce6e39a1077d7408d0f9de26e7ba5f",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 1.068,
+      "bm25": 20.43,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "7b28d8f8b8b1f55affd3a6e58936e40b32471831",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.065,
+      "bm25": 18.6,
+      "coverage": 0.06
+    },
+    {
+      "chunkId": "74519d34f0164bc7146f916758b4c5c034650625",
+      "url": "https://ccras.nic.in/wp-content/uploads/2026/05/29052026-Scheme-CCRAS_POST_DOCTORAL_FELLOWSHIP_PROGRAMME.pdf",
+      "title": "CCRAS POST DOCTORAL FELLOWSHIP SCHEME",
+      "score": 1.053,
+      "bm25": 20.14,
+      "coverage": 0.74
+    }
+  ]
+}

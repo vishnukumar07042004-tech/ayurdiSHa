@@ -1,0 +1,102 @@
+{
+  "intentId": "pg-counselling.how-to",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "subject": "pg",
+  "ask": "how-to",
+  "question": "How does PG counselling (AACCC all-India quota and state quota) work after AIAPGET?",
+  "stream": "pg-entrance",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Ayush Admissions Central Counselling Committee (AACCC)",
+      "url": "https://aaccc.gov.in/"
+    },
+    {
+      "title": "CGN PG Guidlines 2023 24",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.393Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "ced167f0756b13afc6c64a860c0d135365bb1b59",
+      "url": "https://aaccc.gov.in/",
+      "title": "Ayush Admissions Central Counselling Committee (AACCC)",
+      "score": 1.438,
+      "bm25": 51.82,
+      "coverage": 0.84
+    },
+    {
+      "chunkId": "f30f33ff0cf8e89e62f7f3b48f8bcb67791b5aa9",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 1.3,
+      "bm25": 46.87,
+      "coverage": 0.94
+    },
+    {
+      "chunkId": "f339c0fa977417d9f3e9533b282bdc3b77ba046a",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/",
+      "title": "AACCC",
+      "score": 1.248,
+      "bm25": 44.98,
+      "coverage": 0.73
+    },
+    {
+      "chunkId": "9fea17a3644d267719f15922a2c78718fbe8e824",
+      "url": "https://aaccc.gov.in/counselling-admissions/",
+      "title": "Counseling & Admissions",
+      "score": 0.853,
+      "bm25": 30.75,
+      "coverage": 0.56
+    },
+    {
+      "chunkId": "03b9019a201a690da7595715c4486eaaada57132",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 0.772,
+      "bm25": 27.82,
+      "coverage": 0.56
+    },
+    {
+      "chunkId": "91841282d2557c3d741e613edab41462781e3e01",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/Central_Government_Nomination_to_MD_Ayurveda.pdf",
+      "title": "Central Government Nomination to MD Ayurveda",
+      "score": 0.722,
+      "bm25": 26.03,
+      "coverage": 0.47
+    },
+    {
+      "chunkId": "644723ff22d13175827f9751fb5fb6ea8370ae17",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/",
+      "title": "AACCC",
+      "score": 0.695,
+      "bm25": 25.06,
+      "coverage": 0.51
+    },
+    {
+      "chunkId": "225c4e1be55459b5926bfd98e43968bd9ede3a15",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/ep3ayurveda.pdf",
+      "title": "ep3ayurveda",
+      "score": 0.67,
+      "bm25": 24.14,
+      "coverage": 0.47
+    }
+  ]
+}

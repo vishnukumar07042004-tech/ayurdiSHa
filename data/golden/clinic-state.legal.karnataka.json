@@ -1,0 +1,103 @@
+{
+  "intentId": "clinic-state.legal.karnataka",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Setting up private practice",
+  "subject": "clinic",
+  "ask": "legal",
+  "question": "What registrations and licences do I need to open an Ayurveda clinic in Karnataka?",
+  "stream": "clinical-practice",
+  "region": "karnataka",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.848Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "f8404631eaf841fd73e534307aa1ad605a1c2aee",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.214,
+      "bm25": 20.77,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "7b28d8f8b8b1f55affd3a6e58936e40b32471831",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.188,
+      "bm25": 20.33,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "615071482276d4a3f9b4ecbd2f2ce0bffbad65d5",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_denied.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.11,
+      "bm25": 19.01,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "794601b43a17086089519c4d17f1a5a1321de893",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_denied.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.098,
+      "bm25": 18.79,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "bc7cbfee4d667c997db87534b3999559fd33ccb0",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_LOP.pdf",
+      "title": "Ayurveda LOP",
+      "score": 0.997,
+      "bm25": 17.06,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 0.992,
+      "bm25": 23.24,
+      "coverage": 0
+    },
+    {
+      "chunkId": "80779da1c240f15694f8c3c4ad42e2775a92f598",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_LOP.pdf",
+      "title": "Ayurveda LOP",
+      "score": 0.949,
+      "bm25": 16.25,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 0.929,
+      "bm25": 15.91,
+      "coverage": 0
+    }
+  ]
+}

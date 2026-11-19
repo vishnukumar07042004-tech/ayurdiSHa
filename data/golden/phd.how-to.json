@@ -1,0 +1,102 @@
+{
+  "intentId": "phd.how-to",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "PhD pathway",
+  "subject": "phd",
+  "ask": "how-to",
+  "question": "How do I do a PhD in Ayurveda?",
+  "stream": "research-phd",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf"
+    },
+    {
+      "title": "STG Dermatological Disorders Ayurveda",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/STG_Dermatological_Disorders_Ayurveda.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.481Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 1.313,
+      "bm25": 12.53,
+      "coverage": 0
+    },
+    {
+      "chunkId": "69371b0b04c5034e00d8d754211abd4877b4cd03",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/STG_Dermatological_Disorders_Ayurveda.pdf",
+      "title": "STG Dermatological Disorders Ayurveda",
+      "score": 1.225,
+      "bm25": 10.67,
+      "coverage": 0
+    },
+    {
+      "chunkId": "be69c980072113fc09b28f057b8b00480b813e56",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 1.21,
+      "bm25": 11.54,
+      "coverage": 1
+    },
+    {
+      "chunkId": "d94a21a5c852ccf4aabc3006ad662f2d875de419",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 1.19,
+      "bm25": 11.36,
+      "coverage": 1
+    },
+    {
+      "chunkId": "506b2bfdcd85c14770e0f8dabe39f70314356e2f",
+      "url": "https://ayurworld.org/ayurveda-short-film-festival-guidelines/",
+      "title": "AYURVEDA SHORT FILM FESTIVAL GUIDELINES - 11th World Ayurveda Congress And Arogya Expo 2026",
+      "score": 1.186,
+      "bm25": 11.88,
+      "coverage": 1
+    },
+    {
+      "chunkId": "9ecfa86d9398e1baec7f27819555c1db52378ef6",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36329771/",
+      "title": "Yoga and Integrative Healthcare: Lessons from the National Institute of Mental Health and Neurosciences (NIMHANS) in India.",
+      "score": 1.178,
+      "bm25": 11.24,
+      "coverage": 1
+    },
+    {
+      "chunkId": "91841282d2557c3d741e613edab41462781e3e01",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/Central_Government_Nomination_to_MD_Ayurveda.pdf",
+      "title": "Central Government Nomination to MD Ayurveda",
+      "score": 1.178,
+      "bm25": 10.26,
+      "coverage": 0
+    },
+    {
+      "chunkId": "2275887dfaf8109a9b211c60ee9b917e82f9b2b2",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40826977/",
+      "title": "The landscape of Ayurveda education in India: Current status and prospects.",
+      "score": 1.129,
+      "bm25": 10.78,
+      "coverage": 1
+    }
+  ]
+}

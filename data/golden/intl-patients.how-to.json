@@ -1,0 +1,103 @@
+{
+  "intentId": "intl-patients.how-to",
+  "theme": "Medical Value Travel & Wellness",
+  "subtheme": "Handling international patients",
+  "subject": "patient",
+  "ask": "how-to",
+  "question": "How should an Ayurveda centre handle international patients — documentation, consent and follow-up?",
+  "stream": "panchakarma-wellness",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.994Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "5bbadbdea73927c1cd5fd473d2c2671ea4cc1f31",
+      "url": "https://nabh.co/faqs-patients/",
+      "title": "FAQs - Patients - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.248,
+      "bm25": 17.48,
+      "coverage": 0.59
+    },
+    {
+      "chunkId": "fe681eb2fd2c1831d1753c36d7e29f1e01d91e6c",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Recruitment_Notice_13072026.pdf",
+      "title": "Recruitment Notice 13072026",
+      "score": 1.15,
+      "bm25": 20.13,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.034,
+      "bm25": 18.09,
+      "coverage": 0.08
+    },
+    {
+      "chunkId": "bdd02d56621974de77a8d26f9a058322306961b4",
+      "url": "https://ayushportal.nic.in/pdf/CCIM_Telemedicine_Guidelines_08-04-2020.pdf",
+      "title": "CCIM Telemedicine Guidelines 08 04 2020",
+      "score": 0.923,
+      "bm25": 17.69,
+      "coverage": 0.35
+    },
+    {
+      "chunkId": "f168f22be2f54ed8be68533f756c68ebd685b4a8",
+      "url": "https://ayush.gov.in/assets/pdf/nam/NAM_Guideline_English.pdf",
+      "title": "NAM Guideline English",
+      "score": 0.912,
+      "bm25": 12.76,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 0.902,
+      "bm25": 15.79,
+      "coverage": 0.08
+    },
+    {
+      "chunkId": "8d71106b2d73bb0d9ba1fcd148771f40605e31ba",
+      "url": "https://nabh.co/programmes/entry-level-dental-clinics-certification-programme/",
+      "title": "Entry Level Dental Clinics Certification Programme - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 0.899,
+      "bm25": 12.59,
+      "coverage": 0.5
+    },
+    {
+      "chunkId": "92e62942a7d0b6b5c1576d1467cb7a8559de78bb",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Recruitment_Notice_13072026.pdf",
+      "title": "Recruitment Notice 13072026",
+      "score": 0.887,
+      "bm25": 15.53,
+      "coverage": 0.34
+    }
+  ]
+}

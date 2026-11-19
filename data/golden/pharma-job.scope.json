@@ -1,0 +1,103 @@
+{
+  "intentId": "pharma-job.scope",
+  "theme": "Manufacturing, Quality & GMP",
+  "subtheme": "R&D and formulation",
+  "subject": "pharma",
+  "ask": "scope",
+  "question": "What is the scope of an R&D job in an Ayurveda pharma company for BAMS graduates?",
+  "stream": "industry-pharma",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.804Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "267d3873c1ce6e39a1077d7408d0f9de26e7ba5f",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 1.313,
+      "bm25": 26.04,
+      "coverage": 0.51
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 1.157,
+      "bm25": 22.96,
+      "coverage": 0
+    },
+    {
+      "chunkId": "188547e1a2888ae150f974658b920be4cebbdadf",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20938581/",
+      "title": "An overview of education and training of medical informatics in India.",
+      "score": 0.848,
+      "bm25": 21.02,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "d4d49bed74285e0e3f306718d6da49d0cd047524",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19687194/",
+      "title": "The ayurveda education in India: how well are the graduates exposed to basic clinical skills?",
+      "score": 0.83,
+      "bm25": 20.6,
+      "coverage": 0
+    },
+    {
+      "chunkId": "e6ccc3645d279eb9a59ab67779e573df6669dc83",
+      "url": "https://ccras.nic.in/directory/it-internship-program-at-ccras-headquarters-from-19th-june-2025/",
+      "title": "IT internship program at CCRAS Headquarters from 19th June 2025 - Central Council for Research in Ayurvedic Sciences",
+      "score": 0.829,
+      "bm25": 16.46,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "dfc49eb9f5e4960551ab83bbfad78ba1b5f44326",
+      "url": "https://pharmexcil.com/uploads/countryreports/MAI_Scheme_revised_2018.pdf",
+      "title": "MAI Scheme revised 2018",
+      "score": 0.797,
+      "bm25": 14.45,
+      "coverage": 0.49
+    },
+    {
+      "chunkId": "1e8c572d520bfc79e5a87f6452ee396e83a4c5f3",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29861594/",
+      "title": "A causal relationship between knowledge of Sanskrit language and results of Bachelor of Ayurvedic Medicine and Surgery examination: An analytical study.",
+      "score": 0.794,
+      "bm25": 19.69,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "280cf8415f41ab4804b4016e646867c8bba55e92",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 0.766,
+      "bm25": 13.87,
+      "coverage": 0
+    }
+  ]
+}

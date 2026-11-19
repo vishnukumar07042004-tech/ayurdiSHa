@@ -1,0 +1,103 @@
+{
+  "intentId": "teaching-skills.how-to",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Teaching skills",
+  "subject": "faculty",
+  "ask": "how-to",
+  "question": "How can a new Ayurveda faculty member improve teaching skills?",
+  "stream": "teaching-academia",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.011Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "668cf83613427dd99fd8c593e819ee64cd89b5a3",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ayurgyan.pdf",
+      "title": "ayurgyan",
+      "score": 1.438,
+      "bm25": 27.98,
+      "coverage": 0.6
+    },
+    {
+      "chunkId": "84006f4f01bf90b6b2f4c3f0ae2c693bbac0221d",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ayurgyan.pdf",
+      "title": "ayurgyan",
+      "score": 1.286,
+      "bm25": 25.03,
+      "coverage": 0.6
+    },
+    {
+      "chunkId": "3b6682aa3ac7c931a29d79dc8c343b9cfa5c996d",
+      "url": "https://ayush.gov.in/assets/pdf/careers/NIC,_Ministry_of_Ayush,_New_Delhi.pdf",
+      "title": "NIC, Ministry of Ayush, New Delhi",
+      "score": 0.916,
+      "bm25": 17.82,
+      "coverage": 0.27
+    },
+    {
+      "chunkId": "1c767d8a629f061105c8d7f57b12f1627169d081",
+      "url": "https://www.ayurvedanama.org/prospective-students-frequently-asked-questions",
+      "title": "Prospective Students FAQs — National Ayurvedic Medical Association",
+      "score": 0.846,
+      "bm25": 26.3,
+      "coverage": 0.13
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.818,
+      "bm25": 15.93,
+      "coverage": 0
+    },
+    {
+      "chunkId": "de73b8e17f0a72486e76d8fd4bfb1fc6a4e966f3",
+      "url": "https://ayush.gov.in/assets/pdf/careers/NIC,_Ministry_of_Ayush,_New_Delhi.pdf",
+      "title": "NIC, Ministry of Ayush, New Delhi",
+      "score": 0.815,
+      "bm25": 15.87,
+      "coverage": 0.27
+    },
+    {
+      "chunkId": "d4d49bed74285e0e3f306718d6da49d0cd047524",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19687194/",
+      "title": "The ayurveda education in India: how well are the graduates exposed to basic clinical skills?",
+      "score": 0.811,
+      "bm25": 21.61,
+      "coverage": 0.19
+    },
+    {
+      "chunkId": "30250e9f901195c12117674f4b565e55018f0787",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/iec.pdf",
+      "title": "Ministry of Ayush, Government of India — iec",
+      "score": 0.796,
+      "bm25": 15.49,
+      "coverage": 0.37
+    }
+  ]
+}

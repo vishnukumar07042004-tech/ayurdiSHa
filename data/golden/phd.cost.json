@@ -1,0 +1,103 @@
+{
+  "intentId": "phd.cost",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "PhD pathway",
+  "subject": "phd",
+  "ask": "cost",
+  "question": "How much does a PhD in Ayurveda cost?",
+  "stream": "research-phd",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.629Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "7d122d03fdf5c54dca9a838addb1e6542f9a48f8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.438,
+      "bm25": 22.02,
+      "coverage": 0.24
+    },
+    {
+      "chunkId": "8e6f964009ed1a8db0cd397a9c5da24cf35e1c70",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.251,
+      "bm25": 19.16,
+      "coverage": 0.24
+    },
+    {
+      "chunkId": "f339c0fa977417d9f3e9533b282bdc3b77ba046a",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/",
+      "title": "AACCC",
+      "score": 1.099,
+      "bm25": 21.05,
+      "coverage": 0
+    },
+    {
+      "chunkId": "0c744844d7dc3c6d48843c390770ba37155df553",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 0.952,
+      "bm25": 14.58,
+      "coverage": 0
+    },
+    {
+      "chunkId": "cc53cc90852dfed4a31aaccbd31d0511bdb9b53d",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 0.943,
+      "bm25": 15.81,
+      "coverage": 0.4
+    },
+    {
+      "chunkId": "bee62566e21661f29d7ab209423b7a1112f1768c",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 0.916,
+      "bm25": 14.04,
+      "coverage": 0
+    },
+    {
+      "chunkId": "1339780f823240b66f91f9cb034e91836d90a8a6",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/RAV_Vacancy.pdf",
+      "title": "RAV Vacancy",
+      "score": 0.872,
+      "bm25": 13.35,
+      "coverage": 0
+    },
+    {
+      "chunkId": "8ca8571616adb1b3be056733e1e86c88b70ce2bf",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 0.867,
+      "bm25": 16.6,
+      "coverage": 0
+    }
+  ]
+}

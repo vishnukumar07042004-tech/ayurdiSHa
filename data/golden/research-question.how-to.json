@@ -1,0 +1,103 @@
+{
+  "intentId": "research-question.how-to",
+  "theme": "Research, Evidence & Publication",
+  "subtheme": "Framing a research question",
+  "subject": "research",
+  "ask": "how-to",
+  "question": "How do I frame a good research question for an Ayurveda study?",
+  "stream": "research-phd",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.842Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "53399ce63a89d5cad20012c6f1e96259404f4198",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27637447/",
+      "title": "\"What do Ayurveda Postgraduate Entrance Examinations actually assess?\" - Results of a five-year period question-paper analysis based on Bloom's taxonomy.",
+      "score": 1.239,
+      "bm25": 19.87,
+      "coverage": 0.91
+    },
+    {
+      "chunkId": "f339c0fa977417d9f3e9533b282bdc3b77ba046a",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/",
+      "title": "AACCC",
+      "score": 1.15,
+      "bm25": 21.05,
+      "coverage": 0
+    },
+    {
+      "chunkId": "0c744844d7dc3c6d48843c390770ba37155df553",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.05,
+      "bm25": 15.38,
+      "coverage": 0.09
+    },
+    {
+      "chunkId": "f8e212693f8b133684d8dd0947c020c616eb6771",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/07/15032023_AYUR-PRAKRITI-WEB-PORTAL-Manual.pdf",
+      "title": "15032023 AYUR PRAKRITI WEB PORTAL Manual",
+      "score": 1.035,
+      "bm25": 16.61,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "bee62566e21661f29d7ab209423b7a1112f1768c",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.035,
+      "bm25": 15.15,
+      "coverage": 0.09
+    },
+    {
+      "chunkId": "319cc1b74f508f4beedb6ca8c7ebcf812f2f11c4",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/Central_Government_Nomination_to_MD_Ayurveda.pdf",
+      "title": "Central Government Nomination to MD Ayurveda",
+      "score": 1.017,
+      "bm25": 14.9,
+      "coverage": 0.09
+    },
+    {
+      "chunkId": "8ca8571616adb1b3be056733e1e86c88b70ce2bf",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 1,
+      "bm25": 18.31,
+      "coverage": 0.14
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.987,
+      "bm25": 18.06,
+      "coverage": 0.14
+    }
+  ]
+}

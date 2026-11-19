@@ -1,0 +1,102 @@
+{
+  "intentId": "nabh.cost",
+  "theme": "Medical Value Travel & Wellness",
+  "subtheme": "Accreditation and standards",
+  "subject": "nabh",
+  "ask": "cost",
+  "question": "How much does NABH accreditation for an Ayurveda hospital or centre cost?",
+  "stream": "panchakarma-wellness",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Benefits - Digital Health Standards - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "url": "https://nabh.co/benefits-digital-health-standards/"
+    },
+    {
+      "title": "Explore NABH Standards - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "url": "https://nabh.co/explore-nabh-standards/"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.965Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "024e210f620b8e150a004233c376e8dc2e937e9d",
+      "url": "https://nabh.co/benefits-digital-health-standards/",
+      "title": "Benefits - Digital Health Standards - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.438,
+      "bm25": 27.36,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "cf36a54cbdbd7490e64451cba1587e13d06be3bb",
+      "url": "https://nabh.co/explore-nabh-standards/",
+      "title": "Explore NABH Standards - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.272,
+      "bm25": 24.22,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "a61ed3697335838cedbcb83424c33b81e04b5375",
+      "url": "https://nabh.co/programmes/ayush-hospitals-accreditation-programme/",
+      "title": "AYUSH Hospitals - NABH",
+      "score": 1.205,
+      "bm25": 22.94,
+      "coverage": 0.47
+    },
+    {
+      "chunkId": "38045328833c2c8b0c7760f64d65f0ce65dc9f27",
+      "url": "https://nabh.co/programmes/advanced-stroke-centres-certification-programme-copy/",
+      "title": "NABH–WSO Stroke Centre Certification Programme - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.183,
+      "bm25": 22.51,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "a7d02de2ce058005ab2387b8e03f26f08ffa2a56",
+      "url": "https://nabh.co/assessor-training/five-day-assessors-training-programme-as-per-nabh-6th-edition-standards-for-hospitals/",
+      "title": "Five-Day Assessors’ Training Programme as per NABH 6th Edition Standards for Hospitals - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.161,
+      "bm25": 22.1,
+      "coverage": 0.47
+    },
+    {
+      "chunkId": "066d131c3e47461a5445f96e28d7f97f9ea275e2",
+      "url": "https://nabh.co/",
+      "title": "National Accreditation Board for Hospitals & Healthcare Providers",
+      "score": 1.159,
+      "bm25": 22.07,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "f45f2e5a61fb4e9718180a315805911e0e5caab2",
+      "url": "https://nabh.co/",
+      "title": "National Accreditation Board for Hospitals & Healthcare Providers",
+      "score": 1.159,
+      "bm25": 22.06,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "e1696c93330a216512fe62ae730c3ba474e70df4",
+      "url": "https://nabh.co/programmes/advanced-stroke-centres-certification-programme-copy/",
+      "title": "NABH–WSO Stroke Centre Certification Programme - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.159,
+      "bm25": 22.05,
+      "coverage": 0.62
+    }
+  ]
+}

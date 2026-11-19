@@ -1,0 +1,103 @@
+{
+  "intentId": "content-creator.income",
+  "theme": "Brand Building & Communication",
+  "subtheme": "Digital presence",
+  "subject": "socialmedia",
+  "ask": "income",
+  "question": "What salary or income can I expect from being an Ayurveda doctor on YouTube and social media?",
+  "stream": "digital-branding",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.083Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "fcc807f941626b1eb539457146a6b9365f4c1b61",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/iec.pdf",
+      "title": "Ministry of Ayush, Government of India — iec",
+      "score": 1.438,
+      "bm25": 26.95,
+      "coverage": 0.55
+    },
+    {
+      "chunkId": "6f03f0a6c4ee6d73105ed83a3ff78ffa43a585ea",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/iec.pdf",
+      "title": "Ministry of Ayush, Government of India — iec",
+      "score": 1.372,
+      "bm25": 25.73,
+      "coverage": 0.47
+    },
+    {
+      "chunkId": "f1b5fd63024b166f343c34e340811d68be96869d",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Young_Profassional_1_1.pdf",
+      "title": "Young Profassional 1 1",
+      "score": 0.867,
+      "bm25": 16.25,
+      "coverage": 0.25
+    },
+    {
+      "chunkId": "41c8049f9698f7e79a02545902ad3eaf971d2e3a",
+      "url": "https://ayush.gov.in/assets/pdf/awards/Advertisement_for_National_Ayurved_Dhanwantari_Award.pdf",
+      "title": "Advertisement for National Ayurved Dhanwantari Award",
+      "score": 0.797,
+      "bm25": 14.94,
+      "coverage": 0.25
+    },
+    {
+      "chunkId": "c080d7b84c9145e3f272dc055d82a8af6ebd18d6",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._140(E)_dated_14th_February,_2025.pdf",
+      "title": "Gazette Notification No. G.S.R. 140(E) dated 14th February, 2025",
+      "score": 0.758,
+      "bm25": 14.22,
+      "coverage": 0.25
+    },
+    {
+      "chunkId": "2dcefcf31fd73e390809370f82a9621448f1da59",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.705,
+      "bm25": 15.2,
+      "coverage": 0.25
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.68,
+      "bm25": 15.93,
+      "coverage": 0
+    },
+    {
+      "chunkId": "95dc782aaa3ac8021d952a78d2c4dc6aab1fcc74",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 0.672,
+      "bm25": 15.76,
+      "coverage": 0.28
+    }
+  ]
+}

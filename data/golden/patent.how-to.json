@@ -1,0 +1,102 @@
+{
+  "intentId": "patent.how-to",
+  "theme": "Entrepreneurship & Start-ups",
+  "subtheme": "Team & intellectual property",
+  "subject": "patent",
+  "ask": "how-to",
+  "question": "How do I patent my Ayurvedic formulation?",
+  "stream": "entrepreneurship",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "National IPR Policy English",
+      "url": "https://ipindia.gov.in/uploads/National_IPR_Policy_English.pdf"
+    },
+    {
+      "title": "Global challenges of graduate level Ayurvedic education: A survey.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20532099/"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.000Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "ac6acac0a617dc3fe5a965d63e1f39f321e35ec1",
+      "url": "https://ipindia.gov.in/uploads/National_IPR_Policy_English.pdf",
+      "title": "National IPR Policy English",
+      "score": 1.149,
+      "bm25": 17.44,
+      "coverage": 0.6
+    },
+    {
+      "chunkId": "86033cf0ae6239d454d8550ced5ec3b1299c9204",
+      "url": "https://ipindia.gov.in/uploads/National_IPR_Policy_English.pdf",
+      "title": "National IPR Policy English",
+      "score": 1.056,
+      "bm25": 16.03,
+      "coverage": 0.6
+    },
+    {
+      "chunkId": "c0ba3194ae2fdd0c70a001935adf6ea141c1ebd3",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20532099/",
+      "title": "Global challenges of graduate level Ayurvedic education: A survey.",
+      "score": 1.05,
+      "bm25": 21.81,
+      "coverage": 0
+    },
+    {
+      "chunkId": "2902ae851f9c5966f86ada4a72ebecd85abe5265",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/guduchi_Book-Dossier.pdf",
+      "title": "guduchi Book Dossier",
+      "score": 0.975,
+      "bm25": 14.79,
+      "coverage": 0
+    },
+    {
+      "chunkId": "de69084dd3270b2178df5903f8ac3fe4f7d88e4a",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 0.967,
+      "bm25": 14.67,
+      "coverage": 0.6
+    },
+    {
+      "chunkId": "d9503b7cc574a833debc648d1bbed13e3d6d795b",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 0.922,
+      "bm25": 16.08,
+      "coverage": 1
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.904,
+      "bm25": 17.14,
+      "coverage": 0
+    },
+    {
+      "chunkId": "8e5f46bc59274343417b352e905ad01bede64565",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/08/Ayurworld-May-June-2026.pdf",
+      "title": "Ayurworld May June 2026",
+      "score": 0.877,
+      "bm25": 15.3,
+      "coverage": 0.6
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "intentId": "regulatory.how-to",
+  "theme": "Manufacturing, Quality & GMP",
+  "subtheme": "Regulatory affairs",
+  "subject": "regulatory",
+  "ask": "how-to",
+  "question": "How do I move into regulatory affairs?",
+  "stream": "industry-pharma",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Ayur World Jan Feb 2026",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/02/Ayur-World-Jan-Feb-2026.pdf"
+    },
+    {
+      "title": "BAMS Guideline",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.007Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "8a56e193dda646b3d77715ba3c4338f73094a13e",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/02/Ayur-World-Jan-Feb-2026.pdf",
+      "title": "Ayur World Jan Feb 2026",
+      "score": 1,
+      "bm25": 19.58,
+      "coverage": 0.6
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.882,
+      "bm25": 15.01,
+      "coverage": 0
+    },
+    {
+      "chunkId": "d4d49bed74285e0e3f306718d6da49d0cd047524",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19687194/",
+      "title": "The ayurveda education in India: how well are the graduates exposed to basic clinical skills?",
+      "score": 0.838,
+      "bm25": 15.63,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 0.79,
+      "bm25": 13.45,
+      "coverage": 0
+    },
+    {
+      "chunkId": "4a6489472496dfb50054a3296a8aa4c5fc9c3824",
+      "url": "https://ayush.gov.in/assets/pdf/awards/Advertisement_for_National_Ayurved_Dhanwantari_Award.pdf",
+      "title": "Advertisement for National Ayurved Dhanwantari Award",
+      "score": 0.776,
+      "bm25": 10.57,
+      "coverage": 0.4
+    },
+    {
+      "chunkId": "60c857283d1d1e00ff7290f7175aeed87f14f9df",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.696,
+      "bm25": 11.85,
+      "coverage": 0
+    },
+    {
+      "chunkId": "f04470fc30029ac92e6dc47ad51f0047d8a112a8",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/02/Ayur-World-Jan-Feb-2026.pdf",
+      "title": "Ayur World Jan Feb 2026",
+      "score": 0.684,
+      "bm25": 13.4,
+      "coverage": 0.6
+    },
+    {
+      "chunkId": "f128ce9a260ef6a0a66cfece3a3a023f15d63f61",
+      "url": "https://pharmexcil.com/v1/docs/MDA/MAI_RevisedGuidelinesFromAugust2014_4web.pdf",
+      "title": "MAI RevisedGuidelinesFromAugust2014 4web",
+      "score": 0.683,
+      "bm25": 9.3,
+      "coverage": 0.61
+    }
+  ]
+}

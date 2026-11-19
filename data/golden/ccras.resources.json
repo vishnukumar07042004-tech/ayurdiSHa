@@ -1,0 +1,103 @@
+{
+  "intentId": "ccras.resources",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Research councils",
+  "subject": "ccras",
+  "ask": "resources",
+  "question": "Which books and study resources should I use for a job at CCRAS?",
+  "stream": "research-phd",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.864Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "267d3873c1ce6e39a1077d7408d0f9de26e7ba5f",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 1.313,
+      "bm25": 22.11,
+      "coverage": 0.5
+    },
+    {
+      "chunkId": "dd82fae60b7defc7174b80598fcc9a5c89a45a38",
+      "url": "https://ccras.nic.in/library/",
+      "title": "Library - Central Council for Research in Ayurvedic Sciences",
+      "score": 1.288,
+      "bm25": 21.69,
+      "coverage": 0.56
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 1.221,
+      "bm25": 20.57,
+      "coverage": 0.16
+    },
+    {
+      "chunkId": "f339c0fa977417d9f3e9533b282bdc3b77ba046a",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/",
+      "title": "AACCC",
+      "score": 1.095,
+      "bm25": 21.05,
+      "coverage": 0
+    },
+    {
+      "chunkId": "cc53cc90852dfed4a31aaccbd31d0511bdb9b53d",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 1.014,
+      "bm25": 17.07,
+      "coverage": 0.16
+    },
+    {
+      "chunkId": "e6388dd24210904a4b26ae8ef126b56a9e4043fa",
+      "url": "https://ayushportal.nic.in/pdf/TKM_Study_Report.pdf",
+      "title": "TKM Study Report",
+      "score": 0.992,
+      "bm25": 16.71,
+      "coverage": 0.38
+    },
+    {
+      "chunkId": "7ff198c5e0c3996e1078f0bcab7eecd8c8ebee46",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 0.936,
+      "bm25": 15.76,
+      "coverage": 0.25
+    },
+    {
+      "chunkId": "ec251beb7f77acd9f3c8731cbffb60349e9510ba",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/06/CCRAS_Commercialisation_Policy.pdf",
+      "title": "CCRAS Commercialisation Policy",
+      "score": 0.923,
+      "bm25": 15.55,
+      "coverage": 0.45
+    }
+  ]
+}

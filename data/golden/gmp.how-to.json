@@ -1,0 +1,102 @@
+{
+  "intentId": "gmp.how-to",
+  "theme": "Manufacturing, Quality & GMP",
+  "subtheme": "GMP and licensing",
+  "subject": "gmp",
+  "ask": "how-to",
+  "question": "How do I get GMP certification for my unit?",
+  "stream": "industry-pharma",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "aoushdhi",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/aoushdhi.pdf"
+    },
+    {
+      "title": "Magazine AW Nov Dec25",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.831Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "e898fd58352f20e8669fab414c963a117b73eed8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/aoushdhi.pdf",
+      "title": "aoushdhi",
+      "score": 1.366,
+      "bm25": 20.41,
+      "coverage": 1
+    },
+    {
+      "chunkId": "9b668ce014d2e98986c8b1d2bffd1473f22ae6ac",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/aoushdhi.pdf",
+      "title": "aoushdhi",
+      "score": 1.245,
+      "bm25": 18.61,
+      "coverage": 1
+    },
+    {
+      "chunkId": "6689d56615f380c4573828473ccb2e96f6152c19",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.953,
+      "bm25": 16.37,
+      "coverage": 1
+    },
+    {
+      "chunkId": "046e669eda2f9494c8bf64bdb3f210debf48cc32",
+      "url": "https://nabh.co/e-mitra-step-by-step-guide-for-entry-level-certification/",
+      "title": "E-Mitra Step-By-Step Guide for Entry Level Certification - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 0.941,
+      "bm25": 17.58,
+      "coverage": 0.32
+    },
+    {
+      "chunkId": "c74ade5923ac877fc821da19b43952c831bfec17",
+      "url": "https://nabh.co/e-mitra-step-by-step-guide-for-entry-level-certification/",
+      "title": "E-Mitra Step-By-Step Guide for Entry Level Certification - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 0.934,
+      "bm25": 17.44,
+      "coverage": 0.32
+    },
+    {
+      "chunkId": "1c767d8a629f061105c8d7f57b12f1627169d081",
+      "url": "https://www.ayurvedanama.org/prospective-students-frequently-asked-questions",
+      "title": "Prospective Students FAQs — National Ayurvedic Medical Association",
+      "score": 0.9,
+      "bm25": 21.48,
+      "coverage": 0.32
+    },
+    {
+      "chunkId": "2207c7f07443578fecce3f87e7873e469117082a",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._669(E)_dated_28th_October,_2024.pdf",
+      "title": "Gazette Notification No. G.S.R. 669(E) dated 28th October, 2024",
+      "score": 0.864,
+      "bm25": 12.91,
+      "coverage": 0.68
+    },
+    {
+      "chunkId": "65a5a3b029f5081e1490aa1fa0aa701b8124f96b",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/07/CCRAS_Guideline-of-Drug-Development.pdf",
+      "title": "CCRS_Guidline of Drug_Book-7_CD MATTER.pdf",
+      "score": 0.856,
+      "bm25": 14.01,
+      "coverage": 1
+    }
+  ]
+}

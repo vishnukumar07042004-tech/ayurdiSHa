@@ -753,7 +753,11 @@
   .aym-ui .st-fcard,
   .aym-ui .st-qn,
   .aym-ui .st-fcard-media img,
-  .aym-ui .st-plate-inner { transition: none; }
+  .aym-ui .st-plate-inner,
+  .ed-portrait-motion,
+  .ed-portrait-gleam,
+  .ed-portrait-drift { transition: none; animation: none; }
+  .ed-portrait-gleam { opacity: 0; }
 }
 
 /* ---------- About ---------- */

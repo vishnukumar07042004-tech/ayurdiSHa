@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import {
@@ -17,19 +17,28 @@ import FieldIcon, { fieldKey } from "./components/ui/FieldIcons.jsx";
  */
 export function MentorPortrait({ mentor, size = "card", tone = "ivory", field }) {
   const portrait = mentorPortraitUrl(mentor);
+  const [broken, setBroken] = useState(false);
+  const showArt = Boolean(portrait) && !broken;
   const initials = mentorInitials(mentor.name);
   const key = field ? fieldKey(field) : null;
   return (
-    <div className={`ed-portrait ed-portrait--${size} ed-portrait--${tone}${key ? ` st-plate st-plate--${key}` : ""}`}>
-      {portrait ? (
-        <img
-          src={portrait}
-          alt={`Portrait of ${mentor.name}`}
-          loading="lazy"
-          decoding="async"
-          width={480}
-          height={600}
-        />
+    <div className={`ed-portrait ed-portrait--${size} ed-portrait--${tone}${showArt ? " ed-portrait--art" : ""}${!showArt && key ? ` st-plate st-plate--${key}` : ""}`}>
+      {showArt ? (
+        <>
+          <span className="ed-portrait-motion">
+            <img
+              src={portrait}
+              alt={`Portrait of ${mentor.name}`}
+              loading="lazy"
+              decoding="async"
+              width={900}
+              height={1200}
+              onError={() => setBroken(true)}
+            />
+          </span>
+          <span className="ed-portrait-gleam" aria-hidden="true" />
+          <Sprig className="ed-portrait-drift" />
+        </>
       ) : key ? (
         <div className="st-plate-inner" aria-hidden="true">
           <span className="st-plate-halo" />

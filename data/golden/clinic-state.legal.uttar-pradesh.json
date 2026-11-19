@@ -1,0 +1,103 @@
+{
+  "intentId": "clinic-state.legal.uttar-pradesh",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Setting up private practice",
+  "subject": "clinic",
+  "ask": "legal",
+  "question": "What registrations and licences do I need to open an Ayurveda clinic in Uttar Pradesh?",
+  "stream": "clinical-practice",
+  "region": "uttar-pradesh",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.685Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "f8404631eaf841fd73e534307aa1ad605a1c2aee",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.438,
+      "bm25": 26.61,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "7b28d8f8b8b1f55affd3a6e58936e40b32471831",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.422,
+      "bm25": 26.33,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "0ef2f2cdbefb1fa87d69e45d4b9c442d725ffdfa",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_denied.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.406,
+      "bm25": 26.03,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "bbd6c937c6f79e3bb6a6efd792d06ba90253202d",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_denied.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.363,
+      "bm25": 25.23,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "5a6ae7d517f7c60e0a3e8e2946041aa33dc6e6e8",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_LOP.pdf",
+      "title": "Ayurveda LOP",
+      "score": 1.291,
+      "bm25": 23.91,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "bc7cbfee4d667c997db87534b3999559fd33ccb0",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_LOP.pdf",
+      "title": "Ayurveda LOP",
+      "score": 1.269,
+      "bm25": 23.49,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 0.917,
+      "bm25": 23.24,
+      "coverage": 0
+    },
+    {
+      "chunkId": "8a56e193dda646b3d77715ba3c4338f73094a13e",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/02/Ayur-World-Jan-Feb-2026.pdf",
+      "title": "Ayur World Jan Feb 2026",
+      "score": 0.866,
+      "bm25": 18.43,
+      "coverage": 0.15
+    }
+  ]
+}

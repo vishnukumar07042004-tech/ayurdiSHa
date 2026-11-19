@@ -1,0 +1,103 @@
+{
+  "intentId": "pg.income",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "subject": "pg",
+  "ask": "income",
+  "question": "What salary or income can I expect from PG (MD/MS Ayurveda)?",
+  "stream": "pg-entrance",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.473Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "ced167f0756b13afc6c64a860c0d135365bb1b59",
+      "url": "https://aaccc.gov.in/",
+      "title": "Ayush Admissions Central Counselling Committee (AACCC)",
+      "score": 1.078,
+      "bm25": 22.58,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 1.05,
+      "bm25": 30.11,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "8ca8571616adb1b3be056733e1e86c88b70ce2bf",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 0.994,
+      "bm25": 20.82,
+      "coverage": 0.3
+    },
+    {
+      "chunkId": "eb6a81e165c2b9e314df309065b3f8e5cc253f7a",
+      "url": "https://ayush.gujarat.gov.in/images/teaching-staff-final.pdf",
+      "title": "teaching staff final excel, gandhinagar (2).xls",
+      "score": 0.88,
+      "bm25": 23.03,
+      "coverage": 0.5
+    },
+    {
+      "chunkId": "ce409105de473cb872e317ef6da0ecaf69b04608",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33358095/",
+      "title": "A cross-sectional study on the attitude and knowledge assessment of ayurveda teachers, practitioners and students about practical application of Agadatantra.",
+      "score": 0.828,
+      "bm25": 23.74,
+      "coverage": 0.3
+    },
+    {
+      "chunkId": "3f14558c4c61e7dd3adfe1ef407ea020eb03c3ec",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ic.pdf",
+      "title": "Ministry of Ayush, Government of India — ic",
+      "score": 0.816,
+      "bm25": 17.1,
+      "coverage": 0.33
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 0.797,
+      "bm25": 20.87,
+      "coverage": 0
+    },
+    {
+      "chunkId": "91841282d2557c3d741e613edab41462781e3e01",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/Central_Government_Nomination_to_MD_Ayurveda.pdf",
+      "title": "Central Government Nomination to MD Ayurveda",
+      "score": 0.769,
+      "bm25": 16.11,
+      "coverage": 0.3
+    }
+  ]
+}

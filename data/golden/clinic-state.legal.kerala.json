@@ -1,0 +1,103 @@
+{
+  "intentId": "clinic-state.legal.kerala",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Setting up private practice",
+  "subject": "clinic",
+  "ask": "legal",
+  "question": "What registrations and licences do I need to open an Ayurveda clinic in Kerala?",
+  "stream": "clinical-practice",
+  "region": "kerala",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.617Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.278,
+      "bm25": 21.88,
+      "coverage": 0.21
+    },
+    {
+      "chunkId": "25a823fd0f4f5a556ea6c0f65dd3ee4e3e53ccd3",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.072,
+      "bm25": 18.35,
+      "coverage": 0.21
+    },
+    {
+      "chunkId": "96a33c4f70fd0047e043a8f3cdf6d4d3851a733f",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.04,
+      "bm25": 17.8,
+      "coverage": 0.21
+    },
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 0.992,
+      "bm25": 23.24,
+      "coverage": 0
+    },
+    {
+      "chunkId": "1c767d8a629f061105c8d7f57b12f1627169d081",
+      "url": "https://www.ayurvedanama.org/prospective-students-frequently-asked-questions",
+      "title": "Prospective Students FAQs — National Ayurvedic Medical Association",
+      "score": 0.9,
+      "bm25": 24.6,
+      "coverage": 0.16
+    },
+    {
+      "chunkId": "3ceb245de7e9fa5e0cb8e281bc298fb3335dbc4a",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41819018/",
+      "title": "Knowledge, Attitude and Practice of selected Dinacarya practices among BAMS Students in Kerala - A Cross Sectional Study.",
+      "score": 0.88,
+      "bm25": 20.62,
+      "coverage": 0.21
+    },
+    {
+      "chunkId": "a61ed3697335838cedbcb83424c33b81e04b5375",
+      "url": "https://nabh.co/programmes/ayush-hospitals-accreditation-programme/",
+      "title": "AYUSH Hospitals - NABH",
+      "score": 0.841,
+      "bm25": 14.39,
+      "coverage": 0.16
+    },
+    {
+      "chunkId": "352e95127054ef9780a71fe4581080c6cbfe9468",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 0.806,
+      "bm25": 13.79,
+      "coverage": 0.36
+    }
+  ]
+}

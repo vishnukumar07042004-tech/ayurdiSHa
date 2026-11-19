@@ -1,0 +1,103 @@
+{
+  "intentId": "ethics.necessity",
+  "theme": "Research, Evidence & Publication",
+  "subtheme": "Ethics & approvals",
+  "subject": "ethics",
+  "ask": "necessity",
+  "question": "Is ethics committee approval compulsory?",
+  "stream": "research-phd",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.046Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 1.313,
+      "bm25": 23.51,
+      "coverage": 0.58
+    },
+    {
+      "chunkId": "f339c0fa977417d9f3e9533b282bdc3b77ba046a",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/",
+      "title": "AACCC",
+      "score": 1.03,
+      "bm25": 21.05,
+      "coverage": 0
+    },
+    {
+      "chunkId": "8ca8571616adb1b3be056733e1e86c88b70ce2bf",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 0.885,
+      "bm25": 18.1,
+      "coverage": 0.16
+    },
+    {
+      "chunkId": "ced167f0756b13afc6c64a860c0d135365bb1b59",
+      "url": "https://aaccc.gov.in/",
+      "title": "Ayush Admissions Central Counselling Committee (AACCC)",
+      "score": 0.871,
+      "bm25": 17.81,
+      "coverage": 0.16
+    },
+    {
+      "chunkId": "7c9f45f1464f01bf057556e222be2415738cff54",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 0.857,
+      "bm25": 17.52,
+      "coverage": 0.17
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.845,
+      "bm25": 17.27,
+      "coverage": 0.16
+    },
+    {
+      "chunkId": "34b0bbb068bff7c0a03ee34956790b2a7e9bb08d",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/04/25042025-CCRAS-Publication-Policy.pdf",
+      "title": "CCRAS Publication policy.pdf",
+      "score": 0.832,
+      "bm25": 14.9,
+      "coverage": 0.58
+    },
+    {
+      "chunkId": "a3385a8efaad4556b479152ee4359af936a12324",
+      "url": "https://ayush.gov.in/assets/pdf/education/CGN_PG_Guidelines_2026-27.pdf",
+      "title": "CGN PG Guidelines 2026 27",
+      "score": 0.829,
+      "bm25": 13.56,
+      "coverage": 0.17
+    }
+  ]
+}

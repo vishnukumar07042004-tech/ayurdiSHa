@@ -1,0 +1,102 @@
+{
+  "intentId": "mvt.scope",
+  "theme": "Medical Value Travel & Wellness",
+  "subtheme": "How the MVT ecosystem works",
+  "subject": "mvt",
+  "ask": "scope",
+  "question": "What is the scope of medical value travel (MVT) in Ayurveda for BAMS graduates?",
+  "stream": "panchakarma-wellness",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Magazine AW Nov Dec25",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf"
+    },
+    {
+      "title": "Ayur World March April 2026",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.963Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "71b511d030e5ff12a6c8720223aefc536afa73b4",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 1.25,
+      "bm25": 22.9,
+      "coverage": 0.81
+    },
+    {
+      "chunkId": "ec49cf7fbd059b5bf4390ad6bc490e98a9ead4aa",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 1.05,
+      "bm25": 19.23,
+      "coverage": 0.6
+    },
+    {
+      "chunkId": "a9d9e8b77b852456c1b48131db2191c73977b948",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 1.007,
+      "bm25": 18.44,
+      "coverage": 0.81
+    },
+    {
+      "chunkId": "57a524892b4c7dba71fbccf08e64745429e128a6",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 0.979,
+      "bm25": 15.59,
+      "coverage": 0.08
+    },
+    {
+      "chunkId": "267d3873c1ce6e39a1077d7408d0f9de26e7ba5f",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 0.958,
+      "bm25": 20.9,
+      "coverage": 0.27
+    },
+    {
+      "chunkId": "3322c263d1e61610005c94df25f6afab01adc417",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.957,
+      "bm25": 17.53,
+      "coverage": 0.08
+    },
+    {
+      "chunkId": "d4d49bed74285e0e3f306718d6da49d0cd047524",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19687194/",
+      "title": "The ayurveda education in India: how well are the graduates exposed to basic clinical skills?",
+      "score": 0.906,
+      "bm25": 19.75,
+      "coverage": 0
+    },
+    {
+      "chunkId": "f126541e6131c5fbd71e535139c780e0e4b43acc",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 0.873,
+      "bm25": 13.91,
+      "coverage": 0.4
+    }
+  ]
+}

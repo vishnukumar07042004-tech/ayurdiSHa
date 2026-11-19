@@ -1,0 +1,103 @@
+{
+  "intentId": "leadership.eligibility",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Academic leadership",
+  "subject": "leadership",
+  "ask": "eligibility",
+  "question": "What is the eligibility for a principal or HOD post?",
+  "stream": "teaching-academia",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.112Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.302,
+      "bm25": 24.15,
+      "coverage": 0.38
+    },
+    {
+      "chunkId": "3c029ac1fcc30f59bab729951e0d27c1ac82dd06",
+      "url": "https://ayush.gov.in/assets/pdf/careers/English_Application_Form_04082026.pdf",
+      "title": "English Application Form 04082026",
+      "score": 1.15,
+      "bm25": 26.66,
+      "coverage": 0.38
+    },
+    {
+      "chunkId": "09ea88e4b4659c7bf3cdf196308a4ceb3db49349",
+      "url": "https://ayush.gov.in/assets/pdf/careers/CGN_UG_Guideline_Session_2025-26.pdf",
+      "title": "CGN UG Guideline Session 2025 26",
+      "score": 0.991,
+      "bm25": 18.37,
+      "coverage": 0
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.989,
+      "bm25": 18.34,
+      "coverage": 0
+    },
+    {
+      "chunkId": "1339780f823240b66f91f9cb034e91836d90a8a6",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/RAV_Vacancy.pdf",
+      "title": "RAV Vacancy",
+      "score": 0.935,
+      "bm25": 21.68,
+      "coverage": 0.38
+    },
+    {
+      "chunkId": "efd782edd9713f50d66e002df081bbaceeff8096",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/VacancyCircularSiddhaUnani.pdf",
+      "title": "VacancyCircularSiddhaUnani",
+      "score": 0.912,
+      "bm25": 16.92,
+      "coverage": 0.38
+    },
+    {
+      "chunkId": "c7b296354b65e1ecd0f045cb90f3c9f10c8964ac",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 0.881,
+      "bm25": 20.42,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 0.873,
+      "bm25": 20.25,
+      "coverage": 0.24
+    }
+  ]
+}

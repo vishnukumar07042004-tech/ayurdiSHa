@@ -1,0 +1,103 @@
+{
+  "intentId": "abroad-visa.how-to.eu",
+  "theme": "Practice Abroad & Practitioner Mobility",
+  "subtheme": "Visa and employment routes",
+  "subject": "visa",
+  "ask": "how-to",
+  "question": "Which visa or employment route can an Ayurveda practitioner use to work in Europe?",
+  "stream": "abroad-uk-eu",
+  "region": "eu",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.856Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "42d78027c951fd072d0ae6dbb8c6e93fac73f5ac",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.256,
+      "bm25": 18.37,
+      "coverage": 0.27
+    },
+    {
+      "chunkId": "3a24e908c7f73657553de1a77bdd5868e71108ba",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 1.25,
+      "bm25": 21.02,
+      "coverage": 0.36
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.089,
+      "bm25": 15.93,
+      "coverage": 0
+    },
+    {
+      "chunkId": "d5b7fe2b605e5e1e9c1e2427c8ffd9a2683a8f86",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 1.047,
+      "bm25": 17.6,
+      "coverage": 0.28
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 0.979,
+      "bm25": 14.32,
+      "coverage": 0
+    },
+    {
+      "chunkId": "fd17af37ac7ffee74c0156a7c4f92d7a9e8afa25",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37039177/",
+      "title": "A survey of the training and working arrangements of general practitioners providing asthma and chronic obstructive pulmonary disease care in a rural area of Maharashtra State.",
+      "score": 0.824,
+      "bm25": 16.49,
+      "coverage": 0.08
+    },
+    {
+      "chunkId": "8a56e193dda646b3d77715ba3c4338f73094a13e",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/02/Ayur-World-Jan-Feb-2026.pdf",
+      "title": "Ayur World Jan Feb 2026",
+      "score": 0.811,
+      "bm25": 13.64,
+      "coverage": 0
+    },
+    {
+      "chunkId": "2902ae851f9c5966f86ada4a72ebecd85abe5265",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/guduchi_Book-Dossier.pdf",
+      "title": "guduchi Book Dossier",
+      "score": 0.776,
+      "bm25": 11.35,
+      "coverage": 0.08
+    }
+  ]
+}

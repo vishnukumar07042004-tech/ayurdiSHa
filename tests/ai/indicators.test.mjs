@@ -40,6 +40,13 @@ function isOverflowItem(item) {
   return Boolean(item.overflow || item.quotaDeferred || item.pendingDraft);
 }
 
+/** Mirror InsightsView statusOf AI branch (App.jsx) — status from aiIndex only. */
+function insightAiStatus(ai) {
+  if (ai && (ai.status === "awaiting_ai" || ai.status === "quotaDeferred" || ai.status === "aiPending")) return "Waiting for AI";
+  if (ai && ai.status === "pending") return "Being reviewed";
+  return "Received";
+}
+
 function q(id, question, extra = {}) {
   return {
     id, ticket: `AYM-Q-${id}`, createdAt: Date.now(), name: "Meera Iyer", email: "meera.iyer@gmail.com",
@@ -115,6 +122,8 @@ test("stuck overflow flag on a pending letter is not Waiting for AI", () => {
   };
   assert.equal(isOverflowDraft(stuck), false);
   assert.equal(isOverflowItem(stuck), false);
+  // Insight chip uses aiIndex.status, not a leftover overflow bit.
+  assert.equal(insightAiStatus({ status: "pending", overflow: true }), "Being reviewed");
 
   const waiting = {
     id: "q:WAIT", overflow: true,
@@ -122,6 +131,7 @@ test("stuck overflow flag on a pending letter is not Waiting for AI", () => {
   };
   assert.equal(isOverflowDraft(waiting), true);
   assert.equal(isOverflowItem(waiting), true);
+  assert.equal(insightAiStatus({ status: AWAITING_AI, overflow: true }), "Waiting for AI");
 });
 
 test("aiIndex: pending letter clears false quota; overflow still defers correctly", async () => {

@@ -1,0 +1,103 @@
+{
+  "intentId": "medical-writing.income",
+  "theme": "Brand Building & Communication",
+  "subtheme": "Scientific communication",
+  "subject": "general",
+  "ask": "income",
+  "question": "What salary or income can I expect from medical writing as a career?",
+  "stream": "digital-branding",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.085Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 1.05,
+      "bm25": 27.69,
+      "coverage": 0
+    },
+    {
+      "chunkId": "f86683e495b71ef670c74a7a949a2b2fefd621e7",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27449208/",
+      "title": "Attitude of interns towards research as a career option.",
+      "score": 0.829,
+      "bm25": 21.86,
+      "coverage": 0
+    },
+    {
+      "chunkId": "f1b5fd63024b166f343c34e340811d68be96869d",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Young_Profassional_1_1.pdf",
+      "title": "Young Profassional 1 1",
+      "score": 0.815,
+      "bm25": 15.71,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "43cf1ed49bbb6d744e06fd5db2b44dbe77c5b3aa",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Consultant(OL)Advertisement.pdf",
+      "title": "Consultant(OL)Advertisement",
+      "score": 0.722,
+      "bm25": 13.91,
+      "coverage": 0.68
+    },
+    {
+      "chunkId": "2dcefcf31fd73e390809370f82a9621448f1da59",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.716,
+      "bm25": 15.87,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "95dc782aaa3ac8021d952a78d2c4dc6aab1fcc74",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 0.654,
+      "bm25": 15.76,
+      "coverage": 0.43
+    },
+    {
+      "chunkId": "c6672a4ec60c13acfacc5e8182d74617199c9bcc",
+      "url": "https://www.ayurvedanama.org/prospective-students-frequently-asked-questions",
+      "title": "Prospective Students FAQs — National Ayurvedic Medical Association",
+      "score": 0.652,
+      "bm25": 20.07,
+      "coverage": 0.32
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 0.642,
+      "bm25": 15.47,
+      "coverage": 0.08
+    }
+  ]
+}

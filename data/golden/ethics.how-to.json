@@ -1,0 +1,102 @@
+{
+  "intentId": "ethics.how-to",
+  "theme": "Research, Evidence & Publication",
+  "subtheme": "Ethics & approvals",
+  "subject": "ethics",
+  "ask": "how-to",
+  "question": "How do I get ethics committee approval for my study?",
+  "stream": "research-phd",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Ayush Admissions Central Counselling Committee (AACCC)",
+      "url": "https://aaccc.gov.in/"
+    },
+    {
+      "title": "ResearchAndInv",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.825Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "ced167f0756b13afc6c64a860c0d135365bb1b59",
+      "url": "https://aaccc.gov.in/",
+      "title": "Ayush Admissions Central Counselling Committee (AACCC)",
+      "score": 1.15,
+      "bm25": 22.71,
+      "coverage": 0.23
+    },
+    {
+      "chunkId": "ae4ba99732760275e30e8f47c6e6703cee5a5fe4",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 1.142,
+      "bm25": 18.04,
+      "coverage": 0.75
+    },
+    {
+      "chunkId": "f339c0fa977417d9f3e9533b282bdc3b77ba046a",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/",
+      "title": "AACCC",
+      "score": 1.066,
+      "bm25": 21.05,
+      "coverage": 0
+    },
+    {
+      "chunkId": "8ca8571616adb1b3be056733e1e86c88b70ce2bf",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 1.003,
+      "bm25": 19.81,
+      "coverage": 0.39
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.983,
+      "bm25": 19.4,
+      "coverage": 0.39
+    },
+    {
+      "chunkId": "4a157b56e39fc3f0e6827afa801d92fa43031aec",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/07/CCRAS_Guideline-of-Clinical_Evaluation.pdf",
+      "title": "CCRS_Clinical _BOOK-6_945-CD MATTER.pdf",
+      "score": 0.948,
+      "bm25": 16.4,
+      "coverage": 0.75
+    },
+    {
+      "chunkId": "78cd944d5928a735abcbd86ecc0f0e5bed8c462b",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 0.892,
+      "bm25": 14.09,
+      "coverage": 0.75
+    },
+    {
+      "chunkId": "e6388dd24210904a4b26ae8ef126b56a9e4043fa",
+      "url": "https://ayushportal.nic.in/pdf/TKM_Study_Report.pdf",
+      "title": "TKM Study Report",
+      "score": 0.87,
+      "bm25": 15.04,
+      "coverage": 0.41
+    }
+  ]
+}

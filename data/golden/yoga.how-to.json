@@ -1,0 +1,102 @@
+{
+  "intentId": "yoga.how-to",
+  "theme": "Medical Value Travel & Wellness",
+  "subtheme": "Careers in wellness resorts",
+  "subject": "yoga",
+  "ask": "how-to",
+  "question": "How do I get started with yoga certification for an Ayurveda doctor?",
+  "stream": "panchakarma-wellness",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "National Accreditation Board for Hospitals & Healthcare Providers",
+      "url": "https://nabh.co/"
+    },
+    {
+      "title": "Ayur World March April 2026",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.017Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "066d131c3e47461a5445f96e28d7f97f9ea275e2",
+      "url": "https://nabh.co/",
+      "title": "National Accreditation Board for Hospitals & Healthcare Providers",
+      "score": 1.027,
+      "bm25": 19.59,
+      "coverage": 0.36
+    },
+    {
+      "chunkId": "c7aa669aeb0d8c60d9cdc3368b0e07241caa831a",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 0.986,
+      "bm25": 21.63,
+      "coverage": 0.26
+    },
+    {
+      "chunkId": "9ff78ef7e00abdfc642401872b5b0b8caee80b5b",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.964,
+      "bm25": 21.14,
+      "coverage": 0.38
+    },
+    {
+      "chunkId": "50131e4c199869e2fd9147a8a0a8e519c54bc720",
+      "url": "https://nabh.co/e-mitra-step-by-step-guide-for-entry-level-certification/",
+      "title": "E-Mitra Step-By-Step Guide for Entry Level Certification - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 0.933,
+      "bm25": 17.8,
+      "coverage": 0.74
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.907,
+      "bm25": 21.63,
+      "coverage": 0
+    },
+    {
+      "chunkId": "1c767d8a629f061105c8d7f57b12f1627169d081",
+      "url": "https://www.ayurvedanama.org/prospective-students-frequently-asked-questions",
+      "title": "Prospective Students FAQs — National Ayurvedic Medical Association",
+      "score": 0.9,
+      "bm25": 27.43,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "c74ade5923ac877fc821da19b43952c831bfec17",
+      "url": "https://nabh.co/e-mitra-step-by-step-guide-for-entry-level-certification/",
+      "title": "E-Mitra Step-By-Step Guide for Entry Level Certification - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 0.897,
+      "bm25": 17.11,
+      "coverage": 0.36
+    },
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 0.897,
+      "bm25": 23.42,
+      "coverage": 0
+    }
+  ]
+}

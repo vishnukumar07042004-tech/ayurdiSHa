@@ -1,0 +1,102 @@
+{
+  "intentId": "mvt.income",
+  "theme": "Medical Value Travel & Wellness",
+  "subtheme": "How the MVT ecosystem works",
+  "subject": "mvt",
+  "ask": "income",
+  "question": "What salary or income can I expect from medical value travel (MVT) in Ayurveda?",
+  "stream": "panchakarma-wellness",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Magazine AW Nov Dec25",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf"
+    },
+    {
+      "title": "Ayur World March April 2026",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.999Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "71b511d030e5ff12a6c8720223aefc536afa73b4",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 1.25,
+      "bm25": 26.03,
+      "coverage": 0.66
+    },
+    {
+      "chunkId": "a9d9e8b77b852456c1b48131db2191c73977b948",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 1.114,
+      "bm25": 23.19,
+      "coverage": 0.66
+    },
+    {
+      "chunkId": "8fea47c4a82a5ecc1c415e4ef72f1e2fe4c47f55",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/08/Ayurworld-May-June-2026.pdf",
+      "title": "Ayurworld May June 2026",
+      "score": 0.928,
+      "bm25": 19.33,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "f126541e6131c5fbd71e535139c780e0e4b43acc",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 0.923,
+      "bm25": 16.71,
+      "coverage": 0.3
+    },
+    {
+      "chunkId": "ec49cf7fbd059b5bf4390ad6bc490e98a9ead4aa",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 0.879,
+      "bm25": 18.3,
+      "coverage": 0.4
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 0.817,
+      "bm25": 20.25,
+      "coverage": 0
+    },
+    {
+      "chunkId": "a94e8490f263786bd02a75343622927c6a10847d",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/08/Ayurworld-May-June-2026.pdf",
+      "title": "Ayurworld May June 2026",
+      "score": 0.776,
+      "bm25": 16.16,
+      "coverage": 0.42
+    },
+    {
+      "chunkId": "43cf1ed49bbb6d744e06fd5db2b44dbe77c5b3aa",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Consultant(OL)Advertisement.pdf",
+      "title": "Consultant(OL)Advertisement",
+      "score": 0.73,
+      "bm25": 16.52,
+      "coverage": 0.44
+    }
+  ]
+}

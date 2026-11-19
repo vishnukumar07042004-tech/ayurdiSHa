@@ -1,0 +1,500 @@
+/* ==========================================================================
+   AYURDISHA — phone UX polish (≤640px only)
+   Spec: docs/design/MOBILE-PHONE-UX.md
+
+   CRITICAL: Do not add rules outside max-width: 640px (except reduced-motion
+   nests that still sit inside that query). Tablet/desktop must be untouched.
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  .aym-ui {
+    --phone-gutter: 18px;
+    --phone-tap: 44px;
+    --phone-btn: 48px;
+  }
+
+  /* ---------- Shell / safe area / no sideways page scroll ---------- */
+  html:has(.aym-ui),
+  body:has(.aym-ui) {
+    overflow-x: clip;
+  }
+  .aym.aym-ui {
+    padding-left: max(0px, env(safe-area-inset-left, 0px));
+    padding-right: max(0px, env(safe-area-inset-right, 0px));
+  }
+  .aym-ui .ui-container,
+  .aym-ui .ed-container {
+    padding-left: max(var(--phone-gutter), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--phone-gutter), env(safe-area-inset-right, 0px));
+  }
+
+  /* ---------- Header: readable brand, unclipped actions, 44px taps ---------- */
+  .aym-ui .ed-nav,
+  .ed-nav {
+    height: auto;
+    min-height: var(--ui-nav-h, var(--nav-h, 66px));
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .aym-ui .ed-nav-inner,
+  .ed-nav-inner {
+    gap: 8px;
+    padding-inline: max(12px, env(safe-area-inset-left, 0px)) max(10px, env(safe-area-inset-right, 0px));
+    overflow: visible;
+    min-width: 0;
+  }
+  .aym-ui .ed-brand,
+  .ed-brand {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+  .aym-ui .ed-brand-word,
+  .ed-brand-word {
+    font-size: 18px;
+    letter-spacing: 0.1em;
+  }
+  .aym-ui .ed-brand-kicker,
+  .ed-brand-kicker {
+    display: none !important;
+  }
+  .aym-ui .ed-nav-actions,
+  .ed-nav-actions {
+    gap: 2px;
+    flex-shrink: 0;
+    margin-left: 0;
+    overflow: visible;
+  }
+  .aym-ui .ed-icon-btn,
+  .ed-icon-btn,
+  .aym-ui .ed-burger,
+  .ed-burger {
+    width: var(--phone-tap);
+    height: var(--phone-tap);
+    min-width: var(--phone-tap);
+    min-height: var(--phone-tap);
+  }
+  .aym-ui .ed-burger span:first-child { top: 17px; }
+  .aym-ui .ed-burger span:last-child { top: 26px; }
+  .aym-ui .ed-burger.is-open span:first-child,
+  .aym-ui .ed-burger.is-open span:last-child { top: 21.5px; }
+
+  /* Profile: avatar-only, large hit; never crush the burger */
+  .ed-account-chip {
+    min-width: var(--phone-tap);
+    min-height: var(--phone-tap);
+    width: var(--phone-tap);
+    height: var(--phone-tap);
+    padding: 0;
+    margin-left: 2px;
+    justify-content: center;
+    border-radius: 50%;
+    max-width: none;
+  }
+  .ed-account-meta { display: none !important; }
+  .ed-account-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+
+  /* Staff: icon+badge only, full tap target */
+  .ed-staff-access {
+    position: relative;
+    min-width: var(--phone-tap);
+    min-height: var(--phone-tap);
+    width: var(--phone-tap);
+    height: var(--phone-tap);
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .ed-staff-access span:not(.ed-staff-badge) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  .ed-staff-badge {
+    top: 2px;
+    right: 0;
+  }
+
+  /* ---------- Overlay sheet: Ask primary, Track obvious, safe areas ---------- */
+  .aym-ui .ed-overlay,
+  .ed-overlay {
+    padding:
+      0
+      max(var(--phone-gutter), env(safe-area-inset-right, 0px))
+      max(28px, calc(env(safe-area-inset-bottom, 0px) + 16px))
+      max(var(--phone-gutter), env(safe-area-inset-left, 0px));
+    min-height: 100dvh;
+    max-height: 100dvh;
+  }
+  .aym-ui .ed-overlay-head,
+  .ed-overlay-head {
+    min-height: calc(var(--ui-nav-h, var(--nav-h, 66px)) + env(safe-area-inset-top, 0px));
+    padding-top: env(safe-area-inset-top, 0px);
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: rgba(252, 251, 247, 0.96);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+  .aym-ui .ed-overlay-close,
+  .ed-overlay-close {
+    width: var(--phone-tap);
+    height: var(--phone-tap);
+  }
+  .aym-ui .ed-overlay-primary a,
+  .ed-overlay-primary a {
+    min-height: 56px;
+    font-size: clamp(1.45rem, 6.5vw, 1.75rem);
+  }
+  .aym-ui .ed-overlay-actions,
+  .ed-overlay-actions {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  /* Ask Desk first when markup order is Profile then Ask */
+  .aym-ui .ed-overlay-actions .ui-btn--primary,
+  .ed-overlay-actions .ui-btn--primary { order: -1; }
+  .aym-ui .ed-overlay-actions .ui-btn,
+  .ed-overlay-actions .ui-btn,
+  .aym-ui .ed-overlay-actions .ed-btn,
+  .ed-overlay-actions .ed-btn {
+    width: 100%;
+    min-height: var(--phone-btn);
+    font-size: 16px;
+  }
+  .aym-ui .ed-overlay-groups a,
+  .aym-ui .ed-overlay-groups button,
+  .ed-overlay-groups a,
+  .ed-overlay-groups button {
+    min-height: var(--phone-tap);
+    padding: 10px 0;
+    font-size: 16px;
+  }
+  .aym-ui .ed-overlay-groups,
+  .ed-overlay-groups {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  /* ---------- Global buttons / links ---------- */
+  .aym-ui .ui-btn--md,
+  .aym-ui .ui-btn--lg {
+    min-height: var(--phone-btn);
+    font-size: 16px;
+  }
+  .aym-ui .ui-btn--lg { padding-inline: 20px; }
+  .aym-ui .ui-link {
+    min-height: var(--phone-tap);
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+  }
+  .aym-ui .ui-footer a,
+  .aym-ui .ui-footer button,
+  .aym-ui .ed-footer a,
+  .aym-ui .ed-footer button {
+    min-height: var(--phone-tap);
+    display: inline-flex;
+    align-items: center;
+    padding-block: 8px;
+  }
+  .aym-ui .ui-footer {
+    padding-bottom: max(32px, calc(env(safe-area-inset-bottom, 0px) + 20px));
+  }
+
+  /* ---------- Forms: Ask / Register / Track / Account ---------- */
+  .aym-ui .aym-input,
+  .aym-ui .aym-input-premium,
+  .aym-ui textarea.aym-input,
+  .aym-ui select.aym-input,
+  .aym-ui input[type="text"],
+  .aym-ui input[type="email"],
+  .aym-ui input[type="tel"],
+  .aym-ui input[type="search"],
+  .aym-ui input[type="number"],
+  .aym-ui textarea,
+  .aym-ui select {
+    min-height: var(--phone-btn);
+    font-size: 16px; /* prevent iOS focus zoom */
+    padding: 12px 14px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .aym-ui textarea.aym-input,
+  .aym-ui textarea {
+    min-height: 120px;
+  }
+  .aym-ui label,
+  .aym-ui .aym-label,
+  .aym-ui .ui-field-label {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+  .aym-ui .aym-btn,
+  .aym-ui button[type="submit"],
+  .aym-ui .aym-ask-btn-premium {
+    min-height: var(--phone-btn);
+    font-size: 16px;
+  }
+  .aym-ui form .aym-btn,
+  .aym-ui form button[type="submit"],
+  .aym-ui form .aym-ask-btn-premium,
+  .aym-ui .aym-ask-form .aym-btn,
+  .aym-ui .aym-reg-form .aym-btn,
+  .aym-ui .trk-submit {
+    width: 100%;
+    max-width: 100%;
+  }
+  .aym-ui .aym-ask-register-banner {
+    top: max(8px, env(safe-area-inset-top, 0px));
+    margin-inline: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .aym-ui .aym-ask-register-banner-cta {
+    min-height: var(--phone-btn);
+    width: 100%;
+    font-size: 16px;
+  }
+  .aym-ui .ui-form-card,
+  .aym-ui .aym-card {
+    max-width: 100%;
+  }
+  .aym-ui .ui-inline-field,
+  .aym-ui .aym-form-row,
+  .aym-ui .aym-grid-2 {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  /* Track */
+  .aym-ui .trk-search {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .aym-ui .trk-input {
+    height: 52px;
+    font-size: 17px;
+  }
+  .aym-ui .trk-submit {
+    width: 100%;
+    min-height: var(--phone-btn);
+  }
+  .aym-ui .trk-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .aym-ui .trk-actions .ui-btn { width: 100%; }
+
+  /* Account */
+  .acct {
+    padding: 20px max(16px, env(safe-area-inset-left, 0px)) max(48px, calc(env(safe-area-inset-bottom, 0px) + 24px)) max(16px, env(safe-area-inset-right, 0px));
+  }
+  .acct-actions { flex-direction: column; align-items: stretch; }
+  .acct-actions .ui-btn,
+  .acct-actions a,
+  .acct-actions button {
+    width: 100%;
+    min-height: var(--phone-btn);
+    justify-content: center;
+  }
+  .acct-guest .ui-btn { width: 100%; min-height: var(--phone-btn); }
+
+  /* ---------- Home Ask band ---------- */
+  .hd-band .hd-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .hd-band .hd-btn {
+    width: 100%;
+    min-height: var(--phone-btn);
+    justify-content: center;
+    font-size: 16px;
+  }
+  .hd-band .hd-title { font-size: clamp(1.65rem, 7vw, 2rem); line-height: 1.12; }
+  .hd-band .hd-lead { font-size: 16px; line-height: 1.5; }
+  .hd-chip {
+    min-height: var(--phone-tap);
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hx-ask {
+    width: 100%;
+    min-height: 56px;
+    font-size: 16px;
+  }
+  .hx-sub { font-size: 17px; line-height: 1.47; }
+  .hx-actions { gap: 14px; }
+
+  /* ---------- How it works page ---------- */
+  .hiw-jumps a {
+    min-height: var(--phone-tap);
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+  .hiw-step,
+  .hiw .ui-tile {
+    padding: 22px;
+  }
+  .hiw-step .ui-body,
+  .hiw .ui-body { font-size: 16px; line-height: 1.5; }
+
+  /* ---------- Mentors: tappable CTAs, usable filters ---------- */
+  .aym-ui .st-mcard-cta,
+  .aym-ui .st-spot-cta,
+  .aym-ui .ui-mcard-cta,
+  .aym-ui .ui-link.st-mcard-cta {
+    min-height: var(--phone-tap);
+    padding: 10px 0;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .aym-ui .st-spot-copy { padding-bottom: 72px; }
+  .aym-ui .st-mcard-copy { padding-bottom: 8px; }
+  .aym-ui .st-quicknav-track,
+  .aym-ui .st-qn {
+    -webkit-overflow-scrolling: touch;
+  }
+  .aym-ui .st-qn {
+    min-height: 120px;
+    min-width: 92px;
+  }
+  .aym-ui .aym-mentors-search .aym-input,
+  .aym-ui .st-home-toolbar input,
+  .aym-ui .st-home-toolbar .aym-input {
+    min-height: var(--phone-btn);
+    font-size: 16px;
+  }
+  .aym-ui .ui-mcard-extra {
+    max-height: none;
+    opacity: 1;
+    margin-top: 8px;
+  }
+
+  /* ---------- Hall map ---------- */
+  .hm {
+    padding: 22px 16px 18px;
+  }
+  .hm-legend-btn {
+    min-height: 56px;
+  }
+  .hm-pin-n {
+    width: 32px;
+    height: 32px;
+  }
+  .hm-pin::before {
+    inset: -10px;
+  }
+
+  /* ---------- WAC / home CTAs ---------- */
+  .aym-ui .ui-wac-actions,
+  .aym-ui .ui-cta .ui-btn-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .aym-ui .ui-wac-actions .ui-btn,
+  .aym-ui .ui-cta .ui-btn-row .ui-btn {
+    width: 100%;
+    min-height: var(--phone-btn);
+    padding-inline: 12px;
+  }
+
+  /* Glows / ornaments must not cover copy */
+  .aym-ui .ui-how-glow,
+  .aym-ui .ui-live-glow,
+  .aym-ui .aym-ask-register-banner-glow {
+    display: none;
+  }
+  .aym-ui .ui-how-step,
+  .aym-ui .ui-live,
+  .aym-ui .ui-tile {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---------- Modals / dialogs ---------- */
+  .aym-ui .aym-modal-bg,
+  .aym-ui .aym-search-modal-backdrop {
+    padding: max(12px, env(safe-area-inset-top, 0px)) 12px max(12px, env(safe-area-inset-bottom, 0px));
+    box-sizing: border-box;
+  }
+  .aym-ui .aym-answer-modal,
+  .aym-ui .ui-dialog,
+  .aym-ui .aym-modal,
+  .aym-ui .aym-search-modal {
+    max-height: min(90dvh, 900px);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    width: min(100%, 100%);
+    box-sizing: border-box;
+  }
+
+  /* ---------- Staff desks: contain horizontal scroll ---------- */
+  .aym-ui .aym-staff-table-wrap,
+  .aym-ui [class*="staff"] table,
+  .aym-ui .air-list {
+    max-width: 100%;
+  }
+  .aym-ui .aym-table-scroll,
+  .aym-ui .air-grid {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* ---------- Ask FAB clearance ---------- */
+  .ask-fab {
+    right: max(12px, env(safe-area-inset-right, 0px));
+    bottom: max(14px, calc(env(safe-area-inset-bottom, 0px) + 10px));
+  }
+  .ask-fab-link {
+    min-height: 52px;
+    font-size: 15.5px;
+  }
+
+  /* ---------- Local nav under global header ---------- */
+  .aym-ui .ui-localnav {
+    top: calc(var(--ui-nav-h, 66px) + env(safe-area-inset-top, 0px));
+  }
+  .aym-ui section[id],
+  .aym-ui .ui-anchor {
+    scroll-margin-top: calc(var(--ui-nav-h, 66px) + env(safe-area-inset-top, 0px) + 12px);
+  }
+}
+
+@media (max-width: 640px) and (max-width: 390px) {
+  .aym-ui .ui-wac-actions,
+  .aym-ui .ui-cta .ui-btn-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .aym-ui .ed-brand-word,
+  .ed-brand-word {
+    font-size: 16.5px;
+    letter-spacing: 0.08em;
+  }
+}
+
+@media (max-width: 640px) and (prefers-reduced-motion: reduce) {
+  .aym-ui .ed-overlay,
+  .ed-overlay,
+  .aym-ui .ed-overlay-primary li,
+  .aym-ui .ed-overlay-actions,
+  .aym-ui .ed-overlay-groups {
+    animation: none !important;
+  }
+  .aym-ui [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

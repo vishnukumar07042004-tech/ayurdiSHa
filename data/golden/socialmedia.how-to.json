@@ -1,0 +1,103 @@
+{
+  "intentId": "socialmedia.how-to",
+  "theme": "Brand Building & Communication",
+  "subtheme": "Digital presence",
+  "subject": "socialmedia",
+  "ask": "how-to",
+  "question": "How do I promote my practice on social media ethically?",
+  "stream": "digital-branding",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.606Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "6f03f0a6c4ee6d73105ed83a3ff78ffa43a585ea",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/iec.pdf",
+      "title": "Ministry of Ayush, Government of India — iec",
+      "score": 1.438,
+      "bm25": 19.24,
+      "coverage": 0.43
+    },
+    {
+      "chunkId": "34e6ce6c265dee76e062001431a383e52c284f8b",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/iec.pdf",
+      "title": "Ministry of Ayush, Government of India — iec",
+      "score": 1.394,
+      "bm25": 18.66,
+      "coverage": 0.43
+    },
+    {
+      "chunkId": "f1b5fd63024b166f343c34e340811d68be96869d",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Young_Profassional_1_1.pdf",
+      "title": "Young Profassional 1 1",
+      "score": 1.148,
+      "bm25": 15.37,
+      "coverage": 0.43
+    },
+    {
+      "chunkId": "e6ccc3645d279eb9a59ab67779e573df6669dc83",
+      "url": "https://ccras.nic.in/directory/it-internship-program-at-ccras-headquarters-from-19th-june-2025/",
+      "title": "IT internship program at CCRAS Headquarters from 19th June 2025 - Central Council for Research in Ayurvedic Sciences",
+      "score": 0.996,
+      "bm25": 18.25,
+      "coverage": 0.19
+    },
+    {
+      "chunkId": "41c8049f9698f7e79a02545902ad3eaf971d2e3a",
+      "url": "https://ayush.gov.in/assets/pdf/awards/Advertisement_for_National_Ayurved_Dhanwantari_Award.pdf",
+      "title": "Advertisement for National Ayurved Dhanwantari Award",
+      "score": 0.986,
+      "bm25": 13.2,
+      "coverage": 0.43
+    },
+    {
+      "chunkId": "c080d7b84c9145e3f272dc055d82a8af6ebd18d6",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._140(E)_dated_14th_February,_2025.pdf",
+      "title": "Gazette Notification No. G.S.R. 140(E) dated 14th February, 2025",
+      "score": 0.968,
+      "bm25": 12.96,
+      "coverage": 0.43
+    },
+    {
+      "chunkId": "756a4628164f94d8f84c56481c173d8f81efc31d",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 0.922,
+      "bm25": 14.19,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.897,
+      "bm25": 15.01,
+      "coverage": 0
+    }
+  ]
+}

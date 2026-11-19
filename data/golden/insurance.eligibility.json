@@ -1,0 +1,102 @@
+{
+  "intentId": "insurance.eligibility",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Records & clinical quality",
+  "subject": "insurance",
+  "ask": "eligibility",
+  "question": "What is the eligibility for insurance (TPA) empanelment for an Ayurveda hospital?",
+  "stream": "clinical-practice",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "AYUSH Hospitals - NABH",
+      "url": "https://nabh.co/programmes/ayush-hospitals-accreditation-programme/"
+    },
+    {
+      "title": "Ministry of Ayush, Government of India — acg",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.026Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "a61ed3697335838cedbcb83424c33b81e04b5375",
+      "url": "https://nabh.co/programmes/ayush-hospitals-accreditation-programme/",
+      "title": "AYUSH Hospitals - NABH",
+      "score": 1.438,
+      "bm25": 27.84,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.293,
+      "bm25": 25.03,
+      "coverage": 0.23
+    },
+    {
+      "chunkId": "71b63e35eec0b211b126a7a789deff144ca46a08",
+      "url": "https://nabh.co/programmes/eye-care-organisations-accreditation-programme/",
+      "title": "Eye Care Organisation - NABH",
+      "score": 1.249,
+      "bm25": 24.18,
+      "coverage": 0.6
+    },
+    {
+      "chunkId": "4efa762eec0901dd9ea03400010582dc2363b119",
+      "url": "https://nabh.co/programmes/small-healthcare-organisation-shco-accreditation-programme/",
+      "title": "SHCO - NABH",
+      "score": 1.201,
+      "bm25": 23.26,
+      "coverage": 0.6
+    },
+    {
+      "chunkId": "a7d02de2ce058005ab2387b8e03f26f08ffa2a56",
+      "url": "https://nabh.co/assessor-training/five-day-assessors-training-programme-as-per-nabh-6th-edition-standards-for-hospitals/",
+      "title": "Five-Day Assessors’ Training Programme as per NABH 6th Edition Standards for Hospitals - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.138,
+      "bm25": 22.03,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "2989b761eea0d4bf92acd767fac9589c0552146f",
+      "url": "https://nabh.co/programmes/entry-level-hospitals-certification-programme/",
+      "title": "Entry Level Hospitals - NABH",
+      "score": 1.115,
+      "bm25": 21.59,
+      "coverage": 0.6
+    },
+    {
+      "chunkId": "d14edf03579ce6a27f957a8fd97e33e9e244fe37",
+      "url": "https://nabh.co/",
+      "title": "National Accreditation Board for Hospitals & Healthcare Providers",
+      "score": 1.088,
+      "bm25": 21.07,
+      "coverage": 0.6
+    },
+    {
+      "chunkId": "d5b781393f39c837175a3fda6285484f216c91cd",
+      "url": "https://nabh.co/assessor-training/three-day-assessors-training-programme-as-per-nabh-2nd-edition-standards-for-entry-level-hospitals/",
+      "title": "Three-Day Assessors’ Training Programme as per NABH 2nd Edition Standards for Entry level Hospitals - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.073,
+      "bm25": 20.77,
+      "coverage": 0.29
+    }
+  ]
+}

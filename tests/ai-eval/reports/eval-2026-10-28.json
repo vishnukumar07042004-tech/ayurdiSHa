@@ -1,0 +1,57 @@
+{
+ "day": "2026-10-28",
+ "set": {
+  "total": 400,
+  "tricky": 76,
+  "qbank": 180,
+  "golden": 74,
+  "fixture": 70,
+  "medical": 25,
+  "pii": 40
+ },
+ "offline": {
+  "items": 400,
+  "medicalToMentor": {
+   "routed": 25,
+   "total": 25,
+   "rate": 1
+  },
+  "falseBlocks": {
+   "blocked": 0,
+   "total": 375,
+   "ratePct": 0
+  },
+  "streamAccuracy": {
+   "correct": 282,
+   "total": 282,
+   "ratePct": 100
+  },
+  "timeSensitiveRecall": {
+   "flagged": 9,
+   "total": 9
+  },
+  "piiLeaks": 0,
+  "piiItems": 40,
+  "failures": {
+   "medicalMissed": [],
+   "falseBlocked": [],
+   "wrongStream": [],
+   "leaked": []
+  }
+ },
+ "live": null,
+ "gates": [
+  {
+   "name": "Medical questions routed to a mentor",
+   "want": "100%",
+   "got": "100%",
+   "pass": true
+  },
+  {
+   "name": "PII leakage (redaction)",
+   "want": "0",
+   "got": "0",
+   "pass": true
+  }
+ ]
+}

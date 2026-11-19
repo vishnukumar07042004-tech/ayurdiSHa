@@ -1,13 +1,14 @@
 import React, { useCallback, useEffect, useId, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ChevronDown, ChevronRight, Lock, Search, Ticket, Unlock, X } from "lucide-react";
+import { ChevronDown, ChevronRight, Search, ShieldCheck, Ticket, UserRound, X } from "lucide-react";
+import { accountKind, accountRoleLabel, accountDisplayName, accountInitials, firstName } from "../shared/account.js";
+import "./styles/account.css";
 import useFocusTrap from "./useFocusTrap.js";
 import GlobalSearch from "./components/GlobalSearch.jsx";
 import { useScrolled } from "./components/editorial/motion.js";
 
 /** Home sections reachable from the nav (ids live in HomePage). */
 export const HOME_SECTIONS = {
-  how: "how-it-works",
   wac: "wac-2026",
 };
 
@@ -51,7 +52,7 @@ function useActiveHomeSection(enabled) {
   return active;
 }
 
-export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIntro, onOpenWelcome }) {
+export default function AppHeader({ staff, staffBadge = 0, onStaffClick, tab, onGoTab, brandToIntro, onOpenWelcome, profile = null, staffMe = null }) {
   const [menu, setMenu] = useState("closed"); // closed | open | closing
   const [showSearch, setShowSearch] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
@@ -159,28 +160,28 @@ export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIn
     setMoreOpen(false);
   }
 
-  function goTrack(e) {
+  function goHashTab(id, e) {
     closeMenu();
     setMoreOpen(false);
-    // The app-wide /#track link interceptor may already have routed this click.
+    // The app-wide /#hall, /#track link interceptor may already have routed this click.
     if (e?.defaultPrevented) return;
     e?.preventDefault();
-    onGoTab?.("track");
+    onGoTab?.(id);
   }
 
   const homeActive = onHome && tab === "intro" && !activeSection;
+  const hallActive = location.pathname === "/" && location.hash === "#hall";
   const trackActive = location.pathname === "/" && location.hash === "#track";
 
   const primaryLinks = [
     { key: "home", label: "Home", to: "/", active: homeActive, onClick: goHome },
+    { key: "hall", label: "The Hall", to: "/#hall", active: hallActive, onClick: (e) => goHashTab("hall", e) },
     { key: "mentors", label: "Meet Mentors", to: "/mentors", active: isActive("/mentors") },
-    { key: "about", label: "About", to: "/about", active: isActive("/about") },
     {
       key: "how",
       label: "How It Works",
-      to: "/",
-      active: activeSection === HOME_SECTIONS.how,
-      onClick: (e) => goSection(HOME_SECTIONS.how, e),
+      to: "/how-it-works",
+      active: location.pathname === "/how-it-works",
     },
     {
       key: "wac",
@@ -194,16 +195,15 @@ export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIn
       label: "Track my answer",
       to: "/#track",
       active: trackActive,
-      onClick: goTrack,
+      onClick: (e) => goHashTab("track", e),
       Icon: Ticket,
     },
   ];
 
   const takePart = [
-    { label: "Enter the Hall", id: "hall" },
     { label: "Register", id: "register" },
-    { label: "Ask a question", id: "ask" },
-    { label: "Open Theme Stage", id: "board" },
+    { label: "Ask Desk", id: "ask" },
+    { label: "Open theme stage", id: "board" },
   ];
   const explore = [
     { label: "Career tracks", to: "/programs" },
@@ -212,6 +212,14 @@ export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIn
     { label: "FAQs", to: "/resources#faq-title" },
     { label: "Support", to: "/contact" },
   ];
+
+  const kind = accountKind({ staffMe, profile });
+  const role = accountRoleLabel(kind);
+  const display = accountDisplayName({ profile, staffMe, kind });
+  const chipName = kind === "visitor" ? "Profile" : (firstName(display) || "Profile");
+  const chipLabel = chipName.includes("@") ? "Profile" : chipName;
+  const initials = accountInitials(display, "");
+  const accountActive = location.pathname === "/account";
 
   const headerClass = [
     "ed-nav",
@@ -269,16 +277,30 @@ export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIn
             {onStaffClick && (
               <button
                 type="button"
-                className="ed-icon-btn ed-staff-btn"
+                className="ed-staff-access"
                 onClick={() => { onStaffClick(); setMoreOpen(false); }}
-                aria-label={staff ? "Staff session active" : "Staff login"}
-                title={staff ? "Staff session active" : "Staff login"}
+                aria-label={staff
+                  ? `Staff portal${staffBadge > 0 ? ` — ${staffBadge} access request${staffBadge === 1 ? "" : "s"} waiting` : ""}`
+                  : "Staff access"}
               >
-                {staff ? <Unlock size={15} aria-hidden="true" /> : <Lock size={15} aria-hidden="true" />}
+                <ShieldCheck size={14} aria-hidden="true" />
+                <span>{staff ? "Staff portal" : "Staff access"}</span>
+                {staff && staffBadge > 0 && <span className="ed-staff-badge" aria-hidden="true">{staffBadge > 99 ? "99+" : staffBadge}</span>}
               </button>
             )}
-            <Link to="/mentors" className="ui-btn ui-btn--primary ui-btn--sm ed-nav-cta">
-              Meet a Mentor
+            <Link
+              to="/account"
+              className={`ed-account-chip${accountActive ? " is-active" : ""}`}
+              aria-label={kind === "visitor" ? "Profile — sign in" : `Profile, ${chipLabel}, ${role}`}
+              onClick={() => setMoreOpen(false)}
+            >
+              <span className={`ed-account-avatar${kind === "visitor" ? " ed-account-avatar--guest" : ""}`} aria-hidden="true">
+                {kind === "visitor" ? <UserRound size={16} strokeWidth={1.9} /> : initials}
+              </span>
+              <span className="ed-account-meta">
+                <span className="ed-account-name">{chipLabel}</span>
+                <span className="ed-account-role">{role}</span>
+              </span>
             </Link>
             <button
               type="button"
@@ -313,7 +335,7 @@ export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIn
                 <p className="ui-flyout-label">Orientation</p>
                 {onOpenWelcome && (
                   <button type="button" onClick={() => { setMoreOpen(false); onOpenWelcome(); }}>
-                    Welcome overview
+                    Replay intro
                   </button>
                 )}
                 <Link to="/about" onClick={() => setMoreOpen(false)}>About AYURDISHA</Link>
@@ -369,24 +391,23 @@ export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIn
               ))}
             </ul>
 
-            <div className="ed-overlay-actions" style={{ "--i": 6 }}>
-              <Link to="/mentors" className="ui-btn ui-btn--primary ui-btn--lg ui-btn--block" onClick={closeMenu}>
-                Meet a Mentor
-              </Link>
-              <button type="button" className="ui-btn ui-btn--secondary ui-btn--md ui-btn--block" onClick={() => go("ask")}>
-                Ask a question
+            <div className="ed-overlay-actions" style={{ "--i": primaryLinks.length }}>
+              <button type="button" className="ui-btn ui-btn--primary ui-btn--lg ui-btn--block" onClick={() => go("ask")}>
+                Ask Desk
               </button>
+              <Link to="/account" className="ui-btn ui-btn--secondary ui-btn--md ui-btn--block" onClick={closeMenu}>
+                Profile
+              </Link>
             </div>
 
-            <div className="ed-overlay-groups" style={{ "--i": 7 }}>
+            <div className="ed-overlay-groups" style={{ "--i": primaryLinks.length + 1 }}>
               <div>
                 <p className="ed-more-label">Take part</p>
-                <button type="button" onClick={() => go("hall")}>Enter the Hall</button>
                 <button type="button" onClick={() => go("register")}>Register</button>
-                <button type="button" onClick={() => go("board")}>Open Theme Stage</button>
+                <button type="button" onClick={() => go("board")}>Open theme stage</button>
                 {onOpenWelcome && (
                   <button type="button" onClick={() => { closeMenu(); onOpenWelcome(); }}>
-                    Welcome overview
+                    Replay intro
                   </button>
                 )}
               </div>
@@ -395,6 +416,7 @@ export default function AppHeader({ staff, onStaffClick, tab, onGoTab, brandToIn
                 {explore.map((x) => (
                   <Link key={x.label} to={x.to} onClick={closeMenu}>{x.label}</Link>
                 ))}
+                <Link to="/about" onClick={closeMenu}>About AYURDISHA</Link>
               </div>
             </div>
           </nav>

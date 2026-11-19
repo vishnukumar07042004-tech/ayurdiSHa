@@ -84,7 +84,7 @@ export default function ResourcesPage() {
           {
             icon: <MessageCircleQuestion size={22} strokeWidth={1.7} />,
             text: "Can’t find your answer?",
-            label: "Ask the desk",
+            label: "Ask Desk",
             to: ASK,
           },
           {
@@ -102,7 +102,7 @@ export default function ResourcesPage() {
           { label: "Library", href: "#resource-library" },
           { label: "FAQs", href: "#faq" },
         ]}
-        cta={{ label: "Ask the desk", to: ASK }}
+        cta={{ label: "Ask Desk", to: ASK }}
       />
 
       <section id="resource-library" className="st-explorer ui-anchor" aria-label="Resource library">
@@ -225,7 +225,7 @@ export default function ResourcesPage() {
               <span className="st-title-soft"> Answered in plain words.</span>
             </h2>
             <p className="ui-body st-faq-lead">
-              Meet the Mentors, Ask Desk, Track, the Hall, theme stage, registration, and live 1-on-1 talks at WAC Bhubaneswar.
+              Meet the Mentors, Ask Desk, Track, the Hall, theme stage, registration, and live one-to-one talks at WAC Bhubaneswar.
             </p>
             <HelpRow
               className="st-faq-help"
@@ -233,7 +233,7 @@ export default function ResourcesPage() {
                 {
                   icon: <MessageCircleQuestion size={24} strokeWidth={1.6} />,
                   title: "Still unsure?",
-                  label: "Ask the desk",
+                  label: "Ask Desk",
                   to: ASK,
                 },
               ]}

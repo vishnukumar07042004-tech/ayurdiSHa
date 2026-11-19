@@ -1,0 +1,103 @@
+{
+  "intentId": "specialty-skin.scope",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Choosing a clinical specialty",
+  "subject": "specialty:skin",
+  "ask": "scope",
+  "question": "What is the scope of an Ayurveda skin and cosmetology practice for BAMS graduates?",
+  "stream": "clinical-practice",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.969Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 1.05,
+      "bm25": 25.41,
+      "coverage": 0
+    },
+    {
+      "chunkId": "f86683e495b71ef670c74a7a949a2b2fefd621e7",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27449208/",
+      "title": "Attitude of interns towards research as a career option.",
+      "score": 1.046,
+      "bm25": 25.32,
+      "coverage": 0
+    },
+    {
+      "chunkId": "ad569dd2af74979f312a0769d3bce896c6834ad7",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40561743/",
+      "title": "Perceptions, knowledge, attitude, practices and barriers towards research among Ayurveda interns: A cross - sectional pilot study.",
+      "score": 0.997,
+      "bm25": 24.13,
+      "coverage": 0
+    },
+    {
+      "chunkId": "e6ccc3645d279eb9a59ab67779e573df6669dc83",
+      "url": "https://ccras.nic.in/directory/it-internship-program-at-ccras-headquarters-from-19th-june-2025/",
+      "title": "IT internship program at CCRAS Headquarters from 19th June 2025 - Central Council for Research in Ayurvedic Sciences",
+      "score": 0.911,
+      "bm25": 22.06,
+      "coverage": 0.26
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 0.9,
+      "bm25": 15.91,
+      "coverage": 0
+    },
+    {
+      "chunkId": "899aeb117267a583e7e82d3fc613f95cde8b670f",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/STG_Dermatological_Disorders_Ayurveda.pdf",
+      "title": "STG Dermatological Disorders Ayurveda",
+      "score": 0.815,
+      "bm25": 14.41,
+      "coverage": 0
+    },
+    {
+      "chunkId": "69371b0b04c5034e00d8d754211abd4877b4cd03",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/STG_Dermatological_Disorders_Ayurveda.pdf",
+      "title": "STG Dermatological Disorders Ayurveda",
+      "score": 0.799,
+      "bm25": 14.13,
+      "coverage": 0
+    },
+    {
+      "chunkId": "072a5542c557c75d0e8e499e5d8b1afbf10f16dc",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/senior-house-surgeoncy",
+      "title": "Senior House Surgency - Department of Indian Systems of Medicine",
+      "score": 0.755,
+      "bm25": 13.34,
+      "coverage": 0
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "intentId": "registration-state.legal.odisha",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Setting up private practice",
+  "subject": "general",
+  "ask": "legal",
+  "question": "How do I register with the Odisha state board of Indian medicine after my BAMS internship?",
+  "stream": "internship-early-career",
+  "region": "odisha",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.763Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.15,
+      "bm25": 32.6,
+      "coverage": 0.53
+    },
+    {
+      "chunkId": "17faf02c65ba459498c90ca44c8dcd8c63c99986",
+      "url": "https://ayush.gov.in/assets/pdf/careers/pasighat-vacancy.pdf",
+      "title": "pasighat vacancy",
+      "score": 0.79,
+      "bm25": 17.91,
+      "coverage": 0.44
+    },
+    {
+      "chunkId": "e6ccc3645d279eb9a59ab67779e573df6669dc83",
+      "url": "https://ccras.nic.in/directory/it-internship-program-at-ccras-headquarters-from-19th-june-2025/",
+      "title": "IT internship program at CCRAS Headquarters from 19th June 2025 - Central Council for Research in Ayurvedic Sciences",
+      "score": 0.765,
+      "bm25": 23.74,
+      "coverage": 0.28
+    },
+    {
+      "chunkId": "dce915e0e8afe93c3182b503bc1f57fc2f2fb766",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Group-A-posts-comments-of-sttakeholders.pdf",
+      "title": "Group A posts comments of sttakeholders",
+      "score": 0.747,
+      "bm25": 21.19,
+      "coverage": 0.51
+    },
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 0.745,
+      "bm25": 23.12,
+      "coverage": 0.38
+    },
+    {
+      "chunkId": "c9cef37ab65df64d294eca695cb8db27044aa5b3",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Group-A-posts-comments-of-sttakeholders.pdf",
+      "title": "Group A posts comments of sttakeholders",
+      "score": 0.734,
+      "bm25": 20.81,
+      "coverage": 0.51
+    },
+    {
+      "chunkId": "dd1bbe2461f956bf42664d800ef3d4dc7b99f079",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 0.719,
+      "bm25": 22.33,
+      "coverage": 0.37
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.702,
+      "bm25": 15.93,
+      "coverage": 0.25
+    }
+  ]
+}

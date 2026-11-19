@@ -1,0 +1,103 @@
+{
+  "intentId": "mph.eligibility",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Public health projects",
+  "subject": "mph",
+  "ask": "eligibility",
+  "question": "What is the eligibility for an MPH after BAMS?",
+  "stream": "public-health-policy",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.663Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "0c25bbd9b19f1559015d14ea460ffde1de8b8fc8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.438,
+      "bm25": 23.89,
+      "coverage": 0.57
+    },
+    {
+      "chunkId": "1339780f823240b66f91f9cb034e91836d90a8a6",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/RAV_Vacancy.pdf",
+      "title": "RAV Vacancy",
+      "score": 1.202,
+      "bm25": 19.97,
+      "coverage": 0.43
+    },
+    {
+      "chunkId": "280cf8415f41ab4804b4016e646867c8bba55e92",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 1.183,
+      "bm25": 19.65,
+      "coverage": 0.28
+    },
+    {
+      "chunkId": "119b8e31c8366a1694b562dd7f25f13231297dce",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.107,
+      "bm25": 18.4,
+      "coverage": 0
+    },
+    {
+      "chunkId": "fe681eb2fd2c1831d1753c36d7e29f1e01d91e6c",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Recruitment_Notice_13072026.pdf",
+      "title": "Recruitment Notice 13072026",
+      "score": 1.101,
+      "bm25": 18.3,
+      "coverage": 0
+    },
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.024,
+      "bm25": 17.01,
+      "coverage": 0.28
+    },
+    {
+      "chunkId": "edda68b3b78bf195db59780ae0ddce9bea92ea11",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/VacancyDepAdviserYN.pdf",
+      "title": "VacancyDepAdviserYN",
+      "score": 0.912,
+      "bm25": 18.93,
+      "coverage": 0.43
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 0.904,
+      "bm25": 18.78,
+      "coverage": 0.15
+    }
+  ]
+}

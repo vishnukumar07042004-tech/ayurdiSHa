@@ -1,0 +1,103 @@
+{
+  "intentId": "export-pricing.how-to",
+  "theme": "Export & Global Trade",
+  "subtheme": "Pricing & distribution",
+  "subject": "export",
+  "ask": "how-to",
+  "question": "How should I price and find distributors for exporting Ayurvedic products?",
+  "stream": "export-trade",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.099Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "b2070c3ceac672118d261b39781cdf0afe0dd2ac",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ic.pdf",
+      "title": "Ministry of Ayush, Government of India — ic",
+      "score": 1.26,
+      "bm25": 15.52,
+      "coverage": 0.56
+    },
+    {
+      "chunkId": "09d5d3dbd634e2738f18d85605a4db86041881b5",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/08/Ayurworld-May-June-2026.pdf",
+      "title": "Ayurworld May June 2026",
+      "score": 1.25,
+      "bm25": 17.7,
+      "coverage": 0.52
+    },
+    {
+      "chunkId": "ef444f66dda1bdcbaccc806075db8cf10f8a047b",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ic.pdf",
+      "title": "Ministry of Ayush, Government of India — ic",
+      "score": 1.2,
+      "bm25": 14.78,
+      "coverage": 0.56
+    },
+    {
+      "chunkId": "9e9612be4e12896a436d61de2d383b353f815a87",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/08/Ayurworld-May-June-2026.pdf",
+      "title": "Ayurworld May June 2026",
+      "score": 1.104,
+      "bm25": 15.64,
+      "coverage": 0.52
+    },
+    {
+      "chunkId": "836fdb36b0f23caac923a3c82f9d16d6d57520ad",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/CDSMMP.pdf",
+      "title": "CDSMMP",
+      "score": 1.099,
+      "bm25": 13.52,
+      "coverage": 0.26
+    },
+    {
+      "chunkId": "8e1e9e47b92de0b6e451b45c3b5ccfec2aa1c995",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.089,
+      "bm25": 13.41,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "38f206b0c1d77f18ef9775f270dc0de75b0c140a",
+      "url": "https://pharmexcil.com/uploads/RevisedMAIGuildelines19thJuly2021.pdf",
+      "title": "RevisedMAIGuildelines19thJuly2021",
+      "score": 1.068,
+      "bm25": 13.14,
+      "coverage": 0.27
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.054,
+      "bm25": 16.22,
+      "coverage": 0
+    }
+  ]
+}

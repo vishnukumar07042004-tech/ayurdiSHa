@@ -1,0 +1,102 @@
+{
+  "intentId": "panchakarma-centre.legal",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Panchakarma & therapy services",
+  "subject": "panchakarma",
+  "ask": "legal",
+  "question": "What licence or registration is required for a Panchakarma centre?",
+  "stream": "panchakarma-wellness",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Panchkarma Clinic - NABH",
+      "url": "https://nabh.co/programmes/panchakarma-clinic-accreditation-programme/"
+    },
+    {
+      "title": "Drugs and Cosmetics Act Rules",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.459Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "2651cb543ed0819760b58dbb8c9c4e126bbc99f0",
+      "url": "https://nabh.co/programmes/panchakarma-clinic-accreditation-programme/",
+      "title": "Panchkarma Clinic - NABH",
+      "score": 1.363,
+      "bm25": 19.52,
+      "coverage": 0.39
+    },
+    {
+      "chunkId": "b72cbc0e8f18ab3812bd1e14daa53b01a93e171b",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.15,
+      "bm25": 20.59,
+      "coverage": 0.61
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.105,
+      "bm25": 15.82,
+      "coverage": 0.12
+    },
+    {
+      "chunkId": "cb20b23616f8c35f3fc7d28b697a7456180bf2b2",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.052,
+      "bm25": 18.84,
+      "coverage": 0.61
+    },
+    {
+      "chunkId": "53f1e37e694a029e6e5026a1fa33a9cac7aebb75",
+      "url": "https://ayush.gov.in/assets/pdf/careers/NIT.pdf",
+      "title": "Ministry of Ayush, Government of India — NIT",
+      "score": 1.027,
+      "bm25": 14.7,
+      "coverage": 0.52
+    },
+    {
+      "chunkId": "44a65dcc5c2f8e0478a9391a539238b435115341",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 0.978,
+      "bm25": 14.01,
+      "coverage": 0.39
+    },
+    {
+      "chunkId": "2b0db532652a2f5e7aa5aa8db68b663ad298a9e9",
+      "url": "https://ayurworld.org/pain-management-through-ayurveda/",
+      "title": "PAIN MANAGEMENT THROUGH AYURVEDA - 11th World Ayurveda Congress And Arogya Expo 2026",
+      "score": 0.934,
+      "bm25": 15.38,
+      "coverage": 0.59
+    },
+    {
+      "chunkId": "a0a25696c2d8e8093ca0184ad7ac89a10555429d",
+      "url": "https://aaccc.gov.in/ug-counselling/",
+      "title": "UG Counseling",
+      "score": 0.934,
+      "bm25": 16.72,
+      "coverage": 0.32
+    }
+  ]
+}

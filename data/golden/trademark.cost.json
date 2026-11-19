@@ -1,0 +1,103 @@
+{
+  "intentId": "trademark.cost",
+  "theme": "Entrepreneurship & Start-ups",
+  "subtheme": "Team & intellectual property",
+  "subject": "trademark",
+  "ask": "cost",
+  "question": "How much does a trademark for my brand cost?",
+  "stream": "entrepreneurship",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.121Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "35b7538670d966d2fb09be0db0d1a7b83bd6a668",
+      "url": "https://ipindia.gov.in/uploads/National_IPR_Policy_English.pdf",
+      "title": "National IPR Policy English",
+      "score": 1.438,
+      "bm25": 20.46,
+      "coverage": 0.42
+    },
+    {
+      "chunkId": "86033cf0ae6239d454d8550ced5ec3b1299c9204",
+      "url": "https://ipindia.gov.in/uploads/National_IPR_Policy_English.pdf",
+      "title": "National IPR Policy English",
+      "score": 1.094,
+      "bm25": 15.57,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "7d122d03fdf5c54dca9a838addb1e6542f9a48f8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.004,
+      "bm25": 17.86,
+      "coverage": 0.16
+    },
+    {
+      "chunkId": "7aafdb3bd5cf304340fa900533ba351d8b09c0f5",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/04/25042025-CSR-Policy.pdf",
+      "title": "CCRAS CSR Policy.pdf",
+      "score": 1.002,
+      "bm25": 19.52,
+      "coverage": 0.16
+    },
+    {
+      "chunkId": "2902ae851f9c5966f86ada4a72ebecd85abe5265",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/guduchi_Book-Dossier.pdf",
+      "title": "guduchi Book Dossier",
+      "score": 0.941,
+      "bm25": 13.4,
+      "coverage": 0
+    },
+    {
+      "chunkId": "c0ba3194ae2fdd0c70a001935adf6ea141c1ebd3",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20532099/",
+      "title": "Global challenges of graduate level Ayurvedic education: A survey.",
+      "score": 0.904,
+      "bm25": 17.62,
+      "coverage": 0
+    },
+    {
+      "chunkId": "8e5f46bc59274343417b352e905ad01bede64565",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/08/Ayurworld-May-June-2026.pdf",
+      "title": "Ayurworld May June 2026",
+      "score": 0.895,
+      "bm25": 14.64,
+      "coverage": 0.24
+    },
+    {
+      "chunkId": "f721a2f39ab3e90a9eaeecd5ca06ce340ed81e0c",
+      "url": "https://ayushportal.nic.in/pdf/TKM_Study_Report.pdf",
+      "title": "TKM Study Report",
+      "score": 0.852,
+      "bm25": 16.61,
+      "coverage": 0.34
+    }
+  ]
+}

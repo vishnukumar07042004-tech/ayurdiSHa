@@ -1,0 +1,103 @@
+{
+  "intentId": "hospital.how-to",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Hospital employment",
+  "subject": "hospital",
+  "ask": "how-to",
+  "question": "How do I get a job in a good hospital after BAMS?",
+  "stream": "clinical-practice",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.432Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.401,
+      "bm25": 24.69,
+      "coverage": 0.41
+    },
+    {
+      "chunkId": "5e8046edfeff9b9e119821821bbeff49338c1426",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29526234/",
+      "title": "Awareness, practice and views about integrating AYUSH in allopathic curriculum of allopathic doctors and interns in a tertiary care teaching hospital in New Delhi, India.",
+      "score": 1.05,
+      "bm25": 25.34,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "244638951e4a356c5699abbd7749ae2b209bcb53",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ayurgyan.pdf",
+      "title": "ayurgyan",
+      "score": 0.89,
+      "bm25": 15.69,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "fa29fe3a12c44f7bbc984cf1b1c8d12371928b60",
+      "url": "https://nabh.co/programmes/hospitals-accreditation-programme-hco/",
+      "title": "Hospitals Accreditation Programme (HCO) - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 0.852,
+      "bm25": 15.01,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "dd1bbe2461f956bf42664d800ef3d4dc7b99f079",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 0.848,
+      "bm25": 20.47,
+      "coverage": 0
+    },
+    {
+      "chunkId": "c74ade5923ac877fc821da19b43952c831bfec17",
+      "url": "https://nabh.co/e-mitra-step-by-step-guide-for-entry-level-certification/",
+      "title": "E-Mitra Step-By-Step Guide for Entry Level Certification - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 0.842,
+      "bm25": 14.85,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "7a3da3b7388a4d8feb237435573125b53c9bc6f3",
+      "url": "https://ayush.gov.in/assets/pdf/nam/NAM_Guideline_English.pdf",
+      "title": "NAM Guideline English",
+      "score": 0.804,
+      "bm25": 14.17,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 0.798,
+      "bm25": 19.25,
+      "coverage": 0.19
+    }
+  ]
+}

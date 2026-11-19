@@ -1,0 +1,103 @@
+{
+  "intentId": "upsc.possible",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "subject": "upsc",
+  "ask": "is it possible",
+  "question": "Can a BAMS graduate clear UPSC civil services after BAMS?",
+  "stream": "govt-jobs",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.637Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.15,
+      "bm25": 24.92,
+      "coverage": 0.11
+    },
+    {
+      "chunkId": "267d3873c1ce6e39a1077d7408d0f9de26e7ba5f",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 1.105,
+      "bm25": 20.98,
+      "coverage": 0.14
+    },
+    {
+      "chunkId": "280cf8415f41ab4804b4016e646867c8bba55e92",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 1.019,
+      "bm25": 17.66,
+      "coverage": 0
+    },
+    {
+      "chunkId": "09ea88e4b4659c7bf3cdf196308a4ceb3db49349",
+      "url": "https://ayush.gov.in/assets/pdf/careers/CGN_UG_Guideline_Session_2025-26.pdf",
+      "title": "CGN UG Guideline Session 2025 26",
+      "score": 1.001,
+      "bm25": 21.69,
+      "coverage": 0.11
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 0.983,
+      "bm25": 18.66,
+      "coverage": 0
+    },
+    {
+      "chunkId": "a1445d5206b7fe4113cd77e5881ca348493a4cd2",
+      "url": "https://ayush.gov.in/assets/pdf/careers/NIC,_Ministry_of_Ayush,_New_Delhi.pdf",
+      "title": "NIC, Ministry of Ayush, New Delhi",
+      "score": 0.934,
+      "bm25": 16.2,
+      "coverage": 0.11
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 0.923,
+      "bm25": 20,
+      "coverage": 0
+    },
+    {
+      "chunkId": "3f14558c4c61e7dd3adfe1ef407ea020eb03c3ec",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ic.pdf",
+      "title": "Ministry of Ayush, Government of India — ic",
+      "score": 0.883,
+      "bm25": 19.13,
+      "coverage": 0.31
+    }
+  ]
+}

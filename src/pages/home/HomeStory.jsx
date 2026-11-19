@@ -21,7 +21,7 @@ export function HomeIdea() {
             <div className="ui-idea-media ed-media ed-zoom" data-scroll-img>
               <Picture
                 src="/assets/sections/home-idea.webp"
-                alt="A senior vaidya on a sunlit college veranda sharing an open classical text with two BAMS students"
+                alt="A senior vaidya on a sunlit college veranda sharing an open classical text with two students"
                 width={1152}
                 height={864}
                 sizes="(max-width: 1023px) 94vw, 700px"
@@ -35,7 +35,7 @@ export function HomeIdea() {
               Should I prepare for MD entrance? Open a clinic? Join research or public health? Practise abroad?
             </p>
             <p className="ui-body">
-              Every year thousands of BAMS graduates finish internship with the same questions.
+              Every year thousands of students, interns and young practitioners reach the same crossroads.
               AYURDISHA answers them the way Ayurveda has always been passed on — person to person.
             </p>
             <p className="ui-body">

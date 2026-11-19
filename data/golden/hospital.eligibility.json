@@ -1,0 +1,103 @@
+{
+  "intentId": "hospital.eligibility",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Hospital employment",
+  "subject": "hospital",
+  "ask": "eligibility",
+  "question": "What is the eligibility for a hospital job after BAMS?",
+  "stream": "clinical-practice",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.457Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.438,
+      "bm25": 26.44,
+      "coverage": 0.3
+    },
+    {
+      "chunkId": "d5b781393f39c837175a3fda6285484f216c91cd",
+      "url": "https://nabh.co/assessor-training/three-day-assessors-training-programme-as-per-nabh-2nd-edition-standards-for-entry-level-hospitals/",
+      "title": "Three-Day Assessors’ Training Programme as per NABH 2nd Edition Standards for Entry level Hospitals - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.161,
+      "bm25": 21.35,
+      "coverage": 0.3
+    },
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.031,
+      "bm25": 18.97,
+      "coverage": 0.42
+    },
+    {
+      "chunkId": "6cb570ddc46d075bd577e00b6033cd7a98c2af51",
+      "url": "https://nabh.co/assessor-training/five-day-assessors-training-programme-as-per-nabh-6th-edition-standards-for-hospitals/",
+      "title": "Five-Day Assessors’ Training Programme as per NABH 6th Edition Standards for Hospitals - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 0.94,
+      "bm25": 17.29,
+      "coverage": 0.56
+    },
+    {
+      "chunkId": "ab839571b1bb3bb6cee73bf3060920e7e9585b7a",
+      "url": "https://ayush.gov.in/assets/pdf/careers/pasighat-vacancy.pdf",
+      "title": "pasighat vacancy",
+      "score": 0.94,
+      "bm25": 21.61,
+      "coverage": 0.41
+    },
+    {
+      "chunkId": "ba5b60232b30534a0eefb24afd5015001f3a674e",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/VacancyCircularSiddhaUnani.pdf",
+      "title": "VacancyCircularSiddhaUnani",
+      "score": 0.922,
+      "bm25": 16.96,
+      "coverage": 0.56
+    },
+    {
+      "chunkId": "b8f63c54af2274c774e033815a2abba494e79271",
+      "url": "https://nabh.co/assessor-training/nabh-three-days-assessors-training-program-in-accordance-with-2nd-edition-digital-health-standards-for-hospital/",
+      "title": "NABH Three-days Assessors’ Training Program in accordance with 2nd Edition Digital Health Standards for Hospital - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 0.915,
+      "bm25": 16.84,
+      "coverage": 0.56
+    },
+    {
+      "chunkId": "acb1bf2b9caeca5595b5b44df195707371b50d7c",
+      "url": "https://nabh.co/assessor-training/three-day-assessors-training-programme-as-per-nabh-2nd-edition-standards-for-entry-level-hospitals/",
+      "title": "Three-Day Assessors’ Training Programme as per NABH 2nd Edition Standards for Entry level Hospitals - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 0.907,
+      "bm25": 16.67,
+      "coverage": 0.56
+    }
+  ]
+}

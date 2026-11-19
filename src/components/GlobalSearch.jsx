@@ -20,6 +20,13 @@ import { SITE_FAQS } from "../data/faqs.js";
 
 const PAGES = [
   {
+    id: "page-how",
+    title: "How it works",
+    sub: "Register, ask one question, and follow the written reply",
+    path: "/how-it-works",
+    keywords: "how it works register ask track disha privacy pass ticket",
+  },
+  {
     id: "page-about",
     title: "About AYURDISHA",
     sub: "Mission, Congress context, and how to reopen welcome",
@@ -42,10 +49,10 @@ const PAGES = [
   },
   {
     id: "page-welcome",
-    title: "Welcome overview",
+    title: "Replay intro",
     sub: "Orientation slides for AYURDISHA",
-    path: "/welcome",
-    keywords: "welcome intro orientation overview",
+    path: "/welcome?replay=1",
+    keywords: "welcome intro orientation overview replay tour",
   },
   {
     id: "page-track",

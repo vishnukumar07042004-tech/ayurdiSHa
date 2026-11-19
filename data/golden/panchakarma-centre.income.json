@@ -1,0 +1,103 @@
+{
+  "intentId": "panchakarma-centre.income",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Panchakarma & therapy services",
+  "subject": "panchakarma",
+  "ask": "income",
+  "question": "What salary or income can I expect from a Panchakarma centre?",
+  "stream": "panchakarma-wellness",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.543Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "2651cb543ed0819760b58dbb8c9c4e126bbc99f0",
+      "url": "https://nabh.co/programmes/panchakarma-clinic-accreditation-programme/",
+      "title": "Panchkarma Clinic - NABH",
+      "score": 1.385,
+      "bm25": 16.61,
+      "coverage": 0.32
+    },
+    {
+      "chunkId": "53f1e37e694a029e6e5026a1fa33a9cac7aebb75",
+      "url": "https://ayush.gov.in/assets/pdf/careers/NIT.pdf",
+      "title": "Ministry of Ayush, Government of India — NIT",
+      "score": 1.346,
+      "bm25": 16.14,
+      "coverage": 0.5
+    },
+    {
+      "chunkId": "0aabb9b08f85e97fef3416ddacafe8dafdc3f0d5",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.246,
+      "bm25": 14.94,
+      "coverage": 0.32
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.174,
+      "bm25": 14.08,
+      "coverage": 0
+    },
+    {
+      "chunkId": "7cbf9eee8eba9c8f76a4168d5a5ec88eb137f142",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.109,
+      "bm25": 13.3,
+      "coverage": 0.32
+    },
+    {
+      "chunkId": "eaaded765eb50d16ffc6a7cfa69d4bed5d730787",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.078,
+      "bm25": 16.16,
+      "coverage": 0.24
+    },
+    {
+      "chunkId": "54fba6cedbc30fede03e2d5f67c97857eb5d2a9b",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39524546/",
+      "title": "Case Report: The role of Panchagavya and Panchakarma treatment in the management of radiotherapy and chemotherapy side effects in infiltrative ductal carcinoma.",
+      "score": 1.05,
+      "bm25": 17.24,
+      "coverage": 0.18
+    },
+    {
+      "chunkId": "7d122d03fdf5c54dca9a838addb1e6542f9a48f8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 0.969,
+      "bm25": 11.62,
+      "coverage": 0.42
+    }
+  ]
+}

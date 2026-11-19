@@ -1,6 +1,7 @@
 import { loadServerEnv } from "./env.js";
 import { sendAnswerNotification } from "./mailer.js";
-import { findUserByRegNo } from "./register.js";
+import { sendOrQueue } from "./mailQueue.js";
+import { findUserByRegNo, isDemoDelegate } from "./register.js";
 
 const K_Q = "aym:q:";
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
@@ -31,6 +32,7 @@ function errText(err) {
 
 /** Email stored on the question first, then the registered delegate behind its WAC number. */
 export async function resolveRecipient(store, q) {
+  if (isDemoDelegate(q || {})) return null;
   const email = String(q && q.email || "").trim();
   if (EMAIL_RE.test(email)) return { email, name: String(q.name || "").trim() };
   const regNo = String(q && (q.regNo || q.delegateNo) || "").trim();
@@ -73,16 +75,21 @@ export async function notifyAnswerOnce(store, q, { answer } = {}) {
       console.log(`[aym-notify] no email on file for ${label}; answer notice skipped`);
       return null;
     }
-    const r = await withTimeout(sendAnswerNotification({
+    const r = await withTimeout(sendOrQueue(store, {
+      send: () => sendAnswerNotification({
+        to: to.email,
+        name: to.name,
+        ticket: q.ticket || "",
+        link: trackLink(q.ticket),
+      }),
+      template: "answer-notice",
       to: to.email,
-      name: to.name,
-      ticket: q.ticket || "",
-      link: trackLink(q.ticket),
+      payload: { name: to.name, ticket: q.ticket || "", link: trackLink(q.ticket) },
     }), SEND_TIMEOUT_MS);
-    if (!r || r.delivery !== "email") return null;
-    const next = { ...q, answerNotifiedAt: Date.now() };
+    if (!r || (r.delivery !== "email" && r.delivery !== "queued")) return null;
+    const next = { ...q, answerNotifiedAt: Date.now(), ...(r.delivery === "queued" ? { answerNotifyQueuedAt: Date.now() } : {}) };
     await store.set(K_Q + q.id, next);
-    console.log(`[aym-notify] answer notice sent for ${label}`);
+    console.log(`[aym-notify] answer notice ${r.delivery === "queued" ? "queued" : "sent"} for ${label}`);
     return next;
   } catch (err) {
     console.error(`[aym-notify] answer notice failed for ${q && (q.ticket || q.id)}:`, errText(err));
@@ -118,13 +125,23 @@ export async function notifyNewlyPublishedClusters(store, prevClusters, nextClus
     const prevById = new Map((Array.isArray(prevClusters) ? prevClusters : [])
       .filter(c => c && c.id != null)
       .map(c => [String(c.id), c]));
-    const fresh = (Array.isArray(nextClusters) ? nextClusters : [])
-      .filter(c => isPublishedWithAnswer(c) && !isPublishedWithAnswer(prevById.get(String(c.id))));
+    // Newly published groups notify everyone; already-published groups notify only students
+    // who just joined them (e.g. a manual merge into an answered group).
+    const fresh = [];
+    (Array.isArray(nextClusters) ? nextClusters : []).forEach(c => {
+      if (!isPublishedWithAnswer(c)) return;
+      const before = prevById.get(String(c.id));
+      const members = Array.isArray(c.memberIds) ? c.memberIds : [];
+      if (!isPublishedWithAnswer(before)) { fresh.push({ c, members }); return; }
+      const had = new Set((before.memberIds || []).map(String));
+      const joined = members.filter(m => !had.has(String(m)));
+      if (joined.length) fresh.push({ c, members: joined });
+    });
     if (!fresh.length) return;
 
     let budget = CLUSTER_NOTIFY_MAX;
-    for (const c of fresh) {
-      for (const mid of Array.isArray(c.memberIds) ? c.memberIds : []) {
+    for (const { c, members } of fresh) {
+      for (const mid of members) {
         const q = await findMemberQuestion(store, mid);
         if (!q || q.answerNotifiedAt) continue;
         if (budget <= 0) {

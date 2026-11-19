@@ -32,14 +32,17 @@ export function parseEnvFile(filePath) {
   }
 }
 
-/** .env.local wins, then .env, then process.env. Never expose this to the client. */
+/**
+ * Non-empty process.env wins (so `AI_PROVIDER=vertex node script` works locally), then .env.local,
+ * then .env. Never expose this to the client.
+ */
 export function loadServerEnv() {
   const merged = {};
   for (const p of [...ENV_FILES].reverse()) {
     Object.assign(merged, parseEnvFile(p));
   }
   for (const [k, v] of Object.entries(process.env)) {
-    if (v != null && String(v).length && merged[k] == null) merged[k] = String(v);
+    if (v != null && String(v).length) merged[k] = String(v);
   }
   return merged;
 }

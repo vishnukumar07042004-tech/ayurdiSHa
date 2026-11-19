@@ -1,0 +1,103 @@
+{
+  "intentId": "govt-mo.timeline",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "subject": "medicalofficer",
+  "ask": "timeline",
+  "question": "When should I start preparing for a government Ayurveda Medical Officer post?",
+  "stream": "govt-jobs",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.430Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.158,
+      "bm25": 17.18,
+      "coverage": 0.5
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.15,
+      "bm25": 21.33,
+      "coverage": 0.1
+    },
+    {
+      "chunkId": "a1445d5206b7fe4113cd77e5881ca348493a4cd2",
+      "url": "https://ayush.gov.in/assets/pdf/careers/NIC,_Ministry_of_Ayush,_New_Delhi.pdf",
+      "title": "NIC, Ministry of Ayush, New Delhi",
+      "score": 1.134,
+      "bm25": 16.83,
+      "coverage": 0.4
+    },
+    {
+      "chunkId": "7c9f45f1464f01bf057556e222be2415738cff54",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 1.111,
+      "bm25": 20.61,
+      "coverage": 0.26
+    },
+    {
+      "chunkId": "f0078d54b17d92fd4dbdaa2add34848049260765",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 1.083,
+      "bm25": 16.07,
+      "coverage": 0.5
+    },
+    {
+      "chunkId": "17faf02c65ba459498c90ca44c8dcd8c63c99986",
+      "url": "https://ayush.gov.in/assets/pdf/careers/pasighat-vacancy.pdf",
+      "title": "pasighat vacancy",
+      "score": 1.077,
+      "bm25": 15.98,
+      "coverage": 0.41
+    },
+    {
+      "chunkId": "8ca8571616adb1b3be056733e1e86c88b70ce2bf",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 1.062,
+      "bm25": 19.7,
+      "coverage": 0.24
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 1.052,
+      "bm25": 19.52,
+      "coverage": 0.1
+    }
+  ]
+}

@@ -5,6 +5,7 @@ import {
   Inbox, Users, MessageCircle, HelpCircle, Loader2,
 } from "lucide-react";
 import { Sprig } from "./components/editorial/Ornaments.jsx";
+import { DISHA_TRACK_NOTE } from "./content/glossary.js";
 import {
   getMentorByParam, mentorSlug, mentorNameParts, mentorInitials, mentorPortraitUrl,
   mentorPublicPath, mentorAffiliationSnippet, MENTORS,
@@ -23,6 +24,7 @@ export function trackStatusOf(s) {
   const published = merged && String(c.status || "").toLowerCase() === "published";
   if (published) return { label: "On the stage", tone: "green" };
   if (merged || individual) return { label: "Answered", tone: "green" };
+  if (s && s.reviewStage === "review") return { label: "Being reviewed by the desk", tone: "gold" };
   if (c) return { label: "With mentor", tone: "gold" };
   return { label: "Received", tone: "grey" };
 }
@@ -128,6 +130,31 @@ function MentorCredit({ mentorName }) {
   );
 }
 
+const RESOURCE_URL = /^(.*?)\s*[—–-]\s*(https?:\/\/\S+)$/i;
+
+/** http(s) only — rejects javascript:/data: and anything with whitespace or quotes. */
+function safeHttpUrl(raw) {
+  const u = String(raw || "").trim();
+  if (!/^https?:\/\/[^\s"'<>\\]+$/i.test(u)) return "";
+  try {
+    const parsed = new URL(u);
+    if (parsed.protocol !== "http:" && parsed.protocol !== "https:") return "";
+    return parsed.href;
+  } catch { return ""; }
+}
+
+/** "Title — https://…" lines (official sources attached by the desk) render as links. */
+function ResourceLine({ text }) {
+  const m = String(text).match(RESOURCE_URL);
+  if (m) {
+    const href = safeHttpUrl(m[2]);
+    if (href) return <a href={href} target="_blank" rel="noopener noreferrer">{m[1] || href}</a>;
+  }
+  const alone = safeHttpUrl(text);
+  if (alone) return <a href={alone} target="_blank" rel="noopener noreferrer">{alone}</a>;
+  return text;
+}
+
 function AnswerExtras({ actions, mistake, resources }) {
   const acts = (actions || []).map(a => String(a || "").trim()).filter(Boolean);
   const res = (resources || []).map(r => String(r || "").trim()).filter(Boolean);
@@ -150,7 +177,7 @@ function AnswerExtras({ actions, mistake, resources }) {
       {res.length > 0 && (
         <section className="trk-extra">
           <h4><FileText size={15} aria-hidden="true" />References</h4>
-          <ul>{res.map((r, i) => <li key={i}>{r}</li>)}</ul>
+          <ul>{res.map((r, i) => <li key={i}><ResourceLine text={r} /></li>)}</ul>
         </section>
       )}
     </div>
@@ -177,7 +204,7 @@ async function copyText(text) {
   }
 }
 
-function AnswerCard({ kind, label, question, body, date, mentorName, extras, onAsk }) {
+function AnswerCard({ kind, label, question, body, date, mentorName, extras, aiAssisted, onAsk }) {
   const [copied, setCopied] = useState(false);
   async function onCopy() {
     if (await copyText(body)) {
@@ -204,6 +231,7 @@ function AnswerCard({ kind, label, question, body, date, mentorName, extras, onA
         <span className="trk-answer-eyebrow">The mentor’s answer</span>
         <RichAnswer text={body} />
         <AnswerExtras {...extras} />
+        {aiAssisted && <p className="trk-ai-note">{DISHA_TRACK_NOTE}</p>}
       </div>
 
       <MentorCredit mentorName={mentorName} />
@@ -229,10 +257,11 @@ const STEPS = [
   { id: "answered", label: "Answered", Icon: MessageCircle },
 ];
 
-function StatusTimeline({ stage }) {
+function StatusTimeline({ stage, reviewing = false }) {
+  const steps = reviewing ? STEPS.map(s => (s.id === "mentors" ? { ...s, label: "Being reviewed" } : s)) : STEPS;
   return (
     <ol className="trk-timeline" aria-label="Question status">
-      {STEPS.map(({ id, label, Icon }, i) => {
+      {steps.map(({ id, label, Icon }, i) => {
         const state = i < stage ? "done" : i === stage ? "current" : "todo";
         return (
           <li key={id} className={`trk-step trk-step--${state}`} aria-current={state === "current" ? "step" : undefined}>
@@ -247,7 +276,8 @@ function StatusTimeline({ stage }) {
 
 function PendingCard({ s }) {
   const c = s.cluster;
-  const stage = c ? 1 : 0;
+  const reviewing = s.reviewStage === "review";
+  const stage = c || reviewing ? 1 : 0;
   const shared = c && Array.isArray(c.memberIds) ? c.memberIds.length : 0;
   return (
     <article className="trk-pending" aria-label="Not answered yet">
@@ -255,11 +285,12 @@ function PendingCard({ s }) {
         <span className="trk-ticket">{s.ticket}</span>
         <span className="trk-badge trk-badge--wait">Not answered yet</span>
       </div>
-      <StatusTimeline stage={stage} />
+      <StatusTimeline stage={stage} reviewing={reviewing} />
       <p className="trk-pending-copy">
-        {!c && "Your question has reached the AYURDISHA desk. It will move to a mentor shortly."}
-        {c && (c.kind === "unique" || shared < 2) && "Your question is with a mentor now. Check back with this ticket — we’ll also email you if your address is on file."}
-        {c && c.kind !== "unique" && shared >= 2 && `Your question is with a mentor, grouped with ${shared - 1} similar question${shared === 2 ? "" : "s"}. Check back with this ticket — we’ll also email you if your address is on file.`}
+        {reviewing && `Your question is being reviewed by the desk${c && c.kind !== "unique" && shared >= 2 ? `, together with ${shared - 1} similar question${shared === 2 ? "" : "s"}` : ""}. An official checks every answer before it is sent — check back with this ticket, and we’ll email you if your address is on file.`}
+        {!reviewing && !c && "Your question has reached the AYURDISHA desk. It will move to a mentor shortly."}
+        {!reviewing && c && (c.kind === "unique" || shared < 2) && "Your question is with a mentor now. Check back with this ticket — we’ll also email you if your address is on file."}
+        {!reviewing && c && c.kind !== "unique" && shared >= 2 && `Your question is with a mentor, grouped with ${shared - 1} similar question${shared === 2 ? "" : "s"}. Check back with this ticket — we’ll also email you if your address is on file.`}
       </p>
       {s.question && (
         <blockquote className="trk-question">
@@ -289,6 +320,7 @@ function ResultFor({ s, onAsk }) {
           date={fmtDate(s.individualAt)}
           mentorName={s.individualMentor}
           extras={{ actions: s.individualActions, mistake: s.individualMistake, resources: s.individualResources }}
+          aiAssisted={Boolean(s.individualAiAssisted)}
           onAsk={onAsk}
         />
       )}
@@ -300,6 +332,7 @@ function ResultFor({ s, onAsk }) {
           body={merged}
           mentorName={c.mentorName}
           extras={{ actions: c.actions, mistake: c.mistake, resources: c.resources }}
+          aiAssisted={Boolean(c.aiAssisted)}
           onAsk={onAsk}
         />
       )}
@@ -328,7 +361,7 @@ function NotFoundCard({ query, onAsk }) {
       <h2>No question found</h2>
       <p>We couldn’t find a question for <b className="trk-ticket trk-ticket--inline">{query}</b>.</p>
       <ul>
-        <li>Tickets look like <b>AYM-Q-</b> followed by 7 letters and numbers.</li>
+        <li>Tickets look like <b>AYM-Q-</b> followed by 8 letters and numbers.</li>
         <li>Check for O vs 0 and I vs 1 — or open the link in your answer email.</li>
         <li>Asked on another device? Your ticket was shown when you sent the question.</li>
       </ul>
@@ -344,6 +377,7 @@ export function TrackPage({ loading, lookup, onAsk }) {
   const [hit, setHit] = useState(null);
   const [searched, setSearched] = useState("");
   const [finding, setFinding] = useState(false);
+  const [lookupErr, setLookupErr] = useState("");
   const autoFoundRef = useRef(false);
   const inputRef = useRef(null);
   const resultRef = useRef(null);
@@ -366,7 +400,16 @@ export function TrackPage({ loading, lookup, onAsk }) {
     if (!needle) { setSearched(""); setHit(null); inputRef.current?.focus(); return; }
     setFinding(true);
     setHit(null);
-    const mine = await lookup(needle);
+    setLookupErr("");
+    let mine = [];
+    try {
+      mine = await lookup(needle);
+    } catch {
+      setLookupErr("We couldn't reach the answer desk just now — check your connection and press View answer again.");
+      setSearched("");
+      setFinding(false);
+      return;
+    }
     setHit(mine.length ? mine : null);
     setSearched(needle);
     setFinding(false);
@@ -395,7 +438,7 @@ export function TrackPage({ loading, lookup, onAsk }) {
             className="trk-input"
             value={q}
             onChange={e => setQ(e.target.value)}
-            placeholder="AYM-Q-M4KX2P9"
+            placeholder="AYM-Q-M4KX2P9Q"
             autoComplete="off"
             autoCapitalize="characters"
             spellCheck={false}
@@ -406,11 +449,12 @@ export function TrackPage({ loading, lookup, onAsk }) {
             <span className="ui-btn-label">View answer</span>
           </button>
         </form>
-        <p id="track-q-hint" className="trk-hint">Format: <span className="trk-mono">AYM-Q-XXXXXXX</span> · Signed-in delegates can also use their email.</p>
+        <p id="track-q-hint" className="trk-hint">Format: <span className="trk-mono">AYM-Q-XXXXXXXX</span> · Signed-in delegates can also use their email.</p>
       </header>
 
       <div className="trk-results" ref={resultRef} aria-live="polite">
         {busy && <TrackSkeleton />}
+        {!busy && lookupErr && <p className="trk-empty" role="alert">{lookupErr}</p>}
         {!busy && searched && !hit && <NotFoundCard query={searched} onAsk={onAsk} />}
         {!busy && hit && hit.map(s => <ResultFor key={s.id} s={s} onAsk={onAsk} />)}
       </div>

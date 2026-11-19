@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AYURDISHA — Features &amp; Specifications</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --forest: #173F35; --forest-deep: #0F2C25; --forest-mid: #386B4D;
+    --cream: #F7F4EC; --cream-2: #FBF8F1; --gold: #C49A52; --gold-deep: #9A7535; --gold-soft: #EFE3C8;
+    --ink: #1E2421; --muted: #5B6560; --line: #E4DED0;
+    --live: #2E7D4F; --pilot: #A8741A; --prop: #5E5A8C; --warn: #B5512F;
+  }
+  @page {
+    size: A4; margin: 14mm 14mm 16mm 14mm;
+    @bottom-left { content: "AYURDISHA · Features & Specifications"; font: 8pt -apple-system, "SF Pro Text", "Segoe UI", Helvetica, Arial, sans-serif; color: #5B6560; }
+    @bottom-right { content: "Page " counter(page) " of " counter(pages); font: 8pt -apple-system, "SF Pro Text", "Segoe UI", Helvetica, Arial, sans-serif; color: #5B6560; }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; font: 9.8pt/1.42 -apple-system, "SF Pro Text", "Segoe UI", Helvetica, Arial, sans-serif; color: var(--ink); background: #fff; }
+  h1, h2, h3, h4 { color: var(--forest); line-height: 1.15; margin: 0; }
+  h2 { font-size: 17pt; letter-spacing: -.01em; }
+  h3 { font-size: 11.5pt; margin: 12px 0 5px; break-after: avoid; }
+  h4 { font-size: 10.2pt; margin: 6px 0 3px; break-after: avoid; }
+  p { margin: 0 0 6px; }
+  ul, ol { margin: 0 0 6px; padding-left: 1.2em; }
+  li { margin: 2px 0; }
+  a { color: var(--forest-mid); text-decoration: none; }
+  b, strong { font-weight: 650; }
+  code { font: 8.4pt/1.4 "SF Mono", Menlo, Consolas, monospace; background: #F1EEE5; padding: 0 3px; border-radius: 3px; }
+  .serif { font-family: "New York", Georgia, "Times New Roman", serif; font-style: italic; font-weight: 400; }
+  .muted { color: var(--muted); }
+  .small { font-size: 8.6pt; color: var(--muted); }
+  .url { font-weight: 600; color: var(--forest); overflow-wrap: anywhere; }
+  .disha { font-weight: 750; color: var(--gold-deep); letter-spacing: .02em; }
+
+  .page + .page { break-before: page; }
+  .avoid { break-inside: avoid; }
+  .eyebrow { font-size: 8.3pt; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-deep); font-weight: 700; margin-bottom: 3px; }
+  .rule { height: 3px; width: 48px; background: var(--gold); border: 0; margin: 7px 0 9px; }
+  .lede { font-size: 10.4pt; color: var(--muted); margin-bottom: 8px; }
+  @media screen {
+    body { background: #E9E6DD; padding: 10mm 0; }
+    .page { width: 210mm; min-height: 297mm; padding: 14mm; margin: 0 auto 10mm; background: #fff; box-shadow: 0 2px 14px rgba(0,0,0,.08); }
+  }
+
+  .tag { display: inline-block; font-size: 7.2pt; font-weight: 700; letter-spacing: .04em; padding: 1px 7px; border-radius: 999px; color: #fff; white-space: nowrap; vertical-align: 1px; }
+  .t-live { background: var(--live); } .t-pilot { background: var(--pilot); } .t-prop { background: var(--prop); } .t-test { background: var(--warn); }
+
+  /* hero */
+  .hero { background: var(--forest-deep); color: var(--cream); border-radius: 14px; padding: 8mm 8mm 7mm 9mm; display: grid; grid-template-columns: 1fr 62mm; gap: 7mm; align-items: center; }
+  .hero .brand { font-size: 8.5pt; letter-spacing: .28em; color: var(--gold); font-weight: 700; }
+  .hero h1 { color: #fff; font-size: 24pt; line-height: 1.08; margin: 6px 0 8px; letter-spacing: -.015em; }
+  .hero h1 .serif { color: var(--gold); }
+  .hero .sub { font-size: 10.6pt; color: #E9E3D3; margin-bottom: 10px; }
+  .hero .meta { font-size: 9.4pt; color: #CFC8B6; line-height: 1.65; }
+  .hero .meta b { color: #fff; }
+  .hero .meta .url { color: var(--gold); }
+  .hero .shot { border-radius: 9px; overflow: hidden; border: 1px solid rgba(255,255,255,.18); aspect-ratio: 1000 / 581; }
+  .hero .shot img { display: block; width: 102.4%; margin: -4.6% 0 0 -1.2%; }
+  .hero .shotcap { font-size: 7.6pt; color: #AFA894; margin-top: 4px; }
+
+  .glance { margin-top: 5mm; border: 1.5px solid var(--gold); background: var(--cream-2); border-radius: 12px; padding: 4mm 6mm; }
+  .glance h3 { font-size: 12pt; margin: 0 0 5px; }
+  .glance dl { display: grid; grid-template-columns: 30mm 1fr; gap: 4px 10px; margin: 0; }
+  .glance dt { font-weight: 700; color: var(--forest); }
+  .glance dd { margin: 0; }
+
+  .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; margin-top: 4mm; }
+  .kpi { background: var(--cream); border-radius: 10px; padding: 7px 10px; break-inside: avoid; }
+  .kpi .n { font-size: 17pt; font-weight: 750; color: var(--forest); line-height: 1.05; letter-spacing: -.01em; }
+  .kpi .l { font-size: 8.6pt; color: var(--muted); line-height: 1.3; margin-top: 3px; }
+
+  .contents { margin-top: 4mm; display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px 10px; font-size: 8.8pt; color: var(--muted); }
+  .contents b { color: var(--gold-deep); margin-right: 4px; }
+
+  /* callouts */
+  .note, .key, .warn, .prop, .ok { padding: 7px 12px; border-radius: 0 9px 9px 0; margin: 7px 0; break-inside: avoid; }
+  .note { border-left: 3px solid var(--gold); background: var(--cream-2); }
+  .key { border-left: 4px solid var(--gold); background: #FBF4E4; }
+  .warn { border-left: 4px solid var(--warn); background: #FBF1EC; }
+  .prop { border-left: 4px solid var(--prop); background: #F1F0F8; }
+  .ok { border-left: 4px solid var(--live); background: #EFF5F0; }
+  .key h4, .warn h4, .prop h4, .ok h4, .note h4 { margin-top: 0; }
+  .big { font-size: 10.6pt; }
+
+  .three { list-style: none; padding: 0; margin: 0; counter-reset: t; }
+  .three li { counter-increment: t; position: relative; padding: 3px 0 3px 29px; }
+  .three li::before { content: counter(t); position: absolute; left: 0; top: 3px; width: 20px; height: 20px; border-radius: 50%; background: var(--forest); color: #fff; font-weight: 700; font-size: 8.6pt; display: flex; align-items: center; justify-content: center; }
+
+  /* question-to-answer strip */
+  .flow { display: grid; grid-template-columns: repeat(6, 1fr); gap: 5px; margin: 4px 0 6px; }
+  .flow .s { border: 1px solid var(--line); border-top: 3px solid var(--forest); border-radius: 8px; padding: 6px 7px; background: #fff; font-size: 8.6pt; line-height: 1.32; break-inside: avoid; }
+  .flow .s.ai { border-top-color: var(--gold); background: #FBF7EE; }
+  .flow .s.end { border-top-color: var(--gold); }
+  .flow .s b { display: block; color: var(--forest); font-size: 9.2pt; margin-bottom: 2px; }
+  .flow .s .n { color: var(--gold-deep); font-weight: 800; margin-right: 3px; }
+  .flow .who { display: block; margin-top: 3px; font-size: 7pt; font-weight: 700; letter-spacing: .05em; color: var(--muted); }
+
+  /* tables */
+  table { width: 100%; border-collapse: collapse; font-size: 8.9pt; line-height: 1.36; margin: 3px 0 7px; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  th { background: var(--forest); color: #fff; text-align: left; font-weight: 600; padding: 4px 7px; font-size: 8.6pt; }
+  th:first-child { border-radius: 7px 0 0 0; } th:last-child { border-radius: 0 7px 0 0; }
+  td { border-bottom: 1px solid var(--line); padding: 3.5px 7px; vertical-align: top; }
+  tbody tr:nth-child(even) td { background: var(--cream-2); }
+  td.feat { font-weight: 650; color: var(--forest); }
+  td.st { white-space: nowrap; }
+  tr.star td.feat::before { content: "★ "; color: var(--gold); }
+  table.kv td:first-child { width: 22%; font-weight: 650; color: var(--forest); }
+  table.test td:first-child { width: 5%; font-weight: 750; color: var(--gold-deep); text-align: center; }
+  table.test td:nth-child(2) { width: 50%; }
+  .legend { font-size: 8.6pt; color: var(--muted); margin: 0 0 4px; }
+  .legend .tag { margin: 0 3px 0 6px; }
+
+  /* figures */
+  figure { margin: 5px 0 8px; break-inside: avoid; }
+  .crop { border-radius: 9px; overflow: hidden; border: 1px solid var(--line); }
+  .crop img { display: block; }
+  figcaption { font-size: 8.2pt; color: var(--muted); margin-top: 3px; line-height: 1.33; }
+  .figrow { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: start; }
+
+  /* scale box */
+  .scale { border: 2px solid var(--forest); border-radius: 12px; padding: 4mm 5mm; background: #F4F8F5; break-inside: avoid; }
+  .scale h3 { margin: 0 0 4px; font-size: 12.5pt; }
+  .ph { display: inline-block; font: 700 8.4pt/1.3 "SF Mono", Menlo, Consolas, monospace; color: var(--warn); background: #FFF3C4; border: 1px dashed var(--warn); border-radius: 4px; padding: 0 4px; }
+  .phk { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; margin: 5px 0 7px; }
+  .phk .kpi { background: #fff; border: 1px solid var(--line); }
+  .phk .kpi .n { font-size: 12pt; }
+  .scale table { margin-bottom: 0; }
+  .scale tbody tr:nth-child(even) td { background: #fff; }
+
+  /* WAC-ID flow */
+  .wflow { border: 1.5px solid var(--prop); border-radius: 12px; padding: 4mm; background: #FAFAFD; break-inside: avoid; }
+  .wrow { display: grid; grid-template-columns: 1fr 12px 1fr 12px 1fr 12px 1fr 12px 1fr; align-items: stretch; }
+  .wbox { border: 1.5px solid var(--forest); border-radius: 9px; padding: 5px 7px; background: #fff; font-size: 8.4pt; line-height: 1.32; }
+  .wbox b.t { display: block; color: var(--forest); font-size: 9pt; margin-bottom: 2px; }
+  .wbox .n { display: inline-flex; width: 17px; height: 17px; border-radius: 50%; background: var(--forest); color: #fff; font-weight: 700; font-size: 8pt; align-items: center; justify-content: center; margin-bottom: 3px; }
+  .wbox.green { background: var(--forest); color: #EAF2EC; }
+  .wbox.green b.t { color: #fff; }
+  .wbox.green .n { background: var(--gold); }
+  .wbox.red { border-color: var(--warn); background: #FBF1EC; }
+  .wbox.live { border-style: dashed; border-color: var(--live); background: #EFF5F0; }
+  .warr { display: flex; align-items: center; justify-content: center; color: var(--gold-deep); font-weight: 800; font-size: 10pt; }
+  .wside { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; margin-top: 6px; }
+
+  /* checklist */
+  .check { list-style: none; padding: 0; margin: 0; }
+  .check li { position: relative; padding: 4px 0 4px 23px; border-bottom: 1px solid var(--line); break-inside: avoid; }
+  .check li::before { content: ""; position: absolute; left: 2px; top: 6px; width: 11px; height: 11px; border: 1.6px solid var(--forest); border-radius: 3px; background: #fff; }
+  .check li b.q { color: var(--forest); }
+
+  .linkbox { display: grid; grid-template-columns: 38mm 1fr; gap: 6mm; align-items: center; border: 1.5px solid var(--gold); border-radius: 12px; padding: 4mm 5mm; background: var(--cream-2); margin-top: 5mm; break-inside: avoid; }
+  .linkbox img { width: 38mm; display: block; border-radius: 8px; }
+  .linkbox table { margin: 0; }
+  .linkbox tbody tr:nth-child(even) td { background: transparent; }
+  .linkbox td:first-child { width: 30%; font-weight: 650; color: var(--forest); }
+</style>
+</head>
+<body>
+
+<!-- ================= COVER ================= -->
+<section class="page" id="top">
+  <header class="hero">
+    <div>
+      <div class="brand">AYURDISHA · FOR THE WAC TEAM</div>
+      <h1>AYURDISHA — <span class="serif">Features &amp; Specifications</span></h1>
+      <p class="sub">The digital Meet the Mentors hall, built for the Meet the Mentors programme (Experience Zone 7) of the 11th World Ayurveda Congress, Bhubaneswar. A short guide to <b style="color:#fff">what the app does</b>, so the WAC team can <b style="color:#fff">test it</b>.</p>
+      <div class="meta">
+        <div><b>Live app:</b> <span class="url">https://ayushmarg.vercel.app</span></div>
+        <div><b>Ask Desk (QR link):</b> <span class="url">ayushmarg.vercel.app/ask?src=qr</span></div>
+        <div><b>Staff area:</b> staff access code shared separately</div>
+      </div>
+    </div>
+    <figure style="margin:0">
+      <div class="shot"><img src="img/home.jpg" alt="AYURDISHA home page"></div>
+      <figcaption class="shotcap">The home page (earlier build; the live menu now also shows “The Hall”).</figcaption>
+    </figure>
+  </header>
+
+  <div class="glance avoid">
+    <h3>At a glance</h3>
+    <dl>
+      <dt>What it is</dt>
+      <dd>A website where career seekers ask <b>one career question</b> and receive a <b>written answer that a mentor or WAC official has checked and approved</b>.</dd>
+      <dt>Who uses it</dt>
+      <dd><b>Seekers</b> (Ayurveda students, interns, PG and PhD scholars, researchers, practitioners; in India or abroad), <b>staff and officials</b> (curation and review) and <b>mentors</b> (answer through staff; no login).</dd>
+      <dt>Meet DISHA</dt>
+      <dd><span class="disha">DISHA</span> — the AYURDISHA AI mentor assistant. <b>DISHA drafts an answer from official sources; a mentor or official reviews and approves it before the student sees it.</b> Running as a pilot.</dd>
+      <dt>Built — needs WAC data</dt>
+      <dd>Sign-in with a <b>WAC registration ID</b>: switches on as soon as staff upload WAC's delegate list (or WAC provides a verification API).</dd>
+      <dt>Proposed</dt>
+      <dd>An ayurworld.org subdomain and mentor-roster sync. These need WAC access.</dd>
+    </dl>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="n">23</div><div class="l">mentors on the tentative roster, in 4 fields</div></div>
+    <div class="kpi"><div class="n">10 · 56</div><div class="l">career themes and sub-areas for questions</div></div>
+    <div class="kpi"><div class="n">≤ 7</div><div class="l">students per merged question group, answered once</div></div>
+    <div class="kpi"><div class="n">16</div><div class="l">career areas with their own DISHA instructions</div></div>
+    <div class="kpi"><div class="n">35</div><div class="l">trusted official websites DISHA may cite</div></div>
+    <div class="kpi"><div class="n">270+ · 40+</div><div class="l">automated tests and end-to-end steps, all passing</div></div>
+  </div>
+
+  <div class="key" style="margin-top:4mm">
+    <h4>Three things to know before testing</h4>
+    <ol class="three">
+      <li><b>Nothing reaches a student without a person's approval.</b> DISHA's drafts wait on a staff review desk. Medical questions are never drafted.</li>
+      <li><b>Email registrations get the app's own pass number (<code>11WAC/2026/NNNN</code>), not a WAC registration ID.</b> Delegates who sign in with their WAC ID use the WAC ID as their pass (Section 6 — built, needs WAC's delegate list).</li>
+      <li><b>The staff access code is shared separately.</b> Never put it in screenshots, emails or bug reports.</li>
+    </ol>
+  </div>
+
+  <div class="contents">
+    <span><b>1</b>Overview</span><span><b>2</b>Feature list</span><span><b>3</b>Specifications</span><span><b>4</b>Testing guide</span>
+    <span><b>5</b>Running at WAC scale</span><span><b>6</b>ayurworld.org &amp; WAC-ID sign-in</span><span><b>7</b>What we need from WAC</span><span><b>8</b>Links &amp; QR</span>
+  </div>
+</section>
+
+<!-- ================= 1 OVERVIEW + 2 FEATURES ================= -->
+<section class="page" id="s1">
+  <div class="eyebrow">Section 1</div>
+  <h2>Overview</h2>
+  <hr class="rule">
+  <p class="lede">A seeker asks one focused career question. Similar questions are grouped so one mentor answer can serve up to seven people. A mentor or official approves every answer, and the seeker reads it on <b>Track my answer</b>.</p>
+
+  <div class="flow">
+    <div class="s"><b><span class="n">1</span>Register</b>Email code → pass number <code>11WAC/2026/NNNN</code>.<span class="who">SEEKER</span></div>
+    <div class="s"><b><span class="n">2</span>Ask Desk</b>One question → ticket <code>AYM-Q-…</code>.<span class="who">SEEKER</span></div>
+    <div class="s"><b><span class="n">3</span>Grouped</b>Same questions merged (≤ 7); unsure ones only suggested.<span class="who">APP + STAFF</span></div>
+    <div class="s ai"><b><span class="n">4</span>DISHA drafts</b>From official sources, with citations. <span class="tag t-pilot">PILOT</span><span class="who">DISHA</span></div>
+    <div class="s"><b><span class="n">5</span>Approved</b>Approve, edit, reject or send to a mentor.<span class="who">MENTOR / OFFICIAL</span></div>
+    <div class="s end"><b><span class="n">6</span>Answer read</b>Email notice → Track my answer.<span class="who">SEEKER</span></div>
+  </div>
+
+  <div class="eyebrow" style="margin-top:5mm">Section 2</div>
+  <h2>Feature list</h2>
+  <hr class="rule">
+  <p class="legend">Most important for testing: ★ &nbsp;·&nbsp; Status: <span class="tag t-live">LIVE</span> working today <span class="tag t-pilot">PILOT</span> switched on by staff, a person approves every output <span class="tag t-prop">PROPOSED</span> not built</p>
+
+  <h3 style="margin-top:2px">2.1 For seekers and visitors</h3>
+  <table>
+    <thead><tr><th style="width:22%">Feature</th><th>What it does</th><th style="width:9%">Status</th></tr></thead>
+    <tbody>
+      <tr class="star"><td class="feat">Register</td><td>Name, age, sex, institute, email → <b>6-digit code by email</b> → a pass number <code>11WAC/2026/NNNN</code>. The same email on a new device gets the same pass back.</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+      <tr class="star"><td class="feat">Ask Desk</td><td>One career question (25–500 characters) under 10 themes and 56 sub-areas, plus stage, state (or “Outside India”) and a 90-day goal. Returns a <b>ticket</b>. Opens from <code>/ask</code> or the QR code.</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td class="feat">Smart hint</td><td>While typing: suggests a better theme, asks for detail, or shows <b>helpline numbers for distress</b>. Never blocks sending.</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td class="feat">Safe sending</td><td>If sending fails, the question <b>stays on screen</b>; one automatic resend; <b>never creates a duplicate</b>.</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+      <tr class="star"><td class="feat">Track my answer</td><td>By ticket (forgiving of case and spacing) or by own email when signed in. <b>Received → Being reviewed → Answered</b>; the answer letter has next steps, a mistake to avoid, references, “Answered by” and Copy.</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td class="feat">Answer-ready email</td><td>A notice with a <b>View my answer</b> button. The email never contains the answer itself.</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+      <tr class="star"><td class="feat">The Hall + hall map</td><td>Interactive map with <b>8 zones</b> (Ask kiosks, mentor pods, theme stage, podcast room …); each opens that part of the app.</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td class="feat">Mentors directory</td><td>23 mentors (tentative roster): search, filter by field, one profile page each.</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td class="feat">Career content</td><td>10 career tracks, knowledge hub (incl. About WAC), Opportunity Exchange, Congress events, resources, FAQs; site search (<b>Ctrl/⌘ + K</b>).</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td class="feat">Theme stage &amp; results board</td><td>Published group answers <b>without names</b>; the list of seekers invited in person, once staff publish it.</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td class="feat">Podcast corner</td><td>Recorded mentor talks (YouTube / Vimeo). <b>Empty until recordings are added</b>, by design.</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td class="feat">Welcome &amp; guides</td><td>6 welcome slides once per device (tap or swipe); short first-visit explainers; floating Ask Desk button.</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td class="feat">QR and link tracking</td><td>Any link with <code>?src=tag</code> is counted (anonymously) and shown to staff per tag.</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td class="feat">Legal pages</td><td>Privacy, Terms, Disclaimer. Privacy and Terms say “Placeholder” until WAC supplies the data-controller details.</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="figrow">
+    <figure>
+      <div class="crop" style="aspect-ratio: 827 / 455;"><img src="img/hallmap.jpg" alt="Interactive hall map with eight zones" style="width:133%; margin:-20.8% 0 0 -16.93%;"></div>
+      <figcaption><b>The Hall map.</b> Eight zones; tapping one opens that part of the app.</figcaption>
+    </figure>
+    <figure>
+      <div class="crop" style="aspect-ratio: 703 / 462;"><img src="img/trackreview.jpg" alt="Track my answer showing a ticket being reviewed" style="width:156.47%; margin:-6.12% 0 0 -28.31%;"></div>
+      <figcaption><b>Track my answer</b> while an official reviews the answer (test ticket).</figcaption>
+    </figure>
+  </div>
+
+  <h3>2.2 For staff and officials <span class="small">(staff access code)</span></h3>
+  <table>
+    <thead><tr><th style="width:22%">Feature</th><th>What it does</th><th style="width:9%">Status</th></tr></thead>
+    <tbody>
+      <tr class="star"><td class="feat">Curation desk</td><td>Merges similar questions (≤ 7 per group) <b>only when confident</b>; near misses are suggested, never auto-merged. “Why merged”, split, manual merge; answer editor → <b>Publish to students</b>. Two staff editing at once can't overwrite each other.</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+      <tr class="star"><td class="feat">DISHA review desk</td><td>Each DISHA draft with its sources and claim checks. <b>Approve and send · Edit then send · Reject · Send to mentor · Regenerate</b>.</td><td class="st"><span class="tag t-pilot">PILOT</span></td></tr>
+      <tr><td class="feat">DISHA settings</td><td>On/off, per-career-area switches, shadow mode, <b>daily spend cap</b>, Test connection, Draft existing questions (preview first).</td><td class="st"><span class="tag t-pilot">PILOT</span></td></tr>
+      <tr class="star"><td class="feat">Mentor pack</td><td>Export groups as an <b>Excel or Word brief</b> for mentors; <b>import the filled Excel</b> and answers appear on Track. Also a full submission register.</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td class="feat">Insights</td><td>Totals, queue, topic mix, demand by theme, visits/registrations/questions <b>per QR or link tag</b>; briefing board with <b>Provide answer</b> for a personal reply.</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td class="feat">Delegates panel</td><td>All email-verified registrations; download as PDF.</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+      <tr><td class="feat">Selection &amp; podcasts</td><td>Upload or build the in-person selection list, publish it, email selected people; add or remove recorded talks.</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>2.3 DISHA — the AYURDISHA AI mentor assistant <span class="tag t-pilot">PILOT</span></h3>
+  <div class="key big" style="margin-top:2px"><b>DISHA drafts an answer from official sources; a mentor or official reviews and approves it before the student sees it.</b> DISHA is off unless staff switch it on, and only for the career areas they choose.</div>
+  <table>
+    <thead><tr><th style="width:22%">Safeguard</th><th>What DISHA does</th></tr></thead>
+    <tbody>
+      <tr class="star"><td class="feat">Privacy first</td><td>Names, emails, phone numbers, ID-like numbers, pass and ticket numbers are removed <b>before any AI call</b>. No seeker's personal data goes to the AI.</td></tr>
+      <tr><td class="feat">Question checking</td><td>Sorts each question: on topic, wrong area, unfocused, off topic, duplicate or restricted (medical, exam integrity, self-harm and 6 more). Understands <b>English, Hinglish and Hindi</b>. Self-harm is flagged urgent with helplines.</td></tr>
+      <tr class="star"><td class="feat">Medical → mentor</td><td>Medical and treatment questions are <b>never drafted</b>; they go to a mentor.</td></tr>
+      <tr class="star"><td class="feat">Official sources only</td><td>Cites only <b>35 approved websites</b> (NCISM, Ministry of Ayush, NTA, NBEMS, UPSC, state PSCs, WHO, CCRAS, AIIA, ayurworld.org …), with numbered citations.</td></tr>
+      <tr><td class="feat">Claim checking</td><td>A second model checks every claim against its source; numbers, dates and fees must appear in it. Thin topics become <b>“Limited sources — mentor to complete”</b> with unsourced figures removed.</td></tr>
+      <tr><td class="feat">Never in the way</td><td>Drafting runs in a background queue, so <b>sending a question is never slowed or blocked</b>. A daily spend cap pauses DISHA when reached. Approved answers help with similar later questions.</td></tr>
+    </tbody>
+  </table>
+
+  <figure>
+    <div class="crop" style="aspect-ratio: 919 / 529;"><img src="img/aiqueue.jpg" alt="DISHA review desk" style="width:119.7%; margin:-33.84% 0 0 -9.9%;"></div>
+    <figcaption><b>The DISHA review desk</b> (earlier build, before the DISHA name was added; labelled “AI drafts”). Queue on the left; the question, the draft with numbered citations and the review buttons on the right. Sample questions in a test environment.</figcaption>
+  </figure>
+</section>
+
+<!-- ================= 3 SPECIFICATIONS ================= -->
+<section class="page" id="s3">
+  <div class="eyebrow">Section 3</div>
+  <h2>Specifications</h2>
+  <hr class="rule">
+  <table class="kv">
+    <tbody>
+      <tr><td>Languages</td><td><b>Interface: English.</b> <b>DISHA understands questions in English, Hinglish and Hindi</b> (the hint, checking and merging handle all three) and drafts in plain Indian English. Content and emails are in English.</td></tr>
+      <tr><td>Devices &amp; browsers</td><td>Phones, tablets and laptops; <b>mobile-first</b>. Chrome / Edge 107+, Firefox 104+, Safari 16+ (iPhone and iPad), Chrome on Android. <b>Online only</b>: needs an internet connection.</td></tr>
+      <tr><td>Technology</td><td>React 19 + Vite single-page app · Node.js serverless functions on <b>Vercel</b> (Mumbai region) · <b>Google Cloud Firestore</b> database (server-only access) · <b>Google Gemini API</b> for DISHA (Google Vertex AI also supported) · email through the Resend email API or SMTP.</td></tr>
+      <tr><td>Security</td><td>Staff code checked on the server only, never sent to the browser · secure HttpOnly cookies · <b>every staff action checked on the server</b> · strict security headers (Content-Security-Policy, no framing by other sites) · database denies all direct browser access · demo data and bulk delete disabled in production.</td></tr>
+      <tr><td>Privacy</td><td><b>No personal data sent to DISHA.</b> A ticket lookup never shows a name or email. Public boards show no names. <b>No advertising or third-party analytics cookies.</b></td></tr>
+      <tr><td>Data collected</td><td><b>Registration:</b> name, age, sex, institute, email, pass number. <b>Question:</b> the Ask Desk fields (state, stage, institution, self-declared WAC registration and attendance, optional mobile, follow-up consent). <b>Visits:</b> anonymous counts per QR/link tag. Stored in Firestore; visible to staff only.</td></tr>
+      <tr><td>Key limits</td><td>Email code: 6 digits, valid 10 min, resend after 60 s, 5 tries · question 25–500 characters · group ≤ 7 · seeker session 30 days.</td></tr>
+      <tr><td>Accessibility</td><td>Keyboard use, visible focus, reduced-motion support, text alternatives. WCAG-oriented; not formally audited.</td></tr>
+      <tr><td>Quality</td><td>270+ automated unit/API tests and a 40+-step end-to-end journey, all passing; a production probe that cleans up its own test data.</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><b>For WAC to decide:</b> age and sex are mandatory at registration; publication consent is recorded automatically (the form does not ask); there is no retention or deletion schedule yet (Section 7).</div>
+
+  <h3>Languages and technologies used to build AYURDISHA</h3>
+  <table>
+    <thead><tr><th style="width:34%">Part</th><th>Language / technology</th></tr></thead>
+    <tbody>
+      <tr><td class="feat">Website (what users see)</td><td>JavaScript (JSX) with <b>React</b> [19.2], built with <b>Vite</b> [7.3]</td></tr>
+      <tr><td class="feat">Styling</td><td>CSS (custom design system — forest green, cream, gold)</td></tr>
+      <tr><td class="feat">Page shell</td><td>HTML</td></tr>
+      <tr><td class="feat">Server / backend</td><td>JavaScript on <b>Node.js</b> — serverless functions on <b>Vercel</b></td></tr>
+      <tr><td class="feat">Database</td><td><b>Google Firestore</b> (cloud NoSQL; JSON-like documents)</td></tr>
+      <tr><td class="feat">AI assistant (DISHA)</td><td><b>Google Gemini</b>, called from the server in JavaScript</td></tr>
+      <tr><td class="feat">Helper scripts (images, QR codes, PDF text extraction, previews)</td><td>Python and Node.js</td></tr>
+      <tr><td class="feat">Configuration &amp; data files</td><td>JSON; documentation in Markdown</td></tr>
+      <tr><td class="feat">Tests</td><td>JavaScript — Node's built-in test runner + end-to-end scripts</td></tr>
+    </tbody>
+  </table>
+  <p class="small">No TypeScript, PHP or Java. ayurworld.org runs on WordPress (PHP); AYURDISHA is a separate app that links/integrates with it. Languages users see: see the <b>Languages</b> row above.</p>
+</section>
+
+<!-- ================= 4 TESTING GUIDE ================= -->
+<section class="page" id="s4">
+  <div class="eyebrow">Section 4</div>
+  <h2>Testing guide</h2>
+  <hr class="rule">
+  <div class="key">
+    <b>Before you start:</b> a phone and a laptop · <b>a mailbox you can open</b> (the code arrives by email; check spam) · start every test question with <b>[TEST]</b> and every name with <b>TEST</b> · <b>never enter real delegate data</b> · for the staff path, the staff access code (shared separately).
+  </div>
+
+  <div class="figrow" style="grid-template-columns: 1fr 44mm;">
+    <div>
+      <h3 style="margin-top:2px">4.1 Student path</h3>
+      <table class="test">
+        <thead><tr><th>#</th><th>Do this</th><th>Expect</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Open <span class="url">ayushmarg.vercel.app</span> in a private window.</td><td>6 welcome slides (tap / arrows / Skip); not shown again.</td></tr>
+          <tr><td>2</td><td>Scan the QR code or open <span class="url">/ask?src=qr</span>.</td><td>Ask Desk with a “Register in 30 sec” banner.</td></tr>
+          <tr><td>3</td><td>Register with a test name and your email; enter the code.</td><td>Code email arrives; a pass card <code>11WAC/2026/NNNN</code>; back on the Ask Desk.</td></tr>
+          <tr><td>4</td><td>Fill the Ask Desk (try “Outside India”); send a [TEST] question.</td><td>Pass number locked in; theme hint; a ticket <code>AYM-Q-…</code>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figure style="margin-top:7mm">
+      <div class="crop" style="aspect-ratio: 460 / 682;"><img src="img/register.jpg" alt="Registration form" style="width:239.13%; margin:-15.22% 0 0 -69.57%;"></div>
+      <figcaption><b>Register:</b> details, email code, confirmation.</figcaption>
+    </figure>
+  </div>
+  <table class="test">
+    <tbody>
+      <tr><td>5</td><td>Open <b>Track my answer</b> with the ticket (also lower case, or without “AYM-Q-”); then search by your own email and by another email.</td><td><b>Received</b> (or <b>Being reviewed</b> if DISHA is on). Own email lists your tickets; another email shows nothing.</td></tr>
+      <tr><td>6</td><td>Explore The Hall (all 8 zones), Meet Mentors (search, filter, a profile), search (Ctrl/⌘ + K), FAQs.</td><td>Each zone opens the right screen. Podcast corner empty (expected).</td></tr>
+      <tr><td>7</td><td>After staff answer your ticket (staff step 3 or 4):</td><td>“Your AYURDISHA answer is ready” email → <b>View my answer</b> opens the full answer.</td></tr>
+      <tr><td>8</td><td>Repeat steps 1–5 on a phone, portrait and landscape.</td><td>No sideways scrolling; easy tapping; readable text.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>4.2 Staff path</h3>
+  <table class="test">
+    <thead><tr><th>#</th><th>Do this</th><th>Expect</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Lock icon (or <span class="url">/staff</span>) → staff access code.</td><td>Staff workspace; a wrong code is refused.</td></tr>
+      <tr><td>2</td><td><b>Curation desk:</b> have 2–3 testers send similar [TEST] questions in the same theme and sub-area; press <b>Merge / Re-merge</b>.</td><td>One group with a badge and “Why merged”; near misses under Suggested merges; no group over 7.</td></tr>
+      <tr><td>3</td><td>Write an answer for a group → <b>Publish to students</b>.</td><td>Those tickets show <b>Answered</b>; each tester gets the email; theme stage shows it with no names.</td></tr>
+      <tr><td>4</td><td><b>DISHA review desk</b> (when DISHA is on for that area): open a draft, read sources and claim checks, <b>Edit then send</b> or <b>Approve and send</b>; try Reject and Send to mentor on others.</td><td>The approved answer appears on Track with a note that DISHA helped and an official reviewed it.</td></tr>
+      <tr><td>5</td><td><b>Mentor pack:</b> export the Excel brief, fill one answer, import it.</td><td>The answer shows on Track for those tickets.</td></tr>
+      <tr><td>6</td><td><b>Insights → Sources</b>; Delegates panel → Download PDF.</td><td>A “qr” row with counts; your test registrations listed.</td></tr>
+      <tr><td>7</td><td><b>Exit staff session</b>.</td><td>Staff screens locked again.</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><b>Reporting an issue:</b> page address, step number, device and browser, what you expected vs what happened, a screenshot, the test ticket, and severity (Blocker · Major · Minor · Suggestion). <b>Never include the staff code or real personal data.</b> At the end, send the list of test emails and tickets so the AYURDISHA team can remove them.</div>
+</section>
+
+<!-- ================= 5 SCALE ================= -->
+<section class="page" id="s5">
+  <div class="eyebrow">Section 5</div>
+  <h2>Running AYURDISHA at WAC scale</h2>
+  <hr class="rule">
+
+  <div class="scale">
+    <h3>Built for many users at once</h3>
+    <div class="phk">
+      <div class="kpi"><div class="n"><span class="ph">[LOAD-TEST RESULT]</span></div><div class="l">simultaneous registrations handled in the load test</div></div>
+      <div class="kpi"><div class="n"><span class="ph">[LOAD-TEST RESULT]</span></div><div class="l">questions submitted at once, success rate</div></div>
+      <div class="kpi"><div class="n"><span class="ph">[LOAD-TEST RESULT]</span></div><div class="l">typical / slowest (95th percentile) response time</div></div>
+    </div>
+    <table>
+      <thead><tr><th style="width:25%">Measure</th><th>What it means</th><th style="width:11%">Status</th></tr></thead>
+      <tbody>
+        <tr><td class="feat">Serverless auto-scaling</td><td>No single server to overload: pages come from Vercel's global network, and server functions start more copies automatically as traffic rises.</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+        <tr><td class="feat">Duplicate-proof submits</td><td>Each question carries its own ID and ticket from the start. On a network error the app resends once with the same ID, so <b>a retry never creates a duplicate</b>.</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+        <tr><td class="feat">Unique pass numbers in bursts</td><td>Issued from one atomic database counter, so two people registering at the same moment never get the same number. <span class="ph">[LOAD-TEST RESULT]</span></td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+        <tr><td class="feat">Rate limits</td><td>60 s between email codes and 5 code attempts; limits on visit counting per network; DISHA's daily spend cap.</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+        <tr><td class="feat">DISHA never blocks a submit</td><td>The ticket comes back first; drafting runs afterwards in a background queue with locks and retries.</td><td class="st"><span class="tag t-live">LIVE</span></td></tr>
+        <tr><td class="feat">Load-tested</td><td><span class="ph">[LOAD-TEST RESULT]</span> — simulated users, requests, errors, duplicates and response times.</td><td class="st"><span class="tag t-test">IN TEST</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="margin-top:6mm">What we need to run AYURDISHA at WAC scale <span class="small">(resources from our side)</span></h3>
+  <table>
+    <thead><tr><th style="width:4%">#</th><th style="width:30%">Resource</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr class="star"><td>1</td><td class="feat">Paid AI key for DISHA</td><td><b>Google Gemini API</b> (or <b>Google Cloud Vertex AI</b> on WAC's billing account) with billing enabled, a spending cap and budget alerts. Prepaid or free quotas run out or throttle under load. The key is used <b>only on the server</b>; the app's own daily cap stays the hard stop.</td></tr>
+      <tr class="star"><td>2</td><td class="feat">Hosting: Vercel Pro (team plan)</td><td>Higher limits for simultaneous server functions and longer function run times; <b>frequent scheduled runs for DISHA's queue</b> (today a daily run plus a run after each question, because the current plan allows only daily schedules); longer log retention and analytics during the event. Vercel's free plan is for personal, non-commercial use.</td></tr>
+      <tr class="star"><td>3</td><td class="feat">Database: Firebase / Firestore pay-as-you-go (Blaze)</td><td>The free plan's daily read and write limits (50,000 reads and 20,000 writes a day) are too low for thousands of delegates and staff dashboards. Blaze also allows scheduled backups.</td></tr>
+      <tr class="star"><td>4</td><td class="feat">Transactional email service</td><td>A transactional email service with a <b>verified sending domain</b> (e.g. <span class="url">no-reply@ayurworld.org</span> if WAC allows domain verification). Today codes are sent via an SMTP mailbox; personal Gmail-type accounts are limited to <b>about 500 emails/day</b> (Workspace ~2,000), which is too low for thousands of delegates. The app already supports <b>Resend</b> (<code>RESEND_API_KEY</code>).</td></tr>
+      <tr><td>5</td><td class="feat">Custom domain / subdomain + SSL</td><td>e.g. <span class="url">mentors.ayurworld.org</span>, with DNS access for one record. The certificate is issued automatically. Printed QR codes and posters then carry WAC's own address.</td></tr>
+      <tr><td>6</td><td class="feat">Uptime monitoring + error alerts</td><td>There is no external monitoring today (the team watches hosting logs and in-app banners). During the event, alerts tell the team at once about an outage or a spike in errors.</td></tr>
+      <tr><td>7</td><td class="feat">Staff accounts and roles <span class="tag t-prop">RECOMMENDED</span></td><td>Today all staff share one access code. Individual accounts show who approved each answer, let one person's access be removed without changing everyone's code, and separate reviewers from administrators.</td></tr>
+      <tr><td>8</td><td class="feat">Venue connectivity</td><td>The app is online only. Reliable Wi-Fi or mobile data at the Meet the Mentors zone and wherever the QR posters hang, so seekers can receive codes and send questions on the spot.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ================= 6 INTEGRATION + WAC ID ================= -->
+<section class="page" id="s6">
+  <div class="eyebrow">Section 6</div>
+  <h2>ayurworld.org integration &amp; WAC-ID sign-in</h2>
+  <hr class="rule">
+
+  <h3 style="margin-top:0">6.1 Integration options</h3>
+  <table>
+    <thead><tr><th style="width:24%">Option</th><th>What it means</th><th style="width:27%">What is needed</th></tr></thead>
+    <tbody>
+      <tr class="star"><td class="feat">A · Link or button <span class="tag t-live">READY</span></td><td>An “Ask a mentor” button on ayurworld.org, emails or the WAC app linking to <span class="url">/ask?src=ayurworld</span>; each placement gets its own tag in Insights.</td><td>Approved wording and logo; WordPress access. <b>No app change.</b></td></tr>
+      <tr class="star"><td class="feat">B · Own subdomain <span class="tag t-prop">PROPOSED</span></td><td>The app also answers at e.g. <span class="url">mentors.ayurworld.org</span>; QR codes and posters use it. The old address keeps working.</td><td>One <b>DNS CNAME record</b>; agreement on the name.</td></tr>
+      <tr><td class="feat">C · Embedded widgets <span class="tag t-prop">PROPOSED</span></td><td>Read-only parts (mentor list, published answers) inside ayurworld.org pages. Blocked today on purpose by the security headers; sign-in and Ask must open in a new tab.</td><td>A WordPress page; agreement on placement.</td></tr>
+      <tr class="star"><td class="feat">D · WAC-ID sign-in <span class="tag t-pilot">BUILT — NEEDS WAC DATA</span></td><td>Registered delegates enter with their WAC registration ID instead of registering again (below).</td><td>WAC's delegate list (CSV / XLSX, columns below) or a verification API; data-sharing agreement.</td></tr>
+      <tr><td class="feat">E · Mentor roster sync <span class="tag t-prop">PROPOSED</span></td><td>Replace the tentative 23-name roster with WAC's confirmed list by staff import or a feed.</td><td>Confirmed mentors with bio, photo and <b>consent</b>.</td></tr>
+    </tbody>
+  </table>
+  <p class="small"><b>Suggested order:</b> A now → D as soon as WAC shares its delegate list → B before posters are printed → E when the roster is confirmed → C only if needed.</p>
+
+  <h3>6.2 Sign in with a WAC registration ID <span class="tag t-pilot">BUILT — NEEDS WAC DELEGATE LIST OR API</span></h3>
+  <div class="prop" style="margin-top:2px"><b>Built:</b> a delegate enters their WAC ID and the email they used on the WAC site; AYURDISHA's server checks the pair against WAC's delegate data, emails a one-time code to the email on WAC's record, and creates (or links) their profile prefilled from WAC — the WAC ID becomes their pass. <b>Switches on once staff upload WAC's delegate list</b> (Staff → Insights → WAC delegates) or WAC provides a verification API; until then Register shows it as “coming soon”. Email registration is unchanged.</div>
+
+  <div class="wflow">
+    <div class="wrow">
+      <div class="wbox"><span class="n">1</span><b class="t">“I'm registered for WAC 2026”</b>New choice on Register, from ayurworld.org, the QR or the delegate dashboard.</div>
+      <div class="warr">›</div>
+      <div class="wbox"><span class="n">2</span><b class="t">WAC ID + WAC email</b>The email used on the WAC site. An ID alone never unlocks a profile.</div>
+      <div class="warr">›</div>
+      <div class="wbox"><span class="n">3</span><b class="t">Server checks with WAC data</b>The staff-uploaded delegate list today; WAC's verification API later. Never from the browser.</div>
+      <div class="warr">›</div>
+      <div class="wbox"><span class="n">4</span><b class="t">Code to WAC's contact</b>One-time code to the email on WAC's record, shown masked; 10 minutes, 5 tries.</div>
+      <div class="warr">›</div>
+      <div class="wbox green"><span class="n">5</span><b class="t">Confirm, then the Ask Desk</b>WAC details shown locked; delegate adds career stage, interests and consent; WAC ID shown as the pass.</div>
+    </div>
+    <div class="wside">
+      <div class="wbox live"><b class="t">“New here” <span class="tag t-live">LIVE</span></b>Unchanged: email code → AYURDISHA pass number.</div>
+      <div class="wbox red"><b class="t">✗ Not matched</b>One neutral message (never says which field was wrong); limited tries per ID and per network.</div>
+      <div class="wbox red"><b class="t">⚠ ID already linked</b>One WAC ID = one account. A second attempt is blocked and shown to staff.</div>
+    </div>
+  </div>
+  <p class="small" style="margin-top:5px"><b>Columns needed in WAC's export (CSV or XLSX):</b> Registration ID, Name, Email <i>(required)</i>; Mobile, Institution, Category (student / delegate / international / faculty …), Country, State, Attendance (in person / online) <i>(optional)</i>. Common header spellings are detected automatically (e.g. “Reg No”, “E-mail”, “College”, “Mode”). Re-uploading a newer list updates rows and never touches who has signed in.</p>
+  <p class="small" style="margin-top:3px"><b>Data minimisation:</b> AYURDISHA keeps only those fields — no payment, address or ID-document data. Emails and phones are masked on staff screens by default.</p>
+</section>
+
+<!-- ================= 7 NEEDS + 8 LINKS ================= -->
+<section class="page" id="s7">
+  <div class="eyebrow">Section 7</div>
+  <h2>What we need from WAC</h2>
+  <hr class="rule">
+  <ul class="check">
+    <li><b class="q">Delegate list (sign-in is built and waiting for it)</b> — WAC's delegate export as CSV / XLSX (Registration ID, Name, Email; optionally Mobile, Institution, Category, Country, State, Attendance) with an agreed refresh, or later a read-only verification API (POST ID + email → match + those fields); plus the <b>WAC ID format</b> with 2–3 dummy examples.</li>
+    <li><b class="q">Data-sharing agreement</b> — what is shared, purpose, retention and deletion after the programme.</li>
+    <li><b class="q">Data controller and grievance contact</b> — so Privacy and Terms lose their “Placeholder” label; decisions on mandatory age/sex, explicit publication consent and retention.</li>
+    <li><b class="q">Approved wording and logo</b> — may the app say “official”? Should the pass number be renamed (e.g. “AYURDISHA pass number”) so it isn't mistaken for the WAC ID?</li>
+    <li><b class="q">Website owner</b> — a person with WordPress access (button) and DNS access (subdomain), and the chosen subdomain name.</li>
+    <li><b class="q">Confirmed mentor roster</b> — name, designation, institution, expertise, photo, short bio and <b>each mentor's consent</b>.</li>
+    <li><b class="q">Programme details</b> — Meet the Mentors schedule and hall layout; talk recordings for the Podcast corner.</li>
+    <li><b class="q">People</b> — a WAC help-desk contact for delegates, a technical contact, the testers, and the officials who will approve answers.</li>
+    <li><b class="q">Access policy</b> — keep the app open to all seekers (today), or limit some features to verified WAC delegates?</li>
+    <li><b class="q">Resources in Section 5</b> — the accounts and plans listed there, set up on WAC's or the project's billing.</li>
+  </ul>
+
+  <div class="eyebrow" style="margin-top:8mm">Section 8</div>
+  <h2>Links &amp; QR</h2>
+  <hr class="rule">
+  <div class="linkbox">
+    <img src="img/qr.png" alt="QR code that opens the Ask Desk">
+    <table>
+      <tbody>
+        <tr><td>Live app</td><td><span class="url">https://ayushmarg.vercel.app</span></td></tr>
+        <tr><td>Ask Desk (this QR)</td><td><span class="url">ayushmarg.vercel.app/ask?src=qr</span></td></tr>
+        <tr><td>Track my answer</td><td><span class="url">ayushmarg.vercel.app/#track</span></td></tr>
+        <tr><td>The Hall</td><td><span class="url">ayushmarg.vercel.app/#hall</span></td></tr>
+        <tr><td>Mentors</td><td><span class="url">ayushmarg.vercel.app/mentors</span></td></tr>
+        <tr><td>Staff area</td><td><span class="url">ayushmarg.vercel.app/staff</span> — access code shared separately</td></tr>
+        <tr><td>Partner links</td><td>Add <code>?src=your-tag</code> (e.g. <code>?src=ayurworld</code>) to count visits per placement.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="warn" style="margin-top:5mm"><b>Wording approval pending.</b> The app's footer and FAQ call AYURDISHA “the official digital Meet the Mentors hall”. This document uses neutral wording until the organisers approve “official” and logo use.</div>
+</section>
+
+</body>
+</html>

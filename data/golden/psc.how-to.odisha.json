@@ -1,0 +1,103 @@
+{
+  "intentId": "psc.how-to.odisha",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "subject": "psc",
+  "ask": "how-to",
+  "question": "How do I prepare for the Odisha PSC Ayurveda Medical Officer exam?",
+  "stream": "govt-jobs",
+  "region": "odisha",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.548Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.438,
+      "bm25": 21.93,
+      "coverage": 0.18
+    },
+    {
+      "chunkId": "ad2ce5d5f7d0c4c9f21b28171da7caffe456548d",
+      "url": "https://rpsc.rajasthan.gov.in/Static/InformationForCandidates/FAQ.pdf",
+      "title": "Rajasthan Public Service Commission — FAQ",
+      "score": 1.053,
+      "bm25": 16.07,
+      "coverage": 0.41
+    },
+    {
+      "chunkId": "96059e644fb8b1a29fb490662f53e706cf9d64d0",
+      "url": "https://rpsc.rajasthan.gov.in/Static/InformationForCandidates/FAQ.pdf",
+      "title": "Rajasthan Public Service Commission — FAQ",
+      "score": 0.992,
+      "bm25": 15.14,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "f0078d54b17d92fd4dbdaa2add34848049260765",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 0.922,
+      "bm25": 14.07,
+      "coverage": 0.18
+    },
+    {
+      "chunkId": "7570883c7ce2a21d175a0e6b4f0b004c39acfdc3",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/ep3ayurveda.pdf",
+      "title": "ep3ayurveda",
+      "score": 0.916,
+      "bm25": 13.97,
+      "coverage": 0.18
+    },
+    {
+      "chunkId": "7d60846b2b9fdaff2b2548012e07ec2701a75ba7",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/08/Ayurworld-May-June-2026.pdf",
+      "title": "Ayurworld May June 2026",
+      "score": 0.91,
+      "bm25": 15.97,
+      "coverage": 0.37
+    },
+    {
+      "chunkId": "c7b66b8a69527d6d3bcdf795f7438c5cdb48280b",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/Central-Government-Nomination-to-MD-(Ayurveda)-NIA-Jaipur-2024-25.pdf",
+      "title": "Central Government Nomination to MD (Ayurveda) NIA Jaipur 2024 25",
+      "score": 0.894,
+      "bm25": 13.63,
+      "coverage": 0.18
+    },
+    {
+      "chunkId": "b9c28af6650ef0cae4d175c1f4af28bd5c732053",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 0.882,
+      "bm25": 13.46,
+      "coverage": 0.21
+    }
+  ]
+}

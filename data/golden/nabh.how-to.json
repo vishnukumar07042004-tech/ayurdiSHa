@@ -1,0 +1,102 @@
+{
+  "intentId": "nabh.how-to",
+  "theme": "Medical Value Travel & Wellness",
+  "subtheme": "Accreditation and standards",
+  "subject": "nabh",
+  "ask": "how-to",
+  "question": "How do I get NABH accreditation for my centre?",
+  "stream": "panchakarma-wellness",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "National Accreditation Board for Hospitals & Healthcare Providers",
+      "url": "https://nabh.co/"
+    },
+    {
+      "title": "Clinical Trial - NABH",
+      "url": "https://nabh.co/programmes/clinical-trials-ethics-committee-accreditation-programme/"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.840Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "066d131c3e47461a5445f96e28d7f97f9ea275e2",
+      "url": "https://nabh.co/",
+      "title": "National Accreditation Board for Hospitals & Healthcare Providers",
+      "score": 1.438,
+      "bm25": 27.91,
+      "coverage": 1
+    },
+    {
+      "chunkId": "798ba99237b830d474038a22b880d8cc084de5a7",
+      "url": "https://nabh.co/programmes/clinical-trials-ethics-committee-accreditation-programme/",
+      "title": "Clinical Trial - NABH",
+      "score": 1.243,
+      "bm25": 24.14,
+      "coverage": 0.71
+    },
+    {
+      "chunkId": "fa29fe3a12c44f7bbc984cf1b1c8d12371928b60",
+      "url": "https://nabh.co/programmes/hospitals-accreditation-programme-hco/",
+      "title": "Hospitals Accreditation Programme (HCO) - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.243,
+      "bm25": 24.14,
+      "coverage": 0.71
+    },
+    {
+      "chunkId": "e92383a6a70d8ad24ea76f59f95bd88657d535fc",
+      "url": "https://nabh.co/",
+      "title": "National Accreditation Board for Hospitals & Healthcare Providers",
+      "score": 1.18,
+      "bm25": 22.9,
+      "coverage": 1
+    },
+    {
+      "chunkId": "98b5681d3baef3ce74ef59761174b8202354064d",
+      "url": "https://nabh.co/accreditations-certifications-and-empanelments/",
+      "title": "Accreditations, Certifications & Empanelments - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.066,
+      "bm25": 20.7,
+      "coverage": 1
+    },
+    {
+      "chunkId": "cf36a54cbdbd7490e64451cba1587e13d06be3bb",
+      "url": "https://nabh.co/explore-nabh-standards/",
+      "title": "Explore NABH Standards - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.061,
+      "bm25": 20.6,
+      "coverage": 1
+    },
+    {
+      "chunkId": "c74ade5923ac877fc821da19b43952c831bfec17",
+      "url": "https://nabh.co/e-mitra-step-by-step-guide-for-entry-level-certification/",
+      "title": "E-Mitra Step-By-Step Guide for Entry Level Certification - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.041,
+      "bm25": 20.2,
+      "coverage": 0.71
+    },
+    {
+      "chunkId": "4adca2e17ff4ef9f96cce699144e1bc606a04fb3",
+      "url": "https://nabh.co/nabh-emitra/",
+      "title": "NABH E-Mitra - NABH",
+      "score": 0.996,
+      "bm25": 19.33,
+      "coverage": 0.71
+    }
+  ]
+}

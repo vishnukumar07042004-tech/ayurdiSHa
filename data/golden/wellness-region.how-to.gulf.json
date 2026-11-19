@@ -1,0 +1,103 @@
+{
+  "intentId": "wellness-region.how-to.gulf",
+  "theme": "Practice Abroad & Practitioner Mobility",
+  "subtheme": "Wellness centre roles abroad",
+  "subject": "country:gulf",
+  "ask": "how-to",
+  "question": "How do I find a job in an Ayurveda wellness centre in the UAE (Dubai / Abu Dhabi)?",
+  "stream": "abroad-gulf",
+  "region": "gulf",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.844Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "d744b4c5cd795d42c266683a93f7b8a4ab431a28",
+      "url": "https://www.who.int/news/item/21-10-2026-united-arab-emirates-announces-national-commitments-to-advance-evidence-based-integrative-medicine",
+      "title": "UAE Integrative Medicine Council announces commitments to advance evidence-based integrative medicine",
+      "score": 1.438,
+      "bm25": 32.1,
+      "coverage": 0.55
+    },
+    {
+      "chunkId": "16c7519e59bbce72dafa1d52ca479125b52c47f7",
+      "url": "https://www.who.int/news/item/21-10-2026-united-arab-emirates-announces-national-commitments-to-advance-evidence-based-integrative-medicine",
+      "title": "UAE Integrative Medicine Council announces commitments to advance evidence-based integrative medicine",
+      "score": 1.166,
+      "bm25": 26.04,
+      "coverage": 0.55
+    },
+    {
+      "chunkId": "c0e5dcb8d47c4602bcf1e153bf0dfe8709298e1b",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 0.883,
+      "bm25": 22.68,
+      "coverage": 0.42
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.875,
+      "bm25": 19.55,
+      "coverage": 0
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 0.795,
+      "bm25": 17.75,
+      "coverage": 0
+    },
+    {
+      "chunkId": "a9badec24d397a7f69ac2c51095d5bcbe157964b",
+      "url": "https://www.emro.who.int/health-topics/traditional-medicine/",
+      "title": "Traditional medicine",
+      "score": 0.767,
+      "bm25": 17.13,
+      "coverage": 0.41
+    },
+    {
+      "chunkId": "fc4201ebdcab52cb1d6ed96c29c40d27e68ed857",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 0.753,
+      "bm25": 19.34,
+      "coverage": 0.28
+    },
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 0.699,
+      "bm25": 21.37,
+      "coverage": 0.17
+    }
+  ]
+}

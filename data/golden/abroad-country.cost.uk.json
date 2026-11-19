@@ -1,0 +1,103 @@
+{
+  "intentId": "abroad-country.cost.uk",
+  "theme": "Practice Abroad & Practitioner Mobility",
+  "subtheme": "Licensing & registration",
+  "subject": "country:uk",
+  "ask": "cost",
+  "question": "How much does practising Ayurveda in the UK cost?",
+  "stream": "abroad-uk-eu",
+  "region": "uk",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.559Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.061,
+      "bm25": 15.93,
+      "coverage": 0
+    },
+    {
+      "chunkId": "7d4677c76aecfcb2e6aeb434b5b0fa0289f7ade8",
+      "url": "https://www.gov.uk/guidance/apply-for-a-traditional-herbal-registration-thr",
+      "title": "Apply for a traditional herbal registration (THR)",
+      "score": 1.051,
+      "bm25": 15.77,
+      "coverage": 0.42
+    },
+    {
+      "chunkId": "546f6c2d626c7f33514b5f8ad3bd987e387b02f8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ic.pdf",
+      "title": "Ministry of Ayush, Government of India — ic",
+      "score": 0.961,
+      "bm25": 14.42,
+      "coverage": 0.65
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 0.954,
+      "bm25": 14.32,
+      "coverage": 0
+    },
+    {
+      "chunkId": "7d122d03fdf5c54dca9a838addb1e6542f9a48f8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 0.952,
+      "bm25": 17.86,
+      "coverage": 0.23
+    },
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 0.908,
+      "bm25": 18.66,
+      "coverage": 0
+    },
+    {
+      "chunkId": "1c767d8a629f061105c8d7f57b12f1627169d081",
+      "url": "https://www.ayurvedanama.org/prospective-students-frequently-asked-questions",
+      "title": "Prospective Students FAQs — National Ayurvedic Medical Association",
+      "score": 0.9,
+      "bm25": 21.57,
+      "coverage": 0
+    },
+    {
+      "chunkId": "eb2935e6dd2d7f9522fcd36f4cb8f7d931cf5b26",
+      "url": "https://www.gov.uk/guidance/apply-for-a-traditional-herbal-registration-thr",
+      "title": "Apply for a traditional herbal registration (THR)",
+      "score": 0.896,
+      "bm25": 13.45,
+      "coverage": 0.42
+    }
+  ]
+}

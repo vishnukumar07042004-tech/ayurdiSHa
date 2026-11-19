@@ -1,0 +1,393 @@
+[
+  {
+    "domain": "ncismindia.org",
+    "name": "National Commission for Indian System of Medicine (NCISM)",
+    "authority": "regulator",
+    "streams": ["*"],
+    "seeds": ["https://ncismindia.org/"],
+    "maxPages": 120,
+    "country": "IN"
+  },
+  {
+    "domain": "ayush.gov.in",
+    "name": "Ministry of Ayush, Government of India",
+    "authority": "regulator",
+    "streams": ["*"],
+    "seeds": ["https://ayush.gov.in/"],
+    "spaBundle": true,
+    "maxPages": 120,
+    "maxPdfs": 110,
+    "country": "IN"
+  },
+  {
+    "domain": "ccras.nic.in",
+    "name": "Central Council for Research in Ayurvedic Sciences (CCRAS)",
+    "authority": "research",
+    "streams": ["research-phd", "govt-jobs", "industry-pharma", "public-health-policy"],
+    "seeds": ["https://ccras.nic.in/"],
+    "maxPages": 80,
+    "country": "IN"
+  },
+  {
+    "domain": "aiia.gov.in",
+    "name": "All India Institute of Ayurveda (AIIA), New Delhi",
+    "authority": "research",
+    "streams": ["pg-entrance", "research-phd", "teaching-academia", "panchakarma-wellness", "internship-early-career"],
+    "seeds": ["https://aiia.gov.in/"],
+    "maxPages": 60,
+    "country": "IN"
+  },
+  {
+    "domain": "nia.nic.in",
+    "name": "National Institute of Ayurveda (NIA), Jaipur",
+    "authority": "research",
+    "streams": ["pg-entrance", "research-phd", "teaching-academia"],
+    "seeds": ["https://nia.nic.in/"],
+    "maxPages": 40,
+    "country": "IN"
+  },
+  {
+    "domain": "exams.nta.ac.in",
+    "aliases": ["exams.nta.nic.in"],
+    "name": "National Testing Agency — AIAPGET",
+    "authority": "regulator",
+    "streams": ["pg-entrance", "internship-early-career"],
+    "seeds": ["https://exams.nta.ac.in/AIAPGET/", "https://exams.nta.nic.in/AIAPGET/"],
+    "allowPaths": ["/AIAPGET", "/aiapget"],
+    "maxPages": 40,
+    "country": "IN"
+  },
+  {
+    "domain": "natboard.edu.in",
+    "name": "National Board of Examinations in Medical Sciences (NBEMS) — NEET-PG",
+    "authority": "regulator",
+    "streams": ["pg-entrance"],
+    "seeds": ["https://natboard.edu.in/"],
+    "linkMustMatch": "neet|pg|bulletin|information|eligib|notice",
+    "maxPages": 15,
+    "country": "IN"
+  },
+  {
+    "domain": "aaccc.gov.in",
+    "name": "Ayush Admissions Central Counselling Committee (AACCC)",
+    "authority": "regulator",
+    "streams": ["pg-entrance"],
+    "seeds": ["https://aaccc.gov.in/"],
+    "maxPages": 40,
+    "country": "IN"
+  },
+  {
+    "domain": "nam.ayush.gov.in",
+    "name": "National AYUSH Mission",
+    "authority": "regulator",
+    "streams": ["govt-jobs", "public-health-policy"],
+    "seeds": ["https://nam.ayush.gov.in/"],
+    "maxPages": 40,
+    "country": "IN"
+  },
+  {
+    "domain": "ayushportal.nic.in",
+    "name": "AYUSH Research Portal",
+    "authority": "research",
+    "streams": ["research-phd", "clinical-practice"],
+    "seeds": ["https://ayushportal.nic.in/"],
+    "maxPages": 20,
+    "country": "IN"
+  },
+  {
+    "domain": "upsc.gov.in",
+    "name": "Union Public Service Commission",
+    "authority": "regulator",
+    "streams": ["govt-jobs"],
+    "seeds": ["https://upsc.gov.in/examinations/active-exams", "https://upsc.gov.in/recruitment/recruitment-advertisement"],
+    "allowPaths": ["/examinations", "/recruitment", "/sites/default/files"],
+    "maxPages": 40,
+    "country": "IN"
+  },
+  {
+    "domain": "keralapsc.gov.in",
+    "name": "Kerala Public Service Commission",
+    "authority": "regulator",
+    "streams": ["govt-jobs"],
+    "seeds": ["https://www.keralapsc.gov.in/"],
+    "maxPages": 25,
+    "country": "IN-KL"
+  },
+  {
+    "domain": "uppsc.up.nic.in",
+    "name": "Uttar Pradesh Public Service Commission",
+    "authority": "regulator",
+    "streams": ["govt-jobs"],
+    "seeds": ["https://uppsc.up.nic.in/"],
+    "linkMustMatch": "ayur|ayush|medical officer|unani|homoeo|advertisement|notification",
+    "maxPages": 15,
+    "country": "IN-UP"
+  },
+  {
+    "domain": "mpsc.gov.in",
+    "name": "Maharashtra Public Service Commission",
+    "authority": "regulator",
+    "streams": ["govt-jobs"],
+    "seeds": ["https://mpsc.gov.in/"],
+    "linkMustMatch": "ayur|ayush|medical officer|unani|homoeo|advertisement|notification",
+    "maxPages": 15,
+    "country": "IN-MH"
+  },
+  {
+    "domain": "ism.kerala.gov.in",
+    "name": "Department of Indian Systems of Medicine, Kerala",
+    "authority": "regulator",
+    "streams": ["govt-jobs", "clinical-practice", "panchakarma-wellness"],
+    "seeds": ["https://ism.kerala.gov.in/"],
+    "maxPages": 25,
+    "country": "IN-KL"
+  },
+  {
+    "domain": "mppsc.mp.gov.in",
+    "name": "Madhya Pradesh Public Service Commission",
+    "authority": "regulator",
+    "streams": ["govt-jobs"],
+    "seeds": ["https://mppsc.mp.gov.in/"],
+    "maxPages": 20,
+    "country": "IN-MP"
+  },
+  {
+    "domain": "rpsc.rajasthan.gov.in",
+    "name": "Rajasthan Public Service Commission",
+    "authority": "regulator",
+    "streams": ["govt-jobs"],
+    "seeds": ["https://rpsc.rajasthan.gov.in/"],
+    "maxPages": 20,
+    "country": "IN-RJ"
+  },
+  {
+    "domain": "ayurved.rajasthan.gov.in",
+    "name": "Ayurveda Department, Government of Rajasthan",
+    "authority": "regulator",
+    "streams": ["govt-jobs", "clinical-practice"],
+    "seeds": ["https://ayurved.rajasthan.gov.in/"],
+    "maxPages": 20,
+    "country": "IN-RJ"
+  },
+  {
+    "domain": "ayush.gujarat.gov.in",
+    "name": "Directorate of Ayush, Gujarat",
+    "authority": "regulator",
+    "streams": ["govt-jobs", "clinical-practice"],
+    "seeds": ["https://ayush.gujarat.gov.in/"],
+    "maxPages": 20,
+    "country": "IN-GJ"
+  },
+  {
+    "domain": "clinicalestablishments.gov.in",
+    "name": "Clinical Establishments (Registration and Regulation) Act — National Council",
+    "authority": "regulator",
+    "streams": ["clinical-practice", "panchakarma-wellness"],
+    "seeds": ["https://clinicalestablishments.gov.in/"],
+    "linkMustMatch": "act|rule|standard|ayush|ayurved|registration|notification",
+    "maxPages": 15,
+    "country": "IN"
+  },
+  {
+    "domain": "clinicalestablishments.mohfw.gov.in",
+    "name": "Clinical Establishments Act — MoHFW portal (FAQ, AYUSH minimum standards)",
+    "authority": "regulator",
+    "streams": ["clinical-practice", "panchakarma-wellness"],
+    "seeds": ["https://www.clinicalestablishments.mohfw.gov.in/faq"],
+    "linkMustMatch": "faq|act|rule|standard|ayush|ayurved|registration|notification",
+    "maxPages": 15,
+    "country": "IN",
+    "facultySource": true
+  },
+  {
+    "domain": "ncism.org.in",
+    "name": "National Commission for Indian System of Medicine (NCISM) — ncism.org.in",
+    "authority": "regulator",
+    "streams": ["*"],
+    "seeds": ["https://ncism.org.in/ayurveda.html"],
+    "maxPages": 40,
+    "country": "IN",
+    "facultySource": true
+  },
+  {
+    "domain": "namayush.gov.in",
+    "name": "Ministry of Ayush — namayush.gov.in (telemedicine guidelines, publications)",
+    "authority": "regulator",
+    "streams": ["*"],
+    "seeds": ["https://namayush.gov.in/content/telemedicine-guidelines", "https://namayush.gov.in/content/publications"],
+    "linkMustMatch": "telemedicine|guideline|publication|standard|ayurved|practice|pdf",
+    "maxPages": 30,
+    "country": "IN",
+    "facultySource": true
+  },
+  {
+    "domain": "nabh.co",
+    "name": "National Accreditation Board for Hospitals & Healthcare Providers (NABH)",
+    "authority": "regulator",
+    "streams": ["clinical-practice", "panchakarma-wellness"],
+    "seeds": ["https://nabh.co/"],
+    "maxPages": 40,
+    "country": "IN"
+  },
+  {
+    "domain": "qcin.org",
+    "name": "Quality Council of India (AYUSH Mark / certification)",
+    "authority": "regulator",
+    "streams": ["industry-pharma", "export-trade"],
+    "seeds": ["https://qcin.org/"],
+    "maxPages": 25,
+    "country": "IN"
+  },
+  {
+    "domain": "pharmexcil.com",
+    "name": "Pharmaceuticals Export Promotion Council of India (Pharmexcil)",
+    "authority": "regulator",
+    "streams": ["export-trade", "industry-pharma"],
+    "seeds": ["https://pharmexcil.com/"],
+    "maxPages": 25,
+    "country": "IN"
+  },
+  {
+    "domain": "startupindia.gov.in",
+    "name": "Startup India",
+    "authority": "regulator",
+    "streams": ["entrepreneurship"],
+    "seeds": ["https://www.startupindia.gov.in/"],
+    "maxPages": 15,
+    "country": "IN"
+  },
+  {
+    "domain": "ipindia.gov.in",
+    "name": "Office of the Controller General of Patents, Designs & Trade Marks",
+    "authority": "regulator",
+    "streams": ["entrepreneurship"],
+    "seeds": ["https://ipindia.gov.in/"],
+    "maxPages": 15,
+    "country": "IN"
+  },
+  {
+    "domain": "who.int",
+    "name": "World Health Organization — Traditional, Complementary & Integrative Medicine",
+    "authority": "regulator",
+    "streams": ["public-health-policy", "practice-abroad", "research-phd", "panchakarma-wellness"],
+    "seeds": [
+      "https://www.who.int/health-topics/traditional-complementary-and-integrative-medicine",
+      "https://www.who.int/initiatives/who-global-traditional-medicine-centre",
+      "https://www.who.int/news-room/questions-and-answers/item/traditional-medicine",
+      "https://www.who.int/teams/integrated-health-services/traditional-complementary-and-integrative-medicine"
+    ],
+    "allowPaths": ["/health-topics/traditional", "/initiatives/who-global-traditional-medicine-centre", "/news-room/questions-and-answers/item/traditional", "/teams/integrated-health-services/traditional", "/publications/i/item/9789240", "/news/item"],
+    "linkMustMatch": "tradition|ayurved|complementary|integrative|tcim",
+    "maxPages": 40,
+    "country": "INT"
+  },
+  {
+    "domain": "pubmed.ncbi.nlm.nih.gov",
+    "name": "PubMed (NCBI) — peer-reviewed abstracts",
+    "authority": "research",
+    "streams": ["research-phd"],
+    "seeds": [],
+    "api": "pubmed",
+    "queries": [
+      "ayurveda education BAMS",
+      "ayurveda graduates career",
+      "ayurveda practitioners survey India",
+      "AYUSH workforce",
+      "ayurveda postgraduate education",
+      "ayurveda research methodology",
+      "ayurveda clinical research challenges",
+      "ayurveda integrative medicine hospital India",
+      "ayurveda pharmacovigilance",
+      "ayurvedic drug quality standardization",
+      "ayurveda regulation global",
+      "ayurveda medical tourism wellness",
+      "panchakarma clinical",
+      "ayurveda public health national AYUSH mission",
+      "ayurveda entrepreneurship herbal industry",
+      "ayurveda curriculum competency based"
+    ],
+    "perQuery": 30,
+    "country": "INT"
+  },
+  {
+    "domain": "ayurworld.org",
+    "name": "World Ayurveda Foundation / World Ayurveda Congress",
+    "authority": "congress",
+    "streams": ["*"],
+    "seeds": ["https://ayurworld.org/"],
+    "maxPages": 30,
+    "country": "IN"
+  },
+  {
+    "domain": "dha.gov.ae",
+    "name": "Dubai Health Authority (DHA)",
+    "authority": "regulator",
+    "streams": ["abroad-gulf", "practice-abroad"],
+    "seeds": ["https://www.dha.gov.ae/en"],
+    "linkMustMatch": "licens|profession|regulat|tcam|complementary|traditional|pqr|qualification",
+    "maxPages": 30,
+    "country": "AE"
+  },
+  {
+    "domain": "doh.gov.ae",
+    "name": "Department of Health — Abu Dhabi (DOH)",
+    "authority": "regulator",
+    "streams": ["abroad-gulf", "practice-abroad"],
+    "seeds": ["https://www.doh.gov.ae/en"],
+    "linkMustMatch": "licens|profession|regulat|tcam|complementary|traditional|pqr|qualification|standard",
+    "maxPages": 30,
+    "country": "AE"
+  },
+  {
+    "domain": "mohap.gov.ae",
+    "name": "UAE Ministry of Health and Prevention (MOHAP)",
+    "authority": "regulator",
+    "streams": ["abroad-gulf", "practice-abroad"],
+    "seeds": ["https://mohap.gov.ae/en/services/issue-of-a-professional-license"],
+    "linkMustMatch": "licens|profession|regulat|complementary|traditional|alternative",
+    "maxPages": 20,
+    "country": "AE"
+  },
+  {
+    "domain": "nccih.nih.gov",
+    "name": "NIH National Center for Complementary and Integrative Health (USA)",
+    "authority": "research",
+    "streams": ["abroad-usa", "practice-abroad", "research-phd"],
+    "seeds": ["https://www.nccih.nih.gov/health/ayurvedic-medicine-in-depth", "https://www.nccih.nih.gov/health/credentialing-understanding-the-education-training-regulation-and-licensing-of-complementary-health-practitioners"],
+    "allowPaths": ["/health/ayurved", "/health/credentialing", "/health/complementary-alternative-or-integrative-health", "/health/traditional"],
+    "maxPages": 15,
+    "country": "US"
+  },
+  {
+    "domain": "ayurvedanama.org",
+    "name": "National Ayurvedic Medical Association (NAMA, USA)",
+    "authority": "other",
+    "streams": ["abroad-usa"],
+    "seeds": ["https://www.ayurvedanama.org/"],
+    "maxPages": 25,
+    "country": "US"
+  },
+  {
+    "domain": "gov.uk",
+    "name": "GOV.UK / MHRA — herbal medicines regulation (UK)",
+    "authority": "regulator",
+    "streams": ["abroad-uk-eu", "practice-abroad", "export-trade"],
+    "seeds": [
+      "https://www.gov.uk/guidance/apply-for-a-traditional-herbal-registration-thr",
+      "https://www.gov.uk/government/collections/herbal-medicines",
+      "https://www.gov.uk/government/publications/advice-on-ayurvedic-medicines"
+    ],
+    "allowPaths": ["/guidance/apply-for-a-traditional-herbal", "/government/collections/herbal", "/government/publications/advice-on-ayurvedic", "/government/publications/herbal", "/guidance/herbal"],
+    "maxPages": 15,
+    "country": "GB"
+  },
+  {
+    "domain": "oda-am.ch",
+    "name": "OdA AM — Swiss federal diploma in Naturopathy (incl. Ayurveda Medicine)",
+    "authority": "regulator",
+    "streams": ["abroad-uk-eu"],
+    "seeds": ["https://www.oda-am.ch/en/"],
+    "maxPages": 20,
+    "country": "CH"
+  }
+]

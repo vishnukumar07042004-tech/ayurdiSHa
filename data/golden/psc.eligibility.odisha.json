@@ -1,0 +1,103 @@
+{
+  "intentId": "psc.eligibility.odisha",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "subject": "psc",
+  "ask": "eligibility",
+  "question": "What is the eligibility for the Odisha PSC Ayurveda Medical Officer exam?",
+  "stream": "govt-jobs",
+  "region": "odisha",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.576Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.438,
+      "bm25": 21.93,
+      "coverage": 0.18
+    },
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.23,
+      "bm25": 18.76,
+      "coverage": 0.35
+    },
+    {
+      "chunkId": "1f711f42f39e3cf1fefa3e692e9ea1b40ffbfba3",
+      "url": "https://ayush.gov.in/assets/pdf/careers/CGN_UG_Guideline_Session_2025-26.pdf",
+      "title": "CGN UG Guideline Session 2025 26",
+      "score": 1.13,
+      "bm25": 21.54,
+      "coverage": 0.54
+    },
+    {
+      "chunkId": "280cf8415f41ab4804b4016e646867c8bba55e92",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 1.123,
+      "bm25": 17.13,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "966567c13310b0de1cd29d0f673c8e3c738bde10",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 1.1,
+      "bm25": 20.98,
+      "coverage": 0.43
+    },
+    {
+      "chunkId": "ad2ce5d5f7d0c4c9f21b28171da7caffe456548d",
+      "url": "https://rpsc.rajasthan.gov.in/Static/InformationForCandidates/FAQ.pdf",
+      "title": "Rajasthan Public Service Commission — FAQ",
+      "score": 1.053,
+      "bm25": 16.07,
+      "coverage": 0.42
+    },
+    {
+      "chunkId": "96059e644fb8b1a29fb490662f53e706cf9d64d0",
+      "url": "https://rpsc.rajasthan.gov.in/Static/InformationForCandidates/FAQ.pdf",
+      "title": "Rajasthan Public Service Commission — FAQ",
+      "score": 0.992,
+      "bm25": 15.14,
+      "coverage": 0.35
+    },
+    {
+      "chunkId": "edda68b3b78bf195db59780ae0ddce9bea92ea11",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/VacancyDepAdviserYN.pdf",
+      "title": "VacancyDepAdviserYN",
+      "score": 0.989,
+      "bm25": 15.09,
+      "coverage": 0.28
+    }
+  ]
+}

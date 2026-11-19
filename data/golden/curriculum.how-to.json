@@ -1,0 +1,102 @@
+{
+  "intentId": "curriculum.how-to",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Curriculum & assessment",
+  "subject": "faculty",
+  "ask": "how-to",
+  "question": "How does competency-based curriculum and assessment work for Ayurveda faculty?",
+  "stream": "teaching-academia",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Competency-Based Reforms in Ayurveda Education: Challenges and Policy Recommendations for the Implementation of the National Commission for Indian System of Medicine (NCISM).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41393753/"
+    },
+    {
+      "title": "ANUKTA DRAVYA WORKSHOP - 11th World Ayurveda Congress And Arogya Expo 2026",
+      "url": "https://ayurworld.org/anukta-dravya-workshop/"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.095Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "65bad8f7b4c4d4581f3d29c29bffb88b20bc7981",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41393753/",
+      "title": "Competency-Based Reforms in Ayurveda Education: Challenges and Policy Recommendations for the Implementation of the National Commission for Indian System of Medicine (NCISM).",
+      "score": 1.05,
+      "bm25": 27.79,
+      "coverage": 0.91
+    },
+    {
+      "chunkId": "3d640d0276feb2510f1253ef0b27189de62db988",
+      "url": "https://ayurworld.org/anukta-dravya-workshop/",
+      "title": "ANUKTA DRAVYA WORKSHOP - 11th World Ayurveda Congress And Arogya Expo 2026",
+      "score": 0.842,
+      "bm25": 18.73,
+      "coverage": 0.57
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.824,
+      "bm25": 15.93,
+      "coverage": 0
+    },
+    {
+      "chunkId": "49103c69dbf574cb5045b21525789a958b0d3c38",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/08/Anukta-Dravya-V2.pdf",
+      "title": "Anukta Dravya V2",
+      "score": 0.822,
+      "bm25": 18.27,
+      "coverage": 0.57
+    },
+    {
+      "chunkId": "8a56e193dda646b3d77715ba3c4338f73094a13e",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/02/Ayur-World-Jan-Feb-2026.pdf",
+      "title": "Ayur World Jan Feb 2026",
+      "score": 0.726,
+      "bm25": 16.14,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "c0ba3194ae2fdd0c70a001935adf6ea141c1ebd3",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20532099/",
+      "title": "Global challenges of graduate level Ayurvedic education: A survey.",
+      "score": 0.68,
+      "bm25": 18,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "d1d4345fd415cc0a53d7c0b57fa1bdecfec7c442",
+      "url": "https://www.who.int/news/item/23-10-2026-who-launches-working-papers-on-traditional-medicine",
+      "title": "WHO launches working papers on traditional medicine",
+      "score": 0.672,
+      "bm25": 16.25,
+      "coverage": 0.81
+    },
+    {
+      "chunkId": "2fe3e28a3b395a2d138c0c0554084a47b5b89b7b",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/02/Ayur-World-Jan-Feb-2026.pdf",
+      "title": "Ayur World Jan Feb 2026",
+      "score": 0.644,
+      "bm25": 14.31,
+      "coverage": 0.67
+    }
+  ]
+}

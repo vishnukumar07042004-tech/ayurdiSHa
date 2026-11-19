@@ -1,0 +1,102 @@
+{
+  "intentId": "export.eligibility",
+  "theme": "Export & Global Trade",
+  "subtheme": "Getting started in export",
+  "subject": "export",
+  "ask": "eligibility",
+  "question": "What is the eligibility for exporting Ayurvedic products?",
+  "stream": "export-trade",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "MAI RevisedGuidelinesFromAugust2014 4web",
+      "url": "https://pharmexcil.com/v1/docs/MDA/MAI_RevisedGuidelinesFromAugust2014_4web.pdf"
+    },
+    {
+      "title": "E-Mitra Step-By-Step Guide for Entry Level Certification - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "url": "https://nabh.co/e-mitra-step-by-step-guide-for-entry-level-certification/"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.907Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "fbc994e83e0c1c4a85618e1d1ce0e69c8ecf2bcf",
+      "url": "https://pharmexcil.com/v1/docs/MDA/MAI_RevisedGuidelinesFromAugust2014_4web.pdf",
+      "title": "MAI RevisedGuidelinesFromAugust2014 4web",
+      "score": 1.177,
+      "bm25": 17.12,
+      "coverage": 1
+    },
+    {
+      "chunkId": "50131e4c199869e2fd9147a8a0a8e519c54bc720",
+      "url": "https://nabh.co/e-mitra-step-by-step-guide-for-entry-level-certification/",
+      "title": "E-Mitra Step-By-Step Guide for Entry Level Certification - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.15,
+      "bm25": 20.91,
+      "coverage": 0.38
+    },
+    {
+      "chunkId": "fc4c37478b24874b245020f8f8ed762cdf7e0abd",
+      "url": "https://pharmexcil.com/uploads/RevisedMAIGuildelines19thJuly2021.pdf",
+      "title": "RevisedMAIGuildelines19thJuly2021",
+      "score": 1.122,
+      "bm25": 16.32,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "1f7bd85aa11fd474e25aa9f93b238b7ab3a6cf17",
+      "url": "https://pharmexcil.com/uploads/RevisedMAIGuildelines19thJuly2021.pdf",
+      "title": "RevisedMAIGuildelines19thJuly2021",
+      "score": 1.065,
+      "bm25": 15.49,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "a73d59f175de305c2a5384092aa73b5e113878d3",
+      "url": "https://pharmexcil.com/docs/MDA/mai_guide_2007.pdf",
+      "title": "AMENDED MARKET ACCESS INITIATIVE (MAI) SCHEME",
+      "score": 1.062,
+      "bm25": 15.44,
+      "coverage": 0.23
+    },
+    {
+      "chunkId": "1d6976fc5089e7b1be2757c43bad3e1090524c15",
+      "url": "https://pharmexcil.com/v1/docs/MDA/MAI_RevisedGuidelinesFromAugust2014_4web.pdf",
+      "title": "MAI RevisedGuidelinesFromAugust2014 4web",
+      "score": 0.99,
+      "bm25": 14.4,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "d23a723afff4ee86029335022488bab7a0a98577",
+      "url": "https://pharmexcil.com/uploads/countryreports/MAI_Scheme_revised_2018.pdf",
+      "title": "MAI Scheme revised 2018",
+      "score": 0.967,
+      "bm25": 14.07,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "3c029ac1fcc30f59bab729951e0d27c1ac82dd06",
+      "url": "https://ayush.gov.in/assets/pdf/careers/English_Application_Form_04082026.pdf",
+      "title": "English Application Form 04082026",
+      "score": 0.946,
+      "bm25": 17.2,
+      "coverage": 0.38
+    }
+  ]
+}

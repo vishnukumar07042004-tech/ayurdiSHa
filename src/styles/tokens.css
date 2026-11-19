@@ -30,10 +30,15 @@
    ========================================================================== */
 
 :root {
-  /* Type — clean sans first (SF on Apple devices, Inter elsewhere) */
-  --ui-font: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --ui-font-display: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Type — SF Pro on Apple devices, Inter (400–700) everywhere else.
+     Cormorant Garamond is reserved for the single italic accent word. */
+  --ui-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --ui-font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif;
   --ui-font-accent: "Cormorant Garamond", "Cormorant", Georgia, serif;
+  --ui-fw-regular: 400;
+  --ui-fw-medium: 500;
+  --ui-fw-semibold: 600;
+  --ui-fw-bold: 700;
 
   --ui-fs-display: clamp(2.6rem, 1.4rem + 4.6vw, 5rem);      /* 42 → 80 */
   --ui-fs-headline: clamp(2.1rem, 1.3rem + 2.6vw, 3rem);     /* 34 → 48 */
@@ -80,14 +85,15 @@
 
   /* Buttons */
   --ui-btn-sm: 32px;
-  --ui-btn-md: 44px;
-  --ui-btn-lg: 54px;
-  --ui-btn-pad-sm: 15px;
-  --ui-btn-pad-md: 22px;
-  --ui-btn-pad-lg: 30px;
+  --ui-btn-md: 40px;
+  --ui-btn-lg: 46px;
+  --ui-btn-pad-sm: 14px;
+  --ui-btn-pad-md: 20px;
+  --ui-btn-pad-lg: 24px;
   --ui-btn-fs-sm: 14px;
-  --ui-btn-fs-md: 16px;
+  --ui-btn-fs-md: 15px;
   --ui-btn-fs-lg: 17px;
+  --ui-btn-fw: 400;
   --ui-radius-pill: 980px;
 
   /* Fields */
@@ -142,6 +148,12 @@
   --ui-blur: saturate(1.8) blur(20px);
 }
 
+body {
+  font-family: var(--ui-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /* Remap the shared editorial tokens for every non-welcome route. */
 .aym-ui {
   --font-sans: var(--ui-font);
@@ -157,4 +169,5 @@
 }
 @media (max-width: 767px) {
   .aym-ui { --nav-h: var(--ui-nav-h); }
+  :root { --ui-btn-md: 44px; --ui-btn-lg: 48px; }
 }

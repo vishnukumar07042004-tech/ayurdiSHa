@@ -1,0 +1,102 @@
+{
+  "intentId": "abroad-country.how-to.eu",
+  "theme": "Practice Abroad & Practitioner Mobility",
+  "subtheme": "Licensing & registration",
+  "subject": "country:europe",
+  "ask": "how-to",
+  "question": "How do I practise Ayurveda in Europe?",
+  "stream": "abroad-uk-eu",
+  "region": "eu",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "BAMS Guideline",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf"
+    },
+    {
+      "title": "Magazine AW Nov Dec25",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.536Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.223,
+      "bm25": 15.93,
+      "coverage": 0
+    },
+    {
+      "chunkId": "70fd2e8b7c01b279ce039aa24e1803f3e26d3e7c",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 1.101,
+      "bm25": 16.49,
+      "coverage": 1
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 1.1,
+      "bm25": 14.32,
+      "coverage": 0
+    },
+    {
+      "chunkId": "3a24e908c7f73657553de1a77bdd5868e71108ba",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 1.037,
+      "bm25": 15.54,
+      "coverage": 1
+    },
+    {
+      "chunkId": "046e669eda2f9494c8bf64bdb3f210debf48cc32",
+      "url": "https://nabh.co/e-mitra-step-by-step-guide-for-entry-level-certification/",
+      "title": "E-Mitra Step-By-Step Guide for Entry Level Certification - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 0.981,
+      "bm25": 15.96,
+      "coverage": 0
+    },
+    {
+      "chunkId": "1c767d8a629f061105c8d7f57b12f1627169d081",
+      "url": "https://www.ayurvedanama.org/prospective-students-frequently-asked-questions",
+      "title": "Prospective Students FAQs — National Ayurvedic Medical Association",
+      "score": 0.9,
+      "bm25": 18.72,
+      "coverage": 0
+    },
+    {
+      "chunkId": "42d78027c951fd072d0ae6dbb8c6e93fac73f5ac",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 0.879,
+      "bm25": 11.45,
+      "coverage": 0
+    },
+    {
+      "chunkId": "ac3a8b78d48253292dbb6989ced91209fcf344a0",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/ClarificationManufacturingLicensed_under_ASU_FSSAI.pdf",
+      "title": "ClarificationManufacturingLicensed under ASU FSSAI",
+      "score": 0.866,
+      "bm25": 14.09,
+      "coverage": 0
+    }
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "finishedAt": "2026-11-07T17:21:03.294Z",
+  "dry": false,
+  "chunks": {
+    "before": 3198,
+    "kept": 3198,
+    "removed": 0,
+    "retagged": 214,
+    "retitled": 0,
+    "wildcard": 298
+  },
+  "removedByReason": {},
+  "removedByDomain": {},
+  "coverage": {
+    "pg-entrance": {
+      "label": "PG entrance (AIAPGET) & choosing an MD/MS branch",
+      "chunks": 173,
+      "chunksStreamSpecific": 87,
+      "intents": 53,
+      "questions": 918,
+      "chunksPerIntent": 3.3,
+      "thin": false
+    },
+    "govt-jobs": {
+      "label": "Government jobs — AYUSH MO, PSC, UPSC, NAM",
+      "chunks": 820,
+      "chunksStreamSpecific": 260,
+      "intents": 76,
+      "questions": 1202,
+      "chunksPerIntent": 10.8,
+      "thin": false
+    },
+    "clinical-practice": {
+      "label": "Clinical practice, hospital jobs & clinic set-up / licensing",
+      "chunks": 847,
+      "chunksStreamSpecific": 614,
+      "intents": 32,
+      "questions": 499,
+      "chunksPerIntent": 26.5,
+      "thin": false
+    },
+    "panchakarma-wellness": {
+      "label": "Panchakarma, wellness centres & medical value travel",
+      "chunks": 490,
+      "chunksStreamSpecific": 290,
+      "intents": 26,
+      "questions": 383,
+      "chunksPerIntent": 18.8,
+      "thin": false
+    },
+    "research-phd": {
+      "label": "Research, PhD, publication & research councils",
+      "chunks": 1782,
+      "chunksStreamSpecific": 940,
+      "intents": 35,
+      "questions": 618,
+      "chunksPerIntent": 50.9,
+      "thin": false
+    },
+    "teaching-academia": {
+      "label": "Teaching & academic careers",
+      "chunks": 336,
+      "chunksStreamSpecific": 141,
+      "intents": 9,
+      "questions": 116,
+      "chunksPerIntent": 37.3,
+      "thin": false
+    },
+    "industry-pharma": {
+      "label": "Ayurveda industry — pharma R&D, manufacturing, QA/QC, GMP, regulatory",
+      "chunks": 841,
+      "chunksStreamSpecific": 264,
+      "intents": 20,
+      "questions": 309,
+      "chunksPerIntent": 42.1,
+      "thin": false
+    },
+    "entrepreneurship": {
+      "label": "Start-ups, products & funding",
+      "chunks": 79,
+      "chunksStreamSpecific": 62,
+      "intents": 13,
+      "questions": 168,
+      "chunksPerIntent": 6.1,
+      "thin": false
+    },
+    "export-trade": {
+      "label": "Export & global trade of Ayurveda products",
+      "chunks": 261,
+      "chunksStreamSpecific": 192,
+      "intents": 11,
+      "questions": 96,
+      "chunksPerIntent": 23.7,
+      "thin": false
+    },
+    "digital-branding": {
+      "label": "Digital presence, branding & ethical communication",
+      "chunks": 76,
+      "chunksStreamSpecific": 52,
+      "intents": 13,
+      "questions": 195,
+      "chunksPerIntent": 5.8,
+      "thin": false
+    },
+    "practice-abroad": {
+      "label": "Practising abroad — recognition, licensing, visas (general / other countries)",
+      "chunks": 425,
+      "chunksStreamSpecific": 106,
+      "intents": 22,
+      "questions": 343,
+      "chunksPerIntent": 19.3,
+      "thin": false
+    },
+    "abroad-gulf": {
+      "label": "Practising in the Gulf (UAE — DHA / DOH / MOHAP, other GCC)",
+      "chunks": 291,
+      "chunksStreamSpecific": 2,
+      "intents": 8,
+      "questions": 108,
+      "chunksPerIntent": 36.4,
+      "thin": true
+    },
+    "abroad-usa": {
+      "label": "Ayurveda careers in the USA",
+      "chunks": 384,
+      "chunksStreamSpecific": 85,
+      "intents": 8,
+      "questions": 109,
+      "chunksPerIntent": 48,
+      "thin": false
+    },
+    "abroad-uk-eu": {
+      "label": "Ayurveda careers in the UK & Europe",
+      "chunks": 336,
+      "chunksStreamSpecific": 22,
+      "intents": 16,
+      "questions": 217,
+      "chunksPerIntent": 21,
+      "thin": true
+    },
+    "public-health-policy": {
+      "label": "Public health, policy & international organisations",
+      "chunks": 815,
+      "chunksStreamSpecific": 124,
+      "intents": 11,
+      "questions": 199,
+      "chunksPerIntent": 74.1,
+      "thin": false
+    },
+    "internship-early-career": {
+      "label": "Internship & early-career choices after BAMS",
+      "chunks": 225,
+      "chunksStreamSpecific": 71,
+      "intents": 15,
+      "questions": 140,
+      "chunksPerIntent": 15,
+      "thin": false
+    }
+  },
+  "blockedSources": [
+    {
+      "domain": "ncismindia.org",
+      "name": "National Commission for Indian System of Medicine (NCISM)",
+      "status": "empty",
+      "why": "https://ncismindia.org/: HTTP 409"
+    },
+    {
+      "domain": "aiia.gov.in",
+      "name": "All India Institute of Ayurveda (AIIA), New Delhi",
+      "status": "empty",
+      "why": "only the home page loaded (no crawlable links; likely JS-rendered)"
+    },
+    {
+      "domain": "nia.nic.in",
+      "name": "National Institute of Ayurveda (NIA), Jaipur",
+      "status": "empty",
+      "why": "pages fetched but none career-relevant"
+    },
+    {
+      "domain": "exams.nta.ac.in",
+      "name": "National Testing Agency — AIAPGET",
+      "status": "blocked",
+      "why": "https://exams.nta.ac.in/AIAPGET/: HTTP 404"
+    },
+    {
+      "domain": "nam.ayush.gov.in",
+      "name": "National AYUSH Mission",
+      "status": "blocked",
+      "why": "https://nam.ayush.gov.in/: HTTP 403"
+    },
+    {
+      "domain": "upsc.gov.in",
+      "name": "Union Public Service Commission",
+      "status": "blocked",
+      "why": "https://upsc.gov.in/examinations/active-exams: HTTP 403"
+    },
+    {
+      "domain": "mppsc.mp.gov.in",
+      "name": "Madhya Pradesh Public Service Commission",
+      "status": "failed",
+      "why": "robots.txt disallows"
+    },
+    {
+      "domain": "ayurved.rajasthan.gov.in",
+      "name": "Ayurveda Department, Government of Rajasthan",
+      "status": "empty",
+      "why": "only the home page loaded (no crawlable links; likely JS-rendered)"
+    },
+    {
+      "domain": "qcin.org",
+      "name": "Quality Council of India (AYUSH Mark / certification)",
+      "status": "blocked",
+      "why": "https://qcin.org/: HTTP 403"
+    },
+    {
+      "domain": "dha.gov.ae",
+      "name": "Dubai Health Authority (DHA)",
+      "status": "empty",
+      "why": "only the home page loaded (no crawlable links; likely JS-rendered)"
+    },
+    {
+      "domain": "doh.gov.ae",
+      "name": "Department of Health — Abu Dhabi (DOH)",
+      "status": "blocked",
+      "why": "robots https://www.doh.gov.ae: tls+curl: Command failed: curl -sSL --compressed --max-time 40 --max-filesize 15728640 -A AYURDISHA-KB-Bot/1.0 (career-guidance knowledge base for the World Ayurveda Congress; contact via ayurworld.org) -o /Users/vishnukumar/AndroidStudioProjects/heybee/ayurmarg-preview/data/kb/cache/curl-057d6e22458f38af3ab7fe81f54092860792079e.bin -w %{http_code}\t%{content_type}\t%{url_effective} https://www.doh.gov.ae/robots.txt"
+    },
+    {
+      "domain": "mohap.gov.ae",
+      "name": "UAE Ministry of Health and Prevention (MOHAP)",
+      "status": "blocked",
+      "why": "robots https://mohap.gov.ae: UND_ERR_CONNECT_TIMEOUT"
+    }
+  ]
+}

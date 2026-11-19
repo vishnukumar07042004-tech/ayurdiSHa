@@ -1,0 +1,103 @@
+{
+  "intentId": "abroad-visa.how-to.gulf",
+  "theme": "Practice Abroad & Practitioner Mobility",
+  "subtheme": "Visa and employment routes",
+  "subject": "visa",
+  "ask": "how-to",
+  "question": "Which visa or employment route can an Ayurveda practitioner use to work in the UAE (Dubai / Abu Dhabi)?",
+  "stream": "abroad-gulf",
+  "region": "gulf",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.583Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "d744b4c5cd795d42c266683a93f7b8a4ab431a28",
+      "url": "https://www.who.int/news/item/21-10-2026-united-arab-emirates-announces-national-commitments-to-advance-evidence-based-integrative-medicine",
+      "title": "UAE Integrative Medicine Council announces commitments to advance evidence-based integrative medicine",
+      "score": 1.438,
+      "bm25": 32.1,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "16c7519e59bbce72dafa1d52ca479125b52c47f7",
+      "url": "https://www.who.int/news/item/21-10-2026-united-arab-emirates-announces-national-commitments-to-advance-evidence-based-integrative-medicine",
+      "title": "UAE Integrative Medicine Council announces commitments to advance evidence-based integrative medicine",
+      "score": 1.064,
+      "bm25": 23.77,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "a9badec24d397a7f69ac2c51095d5bcbe157964b",
+      "url": "https://www.emro.who.int/health-topics/traditional-medicine/",
+      "title": "Traditional medicine",
+      "score": 0.925,
+      "bm25": 20.66,
+      "coverage": 0.36
+    },
+    {
+      "chunkId": "42d78027c951fd072d0ae6dbb8c6e93fac73f5ac",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 0.823,
+      "bm25": 18.37,
+      "coverage": 0.14
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.713,
+      "bm25": 15.93,
+      "coverage": 0
+    },
+    {
+      "chunkId": "c0e5dcb8d47c4602bcf1e153bf0dfe8709298e1b",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 0.666,
+      "bm25": 17.11,
+      "coverage": 0.27
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 0.641,
+      "bm25": 14.32,
+      "coverage": 0
+    },
+    {
+      "chunkId": "10769430a3bfe12bc89be903c81db6780a22746a",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 0.57,
+      "bm25": 14.63,
+      "coverage": 0.27
+    }
+  ]
+}

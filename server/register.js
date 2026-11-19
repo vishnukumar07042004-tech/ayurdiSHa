@@ -1,5 +1,7 @@
 import crypto from "node:crypto";
 import { sendOtpEmail } from "./mailer.js";
+import { sendOrQueue } from "./mailQueue.js";
+import { sanitizeSource } from "../shared/source.js";
 import {
   OTP_COOKIE,
   OTP_TTL_MS,
@@ -13,7 +15,12 @@ import {
   readSessTicket,
   setSessCookie,
 } from "./otpTicket.js";
-import { formatIssuedWac, K_WAC_SEQ, WAC_SEQ_DOC } from "./wacRegNo.js";
+import { formatIssuedWac, WAC_SEQ_DOC } from "./wacRegNo.js";
+import { nextPassNumber, updateKey, createKeyIfAbsent, withDeadline, bestEffort } from "./passIssuer.js";
+import { otpIpLimiter, clientIp, reserveOtpSend, releaseOtpSend } from "./otpLimits.js";
+import { isProbeEmail } from "../shared/probe.js";
+import { isOperatorHarshPersona } from "../shared/account.js";
+import { autoLinkQuietly } from "./wacAutoLink.js";
 
 /**
  * Delegate registration with email OTP verification.
@@ -25,8 +32,12 @@ import { formatIssuedWac, K_WAC_SEQ, WAC_SEQ_DOC } from "./wacRegNo.js";
  *   aym:email:<email>    email -> userId index
  *   aym:regno:<number>   registration-number collision index
  *   aym:sess:<token>     session token -> userId
- *   aym:meta:wac-seq     sequential WAC issuer (file/blob); Firestore uses meta/wac-seq
+ *   aym:otp:<hash>       per-email send-rate record (otpLimits.js)
+ * Pass numbers come from per-instance blocks (passIssuer.js); new delegates get a user id derived
+ * from their email, so a double-clicked or retried verify can never create two people.
  */
+const VERIFY_DEADLINE_MS = 18000;
+const BUSY_VERIFIED = "The hall is very busy right now. Your email is verified — press Verify again in a moment (the same code still works).";
 export const K_USER = "aym:user:";
 export const K_EMAIL = "aym:email:";
 export const K_REGNO = "aym:regno:";
@@ -72,10 +83,26 @@ function cleanProfile(msg) {
 }
 
 export function publicProfile(user) {
+  const share = Boolean(user.wacShareConsent);
+  const w = user.wac || {};
   return {
     name: user.name, age: user.age, sex: user.sex,
     institute: user.institute, email: user.email,
     regNo: user.regNo || "", createdAt: user.createdAt,
+    wacShareConsent: share,
+    ...(user.wacId ? {
+      wacId: user.wacId, passLabel: user.passLabel || user.wacId, wacVerified: Boolean(user.wacVerified),
+      wacConfirmed: Boolean(user.wacConfirmedAt), ...(user.stage ? { stage: user.stage } : {}),
+    } : user.wacLinkPending ? { wacLinkPending: true } : {}),
+    ...(share ? {
+      wac: {
+        category: w.category || "",
+        country: w.country || "",
+        state: w.state || "",
+        attendance: w.attendance || "",
+        institution: w.institution || "",
+      },
+    } : {}),
   };
 }
 
@@ -89,7 +116,7 @@ export function validRegNo(s) {
   return cleanWacRegNo(s) || sixDigit(s);
 }
 
-function stableDelegateId(emailLower) {
+export function stableDelegateId(emailLower) {
   return crypto.createHash("sha256").update("aym-del:" + emailLower).digest("hex").slice(0, 16);
 }
 
@@ -160,99 +187,60 @@ function httpErr(code, message) {
   return err;
 }
 
-function writeDelegateIntoDb(db, user) {
-  if (!user || !user.id) return;
-  db[K_USER + user.id] = user;
-  const emailLower = normEmail(user.emailLower || user.email);
-  if (emailLower) db[K_EMAIL + emailLower] = { userId: user.id };
-  const rk = regnoIndexKey(user.regNo);
-  if (rk) db[rk] = { userId: user.id };
-}
-
-function assignNextWacInDb(db, user) {
-  const u = user && user.id && db[K_USER + user.id] ? db[K_USER + user.id] : user;
-  if (!u) return u;
-  if (validRegNo(u.regNo)) return u;
-  let n = db[K_WAC_SEQ] && Number(db[K_WAC_SEQ].last);
-  if (!Number.isFinite(n)) n = 0;
-  let wac = "";
-  for (let i = 0; i < 24; i++) {
-    n += 1;
-    wac = formatIssuedWac(n);
-    const taken = findUserIdByRegNoInDb(db, wac);
-    if (!taken || taken === u.id) break;
-  }
-  db[K_WAC_SEQ] = { last: n, updatedAt: Date.now() };
-  const next = {
-    ...u,
-    id: u.id || crypto.randomBytes(8).toString("hex"),
-    regNo: wac,
-    emailLower: normEmail(u.emailLower || u.email),
-    createdAt: u.createdAt || Date.now(),
-  };
-  writeDelegateIntoDb(db, next);
-  return next;
-}
-
 /**
- * Staff-safe unique issuer. File/blob: one transact. Firestore: meta/wac-seq
- * transaction then unique regno index. Existing numbers are never replaced.
+ * Issue a pass number exactly once per delegate, safely across instances and retries:
+ *   1. the user doc is created if missing, never overwriting a number another request set;
+ *   2. a number comes from this instance's block (no shared counter write per registration);
+ *   3. its regno index doc is claimed with create-if-absent (a number can't reach two people);
+ *   4. the number is written onto the user only if the user still has none — otherwise the
+ *      claim is released and the existing number returned (a double-click gets one number).
+ * `counter` lets the load-test probe draw from its own sequence (never the real one).
  */
-export async function ensureIssuedRegNo(store, user) {
+export async function ensureIssuedRegNo(store, user, { counter = WAC_SEQ_DOC } = {}) {
   if (!user) return user;
   if (validRegNo(user.regNo)) return user;
+  const emailLower = normEmail(user.emailLower || user.email);
+  const id = user.id || (emailLower ? stableDelegateId(emailLower) : crypto.randomBytes(8).toString("hex"));
+  const userKey = K_USER + id;
 
-  if (user.id) {
-    try {
-      const existing = await store.get(K_USER + user.id);
-      if (existing && validRegNo(existing.regNo)) return existing;
-    } catch { /* assign below */ }
-  }
-
-  const atomicMap = store.name !== "firestore" && typeof store.transact === "function";
-  if (atomicMap) {
-    let saved = user;
-    await store.transact(db => {
-      saved = assignNextWacInDb(db, user);
-      return db;
-    });
-    return saved;
-  }
+  let current = await updateKey(store, userKey, cur => {
+    if (cur) return undefined;
+    return { ...user, id, emailLower, regNo: "", createdAt: user.createdAt || Date.now() };
+  });
+  if (current && validRegNo(current.regNo)) return current;
 
   for (let i = 0; i < 12; i++) {
-    if (user.id) {
-      try {
-        const fresh = await store.get(K_USER + user.id);
-        if (fresh && validRegNo(fresh.regNo)) return fresh;
-        if (fresh) user = fresh;
-      } catch { /* continue */ }
+    const wac = formatIssuedWac(await nextPassNumber(store, counter));
+    const idxKey = regnoIndexKey(wac);
+    let claimed = await createKeyIfAbsent(store, idxKey, { userId: id });
+    if (!claimed) {
+      // A retried create may have landed already; anything else means the number is taken.
+      const idx = await store.get(idxKey).catch(() => null);
+      claimed = Boolean(idx && idx.userId === id);
+      if (!claimed) continue;
     }
-    let seq;
-    if (typeof store.incrementCounter === "function") {
-      seq = await store.incrementCounter(WAC_SEQ_DOC);
-    } else {
-      seq = Date.now() % 1000000;
+    let won = false;
+    const saved = await updateKey(store, userKey, cur => {
+      const base = cur || current || { ...user, id };
+      if (validRegNo(base.regNo)) { won = false; return undefined; }
+      won = true;
+      return {
+        ...base,
+        id,
+        regNo: wac,
+        emailLower: normEmail(base.emailLower || base.email) || emailLower,
+        createdAt: base.createdAt || Date.now(),
+      };
+    });
+    if (!won) {
+      await bestEffort(() => store.del(idxKey), { ms: 1500, label: "release unused pass number" });
+      return saved;
     }
-    const wac = formatIssuedWac(seq);
-    try {
-      const idx = await store.get(regnoIndexKey(wac));
-      if (idx && idx.userId && idx.userId !== user.id) continue;
-    } catch { /* persist anyway */ }
-    const next = {
-      ...user,
-      id: user.id || crypto.randomBytes(8).toString("hex"),
-      regNo: wac,
-      emailLower: normEmail(user.emailLower || user.email),
-      createdAt: user.createdAt || Date.now(),
-    };
-    await persistDelegate(store, next);
-    try {
-      const again = await store.get(K_USER + next.id);
-      if (again && validRegNo(again.regNo)) return again;
-    } catch { /* return next */ }
-    return next;
+    const savedEmail = normEmail(saved.emailLower || saved.email);
+    if (savedEmail) await store.set(K_EMAIL + savedEmail, { userId: id });
+    return saved;
   }
-  throw httpErr(500, "We could not issue your WAC registration number. Try again.");
+  throw httpErr(503, "The hall is very busy — we could not issue your AYURDISHA pass number yet. Try again in a moment.");
 }
 
 async function hydrateUserWac(store, user) {
@@ -261,7 +249,7 @@ async function hydrateUserWac(store, user) {
   return ensureIssuedRegNo(store, user);
 }
 
-async function sessionUser(msg, store, req) {
+export async function sessionUser(msg, store, req) {
   const token = String(msg && msg.token || "").trim();
   if (/^[0-9a-f]{48}$/.test(token)) {
     try {
@@ -310,12 +298,12 @@ function refreshSess(res, sess, user) {
 
 export async function applyWacToUser(store, user, rawRegNo) {
   const wac = validRegNo(rawRegNo);
-  if (!wac) throw httpErr(400, "Enter a valid WAC registration number.");
+  if (!wac) throw httpErr(400, "Enter a valid pass number or WAC Delegate ID.");
   if (validRegNo(user.regNo) === wac) return { ...user, regNo: wac };
 
   const write = (db, u) => {
     if (wacOwnedByOtherEmail(db, wac, u.email)) {
-      throw httpErr(409, "That WAC registration number is already linked to a different AYURDISHA profile.");
+      throw httpErr(409, "That pass number is already linked to a different AYURDISHA profile.");
     }
     const next = { ...u, regNo: wac, emailLower: normEmail(u.emailLower || u.email) };
     db[K_USER + next.id] = next;
@@ -336,7 +324,7 @@ export async function applyWacToUser(store, user, rawRegNo) {
 
   const db = typeof store.snapshot === "function" ? (await store.snapshot()) || {} : {};
   if (wacOwnedByOtherEmail(db, wac, user.email)) {
-    throw httpErr(409, "That WAC registration number is already linked to a different AYURDISHA profile.");
+    throw httpErr(409, "That pass number is already linked to a different AYURDISHA profile.");
   }
   const next = { ...user, regNo: wac, emailLower: normEmail(user.emailLower || user.email) };
   await persistDelegate(store, next);
@@ -452,15 +440,17 @@ export function delegateCardsFromDb(db) {
       name: u.name, age: u.age, sex: u.sex,
       institute: u.institute || u.institution || "",
       email: u.email, regNo: u.regNo, createdAt: u.createdAt,
+      ...(u.wacId ? { wacId: u.wacId } : u.wacLinkPending ? { wacLinkPending: true } : {}),
+      ...(u.source ? { source: u.source } : {}),
     });
   }
   cards.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
   return cards;
 }
 
-async function issueSession(store, userId) {
+async function issueSession(store, userId, extra) {
   const token = crypto.randomBytes(24).toString("hex");
-  try { await store.set(K_SESS + token, { userId, createdAt: Date.now() }); }
+  try { await store.set(K_SESS + token, { userId, createdAt: Date.now(), ...(extra || {}) }); }
   catch { /* cookie session still issued */ }
   return token;
 }
@@ -504,6 +494,20 @@ async function createOrRefreshOtp(store, profile, { isResend = false, req, res }
     return { code: 429, body: { error: `Please wait ${wait}s before requesting another code.`, retryIn: wait } };
   }
 
+  // Generous per-network limit: a whole venue shares one Wi-Fi address. Probe addresses are never mailed.
+  if (!isProbeEmail(emailLower)) {
+    const ipGate = otpIpLimiter.hit(clientIp(req), now);
+    if (!ipGate.ok) {
+      return { code: 429, body: { error: `Many delegates on this network are requesting codes right now. Please wait ${ipGate.retryIn}s and try again.`, retryIn: ipGate.retryIn, code: "network_busy" } };
+    }
+  }
+  const emailGate = await reserveOtpSend(store, emailLower, now);
+  if (!emailGate.ok) {
+    const wait = emailGate.retryIn || 60;
+    const error = `Several codes were already sent to this email. Check your inbox (and spam), or try again in ${Math.ceil(wait / 60)} min.`;
+    return { code: 429, body: { error, retryIn: wait, code: "email_rate" } };
+  }
+
   const keptProfile = isResend && existingCookie && existingCookie.profile ? existingCookie.profile : profile;
   const otp = String(crypto.randomInt(0, 1000000)).padStart(6, "0");
 
@@ -512,15 +516,23 @@ async function createOrRefreshOtp(store, profile, { isResend = false, req, res }
     ticket = makeOtpTicket({ email: emailLower, otp, profile: keptProfile, now, lastSentAt: now, attempts: 0 });
   } catch (err) {
     console.error("[aym-register] OTP cookie sign failed:", err && err.message ? err.message : err);
+    await releaseOtpSend(store, emailLower, now);
     return { code: 500, body: { error: "Verification is not configured on this server. Try again shortly." } };
   }
 
   let delivery;
   try {
-    ({ delivery } = await sendOtpEmail(keptProfile.email, otp, keptProfile.name));
+    ({ delivery } = await sendOrQueue(store, {
+      send: () => sendOtpEmail(keptProfile.email, otp, keptProfile.name),
+      template: "otp",
+      to: keptProfile.email,
+      payload: { name: keptProfile.name || "" },
+      otp,
+      now,
+    }));
   } catch (err) {
     console.error("[aym-register] OTP email failed:", err && err.message ? err.message : err);
-    return { code: 502, body: { error: "We could not send the verification email. Try again in a minute." } };
+    delivery = "queued";
   }
 
   if (!res) {
@@ -608,61 +620,65 @@ export async function regVerify(msg, store, req, res) {
     return { code: 400, body: { error: "No pending verification. Start the registration again." } };
   }
 
-  if (res) clearCookie(res, OTP_COOKIE);
-
-  let user = await userByEmail(store, emailLower);
-  const sessCookie = readSessTicket(req);
-  if (!user && sessCookie && sessCookie.profile && normEmail(sessCookie.profile.email) === emailLower) {
-    user = {
-      id: sessCookie.userId || crypto.randomBytes(8).toString("hex"),
-      ...sessCookie.profile,
-      emailLower,
-      name: profile.name,
-      age: profile.age,
-      sex: profile.sex,
-      institute: profile.institute,
-      email: profile.email,
-    };
-  }
-
-  // Issue a unique congress-style WAC number here — never wait for Ask Desk.
-  if (user) {
-    user = {
-      ...user,
-      name: profile.name, age: profile.age, sex: profile.sex, institute: profile.institute,
-      email: profile.email, emailLower,
-      regNo: user.regNo || "",
-    };
-    if (!user.id) user.id = crypto.randomBytes(8).toString("hex");
-  } else {
-    user = {
-      id: crypto.randomBytes(8).toString("hex"),
-      name: profile.name, age: profile.age, sex: profile.sex, institute: profile.institute,
-      email: profile.email, emailLower,
-      regNo: "",
-      createdAt: Date.now(),
-    };
-  }
-
-  try {
-    await persistDelegate(store, user);
-    user = await ensureIssuedRegNo(store, user);
-    user = await assertUserPersisted(store, user);
-  } catch (err) {
-    console.error("[aym-register] user persist failed:", err && err.message ? err.message : err);
-    return { code: 500, body: { error: "Email verified, but we could not save your registration. Please try again." } };
-  }
-
-  if (!user || !user.id) {
-    return { code: 500, body: { error: "We verified your email but could not save your registration. Try again." } };
-  }
-
-  const token = await issueSession(store, user.id);
-  if (res) setSessCookie(res, makeSessTicket({ token, userId: user.id, profile: publicProfile(user) }));
-  return { code: 200, body: { ok: true, token, profile: publicProfile(user) } };
+  const r = await completeRegistration(store, { profile, emailLower, source: msg.source, req, res });
+  // Keep the code cookie until the registration is saved, so a busy-retry with the same code works.
+  if (r.code === 200 && res) clearCookie(res, OTP_COOKIE);
+  return r;
 }
 
-/** Own profile via session token or signed session cookie. Issues a WAC number if missing. */
+/**
+ * Everything after a correct code: one delegate per email (existing user, else an id derived from
+ * the email), profile saved without clobbering an issued number, pass number issued once,
+ * session minted. Idempotent: running it twice for one email returns the same pass number.
+ */
+export async function completeRegistration(store, { profile, emailLower, source, req, res, counter, sessionExtra, deadlineMs = VERIFY_DEADLINE_MS } = {}) {
+  try {
+    return await withDeadline(async () => {
+      let existing = await userByEmail(store, emailLower);
+      const sessCookie = req ? readSessTicket(req) : null;
+      const id = (existing && existing.id)
+        || (sessCookie && sessCookie.userId && sessCookie.profile && normEmail(sessCookie.profile.email) === emailLower ? sessCookie.userId : "")
+        || stableDelegateId(emailLower);
+      const src = sanitizeSource(source);
+      const fields = {
+        name: profile.name, age: profile.age, sex: profile.sex, institute: profile.institute,
+        email: profile.email, emailLower,
+      };
+      let user = await updateKey(store, K_USER + id, cur => {
+        const base = cur || existing || {};
+        const next = {
+          ...base,
+          ...fields,
+          id,
+          regNo: validRegNo(base.regNo) || "",
+          createdAt: base.createdAt || Date.now(),
+        };
+        if (!cur && !existing && src) next.source = src;
+        if (sessionExtra && sessionExtra.probe) next.probe = true;
+        return next;
+      });
+      await store.set(K_EMAIL + emailLower, { userId: id });
+      user = await ensureIssuedRegNo(store, user, counter ? { counter } : undefined);
+      user = await assertUserPersisted(store, user);
+      if (!user || !user.id) throw new Error("delegate-missing");
+      // The email was just proven by a code: link the WAC delegate record with exactly this email.
+      if (!(sessionExtra && sessionExtra.probe)) user = await autoLinkQuietly(store, user);
+
+      const token = await issueSession(store, user.id, sessionExtra);
+      if (res) setSessCookie(res, makeSessTicket({ token, userId: user.id, profile: publicProfile(user) }));
+      return { code: 200, body: { ok: true, token, profile: publicProfile(user) } };
+    }, deadlineMs, BUSY_VERIFIED);
+  } catch (err) {
+    console.error("[aym-register] user persist failed:", err && err.message ? err.message : err);
+    if (err && err.code === 503) return { code: 503, body: { error: err.deadline ? BUSY_VERIFIED : err.message, code: "busy", retryIn: 3 } };
+    return { code: 503, body: { error: BUSY_VERIFIED, code: "busy", retryIn: 3 } };
+  }
+}
+
+/**
+ * Own profile via session token or signed session cookie. Issues a pass number if missing and
+ * links the WAC delegate record for the session's (verified) email.
+ */
 export async function regMe(msg, store, req, res) {
   const sess = await sessionUser(msg, store, req);
   if (!sess || !sess.user) return { code: 403, body: { error: "not signed in" } };
@@ -671,8 +687,9 @@ export async function regMe(msg, store, req, res) {
     user = await hydrateUserWac(store, user);
   } catch (err) {
     console.error("[aym-register] issue WAC on regMe failed:", err && err.message ? err.message : err);
-    if (err && err.code === 500) return { code: 500, body: { error: err.message } };
+    if (err && err.code === 503) return { code: 503, body: { error: err.message, code: "busy", retryIn: 3 } };
   }
+  user = await autoLinkQuietly(store, user);
   refreshSess(res, sess, user);
   return { code: 200, body: { ok: true, profile: publicProfile(user) } };
 }
@@ -695,7 +712,7 @@ export async function regSaveWac(msg, store, req, res, { staff = false } = {}) {
       return { code: err.code, body: { error: err.message } };
     }
     console.error("[aym-register] save WAC failed:", err && err.message ? err.message : err);
-    return { code: 500, body: { error: "Could not issue your WAC registration number. Try again." } };
+    return { code: 503, body: { error: "The hall is busy — we could not issue your AYURDISHA pass number yet. Try again in a moment.", code: "busy", retryIn: 3 } };
   }
 }
 
@@ -718,7 +735,7 @@ export async function regRecover(msg, store, req, res) {
       const token = cookie.token || crypto.randomBytes(24).toString("hex");
       return { code: 200, body: { ok: true, token, profile: cookie.profile } };
     }
-    return { code: 403, body: { error: "That WAC registration number and email do not match." } };
+    return { code: 403, body: { error: "That pass number (or WAC Delegate ID) and email do not match." } };
   }
   const token = await issueSession(store, user.id);
   if (res) setSessCookie(res, makeSessTicket({ token, userId: user.id, profile: publicProfile(user) }));
@@ -732,6 +749,8 @@ export function isDemoDelegate(u) {
   if (/^(demo\d*|finish\.agent|teststudent)@/i.test(email)) return true;
   if (/^demo student/i.test(name)) return true;
   if (/^(finish agent|test student)$/i.test(name)) return true;
+  // Leftover operator test hall-pass named Harsh (not an official WAC-linked delegate).
+  if (isOperatorHarshPersona(u)) return true;
   return false;
 }
 
@@ -743,11 +762,15 @@ function isGenuineDelegate(u) {
 
 /** Staff-only: every genuine registered delegate, newest first. */
 export async function regUsers(store) {
-  const keys = await store.list(K_USER);
   const users = [];
-  for (let i = 0; i < keys.length; i += 8) {
-    const chunk = await Promise.all(keys.slice(i, i + 8).map(k => store.get(k)));
-    chunk.forEach(u => { if (isGenuineDelegate(u)) users.push(publicProfile(u)); });
+  if (typeof store.getPrefix === "function") {
+    for (const u of Object.values(await store.getPrefix(K_USER))) if (isGenuineDelegate(u)) users.push(publicProfile(u));
+  } else {
+    const keys = await store.list(K_USER);
+    for (let i = 0; i < keys.length; i += 8) {
+      const chunk = await Promise.all(keys.slice(i, i + 8).map(k => store.get(k)));
+      chunk.forEach(u => { if (isGenuineDelegate(u)) users.push(publicProfile(u)); });
+    }
   }
   users.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
   return { code: 200, body: { ok: true, users, backend: store.name } };

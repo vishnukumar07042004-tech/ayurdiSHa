@@ -67,14 +67,14 @@ export default function MentorProfile({ mentorId }) {
             {designation && <p className="ui-profile-role ui-rise" style={{ "--i": 3 }}>{designation}</p>}
             {credentials && <p className="ui-profile-creds ui-rise" style={{ "--i": 3 }}>{credentials}</p>}
             <div className="ui-btn-row ui-rise" style={{ "--i": 4 }}>
-              <Button to={ASK} size="lg">Ask the desk</Button>
+              <Button to={ASK} size="lg">Ask Desk</Button>
               <Button to="/mentors" size="lg" variant="secondary">All mentors</Button>
             </div>
           </div>
         </div>
       </header>
 
-      <LocalNav title={mentor.name} watchRef={heroRef} links={links} cta={{ label: "Ask the desk", to: ASK }} />
+      <LocalNav title={mentor.name} watchRef={heroRef} links={links} cta={{ label: "Ask Desk", to: ASK }} />
 
       <div className="ui-container ui-profile-body">
         <dl className="ui-bento ui-profile-facts" data-reveal-stagger>
@@ -136,7 +136,7 @@ export default function MentorProfile({ mentorId }) {
           <p className="ui-tile-title">Have a career question for a mentor?</p>
           <p className="ui-body">Questions go through the Ask Desk — staff route each one to the right mentor.</p>
           <div className="ui-tile-foot">
-            <Button to={ASK} variant="on-dark" size="lg">Ask the desk</Button>
+            <Button to={ASK} variant="on-dark" size="lg">Ask Desk</Button>
             <MoreLink to="/mentors" onDark>Browse all mentors</MoreLink>
           </div>
         </aside>

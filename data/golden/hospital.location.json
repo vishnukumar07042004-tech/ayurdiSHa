@@ -1,0 +1,103 @@
+{
+  "intentId": "hospital.location",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Hospital employment",
+  "subject": "hospital",
+  "ask": "location",
+  "question": "Is a city or a small town better for a hospital job after BAMS?",
+  "stream": "clinical-practice",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.866Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.438,
+      "bm25": 30.92,
+      "coverage": 0.14
+    },
+    {
+      "chunkId": "0a17c07017f94c85021e0141fb9dd659d6e2382b",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 0.811,
+      "bm25": 17.44,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "4efa762eec0901dd9ea03400010582dc2363b119",
+      "url": "https://nabh.co/programmes/small-healthcare-organisation-shco-accreditation-programme/",
+      "title": "SHCO - NABH",
+      "score": 0.767,
+      "bm25": 16.51,
+      "coverage": 0.33
+    },
+    {
+      "chunkId": "d14edf03579ce6a27f957a8fd97e33e9e244fe37",
+      "url": "https://nabh.co/",
+      "title": "National Accreditation Board for Hospitals & Healthcare Providers",
+      "score": 0.722,
+      "bm25": 15.53,
+      "coverage": 0.27
+    },
+    {
+      "chunkId": "b3619a8b9d36311a62f6752d3a1b38e36e5aabaf",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 0.712,
+      "bm25": 15.31,
+      "coverage": 0.14
+    },
+    {
+      "chunkId": "ad90d5b368b0971805f1f1e628741b355bef86d2",
+      "url": "https://nabh.co/about-faqs/",
+      "title": "About FAQs - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 0.673,
+      "bm25": 14.49,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 0.654,
+      "bm25": 19.25,
+      "coverage": 0.07
+    },
+    {
+      "chunkId": "19587062279e1b5b931f067d985c71b6007f41aa",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 0.638,
+      "bm25": 13.73,
+      "coverage": 0.08
+    }
+  ]
+}

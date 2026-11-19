@@ -1,0 +1,103 @@
+{
+  "intentId": "export-region.legal.usa",
+  "theme": "Export & Global Trade",
+  "subtheme": "Certification and quality marks",
+  "subject": "export",
+  "ask": "legal",
+  "question": "What registration and certification are needed to export Ayurvedic products to the USA?",
+  "stream": "export-trade",
+  "region": "usa",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.055Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb2935e6dd2d7f9522fcd36f4cb8f7d931cf5b26",
+      "url": "https://www.gov.uk/guidance/apply-for-a-traditional-herbal-registration-thr",
+      "title": "Apply for a traditional herbal registration (THR)",
+      "score": 1.309,
+      "bm25": 21.51,
+      "coverage": 0.49
+    },
+    {
+      "chunkId": "c2a1e4f7eabfa60e3382c2b77a106a9f5ddd3bb4",
+      "url": "https://www.gov.uk/guidance/apply-for-a-traditional-herbal-registration-thr",
+      "title": "Apply for a traditional herbal registration (THR)",
+      "score": 1.125,
+      "bm25": 18.48,
+      "coverage": 0.49
+    },
+    {
+      "chunkId": "d55eebc3522165fc814c0634ff0461ace8a847d4",
+      "url": "https://pharmexcil.com/uploads/countryreports/MAI_Scheme_revised_2018.pdf",
+      "title": "MAI Scheme revised 2018",
+      "score": 1.044,
+      "bm25": 17.15,
+      "coverage": 0.7
+    },
+    {
+      "chunkId": "6f2cfe69bbde1dbee4bde0941b38fc8b2a300965",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/08/Ayurworld-May-June-2026.pdf",
+      "title": "Ayurworld May June 2026",
+      "score": 0.945,
+      "bm25": 17.86,
+      "coverage": 0.52
+    },
+    {
+      "chunkId": "6689d56615f380c4573828473ccb2e96f6152c19",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.905,
+      "bm25": 17.1,
+      "coverage": 0.52
+    },
+    {
+      "chunkId": "1c767d8a629f061105c8d7f57b12f1627169d081",
+      "url": "https://www.ayurvedanama.org/prospective-students-frequently-asked-questions",
+      "title": "Prospective Students FAQs — National Ayurvedic Medical Association",
+      "score": 0.9,
+      "bm25": 23.61,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "546f6c2d626c7f33514b5f8ad3bd987e387b02f8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ic.pdf",
+      "title": "Ministry of Ayush, Government of India — ic",
+      "score": 0.897,
+      "bm25": 14.74,
+      "coverage": 0.5
+    },
+    {
+      "chunkId": "1f25fd3ecf5d439213fc171897e04367e88bb5e3",
+      "url": "https://pharmexcil.com/uploads/RevisedMAIGuildelines19thJuly2021.pdf",
+      "title": "RevisedMAIGuildelines19thJuly2021",
+      "score": 0.896,
+      "bm25": 14.72,
+      "coverage": 0.5
+    }
+  ]
+}

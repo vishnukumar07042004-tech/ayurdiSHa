@@ -1,0 +1,103 @@
+{
+  "intentId": "records.which-one",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Records & clinical quality",
+  "subject": "records",
+  "ask": "which one",
+  "question": "Which clinic records and EMR software should I choose?",
+  "stream": "clinical-practice",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.038Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "516c349938078df64231f2cf76c32b5a4657798b",
+      "url": "https://nabh.co/",
+      "title": "National Accreditation Board for Hospitals & Healthcare Providers",
+      "score": 1.438,
+      "bm25": 25.8,
+      "coverage": 0.57
+    },
+    {
+      "chunkId": "68d61fa4687f2b5edd6884c7d8de3e9d71ba9392",
+      "url": "https://nabh.co/programmes/digital-health-standards-for-clinic-management-system/",
+      "title": "Digital Health Standards for HIS/EMR Systems - NABH",
+      "score": 1.293,
+      "bm25": 23.21,
+      "coverage": 0.57
+    },
+    {
+      "chunkId": "dacdecb724d0992197116ae0b9d76e967813e0fc",
+      "url": "https://ayush.gov.in/assets/pdf/nam/NAM_Guideline_English.pdf",
+      "title": "NAM Guideline English",
+      "score": 1.244,
+      "bm25": 22.33,
+      "coverage": 0.3
+    },
+    {
+      "chunkId": "334a2ce05515b2eb004a56d941d3f125734df543",
+      "url": "https://ayush.gov.in/assets/pdf/nam/NAM_Guideline_English.pdf",
+      "title": "NAM Guideline English",
+      "score": 1.233,
+      "bm25": 22.12,
+      "coverage": 0.3
+    },
+    {
+      "chunkId": "9b2e7c46aaf1c8e5d1a4a58b6e4cab25df139c97",
+      "url": "https://nabh.co/programmes/digital-health-standards-his-emr-systems/",
+      "title": "Digital Health Standards for HIS/EMR Systems - NABH",
+      "score": 1.214,
+      "bm25": 21.78,
+      "coverage": 0.52
+    },
+    {
+      "chunkId": "c8aac2a3f972222ddf7020bbd59f98f0e811fa84",
+      "url": "https://nabh.co/programmes/allopathic-clinics-accreditation-programme/",
+      "title": "Allopathic Clinics 2nd Edition - NABH",
+      "score": 1.195,
+      "bm25": 21.45,
+      "coverage": 0.37
+    },
+    {
+      "chunkId": "43e7b988aacad350bb76bafe66a801d8abd94880",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/doctor-award",
+      "title": "Best Ayurveda Doctor Award - Department of Indian Systems of Medicine",
+      "score": 1.118,
+      "bm25": 20.07,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "8d71106b2d73bb0d9ba1fcd148771f40605e31ba",
+      "url": "https://nabh.co/programmes/entry-level-dental-clinics-certification-programme/",
+      "title": "Entry Level Dental Clinics Certification Programme - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.118,
+      "bm25": 20.06,
+      "coverage": 0.5
+    }
+  ]
+}

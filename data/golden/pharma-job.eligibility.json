@@ -1,0 +1,103 @@
+{
+  "intentId": "pharma-job.eligibility",
+  "theme": "Manufacturing, Quality & GMP",
+  "subtheme": "R&D and formulation",
+  "subject": "pharma",
+  "ask": "eligibility",
+  "question": "What is the eligibility for an R&D job in an Ayurveda pharma company?",
+  "stream": "industry-pharma",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.668Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "280cf8415f41ab4804b4016e646867c8bba55e92",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 1.433,
+      "bm25": 23.26,
+      "coverage": 0.19
+    },
+    {
+      "chunkId": "267d3873c1ce6e39a1077d7408d0f9de26e7ba5f",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 1.174,
+      "bm25": 20.88,
+      "coverage": 0.32
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 1.138,
+      "bm25": 20.25,
+      "coverage": 0
+    },
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.117,
+      "bm25": 22.67,
+      "coverage": 0.19
+    },
+    {
+      "chunkId": "09ea88e4b4659c7bf3cdf196308a4ceb3db49349",
+      "url": "https://ayush.gov.in/assets/pdf/careers/CGN_UG_Guideline_Session_2025-26.pdf",
+      "title": "CGN UG Guideline Session 2025 26",
+      "score": 1.094,
+      "bm25": 22.21,
+      "coverage": 0
+    },
+    {
+      "chunkId": "cfe8c12bcb2a6dfb7c69b596d1b7f3bb3729a88c",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 1.078,
+      "bm25": 21.89,
+      "coverage": 0.26
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.066,
+      "bm25": 21.63,
+      "coverage": 0
+    },
+    {
+      "chunkId": "a0a25696c2d8e8093ca0184ad7ac89a10555429d",
+      "url": "https://aaccc.gov.in/ug-counselling/",
+      "title": "UG Counseling",
+      "score": 1.05,
+      "bm25": 21.32,
+      "coverage": 0.26
+    }
+  ]
+}

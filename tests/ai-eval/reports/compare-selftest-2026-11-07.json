@@ -1,0 +1,67 @@
+[
+ {
+  "name": "provider.js selects OpenAI when AI_PROVIDER=openai",
+  "ok": true,
+  "note": "draft gpt-5.4, verify gpt-5.4-mini"
+ },
+ {
+  "name": "embeddings follow the chat provider",
+  "ok": false,
+  "note": "embedProvider=openai, embedModel=gemini-embedding-001 — with AI_PROVIDER=openai, query embeddings move to OpenAI and no longer match stored gemini-embedding-001 chunk vectors (retrieval silently falls back to BM25)"
+ },
+ {
+  "name": "draft goes to POST /v1/responses with JSON mode",
+  "ok": false,
+  "note": "text.format = json_object (JSON mode, not strict json_schema)"
+ },
+ {
+  "name": "draft JSON parsed → pending draft with valid citations + verifier claims",
+  "ok": true,
+  "note": "status pending, risk high, verify model gpt-5.4-mini"
+ },
+ {
+  "name": "verify call uses the verify model",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "name": "reasoning.effort is sent",
+  "ok": true,
+  "note": "not sent: GPT-5.5 / 5.6 default to medium effort, GPT-5.4 to none; AI_*_THINKING is ignored for OpenAI"
+ },
+ {
+  "name": "max_output_tokens leaves room for reasoning tokens",
+  "ok": true,
+  "note": "max_output_tokens=2948 (Gemini gets +1536 headroom; OpenAI reasoning tokens count inside this limit)"
+ },
+ {
+  "name": "store:false is sent (no 30-day response storage)",
+  "ok": true,
+  "note": "Responses API stores responses for 30 days unless store:false"
+ },
+ {
+  "name": "provider.js PRICES know the account's GPT-5.x models",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "name": "default OpenAI models exist on this account",
+  "ok": false,
+  "note": "defaults draft gpt-6.1-sol / verify gpt-6.1-terra / classify gpt-6-luna / embed text-embedding-3-large; AI_*_MODEL must be set (draft.js passes AI_DRAFT_MODEL explicitly, so no fallback chain runs)"
+ },
+ {
+  "name": "a reasoning-truncated response (status: incomplete) is reported clearly",
+  "ok": false,
+  "note": "surfaces as \"draft model returned no JSON\" — the tokens are still billed and the job retries with the same limit"
+ },
+ {
+  "name": "this script's adapter: effort low, +1536 headroom, store:false",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "name": "effort mapping for GPT-5 / 4.1",
+  "ok": true,
+  "note": ""
+ }
+]

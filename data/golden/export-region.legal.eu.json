@@ -1,0 +1,102 @@
+{
+  "intentId": "export-region.legal.eu",
+  "theme": "Export & Global Trade",
+  "subtheme": "Certification and quality marks",
+  "subject": "export",
+  "ask": "legal",
+  "question": "What registration and certification are needed to export Ayurvedic products to Europe?",
+  "stream": "export-trade",
+  "region": "eu",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Apply for a traditional herbal registration (THR)",
+      "url": "https://www.gov.uk/guidance/apply-for-a-traditional-herbal-registration-thr"
+    },
+    {
+      "title": "Ayurworld May June 2026",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/08/Ayurworld-May-June-2026.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.089Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb2935e6dd2d7f9522fcd36f4cb8f7d931cf5b26",
+      "url": "https://www.gov.uk/guidance/apply-for-a-traditional-herbal-registration-thr",
+      "title": "Apply for a traditional herbal registration (THR)",
+      "score": 1.264,
+      "bm25": 21.51,
+      "coverage": 0.51
+    },
+    {
+      "chunkId": "6f2cfe69bbde1dbee4bde0941b38fc8b2a300965",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/08/Ayurworld-May-June-2026.pdf",
+      "title": "Ayurworld May June 2026",
+      "score": 1.25,
+      "bm25": 24.45,
+      "coverage": 0.82
+    },
+    {
+      "chunkId": "c2a1e4f7eabfa60e3382c2b77a106a9f5ddd3bb4",
+      "url": "https://www.gov.uk/guidance/apply-for-a-traditional-herbal-registration-thr",
+      "title": "Apply for a traditional herbal registration (THR)",
+      "score": 1.086,
+      "bm25": 18.48,
+      "coverage": 0.51
+    },
+    {
+      "chunkId": "70fd2e8b7c01b279ce039aa24e1803f3e26d3e7c",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 1.049,
+      "bm25": 20.52,
+      "coverage": 0.8
+    },
+    {
+      "chunkId": "d55eebc3522165fc814c0634ff0461ace8a847d4",
+      "url": "https://pharmexcil.com/uploads/countryreports/MAI_Scheme_revised_2018.pdf",
+      "title": "MAI Scheme revised 2018",
+      "score": 1.008,
+      "bm25": 17.15,
+      "coverage": 0.73
+    },
+    {
+      "chunkId": "5190a13cea916f11f3ad46b02bca3eb8a39be52b",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.982,
+      "bm25": 19.2,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "0edffaf3299d468c1b3b157e43b026d958ef0a61",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 0.923,
+      "bm25": 18.05,
+      "coverage": 0.82
+    },
+    {
+      "chunkId": "1c767d8a629f061105c8d7f57b12f1627169d081",
+      "url": "https://www.ayurvedanama.org/prospective-students-frequently-asked-questions",
+      "title": "Prospective Students FAQs — National Ayurvedic Medical Association",
+      "score": 0.869,
+      "bm25": 23.61,
+      "coverage": 0.33
+    }
+  ]
+}

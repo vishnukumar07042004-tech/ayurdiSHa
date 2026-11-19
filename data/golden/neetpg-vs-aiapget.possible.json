@@ -1,0 +1,102 @@
+{
+  "intentId": "neetpg-vs-aiapget.possible",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "subject": "neetpg",
+  "ask": "is it possible",
+  "question": "Can a BAMS graduate write NEET-PG, or only AIAPGET?",
+  "stream": "pg-entrance",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Ayush Admissions Central Counselling Committee (AACCC)",
+      "url": "https://aaccc.gov.in/"
+    },
+    {
+      "title": "AACCC",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.440Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "ced167f0756b13afc6c64a860c0d135365bb1b59",
+      "url": "https://aaccc.gov.in/",
+      "title": "Ayush Admissions Central Counselling Committee (AACCC)",
+      "score": 1.438,
+      "bm25": 30.6,
+      "coverage": 0.69
+    },
+    {
+      "chunkId": "f339c0fa977417d9f3e9533b282bdc3b77ba046a",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/",
+      "title": "AACCC",
+      "score": 1.329,
+      "bm25": 28.29,
+      "coverage": 0.69
+    },
+    {
+      "chunkId": "f30f33ff0cf8e89e62f7f3b48f8bcb67791b5aa9",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 1.112,
+      "bm25": 23.66,
+      "coverage": 0.51
+    },
+    {
+      "chunkId": "2b928ac00369dc9c0d92e7ad3e7caf26c45d5124",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.901,
+      "bm25": 23.98,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "8ca8571616adb1b3be056733e1e86c88b70ce2bf",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 0.894,
+      "bm25": 19.04,
+      "coverage": 0.12
+    },
+    {
+      "chunkId": "ce9dc610be8b647fe467469c61ab71605ab63eaa",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 0.882,
+      "bm25": 23.48,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "837db09f878f8275afd0eb0d59d6c74f7215abdf",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.85,
+      "bm25": 22.61,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "d3622ab7c38bec5f4b37abb53db8ae93609e0ae2",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 0.79,
+      "bm25": 21.03,
+      "coverage": 0.34
+    }
+  ]
+}

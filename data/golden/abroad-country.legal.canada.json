@@ -1,0 +1,102 @@
+{
+  "intentId": "abroad-country.legal.canada",
+  "theme": "Practice Abroad & Practitioner Mobility",
+  "subtheme": "Licensing & registration",
+  "subject": "country:canada",
+  "ask": "legal",
+  "question": "What licence or registration is required for practising Ayurveda in Canada?",
+  "stream": "practice-abroad",
+  "region": "canada",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Drugs and Cosmetics Act Rules",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf"
+    },
+    {
+      "title": "BAMS Guideline",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.655Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "cb20b23616f8c35f3fc7d28b697a7456180bf2b2",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.403,
+      "bm25": 24.75,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "eff7d3787fb6df305d3b3cc48b261f61156f43d4",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.389,
+      "bm25": 24.5,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.903,
+      "bm25": 15.93,
+      "coverage": 0
+    },
+    {
+      "chunkId": "cf3708b12822d2aab9b83b9fad0d183c39e6a0c5",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._669(E)_dated_28th_October,_2024.pdf",
+      "title": "Gazette Notification No. G.S.R. 669(E) dated 28th October, 2024",
+      "score": 0.893,
+      "bm25": 15.76,
+      "coverage": 0.42
+    },
+    {
+      "chunkId": "a34bcae14816f686efb9158ab69d0dc92439b3f2",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._140(E)_dated_14th_February,_2025.pdf",
+      "title": "Gazette Notification No. G.S.R. 140(E) dated 14th February, 2025",
+      "score": 0.862,
+      "bm25": 15.2,
+      "coverage": 0.3
+    },
+    {
+      "chunkId": "6efae72d78b02260c7bfd5bf3c2b2f0c843fec2e",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._669(E)_dated_28th_October,_2024.pdf",
+      "title": "Gazette Notification No. G.S.R. 669(E) dated 28th October, 2024",
+      "score": 0.856,
+      "bm25": 18.88,
+      "coverage": 0.3
+    },
+    {
+      "chunkId": "1c767d8a629f061105c8d7f57b12f1627169d081",
+      "url": "https://www.ayurvedanama.org/prospective-students-frequently-asked-questions",
+      "title": "Prospective Students FAQs — National Ayurvedic Medical Association",
+      "score": 0.831,
+      "bm25": 18.72,
+      "coverage": 0
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 0.812,
+      "bm25": 14.32,
+      "coverage": 0
+    }
+  ]
+}

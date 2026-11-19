@@ -1,0 +1,103 @@
+{
+  "intentId": "funding.how-to",
+  "theme": "Entrepreneurship & Start-ups",
+  "subtheme": "Funding & finance",
+  "subject": "funding",
+  "ask": "how-to",
+  "question": "How do I raise funding for my Ayurveda start-up?",
+  "stream": "entrepreneurship",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.829Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "a567f36f78d82e1e13d0a9e28133fd06260a0560",
+      "url": "https://www.startupindia.gov.in/content/sih/en/reources/market-research.html",
+      "title": "Market Research",
+      "score": 1.438,
+      "bm25": 23.47,
+      "coverage": 0.53
+    },
+    {
+      "chunkId": "251d7d9b4c6b4c53050a3f505ea61463b4c0646e",
+      "url": "https://www.startupindia.gov.in/content/sih/en/reources/market-research.html",
+      "title": "Market Research",
+      "score": 0.971,
+      "bm25": 15.86,
+      "coverage": 0.23
+    },
+    {
+      "chunkId": "119b8e31c8366a1694b562dd7f25f13231297dce",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 0.839,
+      "bm25": 17.11,
+      "coverage": 0.23
+    },
+    {
+      "chunkId": "665fe82e30590e6324e003b60b9bd5f44dcaef0a",
+      "url": "https://www.startupindia.gov.in/content/dam/invest-india/Templates/public/IMB/imb_decisions/23rd_imb_03_07_2018_MinutesoftheTwentyThirdInterMinisterialBoardofCertification.pdf",
+      "title": "IMB minutes",
+      "score": 0.822,
+      "bm25": 13.43,
+      "coverage": 0
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.781,
+      "bm25": 15.93,
+      "coverage": 0
+    },
+    {
+      "chunkId": "d9403b6bb5e5ebd886cce7b6e968e9589ed71be5",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/aoushdhi.pdf",
+      "title": "aoushdhi",
+      "score": 0.766,
+      "bm25": 12.5,
+      "coverage": 0.53
+    },
+    {
+      "chunkId": "9f68d068dc2d080045597417ecef884bccbe5d1f",
+      "url": "https://ipindia.gov.in/uploads/National_IPR_Policy_English.pdf",
+      "title": "National IPR Policy English",
+      "score": 0.714,
+      "bm25": 11.66,
+      "coverage": 0.23
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 0.702,
+      "bm25": 14.32,
+      "coverage": 0
+    }
+  ]
+}

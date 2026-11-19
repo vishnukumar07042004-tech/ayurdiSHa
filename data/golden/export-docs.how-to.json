@@ -1,0 +1,103 @@
+{
+  "intentId": "export-docs.how-to",
+  "theme": "Export & Global Trade",
+  "subtheme": "Documentation & shipping terms",
+  "subject": "export",
+  "ask": "how-to",
+  "question": "What documents and shipping terms (Incoterms) do I need to understand to export Ayurvedic medicines?",
+  "stream": "export-trade",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.097Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "60ec7f4eff4a64db59455a8febc27dc98183a162",
+      "url": "https://pharmexcil.com/uploads/RevisedMAIGuildelines19thJuly2021.pdf",
+      "title": "RevisedMAIGuildelines19thJuly2021",
+      "score": 1.083,
+      "bm25": 15,
+      "coverage": 0.12
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.068,
+      "bm25": 18.49,
+      "coverage": 0.08
+    },
+    {
+      "chunkId": "6823e79732acf94e376833fdc7afb4f65fd8c2c5",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/07/CCRAS_Guideline-of-Clinical_Evaluation.pdf",
+      "title": "CCRS_Clinical _BOOK-6_945-CD MATTER.pdf",
+      "score": 1.05,
+      "bm25": 19.91,
+      "coverage": 0.15
+    },
+    {
+      "chunkId": "925166b0dd0f6c34669642e5f9839051ba31b5ab",
+      "url": "https://pharmexcil.com/uploads/RevisedMAIGuildelines19thJuly2021.pdf",
+      "title": "RevisedMAIGuildelines19thJuly2021",
+      "score": 1.019,
+      "bm25": 14.12,
+      "coverage": 0.19
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 0.967,
+      "bm25": 16.75,
+      "coverage": 0.08
+    },
+    {
+      "chunkId": "546f6c2d626c7f33514b5f8ad3bd987e387b02f8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ic.pdf",
+      "title": "Ministry of Ayush, Government of India — ic",
+      "score": 0.957,
+      "bm25": 13.26,
+      "coverage": 0.19
+    },
+    {
+      "chunkId": "820da6611ff422817301a8a094fc1628c1f891e0",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/iec.pdf",
+      "title": "Ministry of Ayush, Government of India — iec",
+      "score": 0.925,
+      "bm25": 12.81,
+      "coverage": 0.08
+    },
+    {
+      "chunkId": "f126541e6131c5fbd71e535139c780e0e4b43acc",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 0.916,
+      "bm25": 12.69,
+      "coverage": 0.08
+    }
+  ]
+}

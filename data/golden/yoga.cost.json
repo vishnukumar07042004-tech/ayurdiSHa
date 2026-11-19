@@ -1,0 +1,103 @@
+{
+  "intentId": "yoga.cost",
+  "theme": "Medical Value Travel & Wellness",
+  "subtheme": "Careers in wellness resorts",
+  "subject": "yoga",
+  "ask": "cost",
+  "question": "How much does yoga certification for an Ayurveda doctor cost?",
+  "stream": "panchakarma-wellness",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.073Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "c6672a4ec60c13acfacc5e8182d74617199c9bcc",
+      "url": "https://www.ayurvedanama.org/prospective-students-frequently-asked-questions",
+      "title": "Prospective Students FAQs — National Ayurvedic Medical Association",
+      "score": 0.9,
+      "bm25": 29.84,
+      "coverage": 0.74
+    },
+    {
+      "chunkId": "52fe5a225264ba7a60aff4c61a25e5e34e1de08e",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 0.85,
+      "bm25": 17.64,
+      "coverage": 0.4
+    },
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 0.835,
+      "bm25": 23.73,
+      "coverage": 0
+    },
+    {
+      "chunkId": "6f2cfe69bbde1dbee4bde0941b38fc8b2a300965",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/08/Ayurworld-May-June-2026.pdf",
+      "title": "Ayurworld May June 2026",
+      "score": 0.802,
+      "bm25": 19.15,
+      "coverage": 0.26
+    },
+    {
+      "chunkId": "6689d56615f380c4573828473ccb2e96f6152c19",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.795,
+      "bm25": 18.97,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "1c767d8a629f061105c8d7f57b12f1627169d081",
+      "url": "https://www.ayurvedanama.org/prospective-students-frequently-asked-questions",
+      "title": "Prospective Students FAQs — National Ayurvedic Medical Association",
+      "score": 0.752,
+      "bm25": 24.94,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "6acf5ebfea40419f8ccb1689f2bcf0011856cd66",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 0.723,
+      "bm25": 17.27,
+      "coverage": 0.19
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 0.712,
+      "bm25": 20.25,
+      "coverage": 0
+    }
+  ]
+}

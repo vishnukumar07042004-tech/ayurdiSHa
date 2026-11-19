@@ -1,0 +1,103 @@
+{
+  "intentId": "allopathy.legal",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Integrative referrals",
+  "subject": "allopathy",
+  "ask": "legal",
+  "question": "Can a BAMS doctor legally prescribe allopathic medicines?",
+  "stream": "clinical-practice",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.400Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "81cec9505a2bba282db8ece1fd9b4fb84267762e",
+      "url": "https://ayush.gov.in/assets/pdf/nam/NAM_Guideline_English.pdf",
+      "title": "NAM Guideline English",
+      "score": 1.092,
+      "bm25": 15.93,
+      "coverage": 0.25
+    },
+    {
+      "chunkId": "54875ff6dd9dcca28df208d86413672db4924041",
+      "url": "https://ayushportal.nic.in/pdf/Ayurveda_and_Conventional_Medicine.pdf",
+      "title": "Ayurveda and Conventional Medicine",
+      "score": 1.05,
+      "bm25": 20.98,
+      "coverage": 0.25
+    },
+    {
+      "chunkId": "dacdecb724d0992197116ae0b9d76e967813e0fc",
+      "url": "https://ayush.gov.in/assets/pdf/nam/NAM_Guideline_English.pdf",
+      "title": "NAM Guideline English",
+      "score": 1.047,
+      "bm25": 15.28,
+      "coverage": 0.43
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.043,
+      "bm25": 19.03,
+      "coverage": 0.14
+    },
+    {
+      "chunkId": "a9f146f0a52059d7e469828190364045af1e7ae9",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29858128/",
+      "title": "Allopathic, AYUSH and informal medical practitioners in rural India&#xa0;-&#xa0;a prescription for change.",
+      "score": 1.034,
+      "bm25": 20.66,
+      "coverage": 0.25
+    },
+    {
+      "chunkId": "5e8046edfeff9b9e119821821bbeff49338c1426",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29526234/",
+      "title": "Awareness, practice and views about integrating AYUSH in allopathic curriculum of allopathic doctors and interns in a tertiary care teaching hospital in New Delhi, India.",
+      "score": 1.002,
+      "bm25": 20.02,
+      "coverage": 0.25
+    },
+    {
+      "chunkId": "c8aac2a3f972222ddf7020bbd59f98f0e811fa84",
+      "url": "https://nabh.co/programmes/allopathic-clinics-accreditation-programme/",
+      "title": "Allopathic Clinics 2nd Edition - NABH",
+      "score": 0.962,
+      "bm25": 14.03,
+      "coverage": 0.25
+    },
+    {
+      "chunkId": "72442eb1cd41af64f130cfcc6472f6a9d97e9b8c",
+      "url": "https://ayushportal.nic.in/pdf/Ayurveda_and_Conventional_Medicine.pdf",
+      "title": "Ayurveda and Conventional Medicine",
+      "score": 0.959,
+      "bm25": 19.16,
+      "coverage": 0.25
+    }
+  ]
+}

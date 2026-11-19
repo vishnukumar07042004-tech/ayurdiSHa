@@ -1,0 +1,95 @@
+{
+  "finishedAt": "2026-10-28T09:52:49.123Z",
+  "provider": {
+    "provider": null,
+    "configured": false,
+    "draftModel": null,
+    "verifyModel": null,
+    "embedProvider": null,
+    "embedConfigured": false,
+    "embedModel": null,
+    "embedDimensions": 768
+  },
+  "minCoverage": 0.6,
+  "total": 368,
+  "drafted": 0,
+  "insufficient": 289,
+  "needsDraft": 368,
+  "skippedReviewed": 0,
+  "skippedExisting": 0,
+  "failed": 0,
+  "flagged": 368,
+  "byStream": {
+    "pg-entrance": {
+      "intents": 53,
+      "sufficient": 9
+    },
+    "clinical-practice": {
+      "intents": 32,
+      "sufficient": 3
+    },
+    "govt-jobs": {
+      "intents": 76,
+      "sufficient": 4
+    },
+    "practice-abroad": {
+      "intents": 22,
+      "sufficient": 3
+    },
+    "internship-early-career": {
+      "intents": 15,
+      "sufficient": 1
+    },
+    "abroad-gulf": {
+      "intents": 8,
+      "sufficient": 3
+    },
+    "panchakarma-wellness": {
+      "intents": 26,
+      "sufficient": 13
+    },
+    "research-phd": {
+      "intents": 35,
+      "sufficient": 13
+    },
+    "abroad-uk-eu": {
+      "intents": 16,
+      "sufficient": 4
+    },
+    "abroad-usa": {
+      "intents": 8,
+      "sufficient": 1
+    },
+    "teaching-academia": {
+      "intents": 9,
+      "sufficient": 2
+    },
+    "public-health-policy": {
+      "intents": 11,
+      "sufficient": 6
+    },
+    "industry-pharma": {
+      "intents": 20,
+      "sufficient": 8
+    },
+    "entrepreneurship": {
+      "intents": 13,
+      "sufficient": 2
+    },
+    "digital-branding": {
+      "intents": 13,
+      "sufficient": 1
+    },
+    "export-trade": {
+      "intents": 11,
+      "sufficient": 6
+    }
+  },
+  "usage": {
+    "calls": 0,
+    "inputTokens": 0,
+    "outputTokens": 0,
+    "costUsd": 0,
+    "byModel": {}
+  }
+}

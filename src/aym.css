@@ -28,8 +28,8 @@
   --divider-gold: rgba(196, 154, 82, 0.45);
 
   /* Type */
-  --font-display: "Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", serif;
-  --font-sans: "Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif;
   --fs-hero: clamp(2.9rem, 6.4vw, 5.6rem);
   --fs-h2: clamp(2.2rem, 4.2vw, 3.6rem);
   --fs-h3: clamp(1.45rem, 2vw, 1.85rem);
@@ -117,9 +117,9 @@
   --btn-h-lg: 40px;
   --btn-pad-x: 16px;
   --btn-pad-x-sm: 12px;
-  --btn-font: 13.5px;
-  --btn-font-sm: 12.5px;
-  --btn-weight: 600;
+  --btn-font: 15px;
+  --btn-font-sm: 14px;
+  --btn-weight: 400;
   --btn-gap: 10px;
   --btn-row-gap: 12px;
 }
@@ -9439,3 +9439,69 @@ button.aym-drawer-sublink {
   }
 }
 
+
+/* ---- QA pass (Oct 2026) ---- */
+/* Hall hero: eyebrow sits on the bright part of the photo — lift it off the image. */
+.aym-hero .aym-hall-eyebrow {
+  color: #F1DDB5;
+  text-shadow: 0 1px 2px rgba(8, 24, 18, 0.55), 0 0 18px rgba(8, 24, 18, 0.45);
+}
+.aym-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(10, 30, 24, 0.55) 0%, rgba(10, 30, 24, 0.22) 42%, rgba(10, 30, 24, 0) 70%);
+}
+.aym-hero-inner { position: relative; }
+
+/* Long CTA labels wrap instead of pushing the page sideways on 320px screens. */
+@media (max-width: 420px) {
+  .aym-btn { max-width: 100%; white-space: normal; text-align: center; line-height: 1.25; padding-top: 10px; padding-bottom: 10px; }
+}
+
+/* Curation desk: why a group merged. */
+.aym-cluster-why { margin-top: 6px; font-size: 12px; color: #5C6B62; }
+.aym-cluster-why .aym-mono { color: #8C6A2E; }
+.aym-cluster-why--flag { color: #8A5A12; }
+
+/* Curation desk: suggested merges (staff accept / keep apart). */
+.aym-sugg-list { display: grid; gap: 12px; }
+.aym-sugg-empty { padding: 16px 18px; font-size: 13.5px; color: #5C6B62; }
+.aym-sugg-card { padding: 14px 16px; }
+.aym-sugg-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 12px; color: #5C6B62; margin-bottom: 10px; }
+.aym-sugg-pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+.aym-sugg-side { background: rgba(245,235,224,.55); border-radius: 12px; padding: 10px 12px; }
+.aym-sugg-side .aym-mono { font-size: 11px; color: #8C6A2E; }
+.aym-sugg-side p { margin: 4px 0 0; font-size: 14px; line-height: 1.45; }
+.aym-sugg-foot { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; margin-top: 12px; }
+.aym-sugg-reason { font-size: 12px; color: #5C6B62; }
+.aym-sugg-foot .aym-btn-row { gap: 8px; }
+
+/* Staff tip strip (was unstyled) */
+.aym-staff-tip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 1180px;
+  margin: 14px auto 0;
+  padding: 8px 22px;
+  font-size: 12.5px;
+  color: #5C6B62;
+  box-sizing: border-box;
+}
+.aym-staff-tip svg { color: #8C6A2E; flex-shrink: 0; }
+.aym-staff-tip--error {
+  flex-wrap: wrap;
+  color: #7A1F1F;
+  background: #FDF1EF;
+  border: 1px solid #E8C4BE;
+  border-radius: 10px;
+  padding: 10px 16px;
+}
+.aym-staff-tip--error svg { color: #A33A2C; }
+.aym-staff-tip--error .aym-btn { margin-left: auto; }
+.aym-desk-hero-copy .aym-eyebrow {
+  color: #F1DDB5;
+  text-shadow: 0 1px 2px rgba(8, 24, 18, 0.55), 0 0 16px rgba(8, 24, 18, 0.4);
+}

@@ -1,0 +1,103 @@
+{
+  "intentId": "mba.eligibility",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Hospital employment",
+  "subject": "general",
+  "ask": "eligibility",
+  "question": "What is the eligibility for an MBA in hospital or healthcare management after BAMS?",
+  "stream": "clinical-practice",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.525Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.438,
+      "bm25": 21.47,
+      "coverage": 0.23
+    },
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.343,
+      "bm25": 20.07,
+      "coverage": 0.32
+    },
+    {
+      "chunkId": "ebce10c6dbc08fc7e270d1916b3694405f03b96a",
+      "url": "https://nabh.co/assessor-training/nabh-three-days-assessors-training-program-in-accordance-with-2nd-edition-digital-health-standards-for-hospital/",
+      "title": "NABH Three-days Assessors’ Training Program in accordance with 2nd Edition Digital Health Standards for Hospital - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.343,
+      "bm25": 20.06,
+      "coverage": 0.35
+    },
+    {
+      "chunkId": "a7d02de2ce058005ab2387b8e03f26f08ffa2a56",
+      "url": "https://nabh.co/assessor-training/five-day-assessors-training-programme-as-per-nabh-6th-edition-standards-for-hospitals/",
+      "title": "Five-Day Assessors’ Training Programme as per NABH 6th Edition Standards for Hospitals - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.326,
+      "bm25": 19.8,
+      "coverage": 0.35
+    },
+    {
+      "chunkId": "d5b781393f39c837175a3fda6285484f216c91cd",
+      "url": "https://nabh.co/assessor-training/three-day-assessors-training-programme-as-per-nabh-2nd-edition-standards-for-entry-level-hospitals/",
+      "title": "Three-Day Assessors’ Training Programme as per NABH 2nd Edition Standards for Entry level Hospitals - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.297,
+      "bm25": 19.37,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "fbc413b6420ce4d53f139bbe5fad27bc4a85b4ee",
+      "url": "https://ayush.gov.in/assets/pdf/careers/NEIAH_Director.pdf",
+      "title": "NEIAH Director",
+      "score": 1.276,
+      "bm25": 19.06,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "50131e4c199869e2fd9147a8a0a8e519c54bc720",
+      "url": "https://nabh.co/e-mitra-step-by-step-guide-for-entry-level-certification/",
+      "title": "E-Mitra Step-By-Step Guide for Entry Level Certification - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.219,
+      "bm25": 18.21,
+      "coverage": 0.55
+    },
+    {
+      "chunkId": "119b8e31c8366a1694b562dd7f25f13231297dce",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.186,
+      "bm25": 17.71,
+      "coverage": 0.57
+    }
+  ]
+}

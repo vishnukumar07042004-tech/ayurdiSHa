@@ -1,0 +1,102 @@
+{
+  "intentId": "biostat.resources",
+  "theme": "Research, Evidence & Publication",
+  "subtheme": "Biostatistics",
+  "subject": "statistic",
+  "ask": "resources",
+  "question": "Which books and study resources should I use for biostatistics for research?",
+  "stream": "research-phd",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Magazine AW Nov Dec25",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf"
+    },
+    {
+      "title": "Library - Central Council for Research in Ayurvedic Sciences",
+      "url": "https://ccras.nic.in/library/"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.077Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "dc0891cd4944a228c734e7e79cb79fc095458594",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 1.25,
+      "bm25": 17.9,
+      "coverage": 0.6
+    },
+    {
+      "chunkId": "75bcd520b490a4834eab57f02769d55ab7937f18",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 1.186,
+      "bm25": 16.97,
+      "coverage": 0.78
+    },
+    {
+      "chunkId": "dd82fae60b7defc7174b80598fcc9a5c89a45a38",
+      "url": "https://ccras.nic.in/library/",
+      "title": "Library - Central Council for Research in Ayurvedic Sciences",
+      "score": 1.044,
+      "bm25": 14.24,
+      "coverage": 0.5
+    },
+    {
+      "chunkId": "84006f4f01bf90b6b2f4c3f0ae2c693bbac0221d",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ayurgyan.pdf",
+      "title": "ayurgyan",
+      "score": 0.937,
+      "bm25": 11.66,
+      "coverage": 0.06
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 0.93,
+      "bm25": 12.68,
+      "coverage": 0.06
+    },
+    {
+      "chunkId": "8ab9cee0b2fe7a5d1150b9e9aacb1dc015c0d5c1",
+      "url": "https://ayushportal.nic.in/pdf/TKM_Study_Report.pdf",
+      "title": "TKM Study Report",
+      "score": 0.92,
+      "bm25": 12.54,
+      "coverage": 0.47
+    },
+    {
+      "chunkId": "0995b0c2cf13f5bd2a27180fed585f255d305eeb",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 0.886,
+      "bm25": 12.08,
+      "coverage": 0.68
+    },
+    {
+      "chunkId": "935927ead1fc58ba3c2a3638be9dd98a93314564",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/04/25042025-CCRAS-Publication-Policy.pdf",
+      "title": "CCRAS Publication policy.pdf",
+      "score": 0.875,
+      "bm25": 11.93,
+      "coverage": 0.48
+    }
+  ]
+}

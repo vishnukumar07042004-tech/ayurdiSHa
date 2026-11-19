@@ -1,0 +1,103 @@
+{
+  "intentId": "hospital.income",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Hospital employment",
+  "subject": "hospital",
+  "ask": "income",
+  "question": "What salary or income can I expect from a hospital job after BAMS?",
+  "stream": "clinical-practice",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.541Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eaaded765eb50d16ffc6a7cfa69d4bed5d730787",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.15,
+      "bm25": 16.75,
+      "coverage": 0.28
+    },
+    {
+      "chunkId": "6172af44eb25a1e74435147304005f87cc9394d0",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.064,
+      "bm25": 15.5,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "aeb5c485e79f9385ed35f671ae3f7761b32d6e3b",
+      "url": "https://ayush.gov.in/assets/pdf/nam/NAM_Guideline_English.pdf",
+      "title": "NAM Guideline English",
+      "score": 1.053,
+      "bm25": 15.34,
+      "coverage": 0.51
+    },
+    {
+      "chunkId": "0b5de0e6fc9921d7b2e25c939e73b09a101882dc",
+      "url": "https://ayushportal.nic.in/pdf/Ayurveda_and_Conventional_Medicine.pdf",
+      "title": "Ayurveda and Conventional Medicine",
+      "score": 0.959,
+      "bm25": 15.3,
+      "coverage": 0.33
+    },
+    {
+      "chunkId": "0a17c07017f94c85021e0141fb9dd659d6e2382b",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 0.947,
+      "bm25": 11.03,
+      "coverage": 0.17
+    },
+    {
+      "chunkId": "3cdc56abe4e16923be099d0449540c824613c8d9",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 0.936,
+      "bm25": 10.9,
+      "coverage": 0.17
+    },
+    {
+      "chunkId": "7ca67088fc450e0f8d27344c0de3be710b233f2d",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33752675/",
+      "title": "Size, composition and distribution of health workforce in India: why, and where to invest?",
+      "score": 0.931,
+      "bm25": 14.85,
+      "coverage": 0.08
+    },
+    {
+      "chunkId": "9fcfca0d3f28813d1eb71a4a0f32322a76b690e3",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_LOP.pdf",
+      "title": "Ayurveda LOP",
+      "score": 0.916,
+      "bm25": 10.67,
+      "coverage": 0.17
+    }
+  ]
+}

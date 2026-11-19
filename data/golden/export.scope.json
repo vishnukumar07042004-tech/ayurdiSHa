@@ -1,0 +1,102 @@
+{
+  "intentId": "export.scope",
+  "theme": "Export & Global Trade",
+  "subtheme": "Getting started in export",
+  "subject": "export",
+  "ask": "scope",
+  "question": "What is the scope of exporting Ayurvedic products for BAMS graduates?",
+  "stream": "export-trade",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Global challenges of graduate level Ayurvedic education: A survey.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20532099/"
+    },
+    {
+      "title": "The ayurveda education in India: how well are the graduates exposed to basic clinical skills?",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19687194/"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.956Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "c0ba3194ae2fdd0c70a001935adf6ea141c1ebd3",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20532099/",
+      "title": "Global challenges of graduate level Ayurvedic education: A survey.",
+      "score": 1.05,
+      "bm25": 20.58,
+      "coverage": 0.23
+    },
+    {
+      "chunkId": "d4d49bed74285e0e3f306718d6da49d0cd047524",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19687194/",
+      "title": "The ayurveda education in India: how well are the graduates exposed to basic clinical skills?",
+      "score": 1.028,
+      "bm25": 20.16,
+      "coverage": 0
+    },
+    {
+      "chunkId": "a1e204badfa5163cc743b1c29420525f79ce9cfe",
+      "url": "https://pharmexcil.com/uploads/RevisedMAIGuildelines19thJuly2021.pdf",
+      "title": "RevisedMAIGuildelines19thJuly2021",
+      "score": 0.962,
+      "bm25": 13.77,
+      "coverage": 0.77
+    },
+    {
+      "chunkId": "fc4c37478b24874b245020f8f8ed762cdf7e0abd",
+      "url": "https://pharmexcil.com/uploads/RevisedMAIGuildelines19thJuly2021.pdf",
+      "title": "RevisedMAIGuildelines19thJuly2021",
+      "score": 0.944,
+      "bm25": 13.52,
+      "coverage": 1
+    },
+    {
+      "chunkId": "267d3873c1ce6e39a1077d7408d0f9de26e7ba5f",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 0.938,
+      "bm25": 18.38,
+      "coverage": 0.39
+    },
+    {
+      "chunkId": "d55eebc3522165fc814c0634ff0461ace8a847d4",
+      "url": "https://pharmexcil.com/uploads/countryreports/MAI_Scheme_revised_2018.pdf",
+      "title": "MAI Scheme revised 2018",
+      "score": 0.93,
+      "bm25": 13.31,
+      "coverage": 1
+    },
+    {
+      "chunkId": "b2070c3ceac672118d261b39781cdf0afe0dd2ac",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ic.pdf",
+      "title": "Ministry of Ayush, Government of India — ic",
+      "score": 0.916,
+      "bm25": 13.12,
+      "coverage": 0.61
+    },
+    {
+      "chunkId": "cc09cf259d95c9a2fee4a53cc73fdf2dc7cdbc0b",
+      "url": "https://pharmexcil.com/v1/docs/MDA/MAI_RevisedGuidelinesFromAugust2014_4web.pdf",
+      "title": "MAI RevisedGuidelinesFromAugust2014 4web",
+      "score": 0.907,
+      "bm25": 12.99,
+      "coverage": 1
+    }
+  ]
+}

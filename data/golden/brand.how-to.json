@@ -1,0 +1,103 @@
+{
+  "intentId": "brand.how-to",
+  "theme": "Brand Building & Communication",
+  "subtheme": "Positioning a practice or product",
+  "subject": "brand",
+  "ask": "how-to",
+  "question": "How do I build a personal brand as a young Ayurveda doctor?",
+  "stream": "digital-branding",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.819Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "78d0e7e69132dcf479bcfa706a99380ab9f1e28f",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Consultant(OL)Advertisement.pdf",
+      "title": "Consultant(OL)Advertisement",
+      "score": 1.102,
+      "bm25": 14.78,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "09d5c5030eae6689f15dffec92d47e867bf7abe9",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 1,
+      "bm25": 19.27,
+      "coverage": 0.71
+    },
+    {
+      "chunkId": "f1b5fd63024b166f343c34e340811d68be96869d",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Young_Profassional_1_1.pdf",
+      "title": "Young Profassional 1 1",
+      "score": 0.968,
+      "bm25": 12.98,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "a9f146f0a52059d7e469828190364045af1e7ae9",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29858128/",
+      "title": "Allopathic, AYUSH and informal medical practitioners in rural India&#xa0;-&#xa0;a prescription for change.",
+      "score": 0.914,
+      "bm25": 16.77,
+      "coverage": 0.17
+    },
+    {
+      "chunkId": "c1a4c492cd22304d87fc4573e99e81f58c4a1d98",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ayurgyan.pdf",
+      "title": "ayurgyan",
+      "score": 0.883,
+      "bm25": 11.83,
+      "coverage": 0.17
+    },
+    {
+      "chunkId": "feddf53099a73d96a0b5ea1f2ff35dec478ae83b",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Consultant(OL)Advertisement.pdf",
+      "title": "Consultant(OL)Advertisement",
+      "score": 0.854,
+      "bm25": 11.45,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "92dd2ff409860097ebc55dc48ae9eb83d770b666",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27328028/",
+      "title": "Keeping the doctor in the loop: Ayurvedic pharmaceuticals in Kerala.",
+      "score": 0.85,
+      "bm25": 15.59,
+      "coverage": 0.27
+    },
+    {
+      "chunkId": "398c89e43567639eeebf5bfcbef5ea9ce66ff5d4",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Young_Profassional_1_1.pdf",
+      "title": "Young Profassional 1 1",
+      "score": 0.844,
+      "bm25": 11.31,
+      "coverage": 0.29
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "intentId": "nam.how-to",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "National AYUSH Mission delivery",
+  "subject": "nam",
+  "ask": "how-to",
+  "question": "How do I get a job under the National AYUSH Mission?",
+  "stream": "govt-jobs",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.594Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "74ac23f8084fc07dd167bcffbba1d8868b041b81",
+      "url": "https://ayush.gov.in/assets/pdf/nam/NAM_Guideline_English.pdf",
+      "title": "NAM Guideline English",
+      "score": 1.438,
+      "bm25": 18.17,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "e65e1703c9e93d11830a47fff5f1ce4ef4a9c3eb",
+      "url": "https://ayush.gov.in/assets/pdf/nam/NAM_Guideline_English.pdf",
+      "title": "NAM Guideline English",
+      "score": 1.413,
+      "bm25": 17.85,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "e898fd58352f20e8669fab414c963a117b73eed8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/aoushdhi.pdf",
+      "title": "aoushdhi",
+      "score": 1.161,
+      "bm25": 14.67,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "20696ab86e9033677052d4b2f13695fcf065d907",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/02/Ayur-World-Jan-Feb-2026.pdf",
+      "title": "Ayur World Jan Feb 2026",
+      "score": 1.026,
+      "bm25": 14.92,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "401e0ca1658c14751f1fdfab237800600c44e7ba",
+      "url": "https://ism.kerala.gov.in/eng/index.php/about/about-ism-2",
+      "title": "Mission , Vision & Objectives - Department of Indian Systems of Medicine",
+      "score": 0.94,
+      "bm25": 11.88,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "684f0e5208e734eb4f3c85552bda912db0aa7c5d",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26730131/",
+      "title": "Role of AYUSH workforce, therapeutics, and principles in health care delivery with special reference to National Rural Health Mission.",
+      "score": 0.916,
+      "bm25": 15.84,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "dc0891cd4944a228c734e7e79cb79fc095458594",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.906,
+      "bm25": 13.17,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "aac155a7d9fbcaa525a6db0f7f7922bfc505f20e",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/aoushdhi.pdf",
+      "title": "aoushdhi",
+      "score": 0.862,
+      "bm25": 10.9,
+      "coverage": 0.45
+    }
+  ]
+}

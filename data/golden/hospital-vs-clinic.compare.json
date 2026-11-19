@@ -1,0 +1,103 @@
+{
+  "intentId": "hospital-vs-clinic.compare",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Hospital employment",
+  "subject": "hospital",
+  "ask": "compare",
+  "question": "Is it better to work in a hospital first or start my own clinic straight away?",
+  "stream": "clinical-practice",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.455Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.438,
+      "bm25": 17.97,
+      "coverage": 0.06
+    },
+    {
+      "chunkId": "81cec9505a2bba282db8ece1fd9b4fb84267762e",
+      "url": "https://ayush.gov.in/assets/pdf/nam/NAM_Guideline_English.pdf",
+      "title": "NAM Guideline English",
+      "score": 1.278,
+      "bm25": 15.98,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "0c744844d7dc3c6d48843c390770ba37155df553",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.177,
+      "bm25": 14.71,
+      "coverage": 0.16
+    },
+    {
+      "chunkId": "3d00c7a8a88d0ad485cf8dc22b4cf308d10aadb1",
+      "url": "https://nabh.co/",
+      "title": "National Accreditation Board for Hospitals & Healthcare Providers",
+      "score": 1.144,
+      "bm25": 14.31,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "001dac0be7ebb84d067711010b35a8c9bbafd036",
+      "url": "https://ism.kerala.gov.in/eng/index.php/institutions/speciality-institutions/govt-ayurveda-marma-hospital-kanjiramkulam-thiruvananthapuram",
+      "title": "Govt. Ayurveda Marma Hospital, Kanjiramkulam, Thiruvananthapuram - Department of Indian Systems of Medicine",
+      "score": 1.128,
+      "bm25": 14.1,
+      "coverage": 0.26
+    },
+    {
+      "chunkId": "dff22ad4967260230a22e32b1a595f8f03009e9e",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.123,
+      "bm25": 14.04,
+      "coverage": 0.16
+    },
+    {
+      "chunkId": "5bbadbdea73927c1cd5fd473d2c2671ea4cc1f31",
+      "url": "https://nabh.co/faqs-patients/",
+      "title": "FAQs - Patients - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.117,
+      "bm25": 13.96,
+      "coverage": 0.39
+    },
+    {
+      "chunkId": "50131e4c199869e2fd9147a8a0a8e519c54bc720",
+      "url": "https://nabh.co/e-mitra-step-by-step-guide-for-entry-level-certification/",
+      "title": "E-Mitra Step-By-Step Guide for Entry Level Certification - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.073,
+      "bm25": 13.41,
+      "coverage": 0.23
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "intentId": "export-region.legal.gulf",
+  "theme": "Export & Global Trade",
+  "subtheme": "Certification and quality marks",
+  "subject": "export",
+  "ask": "legal",
+  "question": "What registration and certification are needed to export Ayurvedic products to the UAE (Dubai / Abu Dhabi)?",
+  "stream": "export-trade",
+  "region": "gulf",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.024Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "d744b4c5cd795d42c266683a93f7b8a4ab431a28",
+      "url": "https://www.who.int/news/item/21-10-2026-united-arab-emirates-announces-national-commitments-to-advance-evidence-based-integrative-medicine",
+      "title": "UAE Integrative Medicine Council announces commitments to advance evidence-based integrative medicine",
+      "score": 1.15,
+      "bm25": 31.3,
+      "coverage": 0.54
+    },
+    {
+      "chunkId": "16c7519e59bbce72dafa1d52ca479125b52c47f7",
+      "url": "https://www.who.int/news/item/21-10-2026-united-arab-emirates-announces-national-commitments-to-advance-evidence-based-integrative-medicine",
+      "title": "UAE Integrative Medicine Council announces commitments to advance evidence-based integrative medicine",
+      "score": 1.08,
+      "bm25": 29.38,
+      "coverage": 0.59
+    },
+    {
+      "chunkId": "eb2935e6dd2d7f9522fcd36f4cb8f7d931cf5b26",
+      "url": "https://www.gov.uk/guidance/apply-for-a-traditional-herbal-registration-thr",
+      "title": "Apply for a traditional herbal registration (THR)",
+      "score": 0.988,
+      "bm25": 21.51,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "c2a1e4f7eabfa60e3382c2b77a106a9f5ddd3bb4",
+      "url": "https://www.gov.uk/guidance/apply-for-a-traditional-herbal-registration-thr",
+      "title": "Apply for a traditional herbal registration (THR)",
+      "score": 0.849,
+      "bm25": 18.48,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "d55eebc3522165fc814c0634ff0461ace8a847d4",
+      "url": "https://pharmexcil.com/uploads/countryreports/MAI_Scheme_revised_2018.pdf",
+      "title": "MAI Scheme revised 2018",
+      "score": 0.788,
+      "bm25": 17.15,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "a9badec24d397a7f69ac2c51095d5bcbe157964b",
+      "url": "https://www.emro.who.int/health-topics/traditional-medicine/",
+      "title": "Traditional medicine",
+      "score": 0.725,
+      "bm25": 19.73,
+      "coverage": 0.43
+    },
+    {
+      "chunkId": "6f2cfe69bbde1dbee4bde0941b38fc8b2a300965",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/08/Ayurworld-May-June-2026.pdf",
+      "title": "Ayurworld May June 2026",
+      "score": 0.713,
+      "bm25": 17.86,
+      "coverage": 0.23
+    },
+    {
+      "chunkId": "6689d56615f380c4573828473ccb2e96f6152c19",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.683,
+      "bm25": 17.1,
+      "coverage": 0.23
+    }
+  ]
+}

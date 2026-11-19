@@ -3,11 +3,11 @@ import Picture from "../../components/editorial/Picture.jsx";
 import { ShelfHead } from "../../components/ui/Store.jsx";
 
 const TILES = [
-  { src: "/assets/sections/collage-circle.webp", w: 1152, h: 864, caption: "Small circles, honest questions", alt: "Young interns seated in a circle around a senior woman mentor in a wooden mentoring pod" },
-  { src: "/assets/sections/collage-garden.webp", w: 1024, h: 1024, caption: "Learning plants where they grow", alt: "A senior mentor in a medicinal herb garden showing a fresh leaf to two students holding notebooks" },
-  { src: "/assets/sections/collage-onetoone.webp", w: 864, h: 1152, caption: "One-to-one guidance", alt: "A BAMS intern taking notes across a small table as an older mentor explains a point" },
-  { src: "/assets/sections/collage-panchakarma.webp", w: 1024, h: 1024, caption: "Hands-on therapy skills", alt: "A senior therapist guiding a young intern beside a wooden Panchakarma table and brass oil vessel" },
-  { src: "/assets/sections/collage-library.webp", w: 1024, h: 1024, caption: "Classical texts, living practice", alt: "A mentor pointing to a page in a library volume as two students look on between tall wooden shelves" },
+  { src: "/assets/sections/collage-circle.webp", w: 1152, h: 864, caption: "Small circles, honest questions", alt: "A senior woman mentor guiding a small circle of Ayurveda students in a sandstone hall at the World Ayurveda Congress" },
+  { src: "/assets/sections/collage-garden.webp", w: 1024, h: 1024, caption: "Career paths, mapped together", alt: "A mentor sketching career options in a notebook as two students look on at a congress lounge table" },
+  { src: "/assets/sections/collage-onetoone.webp", w: 864, h: 1152, caption: "One-to-one guidance", alt: "A young Ayurveda graduate taking notes as an experienced mentor talks through her options, one to one" },
+  { src: "/assets/sections/collage-panchakarma.webp", w: 1024, h: 1024, caption: "One clear question", alt: "A student handing a written question card to a volunteer at the Ask Desk, with mentors talking in the background" },
+  { src: "/assets/sections/collage-library.webp", w: 1024, h: 1024, caption: "Research and PG, demystified", alt: "A senior mentor explaining a research paper to two students in a wood-panelled reading room" },
 ];
 
 export default function HomeCollage() {
@@ -19,7 +19,7 @@ export default function HomeCollage() {
             id="collage-title"
             className="st-shelf-head--lg"
             title="Every path begins with a conversation."
-            soft="From the clinic to the garden, the therapy room and the library."
+            soft="From a circle of questions to a plan you can act on."
             action={<span className="ui-caption">Illustrative imagery</span>}
           />
         </div>

@@ -1,0 +1,102 @@
+{
+  "intentId": "funding.eligibility",
+  "theme": "Entrepreneurship & Start-ups",
+  "subtheme": "Funding & finance",
+  "subject": "funding",
+  "ask": "eligibility",
+  "question": "What is the eligibility for start-up funding?",
+  "stream": "entrepreneurship",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "ResearchAndInv",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf"
+    },
+    {
+      "title": "Ayurswasthya",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.910Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "c7b296354b65e1ecd0f045cb90f3c9f10c8964ac",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 1.15,
+      "bm25": 19.51,
+      "coverage": 0.36
+    },
+    {
+      "chunkId": "119b8e31c8366a1694b562dd7f25f13231297dce",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.094,
+      "bm25": 18.55,
+      "coverage": 0.28
+    },
+    {
+      "chunkId": "3c029ac1fcc30f59bab729951e0d27c1ac82dd06",
+      "url": "https://ayush.gov.in/assets/pdf/careers/English_Application_Form_04082026.pdf",
+      "title": "English Application Form 04082026",
+      "score": 1.014,
+      "bm25": 17.2,
+      "coverage": 0.36
+    },
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.002,
+      "bm25": 17.01,
+      "coverage": 0.36
+    },
+    {
+      "chunkId": "efd782edd9713f50d66e002df081bbaceeff8096",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/VacancyCircularSiddhaUnani.pdf",
+      "title": "VacancyCircularSiddhaUnani",
+      "score": 0.924,
+      "bm25": 15.68,
+      "coverage": 0.64
+    },
+    {
+      "chunkId": "d0b013d5bfccdee6b34efc425b734b2edceb767f",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/Updated_Guidelines_for_consultant_and_Young_professionals.pdf",
+      "title": "Updated Guidelines for consultant and Young professionals",
+      "score": 0.923,
+      "bm25": 15.65,
+      "coverage": 0.36
+    },
+    {
+      "chunkId": "d9403b6bb5e5ebd886cce7b6e968e9589ed71be5",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/aoushdhi.pdf",
+      "title": "aoushdhi",
+      "score": 0.921,
+      "bm25": 12.5,
+      "coverage": 0.64
+    },
+    {
+      "chunkId": "fc492bd17ac9a9e9ccbc04842f0d0834fcf64c0a",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Consultant(OL)Advertisement.pdf",
+      "title": "Consultant(OL)Advertisement",
+      "score": 0.916,
+      "bm25": 15.54,
+      "coverage": 0.36
+    }
+  ]
+}

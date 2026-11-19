@@ -1,0 +1,103 @@
+{
+  "intentId": "registration-state.legal.uttar-pradesh",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Setting up private practice",
+  "subject": "general",
+  "ask": "legal",
+  "question": "How do I register with the Uttar Pradesh state board of Indian medicine after my BAMS internship?",
+  "stream": "internship-early-career",
+  "region": "uttar-pradesh",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.689Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.15,
+      "bm25": 32.6,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "bbd6c937c6f79e3bb6a6efd792d06ba90253202d",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_denied.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.141,
+      "bm25": 25.87,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "a4fec7b5a45d591d559375fc9f1a6a8665b4ea9d",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.078,
+      "bm25": 24.45,
+      "coverage": 0.33
+    },
+    {
+      "chunkId": "dff22ad4967260230a22e32b1a595f8f03009e9e",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.078,
+      "bm25": 24.45,
+      "coverage": 0.39
+    },
+    {
+      "chunkId": "0ef2f2cdbefb1fa87d69e45d4b9c442d725ffdfa",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_denied.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.069,
+      "bm25": 24.25,
+      "coverage": 0.33
+    },
+    {
+      "chunkId": "e9ad00a7443a1601716993b86005046828f759a1",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_LOP.pdf",
+      "title": "Ayurveda LOP",
+      "score": 0.994,
+      "bm25": 22.54,
+      "coverage": 0.33
+    },
+    {
+      "chunkId": "5a6ae7d517f7c60e0a3e8e2946041aa33dc6e6e8",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_LOP.pdf",
+      "title": "Ayurveda LOP",
+      "score": 0.982,
+      "bm25": 22.27,
+      "coverage": 0.33
+    },
+    {
+      "chunkId": "17faf02c65ba459498c90ca44c8dcd8c63c99986",
+      "url": "https://ayush.gov.in/assets/pdf/careers/pasighat-vacancy.pdf",
+      "title": "pasighat vacancy",
+      "score": 0.923,
+      "bm25": 20.92,
+      "coverage": 0.53
+    }
+  ]
+}

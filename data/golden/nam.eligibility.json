@@ -1,0 +1,103 @@
+{
+  "intentId": "nam.eligibility",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "National AYUSH Mission delivery",
+  "subject": "nam",
+  "ask": "eligibility",
+  "question": "What is the eligibility for National AYUSH Mission jobs?",
+  "stream": "govt-jobs",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.665Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.438,
+      "bm25": 20.45,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "3c029ac1fcc30f59bab729951e0d27c1ac82dd06",
+      "url": "https://ayush.gov.in/assets/pdf/careers/English_Application_Form_04082026.pdf",
+      "title": "English Application Form 04082026",
+      "score": 1.413,
+      "bm25": 20.09,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "edda68b3b78bf195db59780ae0ddce9bea92ea11",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/VacancyDepAdviserYN.pdf",
+      "title": "VacancyDepAdviserYN",
+      "score": 1.317,
+      "bm25": 18.73,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "5c12b8dfb3d4904410fa23b266d93b7342945c83",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/deptuadvisor_vacancy.pdf",
+      "title": "deptuadvisor vacancy",
+      "score": 1.304,
+      "bm25": 18.55,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.192,
+      "bm25": 16.95,
+      "coverage": 0
+    },
+    {
+      "chunkId": "95dc782aaa3ac8021d952a78d2c4dc6aab1fcc74",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.16,
+      "bm25": 16.5,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "280cf8415f41ab4804b4016e646867c8bba55e92",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 1.139,
+      "bm25": 16.2,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "fe681eb2fd2c1831d1753c36d7e29f1e01d91e6c",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Recruitment_Notice_13072026.pdf",
+      "title": "Recruitment Notice 13072026",
+      "score": 1.012,
+      "bm25": 14.4,
+      "coverage": 0.1
+    }
+  ]
+}

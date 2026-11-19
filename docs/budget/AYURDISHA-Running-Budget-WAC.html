@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AYURDISHA — Running Budget for WAC 2026</title>
+<style>
+  @page { size: A4; margin: 14mm 14mm 14mm 14mm; }
+  :root { --forest:#1f4d3a; --forest2:#2f6b52; --cream:#fbf7ec; --gold:#b8892b; --ink:#1d2621; --muted:#5a665f; --line:#d9d0b8; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color:var(--ink); font-size:10pt; line-height:1.42; background:#fff; }
+  .page { max-width:182mm; margin:0 auto; }
+  header { border-bottom:3px solid var(--gold); padding-bottom:6px; margin-bottom:10px; }
+  h1 { color:var(--forest); font-size:19pt; margin:0 0 2px; letter-spacing:.2px; }
+  .sub { color:var(--muted); margin:0; font-size:9.5pt; }
+  h2 { color:var(--forest); font-size:12.5pt; margin:14px 0 6px; border-left:4px solid var(--gold); padding-left:7px; break-after:avoid; }
+  .summary { background:var(--cream); border:1.5px solid var(--gold); border-radius:8px; padding:10px 12px; display:grid; grid-template-columns:1.25fr 1fr 1fr; gap:10px; break-inside:avoid; }
+  .summary .big { grid-column:1 / -1; background:var(--forest); color:#fff; border-radius:6px; padding:8px 12px; display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:6px; }
+  .summary .big .n { font-size:20pt; font-weight:700; color:#f3d98c; }
+  .summary .big .l { font-size:10.5pt; font-weight:600; }
+  .summary .big .s { font-size:8.5pt; opacity:.9; width:100%; }
+  .kpi .n { font-size:13.5pt; font-weight:700; color:var(--forest); }
+  .kpi .l { font-size:8.6pt; color:var(--muted); }
+  .rec { grid-column:1 / -1; font-size:9.2pt; border-top:1px dashed var(--line); padding-top:6px; }
+  table { width:100%; border-collapse:collapse; font-size:8.6pt; margin:4px 0 6px; }
+  th, td { border:1px solid var(--line); padding:4px 5px; vertical-align:top; text-align:left; }
+  th { background:var(--forest); color:#fff; font-weight:600; }
+  td.num, th.num { text-align:right; white-space:nowrap; }
+  tr { break-inside:avoid; }
+  tbody tr:nth-child(even) td { background:#fdfbf5; }
+  tr.opt td { color:#3d4842; background:#f6f6f2 !important; font-style:normal; }
+  tr.sub td { font-weight:600; background:var(--cream) !important; }
+  tr.total td { font-weight:700; background:#f3e7c4 !important; border-top:2px solid var(--gold); }
+  .tag { display:inline-block; font-size:7.5pt; font-weight:700; padding:0 5px; border-radius:3px; background:var(--forest2); color:#fff; margin-right:3px; }
+  .tag.opt { background:#8a8f88; }
+  .box { background:var(--cream); border:1px solid var(--line); border-radius:6px; padding:8px 11px; margin:6px 0; break-inside:avoid; }
+  .box ul, .box ol { margin:3px 0 0 16px; padding:0; }
+  .box li { margin:2px 0; }
+  .small { font-size:8.3pt; color:var(--muted); }
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  a { color:var(--forest2); word-break:break-all; }
+  footer { margin-top:10px; border-top:1px solid var(--line); padding-top:4px; font-size:8pt; color:var(--muted); }
+  @media print { a { text-decoration:none; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <h1>AYURDISHA — Running Budget</h1>
+  <p class="sub">Paid services the AYURDISHA app needs to run smoothly for the Meet the Mentors programme, 11th World Ayurveda Congress (Bhubaneswar, 10–13 December 2026). Prepared for the World Ayurveda Congress (WAC) team · 6 November 2026 · Planning figures: <b>3,000 delegates</b> (expected), with <b>5,000</b> shown as headroom.</p>
+</header>
+
+<div class="summary">
+  <div class="big">
+    <span class="l">Total to approve (3,000 users, preparation month + event month)</span>
+    <span class="n">₹19,000</span>
+    <span class="s">= $212.75 × ₹88/$ = ₹18,722, rounded up · includes 15% contingency · GST (18%) may apply on top · Headroom for 5,000 users: <b>₹24,500</b> ($276).</span>
+  </div>
+  <div class="kpi"><div class="n">₹18,722 · $212.75</div><div class="l">Event period total, 3,000 users (Nov + Dec 2026)<br>5,000 users: ₹24,288 · $276</div></div>
+  <div class="kpi"><div class="n">₹1,214 / month</div><div class="l">After the event, 3,000 users ($13.80)<br>5,000 users: ₹2,024 / month ($23)</div></div>
+  <div class="kpi"><div class="n">≈ ₹4 per delegate</div><div class="l">Whole event period cost ÷ 3,000 delegates (≈ ₹4.9 at 5,000)</div></div>
+  <div class="rec"><b>Key recommendation:</b> approve ₹19,000 and set hard limits so spend cannot run away: a <b>$30/day cap on DISHA AI</b> during 10–13 Dec (raise to $45 only if registrations pass ~4,000), a Google Cloud budget alert, and Vercel spend management. Upgrade Vercel and email to paid plans for <b>November–December only</b>, then go back to free tiers.</div>
+</div>
+
+<h2>1. What we pay for</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="width:18%">Item · plan</th>
+      <th style="width:31%">Why it is needed</th>
+      <th style="width:13%">When</th>
+      <th class="num" style="width:19%">3,000 users<br>event period · /month after</th>
+      <th class="num" style="width:19%">5,000 users<br>event period · /month after</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="tag">1</span><b>DISHA AI</b> — Google Gemini API, paid key, used only on the server, with a daily spending cap</td>
+      <td>Writes the first draft of each answer, which a mentor then reviews. Measured cost about <b>$0.049 per drafted answer</b> at December prices (the draft model's price doubles from 1 Dec). Includes ~$20 for November testing and pre-drafting the 368 model answers.</td>
+      <td>Now → after event (pay per use)</td>
+      <td class="num">$100 · ₹8,800<br>$10 · ₹880 /mo</td>
+      <td class="num">$150 · ₹13,200<br>$17 · ₹1,496 /mo</td>
+    </tr>
+    <tr>
+      <td><span class="tag">2</span><b>Vercel Pro</b> (hosting), 1 member, $20/member/month</td>
+      <td>The free Hobby plan is for personal, non-commercial use and can pause the site when usage limits are hit. Pro allows organisational use, bills overage with spend controls instead of pausing, runs scheduled jobs more often than once a day, allows longer server functions, keeps logs longer and adds team members.</td>
+      <td>Nov + Dec 2026 only (Hobby is fine for testing and after the event)</td>
+      <td class="num">$40 · ₹3,520<br>$0 /mo</td>
+      <td class="num">$40 · ₹3,520<br>$0 /mo</td>
+    </tr>
+    <tr>
+      <td><span class="tag">3</span><b>Firebase Blaze</b> (Firestore database, pay as you go)</td>
+      <td>The free plan stops at 50,000 reads and 20,000 writes per day. Each registration needs ~10 writes, so a few thousand sign-ups on one day would hit the limit and registration would fail. Blaze keeps the same free quota and charges only beyond it.</td>
+      <td>Before registration opens → ongoing</td>
+      <td class="num">$5 · ₹440<br>$2 · ₹176 /mo</td>
+      <td class="num">$10 · ₹880<br>$3 · ₹264 /mo</td>
+    </tr>
+    <tr>
+      <td><span class="tag">4</span><b>Transactional email</b> — Resend Pro, $20/month (50,000 emails), with a verified sending address</td>
+      <td>Sends the one-time sign-in codes and "your answer is ready" emails, about 9,000 (3k users) to 15,000 (5k users) in the event month. The free tier (100/day, 3,000/month) and Gmail (~500/day) are too small. The app already supports Resend, so switching needs only a settings change, not a code change. Amazon SES is a cheaper alternative (see section 3).</td>
+      <td>Nov + Dec 2026 (free tier after)</td>
+      <td class="num">$40 · ₹3,520<br>$0 /mo</td>
+      <td class="num">$40 · ₹3,520<br>$0 /mo</td>
+    </tr>
+    <tr>
+      <td><span class="tag">5</span><b>Uptime monitoring</b> — UptimeRobot free</td>
+      <td>Checks the site every 5 minutes and alerts the team by email if it goes down. The free tier is enough.</td>
+      <td>From now</td>
+      <td class="num">$0 · ₹0</td>
+      <td class="num">$0 · ₹0</td>
+    </tr>
+    <tr class="sub">
+      <td colspan="3">Subtotal</td>
+      <td class="num">$185 · ₹16,280<br>$12 · ₹1,056 /mo</td>
+      <td class="num">$240 · ₹21,120<br>$20 · ₹1,760 /mo</td>
+    </tr>
+    <tr>
+      <td><span class="tag">8</span><b>Contingency 15%</b></td>
+      <td colspan="2">Covers price changes, extra regenerations, a busier-than-expected event day, and Vercel or Firestore usage above the included amounts.</td>
+      <td class="num">$27.75 · ₹2,442<br>$1.80 · ₹158 /mo</td>
+      <td class="num">$36 · ₹3,168<br>$3 · ₹264 /mo</td>
+    </tr>
+    <tr class="total">
+      <td colspan="3">Total (GST 18% may apply)</td>
+      <td class="num">$212.75 · ₹18,722<br>$13.80 · ₹1,214 /mo</td>
+      <td class="num">$276 · ₹24,288<br>$23 · ₹2,024 /mo</td>
+    </tr>
+    <tr class="opt">
+      <td><span class="tag opt">6</span><b>Optional: SMS one-time codes</b> (e.g. MSG91), only if WAC wants phone-number codes</td>
+      <td>Not needed today, because codes go by email. If phone codes are wanted, budget ~₹0.25 per SMS × ~1.3 codes per user, plus a one-time Indian DLT sender registration (≈ ₹5,900) and template approval (allow 1–2 weeks). This also needs a small code change.</td>
+      <td>Only if chosen; register DLT in Nov</td>
+      <td class="num">≈ ₹975 + DLT<br>(~3,900 SMS)</td>
+      <td class="num">≈ ₹1,625 + DLT<br>(~6,500 SMS)</td>
+    </tr>
+    <tr class="opt">
+      <td><span class="tag opt">7</span><b>Optional: Google Cloud Vertex AI</b> instead of item 1</td>
+      <td>The same Gemini models at the same price ("global" endpoint; the Mumbai region costs +10%), but billed to WAC's Google Cloud account, so any Google Cloud credits WAC holds can pay for it. The app already supports this; it is a settings change.</td>
+      <td>Any time before the event</td>
+      <td class="num" colspan="2" style="text-align:center">Replaces item 1 · ₹0 extra<br>(can be ₹0 net with credits)</td>
+    </tr>
+  </tbody>
+</table>
+<p class="small">"Event period" = preparation month (November 2026) + event month (December 2026). Amounts in USD are converted at <b>₹88 per $1</b> (assumption; card payments in foreign currency may add ~1–3.5% bank markup). Totals exclude the optional items and maintenance effort.</p>
+
+<h2>2. How the DISHA AI figure is built</h2>
+<table>
+  <thead>
+    <tr><th>Scenario (share of delegates who ask)</th><th class="num">Questions</th><th class="num">Drafts (× 0.64, +10%)</th><th class="num">3,000 users</th><th class="num">Questions</th><th class="num">Drafts</th><th class="num">5,000 users</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Low — 40% ask</td><td class="num">1,500</td><td class="num">1,056</td><td class="num">$52 · ₹4,553</td><td class="num">2,500</td><td class="num">1,760</td><td class="num">$86 · ₹7,589</td></tr>
+    <tr><td><b>Expected — 60% ask</b></td><td class="num"><b>2,250</b></td><td class="num"><b>1,584</b></td><td class="num"><b>$78 · ₹6,830</b></td><td class="num"><b>3,750</b></td><td class="num"><b>2,640</b></td><td class="num"><b>$129 · ₹11,384</b></td></tr>
+    <tr><td>High — 90% ask</td><td class="num">3,375</td><td class="num">2,376</td><td class="num">$116 · ₹10,245</td><td class="num">5,625</td><td class="num">3,960</td><td class="num">$194 · ₹17,076</td></tr>
+  </tbody>
+</table>
+<p class="small">Each person who asks sends 1.25 questions. Merging similar questions leaves ~0.64 drafts per question, and 10% of drafts are regenerated. Every draft is priced at $0.049. The budget line = expected + ~$1–2 for question triage (~$0.0005 per question) + ~$20 November preparation, rounded. The high scenario is covered by the contingency together with the daily cap. Mentor-assist drafts (~$0.025) and refused or medical questions (~$0.008, or $0 when stopped before any AI call) cost less, so the real bill should be lower.</p>
+
+<div class="two">
+  <div class="box">
+    <b>Assumptions</b>
+    <ul>
+      <li>3,000 delegates (expected) and 5,000 (headroom); most questions are asked on the 4 event days.</li>
+      <li>AI: Gemini Pro-class draft + Flash-class check, <b>December price</b> ($4 input / $20 output per 1M tokens for the draft model, double the November price). Measured prompt sizes; output sizes from live pilot drafts.</li>
+      <li>Firestore: ~10 writes per registration and per question. Reads are mostly from the staff desk, which reads every record on each refresh (~1,200 refreshes in the event period). Roughly 0.1–0.2 M writes and 8–13 M reads in total.</li>
+      <li>Email: ~3 emails per delegate (sign-up code + resend, a later sign-in code, answer-ready notice).</li>
+      <li>After the event: ~10% of event-time question volume per month; Vercel back on Hobby; email on the free tier.</li>
+      <li>₹88 = $1 (assumption). Prices excluding GST (18% may apply).</li>
+    </ul>
+  </div>
+  <div class="box">
+    <b>How to keep costs low</b>
+    <ul>
+      <li><b>Merging</b>: similar questions are grouped, so one AI draft answers many students (~36% fewer drafts).</li>
+      <li><b>Daily cap</b>: AI drafting stops automatically at the cap ($30/day in the event, $5–10/day otherwise); mentors still answer by hand.</li>
+      <li><b>Flash fallback</b>: switching drafts to the Flash model cuts AI cost by ~75% (≈ $0.012 per draft) if the cap is near.</li>
+      <li><b>Vertex AI credits</b>: bill AI to WAC's Google Cloud account so existing credits pay for it.</li>
+      <li><b>Downgrade after the event</b>: Vercel Pro → Hobby and Resend Pro → free in January 2027.</li>
+      <li>Pre-draft the 368 model answers <b>before 1 December</b> (~$9 instead of ~$18).</li>
+      <li>Budget alerts: Google Cloud / Firebase (e.g. ₹2,000/month) and Vercel spend management.</li>
+    </ul>
+  </div>
+</div>
+
+<h2>3. Notes</h2>
+<div class="box">
+  <ul>
+    <li><b>Cheaper email alternative:</b> Amazon SES costs about $0.10 per 1,000 emails, so ~$1–2 for the whole event instead of $40. However, it needs an AWS account, approval to leave the SES sandbox (often 1–2 days), and the domain's DNS records. It can plug in through the app's existing SMTP option. Choose SES if WAC already has AWS; otherwise Resend Pro is the faster, safer path.</li>
+    <li><b>Spending controls are part of the plan:</b> DISHA AI has a hard daily cap in the staff desk. Vercel Pro and Google Cloud both have spend alerts. No service is open-ended.</li>
+    <li><b>Separate from this budget — maintenance and support effort (not infrastructure):</b> plan for one developer on call during 10–13 December, about 4–8 hours a week in November for final testing and fixes, and about 2–4 hours a month afterwards. WAC can budget this separately.</li>
+  </ul>
+</div>
+
+<h2>4. Sources (checked 6 November 2026)</h2>
+<ul class="small">
+  <li>App measurements: <code>docs/ai/AI-ANSWER-PIPELINE.md</code> (pricing table and cost estimate), <code>docs/qa/LOAD-READINESS.md</code> (Firestore writes, required plans), <code>docs/ai/KNOWLEDGE-BASE.md</code> (pre-drafting cost), <code>docs/PROGRESS.md</code>.</li>
+  <li>Gemini API pricing — <a href="https://ai.google.dev/gemini-api/docs/pricing">ai.google.dev/gemini-api/docs/pricing</a>; Vertex AI pricing — <a href="https://cloud.google.com/vertex-ai/generative-ai/pricing">cloud.google.com/vertex-ai/generative-ai/pricing</a> (checked 28 Oct 2026 in app docs).</li>
+  <li>Vercel pricing — <a href="https://vercel.com/pricing">vercel.com/pricing</a>; Hobby plan limits — <a href="https://vercel.com/docs/plans/hobby">vercel.com/docs/plans/hobby</a>.</li>
+  <li>Firebase pricing — <a href="https://firebase.google.com/pricing">firebase.google.com/pricing</a>; Firestore pricing — <a href="https://cloud.google.com/firestore/pricing">cloud.google.com/firestore/pricing</a>.</li>
+  <li>Resend pricing — <a href="https://resend.com/pricing">resend.com/pricing</a>; Amazon SES pricing — <a href="https://aws.amazon.com/ses/pricing/">aws.amazon.com/ses/pricing</a>.</li>
+  <li>UptimeRobot pricing — <a href="https://uptimerobot.com/pricing/">uptimerobot.com/pricing</a>; MSG91 SMS pricing — <a href="https://msg91.com/in/pricing/sms">msg91.com/in/pricing/sms</a>.</li>
+</ul>
+
+<footer>AYURDISHA · Running budget for WAC 2026 · Planning estimate, not a quotation. Each service bills only for what is used, within the caps above.</footer>
+</div>
+</body>
+</html>

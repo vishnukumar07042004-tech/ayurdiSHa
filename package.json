@@ -8,7 +8,19 @@
     "build": "node scripts/write-sitemap.js && vite build",
     "sitemap": "node scripts/write-sitemap.js",
     "preview": "vite preview",
-    "migrate:blob-to-firestore": "node scripts/migrate-blob-to-firestore.js"
+    "migrate:blob-to-firestore": "node scripts/migrate-blob-to-firestore.js",
+    "test": "node --test tests/*.test.mjs tests/ai/*.test.mjs",
+    "e2e": "node scripts/e2e/full-journey.mjs",
+    "qr": "node scripts/qr/make-qr.mjs",
+    "eval:ai": "node tests/ai-eval/run-eval.mjs",
+    "eval:ai:build": "node tests/ai-eval/build-set.mjs",
+    "ai:report": "node scripts/ai/report.mjs",
+    "bench:merge": "node scripts/merge-benchmark.mjs",
+    "bench:merge:data": "node scripts/build-merge-benchmark.mjs",
+    "scan:secrets": "node scripts/ops/scan-secrets.mjs",
+    "backup:firestore": "node scripts/ops/backup-firestore.mjs",
+    "smoke:staff": "node scripts/ops/staff-smoke.mjs",
+    "dev:qa": "AYM_STORE=file AYM_STORE_FILE=.qa/qa-store.json AYM_MAIL=console vite"
   },
   "dependencies": {
     "@vercel/blob": "^2.8.0",
@@ -22,7 +34,10 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.7.0",
+    "jsqr": "^1.4.0",
+    "pngjs": "^7.0.0",
     "pptxgenjs": "^4.0.1",
+    "qrcode": "^1.5.4",
     "vite": "^7.0.0"
   }
 }

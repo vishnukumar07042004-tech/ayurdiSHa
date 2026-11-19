@@ -1,0 +1,103 @@
+{
+  "intentId": "mba.which-one",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Hospital employment",
+  "subject": "general",
+  "ask": "which one",
+  "question": "Which an MBA in hospital or healthcare management after BAMS should I choose?",
+  "stream": "clinical-practice",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.555Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "fbc413b6420ce4d53f139bbe5fad27bc4a85b4ee",
+      "url": "https://ayush.gov.in/assets/pdf/careers/NEIAH_Director.pdf",
+      "title": "NEIAH Director",
+      "score": 1.278,
+      "bm25": 11.81,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "f1593d351522f2f7c0d3847a00c08222d0621261",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/aoushdhi.pdf",
+      "title": "aoushdhi",
+      "score": 1.246,
+      "bm25": 11.51,
+      "coverage": 0.4
+    },
+    {
+      "chunkId": "ba36ba8dd5481d668eebf5624b1f1f23927456da",
+      "url": "https://nabh.co/nabh-emitra/",
+      "title": "NABH E-Mitra - NABH",
+      "score": 1.228,
+      "bm25": 11.35,
+      "coverage": 0.21
+    },
+    {
+      "chunkId": "d14edf03579ce6a27f957a8fd97e33e9e244fe37",
+      "url": "https://nabh.co/",
+      "title": "National Accreditation Board for Hospitals & Healthcare Providers",
+      "score": 1.218,
+      "bm25": 11.26,
+      "coverage": 0.4
+    },
+    {
+      "chunkId": "0a17c07017f94c85021e0141fb9dd659d6e2382b",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.193,
+      "bm25": 11.03,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "d884f6deda1672ce16e9a2d4614c57c40074ec0c",
+      "url": "https://nabh.co/faqs-digital-health-standards/",
+      "title": "FAQs - Digital Health Standards - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.189,
+      "bm25": 10.99,
+      "coverage": 0.3
+    },
+    {
+      "chunkId": "3cdc56abe4e16923be099d0449540c824613c8d9",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.179,
+      "bm25": 10.9,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "ebce10c6dbc08fc7e270d1916b3694405f03b96a",
+      "url": "https://nabh.co/assessor-training/nabh-three-days-assessors-training-program-in-accordance-with-2nd-edition-digital-health-standards-for-hospital/",
+      "title": "NABH Three-days Assessors’ Training Program in accordance with 2nd Edition Digital Health Standards for Hospital - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.172,
+      "bm25": 10.84,
+      "coverage": 0.3
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "intentId": "faculty.income",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Faculty recruitment & eligibility",
+  "subject": "faculty",
+  "ask": "income",
+  "question": "What salary or income can I expect from a teaching job in an Ayurveda college?",
+  "stream": "teaching-academia",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.697Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "6468f7778c25c66ebe3c17d64b4bba5920162235",
+      "url": "https://ayush.gov.in/assets/pdf/careers/NIC,_Ministry_of_Ayush,_New_Delhi.pdf",
+      "title": "NIC, Ministry of Ayush, New Delhi",
+      "score": 1.201,
+      "bm25": 22.57,
+      "coverage": 0.14
+    },
+    {
+      "chunkId": "de73b8e17f0a72486e76d8fd4bfb1fc6a4e966f3",
+      "url": "https://ayush.gov.in/assets/pdf/careers/NIC,_Ministry_of_Ayush,_New_Delhi.pdf",
+      "title": "NIC, Ministry of Ayush, New Delhi",
+      "score": 1.162,
+      "bm25": 21.82,
+      "coverage": 0.14
+    },
+    {
+      "chunkId": "eb6a81e165c2b9e314df309065b3f8e5cc253f7a",
+      "url": "https://ayush.gujarat.gov.in/images/teaching-staff-final.pdf",
+      "title": "teaching staff final excel, gandhinagar (2).xls",
+      "score": 1.15,
+      "bm25": 27,
+      "coverage": 0.43
+    },
+    {
+      "chunkId": "f0078d54b17d92fd4dbdaa2add34848049260765",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 0.99,
+      "bm25": 18.6,
+      "coverage": 0.25
+    },
+    {
+      "chunkId": "eaaded765eb50d16ffc6a7cfa69d4bed5d730787",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 0.943,
+      "bm25": 17.71,
+      "coverage": 0.18
+    },
+    {
+      "chunkId": "244638951e4a356c5699abbd7749ae2b209bcb53",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ayurgyan.pdf",
+      "title": "ayurgyan",
+      "score": 0.917,
+      "bm25": 17.22,
+      "coverage": 0.25
+    },
+    {
+      "chunkId": "84006f4f01bf90b6b2f4c3f0ae2c693bbac0221d",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ayurgyan.pdf",
+      "title": "ayurgyan",
+      "score": 0.845,
+      "bm25": 15.88,
+      "coverage": 0.14
+    },
+    {
+      "chunkId": "c0da3f39269af4e371fcdd4645aaca0e4e717041",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 0.841,
+      "bm25": 15.79,
+      "coverage": 0.32
+    }
+  ]
+}

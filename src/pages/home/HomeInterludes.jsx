@@ -21,7 +21,7 @@ export function HomePhotoBand() {
           Knowledge becomes meaningful <em>when it is shared.</em>
         </h2>
         <div className="ui-btn-row ui-btn-row--center" data-reveal>
-          <Button to="/mentors" variant="on-dark" size="lg">Explore the Mentors</Button>
+          <Button to="/mentors" variant="on-dark" size="lg">Explore mentors</Button>
         </div>
       </div>
       <span className="aym-visually-hidden">
@@ -61,8 +61,8 @@ export function HomeFinalCta({ onAsk }) {
         </h2>
         <div className="ui-btn-row ui-btn-row--center" data-reveal>
           <Button to="/mentors" variant="on-dark" size="lg">Meet the Mentors</Button>
-          <Button to={{ pathname: "/", hash: "#ask" }} onClick={onAsk} variant="on-dark-secondary" size="lg">
-            Ask a question
+          <Button to={{ pathname: "/", hash: "#ask" }} onClick={onAsk} variant="on-dark-secondary" size="lg" data-ask-cta="">
+            Ask Desk
           </Button>
         </div>
       </div>

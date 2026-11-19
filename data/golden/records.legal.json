@@ -1,0 +1,103 @@
+{
+  "intentId": "records.legal",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Records & clinical quality",
+  "subject": "records",
+  "ask": "legal",
+  "question": "What licence or registration is required for clinic records and EMR software?",
+  "stream": "clinical-practice",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.030Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "68d61fa4687f2b5edd6884c7d8de3e9d71ba9392",
+      "url": "https://nabh.co/programmes/digital-health-standards-for-clinic-management-system/",
+      "title": "Digital Health Standards for HIS/EMR Systems - NABH",
+      "score": 1.438,
+      "bm25": 23.79,
+      "coverage": 0.5
+    },
+    {
+      "chunkId": "b72cbc0e8f18ab3812bd1e14daa53b01a93e171b",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.397,
+      "bm25": 23.12,
+      "coverage": 0.5
+    },
+    {
+      "chunkId": "9b2e7c46aaf1c8e5d1a4a58b6e4cab25df139c97",
+      "url": "https://nabh.co/programmes/digital-health-standards-his-emr-systems/",
+      "title": "Digital Health Standards for HIS/EMR Systems - NABH",
+      "score": 1.353,
+      "bm25": 22.39,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "c8aac2a3f972222ddf7020bbd59f98f0e811fa84",
+      "url": "https://nabh.co/programmes/allopathic-clinics-accreditation-programme/",
+      "title": "Allopathic Clinics 2nd Edition - NABH",
+      "score": 1.239,
+      "bm25": 20.51,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "0995afb9e8ffdce4331620a1d9c591cd3358b50e",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.206,
+      "bm25": 19.96,
+      "coverage": 0.42
+    },
+    {
+      "chunkId": "2acd68a15af9ba314fc5689510b62e1750745e81",
+      "url": "https://nabh.co/nabh-certified-healthcare-software/",
+      "title": "NABH Certified Healthcare Software - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.15,
+      "bm25": 19.03,
+      "coverage": 0.61
+    },
+    {
+      "chunkId": "8f6edbc30d8602b31ca77053f1396124bf0c3258",
+      "url": "https://nabh.co/nabh-certified-healthcare-software/",
+      "title": "NABH Certified Healthcare Software - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.073,
+      "bm25": 17.76,
+      "coverage": 0.5
+    },
+    {
+      "chunkId": "2651cb543ed0819760b58dbb8c9c4e126bbc99f0",
+      "url": "https://nabh.co/programmes/panchakarma-clinic-accreditation-programme/",
+      "title": "Panchkarma Clinic - NABH",
+      "score": 1.046,
+      "bm25": 17.31,
+      "coverage": 0.33
+    }
+  ]
+}

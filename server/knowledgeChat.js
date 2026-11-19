@@ -1,10 +1,56 @@
 /**
  * Server-side Gemini journal search for BAMS career questions.
- * API key stays server-only (GEMINI_API_KEY). Returns dynamic journal links per query.
+ * Goes through server/ai/provider.js, so it runs on GEMINI_API_KEY or on Vertex AI
+ * (AI_PROVIDER=vertex). Credentials stay server-only. Returns dynamic journal links per query.
+ * AI_KNOWLEDGE_MODEL overrides the model. The query is PII-redacted before it leaves, and live
+ * searches stop (curated sources only) once the AI daily spend cap is reached; their cost counts
+ * toward the same cap as drafting.
  */
 
 import { POD_KNOWLEDGE } from "../src/podKnowledge.js";
 import { createHash } from "node:crypto";
+import { getProvider } from "./ai/runtime.js";
+import { redactText } from "./ai/redact.js";
+import { normalizeUsage } from "./ai/usage.js";
+import { istDay, normalizeConfig } from "./ai/config.js";
+
+let aiStorePromise = null;
+/** Lazily the same AI store the worker uses (Firestore in production, file store in local QA). */
+async function capStore() {
+  if (!aiStorePromise) {
+    aiStorePromise = (async () => {
+      const { createAymStore } = await import("./store.js");
+      const { aiStoreFor } = await import("./ai/aiStore.js");
+      return aiStoreFor(await createAymStore());
+    })().catch(() => null);
+  }
+  return aiStorePromise;
+}
+
+function withTimeout(promise, ms, fallback) {
+  let t;
+  return Promise.race([promise, new Promise(r => { t = setTimeout(() => r(fallback), ms); })]).finally(() => clearTimeout(t));
+}
+
+async function spendCapReached() {
+  try {
+    const s = await withTimeout(capStore(), 3000, null);
+    if (!s) return false;
+    const [cfg, used] = await withTimeout(Promise.all([s.getConfig(), s.getUsage(istDay())]), 3000, [null, null]);
+    if (!cfg || !used) return false;
+    return (used.costUSD || 0) >= normalizeConfig(cfg).dailySpendCapUSD;
+  } catch {
+    return false;
+  }
+}
+
+async function recordSpend(usage, model) {
+  try {
+    const s = await withTimeout(capStore(), 3000, null);
+    const u = normalizeUsage(usage, model);
+    if (s && u.costUSD) await withTimeout(s.addUsage(istDay(), u), 3000, null);
+  } catch { /* spend tracking never breaks a search */ }
+}
 
 const RATE_WINDOW_MS = 60_000;
 const RATE_MAX = 12;
@@ -93,8 +139,15 @@ function rateLimit(ip) {
   return { ok: true };
 }
 
-function loadGeminiKey() {
-  return String(process.env.GEMINI_API_KEY || "").trim();
+/** Live search needs a Google provider (Gemini API key or Vertex AI); other providers lack these models. */
+async function googleProviderReady() {
+  try {
+    const p = await getProvider();
+    const info = typeof p.providerInfo === "function" ? p.providerInfo() : null;
+    return Boolean(info && info.configured && ["gemini", "vertex", "mock"].includes(info.provider));
+  } catch {
+    return false;
+  }
 }
 
 function cacheKey(query, themeCode) {
@@ -292,15 +345,6 @@ function buildSourceRows(journals, query) {
   }];
 }
 
-function extractGeminiText(data) {
-  const parts = data?.candidates?.[0]?.content?.parts;
-  if (!Array.isArray(parts)) return "";
-  return parts
-    .map(p => (p && typeof p.text === "string" ? p.text : ""))
-    .join("")
-    .trim();
-}
-
 function journalResponseSchema() {
   return {
     type: "object",
@@ -389,48 +433,34 @@ function extractGroundingJournals(data) {
   return out.filter(Boolean);
 }
 
-async function geminiFetch(url, body) {
-  return fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
-}
-
-async function callGemini(apiKey, themeCode, themeTitle, query) {
+async function callGemini(themeCode, themeTitle, query) {
   const themeHint = themeTitle || themeCode || "Ayurveda careers";
   const prompt = `BAMS librarian. Query: "${query}" (${themeHint}). Return ONLY compact JSON with exactly 4 journals (real https URLs):
 {"journals":[{"title":"...","source":"...","url":"https://...","snippet":"...","publishedHint":"..."}]}`;
 
-  const model = GEMINI_MODELS[0];
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(apiKey)}`;
-
-  let res;
+  let r;
   try {
-    res = await geminiFetch(url, {
-      contents: [{ role: "user", parts: [{ text: prompt }] }],
-      generationConfig: {
-        temperature: 0.15,
-        maxOutputTokens: 2048,
-        responseMimeType: "application/json",
-        responseSchema: journalResponseSchema(),
-      },
+    const provider = await getProvider();
+    r = await provider.chat({
+      messages: [{ role: "user", content: prompt }],
+      model: String(process.env.AI_KNOWLEDGE_MODEL || "").trim() || GEMINI_MODELS[0],
+      json: true,
+      schema: journalResponseSchema(),
+      temperature: 0.15,
+      maxTokens: 2048,
+      thinking: "minimal",
+      timeoutMs: 25_000,
+      retries: 1,
     });
   } catch (err) {
-    throw new Error(`Gemini network: ${err.message}`);
-  }
-
-  if (!res.ok) {
-    const errText = await res.text().catch(() => "");
-    if (res.status === 429) {
+    if (err && err.status === 429) {
       throw new Error("QUOTA: Gemini daily limit reached — showing curated sources.");
     }
-    throw new Error(`Gemini ${res.status}: ${errText.slice(0, 200)}`);
+    throw new Error(`Gemini: ${String(err && err.message || err).slice(0, 200)}`);
   }
+  await recordSpend(r.usage, r.model);
 
-  const data = await res.json();
-  const text = extractGeminiText(data);
-  const parsed = parseGeminiJson(text);
+  const parsed = r.json || parseGeminiJson(r.text);
 
   let journals = [];
   let sourceRows = [];
@@ -466,6 +496,7 @@ async function callGemini(apiKey, themeCode, themeTitle, query) {
 function send(res, code, body) {
   res.statusCode = code;
   res.setHeader("Content-Type", "application/json");
+  res.setHeader("Cache-Control", "private, no-store");
   res.end(JSON.stringify(body));
 }
 
@@ -505,7 +536,7 @@ export async function handleKnowledgeChat(req, res) {
     return;
   }
 
-  const query = String(msg.query || msg.question || "").trim().slice(0, 800);
+  const query = redactText(String(msg.query || msg.question || "").trim().slice(0, 800)).text;
   const themeCode = String(msg.themeCode || msg.theme || "").trim().slice(0, 8);
   const themeTitle = String(msg.themeTitle || "").trim().slice(0, 120);
 
@@ -521,15 +552,13 @@ export async function handleKnowledgeChat(req, res) {
     return;
   }
 
-  const apiKey = loadGeminiKey();
-
-  if (!apiKey) {
+  if (!(await googleProviderReady()) || (await spendCapReached())) {
     const fb = fallbackSearch(query, themeCode);
     const payload = {
       ok: true,
       query,
       aiAvailable: false,
-      message: "Add GEMINI_API_KEY at Google AI Studio (https://aistudio.google.com/apikey) and redeploy on Vercel for live search. Showing query-matched sources meanwhile.",
+      message: "Live search is off right now — showing sources matched to your query.",
       journals: fb.journals,
       sourceRows: fb.sourceRows,
     };
@@ -539,7 +568,7 @@ export async function handleKnowledgeChat(req, res) {
   }
 
   try {
-    const { journals, sourceRows } = await callGemini(apiKey, themeCode, themeTitle, query);
+    const { journals, sourceRows } = await callGemini(themeCode, themeTitle, query);
     let finalJournals = journals;
     let finalRows = sourceRows;
 

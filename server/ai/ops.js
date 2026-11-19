@@ -858,7 +858,13 @@ export async function handleAiOp(op, msg, store, ctx) {
       return;
     }
     case "aiBackfill": {
-      const r = await backfillDrafts(store, { dryRun: msg.dryRun === true, allStreams: msg.allStreams === true, limit: msg.limit, redraftInsufficient: msg.redraftInsufficient === true });
+      const r = await backfillDrafts(store, {
+        dryRun: msg.dryRun === true,
+        allStreams: msg.allStreams === true,
+        limit: msg.limit,
+        redraftInsufficient: msg.redraftInsufficient === true,
+        redraftScripted: msg.redraftScripted === true,
+      });
       if (!r.ok) { ctx.send(409, r); return; }
       if (!r.dryRun && r.enqueued) ctx.kickWorker();
       ctx.send(200, r);

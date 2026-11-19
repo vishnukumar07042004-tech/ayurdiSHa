@@ -1,0 +1,103 @@
+{
+  "intentId": "qc.income",
+  "theme": "Manufacturing, Quality & GMP",
+  "subtheme": "QA / QC and testing",
+  "subject": "qc",
+  "ask": "income",
+  "question": "What salary or income can I expect from a QA/QC career in Ayurveda pharma?",
+  "stream": "industry-pharma",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.087Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 1.126,
+      "bm25": 20.25,
+      "coverage": 0
+    },
+    {
+      "chunkId": "64afae035c68835d8968200c0c1734b2048b0cae",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._140(E)_dated_14th_February,_2025.pdf",
+      "title": "Gazette Notification No. G.S.R. 140(E) dated 14th February, 2025",
+      "score": 1.092,
+      "bm25": 17.92,
+      "coverage": 0.41
+    },
+    {
+      "chunkId": "ffebd58898efe3c8f2f85dd59ba9ec3dfeced23a",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/07/CCRAS_Guideline-of-Clinical_Evaluation.pdf",
+      "title": "CCRS_Clinical _BOOK-6_945-CD MATTER.pdf",
+      "score": 0.999,
+      "bm25": 17.97,
+      "coverage": 0.41
+    },
+    {
+      "chunkId": "267d3873c1ce6e39a1077d7408d0f9de26e7ba5f",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 0.994,
+      "bm25": 17.88,
+      "coverage": 0
+    },
+    {
+      "chunkId": "95234d83ee6b27a5f526647fb7ea3ce8c349e36a",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._140(E)_dated_14th_February,_2025.pdf",
+      "title": "Gazette Notification No. G.S.R. 140(E) dated 14th February, 2025",
+      "score": 0.973,
+      "bm25": 15.97,
+      "coverage": 0.41
+    },
+    {
+      "chunkId": "c29c71b7774762248517815693eb6d908b769eac",
+      "url": "https://ccras.nic.in/services/microbiology-research/",
+      "title": "Microbiology and Biotechnology - Central Council for Research in Ayurvedic Sciences",
+      "score": 0.945,
+      "bm25": 16.99,
+      "coverage": 0.41
+    },
+    {
+      "chunkId": "c6672a4ec60c13acfacc5e8182d74617199c9bcc",
+      "url": "https://www.ayurvedanama.org/prospective-students-frequently-asked-questions",
+      "title": "Prospective Students FAQs — National Ayurvedic Medical Association",
+      "score": 0.9,
+      "bm25": 23.6,
+      "coverage": 0.15
+    },
+    {
+      "chunkId": "368d82a40a4acb82b16cb33fca325fc6a86b3b63",
+      "url": "https://ccras.nic.in/wp-content/uploads/2026/05/29052026-Scheme-CCRAS_POST_DOCTORAL_FELLOWSHIP_PROGRAMME.pdf",
+      "title": "CCRAS POST DOCTORAL FELLOWSHIP SCHEME",
+      "score": 0.868,
+      "bm25": 15.6,
+      "coverage": 0.12
+    }
+  ]
+}

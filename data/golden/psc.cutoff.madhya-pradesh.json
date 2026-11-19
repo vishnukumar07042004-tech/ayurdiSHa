@@ -1,0 +1,103 @@
+{
+  "intentId": "psc.cutoff.madhya-pradesh",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "subject": "psc",
+  "ask": "cutoff",
+  "question": "What rank or score is needed in the Madhya Pradesh PSC Ayurveda Medical Officer exam?",
+  "stream": "govt-jobs",
+  "region": "madhya-pradesh",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.880Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "ebc5190941166ca34ebb3f530dc7f1a9f5b3ab40",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.15,
+      "bm25": 24.93,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "3bbe961d4e8e670da1f4dc5e7ccc002a1386a6ed",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.127,
+      "bm25": 24.42,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "f0078d54b17d92fd4dbdaa2add34848049260765",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 1.002,
+      "bm25": 17.38,
+      "coverage": 0.12
+    },
+    {
+      "chunkId": "7e7ce2a66cb298b2932adc2a3db5d686c1a62654",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_LOP.pdf",
+      "title": "Ayurveda LOP",
+      "score": 0.966,
+      "bm25": 20.94,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "410c5ad17da87b901c21387a7043cebbc1614457",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/Detailed_Advertisement_for_the_post_of_Member,_Board_of_Ayurveda_under,_NCISM_for_Website-2026.pdf",
+      "title": "Detailed Advertisement for the post of Member, Board of Ayurveda under, NCISM for Website 2026",
+      "score": 0.964,
+      "bm25": 16.72,
+      "coverage": 0.24
+    },
+    {
+      "chunkId": "c50e73f75882957c5f64566b6b1237174fbc4fa7",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_denied.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 0.947,
+      "bm25": 20.53,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "1f711f42f39e3cf1fefa3e692e9ea1b40ffbfba3",
+      "url": "https://ayush.gov.in/assets/pdf/careers/CGN_UG_Guideline_Session_2025-26.pdf",
+      "title": "CGN UG Guideline Session 2025 26",
+      "score": 0.939,
+      "bm25": 20.36,
+      "coverage": 0.23
+    },
+    {
+      "chunkId": "8bf9a4b3527d81a5d2c0c18deca025842fb49a52",
+      "url": "https://ism.kerala.gov.in/eng/",
+      "title": "Home - Department of Indian Systems of Medicine",
+      "score": 0.935,
+      "bm25": 16.22,
+      "coverage": 0.29
+    }
+  ]
+}

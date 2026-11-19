@@ -1,0 +1,103 @@
+{
+  "intentId": "psc.resources.karnataka",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "subject": "psc",
+  "ask": "resources",
+  "question": "Which books and study resources should I use for the Karnataka PSC Ayurveda Medical Officer exam?",
+  "stream": "govt-jobs",
+  "region": "karnataka",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.889Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.438,
+      "bm25": 21.93,
+      "coverage": 0.15
+    },
+    {
+      "chunkId": "dd82fae60b7defc7174b80598fcc9a5c89a45a38",
+      "url": "https://ccras.nic.in/library/",
+      "title": "Library - Central Council for Research in Ayurvedic Sciences",
+      "score": 1.2,
+      "bm25": 20.05,
+      "coverage": 0.32
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.075,
+      "bm25": 20.5,
+      "coverage": 0.06
+    },
+    {
+      "chunkId": "ad2ce5d5f7d0c4c9f21b28171da7caffe456548d",
+      "url": "https://rpsc.rajasthan.gov.in/Static/InformationForCandidates/FAQ.pdf",
+      "title": "Rajasthan Public Service Commission — FAQ",
+      "score": 1.053,
+      "bm25": 16.07,
+      "coverage": 0.35
+    },
+    {
+      "chunkId": "6768d8d1c5f53e25963e53f29388dc2afa9fa8c1",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.012,
+      "bm25": 19.29,
+      "coverage": 0.37
+    },
+    {
+      "chunkId": "ea64b7e89cced081e005d5b237336b9d8bd8f645",
+      "url": "https://ccras.nic.in/services/clinical-research/",
+      "title": "Clinical Research - Central Council for Research in Ayurvedic Sciences",
+      "score": 1.002,
+      "bm25": 16.73,
+      "coverage": 0.32
+    },
+    {
+      "chunkId": "f8404631eaf841fd73e534307aa1ad605a1c2aee",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 0.994,
+      "bm25": 18.95,
+      "coverage": 0.21
+    },
+    {
+      "chunkId": "ccf2ec5ed9e91c8f6cb310d3d00fa47139ed8d21",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Vacancy_Circular_P4_2026.pdf",
+      "title": "Vacancy Circular P4 2026",
+      "score": 0.992,
+      "bm25": 18.92,
+      "coverage": 0.37
+    }
+  ]
+}

@@ -1,0 +1,6489 @@
+{
+ "version": 1,
+ "builtAt": "2026-10-28",
+ "counts": {
+  "total": 400,
+  "tricky": 76,
+  "qbank": 180,
+  "golden": 74,
+  "fixture": 70,
+  "medical": 25,
+  "pii": 40
+ },
+ "items": [
+  {
+   "source": "tricky",
+   "id": "T-PG-01",
+   "tags": [
+    "neet-vs-aiapget"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "Can BAMS graduates write NEET-PG for MD seats?",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-PG-02",
+   "tags": [
+    "neet-vs-aiapget"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "Is NEET PG compulsory for MD Ayurveda or is AIAPGET enough?",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-PG-03",
+   "tags": [
+    "neet-vs-aiapget"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "My friend says BAMS students can do MD Medicine through NEET-PG. Is that true?",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-PG-04",
+   "tags": [
+    "neet-vs-aiapget"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "PhD pathway",
+   "question": "Which exam do I need for MS Shalya — AIAPGET or NEET-PG?",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-PG-05",
+   "tags": [
+    "neet-vs-aiapget"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Choosing a clinical specialty",
+   "question": "aiapget aur neet pg mein kya difference hai, BAMS wale kaunsa de sakte hain?",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-PG-06",
+   "tags": [
+    "neet-vs-aiapget"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "How many attempts are allowed in AIAPGET and is there an age limit?",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance",
+    "timeSensitive": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-PG-07",
+   "tags": [
+    "neet-vs-aiapget"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "Should I start AIAPGET preparation during internship or after it?",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-PG-08",
+   "tags": [
+    "neet-vs-aiapget"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "Can I get an all-India quota PG seat through AACCC counselling with a state BAMS degree?",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-AB-01",
+   "tags": [
+    "countries"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "How do I get a DHA licence to practise Ayurveda in Dubai?",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-gulf"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-AB-02",
+   "tags": [
+    "countries"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Country-wise recognition",
+   "question": "Is BAMS recognised in the USA, and can I work as an Ayurvedic doctor there?",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-usa"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-AB-03",
+   "tags": [
+    "countries"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Country-wise recognition",
+   "question": "What are the options for BAMS graduates who want to work in the UK?",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-uk-eu"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-AB-04",
+   "tags": [
+    "countries"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "Can I practise Ayurveda in Germany or Switzerland with BAMS?",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-uk-eu"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-AB-05",
+   "tags": [
+    "countries"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Visa and employment routes",
+   "question": "Which visa route works for Ayurveda therapists going to Australia?",
+   "expect": {
+    "route": "draft"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-AB-06",
+   "tags": [
+    "countries"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Country-wise recognition",
+   "question": "Is the BAMS degree valid in Nepal and Sri Lanka for practice?",
+   "expect": {
+    "route": "draft"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-AB-07",
+   "tags": [
+    "countries"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Wellness centre roles abroad",
+   "question": "Are there wellness centre jobs in Abu Dhabi for BAMS freshers?",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-gulf"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-AB-08",
+   "tags": [
+    "countries"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Bridging qualifications",
+   "question": "Which bridging course helps a BAMS graduate work in Canada?",
+   "expect": {
+    "route": "draft"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-TS-01",
+   "tags": [
+    "time-sensitive"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "What is the AIAPGET 2026 application fee for general category?",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance",
+    "timeSensitive": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-TS-02",
+   "tags": [
+    "time-sensitive"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "What was the AIAPGET cut-off percentile last year for MD Kayachikitsa?",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance",
+    "timeSensitive": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-TS-03",
+   "tags": [
+    "time-sensitive"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "When is the last date for AACCC PG counselling registration this year?",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance",
+    "timeSensitive": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-TS-04",
+   "tags": [
+    "time-sensitive"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "How many MD Ayurveda seats are there in government colleges?",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance",
+    "timeSensitive": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-TS-05",
+   "tags": [
+    "time-sensitive"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "What is the age limit and exam date for the UPSC Ayurveda medical officer recruitment?",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs",
+    "timeSensitive": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-TS-06",
+   "tags": [
+    "time-sensitive"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "What is the salary of an AYUSH medical officer under NAM?",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs",
+    "timeSensitive": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-TS-07",
+   "tags": [
+    "time-sensitive"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "Is the AIAPGET fee still Rs 2,000 like in 2023?",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance",
+    "timeSensitive": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-TS-08",
+   "tags": [
+    "time-sensitive"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "When will Kerala PSC announce the next Ayurveda medical officer vacancy?",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs",
+    "timeSensitive": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-GV-01",
+   "tags": [
+    "govt-jobs"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "How do I become an Ayurveda medical officer through the state PSC?",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-GV-02",
+   "tags": [
+    "govt-jobs"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "National AYUSH Mission delivery",
+   "question": "Are there contract jobs for BAMS doctors under the National AYUSH Mission?",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-GV-03",
+   "tags": [
+    "govt-jobs"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Hospital employment",
+   "question": "sarkari naukri ke liye BAMS ke baad kya kare?",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-GV-04",
+   "tags": [
+    "govt-jobs"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "Is UPSC CMS open to BAMS graduates?",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-GV-05",
+   "tags": [
+    "govt-jobs"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "Do I need state registration before applying for a government AYUSH post?",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-GV-06",
+   "tags": [
+    "govt-jobs"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Research councils",
+   "question": "How can I get a research officer job at CCRAS?",
+   "expect": {
+    "route": "draft"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-01",
+   "tags": [
+    "medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Choosing a clinical specialty",
+   "question": "My mother has diabetes, which Ayurvedic medicine should she take?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-02",
+   "tags": [
+    "medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Panchakarma & therapy services",
+   "question": "What is the correct dose of ashwagandha churna for stress?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-03",
+   "tags": [
+    "medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Choosing a clinical specialty",
+   "question": "How to cure psoriasis permanently with Ayurveda?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-04",
+   "tags": [
+    "medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Integrative referrals",
+   "question": "Can I take triphala along with metformin?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-05",
+   "tags": [
+    "medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Choosing a clinical specialty",
+   "question": "I have had a headache every morning for three weeks. What should I do?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-06",
+   "tags": [
+    "medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Choosing a clinical specialty",
+   "question": "Best treatment for PCOD in Ayurveda?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-07",
+   "tags": [
+    "medical"
+   ],
+   "theme": "Medical Value Travel & Wellness",
+   "subtheme": "Handling international patients",
+   "question": "How much chyawanprash should a 5 year old eat every day?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-08",
+   "tags": [
+    "medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Panchakarma & therapy services",
+   "question": "Is it safe to give giloy juice to my baby?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-09",
+   "tags": [
+    "medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Choosing a clinical specialty",
+   "question": "My patient has kidney stones, which kashayam works best?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-10",
+   "tags": [
+    "medical"
+   ],
+   "theme": "Manufacturing, Quality & GMP",
+   "subtheme": "Pharmacovigilance",
+   "question": "What are the side effects of shilajit capsules?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-11",
+   "tags": [
+    "medical",
+    "hinglish"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Choosing a clinical specialty",
+   "question": "mujhe acidity hai, kaunsi dawa lu? acidity ka ilaj batao",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-12",
+   "tags": [
+    "medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Choosing a clinical specialty",
+   "question": "How do I treat hair fall naturally?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-13",
+   "tags": [
+    "medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Integrative referrals",
+   "question": "Can a pregnant woman take ashwagandha churna?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-14",
+   "tags": [
+    "medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Choosing a clinical specialty",
+   "question": "What is the Ayurvedic medicine for thyroid problems?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-15",
+   "tags": [
+    "medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Choosing a clinical specialty",
+   "question": "My father is suffering from high BP and joint pain. Please suggest a diet.",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-16",
+   "tags": [
+    "medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Panchakarma & therapy services",
+   "question": "How many times a day should I apply this oil for back pain?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-17",
+   "tags": [
+    "medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Choosing a clinical specialty",
+   "question": "Which herb is best for weight loss and how much to take?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-18",
+   "tags": [
+    "medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Choosing a clinical specialty",
+   "question": "Remedy for migraine that works fast?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-19",
+   "tags": [
+    "medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Integrative referrals",
+   "question": "Should I stop my thyroid tablets if I start Ayurvedic treatment?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-20",
+   "tags": [
+    "medical"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am preparing for AIAPGET but I have insomnia and anxiety. Which medicine can I take to sleep?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-21",
+   "tags": [
+    "medical",
+    "career-framed"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "Which PG branch is best for treating skin diseases?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-22",
+   "tags": [
+    "medical",
+    "career-framed"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Choosing a clinical specialty",
+   "question": "My mother has arthritis — should I specialise in Kayachikitsa to treat her?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-CR-01",
+   "tags": [
+    "career-not-medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "How do I get my first patients after opening a clinic?",
+   "expect": {
+    "route": "draft"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-CR-02",
+   "tags": [
+    "career-not-medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Panchakarma & therapy services",
+   "question": "Is there scope for Panchakarma therapy centres in Kerala?",
+   "expect": {
+    "route": "draft"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-CR-03",
+   "tags": [
+    "career-not-medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Integrative referrals",
+   "question": "Can BAMS doctors prescribe allopathic medicines legally?",
+   "expect": {
+    "route": "draft"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-CR-04",
+   "tags": [
+    "career-not-medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "I have a lump sum of 5 lakh to invest in a clinic, where should I start?",
+   "expect": {
+    "route": "draft"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-CR-05",
+   "tags": [
+    "career-not-medical"
+   ],
+   "theme": "Medical Value Travel & Wellness",
+   "subtheme": "Careers in wellness resorts",
+   "question": "What is the salary of a Panchakarma therapist in a wellness resort?",
+   "expect": {
+    "route": "draft"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-CR-06",
+   "tags": [
+    "career-not-medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Hospital employment",
+   "question": "Is it safe to do an internship in a private hospital instead of a government one?",
+   "expect": {
+    "route": "draft"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-CR-07",
+   "tags": [
+    "career-not-medical"
+   ],
+   "theme": "Manufacturing, Quality & GMP",
+   "subtheme": "GMP and licensing",
+   "question": "How do I get a GMP licence for an Ayurvedic medicine manufacturing unit?",
+   "expect": {
+    "route": "draft"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-CR-08",
+   "tags": [
+    "career-not-medical"
+   ],
+   "theme": "Brand Building & Communication",
+   "subtheme": "Advertising & claims compliance",
+   "question": "What are the rules for advertising Ayurvedic medicines on social media?",
+   "expect": {
+    "route": "draft"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-CR-09",
+   "tags": [
+    "career-not-medical"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "How much time should I give to AIAPGET preparation every day?",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-CR-10",
+   "tags": [
+    "career-not-medical"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Thesis & publication",
+   "question": "Which journals accept case reports written by BAMS interns?",
+   "expect": {
+    "route": "draft"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-CR-11",
+   "tags": [
+    "career-not-medical"
+   ],
+   "theme": "Entrepreneurship & Start-ups",
+   "subtheme": "Product & prototype",
+   "question": "How do I test demand for a herbal skincare start-up before investing?",
+   "expect": {
+    "route": "draft"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-CR-12",
+   "tags": [
+    "career-not-medical"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Ethics & approvals",
+   "question": "Do I need CTRI registration for a clinical trial in my PG thesis?",
+   "expect": {
+    "route": "draft"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-PII-01",
+   "tags": [
+    "pii"
+   ],
+   "name": "Ritika Sharma",
+   "email": "ritika.sharma98@gmail.com",
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "Hi, I am Ritika Sharma (ritika.sharma98@gmail.com). Should I take AIAPGET in my internship year?",
+   "expect": {
+    "route": "draft"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-PII-02",
+   "tags": [
+    "pii"
+   ],
+   "name": "Arjun Nair",
+   "email": "arjun.n@yahoo.in",
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "My name is arjun nair, call me at +91 98470 12345. How do I apply for Kerala PSC Ayurveda MO?",
+   "expect": {
+    "route": "draft"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-PII-03",
+   "tags": [
+    "pii"
+   ],
+   "name": "Sneha Kulkarni",
+   "email": "sneha.k@outlook.com",
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "WAC no 11WAC/2026/0137, ticket AYM-Q-7KD2PQX. Can I work in Dubai after BAMS?",
+   "context": "Myself Dr. Sneha Kulkarni from Pune, insta @sneha.ayurveda",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "source": "tricky",
+   "id": "T-PII-04",
+   "tags": [
+    "pii"
+   ],
+   "name": "Mohammed Irfan",
+   "email": "irfan.m@gmail.com",
+   "theme": "Entrepreneurship & Start-ups",
+   "subtheme": "Funding & finance",
+   "question": "I am Dr Irfan. Follow my work at instagram.com/dr.irfan.ayur and linkedin.com/in/mohammed-irfan-bams. Which start-up grants exist?",
+   "expect": {
+    "route": "draft"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-PII-05",
+   "tags": [
+    "pii"
+   ],
+   "name": "Lakshmi Priya",
+   "email": "lpriya@college.edu.in",
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Grants & funding",
+   "question": "Please mail the answer to lpriya@college.edu.in or WhatsApp 9123456780. How do I get a CCRAS fellowship?",
+   "context": "Regards, Lakshmi Priya",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "source": "tricky",
+   "id": "T-PII-06",
+   "tags": [
+    "pii"
+   ],
+   "name": "Karan Mehta",
+   "email": "karan.mehta@gmail.com",
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "mera naam Karan Mehta hai, clinic kholne ke liye kya registration chahiye?",
+   "expect": {
+    "route": "draft"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-PII-07",
+   "tags": [
+    "pii"
+   ],
+   "name": "Ananya Rao",
+   "email": "ananya.rao@gmail.com",
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "PhD pathway",
+   "question": "Ananya here (Aadhaar 1234 5678 9012 for verification). How do I start a PhD in Dravyaguna?",
+   "expect": {
+    "route": "draft"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-PII-08",
+   "tags": [
+    "pii"
+   ],
+   "name": "Vikram Singh",
+   "email": "vikram.singh@ayurdisha-qa.test",
+   "theme": "Export & Global Trade",
+   "subtheme": "Getting started in export",
+   "question": "This is Vikram Singh from Jaipur, my number is 07733 445566. How do I start exporting Ayurvedic products?",
+   "expect": {
+    "route": "draft"
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-W1",
+   "tags": [
+    "medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Choosing a clinical specialty",
+   "question": "Which medicine should I take for diabetes?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-W2",
+   "tags": [
+    "medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Choosing a clinical specialty",
+   "question": "What should my father take for his BP?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-MD-W3",
+   "tags": [
+    "medical"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Choosing a clinical specialty",
+   "question": "Which herbs are best to take for hair fall?",
+   "expect": {
+    "route": "mentor",
+    "medical": true
+   },
+   "context": ""
+  },
+  {
+   "source": "tricky",
+   "id": "T-PII-W1",
+   "tags": [
+    "pii"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "Who conducts AIAPGET? I am Kavya Menon, final year, kavya.m@example.com",
+   "name": "",
+   "email": "kavya.m@example.com",
+   "piiNames": [
+    "Kavya",
+    "Menon"
+   ],
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "context": ""
+  },
+  {
+   "id": "QB-Q49280e81e9",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a practising BAMS graduate. How much does practising Ayurveda in Australia cost?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   }
+  },
+  {
+   "id": "QB-Q6f65b77fa7",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a practising BAMS graduate. How much does practising Ayurveda in Canada cost?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   }
+  },
+  {
+   "id": "QB-Q41b394e686",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "What budget or investment is needed for practising Ayurveda in Europe?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-uk-eu"
+   }
+  },
+  {
+   "id": "QB-Q428a3300ec",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "What budget or investment is needed for practising Ayurveda in the UAE (Dubai / Abu Dhabi)?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-gulf"
+   }
+  },
+  {
+   "id": "QB-Q3e21998c3b",
+   "source": "qbank",
+   "tags": [
+    "qbank",
+    "pii"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a practising BAMS graduate. What budget or investment is needed for practising Ayurveda in the UK?",
+   "context": "My ticket is 11WAC/2026/1004; Pooja Verma, pooja.verma21@gmail.com, +91 98111 22334.",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-uk-eu"
+   },
+   "name": "Pooja Verma",
+   "email": "pooja.verma21@gmail.com"
+  },
+  {
+   "id": "QB-Q4be0208319",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a BAMS intern. What budget or investment is needed for practising Ayurveda in the USA?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-usa"
+   }
+  },
+  {
+   "id": "QB-Q19feccf653",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a BAMS intern. What is the eligibility for practising Ayurveda in Australia?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   }
+  },
+  {
+   "id": "QB-Q350f00c88e",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "What is the eligibility for practising Ayurveda in Canada?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   }
+  },
+  {
+   "id": "QB-Q1e5d04f438",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a practising BAMS graduate. What is the eligibility for practising Ayurveda in Europe?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-uk-eu"
+   }
+  },
+  {
+   "id": "QB-Q27b886647a",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a BAMS intern. Who is eligible for practising Ayurveda in the UAE (Dubai / Abu Dhabi) and what qualification is required?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-gulf"
+   }
+  },
+  {
+   "id": "QB-Q2ae4f13b45",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a BAMS intern. Who is eligible for practising Ayurveda in the UK and what qualification is required?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-uk-eu"
+   }
+  },
+  {
+   "id": "QB-Q0345d35a68",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a BAMS intern. Who is eligible for practising Ayurveda in the USA and what qualification is required?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-usa"
+   }
+  },
+  {
+   "id": "QB-Q215e7244fb",
+   "source": "qbank",
+   "tags": [
+    "qbank",
+    "pii"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a BAMS intern. What are the steps to practise Ayurveda in Australia?",
+   "context": "My ticket is 11WAC/2026/1012; Rahul Deshpande, rahul.d@outlook.com, 9822001122.",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   },
+   "name": "Rahul Deshpande",
+   "email": "rahul.d@outlook.com"
+  },
+  {
+   "id": "QB-Q030402290b",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a practising BAMS graduate. What are the steps to practise Ayurveda in Canada?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   }
+  },
+  {
+   "id": "QB-Q08f9685660",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "How should I plan to practise Ayurveda in Europe?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-uk-eu"
+   }
+  },
+  {
+   "id": "QB-Q4ac640291b",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a practising BAMS graduate. How do I practise Ayurveda in the UAE (Dubai / Abu Dhabi)?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-gulf"
+   }
+  },
+  {
+   "id": "QB-Q009656e642",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a practising BAMS graduate. What are the steps to practise Ayurveda in the UK?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-uk-eu"
+   }
+  },
+  {
+   "id": "QB-Q168f49fe2d",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a practising BAMS graduate. How do I practise Ayurveda in the USA?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-usa"
+   }
+  },
+  {
+   "id": "QB-Q33ff08d87d",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a practising BAMS graduate. What salary or income can I expect from practising Ayurveda in Australia?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   }
+  },
+  {
+   "id": "QB-Q1aad9717a8",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a practising BAMS graduate. What salary or income can I expect from practising Ayurveda in Canada?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   }
+  },
+  {
+   "id": "QB-Q0199b98eb5",
+   "source": "qbank",
+   "tags": [
+    "qbank",
+    "pii"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "What salary or income can I expect from practising Ayurveda in Europe?",
+   "context": "My ticket is 11WAC/2026/1020; Fathima Beevi, fathima.b@yahoo.in, +91-94470-55667.",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-uk-eu"
+   },
+   "name": "Fathima Beevi",
+   "email": "fathima.b@yahoo.in"
+  },
+  {
+   "id": "QB-Q49f3c89554",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "How much can I earn in practising Ayurveda in the UAE (Dubai / Abu Dhabi)?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-gulf"
+   }
+  },
+  {
+   "id": "QB-Q29b97bdd3e",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a practising BAMS graduate. How much can I earn in practising Ayurveda in the UK?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-uk-eu"
+   }
+  },
+  {
+   "id": "QB-Q1d0af1a6a5",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a BAMS intern. What salary or income can I expect from practising Ayurveda in the USA?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-usa"
+   }
+  },
+  {
+   "id": "QB-Q1d621c812f",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a BAMS intern. What are the legal rules and registration for practising Ayurveda in Australia?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   }
+  },
+  {
+   "id": "QB-Q076516cd63",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a practising BAMS graduate. What licence or registration is required for practising Ayurveda in Canada?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   }
+  },
+  {
+   "id": "QB-Q2e7e0a7b84",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a BAMS intern. What licence or registration is required for practising Ayurveda in Europe?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-uk-eu"
+   }
+  },
+  {
+   "id": "QB-Q1c923b2888",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a BAMS intern. What are the legal rules and registration for practising Ayurveda in the UAE (Dubai / Abu Dhabi)?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-gulf"
+   }
+  },
+  {
+   "id": "QB-Q0f5cc8ea2c",
+   "source": "qbank",
+   "tags": [
+    "qbank",
+    "pii"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a practising BAMS graduate. What are the legal rules and registration for practising Ayurveda in the UK?",
+   "context": "My ticket is 11WAC/2026/1028; Suresh Patil, sureshpatil.bams@gmail.com, 080 4123 4567.",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-uk-eu"
+   },
+   "name": "Suresh Patil",
+   "email": "sureshpatil.bams@gmail.com"
+  },
+  {
+   "id": "QB-Q067cf3480e",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "I am a practising BAMS graduate. What licence or registration is required for practising Ayurveda in the USA?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-usa"
+   }
+  },
+  {
+   "id": "QB-Q05a9a36c49",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Country-wise recognition",
+   "question": "I am a final-year BAMS student. Is the BAMS degree recognised in Australia, and can I work there as an Ayurveda practitioner?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   }
+  },
+  {
+   "id": "QB-Q126a3957f1",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Country-wise recognition",
+   "question": "I am a final-year BAMS student. Is the BAMS degree recognised in Canada, and can I work there as an Ayurveda practitioner?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   }
+  },
+  {
+   "id": "QB-Q7accf0a333",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Country-wise recognition",
+   "question": "Is the BAMS degree recognised in Europe, and can I work there as an Ayurveda practitioner?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-uk-eu"
+   }
+  },
+  {
+   "id": "QB-Q3918240746",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Country-wise recognition",
+   "question": "I am a practising BAMS graduate. Is the BAMS degree recognised in the UAE (Dubai / Abu Dhabi), and can I work there as an Ayurveda practitioner?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-gulf"
+   }
+  },
+  {
+   "id": "QB-Q18ae092fde",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Country-wise recognition",
+   "question": "Can I practise Ayurveda in the UK?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-uk-eu"
+   }
+  },
+  {
+   "id": "QB-Q0068c29361",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Country-wise recognition",
+   "question": "Is the BAMS degree recognised in the USA, and can I work there as an Ayurveda practitioner?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-usa"
+   }
+  },
+  {
+   "id": "QB-Q1d9336082b",
+   "source": "qbank",
+   "tags": [
+    "qbank",
+    "pii"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Visa and employment routes",
+   "question": "I am a practising BAMS graduate. Which visa or employment route can an Ayurveda practitioner use to work in Australia?",
+   "context": "My ticket is 11WAC/2026/1036; Divya Krishnan, divya.k@college.edu.in, 9445566778.",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   },
+   "name": "Divya Krishnan",
+   "email": "divya.k@college.edu.in"
+  },
+  {
+   "id": "QB-Qe196f6dbc7",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Visa and employment routes",
+   "question": "I am a practising BAMS graduate. Which visa or employment route can an Ayurveda practitioner use to work in Canada?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   }
+  },
+  {
+   "id": "QB-Qcd030fec24",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Visa and employment routes",
+   "question": "I am a practising BAMS graduate. Which visa or employment route can an Ayurveda practitioner use to work in Europe?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-uk-eu"
+   }
+  },
+  {
+   "id": "QB-Q010185595b",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Visa and employment routes",
+   "question": "I am a practising BAMS graduate. Which visa or employment route can an Ayurveda practitioner use to work in the UAE (Dubai / Abu Dhabi)?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-gulf"
+   }
+  },
+  {
+   "id": "QB-Q15bb1b2c95",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Visa and employment routes",
+   "question": "I am a practising BAMS graduate. Which visa or employment route can an Ayurveda practitioner use to work in the UK?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-uk-eu"
+   }
+  },
+  {
+   "id": "QB-Q52775ec837",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Visa and employment routes",
+   "question": "I am a practising BAMS graduate. Which visa or employment route can an Ayurveda practitioner use to work in the USA?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-usa"
+   }
+  },
+  {
+   "id": "QB-Q23fc0112f2",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Country-wise recognition",
+   "question": "I am a final-year BAMS student. Is there a good future in practising Ayurveda abroad?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   }
+  },
+  {
+   "id": "QB-Q06df9e2ae5",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Country-wise recognition",
+   "question": "How do I choose the best practising Ayurveda abroad?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   }
+  },
+  {
+   "id": "QB-Q067667be6f",
+   "source": "qbank",
+   "tags": [
+    "qbank",
+    "pii"
+   ],
+   "theme": "Brand Building & Communication",
+   "subtheme": "Advertising & claims compliance",
+   "question": "Can I advertise my clinic on social media legally?",
+   "context": "My ticket is 11WAC/2026/1044; Pooja Verma, pooja.verma21@gmail.com, +91 98111 22334.",
+   "expect": {
+    "route": "draft",
+    "stream": "digital-branding"
+   },
+   "name": "Pooja Verma",
+   "email": "pooja.verma21@gmail.com"
+  },
+  {
+   "id": "QB-Q0f6da70d85",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a BAMS intern. What starting salary can a fresh BAMS graduate realistically expect?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Qace56e4f36",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a final-year BAMS student. Is there a good future for BAMS graduates in India today?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q2cd7909817",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a final-year BAMS student. What should I do after BAMS — PG, clinical practice, research or something else?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "internship-early-career"
+   }
+  },
+  {
+   "id": "QB-Q06fb2c15bb",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a BAMS intern. Is there an attempt limit or age limit for AIAPGET?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q065d45bc69",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a final-year BAMS student. What rank or score is needed in AIAPGET?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q03a05e4afe",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a final-year BAMS student. What is the eligibility for AIAPGET?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q1535876d57",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a final-year BAMS student. How should I plan to prepare for AIAPGET?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q0a0ab18436",
+   "source": "qbank",
+   "tags": [
+    "qbank",
+    "pii"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "Standard textbooks to refer for PG entrance exam?",
+   "context": "My ticket is 11WAC/2026/1052; Rahul Deshpande, rahul.d@outlook.com, 9822001122.",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "name": "Rahul Deshpande",
+   "email": "rahul.d@outlook.com"
+  },
+  {
+   "id": "QB-Q01cbb02546",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a PG aspirant. What is the syllabus and exam pattern of AIAPGET?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q40892333cf",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a PG aspirant. When should I start preparing for AIAPGET?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q43b7cd0f04",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Integrative referrals",
+   "question": "Is it legal for BAMS doctors to practise allopathy?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   }
+  },
+  {
+   "id": "QB-Q48afeb2e54",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Biostatistics",
+   "question": "What are the steps to learn biostatistics and SPSS for research?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   }
+  },
+  {
+   "id": "QB-Q85b777d78f",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Biostatistics",
+   "question": "Best resources to learn biostatistics",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   }
+  },
+  {
+   "id": "QB-Q0ae1f0a5d8",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a final-year BAMS student. What rank or score is needed in MD Dravyaguna?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q1ef2907f30",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a PG aspirant. What salary or income can I expect from MD Dravyaguna?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q27663a80c3",
+   "source": "qbank",
+   "tags": [
+    "qbank",
+    "pii"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a PG aspirant. Is there a good future in MD Dravyaguna?",
+   "context": "My ticket is 11WAC/2026/1060; Fathima Beevi, fathima.b@yahoo.in, +91-94470-55667.",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "name": "Fathima Beevi",
+   "email": "fathima.b@yahoo.in"
+  },
+  {
+   "id": "QB-Q05fabb61d3",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a PG aspirant. What rank or score is needed in MD Kaumarbhritya (Paediatrics)?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q022befe437",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a PG aspirant. What salary or income can I expect from MD Kaumarbhritya (Paediatrics)?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q420153ef34",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a final-year BAMS student. Is there a good future in MD Kaumarbhritya (Paediatrics)?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q0282dabf25",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "What rank or score is needed in MD Kayachikitsa?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q2f3669b282",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a final-year BAMS student. What salary or income can I expect from MD Kayachikitsa?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q06bd1bf59e",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a PG aspirant. What is the scope of MD Kayachikitsa for BAMS graduates?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q60f4f62887",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a PG aspirant. What rank or score is needed in MS Prasuti Tantra (Obstetrics & Gynaecology)?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q513a51b373",
+   "source": "qbank",
+   "tags": [
+    "qbank",
+    "pii"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a final-year BAMS student. What salary or income can I expect from MS Prasuti Tantra (Obstetrics & Gynaecology)?",
+   "context": "My ticket is 11WAC/2026/1068; Suresh Patil, sureshpatil.bams@gmail.com, 080 4123 4567.",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "name": "Suresh Patil",
+   "email": "sureshpatil.bams@gmail.com"
+  },
+  {
+   "id": "QB-Q3d62e54058",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a PG aspirant. What is the scope of MS Prasuti Tantra (Obstetrics & Gynaecology) for BAMS graduates?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q75c9e167cd",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a final-year BAMS student. What rank or score is needed in MD Rasashastra?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q068f01340e",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "What salary or income can I expect from MD Rasashastra?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q51b209ff59",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a PG aspirant. What is the scope of MD Rasashastra for BAMS graduates?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q44375a3095",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "What were the cutoff marks for MD Samhita Siddhanta?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q1a24a5e35e",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a PG aspirant. What salary or income can I expect from MD Samhita Siddhanta?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q2eebb5f94f",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "What is the scope of MD Samhita Siddhanta for BAMS graduates?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q9968800a55",
+   "source": "qbank",
+   "tags": [
+    "qbank",
+    "pii"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "What rank or score is needed in MS Shalakya Tantra?",
+   "context": "My ticket is 11WAC/2026/1076; Divya Krishnan, divya.k@college.edu.in, 9445566778.",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "name": "Divya Krishnan",
+   "email": "divya.k@college.edu.in"
+  },
+  {
+   "id": "QB-Q137a393b73",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a PG aspirant. What salary or income can I expect from MS Shalakya Tantra?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q037fa92183",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "Is there a good future in MS Shalakya Tantra?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q37b09c2467",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a PG aspirant. What were the cutoff marks for MS Shalya Tantra?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q22e18c3a46",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a final-year BAMS student. How much can I earn in MS Shalya Tantra?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q03a90d659b",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a PG aspirant. Is there a good future in MS Shalya Tantra?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q02c8f507e9",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "What rank or score is needed in MD Swasthavritta?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q0a5fb6309c",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a PG aspirant. How much can I earn in MD Swasthavritta?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q0ba48e8b2c",
+   "source": "qbank",
+   "tags": [
+    "qbank",
+    "pii"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a PG aspirant. What is the scope of MD Swasthavritta for BAMS graduates?",
+   "context": "My ticket is 11WAC/2026/1084; Pooja Verma, pooja.verma21@gmail.com, +91 98111 22334.",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "name": "Pooja Verma",
+   "email": "pooja.verma21@gmail.com"
+  },
+  {
+   "id": "QB-Q1c4e1dd8a1",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Brand Building & Communication",
+   "subtheme": "Positioning a practice or product",
+   "question": "How do I build a personal brand as a young Ayurveda doctor?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "digital-branding"
+   }
+  },
+  {
+   "id": "QB-Qaccd4527cd",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Bridging qualifications",
+   "question": "I am a practising BAMS graduate. Is a bridging course to work abroad really necessary for my career?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   }
+  },
+  {
+   "id": "QB-Q761f1b96db",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Bridging qualifications",
+   "question": "I am a practising BAMS graduate. Which a bridging course to work abroad should I choose?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   }
+  },
+  {
+   "id": "QB-Q2346251942",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Entrepreneurship & Start-ups",
+   "subtheme": "Business model",
+   "question": "Which business model works best for an Ayurveda health start-up?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "entrepreneurship"
+   }
+  },
+  {
+   "id": "QB-Q0f1dd57443",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Brand Building & Communication",
+   "subtheme": "Community education",
+   "question": "I am a practising BAMS graduate. What are the steps to organise a free health camp?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "digital-branding"
+   }
+  },
+  {
+   "id": "QB-Q036d3c4295",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Brand Building & Communication",
+   "subtheme": "Community education",
+   "question": "I am a BAMS intern. What licence or registration is required for a free health camp?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "digital-branding"
+   }
+  },
+  {
+   "id": "QB-Q31830aff77",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Research councils",
+   "question": "Who is eligible for a job at CCRAS and what qualification is required?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   }
+  },
+  {
+   "id": "QB-Q05df9aafb1",
+   "source": "qbank",
+   "tags": [
+    "qbank",
+    "pii"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Research councils",
+   "question": "I am a practising BAMS graduate. What are the steps to get a research job at CCRAS?",
+   "context": "My ticket is 11WAC/2026/1092; Rahul Deshpande, rahul.d@outlook.com, 9822001122.",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   },
+   "name": "Rahul Deshpande",
+   "email": "rahul.d@outlook.com"
+  },
+  {
+   "id": "QB-Q04fbe35590",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Research councils",
+   "question": "I am a practising BAMS graduate. What salary or income can I expect from a job at CCRAS?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   }
+  },
+  {
+   "id": "QB-Q0c5254f294",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Research councils",
+   "question": "I am a practising BAMS graduate. Which books and study resources should I use for a job at CCRAS?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   }
+  },
+  {
+   "id": "QB-Q1fcacc1270",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "I am a final-year BAMS student. What is the registration process with the state board after BAMS internship?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "internship-early-career"
+   }
+  },
+  {
+   "id": "QB-Q6f63767bfa",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "I am a practising BAMS graduate. What registrations and licences do I need to open an Ayurveda clinic in Gujarat?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   }
+  },
+  {
+   "id": "QB-Q0b7ea6f877",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "I am a BAMS intern. What registrations and licences do I need to open an Ayurveda clinic in Karnataka?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   }
+  },
+  {
+   "id": "QB-Q1d8e3087a5",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "What registrations and licences do I need to open an Ayurveda clinic in Kerala?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   }
+  },
+  {
+   "id": "QB-Q0aed74f279",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "I am a BAMS intern. What registrations and licences do I need to open an Ayurveda clinic in Madhya Pradesh?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   }
+  },
+  {
+   "id": "QB-Q07b2d2fd77",
+   "source": "qbank",
+   "tags": [
+    "qbank",
+    "pii"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "What registrations and licences do I need to open an Ayurveda clinic in Maharashtra?",
+   "context": "My ticket is 11WAC/2026/1100; Fathima Beevi, fathima.b@yahoo.in, +91-94470-55667.",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   },
+   "name": "Fathima Beevi",
+   "email": "fathima.b@yahoo.in"
+  },
+  {
+   "id": "QB-Q760e16c2f6",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "I am a practising BAMS graduate. What registrations and licences do I need to open an Ayurveda clinic in Odisha?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   }
+  },
+  {
+   "id": "QB-Q377eab0662",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "I am a practising BAMS graduate. What registrations and licences do I need to open an Ayurveda clinic in Rajasthan?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   }
+  },
+  {
+   "id": "QB-Q5f8ad15e78",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "I am a practising BAMS graduate. What registrations and licences do I need to open an Ayurveda clinic in Uttar Pradesh?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   }
+  },
+  {
+   "id": "QB-Q1613cf3a9e",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "How much money is needed to set up a small clinic?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   }
+  },
+  {
+   "id": "QB-Q084f7df869",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "I am a practising BAMS graduate. How should I plan to start my own Ayurveda clinic?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   }
+  },
+  {
+   "id": "QB-Q3029aa7bd2",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "I am a final-year BAMS student. What salary or income can I expect from starting my own Ayurveda clinic?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   }
+  },
+  {
+   "id": "QB-Q202bc24b10",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "I am a BAMS intern. What are the legal rules and registration for starting my own Ayurveda clinic?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   }
+  },
+  {
+   "id": "QB-Q13ab431e6b",
+   "source": "qbank",
+   "tags": [
+    "qbank",
+    "pii"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "I am a final-year BAMS student. Is a city or a small town better for starting my own Ayurveda clinic?",
+   "context": "My ticket is 11WAC/2026/1108; Suresh Patil, sureshpatil.bams@gmail.com, 080 4123 4567.",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   },
+   "name": "Suresh Patil",
+   "email": "sureshpatil.bams@gmail.com"
+  },
+  {
+   "id": "QB-Q02935a4d58",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "I am a final-year BAMS student. What are the best books or MCQ resources for starting my own Ayurveda clinic?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   }
+  },
+  {
+   "id": "QB-Q145ddd8718",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "I am a practising BAMS graduate. How long does starting my own Ayurveda clinic take?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   }
+  },
+  {
+   "id": "QB-Q363512bdf9",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Brand Building & Communication",
+   "subtheme": "Digital presence",
+   "question": "I am a practising BAMS graduate. How much can I earn in being an Ayurveda doctor on YouTube and social media?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "digital-branding"
+   }
+  },
+  {
+   "id": "QB-Q2610bd6b54",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Brand Building & Communication",
+   "subtheme": "Digital presence",
+   "question": "I am a practising BAMS graduate. What licence or registration is required for being an Ayurveda doctor on YouTube and social media?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "digital-branding"
+   }
+  },
+  {
+   "id": "QB-Q061835d29b",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Medical Value Travel & Wellness",
+   "subtheme": "Careers in wellness resorts",
+   "question": "What is the scope for Ayurveda doctors in corporate wellness programmes?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "panchakarma-wellness"
+   }
+  },
+  {
+   "id": "QB-Q16e3f0f56b",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Study design",
+   "question": "I am a final-year BAMS student. How should I plan to get a clinical research associate job?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   }
+  },
+  {
+   "id": "QB-Q1e4279acac",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Study design",
+   "question": "I am a BAMS intern. How much can I earn in a clinical research associate (CRA) job?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   }
+  },
+  {
+   "id": "QB-Q05de140b70",
+   "source": "qbank",
+   "tags": [
+    "qbank",
+    "pii"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Ethics & approvals",
+   "question": "I am a practising BAMS graduate. Is CTRI registration compulsory?",
+   "context": "My ticket is 11WAC/2026/1116; Divya Krishnan, divya.k@college.edu.in, 9445566778.",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   },
+   "name": "Divya Krishnan",
+   "email": "divya.k@college.edu.in"
+  },
+  {
+   "id": "QB-Q6cd43f756a",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Curriculum & assessment",
+   "question": "I am a practising BAMS graduate. How does competency-based curriculum and assessment work for Ayurveda faculty?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "teaching-academia"
+   }
+  },
+  {
+   "id": "QB-Q1ceefec638",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "I am a BAMS intern. Can a BAMS doctor join the armed forces or railways as an AYUSH medical officer?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   }
+  },
+  {
+   "id": "QB-Q11dd66a696",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "मैं BAMS के बाद प्रैक्टिस कर रहा हूँ। क्या diploma course में future है?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q058add3ba1",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "मैं BAMS के बाद प्रैक्टिस कर रहा हूँ। कौन सा diploma course choose करूँ?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q1659236206",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "Who is eligible for an AYUSH drug inspector government job and what qualification is required?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   }
+  },
+  {
+   "id": "QB-Q22ef1c5ef9",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "How to get a sarkari naukri as an Ayurveda doctor?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   }
+  },
+  {
+   "id": "QB-Q11365a5a99",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Ethics & approvals",
+   "question": "How should I plan to get ethics committee approval for my study?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   }
+  },
+  {
+   "id": "QB-Q0322f8158c",
+   "source": "qbank",
+   "tags": [
+    "qbank",
+    "pii"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Ethics & approvals",
+   "question": "I am a PG aspirant. Is ethics committee approval really necessary for my career?",
+   "context": "My ticket is 11WAC/2026/1124; Pooja Verma, pooja.verma21@gmail.com, +91 98111 22334.",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   },
+   "name": "Pooja Verma",
+   "email": "pooja.verma21@gmail.com"
+  },
+  {
+   "id": "QB-Q04e9c1aba2",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Ethics & approvals",
+   "question": "I am a practising BAMS graduate. How long does ethics committee approval take?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   }
+  },
+  {
+   "id": "QB-Q821f98edf5",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Export & Global Trade",
+   "subtheme": "Documentation & shipping terms",
+   "question": "What documents and shipping terms (Incoterms) do I need to understand to export Ayurvedic medicines?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "export-trade"
+   }
+  },
+  {
+   "id": "QB-Q92c54817be",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Export & Global Trade",
+   "subtheme": "Pricing & distribution",
+   "question": "How should I price and find distributors for exporting Ayurvedic products?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "export-trade"
+   }
+  },
+  {
+   "id": "QB-Qcf224700ed",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Export & Global Trade",
+   "subtheme": "Certification and quality marks",
+   "question": "What registration and certification are needed to export Ayurvedic products to Europe?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "export-trade"
+   }
+  },
+  {
+   "id": "QB-Q37075d770d",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Export & Global Trade",
+   "subtheme": "Certification and quality marks",
+   "question": "I am a practising BAMS graduate. What registration and certification are needed to export Ayurvedic products to the UAE (Dubai / Abu Dhabi)?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "export-trade"
+   }
+  },
+  {
+   "id": "QB-Q39e716d319",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Export & Global Trade",
+   "subtheme": "Certification and quality marks",
+   "question": "What registration and certification are needed to export Ayurvedic products to the UK?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "export-trade"
+   }
+  },
+  {
+   "id": "QB-Q0a99873ef1",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Export & Global Trade",
+   "subtheme": "Certification and quality marks",
+   "question": "I am a practising BAMS graduate. What registration and certification are needed to export Ayurvedic products to the USA?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "export-trade"
+   }
+  },
+  {
+   "id": "QB-Q12214f517c",
+   "source": "qbank",
+   "tags": [
+    "qbank",
+    "pii"
+   ],
+   "theme": "Export & Global Trade",
+   "subtheme": "Getting started in export",
+   "question": "I am a practising BAMS graduate. What budget or investment is needed for exporting Ayurvedic products?",
+   "context": "My ticket is 11WAC/2026/1132; Rahul Deshpande, rahul.d@outlook.com, 9822001122.",
+   "expect": {
+    "route": "draft",
+    "stream": "export-trade"
+   },
+   "name": "Rahul Deshpande",
+   "email": "rahul.d@outlook.com"
+  },
+  {
+   "id": "QB-Q64167733d9",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Export & Global Trade",
+   "subtheme": "Getting started in export",
+   "question": "What is the eligibility for exporting Ayurvedic products?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "export-trade"
+   }
+  },
+  {
+   "id": "QB-Q2f167f3bb4",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Export & Global Trade",
+   "subtheme": "Getting started in export",
+   "question": "I am a practising BAMS graduate. How do I start exporting Ayurvedic products?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "export-trade"
+   }
+  },
+  {
+   "id": "QB-Q0035d7afbd",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Export & Global Trade",
+   "subtheme": "Getting started in export",
+   "question": "I am a practising BAMS graduate. What salary or income can I expect from exporting Ayurvedic products?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "export-trade"
+   }
+  },
+  {
+   "id": "QB-Q66c2582fd4",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Export & Global Trade",
+   "subtheme": "Getting started in export",
+   "question": "Is there a good future in exporting Ayurvedic products?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "export-trade"
+   }
+  },
+  {
+   "id": "QB-Q1427a793b0",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Faculty recruitment & eligibility",
+   "question": "Is masters compulsory to become an assistant professor?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "teaching-academia"
+   }
+  },
+  {
+   "id": "QB-Q002a32853b",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Faculty recruitment & eligibility",
+   "question": "I am a PG aspirant. What is the eligibility for a teaching job in an Ayurveda college?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "teaching-academia"
+   }
+  },
+  {
+   "id": "QB-Q3630c5abb3",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Faculty recruitment & eligibility",
+   "question": "I am a practising BAMS graduate. How do I become a lecturer in an Ayurveda college?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "teaching-academia"
+   }
+  },
+  {
+   "id": "QB-Q49c62b23d7",
+   "source": "qbank",
+   "tags": [
+    "qbank",
+    "pii"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Faculty recruitment & eligibility",
+   "question": "I am a PG aspirant. How much can I earn in a teaching job in an Ayurveda college?",
+   "context": "My ticket is 11WAC/2026/1140; Fathima Beevi, fathima.b@yahoo.in, +91-94470-55667.",
+   "expect": {
+    "route": "draft",
+    "stream": "teaching-academia"
+   },
+   "name": "Fathima Beevi",
+   "email": "fathima.b@yahoo.in"
+  },
+  {
+   "id": "QB-Q3857a0d7cc",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Faculty recruitment & eligibility",
+   "question": "When should I start preparing for a teaching job in an Ayurveda college?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "teaching-academia"
+   }
+  },
+  {
+   "id": "QB-Q940a3ee4e8",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Grants & funding",
+   "question": "I am a practising BAMS graduate. Which research fellowships can BAMS or MD Ayurveda graduates apply for, and what is the eligibility?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   }
+  },
+  {
+   "id": "QB-Q035509131c",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "I am a first-year BAMS student. What should a first-year BAMS student focus on to build a good career?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q104bd6e1d3",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Entrepreneurship & Start-ups",
+   "subtheme": "Funding & finance",
+   "question": "Who is eligible for start-up funding and what qualification is required?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "entrepreneurship"
+   }
+  },
+  {
+   "id": "QB-Q2674384867",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Entrepreneurship & Start-ups",
+   "subtheme": "Funding & finance",
+   "question": "I am a practising BAMS graduate. How do I raise funding for my Ayurveda start-up?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "entrepreneurship"
+   }
+  },
+  {
+   "id": "QB-Q31d2a1ba51",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Manufacturing, Quality & GMP",
+   "subtheme": "GMP and licensing",
+   "question": "I am a practising BAMS graduate. What budget or investment is needed for GMP (Schedule T) certification?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "industry-pharma"
+   }
+  },
+  {
+   "id": "QB-Q2f404da179",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Manufacturing, Quality & GMP",
+   "subtheme": "GMP and licensing",
+   "question": "What are the steps to get GMP certification for my unit?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "industry-pharma"
+   }
+  },
+  {
+   "id": "QB-Q1d7d472631",
+   "source": "qbank",
+   "tags": [
+    "qbank",
+    "pii"
+   ],
+   "theme": "Manufacturing, Quality & GMP",
+   "subtheme": "GMP and licensing",
+   "question": "What licence or registration is required for GMP (Schedule T) certification?",
+   "context": "My ticket is 11WAC/2026/1148; Suresh Patil, sureshpatil.bams@gmail.com, 080 4123 4567.",
+   "expect": {
+    "route": "draft",
+    "stream": "industry-pharma"
+   },
+   "name": "Suresh Patil",
+   "email": "sureshpatil.bams@gmail.com"
+  },
+  {
+   "id": "QB-Q09cfabd80f",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Manufacturing, Quality & GMP",
+   "subtheme": "GMP and licensing",
+   "question": "I am a practising BAMS graduate. Is GMP (Schedule T) certification compulsory?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "industry-pharma"
+   }
+  },
+  {
+   "id": "QB-Q40cab71532",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "What government Ayurveda jobs are open to BAMS graduates in Gujarat, and how do I apply?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   }
+  },
+  {
+   "id": "QB-Q6a049663f1",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "What government Ayurveda jobs are open to BAMS graduates in Karnataka, and how do I apply?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   }
+  },
+  {
+   "id": "QB-Q368f2387b5",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "I am a practising BAMS graduate. What government Ayurveda jobs are open to BAMS graduates in Kerala, and how do I apply?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   }
+  },
+  {
+   "id": "QB-Q34808f7eef",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "I am a practising BAMS graduate. What government Ayurveda jobs are open to BAMS graduates in Madhya Pradesh, and how do I apply?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   }
+  },
+  {
+   "id": "QB-Q7afa985d57",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "What government Ayurveda jobs are open to BAMS graduates in Maharashtra, and how do I apply?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   }
+  },
+  {
+   "id": "QB-Q1f9596e74e",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "I am a BAMS intern. What government Ayurveda jobs are open to BAMS graduates in Odisha, and how do I apply?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   }
+  },
+  {
+   "id": "QB-Q6463b42381",
+   "source": "qbank",
+   "tags": [
+    "qbank",
+    "pii"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "I am a practising BAMS graduate. What government Ayurveda jobs are open to BAMS graduates in Rajasthan, and how do I apply?",
+   "context": "My ticket is 11WAC/2026/1156; Divya Krishnan, divya.k@college.edu.in, 9445566778.",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   },
+   "name": "Divya Krishnan",
+   "email": "divya.k@college.edu.in"
+  },
+  {
+   "id": "QB-Q0066fe425e",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "What government Ayurveda jobs are open to BAMS graduates in Uttar Pradesh, and how do I apply?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   }
+  },
+  {
+   "id": "QB-Q43e01e8cc9",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "I am a practising BAMS graduate. What were the cutoff marks for a government Ayurveda Medical Officer post?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   }
+  },
+  {
+   "id": "QB-Q0f1f70351d",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "I am a practising BAMS graduate. What is the eligibility for a government Ayurveda Medical Officer post?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   }
+  },
+  {
+   "id": "QB-Q23da8c1e65",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "What are the steps to become a government Ayurveda Medical Officer?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   }
+  },
+  {
+   "id": "QB-Q00f7ab3b33",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "I am a practising BAMS graduate. What salary or income can I expect from a government Ayurveda Medical Officer post?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   }
+  },
+  {
+   "id": "QB-Q385a6039b4",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "I am a final-year BAMS student. Which books and study resources should I use for a government Ayurveda Medical Officer post?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   }
+  },
+  {
+   "id": "QB-Q0fbc5d103b",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "I am a practising BAMS graduate. When should I start preparing for a government Ayurveda Medical Officer post?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   }
+  },
+  {
+   "id": "QB-Q27f765454f",
+   "source": "qbank",
+   "tags": [
+    "qbank",
+    "pii"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "I am a practising BAMS graduate. Is a government job better than my own clinic for a BAMS doctor?",
+   "context": "My ticket is 11WAC/2026/1164; Pooja Verma, pooja.verma21@gmail.com, +91 98111 22334.",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   },
+   "name": "Pooja Verma",
+   "email": "pooja.verma21@gmail.com"
+  },
+  {
+   "id": "QB-Q08bc5a0148",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Grants & funding",
+   "question": "What is the eligibility for research grants for young Ayurveda researchers?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   }
+  },
+  {
+   "id": "QB-Q1adf1f7960",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Grants & funding",
+   "question": "How should I plan to get a research grant?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   }
+  },
+  {
+   "id": "QB-Q74fad5db4b",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Hospital employment",
+   "question": "I am a BAMS intern. Is it better to work in a hospital first or start my own clinic straight away?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   }
+  },
+  {
+   "id": "QB-Q2ba6a28540",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Hospital employment",
+   "question": "I am a BAMS intern. What is the eligibility for a hospital job after BAMS?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   }
+  },
+  {
+   "id": "QB-Q1d6ebe2901",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Hospital employment",
+   "question": "I am a final-year BAMS student. What are the steps to get a job in a good hospital after BAMS?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   }
+  },
+  {
+   "id": "QB-Q0a058a964e",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Hospital employment",
+   "question": "Is the salary of a bams doctor in hospitals good?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   }
+  },
+  {
+   "id": "QB-Q02cb0d3cb9",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Hospital employment",
+   "question": "I am a BAMS intern. Is a city or a small town better for a hospital job after BAMS?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   }
+  },
+  {
+   "id": "QB-Q255d923b42",
+   "source": "qbank",
+   "tags": [
+    "qbank",
+    "pii"
+   ],
+   "theme": "Entrepreneurship & Start-ups",
+   "subtheme": "Incubation support",
+   "question": "I am a practising BAMS graduate. What is the eligibility for incubation support for an Ayurveda start-up?",
+   "context": "My ticket is 11WAC/2026/1172; Rahul Deshpande, rahul.d@outlook.com, 9822001122.",
+   "expect": {
+    "route": "draft",
+    "stream": "entrepreneurship"
+   },
+   "name": "Rahul Deshpande",
+   "email": "rahul.d@outlook.com"
+  },
+  {
+   "id": "QB-Q17c9c001b2",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Entrepreneurship & Start-ups",
+   "subtheme": "Incubation support",
+   "question": "I am a practising BAMS graduate. What are the steps to get incubation support for my start-up?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "entrepreneurship"
+   }
+  },
+  {
+   "id": "QB-Q2d6651f738",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Records & clinical quality",
+   "question": "I am a practising BAMS graduate. What is the eligibility for insurance (TPA) empanelment for an Ayurveda hospital?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   }
+  },
+  {
+   "id": "QB-Q0155759c88",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Records & clinical quality",
+   "question": "I am a practising BAMS graduate. What are the steps to get my Ayurveda hospital empanelled with insurance?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   }
+  },
+  {
+   "id": "QB-Q80add79975",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "How do I balance internship duties with AIAPGET preparation?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   }
+  },
+  {
+   "id": "QB-Q283498c99f",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Hospital employment",
+   "question": "I am a BAMS intern. What are the NCISM rules for the compulsory rotatory internship?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "internship-early-career"
+   }
+  },
+  {
+   "id": "QB-Q31c1b8a5c9",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Hospital employment",
+   "question": "Do BAMS interns get a stipend, and how much is the internship stipend?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "internship-early-career"
+   }
+  },
+  {
+   "id": "QB-Q2e1cbe2a60",
+   "source": "qbank",
+   "tags": [
+    "qbank"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Hospital employment",
+   "question": "Can I do part of my internship in another hospital or city, and which location is better?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "internship-early-career"
+   }
+  },
+  {
+   "id": "GD-abroad-country.cost.australia",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "How much does practising Ayurveda in Australia cost?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   },
+   "golden": {
+    "intentId": "abroad-country.cost.australia",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-abroad-country.cost.usa",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "How much does practising Ayurveda in the USA cost?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-usa"
+   },
+   "golden": {
+    "intentId": "abroad-country.cost.usa",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-abroad-country.eligibility.uk",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "What is the eligibility for practising Ayurveda in the UK?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-uk-eu"
+   },
+   "golden": {
+    "intentId": "abroad-country.eligibility.uk",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-abroad-country.how-to.gulf",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "How do I practise Ayurveda in the UAE (Dubai / Abu Dhabi)?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-gulf"
+   },
+   "golden": {
+    "intentId": "abroad-country.how-to.gulf",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-abroad-country.income.eu",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "What salary or income can I expect from practising Ayurveda in Europe?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-uk-eu"
+   },
+   "golden": {
+    "intentId": "abroad-country.income.eu",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-abroad-country.legal.canada",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "What licence or registration is required for practising Ayurveda in Canada?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   },
+   "golden": {
+    "intentId": "abroad-country.legal.canada",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-abroad-recognition.possible.australia",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Country-wise recognition",
+   "question": "Is the BAMS degree recognised in Australia, and can I work there as an Ayurveda practitioner?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   },
+   "golden": {
+    "intentId": "abroad-recognition.possible.australia",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-abroad-recognition.possible.usa",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Country-wise recognition",
+   "question": "Is the BAMS degree recognised in the USA, and can I work there as an Ayurveda practitioner?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-usa"
+   },
+   "golden": {
+    "intentId": "abroad-recognition.possible.usa",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-abroad-visa.how-to.uk",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Visa and employment routes",
+   "question": "Which visa or employment route can an Ayurveda practitioner use to work in the UK?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-uk-eu"
+   },
+   "golden": {
+    "intentId": "abroad-visa.how-to.uk",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-after-bams-income.income",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "What starting salary can a fresh BAMS graduate realistically expect?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "golden": {
+    "intentId": "after-bams-income.income",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-aiapget.eligibility",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "What is the eligibility for AIAPGET?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "golden": {
+    "intentId": "aiapget.eligibility",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-allopathy.legal",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Integrative referrals",
+   "question": "Can a BAMS doctor legally prescribe allopathic medicines?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   },
+   "golden": {
+    "intentId": "allopathy.legal",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-branch-dravyaguna.scope",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "What is the scope of MD Dravyaguna for BAMS graduates?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "golden": {
+    "intentId": "branch-dravyaguna.scope",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-branch-kayachikitsa.income",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "What salary or income can I expect from MD Kayachikitsa?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "golden": {
+    "intentId": "branch-kayachikitsa.income",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-branch-rasashastra.cutoff",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "What rank or score is needed in MD Rasashastra?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "golden": {
+    "intentId": "branch-rasashastra.cutoff",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-branch-samhita.scope",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "What is the scope of MD Samhita Siddhanta for BAMS graduates?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "golden": {
+    "intentId": "branch-samhita.scope",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-branch-shalya.income",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "What salary or income can I expect from MS Shalya Tantra?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "golden": {
+    "intentId": "branch-shalya.income",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-brand.how-to",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Brand Building & Communication",
+   "subtheme": "Positioning a practice or product",
+   "question": "How do I build a personal brand as a young Ayurveda doctor?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "digital-branding"
+   },
+   "golden": {
+    "intentId": "brand.how-to",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-camp.legal",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Brand Building & Communication",
+   "subtheme": "Community education",
+   "question": "What licence or registration is required for a free health camp?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "digital-branding"
+   },
+   "golden": {
+    "intentId": "camp.legal",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-clinic-registration.legal",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "How do I get state board registration or NCISM central registration after internship?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "internship-early-career"
+   },
+   "golden": {
+    "intentId": "clinic-registration.legal",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-clinic-state.legal.maharashtra",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "What registrations and licences do I need to open an Ayurveda clinic in Maharashtra?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   },
+   "golden": {
+    "intentId": "clinic-state.legal.maharashtra",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-clinic.how-to",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "How do I start my own Ayurveda clinic?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   },
+   "golden": {
+    "intentId": "clinic.how-to",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-clinic.timeline",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "When should I start preparing for starting my own Ayurveda clinic?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   },
+   "golden": {
+    "intentId": "clinic.timeline",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-cra.income",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Study design",
+   "question": "What salary or income can I expect from a clinical research associate (CRA) job?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   },
+   "golden": {
+    "intentId": "cra.income",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-diploma.which-one",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "Which diploma or certificate course after BAMS should I choose?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "golden": {
+    "intentId": "diploma.which-one",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-ethics.timeline",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Ethics & approvals",
+   "question": "When should I start preparing for ethics committee approval?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   },
+   "golden": {
+    "intentId": "ethics.timeline",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-export-region.legal.uk",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Export & Global Trade",
+   "subtheme": "Certification and quality marks",
+   "question": "What registration and certification are needed to export Ayurvedic products to the UK?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "export-trade"
+   },
+   "golden": {
+    "intentId": "export-region.legal.uk",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-export.income",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Export & Global Trade",
+   "subtheme": "Getting started in export",
+   "question": "What salary or income can I expect from exporting Ayurvedic products?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "export-trade"
+   },
+   "golden": {
+    "intentId": "export.income",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-faculty.income",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Faculty recruitment & eligibility",
+   "question": "What salary or income can I expect from a teaching job in an Ayurveda college?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "teaching-academia"
+   },
+   "golden": {
+    "intentId": "faculty.income",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-funding.how-to",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Entrepreneurship & Start-ups",
+   "subtheme": "Funding & finance",
+   "question": "How do I raise funding for my Ayurveda start-up?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "entrepreneurship"
+   },
+   "golden": {
+    "intentId": "funding.how-to",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-govt-jobs-state.how-to.gujarat",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "What government Ayurveda jobs are open to BAMS graduates in Gujarat, and how do I apply?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   },
+   "golden": {
+    "intentId": "govt-jobs-state.how-to.gujarat",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-govt-jobs-state.how-to.odisha",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "What government Ayurveda jobs are open to BAMS graduates in Odisha, and how do I apply?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   },
+   "golden": {
+    "intentId": "govt-jobs-state.how-to.odisha",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-govt-mo.how-to",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "How do I become a government Ayurveda Medical Officer?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   },
+   "golden": {
+    "intentId": "govt-mo.how-to",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-grant.eligibility",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Grants & funding",
+   "question": "What is the eligibility for research grants for young Ayurveda researchers?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   },
+   "golden": {
+    "intentId": "grant.eligibility",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-hospital.income",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Hospital employment",
+   "question": "What salary or income can I expect from a hospital job after BAMS?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   },
+   "golden": {
+    "intentId": "hospital.income",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-insurance.how-to",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Records & clinical quality",
+   "question": "How do I get my Ayurveda hospital empanelled with insurance?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   },
+   "golden": {
+    "intentId": "insurance.how-to",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-internship.how-to",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Hospital employment",
+   "question": "How do I make the best use of my internship year?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "internship-early-career"
+   },
+   "golden": {
+    "intentId": "internship.how-to",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-leadership.timeline",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Academic leadership",
+   "question": "When should I start preparing for a principal or HOD post?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "teaching-academia"
+   },
+   "golden": {
+    "intentId": "leadership.timeline",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-mba.eligibility",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Hospital employment",
+   "question": "What is the eligibility for an MBA in hospital or healthcare management after BAMS?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   },
+   "golden": {
+    "intentId": "mba.eligibility",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-mph.eligibility",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Public health projects",
+   "question": "What is the eligibility for an MPH after BAMS?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "public-health-policy"
+   },
+   "golden": {
+    "intentId": "mph.eligibility",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-mvt.eligibility",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Medical Value Travel & Wellness",
+   "subtheme": "How the MVT ecosystem works",
+   "question": "What is the eligibility for medical value travel (MVT) in Ayurveda?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "panchakarma-wellness"
+   },
+   "golden": {
+    "intentId": "mvt.eligibility",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-nabh.how-to",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Medical Value Travel & Wellness",
+   "subtheme": "Accreditation and standards",
+   "question": "How do I get NABH accreditation for my centre?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "panchakarma-wellness"
+   },
+   "golden": {
+    "intentId": "nabh.how-to",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-nam.timeline",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "National AYUSH Mission delivery",
+   "question": "When should I start preparing for National AYUSH Mission jobs?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   },
+   "golden": {
+    "intentId": "nam.timeline",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-panchakarma-centre.income",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Panchakarma & therapy services",
+   "question": "What salary or income can I expect from a Panchakarma centre?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "panchakarma-wellness"
+   },
+   "golden": {
+    "intentId": "panchakarma-centre.income",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-patent.how-to",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Entrepreneurship & Start-ups",
+   "subtheme": "Team & intellectual property",
+   "question": "How do I patent my Ayurvedic formulation?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "entrepreneurship"
+   },
+   "golden": {
+    "intentId": "patent.how-to",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-pg-seat-fees.cost",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "What are the fees for MD Ayurveda in government vs private colleges?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "golden": {
+    "intentId": "pg-seat-fees.cost",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-pg.necessity",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "Is PG (MD/MS Ayurveda) compulsory?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "pg-entrance"
+   },
+   "golden": {
+    "intentId": "pg.necessity",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-pharma-job.income",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Manufacturing, Quality & GMP",
+   "subtheme": "R&D and formulation",
+   "question": "What salary or income can I expect from an R&D job in an Ayurveda pharma company?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "industry-pharma"
+   },
+   "golden": {
+    "intentId": "pharma-job.income",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-phd.eligibility",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "PhD pathway",
+   "question": "What is the eligibility for a PhD in Ayurveda?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   },
+   "golden": {
+    "intentId": "phd.eligibility",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-phd.timeline",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "PhD pathway",
+   "question": "When should I start preparing for a PhD in Ayurveda?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   },
+   "golden": {
+    "intentId": "phd.timeline",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-product-launch.legal",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Entrepreneurship & Start-ups",
+   "subtheme": "Product & prototype",
+   "question": "What licence or registration is required for launching my own Ayurvedic product?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "entrepreneurship"
+   },
+   "golden": {
+    "intentId": "product-launch.legal",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-psc.cutoff.maharashtra",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "What rank or score is needed in the Maharashtra PSC Ayurveda Medical Officer exam?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   },
+   "golden": {
+    "intentId": "psc.cutoff.maharashtra",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-psc.eligibility.karnataka",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "What is the eligibility for the Karnataka PSC Ayurveda Medical Officer exam?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   },
+   "golden": {
+    "intentId": "psc.eligibility.karnataka",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-psc.eligibility.rajasthan",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "What is the eligibility for the Rajasthan PSC Ayurveda Medical Officer exam?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   },
+   "golden": {
+    "intentId": "psc.eligibility.rajasthan",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-psc.how-to.madhya-pradesh",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "How do I prepare for the Madhya Pradesh PSC Ayurveda Medical Officer exam?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   },
+   "golden": {
+    "intentId": "psc.how-to.madhya-pradesh",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-psc.resources.gujarat",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "Which books and study resources should I use for the Gujarat PSC Ayurveda Medical Officer exam?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   },
+   "golden": {
+    "intentId": "psc.resources.gujarat",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-psc.resources.odisha",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "Which books and study resources should I use for the Odisha PSC Ayurveda Medical Officer exam?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   },
+   "golden": {
+    "intentId": "psc.resources.odisha",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-psc.syllabus.kerala",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "What is the syllabus and exam pattern of the Kerala PSC Ayurveda Medical Officer exam?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   },
+   "golden": {
+    "intentId": "psc.syllabus.kerala",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-psc.syllabus.uttar-pradesh",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "What is the syllabus and exam pattern of the Uttar Pradesh PSC Ayurveda Medical Officer exam?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   },
+   "golden": {
+    "intentId": "psc.syllabus.uttar-pradesh",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-psc.timeline.maharashtra",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "When should I start preparing for the Maharashtra PSC Ayurveda Medical Officer exam?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   },
+   "golden": {
+    "intentId": "psc.timeline.maharashtra",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-publish.cost",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Thesis & publication",
+   "question": "How much does publishing a research paper cost?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   },
+   "golden": {
+    "intentId": "publish.cost",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-records.legal",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Records & clinical quality",
+   "question": "What licence or registration is required for clinic records and EMR software?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   },
+   "golden": {
+    "intentId": "records.legal",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-registration-state.legal.madhya-pradesh",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "How do I register with the Madhya Pradesh state board of Indian medicine after my BAMS internship?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "internship-early-career"
+   },
+   "golden": {
+    "intentId": "registration-state.legal.madhya-pradesh",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-regulatory.how-to",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Manufacturing, Quality & GMP",
+   "subtheme": "Regulatory affairs",
+   "question": "How do I move into regulatory affairs?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "industry-pharma"
+   },
+   "golden": {
+    "intentId": "regulatory.how-to",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-research-career.possible",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Framing a research question",
+   "question": "Can a BAMS graduate start a research career after BAMS?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   },
+   "golden": {
+    "intentId": "research-career.possible",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-resort.income",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Medical Value Travel & Wellness",
+   "subtheme": "Careers in wellness resorts",
+   "question": "What salary or income can I expect from a job in an Ayurveda wellness resort?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "panchakarma-wellness"
+   },
+   "golden": {
+    "intentId": "resort.income",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-socialmedia-platform.which-one",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Brand Building & Communication",
+   "subtheme": "Digital presence",
+   "question": "Which social media platform for my clinic should I choose?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "digital-branding"
+   },
+   "golden": {
+    "intentId": "socialmedia-platform.which-one",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-specialty.which-one",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Choosing a clinical specialty",
+   "question": "Which clinical specialty should I focus my Ayurveda practice on?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "clinical-practice"
+   },
+   "golden": {
+    "intentId": "specialty.which-one",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-teach-abroad.possible",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Wellness centre roles abroad",
+   "question": "Is it possible to teach Ayurveda courses abroad or online to international students?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   },
+   "golden": {
+    "intentId": "teach-abroad.possible",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-thesis.how-to",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Thesis & publication",
+   "question": "How do I plan my MD thesis?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "research-phd"
+   },
+   "golden": {
+    "intentId": "thesis.how-to",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-upsc.how-to",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "How do I clear UPSC civil services after BAMS?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "govt-jobs"
+   },
+   "golden": {
+    "intentId": "upsc.how-to",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-wellness-abroad.how-to",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Wellness centre roles abroad",
+   "question": "How do I get a wellness centre job abroad?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "practice-abroad"
+   },
+   "golden": {
+    "intentId": "wellness-abroad.how-to",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-wellness-region.how-to.usa",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Wellness centre roles abroad",
+   "question": "How do I find a job in an Ayurveda wellness centre in the USA?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "abroad-usa"
+   },
+   "golden": {
+    "intentId": "wellness-region.how-to.usa",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "GD-yoga.how-to",
+   "source": "golden",
+   "tags": [
+    "golden",
+    "draft"
+   ],
+   "theme": "Medical Value Travel & Wellness",
+   "subtheme": "Careers in wellness resorts",
+   "question": "How do I get started with yoga certification for an Ayurveda doctor?",
+   "context": "",
+   "expect": {
+    "route": "draft",
+    "stream": "panchakarma-wellness"
+   },
+   "golden": {
+    "intentId": "yoga.how-to",
+    "status": "draft"
+   }
+  },
+  {
+   "id": "FX-B0011",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "abroad_countries",
+    "pii"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Country-wise recognition",
+   "question": "In which countries can I practise Ayurveda in foreign countries?",
+   "context": "I am Pooja Verma, reach me at pooja.verma21@gmail.com or +91 98111 22334.",
+   "expect": {
+    "route": "draft"
+   },
+   "name": "Pooja Verma",
+   "email": "pooja.verma21@gmail.com"
+  },
+  {
+   "id": "FX-B0099",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "abroad_gulf"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Visa and employment routes",
+   "question": "How to get a work visa as an Ayuvreda doctor",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0091",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "abroad_licence"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Licensing & registration",
+   "question": "Licensing requirements for Ayurveda doctors in other countries",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0042",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "abroad_spa"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Wellness centre roles abroad",
+   "question": "Dear mentor, how to get a job in a wellness spa abroad?",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0267",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "abroad_study"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Bridging qualifications",
+   "question": "I AM AN INTERN. CAN I DO A MASTER'S IN PUBLIC HEALTH OVERSEAS AFTER BAMS?",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0071",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "abroad_uk"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Country-wise recognition",
+   "question": "scope for bams doctors in grmany",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0190",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "abroad_usa"
+   ],
+   "theme": "Practice Abroad & Practitioner Mobility",
+   "subtheme": "Country-wise recognition",
+   "question": "Is B.A.M.S. recognised in the US??",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0024",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "advert"
+   ],
+   "theme": "Brand Building & Communication",
+   "subtheme": "Advertising & claims compliance",
+   "question": "Drugs and Magic Remedies Act — what claims are not allowed Please advise me.",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0040",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "after_bams",
+    "pii"
+   ],
+   "theme": "Not sure — help me classify",
+   "subtheme": "",
+   "question": "scope after bams please advise me.",
+   "context": "I am in final year BAMS. I am Rahul Deshpande, reach me at rahul.d@outlook.com or 9822001122.",
+   "expect": {
+    "route": "draft"
+   },
+   "name": "Rahul Deshpande",
+   "email": "rahul.d@outlook.com"
+  },
+  {
+   "id": "FX-B0015",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "aiapget_books"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "namaste. best books for aiapet entrance preparation please guide.",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0030",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "aiapget_cutoff"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Faculty recruitment & eligibility",
+   "question": "AIAPGET cutoff for government PG seats?",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0003",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "aiapget_prep"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "Dear mentor, what is the best strategy to crack AIAPGET?",
+   "context": "I want to settle in my hometown.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0097",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "bams_future"
+   ],
+   "theme": "Not sure — help me classify",
+   "subtheme": "",
+   "question": "Is there scope for BAMS dotcors in the coming years Thank you.",
+   "context": "I am preparing for government exams also.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0032",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "biostat"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Biostatistics",
+   "question": "how do i learn biostatistics for research?",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0009",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "bizmodel"
+   ],
+   "theme": "Entrepreneurship & Start-ups",
+   "subtheme": "Team & intellectual property",
+   "question": "subscription or one-time sale — which business model suits herbal products??",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0044",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "brand_clinic"
+   ],
+   "theme": "Brand Building & Communication",
+   "subtheme": "Positioning a practice or product",
+   "question": "i am an intern. how to position my ayurveda practice differently from others?",
+   "context": "My family wants me to do PG.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0138",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "case_report",
+    "pii"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Thesis & publication",
+   "question": "Can I publish a single case study from my clinic?",
+   "context": "I am in final year BAMS. I am Fathima Beevi, reach me at fathima.b@yahoo.in or +91-94470-55667.",
+   "expect": {
+    "route": "draft"
+   },
+   "name": "Fathima Beevi",
+   "email": "fathima.b@yahoo.in"
+  },
+  {
+   "id": "FX-B0464",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "ccras"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Research councils",
+   "question": "How can I join CCRAS as a research officer?",
+   "context": "I am in final year BAMS.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0060",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "clinic_cost"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "namaste. can i establish a dispensary with low investment?",
+   "context": "My parents are doctors.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0006",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "clinic_licence"
+   ],
+   "theme": "Entrepreneurship & Start-ups",
+   "subtheme": "Business model",
+   "question": "which licence is required to start an ayurveda clinic?",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0010",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "clinic_location"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "sir, how to choose the right location for an ayurveda clinic?",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0161",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "clinic_patients"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Setting up private practice",
+   "question": "how to grow patent nuumbers in practice?",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0912",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "cofounder"
+   ],
+   "theme": "Entrepreneurship & Start-ups",
+   "subtheme": "Team & intellectual property",
+   "question": "How to build a team for an early-stage Ayurveda startup?",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0142",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "community"
+   ],
+   "theme": "Brand Building & Communication",
+   "subtheme": "Community education",
+   "question": "Community health education ideas for Ayurveda doctors",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0197",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "crosspathy",
+    "pii"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Integrative referrals",
+   "question": "Rules about BAMS doctors prescribing allopathy plz help",
+   "context": "I am preparing for government exams also. I am Suresh Patil, reach me at sureshpatil.bams@gmail.com or 080 4123 4567.",
+   "expect": {
+    "route": "draft"
+   },
+   "name": "Suresh Patil",
+   "email": "sureshpatil.bams@gmail.com"
+  },
+  {
+   "id": "FX-B0014",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "curriculum"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Curriculum & assessment",
+   "question": "I am a final year BAMS student. how will the new NCISM curriculum affect students Kindly suggest.",
+   "context": "Currently doing internship in Kerala.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0365",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "ethics"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Ethics & approvals",
+   "question": "Process for institutional ethics committee clearance",
+   "context": "Currently doing internship in Kerala.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0063",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "export_cert"
+   ],
+   "theme": "Export & Global Trade",
+   "subtheme": "Certification and quality marks",
+   "question": "Dear mentor, do I need FDA approval to export Ayurveda products to the USA?",
+   "context": "I have an education loan to repay.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0177",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "export_docs"
+   ],
+   "theme": "Export & Global Trade",
+   "subtheme": "Documentation & shipping terms",
+   "question": "How to get an IEC code for export?",
+   "context": "I passed BAMS in 2025.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0279",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "export_markets"
+   ],
+   "theme": "Export & Global Trade",
+   "subtheme": "Market entry & partners",
+   "question": "Which coountries have the highest demand for Ayurveda products?",
+   "context": "I like clinical work more than theory.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0019",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "export_pricing"
+   ],
+   "theme": "Export & Global Trade",
+   "subtheme": "Pricing & distribution",
+   "question": "How to price Ayurveda products for export markets?",
+   "context": "I like clinical work more than theory.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0057",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "export_start"
+   ],
+   "theme": "Export & Global Trade",
+   "subtheme": "Getting started in export",
+   "question": "Expoort business kaise shuru kare?",
+   "context": "I like clinical work more than theory.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0093",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "faculty_elig",
+    "pii"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Faculty recruitment & eligibility",
+   "question": "Dear mentor, is PG compulsory to become an assistant professor?",
+   "context": "I scored average marks in university exams. I am Divya Krishnan, reach me at divya.k@college.edu.in or 9445566778.",
+   "expect": {
+    "route": "draft"
+   },
+   "name": "Divya Krishnan",
+   "email": "divya.k@college.edu.in"
+  },
+  {
+   "id": "FX-B0008",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "faculty_salary"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Faculty recruitment & eligibility",
+   "question": "Dear mentor, how much do Ayurveda lecturers earn?",
+   "context": "I am from a small town in Odisha.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0108",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "gmp"
+   ],
+   "theme": "Manufacturing, Quality & GMP",
+   "subtheme": "GMP and licensing",
+   "question": "what are the schedule t gmp requirements please guide.",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0025",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "govt_jobs"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "Which sarkari posts are available for BAMS graduates Thank you.",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0159",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "grants"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Grants & funding",
+   "question": "how to get research grants for ayurveda projects please advise me.",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0021",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "hosp_job"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Hospital employment",
+   "question": "How to get a job in a private Ayurveda hospital?",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0069",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "hosp_salary"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Hospital employment",
+   "question": "Hello sir, what is the salary of a bams doctor in a hospital?",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0269",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "incubation"
+   ],
+   "theme": "Entrepreneurship & Start-ups",
+   "subtheme": "Incubation support",
+   "question": "How to apply to an incubator for my startup?",
+   "context": "I am from Maharashtra.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0149",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "leadership",
+    "pii"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Academic leadership",
+   "question": "what does it take to become hod in an ayurvead college?",
+   "context": "I like clinical work more than theory. I am Pooja Verma, reach me at pooja.verma21@gmail.com or +91 98111 22334.",
+   "expect": {
+    "route": "draft"
+   },
+   "name": "Pooja Verma",
+   "email": "pooja.verma21@gmail.com"
+  },
+  {
+   "id": "FX-B0062",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "mfg_licence"
+   ],
+   "theme": "Manufacturing, Quality & GMP",
+   "subtheme": "GMP and licensing",
+   "question": "WHAT LICENCE IS NEEDED TO MANUFACTURE AYURVEDIC MEDICINES?",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0041",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "mvt"
+   ],
+   "theme": "Medical Value Travel & Wellness",
+   "subtheme": "How the MVT ecosystem works",
+   "question": "dear mentor, scope of medical tourism in ayurveda",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0410",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "mvt_accred"
+   ],
+   "theme": "Medical Value Travel & Wellness",
+   "subtheme": "Accreditation and standards",
+   "question": "NABH standards for Auyrveda wellness centres",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0029",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "mvt_packages"
+   ],
+   "theme": "Medical Value Travel & Wellness",
+   "subtheme": "Designing packages",
+   "question": "What should a wellness package for international patients include",
+   "context": "I scored average marks in university exams.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0268",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "mvt_patients"
+   ],
+   "theme": "Medical Value Travel & Wellness",
+   "subtheme": "Handling international patients",
+   "question": "I am an intern what documentation is needed for international patients",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0056",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "nabh_clinic"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Records & clinical quality",
+   "question": "Is NABH certification needed for small clinics?",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0146",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "nam_jobs"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Policy research & advocacy",
+   "question": "namaste. how to get a contract naukri under nam?",
+   "context": "I am preparing for government exams also.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0012",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "patent",
+    "pii"
+   ],
+   "theme": "Entrepreneurship & Start-ups",
+   "subtheme": "Validating the idea",
+   "question": "Process to file a patent for a herbal product",
+   "context": "I am interested in research and teaching. I am Rahul Deshpande, reach me at rahul.d@outlook.com or 9822001122.",
+   "expect": {
+    "route": "draft"
+   },
+   "name": "Rahul Deshpande",
+   "email": "rahul.d@outlook.com"
+  },
+  {
+   "id": "FX-B0017",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "pg_branch"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Curriculum & assessment",
+   "question": "Ma'am, best MD Ayurveda branch for a good career?",
+   "context": "I am in final year BAMS.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0043",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "pg_or_practice"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "Choosing a PG branch",
+   "question": "is post graduation bettter than starting my own dispensary please guide",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0065",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "pg_worth"
+   ],
+   "theme": "Not sure — help me classify",
+   "subtheme": "",
+   "question": "Can I have a succesful career without post graduation?",
+   "context": "I am from a rural area and family support is limited.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0013",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "phd_admission"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "PhD pathway",
+   "question": "phd admission process in ayurveda universities??",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0027",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "phd_fellowship"
+   ],
+   "theme": "Academics, Teaching & Higher Education",
+   "subtheme": "PhD pathway",
+   "question": "are there fellowships or stipends for phd in ayurveda?",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0020",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "pk_centre"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Records & clinical quality",
+   "question": "respected mentor, is starting a panchakarma centre profitable?",
+   "context": "I have an education loan to repay.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0565",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "pk_staff"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Panchakarma & therapy services",
+   "question": "I am a final year BAMS student. how many therapists are needed to run a Panchakarma centre?",
+   "context": "My father has a clinic.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0004",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "pk_training",
+    "pii"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Panchakarma & therapy services",
+   "question": "panchkarma ka course kahan se kare?",
+   "context": "I am Fathima Beevi, reach me at fathima.b@yahoo.in or +91-94470-55667.",
+   "expect": {
+    "route": "draft"
+   },
+   "name": "Fathima Beevi",
+   "email": "fathima.b@yahoo.in"
+  },
+  {
+   "id": "FX-B0301",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "policy"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Public health projects",
+   "question": "i am an intern. career in ayush pollicy making",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0213",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "predatory"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Thesis & publication",
+   "question": "how to identify predatry journals?",
+   "context": "I want to work abroad in future.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0137",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "prototype"
+   ],
+   "theme": "Entrepreneurship & Start-ups",
+   "subtheme": "Product & prototype",
+   "question": "How to make a prototype of a herbal cosmetic product?",
+   "context": "I have an education loan to repay.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0054",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "psc_prep"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Government service routes",
+   "question": "How to crack the AMO exam?",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0216",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "public_health"
+   ],
+   "theme": "Policy, Public Health & Global Agencies",
+   "subtheme": "Public health projects",
+   "question": "Public health job openings for Ayurveda graduates Please advise me.",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0016",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "publish"
+   ],
+   "theme": "Research, Evidence & Publication",
+   "subtheme": "Thesis & publication",
+   "question": "Sir, how do I pubish a resaerch paper in a good journal?",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0219",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "pv"
+   ],
+   "theme": "Manufacturing, Quality & GMP",
+   "subtheme": "Pharmacovigilance",
+   "question": "Dear mentor, which course is needed for pharmacovigilance?",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0100",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "qaqc",
+    "pii"
+   ],
+   "theme": "Manufacturing, Quality & GMP",
+   "subtheme": "QA / QC and testing",
+   "question": "Can B.A.M.S. graduates get QA QC jobs in pharma?",
+   "context": "I passed BAMS in 2025. I am Suresh Patil, reach me at sureshpatil.bams@gmail.com or 080 4123 4567.",
+   "expect": {
+    "route": "draft"
+   },
+   "name": "Suresh Patil",
+   "email": "sureshpatil.bams@gmail.com"
+  },
+  {
+   "id": "FX-B0087",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "records"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Records & clinical quality",
+   "question": "Do I need to keep patient records digitally?",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0167",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "referrals"
+   ],
+   "theme": "Clinical Practice & Integrative Care",
+   "subtheme": "Integrative referrals",
+   "question": "How to build referral links with allopathic doctors?",
+   "context": "Currently doing internship in Kerala.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0113",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "regaffairs"
+   ],
+   "theme": "Manufacturing, Quality & GMP",
+   "subtheme": "Regulatory affairs",
+   "question": "is regulatory affairs a good career for bams?",
+   "context": "I am preparing for government exams also.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0095",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "resort_jobs"
+   ],
+   "theme": "Brand Building & Communication",
+   "subtheme": "Advertising & claims compliance",
+   "question": "Wellness resort me doctor ki job kaise milegi?",
+   "context": "I have an education loan to repay.",
+   "expect": {
+    "route": "draft"
+   }
+  },
+  {
+   "id": "FX-B0135",
+   "source": "merge-fixture",
+   "tags": [
+    "fixture",
+    "rnd_career"
+   ],
+   "theme": "Manufacturing, Quality & GMP",
+   "subtheme": "R&D and formulation",
+   "question": "Caerer in formulation development after B.A.M.S Please guide.",
+   "context": "",
+   "expect": {
+    "route": "draft"
+   }
+  }
+ ]
+}

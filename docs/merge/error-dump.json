@@ -1,0 +1,6108 @@
+[
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00032",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.522,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0028",
+   "intent": "pg_branch",
+   "q": "I am a final year BAMS student. which MD branch is good for clinical practice?",
+   "ctx": "I passed BAMS in 2025."
+  },
+  "b": {
+   "id": "B0651",
+   "intent": "pg_or_practice",
+   "q": "I am a final year BAMS student which is beter after BAMS MD or clniical practice",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "clinical",
+   "practice",
+   "branch",
+   "internship"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00032",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.522,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0028",
+   "intent": "pg_branch",
+   "q": "I am a final year BAMS student. which MD branch is good for clinical practice?",
+   "ctx": "I passed BAMS in 2025."
+  },
+  "b": {
+   "id": "B0749",
+   "intent": "pg_or_practice",
+   "q": "I am an intern. which is better after B.A.M.S.: MD/MS or clinical practice Thank you.",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "clinical",
+   "practice",
+   "branch",
+   "internship"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00032",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.56,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0067",
+   "intent": "pg_branch",
+   "q": "I am an intern which post graduaton branch is good for clinical practice",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0651",
+   "intent": "pg_or_practice",
+   "q": "I am a final year BAMS student which is beter after BAMS MD or clniical practice",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "clinical",
+   "practice",
+   "branch",
+   "internship"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00032",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.56,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0067",
+   "intent": "pg_branch",
+   "q": "I am an intern which post graduaton branch is good for clinical practice",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0749",
+   "intent": "pg_or_practice",
+   "q": "I am an intern. which is better after B.A.M.S.: MD/MS or clinical practice Thank you.",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "clinical",
+   "practice",
+   "branch",
+   "internship"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00032",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.7,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0320",
+   "intent": "pg_branch",
+   "q": "Which MD Ayurveda branch is good for clniical practice Kindly suggest.",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0651",
+   "intent": "pg_or_practice",
+   "q": "I am a final year BAMS student which is beter after BAMS MD or clniical practice",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "clinical",
+   "practice",
+   "branch",
+   "internship"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00032",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.7,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0320",
+   "intent": "pg_branch",
+   "q": "Which MD Ayurveda branch is good for clniical practice Kindly suggest.",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0749",
+   "intent": "pg_or_practice",
+   "q": "I am an intern. which is better after B.A.M.S.: MD/MS or clinical practice Thank you.",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "clinical",
+   "practice",
+   "branch",
+   "internship"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00032",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.7,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0759",
+   "intent": "pg_branch",
+   "q": "Which post graduation branch is good for clinical practice?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0651",
+   "intent": "pg_or_practice",
+   "q": "I am a final year BAMS student which is beter after BAMS MD or clniical practice",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "clinical",
+   "practice",
+   "branch",
+   "internship"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00032",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.7,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0759",
+   "intent": "pg_branch",
+   "q": "Which post graduation branch is good for clinical practice?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0749",
+   "intent": "pg_or_practice",
+   "q": "I am an intern. which is better after B.A.M.S.: MD/MS or clinical practice Thank you.",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "clinical",
+   "practice",
+   "branch",
+   "internship"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00032",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.18,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0154",
+   "intent": "pg_branch",
+   "q": "I am an intern best MD branch for a good career",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0651",
+   "intent": "pg_or_practice",
+   "q": "I am a final year BAMS student which is beter after BAMS MD or clniical practice",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "clinical",
+   "practice",
+   "branch",
+   "internship"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00032",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.18,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0154",
+   "intent": "pg_branch",
+   "q": "I am an intern best MD branch for a good career",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0749",
+   "intent": "pg_or_practice",
+   "q": "I am an intern. which is better after B.A.M.S.: MD/MS or clinical practice Thank you.",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "clinical",
+   "practice",
+   "branch",
+   "internship"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00036",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.511,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0202",
+   "intent": "aiapget_prep",
+   "q": "How many hours shuold I study daily for AIAPGET preparation?",
+   "ctx": "I want financial stability soon."
+  },
+  "b": {
+   "id": "B1097",
+   "intent": "aiapget_books",
+   "q": "Best books for AIAPGET preparation?",
+   "ctx": "I want financial stability soon."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00036",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.307,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0444",
+   "intent": "aiapget_prep",
+   "q": "How many hours should I study daily for AIAPGET preparation?",
+   "ctx": "My family wants me to do PG."
+  },
+  "b": {
+   "id": "B1097",
+   "intent": "aiapget_books",
+   "q": "Best books for AIAPGET preparation?",
+   "ctx": "I want financial stability soon."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00036",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.307,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0701",
+   "intent": "aiapget_prep",
+   "q": "how many hours should i study daily for aiapget entrance preparation please advise me.",
+   "ctx": "I am preparing for government exams also."
+  },
+  "b": {
+   "id": "B1097",
+   "intent": "aiapget_books",
+   "q": "Best books for AIAPGET preparation?",
+   "ctx": "I want financial stability soon."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00036",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.331,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B1097",
+   "intent": "aiapget_books",
+   "q": "Best books for AIAPGET preparation?",
+   "ctx": "I want financial stability soon."
+  },
+  "b": {
+   "id": "B0049",
+   "intent": "aiapget_prep",
+   "q": "How many hours should I study daily for AIAPGET preparation?",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00036",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.246,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B1097",
+   "intent": "aiapget_books",
+   "q": "Best books for AIAPGET preparation?",
+   "ctx": "I want financial stability soon."
+  },
+  "b": {
+   "id": "B0321",
+   "intent": "aiapget_prep",
+   "q": "How many hours should I study daily for PG entrance preparation?",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00036",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.378,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B1097",
+   "intent": "aiapget_books",
+   "q": "Best books for AIAPGET preparation?",
+   "ctx": "I want financial stability soon."
+  },
+  "b": {
+   "id": "B0357",
+   "intent": "aiapget_prep",
+   "q": "how do i plan my aiapget exam preparation?",
+   "ctx": "My family wants me to do PG."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00039",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.16,
+  "repIntent": "pg_worth",
+  "a": {
+   "id": "B0285",
+   "intent": "pg_worth",
+   "q": "Is PG compulsory to become a good Ayurveda doctor Please advise me.",
+   "ctx": "My family wants me to do PG."
+  },
+  "b": {
+   "id": "B1155",
+   "intent": "pg_branch",
+   "q": "Which masters branch has the best scope?",
+   "ctx": "I like clinical work more than theory."
+  },
+  "shared": [
+   "PG",
+   "necessary"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00039",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.181,
+  "repIntent": "pg_worth",
+  "a": {
+   "id": "B0280",
+   "intent": "pg_worth",
+   "q": "Kya MD/MS karna zaroori hai?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B1155",
+   "intent": "pg_branch",
+   "q": "Which masters branch has the best scope?",
+   "ctx": "I like clinical work more than theory."
+  },
+  "shared": [
+   "PG",
+   "necessary"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00039",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.181,
+  "repIntent": "pg_worth",
+  "a": {
+   "id": "B0728",
+   "intent": "pg_worth",
+   "q": "IS PG COMPULSORY TO BECOME A GOOD AYUVEDA DOCTOR?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B1155",
+   "intent": "pg_branch",
+   "q": "Which masters branch has the best scope?",
+   "ctx": "I like clinical work more than theory."
+  },
+  "shared": [
+   "PG",
+   "necessary"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00039",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.181,
+  "repIntent": "pg_worth",
+  "a": {
+   "id": "B0830",
+   "intent": "pg_worth",
+   "q": "Kya MD karna zaroori hai Kindly suggest",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B1155",
+   "intent": "pg_branch",
+   "q": "Which masters branch has the best scope?",
+   "ctx": "I like clinical work more than theory."
+  },
+  "shared": [
+   "PG",
+   "necessary"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00039",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.181,
+  "repIntent": "pg_worth",
+  "a": {
+   "id": "B1168",
+   "intent": "pg_worth",
+   "q": "Is MD compulsory to become a good Ayurveda doctor?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B1155",
+   "intent": "pg_branch",
+   "q": "Which masters branch has the best scope?",
+   "ctx": "I like clinical work more than theory."
+  },
+  "shared": [
+   "PG",
+   "necessary"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00039",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.572,
+  "repIntent": "pg_worth",
+  "a": {
+   "id": "B1025",
+   "intent": "pg_worth",
+   "q": "is md/ms necesary for a good career after bams?",
+   "ctx": "I like clinical work more than theory."
+  },
+  "b": {
+   "id": "B1155",
+   "intent": "pg_branch",
+   "q": "Which masters branch has the best scope?",
+   "ctx": "I like clinical work more than theory."
+  },
+  "shared": [
+   "PG",
+   "necessary"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00041",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.421,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0324",
+   "intent": "aiapget_prep",
+   "q": "what is the best strategy to crack aiaget entrance?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "b": {
+   "id": "B1169",
+   "intent": "pg_or_practice",
+   "q": "WHAT SHOULD I DO AFTER BAMS — POST GRADUATION OR PRACTISE?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "shared": [
+   "AIAPGET",
+   "exam",
+   "PG",
+   "prepare",
+   "strategy"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00041",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.588,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0413",
+   "intent": "aiapget_prep",
+   "q": "How to prepare for AIAPGET?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "b": {
+   "id": "B1169",
+   "intent": "pg_or_practice",
+   "q": "WHAT SHOULD I DO AFTER BAMS — POST GRADUATION OR PRACTISE?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "shared": [
+   "AIAPGET",
+   "exam",
+   "PG",
+   "prepare",
+   "strategy"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00041",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.208,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B1169",
+   "intent": "pg_or_practice",
+   "q": "WHAT SHOULD I DO AFTER BAMS — POST GRADUATION OR PRACTISE?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "b": {
+   "id": "B0066",
+   "intent": "aiapget_prep",
+   "q": "Sir, aIAPGET exam preparation strategy for final year students plz help",
+   "ctx": "I am in final year BAMS."
+  },
+  "shared": [
+   "AIAPGET",
+   "exam",
+   "PG",
+   "prepare",
+   "strategy"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00041",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.217,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B1169",
+   "intent": "pg_or_practice",
+   "q": "WHAT SHOULD I DO AFTER BAMS — POST GRADUATION OR PRACTISE?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "b": {
+   "id": "B0155",
+   "intent": "aiapget_prep",
+   "q": "AIAPGET entrance ki taiyari kaise kare?",
+   "ctx": "I am from Maharashtra."
+  },
+  "shared": [
+   "AIAPGET",
+   "exam",
+   "PG",
+   "prepare",
+   "strategy"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00041",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.208,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B1169",
+   "intent": "pg_or_practice",
+   "q": "WHAT SHOULD I DO AFTER BAMS — POST GRADUATION OR PRACTISE?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "b": {
+   "id": "B0173",
+   "intent": "aiapget_prep",
+   "q": "AIAPGET preapration strategy for final year students",
+   "ctx": ""
+  },
+  "shared": [
+   "AIAPGET",
+   "exam",
+   "PG",
+   "prepare",
+   "strategy"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00041",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.217,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B1169",
+   "intent": "pg_or_practice",
+   "q": "WHAT SHOULD I DO AFTER BAMS — POST GRADUATION OR PRACTISE?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "b": {
+   "id": "B0203",
+   "intent": "aiapget_prep",
+   "q": "How to prepare for AIAPGET?",
+   "ctx": "My parents are doctors."
+  },
+  "shared": [
+   "AIAPGET",
+   "exam",
+   "PG",
+   "prepare",
+   "strategy"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00042",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.511,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0586",
+   "intent": "aiapget_cutoff",
+   "q": "How much rank is needed in AIAPGET entrance for a Govt. college?",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "b": {
+   "id": "B0557",
+   "intent": "aiapget_prep",
+   "q": "How to prepare for AIAPGET exam?",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "strategy"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00042",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.237,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0586",
+   "intent": "aiapget_cutoff",
+   "q": "How much rank is needed in AIAPGET entrance for a Govt. college?",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "b": {
+   "id": "B0839",
+   "intent": "aiapget_prep",
+   "q": "I am a final year BAMS student. aIAPGET ki taiyari kaise kare?",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "strategy"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00042",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.142,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0586",
+   "intent": "aiapget_cutoff",
+   "q": "How much rank is needed in AIAPGET entrance for a Govt. college?",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "b": {
+   "id": "B1060",
+   "intent": "aiapget_prep",
+   "q": "pg entrance exam preparation strategy for final year students",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "strategy"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00042",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.142,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0586",
+   "intent": "aiapget_cutoff",
+   "q": "How much rank is needed in AIAPGET entrance for a Govt. college?",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "b": {
+   "id": "B1158",
+   "intent": "aiapget_prep",
+   "q": "Ma'am, what is the best srtategy to crack PG entrance Please advise me.",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "strategy"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00042",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.156,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0586",
+   "intent": "aiapget_cutoff",
+   "q": "How much rank is needed in AIAPGET entrance for a Govt. college?",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "b": {
+   "id": "B0210",
+   "intent": "aiapget_prep",
+   "q": "Ma'am, how to prepare for PG entrance exam plz help",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "strategy"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00042",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.148,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0586",
+   "intent": "aiapget_cutoff",
+   "q": "How much rank is needed in AIAPGET entrance for a Govt. college?",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "b": {
+   "id": "B0577",
+   "intent": "aiapget_prep",
+   "q": "how to prepare for aapget entrance?",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "strategy"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00390",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.179,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0373",
+   "intent": "aiapget_prep",
+   "q": "i am an intern. how many hours should i study daily for ai-apget preparation?",
+   "ctx": "I passed BAMS in 2025."
+  },
+  "b": {
+   "id": "B0097",
+   "intent": "bams_future",
+   "q": "Is there scope for BAMS dotcors in the coming years Thank you.",
+   "ctx": "I am preparing for government exams also."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00390",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.301,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0256",
+   "intent": "aiapget_prep",
+   "q": "How many hours should I study daily for AIAPGET preparation Thank you.",
+   "ctx": "I am preparing for government exams also."
+  },
+  "b": {
+   "id": "B0097",
+   "intent": "bams_future",
+   "q": "Is there scope for BAMS dotcors in the coming years Thank you.",
+   "ctx": "I am preparing for government exams also."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00390",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.207,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0467",
+   "intent": "aiapget_prep",
+   "q": "How many hours sohuld I study daily for AI-APGET preparation?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0097",
+   "intent": "bams_future",
+   "q": "Is there scope for BAMS dotcors in the coming years Thank you.",
+   "ctx": "I am preparing for government exams also."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00390",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.271,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0122",
+   "intent": "aiapget_prep",
+   "q": "Respected mentor, pG entrance ki taiyari kaise kare?",
+   "ctx": "I want financial stability soon."
+  },
+  "b": {
+   "id": "B0097",
+   "intent": "bams_future",
+   "q": "Is there scope for BAMS dotcors in the coming years Thank you.",
+   "ctx": "I am preparing for government exams also."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00390",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.384,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0945",
+   "intent": "aiapget_prep",
+   "q": "PG entrance ki taiyari kaise kare?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0097",
+   "intent": "bams_future",
+   "q": "Is there scope for BAMS dotcors in the coming years Thank you.",
+   "ctx": "I am preparing for government exams also."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00390",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.257,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0023",
+   "intent": "aiapget_prep",
+   "q": "PG entrance exam preparation strategy for final year students",
+   "ctx": "I am from a small town in Odisha."
+  },
+  "b": {
+   "id": "B0097",
+   "intent": "bams_future",
+   "q": "Is there scope for BAMS dotcors in the coming years Thank you.",
+   "ctx": "I am preparing for government exams also."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00504",
+  "size": 5,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.454,
+  "repIntent": "thesis_topic",
+  "a": {
+   "id": "B0402",
+   "intent": "thesis_topic",
+   "q": "Dear mentor, how do I frame a research question for my thesis??",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "b": {
+   "id": "B0233",
+   "intent": "ug_research",
+   "q": "Hello sir, how can I start research as an undergraduate B.A.M.S. student?",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "shared": [
+   "research",
+   "frame",
+   "question",
+   "thesis"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00504",
+  "size": 5,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.085,
+  "repIntent": "thesis_topic",
+  "a": {
+   "id": "B0233",
+   "intent": "ug_research",
+   "q": "Hello sir, how can I start research as an undergraduate B.A.M.S. student?",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "b": {
+   "id": "B0643",
+   "intent": "thesis_topic",
+   "q": "how do i frame a research question for my thesis",
+   "ctx": "I want to work abroad in future."
+  },
+  "shared": [
+   "research",
+   "frame",
+   "question",
+   "thesis"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00504",
+  "size": 5,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.097,
+  "repIntent": "thesis_topic",
+  "a": {
+   "id": "B0233",
+   "intent": "ug_research",
+   "q": "Hello sir, how can I start research as an undergraduate B.A.M.S. student?",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "b": {
+   "id": "B0411",
+   "intent": "thesis_topic",
+   "q": "How do I frame a research question for my thesis?",
+   "ctx": ""
+  },
+  "shared": [
+   "research",
+   "frame",
+   "question",
+   "thesis"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00504",
+  "size": 5,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.097,
+  "repIntent": "thesis_topic",
+  "a": {
+   "id": "B0233",
+   "intent": "ug_research",
+   "q": "Hello sir, how can I start research as an undergraduate B.A.M.S. student?",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "b": {
+   "id": "B0436",
+   "intent": "thesis_topic",
+   "q": "Hello sir, how do I frame a research question for my thesis Please guide.",
+   "ctx": ""
+  },
+  "shared": [
+   "research",
+   "frame",
+   "question",
+   "thesis"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00020",
+  "size": 3,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.572,
+  "repIntent": "pg_or_practice",
+  "a": {
+   "id": "B0126",
+   "intent": "pg_branch",
+   "q": "Respected mentor, postgraduation me kaunsa branch lena chahiye?",
+   "ctx": "I want financial stability soon."
+  },
+  "b": {
+   "id": "B0383",
+   "intent": "pg_or_practice",
+   "q": "Which is better after B.A.M.S.: MD or practice?",
+   "ctx": "I want financial stability soon."
+  },
+  "shared": [
+   "PG",
+   "practice"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00020",
+  "size": 3,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.181,
+  "repIntent": "pg_or_practice",
+  "a": {
+   "id": "B0126",
+   "intent": "pg_branch",
+   "q": "Respected mentor, postgraduation me kaunsa branch lena chahiye?",
+   "ctx": "I want financial stability soon."
+  },
+  "b": {
+   "id": "B0826",
+   "intent": "pg_or_practice",
+   "q": "Which is better after BAMS: MD or practice?",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "practice"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00085",
+  "size": 3,
+  "viaPacking": true,
+  "sameFamily": true,
+  "score": 0.417,
+  "repIntent": "aiapget_books",
+  "a": {
+   "id": "B0326",
+   "intent": "aiapget_books",
+   "q": "best books for aiapget preparation?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0726",
+   "intent": "aiapget_prep",
+   "q": "Ma'am pG entarnce exam preparation strategy for final year students",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "AIAPGET",
+   "book",
+   "prepare"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00085",
+  "size": 3,
+  "viaPacking": true,
+  "sameFamily": true,
+  "score": 0.272,
+  "repIntent": "aiapget_books",
+  "a": {
+   "id": "B0515",
+   "intent": "aiapget_books",
+   "q": "namaste. aiapget ke liye best books kaunsi hai plz help",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0726",
+   "intent": "aiapget_prep",
+   "q": "Ma'am pG entarnce exam preparation strategy for final year students",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "AIAPGET",
+   "book",
+   "prepare"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00383",
+  "size": 3,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.45,
+  "repIntent": "after_bams",
+  "a": {
+   "id": "B0208",
+   "intent": "after_bams",
+   "q": "ma'am, career options after b.a.m.s. other than my own clinic?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0791",
+   "intent": "pg_or_practice",
+   "q": "What shold I do after bams — PG or clinic?",
+   "ctx": ""
+  },
+  "shared": [
+   "clinic"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00383",
+  "size": 3,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.45,
+  "repIntent": "after_bams",
+  "a": {
+   "id": "B0338",
+   "intent": "after_bams",
+   "q": "Career optinos after bams other than my own clinic?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0791",
+   "intent": "pg_or_practice",
+   "q": "What shold I do after bams — PG or clinic?",
+   "ctx": ""
+  },
+  "shared": [
+   "clinic"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": true,
+  "group": "C00397",
+  "size": 2,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.411,
+  "repIntent": "psc_prep",
+  "a": {
+   "id": "B1048",
+   "intent": "govt_jobs",
+   "q": "can bams doctrs get state government jobs?",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "b": {
+   "id": "B0182",
+   "intent": "psc_prep",
+   "q": "central government medical officer exam preparation tips",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "shared": [
+   "government"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00050",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.522,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0028",
+   "intent": "pg_branch",
+   "q": "I am a final year BAMS student. which MD branch is good for clinical practice?",
+   "ctx": "I passed BAMS in 2025."
+  },
+  "b": {
+   "id": "B0651",
+   "intent": "pg_or_practice",
+   "q": "I am a final year BAMS student which is beter after BAMS MD or clniical practice",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "clinical",
+   "practice",
+   "branch",
+   "internship"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00050",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.522,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0028",
+   "intent": "pg_branch",
+   "q": "I am a final year BAMS student. which MD branch is good for clinical practice?",
+   "ctx": "I passed BAMS in 2025."
+  },
+  "b": {
+   "id": "B0749",
+   "intent": "pg_or_practice",
+   "q": "I am an intern. which is better after B.A.M.S.: MD/MS or clinical practice Thank you.",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "clinical",
+   "practice",
+   "branch",
+   "internship"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00050",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.56,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0067",
+   "intent": "pg_branch",
+   "q": "I am an intern which post graduaton branch is good for clinical practice",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0651",
+   "intent": "pg_or_practice",
+   "q": "I am a final year BAMS student which is beter after BAMS MD or clniical practice",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "clinical",
+   "practice",
+   "branch",
+   "internship"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00050",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.56,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0067",
+   "intent": "pg_branch",
+   "q": "I am an intern which post graduaton branch is good for clinical practice",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0749",
+   "intent": "pg_or_practice",
+   "q": "I am an intern. which is better after B.A.M.S.: MD/MS or clinical practice Thank you.",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "clinical",
+   "practice",
+   "branch",
+   "internship"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00050",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.7,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0320",
+   "intent": "pg_branch",
+   "q": "Which MD Ayurveda branch is good for clniical practice Kindly suggest.",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0651",
+   "intent": "pg_or_practice",
+   "q": "I am a final year BAMS student which is beter after BAMS MD or clniical practice",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "clinical",
+   "practice",
+   "branch",
+   "internship"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00050",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.7,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0320",
+   "intent": "pg_branch",
+   "q": "Which MD Ayurveda branch is good for clniical practice Kindly suggest.",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0749",
+   "intent": "pg_or_practice",
+   "q": "I am an intern. which is better after B.A.M.S.: MD/MS or clinical practice Thank you.",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "clinical",
+   "practice",
+   "branch",
+   "internship"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00050",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.7,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0759",
+   "intent": "pg_branch",
+   "q": "Which post graduation branch is good for clinical practice?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0651",
+   "intent": "pg_or_practice",
+   "q": "I am a final year BAMS student which is beter after BAMS MD or clniical practice",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "clinical",
+   "practice",
+   "branch",
+   "internship"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00050",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.7,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0759",
+   "intent": "pg_branch",
+   "q": "Which post graduation branch is good for clinical practice?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0749",
+   "intent": "pg_or_practice",
+   "q": "I am an intern. which is better after B.A.M.S.: MD/MS or clinical practice Thank you.",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "clinical",
+   "practice",
+   "branch",
+   "internship"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00050",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.18,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0154",
+   "intent": "pg_branch",
+   "q": "I am an intern best MD branch for a good career",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0651",
+   "intent": "pg_or_practice",
+   "q": "I am a final year BAMS student which is beter after BAMS MD or clniical practice",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "clinical",
+   "practice",
+   "branch",
+   "internship"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00050",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.18,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0154",
+   "intent": "pg_branch",
+   "q": "I am an intern best MD branch for a good career",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0749",
+   "intent": "pg_or_practice",
+   "q": "I am an intern. which is better after B.A.M.S.: MD/MS or clinical practice Thank you.",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "clinical",
+   "practice",
+   "branch",
+   "internship"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00053",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.272,
+  "repIntent": "faculty_elig",
+  "a": {
+   "id": "B0093",
+   "intent": "faculty_elig",
+   "q": "Dear mentor, is PG compulsory to become an assistant professor?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "b": {
+   "id": "B0285",
+   "intent": "pg_worth",
+   "q": "Is PG compulsory to become a good Ayurveda doctor Please advise me.",
+   "ctx": "My family wants me to do PG."
+  },
+  "shared": [
+   "necessary",
+   "PG",
+   "faculty"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00053",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.247,
+  "repIntent": "faculty_elig",
+  "a": {
+   "id": "B0093",
+   "intent": "faculty_elig",
+   "q": "Dear mentor, is PG compulsory to become an assistant professor?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "b": {
+   "id": "B0552",
+   "intent": "pg_worth",
+   "q": "Kya PG course karna zaroori hai plz help",
+   "ctx": ""
+  },
+  "shared": [
+   "necessary",
+   "PG",
+   "faculty"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00053",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.302,
+  "repIntent": "faculty_elig",
+  "a": {
+   "id": "B0093",
+   "intent": "faculty_elig",
+   "q": "Dear mentor, is PG compulsory to become an assistant professor?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "b": {
+   "id": "B0083",
+   "intent": "pg_worth",
+   "q": "is pg compulsory to become a good ayurveda doctor?",
+   "ctx": ""
+  },
+  "shared": [
+   "necessary",
+   "PG",
+   "faculty"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00053",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.302,
+  "repIntent": "faculty_elig",
+  "a": {
+   "id": "B0093",
+   "intent": "faculty_elig",
+   "q": "Dear mentor, is PG compulsory to become an assistant professor?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "b": {
+   "id": "B0280",
+   "intent": "pg_worth",
+   "q": "Kya MD/MS karna zaroori hai?",
+   "ctx": ""
+  },
+  "shared": [
+   "necessary",
+   "PG",
+   "faculty"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00053",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.695,
+  "repIntent": "faculty_elig",
+  "a": {
+   "id": "B0471",
+   "intent": "faculty_elig",
+   "q": "is pg compulsory to become an assistant professor kindly suggest",
+   "ctx": "My family wants me to do PG."
+  },
+  "b": {
+   "id": "B0285",
+   "intent": "pg_worth",
+   "q": "Is PG compulsory to become a good Ayurveda doctor Please advise me.",
+   "ctx": "My family wants me to do PG."
+  },
+  "shared": [
+   "necessary",
+   "PG",
+   "faculty"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00053",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.384,
+  "repIntent": "faculty_elig",
+  "a": {
+   "id": "B0471",
+   "intent": "faculty_elig",
+   "q": "is pg compulsory to become an assistant professor kindly suggest",
+   "ctx": "My family wants me to do PG."
+  },
+  "b": {
+   "id": "B0552",
+   "intent": "pg_worth",
+   "q": "Kya PG course karna zaroori hai plz help",
+   "ctx": ""
+  },
+  "shared": [
+   "necessary",
+   "PG",
+   "faculty"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00053",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.514,
+  "repIntent": "faculty_elig",
+  "a": {
+   "id": "B0471",
+   "intent": "faculty_elig",
+   "q": "is pg compulsory to become an assistant professor kindly suggest",
+   "ctx": "My family wants me to do PG."
+  },
+  "b": {
+   "id": "B0083",
+   "intent": "pg_worth",
+   "q": "is pg compulsory to become a good ayurveda doctor?",
+   "ctx": ""
+  },
+  "shared": [
+   "necessary",
+   "PG",
+   "faculty"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00053",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.514,
+  "repIntent": "faculty_elig",
+  "a": {
+   "id": "B0471",
+   "intent": "faculty_elig",
+   "q": "is pg compulsory to become an assistant professor kindly suggest",
+   "ctx": "My family wants me to do PG."
+  },
+  "b": {
+   "id": "B0280",
+   "intent": "pg_worth",
+   "q": "Kya MD/MS karna zaroori hai?",
+   "ctx": ""
+  },
+  "shared": [
+   "necessary",
+   "PG",
+   "faculty"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00053",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.514,
+  "repIntent": "faculty_elig",
+  "a": {
+   "id": "B0285",
+   "intent": "pg_worth",
+   "q": "Is PG compulsory to become a good Ayurveda doctor Please advise me.",
+   "ctx": "My family wants me to do PG."
+  },
+  "b": {
+   "id": "B0401",
+   "intent": "faculty_elig",
+   "q": "Is PG compulsory to become an assistant professor?",
+   "ctx": ""
+  },
+  "shared": [
+   "necessary",
+   "PG",
+   "faculty"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00053",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.45,
+  "repIntent": "faculty_elig",
+  "a": {
+   "id": "B0401",
+   "intent": "faculty_elig",
+   "q": "Is PG compulsory to become an assistant professor?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0552",
+   "intent": "pg_worth",
+   "q": "Kya PG course karna zaroori hai plz help",
+   "ctx": ""
+  },
+  "shared": [
+   "necessary",
+   "PG",
+   "faculty"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00053",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.65,
+  "repIntent": "faculty_elig",
+  "a": {
+   "id": "B0401",
+   "intent": "faculty_elig",
+   "q": "Is PG compulsory to become an assistant professor?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0083",
+   "intent": "pg_worth",
+   "q": "is pg compulsory to become a good ayurveda doctor?",
+   "ctx": ""
+  },
+  "shared": [
+   "necessary",
+   "PG",
+   "faculty"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00053",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.65,
+  "repIntent": "faculty_elig",
+  "a": {
+   "id": "B0401",
+   "intent": "faculty_elig",
+   "q": "Is PG compulsory to become an assistant professor?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0280",
+   "intent": "pg_worth",
+   "q": "Kya MD/MS karna zaroori hai?",
+   "ctx": ""
+  },
+  "shared": [
+   "necessary",
+   "PG",
+   "faculty"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00054",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.572,
+  "repIntent": "pg_or_practice",
+  "a": {
+   "id": "B0126",
+   "intent": "pg_branch",
+   "q": "Respected mentor, postgraduation me kaunsa branch lena chahiye?",
+   "ctx": "I want financial stability soon."
+  },
+  "b": {
+   "id": "B0383",
+   "intent": "pg_or_practice",
+   "q": "Which is better after B.A.M.S.: MD or practice?",
+   "ctx": "I want financial stability soon."
+  },
+  "shared": [
+   "PG",
+   "practice",
+   "private"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00054",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.181,
+  "repIntent": "pg_or_practice",
+  "a": {
+   "id": "B0126",
+   "intent": "pg_branch",
+   "q": "Respected mentor, postgraduation me kaunsa branch lena chahiye?",
+   "ctx": "I want financial stability soon."
+  },
+  "b": {
+   "id": "B0826",
+   "intent": "pg_or_practice",
+   "q": "Which is better after BAMS: MD or practice?",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "practice",
+   "private"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00054",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.181,
+  "repIntent": "pg_or_practice",
+  "a": {
+   "id": "B0126",
+   "intent": "pg_branch",
+   "q": "Respected mentor, postgraduation me kaunsa branch lena chahiye?",
+   "ctx": "I want financial stability soon."
+  },
+  "b": {
+   "id": "B1100",
+   "intent": "pg_or_practice",
+   "q": "hello sir, what should i do after bams — md/ms or practice?",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "practice",
+   "private"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00054",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.108,
+  "repIntent": "pg_or_practice",
+  "a": {
+   "id": "B0126",
+   "intent": "pg_branch",
+   "q": "Respected mentor, postgraduation me kaunsa branch lena chahiye?",
+   "ctx": "I want financial stability soon."
+  },
+  "b": {
+   "id": "B0779",
+   "intent": "pg_or_practice",
+   "q": "Shuld I do MD/MS or start private practie after BAMS?",
+   "ctx": "I want to settle in my hometown."
+  },
+  "shared": [
+   "PG",
+   "practice",
+   "private"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00054",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.124,
+  "repIntent": "pg_or_practice",
+  "a": {
+   "id": "B0126",
+   "intent": "pg_branch",
+   "q": "Respected mentor, postgraduation me kaunsa branch lena chahiye?",
+   "ctx": "I want financial stability soon."
+  },
+  "b": {
+   "id": "B0603",
+   "intent": "pg_or_practice",
+   "q": "I am a final year BAMS student. what should I do after B.A.M.S. — MD Ayurveda or private practice?",
+   "ctx": "I am interested in Panchakarma."
+  },
+  "shared": [
+   "PG",
+   "practice",
+   "private"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00054",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.144,
+  "repIntent": "pg_or_practice",
+  "a": {
+   "id": "B0126",
+   "intent": "pg_branch",
+   "q": "Respected mentor, postgraduation me kaunsa branch lena chahiye?",
+   "ctx": "I want financial stability soon."
+  },
+  "b": {
+   "id": "B1031",
+   "intent": "pg_or_practice",
+   "q": "Ma'am, what should I do after B.A.M.S. — MD/MS or practise?",
+   "ctx": "I am from a small town in Odisha."
+  },
+  "shared": [
+   "PG",
+   "practice",
+   "private"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00056",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.511,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0202",
+   "intent": "aiapget_prep",
+   "q": "How many hours shuold I study daily for AIAPGET preparation?",
+   "ctx": "I want financial stability soon."
+  },
+  "b": {
+   "id": "B1097",
+   "intent": "aiapget_books",
+   "q": "Best books for AIAPGET preparation?",
+   "ctx": "I want financial stability soon."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00056",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.307,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0444",
+   "intent": "aiapget_prep",
+   "q": "How many hours should I study daily for AIAPGET preparation?",
+   "ctx": "My family wants me to do PG."
+  },
+  "b": {
+   "id": "B1097",
+   "intent": "aiapget_books",
+   "q": "Best books for AIAPGET preparation?",
+   "ctx": "I want financial stability soon."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00056",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.307,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0701",
+   "intent": "aiapget_prep",
+   "q": "how many hours should i study daily for aiapget entrance preparation please advise me.",
+   "ctx": "I am preparing for government exams also."
+  },
+  "b": {
+   "id": "B1097",
+   "intent": "aiapget_books",
+   "q": "Best books for AIAPGET preparation?",
+   "ctx": "I want financial stability soon."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00056",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.331,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B1097",
+   "intent": "aiapget_books",
+   "q": "Best books for AIAPGET preparation?",
+   "ctx": "I want financial stability soon."
+  },
+  "b": {
+   "id": "B0049",
+   "intent": "aiapget_prep",
+   "q": "How many hours should I study daily for AIAPGET preparation?",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00056",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.246,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B1097",
+   "intent": "aiapget_books",
+   "q": "Best books for AIAPGET preparation?",
+   "ctx": "I want financial stability soon."
+  },
+  "b": {
+   "id": "B0321",
+   "intent": "aiapget_prep",
+   "q": "How many hours should I study daily for PG entrance preparation?",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00056",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.378,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B1097",
+   "intent": "aiapget_books",
+   "q": "Best books for AIAPGET preparation?",
+   "ctx": "I want financial stability soon."
+  },
+  "b": {
+   "id": "B0357",
+   "intent": "aiapget_prep",
+   "q": "how do i plan my aiapget exam preparation?",
+   "ctx": "My family wants me to do PG."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00059",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.421,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0324",
+   "intent": "aiapget_prep",
+   "q": "what is the best strategy to crack aiaget entrance?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "b": {
+   "id": "B1169",
+   "intent": "pg_or_practice",
+   "q": "WHAT SHOULD I DO AFTER BAMS — POST GRADUATION OR PRACTISE?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "shared": [
+   "AIAPGET",
+   "exam",
+   "PG",
+   "crack",
+   "prepare"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00059",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.588,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0413",
+   "intent": "aiapget_prep",
+   "q": "How to prepare for AIAPGET?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "b": {
+   "id": "B1169",
+   "intent": "pg_or_practice",
+   "q": "WHAT SHOULD I DO AFTER BAMS — POST GRADUATION OR PRACTISE?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "shared": [
+   "AIAPGET",
+   "exam",
+   "PG",
+   "crack",
+   "prepare"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00059",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.217,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B1169",
+   "intent": "pg_or_practice",
+   "q": "WHAT SHOULD I DO AFTER BAMS — POST GRADUATION OR PRACTISE?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "b": {
+   "id": "B0203",
+   "intent": "aiapget_prep",
+   "q": "How to prepare for AIAPGET?",
+   "ctx": "My parents are doctors."
+  },
+  "shared": [
+   "AIAPGET",
+   "exam",
+   "PG",
+   "crack",
+   "prepare"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00059",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.208,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B1169",
+   "intent": "pg_or_practice",
+   "q": "WHAT SHOULD I DO AFTER BAMS — POST GRADUATION OR PRACTISE?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "b": {
+   "id": "B0917",
+   "intent": "aiapget_prep",
+   "q": "what is the best strategy to crack aiapget?",
+   "ctx": ""
+  },
+  "shared": [
+   "AIAPGET",
+   "exam",
+   "PG",
+   "crack",
+   "prepare"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00059",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.208,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B1169",
+   "intent": "pg_or_practice",
+   "q": "WHAT SHOULD I DO AFTER BAMS — POST GRADUATION OR PRACTISE?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "b": {
+   "id": "B1090",
+   "intent": "aiapget_prep",
+   "q": "I am an intern. what is the best startegy to crack AIAPGET?",
+   "ctx": ""
+  },
+  "shared": [
+   "AIAPGET",
+   "exam",
+   "PG",
+   "crack",
+   "prepare"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00059",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.208,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B1169",
+   "intent": "pg_or_practice",
+   "q": "WHAT SHOULD I DO AFTER BAMS — POST GRADUATION OR PRACTISE?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "b": {
+   "id": "B1141",
+   "intent": "aiapget_prep",
+   "q": "How do I plan my AIAPGET preparation?",
+   "ctx": ""
+  },
+  "shared": [
+   "AIAPGET",
+   "exam",
+   "PG",
+   "crack",
+   "prepare"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00064",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": true,
+  "score": 0.107,
+  "repIntent": "aiapget_cutoff",
+  "a": {
+   "id": "B0764",
+   "intent": "aiapget_cutoff",
+   "q": "Respected mentor, expected PG entrance exam cut off for Kayachikitsa in a govt college",
+   "ctx": "I scored average marks in university exams."
+  },
+  "b": {
+   "id": "B0557",
+   "intent": "aiapget_prep",
+   "q": "How to prepare for AIAPGET exam?",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "college",
+   "government",
+   "AIAPGET"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00064",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": true,
+  "score": 0.179,
+  "repIntent": "aiapget_cutoff",
+  "a": {
+   "id": "B0110",
+   "intent": "aiapget_cutoff",
+   "q": "Expcted AI-APGET cut off for Kayachikitsa in a govt college",
+   "ctx": "I am from a small town in Odisha."
+  },
+  "b": {
+   "id": "B0557",
+   "intent": "aiapget_prep",
+   "q": "How to prepare for AIAPGET exam?",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "college",
+   "government",
+   "AIAPGET"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00064",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": true,
+  "score": 0.199,
+  "repIntent": "aiapget_cutoff",
+  "a": {
+   "id": "B0283",
+   "intent": "aiapget_cutoff",
+   "q": "Expected AIAPGET cut off for Kayachikitsa in a govt clolege",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0557",
+   "intent": "aiapget_prep",
+   "q": "How to prepare for AIAPGET exam?",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "college",
+   "government",
+   "AIAPGET"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00064",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": true,
+  "score": 0.199,
+  "repIntent": "aiapget_cutoff",
+  "a": {
+   "id": "B0569",
+   "intent": "aiapget_cutoff",
+   "q": "dear mentor, expected aiapget cut off for kayachikitsa in a govt college",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0557",
+   "intent": "aiapget_prep",
+   "q": "How to prepare for AIAPGET exam?",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "college",
+   "government",
+   "AIAPGET"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00064",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.511,
+  "repIntent": "aiapget_cutoff",
+  "a": {
+   "id": "B0586",
+   "intent": "aiapget_cutoff",
+   "q": "How much rank is needed in AIAPGET entrance for a Govt. college?",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "b": {
+   "id": "B0557",
+   "intent": "aiapget_prep",
+   "q": "How to prepare for AIAPGET exam?",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "college",
+   "government",
+   "AIAPGET"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00064",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.156,
+  "repIntent": "aiapget_cutoff",
+  "a": {
+   "id": "B0557",
+   "intent": "aiapget_prep",
+   "q": "How to prepare for AIAPGET exam?",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "b": {
+   "id": "B0328",
+   "intent": "aiapget_cutoff",
+   "q": "How much rank is needed in PG entrance for a government college?",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "college",
+   "government",
+   "AIAPGET"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00218",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.5,
+  "repIntent": "startup_funding",
+  "a": {
+   "id": "B0545",
+   "intent": "incubation",
+   "q": "how to apply to an inccubator for my startup thank you",
+   "ctx": "I have an education loan to repay."
+  },
+  "b": {
+   "id": "B0460",
+   "intent": "startup_funding",
+   "q": "How do I get funding for my Ayurveda startup?",
+   "ctx": "I have an education loan to repay."
+  },
+  "shared": [
+   "startup",
+   "funding",
+   "apply",
+   "incubation"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00218",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.124,
+  "repIntent": "startup_funding",
+  "a": {
+   "id": "B0545",
+   "intent": "incubation",
+   "q": "how to apply to an inccubator for my startup thank you",
+   "ctx": "I have an education loan to repay."
+  },
+  "b": {
+   "id": "B0921",
+   "intent": "startup_funding",
+   "q": "How do I get funding for my Ayurveda startup Please guide.",
+   "ctx": "I am interested in Panchakarma."
+  },
+  "shared": [
+   "startup",
+   "funding",
+   "apply",
+   "incubation"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00218",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.15,
+  "repIntent": "startup_funding",
+  "a": {
+   "id": "B0545",
+   "intent": "incubation",
+   "q": "how to apply to an inccubator for my startup thank you",
+   "ctx": "I have an education loan to repay."
+  },
+  "b": {
+   "id": "B0500",
+   "intent": "startup_funding",
+   "q": "How do I get funding for my Ayurveda startup?",
+   "ctx": ""
+  },
+  "shared": [
+   "startup",
+   "funding",
+   "apply",
+   "incubation"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00218",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.15,
+  "repIntent": "startup_funding",
+  "a": {
+   "id": "B0545",
+   "intent": "incubation",
+   "q": "how to apply to an inccubator for my startup thank you",
+   "ctx": "I have an education loan to repay."
+  },
+  "b": {
+   "id": "B0897",
+   "intent": "startup_funding",
+   "q": "How do I get fuding for my Ayurveda startup Please advise me.",
+   "ctx": ""
+  },
+  "shared": [
+   "startup",
+   "funding",
+   "apply",
+   "incubation"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00218",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.128,
+  "repIntent": "startup_funding",
+  "a": {
+   "id": "B0545",
+   "intent": "incubation",
+   "q": "how to apply to an inccubator for my startup thank you",
+   "ctx": "I have an education loan to repay."
+  },
+  "b": {
+   "id": "B0551",
+   "intent": "startup_funding",
+   "q": "Angel investors for Ayurveda startups plz help",
+   "ctx": ""
+  },
+  "shared": [
+   "startup",
+   "funding",
+   "apply",
+   "incubation"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00218",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.15,
+  "repIntent": "startup_funding",
+  "a": {
+   "id": "B0460",
+   "intent": "startup_funding",
+   "q": "How do I get funding for my Ayurveda startup?",
+   "ctx": "I have an education loan to repay."
+  },
+  "b": {
+   "id": "B0553",
+   "intent": "incubation",
+   "q": "How to apply to an incubaor for my startup?",
+   "ctx": ""
+  },
+  "shared": [
+   "startup",
+   "funding",
+   "apply",
+   "incubation"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00218",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.168,
+  "repIntent": "startup_funding",
+  "a": {
+   "id": "B0921",
+   "intent": "startup_funding",
+   "q": "How do I get funding for my Ayurveda startup Please guide.",
+   "ctx": "I am interested in Panchakarma."
+  },
+  "b": {
+   "id": "B0553",
+   "intent": "incubation",
+   "q": "How to apply to an incubaor for my startup?",
+   "ctx": ""
+  },
+  "shared": [
+   "startup",
+   "funding",
+   "apply",
+   "incubation"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00218",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.225,
+  "repIntent": "startup_funding",
+  "a": {
+   "id": "B0553",
+   "intent": "incubation",
+   "q": "How to apply to an incubaor for my startup?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0500",
+   "intent": "startup_funding",
+   "q": "How do I get funding for my Ayurveda startup?",
+   "ctx": ""
+  },
+  "shared": [
+   "startup",
+   "funding",
+   "apply",
+   "incubation"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00218",
+  "size": 7,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.225,
+  "repIntent": "startup_funding",
+  "a": {
+   "id": "B0553",
+   "intent": "incubation",
+   "q": "How to apply to an incubaor for my startup?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0897",
+   "intent": "startup_funding",
+   "q": "How do I get fuding for my Ayurveda startup Please advise me.",
+   "ctx": ""
+  },
+  "shared": [
+   "startup",
+   "funding",
+   "apply",
+   "incubation"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00218",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.18,
+  "repIntent": "startup_funding",
+  "a": {
+   "id": "B0553",
+   "intent": "incubation",
+   "q": "How to apply to an incubaor for my startup?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0551",
+   "intent": "startup_funding",
+   "q": "Angel investors for Ayurveda startups plz help",
+   "ctx": ""
+  },
+  "shared": [
+   "startup",
+   "funding",
+   "apply",
+   "incubation"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00316",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.179,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0373",
+   "intent": "aiapget_prep",
+   "q": "i am an intern. how many hours should i study daily for ai-apget preparation?",
+   "ctx": "I passed BAMS in 2025."
+  },
+  "b": {
+   "id": "B0097",
+   "intent": "bams_future",
+   "q": "Is there scope for BAMS dotcors in the coming years Thank you.",
+   "ctx": "I am preparing for government exams also."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00316",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.301,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0256",
+   "intent": "aiapget_prep",
+   "q": "How many hours should I study daily for AIAPGET preparation Thank you.",
+   "ctx": "I am preparing for government exams also."
+  },
+  "b": {
+   "id": "B0097",
+   "intent": "bams_future",
+   "q": "Is there scope for BAMS dotcors in the coming years Thank you.",
+   "ctx": "I am preparing for government exams also."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00316",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.207,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0467",
+   "intent": "aiapget_prep",
+   "q": "How many hours sohuld I study daily for AI-APGET preparation?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0097",
+   "intent": "bams_future",
+   "q": "Is there scope for BAMS dotcors in the coming years Thank you.",
+   "ctx": "I am preparing for government exams also."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00316",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.271,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0122",
+   "intent": "aiapget_prep",
+   "q": "Respected mentor, pG entrance ki taiyari kaise kare?",
+   "ctx": "I want financial stability soon."
+  },
+  "b": {
+   "id": "B0097",
+   "intent": "bams_future",
+   "q": "Is there scope for BAMS dotcors in the coming years Thank you.",
+   "ctx": "I am preparing for government exams also."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00316",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.384,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0945",
+   "intent": "aiapget_prep",
+   "q": "PG entrance ki taiyari kaise kare?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0097",
+   "intent": "bams_future",
+   "q": "Is there scope for BAMS dotcors in the coming years Thank you.",
+   "ctx": "I am preparing for government exams also."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00316",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.257,
+  "repIntent": "aiapget_prep",
+  "a": {
+   "id": "B0023",
+   "intent": "aiapget_prep",
+   "q": "PG entrance exam preparation strategy for final year students",
+   "ctx": "I am from a small town in Odisha."
+  },
+  "b": {
+   "id": "B0097",
+   "intent": "bams_future",
+   "q": "Is there scope for BAMS dotcors in the coming years Thank you.",
+   "ctx": "I am preparing for government exams also."
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "prepare",
+   "AIAPGET",
+   "daily"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00380",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.492,
+  "repIntent": "abroad_countries",
+  "a": {
+   "id": "B0548",
+   "intent": "abroad_countries",
+   "q": "Sir, in which countries can I practise Ayurveda abroad Kindly suggest.",
+   "ctx": "I passed BAMS in 2025."
+  },
+  "b": {
+   "id": "B1113",
+   "intent": "abroad_licence",
+   "q": "Which exams must I pass to practise overseas Thank you",
+   "ctx": ""
+  },
+  "shared": [
+   "abroad",
+   "practice",
+   "countries"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00380",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.385,
+  "repIntent": "abroad_countries",
+  "a": {
+   "id": "B0011",
+   "intent": "abroad_countries",
+   "q": "In which countries can I practise Ayurveda in foreign countries?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B1113",
+   "intent": "abroad_licence",
+   "q": "Which exams must I pass to practise overseas Thank you",
+   "ctx": ""
+  },
+  "shared": [
+   "abroad",
+   "practice",
+   "countries"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00380",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.385,
+  "repIntent": "abroad_countries",
+  "a": {
+   "id": "B0188",
+   "intent": "abroad_countries",
+   "q": "in which countries can i practise ayurveda abroad?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B1113",
+   "intent": "abroad_licence",
+   "q": "Which exams must I pass to practise overseas Thank you",
+   "ctx": ""
+  },
+  "shared": [
+   "abroad",
+   "practice",
+   "countries"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00380",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.385,
+  "repIntent": "abroad_countries",
+  "a": {
+   "id": "B0477",
+   "intent": "abroad_countries",
+   "q": "In which countries can I practise Ayurveda overseas?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B1113",
+   "intent": "abroad_licence",
+   "q": "Which exams must I pass to practise overseas Thank you",
+   "ctx": ""
+  },
+  "shared": [
+   "abroad",
+   "practice",
+   "countries"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00380",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.385,
+  "repIntent": "abroad_countries",
+  "a": {
+   "id": "B0680",
+   "intent": "abroad_countries",
+   "q": "In which countries can I practise Ayurveda abroad Kindly suggest.",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B1113",
+   "intent": "abroad_licence",
+   "q": "Which exams must I pass to practise overseas Thank you",
+   "ctx": ""
+  },
+  "shared": [
+   "abroad",
+   "practice",
+   "countries"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00380",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.385,
+  "repIntent": "abroad_countries",
+  "a": {
+   "id": "B0866",
+   "intent": "abroad_countries",
+   "q": "hello sir, in which countries can i practise ayurveda abroad?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B1113",
+   "intent": "abroad_licence",
+   "q": "Which exams must I pass to practise overseas Thank you",
+   "ctx": ""
+  },
+  "shared": [
+   "abroad",
+   "practice",
+   "countries"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00048",
+  "size": 6,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.503,
+  "repIntent": "leadership",
+  "a": {
+   "id": "B0823",
+   "intent": "faculty_elig",
+   "q": "dear mentor, what is the eligibility to become a lecturer in an ayurveda college?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "b": {
+   "id": "B0950",
+   "intent": "leadership",
+   "q": "Sir, how to become a principal of an Ayurveda college?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "shared": [
+   "college",
+   "eligibility",
+   "faculty",
+   "principal"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00048",
+  "size": 6,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.083,
+  "repIntent": "leadership",
+  "a": {
+   "id": "B0823",
+   "intent": "faculty_elig",
+   "q": "dear mentor, what is the eligibility to become a lecturer in an ayurveda college?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "b": {
+   "id": "B0294",
+   "intent": "leadership",
+   "q": "how to become a principal of an ayurveda college?",
+   "ctx": "I want financial stability soon."
+  },
+  "shared": [
+   "college",
+   "eligibility",
+   "faculty",
+   "principal"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00048",
+  "size": 6,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.089,
+  "repIntent": "leadership",
+  "a": {
+   "id": "B0823",
+   "intent": "faculty_elig",
+   "q": "dear mentor, what is the eligibility to become a lecturer in an ayurveda college?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "b": {
+   "id": "B0180",
+   "intent": "leadership",
+   "q": "HOW TO BECOME A PRINCIPAL OF AN AYURVEDA COLLEGE PLEASE ADVISE ME.",
+   "ctx": "My family wants me to do PG."
+  },
+  "shared": [
+   "college",
+   "eligibility",
+   "faculty",
+   "principal"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00048",
+  "size": 6,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.105,
+  "repIntent": "leadership",
+  "a": {
+   "id": "B0950",
+   "intent": "leadership",
+   "q": "Sir, how to become a principal of an Ayurveda college?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "b": {
+   "id": "B0705",
+   "intent": "faculty_elig",
+   "q": "What is the eligibility to become a lecturer in an Ayurveda college?",
+   "ctx": ""
+  },
+  "shared": [
+   "college",
+   "eligibility",
+   "faculty",
+   "principal"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00048",
+  "size": 6,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.105,
+  "repIntent": "leadership",
+  "a": {
+   "id": "B0950",
+   "intent": "leadership",
+   "q": "Sir, how to become a principal of an Ayurveda college?",
+   "ctx": "I scored average marks in university exams."
+  },
+  "b": {
+   "id": "B0761",
+   "intent": "faculty_elig",
+   "q": "Namaste. what is the eligibility to become a lecturer in an Ayurveda college plz help",
+   "ctx": ""
+  },
+  "shared": [
+   "college",
+   "eligibility",
+   "faculty",
+   "principal"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00048",
+  "size": 6,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.128,
+  "repIntent": "leadership",
+  "a": {
+   "id": "B0294",
+   "intent": "leadership",
+   "q": "how to become a principal of an ayurveda college?",
+   "ctx": "I want financial stability soon."
+  },
+  "b": {
+   "id": "B0705",
+   "intent": "faculty_elig",
+   "q": "What is the eligibility to become a lecturer in an Ayurveda college?",
+   "ctx": ""
+  },
+  "shared": [
+   "college",
+   "eligibility",
+   "faculty",
+   "principal"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00048",
+  "size": 6,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.128,
+  "repIntent": "leadership",
+  "a": {
+   "id": "B0294",
+   "intent": "leadership",
+   "q": "how to become a principal of an ayurveda college?",
+   "ctx": "I want financial stability soon."
+  },
+  "b": {
+   "id": "B0761",
+   "intent": "faculty_elig",
+   "q": "Namaste. what is the eligibility to become a lecturer in an Ayurveda college plz help",
+   "ctx": ""
+  },
+  "shared": [
+   "college",
+   "eligibility",
+   "faculty",
+   "principal"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00048",
+  "size": 6,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.143,
+  "repIntent": "leadership",
+  "a": {
+   "id": "B0180",
+   "intent": "leadership",
+   "q": "HOW TO BECOME A PRINCIPAL OF AN AYURVEDA COLLEGE PLEASE ADVISE ME.",
+   "ctx": "My family wants me to do PG."
+  },
+  "b": {
+   "id": "B0705",
+   "intent": "faculty_elig",
+   "q": "What is the eligibility to become a lecturer in an Ayurveda college?",
+   "ctx": ""
+  },
+  "shared": [
+   "college",
+   "eligibility",
+   "faculty",
+   "principal"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00048",
+  "size": 6,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.143,
+  "repIntent": "leadership",
+  "a": {
+   "id": "B0180",
+   "intent": "leadership",
+   "q": "HOW TO BECOME A PRINCIPAL OF AN AYURVEDA COLLEGE PLEASE ADVISE ME.",
+   "ctx": "My family wants me to do PG."
+  },
+  "b": {
+   "id": "B0761",
+   "intent": "faculty_elig",
+   "q": "Namaste. what is the eligibility to become a lecturer in an Ayurveda college plz help",
+   "ctx": ""
+  },
+  "shared": [
+   "college",
+   "eligibility",
+   "faculty",
+   "principal"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00043",
+  "size": 5,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.181,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0424",
+   "intent": "pg_branch",
+   "q": "sir, which postgraduation branch has the best scope?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B1025",
+   "intent": "pg_worth",
+   "q": "is md/ms necesary for a good career after bams?",
+   "ctx": "I like clinical work more than theory."
+  },
+  "shared": [
+   "PG",
+   "branch"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00043",
+  "size": 5,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.181,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0696",
+   "intent": "pg_branch",
+   "q": "I am an intern. best PG branch for a good career?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B1025",
+   "intent": "pg_worth",
+   "q": "is md/ms necesary for a good career after bams?",
+   "ctx": "I like clinical work more than theory."
+  },
+  "shared": [
+   "PG",
+   "branch"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00043",
+  "size": 5,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.181,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B0805",
+   "intent": "pg_branch",
+   "q": "MD me kaunsa branch lena chahiye?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B1025",
+   "intent": "pg_worth",
+   "q": "is md/ms necesary for a good career after bams?",
+   "ctx": "I like clinical work more than theory."
+  },
+  "shared": [
+   "PG",
+   "branch"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00043",
+  "size": 5,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.572,
+  "repIntent": "pg_branch",
+  "a": {
+   "id": "B1025",
+   "intent": "pg_worth",
+   "q": "is md/ms necesary for a good career after bams?",
+   "ctx": "I like clinical work more than theory."
+  },
+  "b": {
+   "id": "B1155",
+   "intent": "pg_branch",
+   "q": "Which masters branch has the best scope?",
+   "ctx": "I like clinical work more than theory."
+  },
+  "shared": [
+   "PG",
+   "branch"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00162",
+  "size": 5,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.303,
+  "repIntent": "clinic_cost",
+  "a": {
+   "id": "B0061",
+   "intent": "clinic_cost",
+   "q": "How much money is needed to begin a small own clinic?",
+   "ctx": "I want to settle in my hometown."
+  },
+  "b": {
+   "id": "B0309",
+   "intent": "pg_or_practice",
+   "q": "Is postgraduation better than starting my own clinic?",
+   "ctx": ""
+  },
+  "shared": [
+   "clinic",
+   "start",
+   "cost"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00162",
+  "size": 5,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.383,
+  "repIntent": "clinic_cost",
+  "a": {
+   "id": "B0787",
+   "intent": "clinic_cost",
+   "q": "clinic establish karne me kitna kharcha aayega?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0309",
+   "intent": "pg_or_practice",
+   "q": "Is postgraduation better than starting my own clinic?",
+   "ctx": ""
+  },
+  "shared": [
+   "clinic",
+   "start",
+   "cost"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00162",
+  "size": 5,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.411,
+  "repIntent": "clinic_cost",
+  "a": {
+   "id": "B0947",
+   "intent": "clinic_cost",
+   "q": "How much money is needed to start a small clinic?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0309",
+   "intent": "pg_or_practice",
+   "q": "Is postgraduation better than starting my own clinic?",
+   "ctx": ""
+  },
+  "shared": [
+   "clinic",
+   "start",
+   "cost"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00162",
+  "size": 5,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.255,
+  "repIntent": "clinic_cost",
+  "a": {
+   "id": "B0309",
+   "intent": "pg_or_practice",
+   "q": "Is postgraduation better than starting my own clinic?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0724",
+   "intent": "clinic_cost",
+   "q": "own clinic establish karne me kitna kharcha aayega?",
+   "ctx": "I like clinical work more than theory."
+  },
+  "shared": [
+   "clinic",
+   "start",
+   "cost"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00038",
+  "size": 4,
+  "viaPacking": true,
+  "sameFamily": true,
+  "score": 0.306,
+  "repIntent": "aiapget_books",
+  "a": {
+   "id": "B0015",
+   "intent": "aiapget_books",
+   "q": "namaste. best books for aiapet entrance preparation please guide.",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0676",
+   "intent": "aiapget_prep",
+   "q": "How do I plan my aiaapget preparation?",
+   "ctx": ""
+  },
+  "shared": [
+   "AIAPGET",
+   "book",
+   "prepare"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00038",
+  "size": 4,
+  "viaPacking": true,
+  "sameFamily": true,
+  "score": 0.411,
+  "repIntent": "aiapget_books",
+  "a": {
+   "id": "B1115",
+   "intent": "aiapget_books",
+   "q": "best books for aiapgget preparation?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0676",
+   "intent": "aiapget_prep",
+   "q": "How do I plan my aiaapget preparation?",
+   "ctx": ""
+  },
+  "shared": [
+   "AIAPGET",
+   "book",
+   "prepare"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00038",
+  "size": 4,
+  "viaPacking": true,
+  "sameFamily": true,
+  "score": 0.191,
+  "repIntent": "aiapget_books",
+  "a": {
+   "id": "B0655",
+   "intent": "aiapget_books",
+   "q": "aiapegt ke liye best books kaunsi hai plz help",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0676",
+   "intent": "aiapget_prep",
+   "q": "How do I plan my aiaapget preparation?",
+   "ctx": ""
+  },
+  "shared": [
+   "AIAPGET",
+   "book",
+   "prepare"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00309",
+  "size": 3,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.45,
+  "repIntent": "after_bams",
+  "a": {
+   "id": "B0208",
+   "intent": "after_bams",
+   "q": "ma'am, career options after b.a.m.s. other than my own clinic?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0791",
+   "intent": "pg_or_practice",
+   "q": "What shold I do after bams — PG or clinic?",
+   "ctx": ""
+  },
+  "shared": [
+   "clinic"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00309",
+  "size": 3,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.45,
+  "repIntent": "after_bams",
+  "a": {
+   "id": "B0338",
+   "intent": "after_bams",
+   "q": "Career optinos after bams other than my own clinic?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0791",
+   "intent": "pg_or_practice",
+   "q": "What shold I do after bams — PG or clinic?",
+   "ctx": ""
+  },
+  "shared": [
+   "clinic"
+  ]
+ },
+ {
+  "dataset": "A-1200",
+  "useSub": false,
+  "group": "C00339",
+  "size": 2,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.411,
+  "repIntent": "psc_prep",
+  "a": {
+   "id": "B1048",
+   "intent": "govt_jobs",
+   "q": "can bams doctrs get state government jobs?",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "b": {
+   "id": "B0182",
+   "intent": "psc_prep",
+   "q": "central government medical officer exam preparation tips",
+   "ctx": "I am from a rural area and family support is limited."
+  },
+  "shared": [
+   "government"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00049",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.365,
+  "repIntent": "aiapget-start-timing",
+  "a": {
+   "id": "B0439",
+   "intent": "aiapget-start-timing",
+   "q": "kab se AIAPGET ki taiyari start karni chahiye?",
+   "ctx": "Intern, Uttar Pradesh"
+  },
+  "b": {
+   "id": "B0032",
+   "intent": "pg-drop-year",
+   "q": "Should I take a drop year after internship only for AIAPGET?",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "AIAPGET",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00049",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.289,
+  "repIntent": "aiapget-start-timing",
+  "a": {
+   "id": "B0439",
+   "intent": "aiapget-start-timing",
+   "q": "kab se AIAPGET ki taiyari start karni chahiye?",
+   "ctx": "Intern, Uttar Pradesh"
+  },
+  "b": {
+   "id": "B0170",
+   "intent": "aiapget-attempt-limit",
+   "q": "How many attempts are allowed in AIAPGET?",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "AIAPGET",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00049",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.422,
+  "repIntent": "aiapget-start-timing",
+  "a": {
+   "id": "B0294",
+   "intent": "aiapget-start-timing",
+   "q": "When should I start preparing for AIAPGET — final year or during internship?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0032",
+   "intent": "pg-drop-year",
+   "q": "Should I take a drop year after internship only for AIAPGET?",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "AIAPGET",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00049",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.325,
+  "repIntent": "aiapget-start-timing",
+  "a": {
+   "id": "B0294",
+   "intent": "aiapget-start-timing",
+   "q": "When should I start preparing for AIAPGET — final year or during internship?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0170",
+   "intent": "aiapget-attempt-limit",
+   "q": "How many attempts are allowed in AIAPGET?",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "AIAPGET",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00049",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.292,
+  "repIntent": "aiapget-start-timing",
+  "a": {
+   "id": "B0032",
+   "intent": "pg-drop-year",
+   "q": "Should I take a drop year after internship only for AIAPGET?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0066",
+   "intent": "aiapget-start-timing",
+   "q": "Should I start aiapget prep from 2nd year itself",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "AIAPGET",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00049",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.366,
+  "repIntent": "aiapget-start-timing",
+  "a": {
+   "id": "B0032",
+   "intent": "pg-drop-year",
+   "q": "Should I take a drop year after internship only for AIAPGET?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0110",
+   "intent": "aiapget-start-timing",
+   "q": "How many months of preparation is needed for AIAPGET?",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "AIAPGET",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00049",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.366,
+  "repIntent": "aiapget-start-timing",
+  "a": {
+   "id": "B0032",
+   "intent": "pg-drop-year",
+   "q": "Should I take a drop year after internship only for AIAPGET?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0170",
+   "intent": "aiapget-attempt-limit",
+   "q": "How many attempts are allowed in AIAPGET?",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "AIAPGET",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00049",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.213,
+  "repIntent": "aiapget-start-timing",
+  "a": {
+   "id": "B0032",
+   "intent": "pg-drop-year",
+   "q": "Should I take a drop year after internship only for AIAPGET?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0462",
+   "intent": "aiapget-start-timing",
+   "q": "Right time to start PG entrace preparation?",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "AIAPGET",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00049",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.325,
+  "repIntent": "aiapget-start-timing",
+  "a": {
+   "id": "B0066",
+   "intent": "aiapget-start-timing",
+   "q": "Should I start aiapget prep from 2nd year itself",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0170",
+   "intent": "aiapget-attempt-limit",
+   "q": "How many attempts are allowed in AIAPGET?",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "AIAPGET",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00049",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.419,
+  "repIntent": "aiapget-start-timing",
+  "a": {
+   "id": "B0110",
+   "intent": "aiapget-start-timing",
+   "q": "How many months of preparation is needed for AIAPGET?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0170",
+   "intent": "aiapget-attempt-limit",
+   "q": "How many attempts are allowed in AIAPGET?",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "AIAPGET",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00049",
+  "size": 7,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.239,
+  "repIntent": "aiapget-start-timing",
+  "a": {
+   "id": "B0170",
+   "intent": "aiapget-attempt-limit",
+   "q": "How many attempts are allowed in AIAPGET?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0462",
+   "intent": "aiapget-start-timing",
+   "q": "Right time to start PG entrace preparation?",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "AIAPGET",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00048",
+  "size": 6,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.196,
+  "repIntent": "pg-branch-choice-general",
+  "a": {
+   "id": "B0241",
+   "intent": "pg-branch-choice-general",
+   "q": "How should I choose a PG / MD branch after BAMS, and when should I start preparing?",
+   "ctx": "Final year, Karnataka. Average student, around 65% marks."
+  },
+  "b": {
+   "id": "B0354",
+   "intent": "pg-shalya-scope",
+   "q": "Is Shalya a good PG branch if I like surgery?",
+   "ctx": ""
+  },
+  "shared": [
+   "branch",
+   "PG",
+   "choose",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00048",
+  "size": 6,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.274,
+  "repIntent": "pg-branch-choice-general",
+  "a": {
+   "id": "B0172",
+   "intent": "pg-branch-choice-general",
+   "q": "How should I choose a PG / MD branch after BAMS, and when should I start preparing?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0354",
+   "intent": "pg-shalya-scope",
+   "q": "Is Shalya a good PG branch if I like surgery?",
+   "ctx": ""
+  },
+  "shared": [
+   "branch",
+   "PG",
+   "choose",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00048",
+  "size": 6,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.385,
+  "repIntent": "pg-branch-choice-general",
+  "a": {
+   "id": "B0279",
+   "intent": "pg-branch-choice-general",
+   "q": "How do I choose the right MD branch?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0354",
+   "intent": "pg-shalya-scope",
+   "q": "Is Shalya a good PG branch if I like surgery?",
+   "ctx": ""
+  },
+  "shared": [
+   "branch",
+   "PG",
+   "choose",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00048",
+  "size": 6,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.483,
+  "repIntent": "pg-branch-choice-general",
+  "a": {
+   "id": "B0456",
+   "intent": "pg-branch-choice-general",
+   "q": "Which PG branch has the best scope after BAMS?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0354",
+   "intent": "pg-shalya-scope",
+   "q": "Is Shalya a good PG branch if I like surgery?",
+   "ctx": ""
+  },
+  "shared": [
+   "branch",
+   "PG",
+   "choose",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00048",
+  "size": 6,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.385,
+  "repIntent": "pg-branch-choice-general",
+  "a": {
+   "id": "B0354",
+   "intent": "pg-shalya-scope",
+   "q": "Is Shalya a good PG branch if I like surgery?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0387",
+   "intent": "pg-branch-choice-general",
+   "q": "Konsa PG branch lena chahiye? confused hu",
+   "ctx": ""
+  },
+  "shared": [
+   "branch",
+   "PG",
+   "choose",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00043",
+  "size": 3,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.347,
+  "repIntent": "pg-branch-choice-general",
+  "a": {
+   "id": "B0281",
+   "intent": "pg-branch-choice-general",
+   "q": "Which MD branch gives better earning?",
+   "ctx": "I passed out in 2025 and am working in a clinic now."
+  },
+  "b": {
+   "id": "B0261",
+   "intent": "pg-diploma-vs-md",
+   "q": "does a pg diploma help or sould i wait for full md?",
+   "ctx": "I passed out in 2025 and am working in a clinic now."
+  },
+  "shared": [
+   "PG"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00043",
+  "size": 3,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.431,
+  "repIntent": "pg-branch-choice-general",
+  "a": {
+   "id": "B0281",
+   "intent": "pg-branch-choice-general",
+   "q": "Which MD branch gives better earning?",
+   "ctx": "I passed out in 2025 and am working in a clinic now."
+  },
+  "b": {
+   "id": "B0216",
+   "intent": "what-after-bams-general",
+   "q": "Hello mentors, options after BAMS apart from MD?",
+   "ctx": "I passed out in 2025 and am working in a clinic now."
+  },
+  "shared": [
+   "PG"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00043",
+  "size": 3,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.517,
+  "repIntent": "pg-branch-choice-general",
+  "a": {
+   "id": "B0261",
+   "intent": "pg-diploma-vs-md",
+   "q": "does a pg diploma help or sould i wait for full md?",
+   "ctx": "I passed out in 2025 and am working in a clinic now."
+  },
+  "b": {
+   "id": "B0216",
+   "intent": "what-after-bams-general",
+   "q": "Hello mentors, options after BAMS apart from MD?",
+   "ctx": "I passed out in 2025 and am working in a clinic now."
+  },
+  "shared": [
+   "PG"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00041",
+  "size": 2,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.463,
+  "repIntent": "pg-kayachikitsa-scope",
+  "a": {
+   "id": "B0188",
+   "intent": "pg-kayachikitsa-scope",
+   "q": "What is the scope of MD in Kayachikitsa?",
+   "ctx": "Working as RMO for 8 months now."
+  },
+  "b": {
+   "id": "B0022",
+   "intent": "pg-shalya-scope",
+   "q": "Namaste, can MS Sahlya doctors do surgeries independently Please answer in detail.",
+   "ctx": "Working as RMO for 8 months now."
+  },
+  "shared": [
+   "PG"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00112",
+  "size": 2,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.394,
+  "repIntent": "clinical-records",
+  "a": {
+   "id": "B0358",
+   "intent": "clinic-licence-registration",
+   "q": "cinic ke liye kaunsa license lena padta hai?",
+   "ctx": "Final year, Karnataka. Average student, around 65% marks."
+  },
+  "b": {
+   "id": "B0196",
+   "intent": "clinical-records",
+   "q": "Is EMR necessary for a small Ayurveda clinic",
+   "ctx": "Final year, Karnataka. Average student, around 65% marks."
+  },
+  "shared": [
+   "clinic"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00261",
+  "size": 2,
+  "viaPacking": true,
+  "sameFamily": true,
+  "score": 0.4,
+  "repIntent": "europe-ayurveda",
+  "a": {
+   "id": "B0460",
+   "intent": "abroad-practice-ayurveda",
+   "q": "Opportunities for Ayurveda doctors internationally",
+   "ctx": "Studying in a private college in Maharashtra."
+  },
+  "b": {
+   "id": "B0359",
+   "intent": "europe-ayurveda",
+   "q": "Scope of Ayurveda in Germany and Europe?",
+   "ctx": "Studying in a private college in Maharashtra."
+  },
+  "shared": []
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": true,
+  "group": "C00262",
+  "size": 2,
+  "viaPacking": true,
+  "sameFamily": true,
+  "score": 0.383,
+  "repIntent": "abroad-practice-ayurveda",
+  "a": {
+   "id": "B0487",
+   "intent": "europe-ayurveda",
+   "q": "Which Euorpean country is good for Ayurveda doctors?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0287",
+   "intent": "abroad-practice-ayurveda",
+   "q": "Which country is best for an Ayurveda career?",
+   "ctx": ""
+  },
+  "shared": [
+   "country"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00073",
+  "size": 6,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.196,
+  "repIntent": "pg-branch-choice-general",
+  "a": {
+   "id": "B0241",
+   "intent": "pg-branch-choice-general",
+   "q": "How should I choose a PG / MD branch after BAMS, and when should I start preparing?",
+   "ctx": "Final year, Karnataka. Average student, around 65% marks."
+  },
+  "b": {
+   "id": "B0354",
+   "intent": "pg-shalya-scope",
+   "q": "Is Shalya a good PG branch if I like surgery?",
+   "ctx": ""
+  },
+  "shared": [
+   "branch",
+   "PG",
+   "choose",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00073",
+  "size": 6,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.274,
+  "repIntent": "pg-branch-choice-general",
+  "a": {
+   "id": "B0172",
+   "intent": "pg-branch-choice-general",
+   "q": "How should I choose a PG / MD branch after BAMS, and when should I start preparing?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0354",
+   "intent": "pg-shalya-scope",
+   "q": "Is Shalya a good PG branch if I like surgery?",
+   "ctx": ""
+  },
+  "shared": [
+   "branch",
+   "PG",
+   "choose",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00073",
+  "size": 6,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.385,
+  "repIntent": "pg-branch-choice-general",
+  "a": {
+   "id": "B0279",
+   "intent": "pg-branch-choice-general",
+   "q": "How do I choose the right MD branch?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0354",
+   "intent": "pg-shalya-scope",
+   "q": "Is Shalya a good PG branch if I like surgery?",
+   "ctx": ""
+  },
+  "shared": [
+   "branch",
+   "PG",
+   "choose",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00073",
+  "size": 6,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.385,
+  "repIntent": "pg-branch-choice-general",
+  "a": {
+   "id": "B0387",
+   "intent": "pg-branch-choice-general",
+   "q": "Konsa PG branch lena chahiye? confused hu",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0354",
+   "intent": "pg-shalya-scope",
+   "q": "Is Shalya a good PG branch if I like surgery?",
+   "ctx": ""
+  },
+  "shared": [
+   "branch",
+   "PG",
+   "choose",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00073",
+  "size": 6,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.483,
+  "repIntent": "pg-branch-choice-general",
+  "a": {
+   "id": "B0456",
+   "intent": "pg-branch-choice-general",
+   "q": "Which PG branch has the best scope after BAMS?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0354",
+   "intent": "pg-shalya-scope",
+   "q": "Is Shalya a good PG branch if I like surgery?",
+   "ctx": ""
+  },
+  "shared": [
+   "branch",
+   "PG",
+   "choose",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00072",
+  "size": 5,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.365,
+  "repIntent": "aiapget-start-timing",
+  "a": {
+   "id": "B0439",
+   "intent": "aiapget-start-timing",
+   "q": "kab se AIAPGET ki taiyari start karni chahiye?",
+   "ctx": "Intern, Uttar Pradesh"
+  },
+  "b": {
+   "id": "B0032",
+   "intent": "pg-drop-year",
+   "q": "Should I take a drop year after internship only for AIAPGET?",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "AIAPGET",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00072",
+  "size": 5,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.422,
+  "repIntent": "aiapget-start-timing",
+  "a": {
+   "id": "B0294",
+   "intent": "aiapget-start-timing",
+   "q": "When should I start preparing for AIAPGET — final year or during internship?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0032",
+   "intent": "pg-drop-year",
+   "q": "Should I take a drop year after internship only for AIAPGET?",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "AIAPGET",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00072",
+  "size": 5,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.292,
+  "repIntent": "aiapget-start-timing",
+  "a": {
+   "id": "B0032",
+   "intent": "pg-drop-year",
+   "q": "Should I take a drop year after internship only for AIAPGET?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0066",
+   "intent": "aiapget-start-timing",
+   "q": "Should I start aiapget prep from 2nd year itself",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "AIAPGET",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00072",
+  "size": 5,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.213,
+  "repIntent": "aiapget-start-timing",
+  "a": {
+   "id": "B0032",
+   "intent": "pg-drop-year",
+   "q": "Should I take a drop year after internship only for AIAPGET?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0462",
+   "intent": "aiapget-start-timing",
+   "q": "Right time to start PG entrace preparation?",
+   "ctx": ""
+  },
+  "shared": [
+   "exam",
+   "PG",
+   "AIAPGET",
+   "prepare",
+   "start"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00261",
+  "size": 5,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.36,
+  "repIntent": "abroad-practice-ayurveda",
+  "a": {
+   "id": "B0194",
+   "intent": "abroad-visa-job-route",
+   "q": "How to find Ayurveda jobs abroad with a work visa?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0037",
+   "intent": "abroad-practice-ayurveda",
+   "q": "Can I work abroad as an Ayurveda doctor",
+   "ctx": ""
+  },
+  "shared": [
+   "abroad",
+   "work",
+   "visa"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00261",
+  "size": 5,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.271,
+  "repIntent": "abroad-practice-ayurveda",
+  "a": {
+   "id": "B0194",
+   "intent": "abroad-visa-job-route",
+   "q": "How to find Ayurveda jobs abroad with a work visa?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0490",
+   "intent": "abroad-practice-ayurveda",
+   "q": "Scope of Ayurveda overseas for BAMS gradautes thank you",
+   "ctx": "Working as RMO for 8 months now."
+  },
+  "shared": [
+   "abroad",
+   "work",
+   "visa"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00261",
+  "size": 5,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.65,
+  "repIntent": "abroad-practice-ayurveda",
+  "a": {
+   "id": "B0433",
+   "intent": "abroad-visa-job-route",
+   "q": "what visa can bams doctors get to work abroad?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0037",
+   "intent": "abroad-practice-ayurveda",
+   "q": "Can I work abroad as an Ayurveda doctor",
+   "ctx": ""
+  },
+  "shared": [
+   "abroad",
+   "work",
+   "visa"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00261",
+  "size": 5,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.361,
+  "repIntent": "abroad-practice-ayurveda",
+  "a": {
+   "id": "B0433",
+   "intent": "abroad-visa-job-route",
+   "q": "what visa can bams doctors get to work abroad?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0490",
+   "intent": "abroad-practice-ayurveda",
+   "q": "Scope of Ayurveda overseas for BAMS gradautes thank you",
+   "ctx": "Working as RMO for 8 months now."
+  },
+  "shared": [
+   "abroad",
+   "work",
+   "visa"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00261",
+  "size": 5,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.36,
+  "repIntent": "abroad-practice-ayurveda",
+  "a": {
+   "id": "B0037",
+   "intent": "abroad-practice-ayurveda",
+   "q": "Can I work abroad as an Ayurveda doctor",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0206",
+   "intent": "abroad-visa-job-route",
+   "q": "Do foreign Ayurveda centres sponsor work visas?",
+   "ctx": ""
+  },
+  "shared": [
+   "abroad",
+   "work",
+   "visa"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00261",
+  "size": 5,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.257,
+  "repIntent": "abroad-practice-ayurveda",
+  "a": {
+   "id": "B0206",
+   "intent": "abroad-visa-job-route",
+   "q": "Do foreign Ayurveda centres sponsor work visas?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0490",
+   "intent": "abroad-practice-ayurveda",
+   "q": "Scope of Ayurveda overseas for BAMS gradautes thank you",
+   "ctx": "Working as RMO for 8 months now."
+  },
+  "shared": [
+   "abroad",
+   "work",
+   "visa"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00070",
+  "size": 4,
+  "viaPacking": false,
+  "sameFamily": false,
+  "score": 0.551,
+  "repIntent": "faculty-salary",
+  "a": {
+   "id": "B0455",
+   "intent": "faculty-salary",
+   "q": "What is the salary of an assisant professor in a private Ayurveda college?",
+   "ctx": "My parents are doctors and want me to do PG."
+  },
+  "b": {
+   "id": "B0175",
+   "intent": "pg-private-college-fees",
+   "q": "Are there stipends for PG students in private colleges?",
+   "ctx": ""
+  },
+  "shared": [
+   "income",
+   "private",
+   "college",
+   "faculty",
+   "PG"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00070",
+  "size": 4,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.4,
+  "repIntent": "faculty-salary",
+  "a": {
+   "id": "B0175",
+   "intent": "pg-private-college-fees",
+   "q": "Are there stipends for PG students in private colleges?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0017",
+   "intent": "faculty-salary",
+   "q": "Teaching job salary after MD Ayurveda — govt vs private??",
+   "ctx": ""
+  },
+  "shared": [
+   "income",
+   "private",
+   "college",
+   "faculty",
+   "PG"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00070",
+  "size": 4,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.467,
+  "repIntent": "faculty-salary",
+  "a": {
+   "id": "B0175",
+   "intent": "pg-private-college-fees",
+   "q": "Are there stipends for PG students in private colleges?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0230",
+   "intent": "faculty-salary",
+   "q": "Do private Ayurveda colleges pay faculty well?",
+   "ctx": ""
+  },
+  "shared": [
+   "income",
+   "private",
+   "college",
+   "faculty",
+   "PG"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00260",
+  "size": 4,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.3,
+  "repIntent": "abroad-practice-ayurveda",
+  "a": {
+   "id": "B0523",
+   "intent": "abroad-practice-ayurveda",
+   "q": "videsh me ayurveda practice kar sakte hai kya?",
+   "ctx": "I have a gap of one year after internship."
+  },
+  "b": {
+   "id": "B0518",
+   "intent": "abroad-bridging-course",
+   "q": "Is there a bridging course for BAMS to practise abroad??",
+   "ctx": ""
+  },
+  "shared": [
+   "abroad",
+   "practice"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00260",
+  "size": 4,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.483,
+  "repIntent": "abroad-practice-ayurveda",
+  "a": {
+   "id": "B0518",
+   "intent": "abroad-bridging-course",
+   "q": "Is there a bridging course for BAMS to practise abroad??",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0139",
+   "intent": "abroad-practice-ayurveda",
+   "q": "Is it possible to practise Ayurveda outside India?",
+   "ctx": ""
+  },
+  "shared": [
+   "abroad",
+   "practice"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00260",
+  "size": 4,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.306,
+  "repIntent": "abroad-practice-ayurveda",
+  "a": {
+   "id": "B0518",
+   "intent": "abroad-bridging-course",
+   "q": "Is there a bridging course for BAMS to practise abroad??",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0011",
+   "intent": "abroad-practice-ayurveda",
+   "q": "In which foreign countries can BAMS doctors practise legally?",
+   "ctx": ""
+  },
+  "shared": [
+   "abroad",
+   "practice"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00065",
+  "size": 3,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.463,
+  "repIntent": "phd-admission-process",
+  "a": {
+   "id": "B0188",
+   "intent": "pg-kayachikitsa-scope",
+   "q": "What is the scope of MD in Kayachikitsa?",
+   "ctx": "Working as RMO for 8 months now."
+  },
+  "b": {
+   "id": "B0022",
+   "intent": "pg-shalya-scope",
+   "q": "Namaste, can MS Sahlya doctors do surgeries independently Please answer in detail.",
+   "ctx": "Working as RMO for 8 months now."
+  },
+  "shared": [
+   "PG"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00065",
+  "size": 3,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.401,
+  "repIntent": "phd-admission-process",
+  "a": {
+   "id": "B0188",
+   "intent": "pg-kayachikitsa-scope",
+   "q": "What is the scope of MD in Kayachikitsa?",
+   "ctx": "Working as RMO for 8 months now."
+  },
+  "b": {
+   "id": "B0031",
+   "intent": "phd-admission-process",
+   "q": "How to find a good PhD guide in Ayurveda?",
+   "ctx": "Working as RMO for 8 months now."
+  },
+  "shared": [
+   "PG"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00065",
+  "size": 3,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.311,
+  "repIntent": "phd-admission-process",
+  "a": {
+   "id": "B0022",
+   "intent": "pg-shalya-scope",
+   "q": "Namaste, can MS Sahlya doctors do surgeries independently Please answer in detail.",
+   "ctx": "Working as RMO for 8 months now."
+  },
+  "b": {
+   "id": "B0031",
+   "intent": "phd-admission-process",
+   "q": "How to find a good PhD guide in Ayurveda?",
+   "ctx": "Working as RMO for 8 months now."
+  },
+  "shared": [
+   "PG"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00066",
+  "size": 3,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.347,
+  "repIntent": "pg-branch-choice-general",
+  "a": {
+   "id": "B0281",
+   "intent": "pg-branch-choice-general",
+   "q": "Which MD branch gives better earning?",
+   "ctx": "I passed out in 2025 and am working in a clinic now."
+  },
+  "b": {
+   "id": "B0261",
+   "intent": "pg-diploma-vs-md",
+   "q": "does a pg diploma help or sould i wait for full md?",
+   "ctx": "I passed out in 2025 and am working in a clinic now."
+  },
+  "shared": [
+   "PG"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00066",
+  "size": 3,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.431,
+  "repIntent": "pg-branch-choice-general",
+  "a": {
+   "id": "B0281",
+   "intent": "pg-branch-choice-general",
+   "q": "Which MD branch gives better earning?",
+   "ctx": "I passed out in 2025 and am working in a clinic now."
+  },
+  "b": {
+   "id": "B0216",
+   "intent": "what-after-bams-general",
+   "q": "Hello mentors, options after BAMS apart from MD?",
+   "ctx": "I passed out in 2025 and am working in a clinic now."
+  },
+  "shared": [
+   "PG"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00066",
+  "size": 3,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.517,
+  "repIntent": "pg-branch-choice-general",
+  "a": {
+   "id": "B0261",
+   "intent": "pg-diploma-vs-md",
+   "q": "does a pg diploma help or sould i wait for full md?",
+   "ctx": "I passed out in 2025 and am working in a clinic now."
+  },
+  "b": {
+   "id": "B0216",
+   "intent": "what-after-bams-general",
+   "q": "Hello mentors, options after BAMS apart from MD?",
+   "ctx": "I passed out in 2025 and am working in a clinic now."
+  },
+  "shared": [
+   "PG"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00068",
+  "size": 3,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.366,
+  "repIntent": "aiapget-start-timing",
+  "a": {
+   "id": "B0337",
+   "intent": "aiapget-start-timing",
+   "q": "Is 6 months enough to prepre for AIAPGET?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0170",
+   "intent": "aiapget-attempt-limit",
+   "q": "How many attempts are allowed in AIAPGET?",
+   "ctx": ""
+  },
+  "shared": [
+   "AIAPGET",
+   "exam",
+   "PG",
+   "months",
+   "prepare"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00068",
+  "size": 3,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.419,
+  "repIntent": "aiapget-start-timing",
+  "a": {
+   "id": "B0110",
+   "intent": "aiapget-start-timing",
+   "q": "How many months of preparation is needed for AIAPGET?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0170",
+   "intent": "aiapget-attempt-limit",
+   "q": "How many attempts are allowed in AIAPGET?",
+   "ctx": ""
+  },
+  "shared": [
+   "AIAPGET",
+   "exam",
+   "PG",
+   "months",
+   "prepare"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00063",
+  "size": 2,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.45,
+  "repIntent": "pg-branch-choice-general",
+  "a": {
+   "id": "B0479",
+   "intent": "pg-kayachikitsa-scope",
+   "q": "Is Kayachikitsa a good PG branch for clinical practice?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0074",
+   "intent": "pg-branch-choice-general",
+   "q": "Best branch in Ayurveda MD for private practice?",
+   "ctx": ""
+  },
+  "shared": [
+   "branch",
+   "PG",
+   "practice"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00128",
+  "size": 2,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.477,
+  "repIntent": "rmo-allopathy-hospital",
+  "a": {
+   "id": "B0315",
+   "intent": "prescribing-allopathy-legal",
+   "q": "Is it legal for me to give allopathy medicines in my clinic?",
+   "ctx": "I passed out in 2025 and am working in a clinic now."
+  },
+  "b": {
+   "id": "B0153",
+   "intent": "rmo-allopathy-hospital",
+   "q": "Working as a CMO in a private allopathy hospital after BAMS — any legal risk?",
+   "ctx": "I passed out in 2025 and am working in a clinic now."
+  },
+  "shared": [
+   "allopathy",
+   "legal"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00129",
+  "size": 2,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.394,
+  "repIntent": "clinical-records",
+  "a": {
+   "id": "B0358",
+   "intent": "clinic-licence-registration",
+   "q": "cinic ke liye kaunsa license lena padta hai?",
+   "ctx": "Final year, Karnataka. Average student, around 65% marks."
+  },
+  "b": {
+   "id": "B0196",
+   "intent": "clinical-records",
+   "q": "Is EMR necessary for a small Ayurveda clinic",
+   "ctx": "Final year, Karnataka. Average student, around 65% marks."
+  },
+  "shared": [
+   "clinic"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00132",
+  "size": 2,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.467,
+  "repIntent": "prescribing-allopathy-legal",
+  "a": {
+   "id": "B0480",
+   "intent": "rmo-allopathy-hospital",
+   "q": "Which states allow BAMS doctors to work in modern medicine hospitals?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0020",
+   "intent": "prescribing-allopathy-legal",
+   "q": "Which states allow BAMS to prescribe modern medicine?",
+   "ctx": ""
+  },
+  "shared": [
+   "allopathy",
+   "allow",
+   "states"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00256",
+  "size": 2,
+  "viaPacking": true,
+  "sameFamily": true,
+  "score": 0.4,
+  "repIntent": "europe-ayurveda",
+  "a": {
+   "id": "B0460",
+   "intent": "abroad-practice-ayurveda",
+   "q": "Opportunities for Ayurveda doctors internationally",
+   "ctx": "Studying in a private college in Maharashtra."
+  },
+  "b": {
+   "id": "B0359",
+   "intent": "europe-ayurveda",
+   "q": "Scope of Ayurveda in Germany and Europe?",
+   "ctx": "Studying in a private college in Maharashtra."
+  },
+  "shared": []
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00258",
+  "size": 2,
+  "viaPacking": true,
+  "sameFamily": true,
+  "score": 0.383,
+  "repIntent": "abroad-practice-ayurveda",
+  "a": {
+   "id": "B0487",
+   "intent": "europe-ayurveda",
+   "q": "Which Euorpean country is good for Ayurveda doctors?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0287",
+   "intent": "abroad-practice-ayurveda",
+   "q": "Which country is best for an Ayurveda career?",
+   "ctx": ""
+  },
+  "shared": [
+   "country"
+  ]
+ },
+ {
+  "dataset": "B-dev",
+  "useSub": false,
+  "group": "C00286",
+  "size": 2,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.398,
+  "repIntent": "research-career-without-md",
+  "a": {
+   "id": "B0256",
+   "intent": "publish-case-report",
+   "q": "paper publish kaise karte hai? pehla paper likhna hai",
+   "ctx": "Currently doing internship at a government Ayurveda college in Jaipur."
+  },
+  "b": {
+   "id": "B0130",
+   "intent": "research-career-without-md",
+   "q": "Is research a good career option for BAMS graduates?",
+   "ctx": "Currently doing internship at a government Ayurveda college in Jaipur."
+  },
+  "shared": []
+ },
+ {
+  "dataset": "B-heldout",
+  "useSub": true,
+  "group": "C00029",
+  "size": 2,
+  "viaPacking": true,
+  "sameFamily": true,
+  "score": 0.408,
+  "repIntent": "aiapget-preparation-strategy",
+  "a": {
+   "id": "B0392",
+   "intent": "aiapget-preparation-strategy",
+   "q": "what mistakes should i avoid while preparing for aiapget?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0113",
+   "intent": "aiapget-with-internship",
+   "q": "Can I prepare for AIAPGET while doing rural iternship posting?",
+   "ctx": ""
+  },
+  "shared": [
+   "AIAPGET",
+   "exam",
+   "PG",
+   "prepare",
+   "while"
+  ]
+ },
+ {
+  "dataset": "B-heldout",
+  "useSub": false,
+  "group": "C00037",
+  "size": 2,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.411,
+  "repIntent": "neet-pg-for-bams",
+  "a": {
+   "id": "B0260",
+   "intent": "aiapget-preparation-strategy",
+   "q": "Preperation strategy for all india ayush PG entrance test",
+   "ctx": "3rd prof student, from a middle class family."
+  },
+  "b": {
+   "id": "B0217",
+   "intent": "neet-pg-for-bams",
+   "q": "Is there any way for BAMS graduates to do MD in allopathy?",
+   "ctx": "3rd prof student, from a middle class family."
+  },
+  "shared": [
+   "PG"
+  ]
+ },
+ {
+  "dataset": "B-heldout",
+  "useSub": false,
+  "group": "C00039",
+  "size": 2,
+  "viaPacking": true,
+  "sameFamily": true,
+  "score": 0.408,
+  "repIntent": "aiapget-preparation-strategy",
+  "a": {
+   "id": "B0392",
+   "intent": "aiapget-preparation-strategy",
+   "q": "what mistakes should i avoid while preparing for aiapget?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "B0113",
+   "intent": "aiapget-with-internship",
+   "q": "Can I prepare for AIAPGET while doing rural iternship posting?",
+   "ctx": ""
+  },
+  "shared": [
+   "AIAPGET",
+   "exam",
+   "PG",
+   "prepare",
+   "while"
+  ]
+ },
+ {
+  "dataset": "Fresh-403",
+  "useSub": true,
+  "group": "C00048",
+  "size": 4,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.45,
+  "repIntent": "phd_without_md",
+  "a": {
+   "id": "F0328",
+   "intent": "phd_without_md",
+   "q": "Can I do a PhD dieectly after BAMS without MD?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "F0007",
+   "intent": "phd_after_md",
+   "q": "MD ke baad PhD kaise kare?",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "PhD",
+   "without"
+  ]
+ },
+ {
+  "dataset": "Fresh-403",
+  "useSub": true,
+  "group": "C00048",
+  "size": 4,
+  "viaPacking": true,
+  "sameFamily": true,
+  "score": 0.36,
+  "repIntent": "phd_without_md",
+  "a": {
+   "id": "F0328",
+   "intent": "phd_without_md",
+   "q": "Can I do a PhD dieectly after BAMS without MD?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "F0352",
+   "intent": "phd_after_md",
+   "q": "How to get admission into PhD after MD Ayurveda??",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "PhD",
+   "without"
+  ]
+ },
+ {
+  "dataset": "Fresh-403",
+  "useSub": true,
+  "group": "C00048",
+  "size": 4,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.6,
+  "repIntent": "phd_without_md",
+  "a": {
+   "id": "F0013",
+   "intent": "phd_without_md",
+   "q": "is there any phd option for bams graduats without postgraduation?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "F0007",
+   "intent": "phd_after_md",
+   "q": "MD ke baad PhD kaise kare?",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "PhD",
+   "without"
+  ]
+ },
+ {
+  "dataset": "Fresh-403",
+  "useSub": true,
+  "group": "C00048",
+  "size": 4,
+  "viaPacking": true,
+  "sameFamily": true,
+  "score": 0.45,
+  "repIntent": "phd_without_md",
+  "a": {
+   "id": "F0013",
+   "intent": "phd_without_md",
+   "q": "is there any phd option for bams graduats without postgraduation?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "F0352",
+   "intent": "phd_after_md",
+   "q": "How to get admission into PhD after MD Ayurveda??",
+   "ctx": ""
+  },
+  "shared": [
+   "PG",
+   "PhD",
+   "without"
+  ]
+ },
+ {
+  "dataset": "Fresh-403",
+  "useSub": false,
+  "group": "C00261",
+  "size": 6,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.409,
+  "repIntent": "govt_job_options",
+  "a": {
+   "id": "F0045",
+   "intent": "govt_job_options",
+   "q": "what government jobs can i apply for after bams kindly help me out",
+   "ctx": ""
+  },
+  "b": {
+   "id": "F0256",
+   "intent": "who_jobs",
+   "q": "Can BAMS doctors work with WHO?",
+   "ctx": "My family wants me to do a government job."
+  },
+  "shared": [
+   "government",
+   "job",
+   "apply",
+   "PG"
+  ]
+ },
+ {
+  "dataset": "Fresh-403",
+  "useSub": false,
+  "group": "C00261",
+  "size": 6,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.409,
+  "repIntent": "govt_job_options",
+  "a": {
+   "id": "F0092",
+   "intent": "govt_job_options",
+   "q": "what government jobs can i apply for after bams?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "F0256",
+   "intent": "who_jobs",
+   "q": "Can BAMS doctors work with WHO?",
+   "ctx": "My family wants me to do a government job."
+  },
+  "shared": [
+   "government",
+   "job",
+   "apply",
+   "PG"
+  ]
+ },
+ {
+  "dataset": "Fresh-403",
+  "useSub": false,
+  "group": "C00261",
+  "size": 6,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.523,
+  "repIntent": "govt_job_options",
+  "a": {
+   "id": "F0246",
+   "intent": "govt_job_options",
+   "q": "srkari naukri options for BAMS doctors?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "F0256",
+   "intent": "who_jobs",
+   "q": "Can BAMS doctors work with WHO?",
+   "ctx": "My family wants me to do a government job."
+  },
+  "shared": [
+   "government",
+   "job",
+   "apply",
+   "PG"
+  ]
+ },
+ {
+  "dataset": "Fresh-403",
+  "useSub": false,
+  "group": "C00261",
+  "size": 6,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.337,
+  "repIntent": "govt_job_options",
+  "a": {
+   "id": "F0139",
+   "intent": "govt_job_options",
+   "q": "is there any govt job for bams without pg thank u sir",
+   "ctx": ""
+  },
+  "b": {
+   "id": "F0256",
+   "intent": "who_jobs",
+   "q": "Can BAMS doctors work with WHO?",
+   "ctx": "My family wants me to do a government job."
+  },
+  "shared": [
+   "government",
+   "job",
+   "apply",
+   "PG"
+  ]
+ },
+ {
+  "dataset": "Fresh-403",
+  "useSub": false,
+  "group": "C00261",
+  "size": 6,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.271,
+  "repIntent": "govt_job_options",
+  "a": {
+   "id": "F0041",
+   "intent": "govt_job_options",
+   "q": "is there any govt job for bams withut pg?",
+   "ctx": "I have 2 years of clinic experience."
+  },
+  "b": {
+   "id": "F0256",
+   "intent": "who_jobs",
+   "q": "Can BAMS doctors work with WHO?",
+   "ctx": "My family wants me to do a government job."
+  },
+  "shared": [
+   "government",
+   "job",
+   "apply",
+   "PG"
+  ]
+ },
+ {
+  "dataset": "Fresh-403",
+  "useSub": false,
+  "group": "C00045",
+  "size": 5,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.45,
+  "repIntent": "phd_without_md",
+  "a": {
+   "id": "F0328",
+   "intent": "phd_without_md",
+   "q": "Can I do a PhD dieectly after BAMS without MD?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "F0007",
+   "intent": "phd_after_md",
+   "q": "MD ke baad PhD kaise kare?",
+   "ctx": ""
+  },
+  "shared": [
+   "PhD",
+   "PG",
+   "dieectly",
+   "without"
+  ]
+ },
+ {
+  "dataset": "Fresh-403",
+  "useSub": false,
+  "group": "C00045",
+  "size": 5,
+  "viaPacking": true,
+  "sameFamily": true,
+  "score": 0.36,
+  "repIntent": "phd_without_md",
+  "a": {
+   "id": "F0328",
+   "intent": "phd_without_md",
+   "q": "Can I do a PhD dieectly after BAMS without MD?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "F0352",
+   "intent": "phd_after_md",
+   "q": "How to get admission into PhD after MD Ayurveda??",
+   "ctx": ""
+  },
+  "shared": [
+   "PhD",
+   "PG",
+   "dieectly",
+   "without"
+  ]
+ },
+ {
+  "dataset": "Fresh-403",
+  "useSub": false,
+  "group": "C00045",
+  "size": 5,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.6,
+  "repIntent": "phd_without_md",
+  "a": {
+   "id": "F0013",
+   "intent": "phd_without_md",
+   "q": "is there any phd option for bams graduats without postgraduation?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "F0007",
+   "intent": "phd_after_md",
+   "q": "MD ke baad PhD kaise kare?",
+   "ctx": ""
+  },
+  "shared": [
+   "PhD",
+   "PG",
+   "dieectly",
+   "without"
+  ]
+ },
+ {
+  "dataset": "Fresh-403",
+  "useSub": false,
+  "group": "C00045",
+  "size": 5,
+  "viaPacking": true,
+  "sameFamily": true,
+  "score": 0.45,
+  "repIntent": "phd_without_md",
+  "a": {
+   "id": "F0013",
+   "intent": "phd_without_md",
+   "q": "is there any phd option for bams graduats without postgraduation?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "F0352",
+   "intent": "phd_after_md",
+   "q": "How to get admission into PhD after MD Ayurveda??",
+   "ctx": ""
+  },
+  "shared": [
+   "PhD",
+   "PG",
+   "dieectly",
+   "without"
+  ]
+ },
+ {
+  "dataset": "Fresh-403",
+  "useSub": false,
+  "group": "C00045",
+  "size": 5,
+  "viaPacking": false,
+  "sameFamily": true,
+  "score": 0.3,
+  "repIntent": "phd_without_md",
+  "a": {
+   "id": "F0007",
+   "intent": "phd_after_md",
+   "q": "MD ke baad PhD kaise kare?",
+   "ctx": ""
+  },
+  "b": {
+   "id": "F0286",
+   "intent": "phd_without_md",
+   "q": "PhD after BAMS directly possible hai kya thank u sir",
+   "ctx": ""
+  },
+  "shared": [
+   "PhD",
+   "PG",
+   "dieectly",
+   "without"
+  ]
+ },
+ {
+  "dataset": "Fresh-403",
+  "useSub": false,
+  "group": "C00045",
+  "size": 5,
+  "viaPacking": true,
+  "sameFamily": true,
+  "score": 0.225,
+  "repIntent": "phd_without_md",
+  "a": {
+   "id": "F0286",
+   "intent": "phd_without_md",
+   "q": "PhD after BAMS directly possible hai kya thank u sir",
+   "ctx": ""
+  },
+  "b": {
+   "id": "F0352",
+   "intent": "phd_after_md",
+   "q": "How to get admission into PhD after MD Ayurveda??",
+   "ctx": ""
+  },
+  "shared": [
+   "PhD",
+   "PG",
+   "dieectly",
+   "without"
+  ]
+ },
+ {
+  "dataset": "Fresh-403",
+  "useSub": false,
+  "group": "C00062",
+  "size": 2,
+  "viaPacking": true,
+  "sameFamily": false,
+  "score": 0.37,
+  "repIntent": "health_camp",
+  "a": {
+   "id": "F0289",
+   "intent": "social_media_growth",
+   "q": "How do I build my onlline presence as a new Ayurveda doctor?",
+   "ctx": "My father runs a medical store."
+  },
+  "b": {
+   "id": "F0107",
+   "intent": "health_camp",
+   "q": "Do free camps actually help a new practice?",
+   "ctx": "My father runs a medical store."
+  },
+  "shared": [
+   "new"
+  ]
+ }
+]

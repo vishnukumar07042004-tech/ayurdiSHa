@@ -44,14 +44,12 @@
 
   /* ---------- Buttons: compact pills, paired side by side ---------- */
   .ed-home .ui-btn--lg { min-height: 46px; padding: 0 20px; font-size: 16px; }
-  .ed-home .ui-hero-actions,
   .ed-home .ui-wac-actions,
   .ed-home .ui-cta .ui-btn-row {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
-  .ed-home .ui-hero-actions .ui-btn,
   .ed-home .ui-wac-actions .ui-btn,
   .ed-home .ui-cta .ui-btn-row .ui-btn { flex: none; width: 100%; padding: 0 12px; white-space: nowrap; }
 
@@ -92,58 +90,6 @@
 
   /* ---------- Motion: no layer parallax on phones ---------- */
   .ed-home [data-parallax] { translate: none !important; }
-
-  /* ---------- Hero ---------- */
-  .ed-home .ui-hero {
-    --hero-stage-h: auto;
-    padding: calc(var(--ui-nav-h) + 28px) 0 40px;
-  }
-  .ed-home .ui-hero-grid { gap: 32px; }
-  .ed-home .ui-hero-copy { opacity: 1; translate: none; }
-  .ed-home .ui-hero-branch,
-  .ed-home .ui-hero-rings,
-  .ed-home .ui-hero-keyline,
-  .ed-home .ui-hero-shot--side,
-  .ed-home .ui-hero-shot--top,
-  .ed-home .ui-hero-seal { display: none; }
-  .ed-home .ui-hero-eyebrow { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.07em; }
-  .ed-home .ui-hero-title { font-size: clamp(2.25rem, 10.4vw, 2.625rem); line-height: 1; letter-spacing: -0.036em; }
-  .ed-home .ui-hero-sub { margin-top: 16px; max-width: 34ch; font-size: 17px; line-height: 1.47; }
-  .ed-home .ui-hero-actions { margin-top: 24px; }
-  .ed-home .ui-hero-aside { margin-top: 14px; }
-  .ed-home .ui-hero-facts {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px 16px;
-    margin-top: 24px;
-    padding: 16px 18px;
-    border: 0;
-    border-radius: 18px;
-    background: rgba(29, 36, 32, 0.04);
-  }
-  .ed-home .ui-hero-fact + .ui-hero-fact,
-  .ed-home .ui-hero-fact:nth-child(even) { padding-left: 0; border-left: 0; }
-  .ed-home .ui-hero-fact dt { margin-bottom: 3px; font-size: 11px; }
-  .ed-home .ui-hero-fact dd { font-size: 15px; white-space: normal; }
-  .ed-home .ui-hero-stage { height: auto; }
-  .ed-home .ui-hero-shot--main {
-    position: relative;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 5 / 4;
-    border-radius: 22px;
-    box-shadow: var(--ui-shadow-2);
-    scale: none;
-    translate: none;
-  }
-  .ed-home .ui-hero-chip {
-    left: 12px;
-    right: auto;
-    top: auto;
-    bottom: 12px;
-    gap: 8px;
-    padding: 7px 12px;
-    font-size: 12.5px;
-  }
 
   /* ---------- At a glance ---------- */
   .ed-home .ui-stats { padding-top: 8px; }
@@ -258,9 +204,6 @@
 }
 
 @media (max-width: 359px) {
-  .ed-home .ui-hero-actions,
   .ed-home .ui-wac-actions,
   .ed-home .ui-cta .ui-btn-row { grid-template-columns: minmax(0, 1fr); }
-  .ed-home .ui-hero-title { font-size: 2.125rem; }
-  .ed-home .ui-hero-facts { padding: 14px; gap: 12px; }
 }

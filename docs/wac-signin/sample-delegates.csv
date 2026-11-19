@@ -1,0 +1,6 @@
+Registration ID,Full Name,Email ID,Mobile No,Institution,Delegate Category,Country,State,Attendance Mode
+TEST-WAC-0001,Fake Delegate One,fake.delegate.one@ayurdisha-sample.test,+91 90000 00001,Sample Ayurveda College (FAKE),Student,India,Odisha,In person
+TEST-WAC-0002,Fake Delegate Two,fake.delegate.two@ayurdisha-sample.test,+91 90000 00002,Sample Institute of Ayurveda (FAKE),Delegate,India,Kerala,Online
+TEST-WAC-0003,Fake Delegate Three,fake.delegate.three@ayurdisha-sample.test,,Demo University (FAKE),Faculty,India,Karnataka,Physical
+TEST-WAC-0004,Fake Delegate Four,fake.delegate.four@ayurdisha-sample.test,+44 7000 000004,Example Wellness Academy (FAKE),International,United Kingdom,,Virtual
+TEST-WAC-0005,Fake Delegate Five,fake.delegate.five@ayurdisha-sample.test,+91 90000 00005,Sample Ayurveda College (FAKE),PG Scholar,India,Gujarat,In-person

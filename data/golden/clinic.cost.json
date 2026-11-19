@@ -1,0 +1,103 @@
+{
+  "intentId": "clinic.cost",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Setting up private practice",
+  "subject": "clinic",
+  "ask": "cost",
+  "question": "How much does starting my own Ayurveda clinic cost?",
+  "stream": "clinical-practice",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.407Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "0c744844d7dc3c6d48843c390770ba37155df553",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.133,
+      "bm25": 18.31,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 1.05,
+      "bm25": 23.24,
+      "coverage": 0
+    },
+    {
+      "chunkId": "dff22ad4967260230a22e32b1a595f8f03009e9e",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.031,
+      "bm25": 16.67,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 0.984,
+      "bm25": 15.91,
+      "coverage": 0
+    },
+    {
+      "chunkId": "53f1e37e694a029e6e5026a1fa33a9cac7aebb75",
+      "url": "https://ayush.gov.in/assets/pdf/careers/NIT.pdf",
+      "title": "Ministry of Ayush, Government of India — NIT",
+      "score": 0.964,
+      "bm25": 15.58,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "69371b0b04c5034e00d8d754211abd4877b4cd03",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/STG_Dermatological_Disorders_Ayurveda.pdf",
+      "title": "STG Dermatological Disorders Ayurveda",
+      "score": 0.888,
+      "bm25": 14.35,
+      "coverage": 0
+    },
+    {
+      "chunkId": "1ec20cc85aec2fbce68c6aeba1b7ce17e81275b3",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 0.871,
+      "bm25": 16.19,
+      "coverage": 0
+    },
+    {
+      "chunkId": "001dac0be7ebb84d067711010b35a8c9bbafd036",
+      "url": "https://ism.kerala.gov.in/eng/index.php/institutions/speciality-institutions/govt-ayurveda-marma-hospital-kanjiramkulam-thiruvananthapuram",
+      "title": "Govt. Ayurveda Marma Hospital, Kanjiramkulam, Thiruvananthapuram - Department of Indian Systems of Medicine",
+      "score": 0.865,
+      "bm25": 13.98,
+      "coverage": 0.55
+    }
+  ]
+}

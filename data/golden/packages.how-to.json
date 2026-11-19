@@ -1,0 +1,103 @@
+{
+  "intentId": "packages.how-to",
+  "theme": "Medical Value Travel & Wellness",
+  "subtheme": "Designing packages",
+  "subject": "general",
+  "ask": "how-to",
+  "question": "How do I design ethical Ayurveda wellness packages for international visitors?",
+  "stream": "panchakarma-wellness",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.105Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.15,
+      "bm25": 15.93,
+      "coverage": 0
+    },
+    {
+      "chunkId": "af49e6406da5ca108176dd9b7c4d429bd3303ee0",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/02/Ayur-World-Jan-Feb-2026.pdf",
+      "title": "Ayur World Jan Feb 2026",
+      "score": 1.047,
+      "bm25": 13.34,
+      "coverage": 0.48
+    },
+    {
+      "chunkId": "3278a34083c6d945464bf213dc099667cdb20651",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 1.045,
+      "bm25": 13.32,
+      "coverage": 0.48
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 1.034,
+      "bm25": 14.32,
+      "coverage": 0
+    },
+    {
+      "chunkId": "57a524892b4c7dba71fbccf08e64745429e128a6",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.026,
+      "bm25": 11.37,
+      "coverage": 0
+    },
+    {
+      "chunkId": "352e95127054ef9780a71fe4581080c6cbfe9468",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.012,
+      "bm25": 11.22,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "6acf5ebfea40419f8ccb1689f2bcf0011856cd66",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 0.988,
+      "bm25": 12.59,
+      "coverage": 0.5
+    },
+    {
+      "chunkId": "1dd7606f3d2fa8f50f4d5f18ff04d51413782db2",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 0.988,
+      "bm25": 12.59,
+      "coverage": 0.27
+    }
+  ]
+}

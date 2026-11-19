@@ -1,0 +1,103 @@
+{
+  "intentId": "panchakarma-centre.location",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Panchakarma & therapy services",
+  "subject": "panchakarma",
+  "ask": "location",
+  "question": "Is a city or a small town better for a Panchakarma centre?",
+  "stream": "panchakarma-wellness",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.876Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.328,
+      "bm25": 20.3,
+      "coverage": 0
+    },
+    {
+      "chunkId": "2651cb543ed0819760b58dbb8c9c4e126bbc99f0",
+      "url": "https://nabh.co/programmes/panchakarma-clinic-accreditation-programme/",
+      "title": "Panchkarma Clinic - NABH",
+      "score": 1.286,
+      "bm25": 19.66,
+      "coverage": 0.4
+    },
+    {
+      "chunkId": "bb7f912157dd59e82ecf5c4d5ed2edf43e5ba20a",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 1.25,
+      "bm25": 21.97,
+      "coverage": 0.51
+    },
+    {
+      "chunkId": "496085ab20612a317b93da7b91eb160336ef2339",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 1.137,
+      "bm25": 19.98,
+      "coverage": 0.51
+    },
+    {
+      "chunkId": "a795619686dab1133005f89443463b0b60411566",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.097,
+      "bm25": 16.77,
+      "coverage": 0.25
+    },
+    {
+      "chunkId": "4efa762eec0901dd9ea03400010582dc2363b119",
+      "url": "https://nabh.co/programmes/small-healthcare-organisation-shco-accreditation-programme/",
+      "title": "SHCO - NABH",
+      "score": 1.045,
+      "bm25": 15.97,
+      "coverage": 0.3
+    },
+    {
+      "chunkId": "7cbf9eee8eba9c8f76a4168d5a5ec88eb137f142",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.003,
+      "bm25": 15.33,
+      "coverage": 0.25
+    },
+    {
+      "chunkId": "5da0ca58dfaec82c0ca24f8ca8939007c99fd7f2",
+      "url": "https://nabh.co/about-faqs/",
+      "title": "About FAQs - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 0.931,
+      "bm25": 14.23,
+      "coverage": 0.29
+    }
+  ]
+}

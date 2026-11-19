@@ -1,0 +1,103 @@
+{
+  "intentId": "trademark.how-to",
+  "theme": "Entrepreneurship & Start-ups",
+  "subtheme": "Team & intellectual property",
+  "subject": "trademark",
+  "ask": "how-to",
+  "question": "How do I register a trademark for my brand?",
+  "stream": "entrepreneurship",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.110Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "86033cf0ae6239d454d8550ced5ec3b1299c9204",
+      "url": "https://ipindia.gov.in/uploads/National_IPR_Policy_English.pdf",
+      "title": "National IPR Policy English",
+      "score": 1.347,
+      "bm25": 15.57,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "83ccdd4081b49c414276506bde06164e86c3bd86",
+      "url": "https://ipindia.gov.in/uploads/National_IPR_Policy_English.pdf",
+      "title": "National IPR Policy English",
+      "score": 1.311,
+      "bm25": 15.15,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "f721a2f39ab3e90a9eaeecd5ca06ce340ed81e0c",
+      "url": "https://ayushportal.nic.in/pdf/TKM_Study_Report.pdf",
+      "title": "TKM Study Report",
+      "score": 1.05,
+      "bm25": 16.61,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "710ac3dedaa160dff70e805ae8bcc9b36209dd9d",
+      "url": "https://ayushportal.nic.in/pdf/TKM_Study_Report.pdf",
+      "title": "TKM Study Report",
+      "score": 0.982,
+      "bm25": 15.54,
+      "coverage": 0.21
+    },
+    {
+      "chunkId": "8e5f46bc59274343417b352e905ad01bede64565",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/08/Ayurworld-May-June-2026.pdf",
+      "title": "Ayurworld May June 2026",
+      "score": 0.974,
+      "bm25": 12.94,
+      "coverage": 0.32
+    },
+    {
+      "chunkId": "a729568691a6386e1daaf825f579a87274dbd697",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Consultant(OL)Advertisement.pdf",
+      "title": "Consultant(OL)Advertisement",
+      "score": 0.883,
+      "bm25": 12.76,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "f1baf55a5e813fb1593c3d967c7c33c6acd83096",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/aoushdhi.pdf",
+      "title": "aoushdhi",
+      "score": 0.786,
+      "bm25": 9.08,
+      "coverage": 0.21
+    },
+    {
+      "chunkId": "de69084dd3270b2178df5903f8ac3fe4f7d88e4a",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 0.723,
+      "bm25": 8.35,
+      "coverage": 0
+    }
+  ]
+}

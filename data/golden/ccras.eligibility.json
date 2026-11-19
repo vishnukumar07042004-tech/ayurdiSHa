@@ -1,0 +1,103 @@
+{
+  "intentId": "ccras.eligibility",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Research councils",
+  "subject": "ccras",
+  "ask": "eligibility",
+  "question": "What is the eligibility for a job at CCRAS?",
+  "stream": "research-phd",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.660Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "267d3873c1ce6e39a1077d7408d0f9de26e7ba5f",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 1.313,
+      "bm25": 22.11,
+      "coverage": 0.71
+    },
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.231,
+      "bm25": 18.93,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "edda68b3b78bf195db59780ae0ddce9bea92ea11",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/VacancyDepAdviserYN.pdf",
+      "title": "VacancyDepAdviserYN",
+      "score": 1.087,
+      "bm25": 16.72,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "5c12b8dfb3d4904410fa23b266d93b7342945c83",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/deptuadvisor_vacancy.pdf",
+      "title": "deptuadvisor vacancy",
+      "score": 1.077,
+      "bm25": 16.55,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 1.06,
+      "bm25": 17.86,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "c7b296354b65e1ecd0f045cb90f3c9f10c8964ac",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 1.025,
+      "bm25": 15.76,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "a62ab6dac878ea991763d56b9920c2d6bb02e647",
+      "url": "https://ayush.gov.in/assets/pdf/careers/NEIAH_Director.pdf",
+      "title": "NEIAH Director",
+      "score": 1.018,
+      "bm25": 15.66,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "d3021c9491a29837c07690eeb12e1072674ebc7c",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Vacancy_Circular_for_Filling_up_the_post_of_DG_CCRUM.pdf",
+      "title": "Vacancy Circular for Filling up the post of DG CCRUM",
+      "score": 0.984,
+      "bm25": 15.14,
+      "coverage": 0.29
+    }
+  ]
+}

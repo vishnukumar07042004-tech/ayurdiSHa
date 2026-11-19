@@ -1,6 +1,7 @@
 import React from "react";
-import { Layers, BookOpen, Map, FileSpreadsheet, LogOut, ShieldCheck, CheckCircle2, ArrowRight } from "lucide-react";
+import { Layers, BookOpen, Map as MapIcon, FileSpreadsheet, LogOut, ShieldCheck, CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
 import ActionCard from "./ActionCard.jsx";
+import { DISHA_DRAFTS, DISHA_ROLE } from "./content/glossary.js";
 
 export default function StaffWorkspace({ onGoTab, onLogout, questionsCount = 0, clustersCount = 0 }) {
   const actions = [
@@ -16,12 +17,12 @@ export default function StaffWorkspace({ onGoTab, onLogout, questionsCount = 0, 
     },
     {
       id: "board",
-      title: "Open Theme Stage",
+      title: "Open theme stage",
       what: "Live & Published Mentor Stage Answers",
       why: "Review published mentor responses and two-chair stage conversation records.",
       whatHappens: "Displays the public stage view with published answer letters and congress proceedings.",
       icon: BookOpen,
-      buttonText: "Open Theme Stage",
+      buttonText: "Open the theme stage",
       badgeText: "Stage & Answers",
     },
     {
@@ -30,7 +31,7 @@ export default function StaffWorkspace({ onGoTab, onLogout, questionsCount = 0, 
       what: "Analytics & Mentor Briefing Board",
       why: "Track delegate question statistics, top career interest areas, and personal reply statuses.",
       whatHappens: "Opens thematic breakdown cards, delegate frequency distribution, and briefing notes.",
-      icon: Map,
+      icon: MapIcon,
       buttonText: "Open Insights",
       badgeText: "Analytics & Briefings",
     },
@@ -43,6 +44,16 @@ export default function StaffWorkspace({ onGoTab, onLogout, questionsCount = 0, 
       icon: FileSpreadsheet,
       buttonText: "Open Mentor Pack",
       badgeText: "Mentor Resources",
+    },
+    {
+      id: "ai",
+      title: DISHA_DRAFTS,
+      what: DISHA_ROLE,
+      why: "DISHA drafts answers from trusted sources; an official reviews every draft before a student sees it.",
+      whatHappens: "Opens the review queue and DISHA settings: on/off, streams, daily spend cap and Test DISHA connection.",
+      icon: Sparkles,
+      buttonText: `Open ${DISHA_DRAFTS}`,
+      badgeText: "AI Assistant",
     },
   ];
 

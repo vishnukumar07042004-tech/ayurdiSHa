@@ -4,10 +4,18 @@ import Picture from "../../components/editorial/Picture.jsx";
 import Button, { MoreLink } from "../../components/ui/Button.jsx";
 import { prefersReducedMotion } from "../../components/editorial/motion.js";
 import { WAC } from "../../content/site.js";
+import { WAC_EDITIONS, MEET_THE_MENTORS } from "../../content/wacKnowledge.js";
+import { AyurdishaSteps, WacFaq, WacSources } from "../../components/WacKnowledge.jsx";
+
+function ordinal(n) {
+  const s = ["th", "st", "nd", "rd"];
+  const v = n % 100;
+  return n + (s[(v - 20) % 10] || s[v] || s[0]);
+}
 
 const FACTS = [
   { label: "Dates", value: WAC.dates },
-  { label: "City", value: `${WAC.city}, ${WAC.region}` },
+  { label: "Venue", value: `${WAC.venue}, ${WAC.city}, ${WAC.region}` },
   { label: "Theme", value: WAC.theme },
   { label: "Organiser", value: WAC.organizer },
 ];
@@ -15,7 +23,7 @@ const FACTS = [
 const HALL = [
   "Knowledge Pods for ten career pathways",
   "Podcast Corner — recorded mentor conversations",
-  "Two-Chair Open Theme Stage — published answers",
+      "Two-chair open theme stage — published answers",
 ];
 
 export function HomeWac({ onGo }) {
@@ -91,21 +99,34 @@ export function HomeWac({ onGo }) {
           </Button>
         </div>
         <p className="ui-wac-more" data-reveal>
-          <MoreLink onDark onClick={(e) => onGo("board", e)}>Read published answers on the Open Theme Stage</MoreLink>
+          <MoreLink onDark onClick={(e) => onGo("board", e)}>Read published answers on the open theme stage</MoreLink>
         </p>
       </div>
     </section>
   );
 }
 
-const ERAS = [
-  { title: "Ancient Knowledge", body: "Insight carried in memory and verse, passed from teacher to student." },
-  { title: "Classical Ayurveda", body: "Knowledge gathered into the classical texts that still anchor study today." },
-  { title: "Modern Research", body: "Laboratories, clinical studies and pharmacology test and extend the tradition." },
-  { title: "Digital Ayurveda", body: "Learning, records and conversation move online and across borders." },
-  { title: "Global Collaboration", body: "Practitioners, researchers and institutions meet on shared international platforms." },
-  { title: "AYURDISHA", body: "A mentor for every question — the teacher–student conversation, reimagined for a new generation.", current: true },
-];
+/** Meet the Mentors at WAC + the five-step AYURDISHA flow + a four-question FAQ. */
+export function HomeGoodToKnow() {
+  return (
+    <section id="good-to-know" className="ui-section ui-bg-surface wk-home" aria-labelledby="wk-home-title">
+      <div className="ui-container">
+        <header className="wk-home-head" data-reveal>
+          <p className="ui-eyebrow">{MEET_THE_MENTORS.title}</p>
+          <h2 id="wk-home-title" className="ui-headline">
+            Asked once. <em>Answered for many.</em>
+          </h2>
+          <p className="ui-lead">{MEET_THE_MENTORS.body}</p>
+        </header>
+        <AyurdishaSteps />
+        <div className="wk-home-faq" data-reveal>
+          <WacFaq />
+          <WacSources />
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export function HomeTimeline() {
   const ref = useRef(null);
@@ -143,29 +164,47 @@ export function HomeTimeline() {
   }, []);
 
   return (
-    <section className="ui-section ui-bg-white ui-timeline" aria-labelledby="timeline-title">
+    <section className="ui-section ui-bg-white ui-timeline ui-timeline--wac" aria-labelledby="timeline-title">
       <div className="ui-container ui-timeline-grid">
         <header className="ui-timeline-head">
-          <p className="ui-eyebrow" data-reveal>A living tradition</p>
+          <p className="ui-eyebrow" data-reveal>The journey of WAC</p>
           <h2 id="timeline-title" className="ui-headline" data-reveal>
-            From tradition <em>to tomorrow.</em>
+            Since Kochi, 2002. <em>Now Bhubaneswar.</em>
           </h2>
           <p className="ui-lead" data-reveal>
-            Ayurveda has always travelled through conversation. AYURDISHA is the newest
-            chapter in that long line — not a replacement for it.
+            The World Ayurveda Congress is a platform established by the World Ayurveda Foundation to
+            propagate Ayurveda globally. Ten editions across India — the eleventh meets in the Temple City.
           </p>
+          <p className="ui-small ui-timeline-source" data-reveal>
+            Source:{" "}
+            <a href="https://ayurworld.org/about-wac-2/" target="_blank" rel="noopener noreferrer">
+              ayurworld.org<span className="aym-visually-hidden"> (opens in a new tab)</span>
+            </a>
+          </p>
+          <figure className="ui-timeline-figure" data-reveal>
+            <div className="ed-media" data-scroll-img>
+              <Picture
+                src="/assets/sections/bhubaneswar-temple.jpg"
+                alt="Kalinga-style sandstone temple spire beside a temple tank at golden hour, Odisha"
+                width={1024}
+                height={768}
+                sizes="(max-width: 1023px) 92vw, 460px"
+              />
+            </div>
+            <figcaption>Bhubaneswar, the Temple City — host of the 11th WAC.</figcaption>
+          </figure>
         </header>
 
         <ol className="ui-timeline-list" ref={ref}>
           <span className="ui-timeline-track" aria-hidden="true">
             <span className="ui-timeline-fill" />
           </span>
-          {ERAS.map((e, i) => (
-            <li key={e.title} className={`ui-era${e.current ? " is-current" : ""}`} data-reveal>
+          {WAC_EDITIONS.map(e => (
+            <li key={e.n} className={`ui-era${e.current ? " is-current" : ""}`} data-reveal>
               <span className="ui-era-dot" aria-hidden="true" />
-              <span className="ui-era-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
-              <h3 className="ui-era-title">{e.title}</h3>
-              <p className="ui-body">{e.body}</p>
+              <span className="ui-era-num">{ordinal(e.n)} WAC · {e.year}</span>
+              <h3 className="ui-era-title">{e.city}</h3>
+              <p className="ui-body">{e.theme}</p>
             </li>
           ))}
         </ol>

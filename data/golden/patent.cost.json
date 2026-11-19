@@ -1,0 +1,103 @@
+{
+  "intentId": "patent.cost",
+  "theme": "Entrepreneurship & Start-ups",
+  "subtheme": "Team & intellectual property",
+  "subject": "patent",
+  "ask": "cost",
+  "question": "How much does a patent for my Ayurvedic formulation cost?",
+  "stream": "entrepreneurship",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.063Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "35b7538670d966d2fb09be0db0d1a7b83bd6a668",
+      "url": "https://ipindia.gov.in/uploads/National_IPR_Policy_English.pdf",
+      "title": "National IPR Policy English",
+      "score": 1.438,
+      "bm25": 20.46,
+      "coverage": 0.54
+    },
+    {
+      "chunkId": "ac6acac0a617dc3fe5a965d63e1f39f321e35ec1",
+      "url": "https://ipindia.gov.in/uploads/National_IPR_Policy_English.pdf",
+      "title": "National IPR Policy English",
+      "score": 1.225,
+      "bm25": 17.44,
+      "coverage": 0.28
+    },
+    {
+      "chunkId": "c0ba3194ae2fdd0c70a001935adf6ea141c1ebd3",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20532099/",
+      "title": "Global challenges of graduate level Ayurvedic education: A survey.",
+      "score": 1.032,
+      "bm25": 20.11,
+      "coverage": 0
+    },
+    {
+      "chunkId": "de69084dd3270b2178df5903f8ac3fe4f7d88e4a",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 1.031,
+      "bm25": 14.67,
+      "coverage": 0.28
+    },
+    {
+      "chunkId": "7d122d03fdf5c54dca9a838addb1e6542f9a48f8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.004,
+      "bm25": 17.86,
+      "coverage": 0.21
+    },
+    {
+      "chunkId": "7aafdb3bd5cf304340fa900533ba351d8b09c0f5",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/04/25042025-CSR-Policy.pdf",
+      "title": "CCRAS CSR Policy.pdf",
+      "score": 1.002,
+      "bm25": 19.52,
+      "coverage": 0.21
+    },
+    {
+      "chunkId": "ef1083e224d69d1eb7150ae275bb16bf7ca772ce",
+      "url": "https://ayushportal.nic.in/pdf/TKM_Study_Report.pdf",
+      "title": "TKM Study Report",
+      "score": 0.987,
+      "bm25": 19.24,
+      "coverage": 0.28
+    },
+    {
+      "chunkId": "59377e4a6a6de9b7b603f7894dccef4f88b3114a",
+      "url": "https://ayushportal.nic.in/pdf/TKM_Study_Report.pdf",
+      "title": "TKM Study Report",
+      "score": 0.97,
+      "bm25": 18.9,
+      "coverage": 0.28
+    }
+  ]
+}

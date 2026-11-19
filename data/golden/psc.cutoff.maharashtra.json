@@ -1,0 +1,103 @@
+{
+  "intentId": "psc.cutoff.maharashtra",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "subject": "psc",
+  "ask": "cutoff",
+  "question": "What rank or score is needed in the Maharashtra PSC Ayurveda Medical Officer exam?",
+  "stream": "govt-jobs",
+  "region": "maharashtra",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.808Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.438,
+      "bm25": 25.02,
+      "coverage": 0.14
+    },
+    {
+      "chunkId": "f0078d54b17d92fd4dbdaa2add34848049260765",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 0.998,
+      "bm25": 17.38,
+      "coverage": 0.14
+    },
+    {
+      "chunkId": "410c5ad17da87b901c21387a7043cebbc1614457",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/Detailed_Advertisement_for_the_post_of_Member,_Board_of_Ayurveda_under,_NCISM_for_Website-2026.pdf",
+      "title": "Detailed Advertisement for the post of Member, Board of Ayurveda under, NCISM for Website 2026",
+      "score": 0.96,
+      "bm25": 16.72,
+      "coverage": 0.28
+    },
+    {
+      "chunkId": "8bf9a4b3527d81a5d2c0c18deca025842fb49a52",
+      "url": "https://ism.kerala.gov.in/eng/",
+      "title": "Home - Department of Indian Systems of Medicine",
+      "score": 0.932,
+      "bm25": 16.22,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "ad2ce5d5f7d0c4c9f21b28171da7caffe456548d",
+      "url": "https://rpsc.rajasthan.gov.in/Static/InformationForCandidates/FAQ.pdf",
+      "title": "Rajasthan Public Service Commission — FAQ",
+      "score": 0.923,
+      "bm25": 16.07,
+      "coverage": 0.33
+    },
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 0.914,
+      "bm25": 21.78,
+      "coverage": 0.14
+    },
+    {
+      "chunkId": "96059e644fb8b1a29fb490662f53e706cf9d64d0",
+      "url": "https://rpsc.rajasthan.gov.in/Static/InformationForCandidates/FAQ.pdf",
+      "title": "Rajasthan Public Service Commission — FAQ",
+      "score": 0.87,
+      "bm25": 15.14,
+      "coverage": 0.28
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.844,
+      "bm25": 18.36,
+      "coverage": 0
+    }
+  ]
+}

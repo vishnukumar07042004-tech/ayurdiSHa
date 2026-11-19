@@ -648,12 +648,10 @@ function normalizeClientDrafts(aiDrafts) {
 
 function hybridWaiting(item) {
   if (!item) return false;
-  const st = item.aiDraft && item.aiDraft.status;
+  // Do not treat a stuck overflow flag on a real pending letter as "still waiting".
+  if (isOverflowItem(item)) return true;
   return Boolean(
-    st === "quotaDeferred" || st === "awaiting_ai" || st === "aiPending"
-    || item.quotaDeferred || item.overflow
-    || (item.job && item.job.deferClass === "quotaDeferred")
-    || item.regenerating
+    item.regenerating
     || (item.job && (item.job.only === "hybrid" || item.job.only === "openai") && (item.job.status === "queued" || item.job.status === "running")),
   );
 }
@@ -753,9 +751,9 @@ function CompareSide({ id, v, active, primary, canApprove, canEdit, busy, onAppr
 
       {!v && (
         <div className="air-compare-missing">
-          {item && (item.aiDraft && (item.aiDraft.status === "quotaDeferred" || item.aiDraft.status === "awaiting_ai" || item.aiDraft.status === "aiPending") || item.quotaDeferred || item.overflow || (item.job && item.job.deferClass === "quotaDeferred")) ? (
+          {isOverflowItem(item) ? (
             <p>{label} is queued because of an AI limit — Hybrid (GPT draft + Gemini check) will run after recharge. Nothing is published until an official approves it.</p>
-          ) : item && (item.regenerating || (item.job && item.job.only === id && (item.job.status === "queued" || item.job.status === "running"))) ? (
+          ) : item && (item.regenerating || (item.job && (item.job.only === id || (id === "hybrid" && item.job.only === "openai")) && (item.job.status === "queued" || item.job.status === "running"))) ? (
             <p>{label} draft continues in the next run — it will appear here when GPT finishes. Use Regenerate if it stalls.</p>
           ) : id === "hybrid" ? (
             <div className="air-alert air-compare-failed" role="alert">
@@ -863,7 +861,7 @@ export function CompareView({ item, busy, canApprove, canEdit, onApprove, onEdit
           return (
             <button key={id} type="button" role="tab" aria-selected={tab === id} aria-controls={`air-side-${id}`}
               className={`air-seg-btn${tab === id ? " is-on" : ""}`} onClick={() => setTab(id)}>
-              {SIDE_SHORT[id]}{v && v.status === "error" ? " · failed" : !v && item && (item.quotaDeferred || item.overflow || (item.aiDraft && (item.aiDraft.status === "quotaDeferred" || item.aiDraft.status === "awaiting_ai"))) ? " · queued" : !v ? (id === "hybrid" ? " · not saved" : " · none") : ""}
+              {SIDE_SHORT[id]}{v && v.status === "error" ? " · failed" : !v && isOverflowItem(item) ? " · queued" : !v && item && (item.regenerating || (item.job && (item.job.only === id || (id === "hybrid" && item.job.only === "openai")) && (item.job.status === "queued" || item.job.status === "running"))) ? " · continues" : !v ? (id === "hybrid" ? " · not saved" : " · none") : ""}
             </button>
           );
         })}

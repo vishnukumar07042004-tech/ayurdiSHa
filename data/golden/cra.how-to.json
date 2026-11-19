@@ -1,0 +1,103 @@
+{
+  "intentId": "cra.how-to",
+  "theme": "Research, Evidence & Publication",
+  "subtheme": "Study design",
+  "subject": "research",
+  "ask": "how-to",
+  "question": "How do I get a clinical research associate job?",
+  "stream": "research-phd",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.821Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "ad569dd2af74979f312a0769d3bce896c6834ad7",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40561743/",
+      "title": "Perceptions, knowledge, attitude, practices and barriers towards research among Ayurveda interns: A cross - sectional pilot study.",
+      "score": 1.313,
+      "bm25": 20.76,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "dd1bbe2461f956bf42664d800ef3d4dc7b99f079",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 1.294,
+      "bm25": 20.47,
+      "coverage": 0
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 1.29,
+      "bm25": 20.4,
+      "coverage": 0.08
+    },
+    {
+      "chunkId": "1e8c572d520bfc79e5a87f6452ee396e83a4c5f3",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29861594/",
+      "title": "A causal relationship between knowledge of Sanskrit language and results of Bachelor of Ayurvedic Medicine and Surgery examination: An analytical study.",
+      "score": 1.222,
+      "bm25": 19.33,
+      "coverage": 0
+    },
+    {
+      "chunkId": "d4d49bed74285e0e3f306718d6da49d0cd047524",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19687194/",
+      "title": "The ayurveda education in India: how well are the graduates exposed to basic clinical skills?",
+      "score": 1.199,
+      "bm25": 18.96,
+      "coverage": 0.12
+    },
+    {
+      "chunkId": "267d3873c1ce6e39a1077d7408d0f9de26e7ba5f",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 1.182,
+      "bm25": 18.68,
+      "coverage": 0.64
+    },
+    {
+      "chunkId": "0a6a6dad2d40ef8f98c719f3bf046b6ec0655d03",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 1.142,
+      "bm25": 18.06,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "99bd6a4033508fa5c068f56a86585cbdc7fbea2a",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/07/CCRAS_Guideline-of-Clinical_Evaluation.pdf",
+      "title": "CCRS_Clinical _BOOK-6_945-CD MATTER.pdf",
+      "score": 1.138,
+      "bm25": 18,
+      "coverage": 0.2
+    }
+  ]
+}

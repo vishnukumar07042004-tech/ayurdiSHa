@@ -61,7 +61,7 @@ export default function EventDetailPage() {
         title={event.title}
         lead={event.description}
         meta={<span className="ui-tag">{event.category}</span>}
-        actions={<Button to={REGISTER} size="lg">Register for Hall &amp; Ask Desk</Button>}
+        actions={<Button to={REGISTER} size="lg">Register to ask</Button>}
       />
       <LocalNav
         title={event.title}
@@ -121,7 +121,7 @@ export default function EventDetailPage() {
           <h2 className="ui-tile-title">Participate in the Digital Hall</h2>
           <p className="ui-body">Register online to submit your question and track your answer ticket for this session.</p>
           <div className="ui-btn-row ui-btn-row--center">
-            <Button to={REGISTER} size="lg" variant="on-dark">Register for Hall &amp; Ask Desk</Button>
+            <Button to={REGISTER} size="lg" variant="on-dark">Register to ask</Button>
           </div>
           <MoreLink to="/events" onDark>See the full schedule</MoreLink>
         </aside>

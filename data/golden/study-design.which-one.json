@@ -1,0 +1,103 @@
+{
+  "intentId": "study-design.which-one",
+  "theme": "Research, Evidence & Publication",
+  "subtheme": "Study design",
+  "subject": "research",
+  "ask": "which one",
+  "question": "Which study design should I choose for my first Ayurveda research project?",
+  "stream": "research-phd",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.940Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "7ff198c5e0c3996e1078f0bcab7eecd8c8ebee46",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 1.313,
+      "bm25": 14.77,
+      "coverage": 0.32
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 1.268,
+      "bm25": 14.27,
+      "coverage": 0.06
+    },
+    {
+      "chunkId": "1339780f823240b66f91f9cb034e91836d90a8a6",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/RAV_Vacancy.pdf",
+      "title": "RAV Vacancy",
+      "score": 1.144,
+      "bm25": 11.75,
+      "coverage": 0.19
+    },
+    {
+      "chunkId": "c0e90990dd57f6510003cd0b51092b8878a89969",
+      "url": "https://ayushportal.nic.in/pdf/CCIM_Telemedicine_Guidelines_08-04-2020.pdf",
+      "title": "CCIM Telemedicine Guidelines 08 04 2020",
+      "score": 1.127,
+      "bm25": 12.68,
+      "coverage": 0.55
+    },
+    {
+      "chunkId": "33e74ac39137781c04f920e5cb036cd64e55c8d4",
+      "url": "https://ccras.nic.in/services/public-health-research/",
+      "title": "Public Health Research - Central Council for Research in Ayurvedic Sciences",
+      "score": 1.109,
+      "bm25": 12.48,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "91841282d2557c3d741e613edab41462781e3e01",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/Central_Government_Nomination_to_MD_Ayurveda.pdf",
+      "title": "Central Government Nomination to MD Ayurveda",
+      "score": 1.075,
+      "bm25": 11.05,
+      "coverage": 0.06
+    },
+    {
+      "chunkId": "899aeb117267a583e7e82d3fc613f95cde8b670f",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/STG_Dermatological_Disorders_Ayurveda.pdf",
+      "title": "STG Dermatological Disorders Ayurveda",
+      "score": 1.066,
+      "bm25": 10.96,
+      "coverage": 0.35
+    },
+    {
+      "chunkId": "cf7cf3228eba891bc478993cce8a9b9bdd33b69e",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ayurgyan.pdf",
+      "title": "ayurgyan",
+      "score": 1.056,
+      "bm25": 10.85,
+      "coverage": 0.22
+    }
+  ]
+}

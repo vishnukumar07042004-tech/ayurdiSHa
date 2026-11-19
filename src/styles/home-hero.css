@@ -1,0 +1,318 @@
+/* ==========================================================================
+   Home — hero ("the doorway to the hall")
+   A full-width cinematic frame inset from the viewport edges: golden-hour
+   photo of the Meet the Mentors hall under a forest scrim, copy on the left.
+   Apple-grade restraint: one filled CTA (the gold Ask Desk pill), one outline
+   button, one "Learn more ›" link, no badges. Specs: docs/design/hero-and-slide-imagery.md,
+   docs/design/copy/ASK-CTA-AND-COPY-SPEC.md
+   ========================================================================== */
+
+.hx {
+  --hero-p: 0;
+  --hero-damp: 1;
+  --hx-inset: clamp(10px, 1.2vw, 18px);
+  --hx-radius: clamp(20px, 2vw, 28px);
+  --hx-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --hx-cream: #FCFBF7;
+  --hx-gold: #E6CF9F;
+  --hx-forest: #0B211C;
+  position: relative;
+  margin-top: calc(var(--ui-nav-h) * -1);
+  padding: calc(var(--ui-nav-h) + var(--hx-inset)) var(--hx-inset) 0;
+  background: var(--ui-canvas);
+}
+
+.hx-frame {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-height: clamp(600px, calc(100svh - var(--ui-nav-h) - var(--hx-inset) * 2), 900px);
+  border-radius: var(--hx-radius);
+  overflow: hidden;
+  background: var(--hx-forest);
+  color: var(--hx-cream);
+}
+
+/* ---------- Media ---------- */
+.hx-media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  scale: calc(1 + var(--hero-p) * 0.05);
+  transform-origin: 60% 40%;
+}
+.hx-media picture,
+.hx-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.hx-media img {
+  object-fit: cover;
+  object-position: 62% 50%;
+  animation:
+    hx-settle 1.6s var(--hx-ease) both,
+    hx-drift 32s ease-in-out 1.6s infinite alternate;
+}
+@keyframes hx-settle {
+  from { transform: scale(1.04); opacity: 0.5; }
+  to { transform: scale(1); opacity: 1; }
+}
+@keyframes hx-drift {
+  from { transform: scale(1); }
+  to { transform: scale(1.035) translate3d(-0.8%, -0.4%, 0); }
+}
+
+.hx-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(11, 33, 28, 0.92) 0%, rgba(11, 33, 28, 0.8) 30%, rgba(11, 33, 28, 0.34) 54%, rgba(11, 33, 28, 0) 74%),
+    linear-gradient(0deg, rgba(11, 33, 28, 0.6) 0%, rgba(11, 33, 28, 0) 32%),
+    linear-gradient(180deg, rgba(11, 33, 28, 0.3) 0%, rgba(11, 33, 28, 0) 14%);
+}
+
+/* ---------- Copy ---------- */
+.hx-inner {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(40px, 6vh, 96px) clamp(28px, 5.5vw, 96px);
+  box-sizing: border-box;
+  opacity: calc(1 - var(--hero-p) * 0.9);
+  translate: 0 calc(var(--hero-p) * -40px * var(--hero-damp));
+}
+.hx-copy { max-width: 640px; }
+
+.hx-eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 8px;
+  margin: 0 0 clamp(14px, 2vh, 20px);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+  color: var(--hx-gold);
+}
+.hx-eyebrow-sep { opacity: 0.6; }
+
+.aym-ui .hx-title,
+.hx-title {
+  margin: 0;
+  font-family: var(--ui-font-display);
+  font-size: min(clamp(2.625rem, 1.25rem + 4.6vw, 5.5rem), 10vh);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.032em;
+  color: var(--hx-cream);
+  text-wrap: balance;
+}
+.hx-line { display: block; }
+.aym-ui .hx-title .hx-accent,
+.hx-title .hx-accent {
+  font-family: var(--ui-font-accent);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.14em;
+  line-height: 0.9;
+  letter-spacing: -0.012em;
+  color: var(--hx-gold);
+}
+
+.hx-sub {
+  margin: clamp(18px, 2.6vh, 24px) 0 0;
+  max-width: 34em;
+  font-size: clamp(1.0625rem, 0.98rem + 0.32vw, 1.3125rem);
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.011em;
+  color: rgba(252, 251, 247, 0.82);
+  text-wrap: pretty;
+}
+
+.hx-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 28px;
+  margin-top: clamp(26px, 3.6vh, 34px);
+}
+.hx-secondary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+}
+.aym-ui .hx-btn-secondary {
+  min-height: 48px;
+  padding: 0 22px;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: -0.016em;
+}
+.aym-ui .hx-more {
+  font-size: 17px;
+  color: var(--hx-cream);
+}
+.aym-ui .hx-more:hover { color: #FFFFFF; }
+
+/* Ask Desk — the hero's one filled action: gold pill, one sheen on first load.
+   Spec: docs/design/copy/ASK-CTA-AND-COPY-SPEC.md §2.1 */
+.hx-ask {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 58px;
+  padding: 8px 22px 8px 8px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #F1DDB0 0%, #E3C88E 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    0 10px 30px -12px rgba(230, 207, 159, 0.55);
+  color: var(--hx-forest);
+  text-decoration: none;
+  box-sizing: border-box;
+  transition:
+    transform 0.24s var(--hx-ease),
+    box-shadow 0.24s var(--hx-ease),
+    background 0.24s var(--hx-ease);
+  animation: hx-ask-glow 1.2s var(--hx-ease) 1.1s 1 backwards;
+}
+.hx-ask::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, 0.7) 50%, transparent 70%);
+  transform: translateX(-120%);
+  animation: hx-ask-sheen 1.2s var(--hx-ease) 1.1s 1 both;
+  pointer-events: none;
+}
+.hx-ask:hover {
+  background: linear-gradient(180deg, #F6E6C2 0%, #E9D19D 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 16px 40px -12px rgba(230, 207, 159, 0.7);
+  transform: translateY(-1px);
+}
+.hx-ask:active { transform: scale(0.98); }
+.hx-ask:focus-visible {
+  outline: 3px solid var(--hx-cream);
+  outline-offset: 3px;
+}
+.hx-ask-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--hx-forest);
+  color: var(--hx-gold);
+}
+.hx-ask-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.15;
+}
+.hx-ask-kicker {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: rgba(11, 33, 28, 0.7);
+}
+.hx-ask-label {
+  font-size: 18px;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+}
+.hx-ask-arrow {
+  flex: none;
+  margin-left: 4px;
+  transition: transform 0.24s var(--hx-ease);
+}
+.hx-ask:hover .hx-ask-arrow { transform: translateX(3px); }
+
+@keyframes hx-ask-sheen {
+  from { transform: translateX(-120%); }
+  to { transform: translateX(120%); }
+}
+@keyframes hx-ask-glow {
+  0% { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 10px 30px -12px rgba(230, 207, 159, 0.55), 0 0 0 0 rgba(230, 207, 159, 0.55); }
+  60% { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 10px 30px -12px rgba(230, 207, 159, 0.55), 0 0 0 12px rgba(230, 207, 159, 0); }
+  100% { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 10px 30px -12px rgba(230, 207, 159, 0.55), 0 0 0 0 rgba(230, 207, 159, 0); }
+}
+
+/* ---------- Entrance ---------- */
+.hx-rise {
+  animation: hx-rise 0.9s var(--hx-ease) both;
+  animation-delay: calc(120ms + var(--i, 0) * 90ms);
+}
+@keyframes hx-rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Breakpoints ---------- */
+
+/* Tablet + phone: the photo sits on top at its own ratio and dissolves into
+   forest; copy starts over its lower edge. */
+@media (max-width: 959px) {
+  .hx { --hx-media-h: calc((100vw - var(--hx-inset) * 2) * 0.5625); }
+  .hx-frame { min-height: 0; }
+  .hx-media { bottom: auto; height: var(--hx-media-h); }
+  .hx-media img { object-position: 60% 40%; }
+  .hx-scrim {
+    background:
+      linear-gradient(180deg, rgba(11, 33, 28, 0.28) 0px, rgba(11, 33, 28, 0) calc(var(--hx-media-h) * 0.18), rgba(11, 33, 28, 0) calc(var(--hx-media-h) * 0.42), rgba(11, 33, 28, 0.78) calc(var(--hx-media-h) * 0.78), var(--hx-forest) calc(var(--hx-media-h) - 2px));
+  }
+  .hx-inner { padding: calc(var(--hx-media-h) * 0.74) clamp(24px, 6vw, 56px) clamp(36px, 6vw, 56px); }
+  .hx-copy { max-width: 600px; }
+}
+
+@media (max-width: 767px) {
+  .hx { --hx-inset: 10px; --hx-radius: 22px; --hx-media-h: min(108vw, 440px); }
+  .hx-media img { object-position: 58% 32%; }
+  .hx-scrim {
+    background:
+      linear-gradient(180deg, rgba(11, 33, 28, 0.28) 0px, rgba(11, 33, 28, 0) calc(var(--hx-media-h) * 0.16), rgba(11, 33, 28, 0) calc(var(--hx-media-h) * 0.34), rgba(11, 33, 28, 0.82) calc(var(--hx-media-h) * 0.68), var(--hx-forest) calc(var(--hx-media-h) - 2px));
+  }
+  .hx-inner { padding: calc(var(--hx-media-h) * 0.7) 22px 28px; }
+  .hx-eyebrow { font-size: 13px; margin-bottom: 12px; }
+  .hx-eyebrow > span:first-child { flex-basis: 100%; }
+  .hx-eyebrow > .hx-eyebrow-sep:nth-child(2) { display: none; }
+  .hx-title { font-size: clamp(2.5rem, 11.2vw, 3.25rem); line-height: 1.05; letter-spacing: -0.03em; }
+  .hx-sub { margin-top: 14px; font-size: 17px; line-height: 1.47; }
+  .hx-actions { gap: 16px 24px; margin-top: 24px; }
+  .hx-ask { width: 100%; min-height: 56px; }
+  .hx-ask-arrow { margin-left: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hx-media,
+  .hx-inner { scale: none !important; translate: none !important; opacity: 1 !important; }
+  .hx-media img,
+  .hx-rise,
+  .hx-ask,
+  .hx-ask::after { animation: none !important; }
+  .hx-ask::after { display: none; }
+  .hx-ask,
+  .hx-ask:hover,
+  .hx-ask:active,
+  .hx-ask-arrow,
+  .hx-ask:hover .hx-ask-arrow { transition: none; transform: none; }
+}

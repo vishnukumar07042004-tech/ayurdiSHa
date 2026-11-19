@@ -1,0 +1,103 @@
+{
+  "intentId": "abroad-visa.how-to.uk",
+  "theme": "Practice Abroad & Practitioner Mobility",
+  "subtheme": "Visa and employment routes",
+  "subject": "visa",
+  "ask": "how-to",
+  "question": "Which visa or employment route can an Ayurveda practitioner use to work in the UK?",
+  "stream": "abroad-uk-eu",
+  "region": "uk",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.739Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "42d78027c951fd072d0ae6dbb8c6e93fac73f5ac",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.438,
+      "bm25": 18.37,
+      "coverage": 0.27
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.246,
+      "bm25": 15.93,
+      "coverage": 0
+    },
+    {
+      "chunkId": "7d4677c76aecfcb2e6aeb434b5b0fa0289f7ade8",
+      "url": "https://www.gov.uk/guidance/apply-for-a-traditional-herbal-registration-thr",
+      "title": "Apply for a traditional herbal registration (THR)",
+      "score": 1.135,
+      "bm25": 14.5,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 1.121,
+      "bm25": 14.32,
+      "coverage": 0
+    },
+    {
+      "chunkId": "c2a1e4f7eabfa60e3382c2b77a106a9f5ddd3bb4",
+      "url": "https://www.gov.uk/guidance/apply-for-a-traditional-herbal-registration-thr",
+      "title": "Apply for a traditional herbal registration (THR)",
+      "score": 1.003,
+      "bm25": 12.81,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "3a24e908c7f73657553de1a77bdd5868e71108ba",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.985,
+      "bm25": 14.47,
+      "coverage": 0.16
+    },
+    {
+      "chunkId": "3322c263d1e61610005c94df25f6afab01adc417",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.962,
+      "bm25": 14.14,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "fd17af37ac7ffee74c0156a7c4f92d7a9e8afa25",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37039177/",
+      "title": "A survey of the training and working arrangements of general practitioners providing asthma and chronic obstructive pulmonary disease care in a rural area of Maharashtra State.",
+      "score": 0.942,
+      "bm25": 16.49,
+      "coverage": 0.08
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "intentId": "specialty-infertility.scope",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Choosing a clinical specialty",
+  "subject": "specialty:infertility",
+  "ask": "scope",
+  "question": "What is the scope of an infertility-focused Ayurveda practice for BAMS graduates?",
+  "stream": "clinical-practice",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.069Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "8a56e193dda646b3d77715ba3c4338f73094a13e",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/02/Ayur-World-Jan-Feb-2026.pdf",
+      "title": "Ayur World Jan Feb 2026",
+      "score": 1.052,
+      "bm25": 18.91,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "d4d49bed74285e0e3f306718d6da49d0cd047524",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19687194/",
+      "title": "The ayurveda education in India: how well are the graduates exposed to basic clinical skills?",
+      "score": 1.05,
+      "bm25": 22.48,
+      "coverage": 0
+    },
+    {
+      "chunkId": "267d3873c1ce6e39a1077d7408d0f9de26e7ba5f",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 1.009,
+      "bm25": 21.59,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "899aeb117267a583e7e82d3fc613f95cde8b670f",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/STG_Dermatological_Disorders_Ayurveda.pdf",
+      "title": "STG Dermatological Disorders Ayurveda",
+      "score": 0.921,
+      "bm25": 14.41,
+      "coverage": 0
+    },
+    {
+      "chunkId": "69371b0b04c5034e00d8d754211abd4877b4cd03",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/STG_Dermatological_Disorders_Ayurveda.pdf",
+      "title": "STG Dermatological Disorders Ayurveda",
+      "score": 0.903,
+      "bm25": 14.13,
+      "coverage": 0
+    },
+    {
+      "chunkId": "57a524892b4c7dba71fbccf08e64745429e128a6",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 0.887,
+      "bm25": 13.87,
+      "coverage": 0
+    },
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 0.859,
+      "bm25": 18.38,
+      "coverage": 0
+    },
+    {
+      "chunkId": "072a5542c557c75d0e8e499e5d8b1afbf10f16dc",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/senior-house-surgeoncy",
+      "title": "Senior House Surgency - Department of Indian Systems of Medicine",
+      "score": 0.853,
+      "bm25": 13.34,
+      "coverage": 0
+    }
+  ]
+}

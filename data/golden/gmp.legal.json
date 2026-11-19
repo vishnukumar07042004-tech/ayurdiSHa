@@ -1,0 +1,102 @@
+{
+  "intentId": "gmp.legal",
+  "theme": "Manufacturing, Quality & GMP",
+  "subtheme": "GMP and licensing",
+  "subject": "gmp",
+  "ask": "legal",
+  "question": "What licence or registration is required for GMP (Schedule T) certification?",
+  "stream": "industry-pharma",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Gazette Notification No. G.S.R. 669(E) dated 28th October, 2024",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._669(E)_dated_28th_October,_2024.pdf"
+    },
+    {
+      "title": "Drugs and Cosmetics Act Rules",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.912Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "8805b660d309fecee7d7f28b4340247a2156edb5",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._669(E)_dated_28th_October,_2024.pdf",
+      "title": "Gazette Notification No. G.S.R. 669(E) dated 28th October, 2024",
+      "score": 1.218,
+      "bm25": 26.44,
+      "coverage": 0.6
+    },
+    {
+      "chunkId": "6be2e901229b87cf05b40a97ba62eb5bd25cc343",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._669(E)_dated_28th_October,_2024.pdf",
+      "title": "Gazette Notification No. G.S.R. 669(E) dated 28th October, 2024",
+      "score": 1.207,
+      "bm25": 26.18,
+      "coverage": 0.6
+    },
+    {
+      "chunkId": "b72cbc0e8f18ab3812bd1e14daa53b01a93e171b",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.15,
+      "bm25": 31.2,
+      "coverage": 0.63
+    },
+    {
+      "chunkId": "eff7d3787fb6df305d3b3cc48b261f61156f43d4",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.085,
+      "bm25": 29.44,
+      "coverage": 0.63
+    },
+    {
+      "chunkId": "9b668ce014d2e98986c8b1d2bffd1473f22ae6ac",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/aoushdhi.pdf",
+      "title": "aoushdhi",
+      "score": 1.058,
+      "bm25": 22.96,
+      "coverage": 0.63
+    },
+    {
+      "chunkId": "e898fd58352f20e8669fab414c963a117b73eed8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/aoushdhi.pdf",
+      "title": "aoushdhi",
+      "score": 0.946,
+      "bm25": 20.53,
+      "coverage": 0.54
+    },
+    {
+      "chunkId": "ac3a8b78d48253292dbb6989ced91209fcf344a0",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/ClarificationManufacturingLicensed_under_ASU_FSSAI.pdf",
+      "title": "ClarificationManufacturingLicensed under ASU FSSAI",
+      "score": 0.839,
+      "bm25": 18.21,
+      "coverage": 0.32
+    },
+    {
+      "chunkId": "65a5a3b029f5081e1490aa1fa0aa701b8124f96b",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/07/CCRAS_Guideline-of-Drug-Development.pdf",
+      "title": "CCRS_Guidline of Drug_Book-7_CD MATTER.pdf",
+      "score": 0.778,
+      "bm25": 18.49,
+      "coverage": 0.54
+    }
+  ]
+}

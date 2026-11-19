@@ -1,0 +1,103 @@
+{
+  "intentId": "psc.eligibility.gujarat",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "subject": "psc",
+  "ask": "eligibility",
+  "question": "What is the eligibility for the Gujarat PSC Ayurveda Medical Officer exam?",
+  "stream": "govt-jobs",
+  "region": "gujarat",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.672Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.438,
+      "bm25": 23.67,
+      "coverage": 0.18
+    },
+    {
+      "chunkId": "c7b66b8a69527d6d3bcdf795f7438c5cdb48280b",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/Central-Government-Nomination-to-MD-(Ayurveda)-NIA-Jaipur-2024-25.pdf",
+      "title": "Central Government Nomination to MD (Ayurveda) NIA Jaipur 2024 25",
+      "score": 1.266,
+      "bm25": 20.85,
+      "coverage": 0.38
+    },
+    {
+      "chunkId": "7570883c7ce2a21d175a0e6b4f0b004c39acfdc3",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/ep3ayurveda.pdf",
+      "title": "ep3ayurveda",
+      "score": 1.191,
+      "bm25": 19.61,
+      "coverage": 0.38
+    },
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.144,
+      "bm25": 18.84,
+      "coverage": 0.35
+    },
+    {
+      "chunkId": "319cc1b74f508f4beedb6ca8c7ebcf812f2f11c4",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/Central_Government_Nomination_to_MD_Ayurveda.pdf",
+      "title": "Central Government Nomination to MD Ayurveda",
+      "score": 1.14,
+      "bm25": 18.77,
+      "coverage": 0.38
+    },
+    {
+      "chunkId": "edda68b3b78bf195db59780ae0ddce9bea92ea11",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/VacancyDepAdviserYN.pdf",
+      "title": "VacancyDepAdviserYN",
+      "score": 1.137,
+      "bm25": 18.72,
+      "coverage": 0.28
+    },
+    {
+      "chunkId": "5c12b8dfb3d4904410fa23b266d93b7342945c83",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/deptuadvisor_vacancy.pdf",
+      "title": "deptuadvisor vacancy",
+      "score": 1.126,
+      "bm25": 18.54,
+      "coverage": 0.28
+    },
+    {
+      "chunkId": "0266eeab661643c5171a0443598595f2f4d42eff",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/CDSMMP.pdf",
+      "title": "CDSMMP",
+      "score": 1.05,
+      "bm25": 17.29,
+      "coverage": 0.38
+    }
+  ]
+}

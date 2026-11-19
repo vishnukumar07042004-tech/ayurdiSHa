@@ -9,6 +9,14 @@ export const MENTOR_DOMAINS = [
 ];
 
 export function getMentorDomain(m) {
+  const area = String(m?.area || "").toLowerCase().trim();
+  if (area === "academic" || area === "academics" || area === "academics & samhita") {
+    return "Academics & Samhita";
+  }
+  if (area === "clinician" || area === "clinical" || area === "clinical practice") {
+    return "Clinical Practice";
+  }
+
   const exp = String(m.expertise || "").toLowerCase();
   const des = String(m.designation || "").toLowerCase();
   const aff = String(m.affiliation || "").toLowerCase();

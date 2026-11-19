@@ -1,0 +1,103 @@
+{
+  "intentId": "socialmedia-platform.cost",
+  "theme": "Brand Building & Communication",
+  "subtheme": "Digital presence",
+  "subject": "socialmedia",
+  "ask": "cost",
+  "question": "How much does social media platform for my clinic cost?",
+  "stream": "digital-branding",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.119Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "34e6ce6c265dee76e062001431a383e52c284f8b",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/iec.pdf",
+      "title": "Ministry of Ayush, Government of India — iec",
+      "score": 1.438,
+      "bm25": 23.86,
+      "coverage": 0.49
+    },
+    {
+      "chunkId": "6f03f0a6c4ee6d73105ed83a3ff78ffa43a585ea",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/iec.pdf",
+      "title": "Ministry of Ayush, Government of India — iec",
+      "score": 1.352,
+      "bm25": 22.45,
+      "coverage": 0.49
+    },
+    {
+      "chunkId": "f1b5fd63024b166f343c34e340811d68be96869d",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Young_Profassional_1_1.pdf",
+      "title": "Young Profassional 1 1",
+      "score": 1.098,
+      "bm25": 18.22,
+      "coverage": 0.49
+    },
+    {
+      "chunkId": "41c8049f9698f7e79a02545902ad3eaf971d2e3a",
+      "url": "https://ayush.gov.in/assets/pdf/awards/Advertisement_for_National_Ayurved_Dhanwantari_Award.pdf",
+      "title": "Advertisement for National Ayurved Dhanwantari Award",
+      "score": 0.972,
+      "bm25": 16.14,
+      "coverage": 0.49
+    },
+    {
+      "chunkId": "2dcefcf31fd73e390809370f82a9621448f1da59",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.916,
+      "bm25": 17.48,
+      "coverage": 0.49
+    },
+    {
+      "chunkId": "1c202ae53de923174d94f70d371d4df05363a826",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37358535/",
+      "title": "Covid-19 cure perceptions and media use in India.",
+      "score": 0.887,
+      "bm25": 20.15,
+      "coverage": 0.49
+    },
+    {
+      "chunkId": "0bfd4c4d5d32097e92862f5fb0d063bc17d014f3",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.861,
+      "bm25": 20.54,
+      "coverage": 0.35
+    },
+    {
+      "chunkId": "7d122d03fdf5c54dca9a838addb1e6542f9a48f8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 0.861,
+      "bm25": 17.86,
+      "coverage": 0.13
+    }
+  ]
+}

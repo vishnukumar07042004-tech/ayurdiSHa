@@ -1,0 +1,103 @@
+{
+  "intentId": "upsc.eligibility",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "subject": "upsc",
+  "ask": "eligibility",
+  "question": "What is the eligibility for UPSC civil services?",
+  "stream": "govt-jobs",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.529Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.438,
+      "bm25": 24.05,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "280cf8415f41ab4804b4016e646867c8bba55e92",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 1.414,
+      "bm25": 23.66,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "edda68b3b78bf195db59780ae0ddce9bea92ea11",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/VacancyDepAdviserYN.pdf",
+      "title": "VacancyDepAdviserYN",
+      "score": 1.338,
+      "bm25": 22.39,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "5c12b8dfb3d4904410fa23b266d93b7342945c83",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/deptuadvisor_vacancy.pdf",
+      "title": "deptuadvisor vacancy",
+      "score": 1.326,
+      "bm25": 22.18,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "09ea88e4b4659c7bf3cdf196308a4ceb3db49349",
+      "url": "https://ayush.gov.in/assets/pdf/careers/CGN_UG_Guideline_Session_2025-26.pdf",
+      "title": "CGN UG Guideline Session 2025 26",
+      "score": 1.139,
+      "bm25": 23.81,
+      "coverage": 0
+    },
+    {
+      "chunkId": "2a7099370e86be1f2e64960dbe98cb479892697a",
+      "url": "https://ayush.gov.in/assets/pdf/careers/GroupBpostsinPCIMHEng.pdf",
+      "title": "GroupBpostsinPCIMHEng",
+      "score": 1.124,
+      "bm25": 18.81,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "a1445d5206b7fe4113cd77e5881ca348493a4cd2",
+      "url": "https://ayush.gov.in/assets/pdf/careers/NIC,_Ministry_of_Ayush,_New_Delhi.pdf",
+      "title": "NIC, Ministry of Ayush, New Delhi",
+      "score": 1.12,
+      "bm25": 18.75,
+      "coverage": 0
+    },
+    {
+      "chunkId": "60ac1562a1f48e239ea6721cecb5e18ecf5b64ff",
+      "url": "https://ayush.gov.in/assets/pdf/awards/Guidelines.pdf",
+      "title": "Guidelines",
+      "score": 1.11,
+      "bm25": 18.57,
+      "coverage": 0.22
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "intentId": "mph.how-to",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Public health projects",
+  "subject": "mph",
+  "ask": "how-to",
+  "question": "How do I do an MPH after BAMS?",
+  "stream": "public-health-policy",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Ayurswasthya",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf"
+    },
+    {
+      "title": "Recruitment Notice 13072026",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Recruitment_Notice_13072026.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.593Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "7d122d03fdf5c54dca9a838addb1e6542f9a48f8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.438,
+      "bm25": 19.29,
+      "coverage": 0.79
+    },
+    {
+      "chunkId": "0c25bbd9b19f1559015d14ea460ffde1de8b8fc8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.42,
+      "bm25": 19.05,
+      "coverage": 0.79
+    },
+    {
+      "chunkId": "fe681eb2fd2c1831d1753c36d7e29f1e01d91e6c",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Recruitment_Notice_13072026.pdf",
+      "title": "Recruitment Notice 13072026",
+      "score": 1.111,
+      "bm25": 14.91,
+      "coverage": 0
+    },
+    {
+      "chunkId": "280cf8415f41ab4804b4016e646867c8bba55e92",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 1.018,
+      "bm25": 13.65,
+      "coverage": 0
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.001,
+      "bm25": 16.79,
+      "coverage": 0.21
+    },
+    {
+      "chunkId": "5a1f3421096b5dfc50d42a2e0b95e9256cc10c13",
+      "url": "https://ccras.nic.in/services/public-health-research/",
+      "title": "Public Health Research - Central Council for Research in Ayurvedic Sciences",
+      "score": 0.928,
+      "bm25": 13.63,
+      "coverage": 0
+    },
+    {
+      "chunkId": "b3330fa90f2acb4735300d8ed4daca9b6caf8218",
+      "url": "https://ccras.nic.in/services/public-health-research/",
+      "title": "Public Health Research - Central Council for Research in Ayurvedic Sciences",
+      "score": 0.901,
+      "bm25": 13.24,
+      "coverage": 0
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 0.871,
+      "bm25": 14.61,
+      "coverage": 0
+    }
+  ]
+}

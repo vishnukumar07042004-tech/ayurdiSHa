@@ -142,7 +142,7 @@ export default function MentorsDirectory() {
           {
             icon: <MessageCircleQuestion size={22} strokeWidth={1.7} />,
             text: "Need help choosing?",
-            label: "Ask the desk",
+            label: "Ask Desk",
             to: ASK,
           },
           {
@@ -157,7 +157,7 @@ export default function MentorsDirectory() {
         title="Mentors"
         watchRef={heroRef}
         links={localLinks}
-        cta={{ label: "Ask the desk", to: ASK }}
+        cta={{ label: "Ask Desk", to: ASK }}
       />
 
       <section className="st-explorer" id="mentor-directory" aria-labelledby="mentor-directory-title">
@@ -303,10 +303,10 @@ export default function MentorsDirectory() {
                   <p className="ui-title">
                     No mentors match{query.trim() ? ` “${query.trim()}”` : " these filters"}.
                   </p>
-                  <p className="ui-body">Try a broader term, another field, or ask the desk to route your question.</p>
+                  <p className="ui-body">Try a broader term, another field, or use the Ask Desk to route your question.</p>
                   <div className="ui-btn-row">
                     <Button onClick={clearFilters}>Clear filters</Button>
-                    <Button to={ASK} variant="secondary">Ask the desk</Button>
+                    <Button to={ASK} variant="secondary">Ask Desk</Button>
                   </div>
                 </div>
               )}

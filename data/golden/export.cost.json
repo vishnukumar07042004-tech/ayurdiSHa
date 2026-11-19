@@ -1,0 +1,102 @@
+{
+  "intentId": "export.cost",
+  "theme": "Export & Global Trade",
+  "subtheme": "Getting started in export",
+  "subject": "export",
+  "ask": "cost",
+  "question": "How much does exporting Ayurvedic products cost?",
+  "stream": "export-trade",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "MAI RevisedGuidelinesFromAugust2014 4web",
+      "url": "https://pharmexcil.com/v1/docs/MDA/MAI_RevisedGuidelinesFromAugust2014_4web.pdf"
+    },
+    {
+      "title": "Ayurworld May June 2026",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/08/Ayurworld-May-June-2026.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.955Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "1d6976fc5089e7b1be2757c43bad3e1090524c15",
+      "url": "https://pharmexcil.com/v1/docs/MDA/MAI_RevisedGuidelinesFromAugust2014_4web.pdf",
+      "title": "MAI RevisedGuidelinesFromAugust2014 4web",
+      "score": 1.438,
+      "bm25": 20.23,
+      "coverage": 0.66
+    },
+    {
+      "chunkId": "6f2cfe69bbde1dbee4bde0941b38fc8b2a300965",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/08/Ayurworld-May-June-2026.pdf",
+      "title": "Ayurworld May June 2026",
+      "score": 1.189,
+      "bm25": 19.25,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "b2070c3ceac672118d261b39781cdf0afe0dd2ac",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ic.pdf",
+      "title": "Ministry of Ayush, Government of India — ic",
+      "score": 1.116,
+      "bm25": 15.71,
+      "coverage": 0.66
+    },
+    {
+      "chunkId": "f126541e6131c5fbd71e535139c780e0e4b43acc",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.071,
+      "bm25": 15.07,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "6fd00d6c73666a31acf2ab886be5dfa73934a6f7",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 1.063,
+      "bm25": 17.21,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "eb4858a2775d8058eed1781f7254913295c535f8",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 1.047,
+      "bm25": 16.95,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "b8e2628017a9c62b5179f27f80afe600141e231b",
+      "url": "https://pharmexcil.com/uploads/RevisedMAIGuildelines19thJuly2021.pdf",
+      "title": "RevisedMAIGuildelines19thJuly2021",
+      "score": 1.037,
+      "bm25": 14.59,
+      "coverage": 0.66
+    },
+    {
+      "chunkId": "8e6f964009ed1a8db0cd397a9c5da24cf35e1c70",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.03,
+      "bm25": 14.5,
+      "coverage": 0.22
+    }
+  ]
+}

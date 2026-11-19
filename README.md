@@ -35,8 +35,8 @@ npm run build
 
 See `.env.example`. Do not prefix with `VITE_` (that would leak to the browser).
 
-- `ADMIN_PIN` — staff Insights PIN  
-- `SMTP_*` / `RESEND_API_KEY` / `MAIL_FROM` — OTP mail  
+- `ADMIN_PIN` — staff passcode (step 1 of Staff access; email code + admin approval follow), `STAFF_ADMIN_EMAILS`, `STAFF_SERVICE_TOKEN` (scripts) — see docs/security/STAFF-ACCESS-SPEC.md  
+- `RESEND_API_KEY` / `MAIL_PROVIDER` / `MAIL_FROM` / `SMTP_*` — mail (Resend primary, Gmail SMTP fallback; durable queue if both fail)
 - `OTP_COOKIE_SECRET` — OTP cookie signing  
 - `FIREBASE_PROJECT_ID` / `FIREBASE_CLIENT_EMAIL` / `FIREBASE_PRIVATE_KEY` — Firestore `ayurdisha-4917b`  
 - `BLOB_READ_WRITE_TOKEN` — Vercel Blob fallback store  
@@ -51,7 +51,7 @@ npx vercel --prod --yes
 # if CLI auth fails: npx vercel@59.10.0 --prod --yes
 ```
 
-Preserve: WAC auto-issue, OTP sessions, staff PIN, merge/Excel/briefing board, `podcastsList`/`podcastsSave`, Firestore store.
+Preserve: WAC auto-issue, OTP sessions, staff access (passcode + email code + admin approval), merge/Excel/briefing board, `podcastsList`/`podcastsSave`, Firestore store.
 
 ## Structure
 

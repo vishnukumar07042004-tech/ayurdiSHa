@@ -1,0 +1,102 @@
+{
+  "intentId": "mph.cost",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Public health projects",
+  "subject": "mph",
+  "ask": "cost",
+  "question": "How much does an MPH after BAMS cost?",
+  "stream": "public-health-policy",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Ayurswasthya",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf"
+    },
+    {
+      "title": "ResearchAndInv",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.797Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "8e6f964009ed1a8db0cd397a9c5da24cf35e1c70",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.438,
+      "bm25": 31.31,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "0c25bbd9b19f1559015d14ea460ffde1de8b8fc8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.366,
+      "bm25": 29.74,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "280cf8415f41ab4804b4016e646867c8bba55e92",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 0.816,
+      "bm25": 17.78,
+      "coverage": 0
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 0.808,
+      "bm25": 22,
+      "coverage": 0.12
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 0.782,
+      "bm25": 18.66,
+      "coverage": 0
+    },
+    {
+      "chunkId": "7aafdb3bd5cf304340fa900533ba351d8b09c0f5",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/04/25042025-CSR-Policy.pdf",
+      "title": "CCRAS CSR Policy.pdf",
+      "score": 0.781,
+      "bm25": 18.63,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "e6ccc3645d279eb9a59ab67779e573df6669dc83",
+      "url": "https://ccras.nic.in/directory/it-internship-program-at-ccras-headquarters-from-19th-june-2025/",
+      "title": "IT internship program at CCRAS Headquarters from 19th June 2025 - Central Council for Research in Ayurvedic Sciences",
+      "score": 0.765,
+      "bm25": 18.24,
+      "coverage": 0
+    },
+    {
+      "chunkId": "843c8415e5241df8d3150c18fb5c6db3dcbfc20e",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 0.752,
+      "bm25": 16.39,
+      "coverage": 0.29
+    }
+  ]
+}

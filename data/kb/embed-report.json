@@ -1,0 +1,22 @@
+{
+  "finishedAt": "2026-10-28T19:02:09.673Z",
+  "model": "gemini-embedding-001",
+  "embeddedThisRun": 1795,
+  "embeddedTotal": 3139,
+  "chunks": 3139,
+  "stopped": null,
+  "usage": {
+    "calls": 29,
+    "inputTokens": 1001740,
+    "outputTokens": 0,
+    "costUsd": 0.150262,
+    "byModel": {
+      "gemini-embedding-001": {
+        "calls": 29,
+        "inputTokens": 1001740,
+        "outputTokens": 0,
+        "costUsd": 0.150262
+      }
+    }
+  }
+}

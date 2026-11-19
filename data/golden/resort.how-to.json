@@ -1,0 +1,102 @@
+{
+  "intentId": "resort.how-to",
+  "theme": "Medical Value Travel & Wellness",
+  "subtheme": "Careers in wellness resorts",
+  "subject": "resort",
+  "ask": "how-to",
+  "question": "How do I get a job in a wellness resort?",
+  "stream": "panchakarma-wellness",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/"
+    },
+    {
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.604Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 1.05,
+      "bm25": 27.77,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.038,
+      "bm25": 20.05,
+      "coverage": 0
+    },
+    {
+      "chunkId": "f86683e495b71ef670c74a7a949a2b2fefd621e7",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27449208/",
+      "title": "Attitude of interns towards research as a career option.",
+      "score": 0.827,
+      "bm25": 21.86,
+      "coverage": 0
+    },
+    {
+      "chunkId": "3d8b0e259ccffa10fd790b4e8d92438c3312ed8a",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29272989/",
+      "title": "Seeking health under palm trees: Ayurveda in Kerala.",
+      "score": 0.751,
+      "bm25": 19.87,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "267d3873c1ce6e39a1077d7408d0f9de26e7ba5f",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 0.702,
+      "bm25": 18.55,
+      "coverage": 0.38
+    },
+    {
+      "chunkId": "9ff78ef7e00abdfc642401872b5b0b8caee80b5b",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.647,
+      "bm25": 14.37,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.622,
+      "bm25": 15.01,
+      "coverage": 0
+    },
+    {
+      "chunkId": "d1ef6004340bcc6ae18c7ccbe2182bde1dcbceb5",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 0.621,
+      "bm25": 12,
+      "coverage": 0
+    }
+  ]
+}

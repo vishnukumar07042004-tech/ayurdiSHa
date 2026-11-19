@@ -1,0 +1,102 @@
+{
+  "intentId": "govt-mo.cutoff",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "subject": "medicalofficer",
+  "ask": "cutoff",
+  "question": "What rank or score is needed in a government Ayurveda Medical Officer post?",
+  "stream": "govt-jobs",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular"
+    },
+    {
+      "title": "ResearchAndInv",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.465Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.438,
+      "bm25": 29.98,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "280cf8415f41ab4804b4016e646867c8bba55e92",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 1.081,
+      "bm25": 22.54,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.055,
+      "bm25": 22.01,
+      "coverage": 0.43
+    },
+    {
+      "chunkId": "f0078d54b17d92fd4dbdaa2add34848049260765",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 1.039,
+      "bm25": 21.67,
+      "coverage": 0.43
+    },
+    {
+      "chunkId": "8bf9a4b3527d81a5d2c0c18deca025842fb49a52",
+      "url": "https://ism.kerala.gov.in/eng/",
+      "title": "Home - Department of Indian Systems of Medicine",
+      "score": 1.029,
+      "bm25": 21.46,
+      "coverage": 0.61
+    },
+    {
+      "chunkId": "410c5ad17da87b901c21387a7043cebbc1614457",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/Detailed_Advertisement_for_the_post_of_Member,_Board_of_Ayurveda_under,_NCISM_for_Website-2026.pdf",
+      "title": "Detailed Advertisement for the post of Member, Board of Ayurveda under, NCISM for Website 2026",
+      "score": 0.995,
+      "bm25": 20.76,
+      "coverage": 0.64
+    },
+    {
+      "chunkId": "a1445d5206b7fe4113cd77e5881ca348493a4cd2",
+      "url": "https://ayush.gov.in/assets/pdf/careers/NIC,_Ministry_of_Ayush,_New_Delhi.pdf",
+      "title": "NIC, Ministry of Ayush, New Delhi",
+      "score": 0.943,
+      "bm25": 19.67,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "fe681eb2fd2c1831d1753c36d7e29f1e01d91e6c",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Recruitment_Notice_13072026.pdf",
+      "title": "Recruitment Notice 13072026",
+      "score": 0.938,
+      "bm25": 19.57,
+      "coverage": 0.2
+    }
+  ]
+}

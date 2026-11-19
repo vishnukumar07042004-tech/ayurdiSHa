@@ -1,0 +1,103 @@
+{
+  "intentId": "qc.eligibility",
+  "theme": "Manufacturing, Quality & GMP",
+  "subtheme": "QA / QC and testing",
+  "subject": "qc",
+  "ask": "eligibility",
+  "question": "What is the eligibility for a QA/QC career in Ayurveda pharma?",
+  "stream": "industry-pharma",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.028Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "95234d83ee6b27a5f526647fb7ea3ce8c349e36a",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._140(E)_dated_14th_February,_2025.pdf",
+      "title": "Gazette Notification No. G.S.R. 140(E) dated 14th February, 2025",
+      "score": 1.438,
+      "bm25": 22,
+      "coverage": 0.6
+    },
+    {
+      "chunkId": "64afae035c68835d8968200c0c1734b2048b0cae",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._140(E)_dated_14th_February,_2025.pdf",
+      "title": "Gazette Notification No. G.S.R. 140(E) dated 14th February, 2025",
+      "score": 1.196,
+      "bm25": 18.31,
+      "coverage": 0.6
+    },
+    {
+      "chunkId": "ffebd58898efe3c8f2f85dd59ba9ec3dfeced23a",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/07/CCRAS_Guideline-of-Clinical_Evaluation.pdf",
+      "title": "CCRS_Clinical _BOOK-6_945-CD MATTER.pdf",
+      "score": 1.072,
+      "bm25": 17.97,
+      "coverage": 0.6
+    },
+    {
+      "chunkId": "c29c71b7774762248517815693eb6d908b769eac",
+      "url": "https://ccras.nic.in/services/microbiology-research/",
+      "title": "Microbiology and Biotechnology - Central Council for Research in Ayurvedic Sciences",
+      "score": 1.014,
+      "bm25": 16.99,
+      "coverage": 0.6
+    },
+    {
+      "chunkId": "3c029ac1fcc30f59bab729951e0d27c1ac82dd06",
+      "url": "https://ayush.gov.in/assets/pdf/careers/English_Application_Form_04082026.pdf",
+      "title": "English Application Form 04082026",
+      "score": 0.99,
+      "bm25": 18.93,
+      "coverage": 0.17
+    },
+    {
+      "chunkId": "267d3873c1ce6e39a1077d7408d0f9de26e7ba5f",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 0.984,
+      "bm25": 16.5,
+      "coverage": 0
+    },
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 0.933,
+      "bm25": 17.84,
+      "coverage": 0.17
+    },
+    {
+      "chunkId": "a0a25696c2d8e8093ca0184ad7ac89a10555429d",
+      "url": "https://aaccc.gov.in/ug-counselling/",
+      "title": "UG Counseling",
+      "score": 0.887,
+      "bm25": 16.96,
+      "coverage": 0.23
+    }
+  ]
+}

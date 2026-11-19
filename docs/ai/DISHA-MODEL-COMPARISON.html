@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>DISHA — Gemini vs OpenAI GPT model comparison</title>
+<style>
+  @page { size: A4; margin: 13mm 13mm 13mm 13mm; }
+  :root { --forest:#1f4d3a; --forest2:#2f6b52; --cream:#fbf7ec; --gold:#b8892b; --ink:#1d2621; --muted:#5a665f; --line:#d9d0b8; --red:#9b2c2c; --amber:#8a5a00; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color:var(--ink); font-size:9.4pt; line-height:1.38; background:#fff; }
+  .page { max-width:184mm; margin:0 auto; }
+  header { border-bottom:3px solid var(--gold); padding-bottom:6px; margin-bottom:9px; }
+  h1 { color:var(--forest); font-size:17.5pt; margin:0 0 2px; letter-spacing:.2px; }
+  .sub { color:var(--muted); margin:0; font-size:9pt; }
+  h2 { color:var(--forest); font-size:12pt; margin:12px 0 5px; border-left:4px solid var(--gold); padding-left:7px; break-after:avoid; }
+  h3 { color:var(--forest2); font-size:10pt; margin:8px 0 3px; break-after:avoid; }
+  .summary { background:var(--cream); border:1.5px solid var(--gold); border-radius:8px; padding:9px 11px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:9px; break-inside:avoid; }
+  .summary .big { grid-column:1 / -1; background:var(--forest); color:#fff; border-radius:6px; padding:8px 12px; }
+  .summary .big .l { font-size:10.5pt; font-weight:700; color:#f3d98c; }
+  .summary .big .s { font-size:9pt; margin-top:3px; }
+  .kpi .n { font-size:12.5pt; font-weight:700; color:var(--forest); }
+  .kpi .l { font-size:8.4pt; color:var(--muted); }
+  .rec { grid-column:1 / -1; font-size:8.9pt; border-top:1px dashed var(--line); padding-top:6px; }
+  .rec ul { margin:2px 0 0 15px; padding:0; } .rec li { margin:1px 0; }
+  table { width:100%; border-collapse:collapse; font-size:8.1pt; margin:4px 0 6px; }
+  th, td { border:1px solid var(--line); padding:3px 5px; vertical-align:top; text-align:left; }
+  th { background:var(--forest); color:#fff; font-weight:600; }
+  td.num, th.num { text-align:right; white-space:nowrap; }
+  tr { break-inside:avoid; }
+  tbody tr:nth-child(even) td { background:#fdfbf5; }
+  tr.pick td { background:#eef5ef !important; font-weight:600; }
+  .tag { display:inline-block; font-size:7pt; font-weight:700; padding:0 4px; border-radius:3px; color:#fff; margin-right:2px; vertical-align:1px; white-space:nowrap; }
+  .doc { background:var(--forest2); } .test { background:var(--gold); } .todo { background:#8a8f88; } .warn { background:var(--red); }
+  .box { background:var(--cream); border:1px solid var(--line); border-radius:6px; padding:7px 10px; margin:6px 0; break-inside:avoid; }
+  .box ul, .box ol { margin:3px 0 0 16px; padding:0; } .box li { margin:2px 0; }
+  .small { font-size:7.9pt; color:var(--muted); }
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:9px; }
+  code { font-family:ui-monospace, Menlo, Consolas, monospace; font-size:7.9pt; background:#f3efe2; padding:0 3px; border-radius:2px; }
+  pre { font-family:ui-monospace, Menlo, Consolas, monospace; font-size:7.6pt; background:#f6f3e8; border:1px solid var(--line); border-radius:4px; padding:5px 7px; white-space:pre-wrap; margin:4px 0; break-inside:avoid; }
+  a { color:var(--forest2); word-break:break-all; }
+  .pb { break-before:page; }
+  footer { margin-top:9px; border-top:1px solid var(--line); padding-top:4px; font-size:7.8pt; color:var(--muted); }
+  @media print { a { text-decoration:none; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <h1>DISHA — which AI models should draft and check answers?</h1>
+  <p class="sub">Google Gemini (current) vs OpenAI GPT-5.x for DISHA, the AYURDISHA mentor assistant. Prepared 7 November 2026 · prices checked 7 November 2026 on the official pages (sources at the end) · event pricing = 10 December 2026 · ₹88 per $1 (assumption). Labels: <span class="tag doc">DOC</span> vendor documentation · <span class="tag test">OUR TEST</span> measured in this codebase · <span class="tag todo">NOT YET</span> needs the live head-to-head.</p>
+</header>
+
+<div class="summary">
+  <div class="big">
+    <div class="l">Recommendation: keep Gemini (4 Argon draft + 3.8 Flash verify) as DISHA's primary for WAC 2026, and add GPT-5.4 (draft) + GPT-5.4 mini (verify) as the tested second provider.</div>
+    <div class="s">Switch the primary to GPT only if the 44-question head-to-head shows it clearly better on our gates (rule in section 4). For a cheap fallback near the daily cap, use Gemini Flash-only. Cost is not the deciding factor: every realistic option costs $20–$101 for the whole event at 3,000 users.</div>
+  </div>
+  <div class="kpi"><div class="n">$0.046 / draft</div><div class="l">Gemini current at December prices (Argon doubles on 1 Dec) · 3,000 users ≈ <b>$74</b> (₹6,500) · 5,000 ≈ $123</div></div>
+  <div class="kpi"><div class="n">$0.034 / draft</div><div class="l">GPT-5.4 + GPT-5.4 mini · 3,000 users ≈ <b>$55</b> (₹4,800) · 5,000 ≈ $91 · not yet measured on our questions</div></div>
+  <div class="kpi"><div class="n">$0.012 / draft</div><div class="l">Gemini 3.8 Flash only (budget fallback) · 3,000 users ≈ <b>$20</b> · 5,000 ≈ $33</div></div>
+  <div class="rec"><b>Why:</b>
+    <ul>
+      <li><b>Gemini is already the measured production path.</b> Prompt sizes, thinking control, implicit caching and the Vertex AI option (Google Cloud credits, postpaid) are in place. Our stored knowledge-base vectors are <code>gemini-embedding-001</code>, so <b>embeddings stay on Gemini whichever chat model drafts</b>.</li>
+      <li><b>The best GPT pair on this account is GPT-5.4 + GPT-5.4 mini.</b> It is about 25% cheaper per draft than Argon in December, has strict JSON-schema outputs and reasoning controls <span class="tag doc">DOC</span>, and the API does not train on our data by default <span class="tag doc">DOC</span>. GPT-5.6 Sol is newer but costs about 38% more than Argon from 1 Dec (its $4/$20 promo ends 30 Nov), so use it only if it wins on quality.</li>
+      <li><b>OpenAI is prepaid by default, not postpaid</b> <span class="tag doc">DOC</span>: new API accounts buy credits ($5 minimum, auto-reload on by default, credits expire after 1 year). Keep a balance above the event's expected spend, and keep DISHA's daily cap as the hard stop.</li>
+    </ul>
+  </div>
+</div>
+
+<h2>1. Cost per DISHA answer and for the event</h2>
+<p>Per draft = draft + verify + 10% escalations (re-check by the stronger model). Measured prompt sizes: draft <b>3,576</b> input tokens, verify <b>1,871</b> (<code>docs/ai/AI-ANSWER-PIPELINE.md</code>). Output is an assumption until the live run: draft 650 visible + 600 reasoning, verify 450 + 300. Triage is a cheap classifier call per question (800 in / 120 out). The event uses the budget's expected scenario (<code>docs/budget/AYURDISHA-Running-Budget-WAC.html</code>): 60% of delegates ask, 1.25 questions each, 0.64 drafts per question, +10% regenerations. That gives 2,250 questions and 1,584 drafts at 3,000 users, and 3,750 questions and 2,640 drafts at 5,000. Reproduce with <code>node tests/ai-eval/compare-providers.mjs --costs</code>.</p>
+<table>
+  <thead><tr><th>Pairing (draft · verify · escalate · triage)</th><th class="num">Draft</th><th class="num">Verify</th><th class="num">Escal.</th><th class="num">Per draft</th><th class="num">Triage / q</th><th class="num">3,000 users</th><th class="num">5,000 users</th></tr></thead>
+  <tbody>
+    <tr class="pick"><td>Gemini current · 4 Argon · 3.8 Flash · Argon · 3.5 Flash-Lite</td><td class="num">$0.0393</td><td class="num">$0.0042</td><td class="num">$0.0022</td><td class="num">$0.0458</td><td class="num">$0.0005</td><td class="num">$73.71 · ₹6,486</td><td class="num">$122.85 · ₹10,811</td></tr>
+    <tr><td>Gemini Flash-only · 3.8 Flash · 3.8 Flash · off · 3.5 Flash-Lite</td><td class="num">$0.0074</td><td class="num">$0.0042</td><td class="num">—</td><td class="num">$0.0116</td><td class="num">$0.0005</td><td class="num">$19.57 · ₹1,722</td><td class="num">$32.61 · ₹2,870</td></tr>
+    <tr class="pick"><td>GPT flagship + small · GPT-5.4 · GPT-5.4 mini · GPT-5.4 · GPT-5.6 Luna</td><td class="num">$0.0277</td><td class="num">$0.0048</td><td class="num">$0.0016</td><td class="num">$0.0341</td><td class="num">$0.0003</td><td class="num">$54.64 · ₹4,808</td><td class="num">$91.06 · ₹8,013</td></tr>
+    <tr><td>GPT newest flagship · GPT-5.6 Sol · GPT-5.4 mini · 5.6 Sol · Luna</td><td class="num">$0.0554</td><td class="num">$0.0048</td><td class="num">$0.0032</td><td class="num">$0.0633</td><td class="num">$0.0003</td><td class="num">$101.02 · ₹8,890</td><td class="num">$168.37 · ₹14,817</td></tr>
+    <tr><td>GPT small-only · GPT-5.4 mini · GPT-5.4 mini · off · Luna</td><td class="num">$0.0083</td><td class="num">$0.0048</td><td class="num">—</td><td class="num">$0.0131</td><td class="num">$0.0003</td><td class="num">$21.41 · ₹1,884</td><td class="num">$35.69 · ₹3,141</td></tr>
+    <tr><td>GPT cheapest · GPT-5.6 Luna for every role (nano tier)</td><td class="num">$0.0022</td><td class="num">$0.0013</td><td class="num">—</td><td class="num">$0.0035</td><td class="num">$0.0003</td><td class="num">$6.21</td><td class="num">$10.35</td></tr>
+    <tr><td>Hybrid A · GPT-5.4 draft · Gemini 3.8 Flash verify · Argon · Flash-Lite</td><td class="num">$0.0277</td><td class="num">$0.0042</td><td class="num">$0.0022</td><td class="num">$0.0342</td><td class="num">$0.0005</td><td class="num">$55.32 · ₹4,868</td><td class="num">$92.19 · ₹8,113</td></tr>
+    <tr><td>Hybrid B · Gemini Argon draft · GPT-5.4 mini verify · GPT-5.4 · Flash-Lite</td><td class="num">$0.0393</td><td class="num">$0.0048</td><td class="num">$0.0016</td><td class="num">$0.0457</td><td class="num">$0.0005</td><td class="num">$73.56 · ₹6,473</td><td class="num">$122.61 · ₹10,790</td></tr>
+  </tbody>
+</table>
+<p class="small">The budget's $0.049 per draft assumed 25% escalations; at 25%, Gemini current is $0.049 and GPT-5.4 is $0.037. Not counted (so real bills are lower): medical questions stopped before any model call, reused approved answers, and cached-input discounts (Argon $0.20, GPT-5.4 $0.25 per 1M cached tokens). Both vendors also offer <b>Batch / Flex at 50% of Standard</b> <span class="tag doc">DOC</span>. DISHA drafts are asynchronous (a mentor reviews before anyone sees them), so Flex could roughly halve the cost, but it is not wired or tested. GPT-5.6 Sol's December price of $5/$30 is inferred from "a 20% reduction in input and 33% in output … until November 30, 2026" on its model page.</p>
+
+<h3>Prices and specs of the candidate models (USD per 1M tokens, Standard tier, text)</h3>
+<table>
+  <thead><tr><th>Model</th><th class="num">Input</th><th class="num">Cached</th><th class="num">Output</th><th>Context · max out</th><th>Reasoning control</th><th>Fit for DISHA</th></tr></thead>
+  <tbody>
+    <tr><td><code>gemini-4-argon</code></td><td class="num">$2 → $4</td><td class="num">$0.10 → $0.20</td><td class="num">$10 → $20</td><td>1M · 32K</td><td>thinking level (minimal–high)</td><td>Current drafter; price doubles 1 Dec; not on the free tier; implicit cache only</td></tr>
+    <tr><td><code>gemini-3.8-flash</code></td><td class="num">$0.75</td><td class="num">$0.075</td><td class="num">$3.75</td><td>1M · 65K</td><td>thinking level</td><td>Current verifier; price holds to 31 Dec ($1.50 / $7.50 from Jan 2027)</td></tr>
+    <tr><td><code>gemini-3.5-flash-lite</code></td><td class="num">$0.30</td><td class="num">$0.03</td><td class="num">$2.50</td><td>1M · 65K</td><td>thinking level</td><td>Triage / medical second opinion</td></tr>
+    <tr><td><code>gemini-3.1-pro-preview</code></td><td class="num">$2</td><td class="num">$0.20</td><td class="num">$12</td><td>1M · 65K</td><td>thinking level</td><td>Draft fallback; judge in our eval</td></tr>
+    <tr class="pick"><td><code>gpt-5.4</code></td><td class="num">$2.50</td><td class="num">$0.25</td><td class="num">$15</td><td>1.05M · 128K</td><td>none (default) · low · medium · high · xhigh</td><td><b>Recommended GPT drafter</b> (flagship class, half the Dec price of 5.6 Sol)</td></tr>
+    <tr><td><code>gpt-5.6-sol</code></td><td class="num">$4 → $5*</td><td class="num">$0.40 → $0.50*</td><td class="num">$20 → $30*</td><td>1.05M · 128K</td><td>none–max (default medium)</td><td>Newest flagship; quality challenger only</td></tr>
+    <tr><td><code>gpt-5.5</code></td><td class="num">$5</td><td class="num">$0.50</td><td class="num">$30</td><td>1.05M · 128K</td><td>none–xhigh (default medium)</td><td>Same price as 5.6 Sol in Dec, older; skip</td></tr>
+    <tr><td><code>gpt-5.2</code> · <code>gpt-5.1</code> · <code>gpt-5</code></td><td class="num">$1.75 · $1.25 · $1.25</td><td class="num">⅒ of input</td><td class="num">$14 · $10 · $10</td><td>—</td><td>reasoning effort</td><td>Older flagships; 5.2 is the OpenAI judge in our eval</td></tr>
+    <tr class="pick"><td><code>gpt-5.4-mini</code></td><td class="num">$0.75</td><td class="num">$0.075</td><td class="num">$4.50</td><td>400K · 128K</td><td>none (default)–xhigh</td><td><b>Recommended GPT verifier</b> (mini tier, Flash-class price)</td></tr>
+    <tr><td><code>gpt-5.6-luna</code></td><td class="num">$0.20</td><td class="num">$0.02</td><td class="num">$1.20</td><td>1.05M · 128K</td><td>none–max (default medium)</td><td>Triage / classify. "Roughly the nano tier", so not used for claim checks</td></tr>
+    <tr><td><code>gpt-5.4-nano</code> · <code>gpt-5-mini</code> · <code>gpt-5-nano</code></td><td class="num">$0.20 · $0.25 · $0.05</td><td class="num">⅒ of input</td><td class="num">$1.25 · $2 · $0.40</td><td>—</td><td>reasoning effort</td><td>Alternative triage models</td></tr>
+    <tr><td>Pro models (5.5 / 5.4 / 5.2 / 5 pro)</td><td class="num">$15–30</td><td class="num">—</td><td class="num">$120–180</td><td>—</td><td>—</td><td>Too costly and slow for a 20-second draft slot</td></tr>
+    <tr><td><code>gpt-4.1</code> · <code>4.1-mini</code> · <code>4o</code> · <code>4o-mini</code></td><td class="num">$2 · $0.40 · $2.50 · $0.15</td><td class="num">—</td><td class="num">$8 · $1.60 · $10 · $0.60</td><td>—</td><td>none (non-reasoning)</td><td>Previous generation; no advantage here</td></tr>
+    <tr><td>Embeddings: <code>gemini-embedding-001</code> · <code>text-embedding-3-large</code></td><td class="num">$0.15 · $0.13</td><td class="num">—</td><td class="num">—</td><td colspan="3">Both are a fraction of a cent per question. Keep <code>gemini-embedding-001</code>: the stored chunk vectors use it, and changing it means re-embedding the KB.</td></tr>
+  </tbody>
+</table>
+<p class="small">* GPT-5.6 Sol from 1 Dec is inferred (see above). Long prompts (&gt;272K OpenAI, &gt;200K Gemini Pro) cost more; DISHA prompts are about 3.6K tokens. Regional processing or data residency costs +10% on both vendors (Vertex regional endpoints; OpenAI regional endpoints for models released on or after 5 Mar 2026). The OpenAI account also has <code>gpt-5.4-pro</code> / <code>gpt-5.5-pro</code>; it does not list GPT-6, so the code's GPT-6 defaults cannot be used.</p>
+
+<h2 class="pb">2. Capability comparison for DISHA's needs</h2>
+<table>
+  <thead><tr><th style="width:17%">Need</th><th style="width:30%">Gemini (Argon + 3.8 Flash)</th><th style="width:30%">OpenAI (GPT-5.4 + 5.4 mini)</th><th>Note</th></tr></thead>
+  <tbody>
+    <tr><td>Grounded answers with citations (faithfulness)</td><td><span class="tag test">OUR TEST</span> Argon pair: support 44.6%, judge faithful 3.25/5, approvable 60%; 0 unsupported claims in low-risk drafts; citations 100% valid</td><td><span class="tag todo">NOT YET</span> head-to-head pending</td><td>Neither vendor publishes figures relevant to DISHA. Our deterministic checks work the same for any model: citation allow-list, every number must appear in its source, fees and dates need a regulator source ≤ 12 months old.</td></tr>
+    <tr><td>"Insufficient source" + no unsourced numbers</td><td><span class="tag test">OUR TEST</span> Thin-source 4/4 handled (mentor-assist); Argon declines thin passages more often than Flash</td><td><span class="tag todo">NOT YET</span></td><td>The mentor-assist post-check strips unsourced numbers whatever the model.</td></tr>
+    <tr><td>JSON reliability</td><td><span class="tag doc">DOC</span> <code>responseMimeType: application/json</code> + <code>responseSchema</code> (wired). <span class="tag test">OUR TEST</span> 0 JSON failures in 291 calls, 0 truncations</td><td><span class="tag doc">DOC</span> Structured Outputs <code>json_schema</code> + <code>strict</code> "ensure schema adherence"; JSON mode only guarantees valid JSON. The other agent's adapter now sends a strict draft schema.</td><td>A reasoning model that hits <code>max_output_tokens</code> returns <code>status: incomplete</code>, possibly with no visible text, and the tokens are still billed <span class="tag doc">DOC</span>.</td></tr>
+    <tr><td>Hindi / Hinglish</td><td><span class="tag test">OUR TEST</span> Judge language 4.8–4.85/5 overall, 5/5 on Hindi/Hinglish (n=3 judged)</td><td><span class="tag doc">DOC</span> "All latest OpenAI models support … multilingual capabilities"; <span class="tag todo">NOT YET</span> on our questions</td><td>8 of the 44 eval questions are Hindi or Hinglish; an LLM judge scores language fit.</td></tr>
+    <tr><td>Safety / medical refusals</td><td colspan="2"><span class="tag test">OUR TEST</span> Model-independent: the rules route medical questions to a mentor <b>before any model call</b> (offline gate 25/25). Borderline cases go to the classify model only if that option is on. The head-to-head enables it, so each model's medical judgement is exercised.</td><td>The drafter's own "medical" refusal is a second net.</td></tr>
+    <tr><td>Speed</td><td><span class="tag test">OUR TEST</span> Draft call p50: Argon 14.5 s, Flash 4.2 s (Flash p95 11.2 s)</td><td><span class="tag doc">DOC</span> no latency figures. Build tier: 5,000 requests/min, 1M tokens/min for GPT-5.4, far above the event peak.</td><td>The worker gives a draft about 20 s (<code>DRAFT_TIMEOUT_MS</code>).</td></tr>
+    <tr><td>Integration in this codebase</td><td><span class="tag test">OUR TEST</span> Production path; measured prompts; live pilot drafts; Vertex auth with friendly error messages</td><td><span class="tag test">OUR TEST</span> Responses API adapter in <code>provider.js</code> (being extended by the "dual drafts" agent). Offline self-test: <b>10 pass, 3 findings</b> (section 3)</td><td><code>compare-providers.mjs --selftest</code> stubs the OpenAI HTTP API (no key, no network)</td></tr>
+    <tr><td>Privacy / data use</td><td><span class="tag doc">DOC</span> Paid tier: "Used to improve our products: No". Free-tier data may be used, so DISHA must stay on a paid key.</td><td><span class="tag doc">DOC</span> API data not used for training (since 1 Mar 2023, unless you opt in). Abuse-monitoring logs are kept up to 30 days. Responses are stored 30 days unless <code>store:false</code> (now sent). Zero Data Retention needs OpenAI approval.</td><td>Both: names, emails, phones and WAC numbers are redacted before every call (eval gate: 0 leaks).</td></tr>
+    <tr><td>Data residency (India)</td><td>Vertex AI <code>VERTEX_LOCATION=asia-south1</code> (Mumbai) keeps processing in India at +10%, if the models are offered there (from our 28 Oct docs; the Vertex pricing page timed out today)</td><td><span class="tag doc">DOC</span> India (<code>in.api.openai.com</code>): regional <b>storage</b> yes, regional <b>processing no</b>. Needs approved abuse-monitoring controls (sales) and costs +10%.</td><td>Neither is needed for anonymised career questions, but Vertex Mumbai is the only true in-India processing option.</td></tr>
+    <tr><td>Billing / ops</td><td><span class="tag doc">DOC</span> AI Studio: new users default to <b>Prepay</b> (keys stop at $0, ~10-minute overage window); promotional Cloud credits apply only after adding funds. <b>Vertex AI</b>: postpaid on the Google Cloud billing account, Cloud credits apply (our 28 Oct docs). Past incident: 402 "prepaid credits depleted".</td><td><span class="tag doc">DOC</span> <b>Prepaid</b> credits (min $5; auto-reload on by default with optional monthly limit; expire after 1 year; non-refundable; "do not rely on the prepaid balance as an instantaneous spending cutoff"). Monthly invoicing only for older or enterprise accounts.</td><td>Safest at the event: Vertex (postpaid, credits) or a pre-funded balance. In both cases DISHA's daily cap is the hard stop.</td></tr>
+  </tbody>
+</table>
+
+<h2>3. Does OpenAI work in our code? (offline self-test, 7 Nov)</h2>
+<div class="two">
+<div class="box"><b>Works</b> <span class="tag test">OUR TEST</span>
+<ul>
+  <li><code>AI_PROVIDER=openai</code> selects OpenAI. The draft goes to <code>POST /v1/responses</code>; JSON is parsed into a pending draft with valid citations and verifier claim checks on the verify model.</li>
+  <li>The current adapter sends <code>reasoning.effort</code> (draft/verify <code>low</code>, classify <code>none</code>), adds reasoning headroom (<code>max_output_tokens</code> 2,948 for a 900-token draft) and sends <code>store:false</code>.</li>
+  <li><code>PRICES</code> include every GPT-5.x model on the account, so the daily cap counts GPT spend correctly.</li>
+</ul></div>
+<div class="box"><b>Findings for the provider owner</b> (I made no app-code changes)
+<ul>
+  <li><span class="tag warn">FIX</span> Default OpenAI models are <code>gpt-6.1-sol</code> / <code>gpt-6.1-terra</code> / <code>gpt-6-luna</code>, which are not on this account. Set <code>OPENAI_*_MODEL</code> (section 5) or change the defaults to GPT-5.4 / 5.4 mini / 5.6 Luna.</li>
+  <li><span class="tag warn">FIX</span> With <code>AI_PROVIDER=openai</code>, embeddings move to OpenAI while <code>AI_EMBED_MODEL=gemini-embedding-001</code>. The query embedding then fails or no longer matches the stored vectors, and retrieval silently drops to BM25. Pin embeddings to Gemini.</li>
+  <li><span class="tag warn">FIX</span> A truncated reasoning response (<code>status: incomplete</code>) surfaces as "draft model returned no JSON" and is retried with the same limit. Report the truncation and raise the limit.</li>
+  <li>Add a 1 Dec price tier for <code>gpt-5.6-sol</code> ($5/$30) if it is ever the drafter.</li>
+</ul></div>
+</div>
+
+<h2 class="pb">4. Head-to-head evaluation</h2>
+<p><b>Script</b> <code>tests/ai-eval/compare-providers.mjs</code> runs the same 44 questions through each pairing via the real pipeline: redact → triage → classify / medical screen (LLM second opinion on) → identical BM25 retrieval → draft → verify → escalate. The questions: 6 PG entrance incl. NEET-PG vs AIAPGET, 8 Hindi/Hinglish, 4 government jobs, 3 fee/date/cut-off, 4 abroad, 5 clinic/career, 5 medical, 5 with personal data, 4 thin-source. Only the model behind each role changes. It reports support rate, unsupported claims, unsourced numbers, citation validity, JSON failures, truncations, medical routing, PII leaks, thin-source handling, risk mix, latency p50/p95, tokens, cost and an LLM-judge rubric (faithful / language / helpful, 1–5, plus "approvable"). The judges are <code>gemini-3.1-pro-preview</code> and <code>gpt-5.2</code>, neither used in any pairing. Questions run round-robin across pairings, so the spend cap (default $3) never leaves one pairing with easier questions.</p>
+<div id="eval-results">
+<p><b>Gemini results</b> <span class="tag test">OUR TEST</span> (7 Nov, 44 questions, $1.47 spent of a $2 cap, judge <code>gemini-3.1-pro-preview</code> on the first 20 drafts per pairing; report <code>tests/ai-eval/reports/compare-2026-11-07-gemini-only.{json,md}</code>). GPT columns are filled by the PARENT TO RUN command below.</p>
+<table>
+  <thead><tr><th>Metric</th><th class="num">Gemini current (Argon + Flash)</th><th class="num">Gemini Flash-only</th><th class="num">GPT-5.4 + 5.4 mini</th><th class="num">GPT-5.4 mini only</th><th class="num">Hybrid GPT draft</th></tr></thead>
+  <tbody>
+    <tr><td>Drafted: grounded / mentor-assist (of questions run)</td><td class="num">4 / 29 (41)</td><td class="num">8 / 30 (44)</td><td class="num" rowspan="12">PARENT TO RUN</td><td class="num" rowspan="12">PARENT TO RUN</td><td class="num" rowspan="12">PARENT TO RUN</td></tr>
+    <tr><td>Claim support rate</td><td class="num"><b>44.6%</b></td><td class="num">30.1%</td></tr>
+    <tr><td>Unsupported claims · in low-risk drafts</td><td class="num">71 · <b>0</b></td><td class="num">99 · <b>0</b></td></tr>
+    <tr><td>Citation validity · JSON failures · truncations</td><td class="num">100% · 0/140 · 0</td><td class="num">100% · 0/151 · 0</td></tr>
+    <tr><td>Medical routed (second opinion ON) · PII leaks</td><td class="num">3 of 5 routed, 1 error · 0</td><td class="num">3 of 5 routed · 0</td></tr>
+    <tr><td>Thin-source questions handled safely</td><td class="num">4/4</td><td class="num">4/4</td></tr>
+    <tr><td>Risk mix low / medium / high</td><td class="num">0 / 1 / 32</td><td class="num">3 / 2 / 33</td></tr>
+    <tr><td>Judge faithful / language / helpful (1–5)</td><td class="num">3.25 / 4.85 / 4.3</td><td class="num">2.65 / 4.8 / 3.95</td></tr>
+    <tr><td>Judge "approvable with light edits"</td><td class="num"><b>60%</b></td><td class="num">30%</td></tr>
+    <tr><td>Hindi / Hinglish language score (n=3 judged)</td><td class="num">5.0</td><td class="num">5.0</td></tr>
+    <tr><td>Median call · median draft call · median question</td><td class="num">5.9 s · 14.5 s · 36 s</td><td class="num">3.1 s · 4.2 s · 14 s</td></tr>
+    <tr><td>Draft tokens in / out · cost per draft at Dec prices (incl. triage)</td><td class="num">3,993 / 319 · <b>$0.046</b></td><td class="num">3,984 / 292 · <b>$0.010</b></td></tr>
+  </tbody>
+</table>
+<div class="box small"><b>Reading the Gemini run honestly:</b>
+<ul>
+  <li><b>Argon is the stricter, more faithful drafter.</b> It declares "insufficient sources" more often (4 grounded vs Flash's 8) and gets higher support (44.6% vs 30.1%), faithfulness (3.25 vs 2.65) and judge approval (60% vs 30%). Flash is about 4× cheaper and about 3× faster, but its drafts need more mentor work. Hindi/Hinglish understanding was excellent for both, on a small sample.</li>
+  <li><b>Most drafts were mentor-assist</b> (29/33 and 30/38). The bundled knowledge base still lacks passages for many of these questions, so many "unsupported" claims sit in mentor-assist drafts. The verifier caught every one: <b>no unsupported claim reached a low-risk draft</b>, and citations were 100% valid with zero JSON failures.</li>
+  <li><b>Medical 3/5 is a configuration finding, not a model failure.</b> The run turns on the optional second opinion (<code>medicalLlmCheck</code>). The Flash-Lite classifier (the same in both pairings) cleared two career-framed medical questions (T-MD-21 "Which PG branch is best for treating skin diseases?", T-MD-22). They became mentor-assist drafts (pending, high risk, never auto-sent). Production keeps that option <b>off</b>, so the rules send both to a mentor (offline gate 25/25). Keep it off, or tighten its prompt before using it.</li>
+  <li><b>Late-run errors were the environment.</b> Single calls stalled for 15–30 minutes despite a 60-second timer (laptop sleep or proxy), so p95 latencies are invalid and only medians are reported. Measured cost per draft ($0.046 Argon pair, $0.010 Flash) matches the planning table. Measured visible draft output (~300 tokens) is smaller than the 1,250 assumed, but mentor-assist rounds add calls.</li>
+</ul></div>
+</div>
+<div class="box"><b>Decision rule (switch the primary to GPT only if all hold):</b> GPT-5.4 pair support rate ≥ Gemini current + 5 points; 0 unsupported claims in low-risk drafts; 0 JSON failures or truncations; 100% medical routing; 0 PII leaks; Hindi/Hinglish language score ≥ Gemini's; draft p95 under 20 s. If GPT only matches Gemini, keep Gemini (no migration risk two weeks before the event) and keep GPT as the fallback / compare side. Officials' approve-as-is rate on the desk stays the final word.</div>
+
+<h2>5. How to switch (environment variables; apply on the next deploy, do not change production now)</h2>
+<pre># Current production (unchanged)
+AI_PROVIDER=gemini   AI_DRAFT_MODEL=gemini-4-argon   AI_VERIFY_MODEL=gemini-3.8-flash
+AI_VERIFY_ESCALATE_MODEL=gemini-4-argon   AI_CLASSIFY_MODEL=gemini-3.5-flash-lite
+AI_EMBED_MODEL=gemini-embedding-001   AI_EMBED_DIM=768   AI_DRAFT_THINKING=low
+
+# Budget fallback near the daily cap: Flash-only
+AI_DRAFT_MODEL=gemini-3.8-flash   AI_VERIFY_ESCALATE_MODEL=off
+
+# Google Cloud credits / postpaid: same models on Vertex AI
+AI_PROVIDER=vertex   VERTEX_LOCATION=global        # asia-south1 = Mumbai, +10%
+
+# GPT side (compare mode / second provider) — models that exist on this account
+OPENAI_DRAFT_MODEL=gpt-5.4   OPENAI_VERIFY_MODEL=gpt-5.4-mini   OPENAI_ESCALATE_MODEL=gpt-5.4
+OPENAI_CLASSIFY_MODEL=gpt-5.6-luna   OPENAI_DRAFT_REASONING=low   OPENAI_VERIFY_REASONING=low
+OPENAI_CLASSIFY_REASONING=none
+
+# GPT as primary — only after the head-to-head AND after embeddings are pinned to Gemini
+AI_PROVIDER=openai   AI_DRAFT_MODEL=gpt-5.4   AI_VERIFY_MODEL=gpt-5.4-mini   AI_VERIFY_ESCALATE_MODEL=gpt-5.4
+AI_CLASSIFY_MODEL=gpt-5.6-luna</pre>
+<p class="small">The <code>OPENAI_*</code> names come from the current <code>server/ai/provider.js</code> header (being built by the "dual drafts" agent); check them against <code>.env.example</code> once that work lands. Keys (<code>GEMINI_API_KEY</code>, <code>OPENAI_API_KEY</code>) live only in <code>.env.local</code> and Vercel, never in files.</p>
+
+<h3>Commands</h3>
+<pre># Offline (no key, no spend): OpenAI JSON path through provider.js, planning costs, plan
+node tests/ai-eval/compare-providers.mjs --selftest
+node tests/ai-eval/compare-providers.mjs --costs
+node tests/ai-eval/compare-providers.mjs --plan
+
+# PARENT TO RUN (outside the sandbox; api.openai.com is blocked inside it): GPT pairings, same judge
+# as the Gemini run so the scores are comparable (≈ $3–4)
+node tests/ai-eval/compare-providers.mjs --pairings=gpt-54,gpt-mini,hybrid-gpt-draft --judge=gemini-3.1-pro-preview --cap=4 --tag=openai
+# Optional, cross-judged full run of every pairing incl. GPT-5.6 Sol (≈ $7–9)
+node tests/ai-eval/compare-providers.mjs --pairings=gemini-current,gemini-flash,gpt-54,gpt-mini,hybrid-gpt-draft,gpt-56sol --cap=9 --tag=full
+# Add --openai-adapter=repo to send OpenAI through server/ai/provider.js instead of the script's own adapter
+
+# PARENT TO RUN: PDF of this document (from ayurmarg-preview/)
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu --no-pdf-header-footer --print-to-pdf=docs/ai/DISHA-MODEL-COMPARISON.pdf file://$PWD/docs/ai/DISHA-MODEL-COMPARISON.html</pre>
+
+<h2>Sources (all checked 7 November 2026)</h2>
+<ul class="small">
+  <li>OpenAI API pricing — <a href="https://platform.openai.com/docs/pricing">platform.openai.com/docs/pricing</a> (Standard / Batch / Flex / Fast tables, embeddings, regional +10%, "GPT-5.6 Sol's promotional pricing is available until November 30, 2026").</li>
+  <li>OpenAI model pages — <a href="https://developers.openai.com/api/docs/models/gpt-5.4">gpt-5.4</a>, <a href="https://developers.openai.com/api/docs/models/gpt-5.4-mini">gpt-5.4-mini</a>, <a href="https://developers.openai.com/api/docs/models/gpt-5.6-sol">gpt-5.6-sol</a>, <a href="https://developers.openai.com/api/docs/models/gpt-5.6-luna">gpt-5.6-luna</a>, <a href="https://developers.openai.com/api/docs/models/gpt-5.5">gpt-5.5</a>; catalogue <a href="https://platform.openai.com/docs/models">platform.openai.com/docs/models</a>.</li>
+  <li>OpenAI Structured Outputs — <a href="https://developers.openai.com/api/docs/guides/structured-outputs">developers.openai.com/api/docs/guides/structured-outputs</a>; reasoning (<code>max_output_tokens</code>, <code>incomplete</code>, default efforts) — <a href="https://developers.openai.com/api/docs/guides/reasoning">…/guides/reasoning</a>.</li>
+  <li>OpenAI data controls and residency — <a href="https://developers.openai.com/api/docs/guides/your-data">developers.openai.com/api/docs/guides/your-data</a>; prepaid billing — <a href="https://help.openai.com/en/articles/8264644-what-is-prepaid-billing">help.openai.com/en/articles/8264644</a>.</li>
+  <li>Gemini API pricing — <a href="https://ai.google.dev/gemini-api/docs/pricing">ai.google.dev/gemini-api/docs/pricing</a> (Argon $2/$10 → $4/$20 from 1 Dec 2026; 3.8 Flash $0.75/$3.75 through 31 Dec; paid tier "Used to improve our products: No"); billing (Prepay / Postpay, Cloud credits) — <a href="https://ai.google.dev/gemini-api/docs/billing">ai.google.dev/gemini-api/docs/billing</a>. Model availability and token limits: the Gemini <code>models</code> list for our key (7 Nov).</li>
+  <li>Vertex AI pricing — <a href="https://cloud.google.com/vertex-ai/generative-ai/pricing">cloud.google.com/vertex-ai/generative-ai/pricing</a> (timed out on 7 Nov; figures from our 28 Oct check in <code>docs/ai/AI-ANSWER-PIPELINE.md</code>). The Gemini pricing page notes Agent Platform (Vertex) prices "may differ".</li>
+  <li>Our code and measurements — <code>server/ai/provider.js</code>, <code>draft.js</code>, <code>verify.js</code>, <code>triage.js</code>; <code>docs/ai/AI-ANSWER-PIPELINE.md</code>; <code>docs/budget/AYURDISHA-Running-Budget-WAC.html</code>; <code>tests/ai-eval/reports/compare-*.json</code>.</li>
+</ul>
+
+<footer>AYURDISHA · DISHA model comparison · planning document, not a quotation. No production setting was changed. Prices exclude GST.</footer>
+</div>
+</body>
+</html>

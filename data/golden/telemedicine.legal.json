@@ -1,0 +1,103 @@
+{
+  "intentId": "telemedicine.legal",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Records & clinical quality",
+  "subject": "online",
+  "ask": "legal",
+  "question": "What licence or registration is required for online (telemedicine) Ayurveda consultations?",
+  "stream": "clinical-practice",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.679Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "b72cbc0e8f18ab3812bd1e14daa53b01a93e171b",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.438,
+      "bm25": 23.12,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "0995afb9e8ffdce4331620a1d9c591cd3358b50e",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Drugs-and-Cosmetics-Act-Rules.pdf",
+      "title": "Drugs and Cosmetics Act Rules",
+      "score": 1.241,
+      "bm25": 19.96,
+      "coverage": 0.36
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.098,
+      "bm25": 17.65,
+      "coverage": 0.09
+    },
+    {
+      "chunkId": "cf3708b12822d2aab9b83b9fad0d183c39e6a0c5",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._669(E)_dated_28th_October,_2024.pdf",
+      "title": "Gazette Notification No. G.S.R. 669(E) dated 28th October, 2024",
+      "score": 1.072,
+      "bm25": 17.23,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "584198a9b6268da7ffd49c2359ba5d46ef851775",
+      "url": "https://ayushportal.nic.in/pdf/CCIM_Telemedicine_Guidelines_08-04-2020.pdf",
+      "title": "CCIM Telemedicine Guidelines 08 04 2020",
+      "score": 1.05,
+      "bm25": 23.11,
+      "coverage": 0.48
+    },
+    {
+      "chunkId": "c8aac2a3f972222ddf7020bbd59f98f0e811fa84",
+      "url": "https://nabh.co/programmes/allopathic-clinics-accreditation-programme/",
+      "title": "Allopathic Clinics 2nd Edition - NABH",
+      "score": 1.009,
+      "bm25": 16.22,
+      "coverage": 0.45
+    },
+    {
+      "chunkId": "c0e90990dd57f6510003cd0b51092b8878a89969",
+      "url": "https://ayushportal.nic.in/pdf/CCIM_Telemedicine_Guidelines_08-04-2020.pdf",
+      "title": "CCIM Telemedicine Guidelines 08 04 2020",
+      "score": 0.975,
+      "bm25": 21.46,
+      "coverage": 0.48
+    },
+    {
+      "chunkId": "441010f4091721ea16a2e5eae90fe5a2ccf2237f",
+      "url": "https://nabh.co/programmes/ab-pmjay-empanelment-programme/",
+      "title": "AB-PMJAY Quality Certification - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 0.947,
+      "bm25": 15.23,
+      "coverage": 0.61
+    }
+  ]
+}

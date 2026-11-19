@@ -1,0 +1,102 @@
+{
+  "intentId": "mvt.how-to",
+  "theme": "Medical Value Travel & Wellness",
+  "subtheme": "How the MVT ecosystem works",
+  "subject": "mvt",
+  "ask": "how-to",
+  "question": "How do I build a career in medical value travel?",
+  "stream": "panchakarma-wellness",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Magazine AW Nov Dec25",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf"
+    },
+    {
+      "title": "Ayur World March April 2026",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.838Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "71b511d030e5ff12a6c8720223aefc536afa73b4",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 1.25,
+      "bm25": 35.03,
+      "coverage": 1
+    },
+    {
+      "chunkId": "a9d9e8b77b852456c1b48131db2191c73977b948",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 0.97,
+      "bm25": 27.19,
+      "coverage": 1
+    },
+    {
+      "chunkId": "1ec20cc85aec2fbce68c6aeba1b7ce17e81275b3",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 0.922,
+      "bm25": 25.83,
+      "coverage": 0.65
+    },
+    {
+      "chunkId": "8fea47c4a82a5ecc1c415e4ef72f1e2fe4c47f55",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/08/Ayurworld-May-June-2026.pdf",
+      "title": "Ayurworld May June 2026",
+      "score": 0.725,
+      "bm25": 20.33,
+      "coverage": 0.49
+    },
+    {
+      "chunkId": "a94e8490f263786bd02a75343622927c6a10847d",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/08/Ayurworld-May-June-2026.pdf",
+      "title": "Ayurworld May June 2026",
+      "score": 0.723,
+      "bm25": 20.27,
+      "coverage": 0.76
+    },
+    {
+      "chunkId": "c8570cf92b623b69f835fdd1eaab3531da7f9ca0",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.723,
+      "bm25": 20.27,
+      "coverage": 0.24
+    },
+    {
+      "chunkId": "f45f2e5a61fb4e9718180a315805911e0e5caab2",
+      "url": "https://nabh.co/",
+      "title": "National Accreditation Board for Hospitals & Healthcare Providers",
+      "score": 0.72,
+      "bm25": 17.54,
+      "coverage": 0.41
+    },
+    {
+      "chunkId": "92dd2ff409860097ebc55dc48ae9eb83d770b666",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27328028/",
+      "title": "Keeping the doctor in the loop: Ayurvedic pharmaceuticals in Kerala.",
+      "score": 0.659,
+      "bm25": 21.99,
+      "coverage": 0.62
+    }
+  ]
+}

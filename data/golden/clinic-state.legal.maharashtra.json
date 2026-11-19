@@ -1,0 +1,103 @@
+{
+  "intentId": "clinic-state.legal.maharashtra",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Setting up private practice",
+  "subject": "clinic",
+  "ask": "legal",
+  "question": "What registrations and licences do I need to open an Ayurveda clinic in Maharashtra?",
+  "stream": "clinical-practice",
+  "region": "maharashtra",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.683Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 1.05,
+      "bm25": 26.36,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "0c744844d7dc3c6d48843c390770ba37155df553",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.008,
+      "bm25": 18.49,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "c8b3ec6b3c48a9938878763cb4c7a4d968b59cfa",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.004,
+      "bm25": 18.41,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "e64fd27aa5302dfa54ee53cf992df3b0fe5ab43c",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_denied.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.003,
+      "bm25": 18.39,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "fd17af37ac7ffee74c0156a7c4f92d7a9e8afa25",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37039177/",
+      "title": "A survey of the training and working arrangements of general practitioners providing asthma and chronic obstructive pulmonary disease care in a rural area of Maharashtra State.",
+      "score": 0.969,
+      "bm25": 24.34,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "8a340157092cd6cdd3ac79bb8b85b4b0d6cb1323",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_LOP.pdf",
+      "title": "Ayurveda LOP",
+      "score": 0.952,
+      "bm25": 17.45,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "5cd5a4858375588cd7317732bb8c8852260b0e7b",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_LOP.pdf",
+      "title": "Ayurveda LOP",
+      "score": 0.931,
+      "bm25": 17.07,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 0.867,
+      "bm25": 15.91,
+      "coverage": 0
+    }
+  ]
+}

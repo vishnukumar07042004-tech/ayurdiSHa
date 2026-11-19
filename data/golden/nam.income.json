@@ -1,0 +1,103 @@
+{
+  "intentId": "nam.income",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "National AYUSH Mission delivery",
+  "subject": "nam",
+  "ask": "income",
+  "question": "What salary or income can I expect from National AYUSH Mission jobs?",
+  "stream": "govt-jobs",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.872Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "95dc782aaa3ac8021d952a78d2c4dc6aab1fcc74",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.438,
+      "bm25": 22.23,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "eaaded765eb50d16ffc6a7cfa69d4bed5d730787",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.121,
+      "bm25": 21.67,
+      "coverage": 0.38
+    },
+    {
+      "chunkId": "aeb5c485e79f9385ed35f671ae3f7761b32d6e3b",
+      "url": "https://ayush.gov.in/assets/pdf/nam/NAM_Guideline_English.pdf",
+      "title": "NAM Guideline English",
+      "score": 1.08,
+      "bm25": 16.7,
+      "coverage": 0.59
+    },
+    {
+      "chunkId": "74ac23f8084fc07dd167bcffbba1d8868b041b81",
+      "url": "https://ayush.gov.in/assets/pdf/nam/NAM_Guideline_English.pdf",
+      "title": "NAM Guideline English",
+      "score": 1.054,
+      "bm25": 16.3,
+      "coverage": 0.38
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 0.788,
+      "bm25": 15.24,
+      "coverage": 0
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 0.777,
+      "bm25": 15.01,
+      "coverage": 0
+    },
+    {
+      "chunkId": "401e0ca1658c14751f1fdfab237800600c44e7ba",
+      "url": "https://ism.kerala.gov.in/eng/index.php/about/about-ism-2",
+      "title": "Mission , Vision & Objectives - Department of Indian Systems of Medicine",
+      "score": 0.768,
+      "bm25": 11.88,
+      "coverage": 0.13
+    },
+    {
+      "chunkId": "684f0e5208e734eb4f3c85552bda912db0aa7c5d",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26730131/",
+      "title": "Role of AYUSH workforce, therapeutics, and principles in health care delivery with special reference to National Rural Health Mission.",
+      "score": 0.748,
+      "bm25": 15.84,
+      "coverage": 0.19
+    }
+  ]
+}

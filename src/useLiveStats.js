@@ -4,12 +4,8 @@ const POLL_MS = 60 * 1000;
 const TICK_MS = 20 * 1000;
 
 async function fetchPublicStats(signal) {
-  const r = await fetch("/api/aym-store", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ op: "publicStats" }),
-    signal,
-  });
+  // GET so the CDN can answer a hall full of open tabs from its cache (≈30 s).
+  const r = await fetch("/api/aym-store?op=publicStats", { method: "GET", signal });
   if (!r.ok) throw new Error(`publicStats ${r.status}`);
   const body = await r.json();
   const num = (v) => (typeof v === "number" && Number.isFinite(v) ? v : null);

@@ -1,0 +1,102 @@
+{
+  "intentId": "export-region.legal.uk",
+  "theme": "Export & Global Trade",
+  "subtheme": "Certification and quality marks",
+  "subject": "export",
+  "ask": "legal",
+  "question": "What registration and certification are needed to export Ayurvedic products to the UK?",
+  "stream": "export-trade",
+  "region": "uk",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Apply for a traditional herbal registration (THR)",
+      "url": "https://www.gov.uk/guidance/apply-for-a-traditional-herbal-registration-thr"
+    },
+    {
+      "title": "Ministry of Ayush, Government of India — ic",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ic.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.053Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb2935e6dd2d7f9522fcd36f4cb8f7d931cf5b26",
+      "url": "https://www.gov.uk/guidance/apply-for-a-traditional-herbal-registration-thr",
+      "title": "Apply for a traditional herbal registration (THR)",
+      "score": 1.438,
+      "bm25": 28.15,
+      "coverage": 0.79
+    },
+    {
+      "chunkId": "c2a1e4f7eabfa60e3382c2b77a106a9f5ddd3bb4",
+      "url": "https://www.gov.uk/guidance/apply-for-a-traditional-herbal-registration-thr",
+      "title": "Apply for a traditional herbal registration (THR)",
+      "score": 1.331,
+      "bm25": 26.07,
+      "coverage": 0.79
+    },
+    {
+      "chunkId": "546f6c2d626c7f33514b5f8ad3bd987e387b02f8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ic.pdf",
+      "title": "Ministry of Ayush, Government of India — ic",
+      "score": 0.99,
+      "bm25": 19.38,
+      "coverage": 0.81
+    },
+    {
+      "chunkId": "ef444f66dda1bdcbaccc806075db8cf10f8a047b",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ic.pdf",
+      "title": "Ministry of Ayush, Government of India — ic",
+      "score": 0.957,
+      "bm25": 18.74,
+      "coverage": 0.81
+    },
+    {
+      "chunkId": "d55eebc3522165fc814c0634ff0461ace8a847d4",
+      "url": "https://pharmexcil.com/uploads/countryreports/MAI_Scheme_revised_2018.pdf",
+      "title": "MAI Scheme revised 2018",
+      "score": 0.876,
+      "bm25": 17.15,
+      "coverage": 0.7
+    },
+    {
+      "chunkId": "70fd2e8b7c01b279ce039aa24e1803f3e26d3e7c",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.836,
+      "bm25": 18.83,
+      "coverage": 0.81
+    },
+    {
+      "chunkId": "402b3107379b273e0598b3b7f031971018d0a58e",
+      "url": "https://www.gov.uk/government/publications/herbal-medicines-granted-a-traditional-herbal-registration-thr",
+      "title": "Herbal medicines granted a traditional herbal registration (THR)",
+      "score": 0.833,
+      "bm25": 16.32,
+      "coverage": 0.6
+    },
+    {
+      "chunkId": "5190a13cea916f11f3ad46b02bca3eb8a39be52b",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 0.812,
+      "bm25": 18.28,
+      "coverage": 0.63
+    }
+  ]
+}

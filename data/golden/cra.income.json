@@ -1,0 +1,103 @@
+{
+  "intentId": "cra.income",
+  "theme": "Research, Evidence & Publication",
+  "subtheme": "Study design",
+  "subject": "research",
+  "ask": "income",
+  "question": "What salary or income can I expect from a clinical research associate (CRA) job?",
+  "stream": "research-phd",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.986Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "f126541e6131c5fbd71e535139c780e0e4b43acc",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.397,
+      "bm25": 17.3,
+      "coverage": 0.29
+    },
+    {
+      "chunkId": "c0da3f39269af4e371fcdd4645aaca0e4e717041",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.397,
+      "bm25": 17.29,
+      "coverage": 0.34
+    },
+    {
+      "chunkId": "95dc782aaa3ac8021d952a78d2c4dc6aab1fcc74",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.394,
+      "bm25": 17.25,
+      "coverage": 0.25
+    },
+    {
+      "chunkId": "f86683e495b71ef670c74a7a949a2b2fefd621e7",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27449208/",
+      "title": "Attitude of interns towards research as a career option.",
+      "score": 1.313,
+      "bm25": 17.8,
+      "coverage": 0.07
+    },
+    {
+      "chunkId": "267d3873c1ce6e39a1077d7408d0f9de26e7ba5f",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 1.276,
+      "bm25": 17.31,
+      "coverage": 0.23
+    },
+    {
+      "chunkId": "7d122d03fdf5c54dca9a838addb1e6542f9a48f8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.267,
+      "bm25": 15.68,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "51d5ea5c51128f41e36f2dd63d8c8ba26f231f83",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38882961/",
+      "title": "Navigating Careers in Ayurveda: A Comprehensive Needs Assessment for Introducing a Career Guidance Module.",
+      "score": 1.244,
+      "bm25": 16.87,
+      "coverage": 0.07
+    },
+    {
+      "chunkId": "ad569dd2af74979f312a0769d3bce896c6834ad7",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40561743/",
+      "title": "Perceptions, knowledge, attitude, practices and barriers towards research among Ayurveda interns: A cross - sectional pilot study.",
+      "score": 1.209,
+      "bm25": 16.4,
+      "coverage": 0.07
+    }
+  ]
+}

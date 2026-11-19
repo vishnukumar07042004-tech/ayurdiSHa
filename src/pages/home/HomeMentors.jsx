@@ -61,7 +61,7 @@ export default function HomeMentors() {
               <span className="st-helper-icon" aria-hidden="true"><MessageCircleQuestion size={22} strokeWidth={1.7} /></span>
               <span className="st-helper-copy">
                 <span className="st-helper-text">Need help choosing?</span>
-                <MoreLink to={ASK} className="st-helper-link">Ask the desk</MoreLink>
+                <MoreLink to={ASK} className="st-helper-link">Ask Desk</MoreLink>
               </span>
             </li>
             <li className="st-helper">

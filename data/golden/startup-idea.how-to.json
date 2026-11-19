@@ -1,0 +1,103 @@
+{
+  "intentId": "startup-idea.how-to",
+  "theme": "Entrepreneurship & Start-ups",
+  "subtheme": "Validating the idea",
+  "subject": "startup",
+  "ask": "how-to",
+  "question": "How do I validate my Ayurveda start-up idea before investing?",
+  "stream": "entrepreneurship",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.608Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "a567f36f78d82e1e13d0a9e28133fd06260a0560",
+      "url": "https://www.startupindia.gov.in/content/sih/en/reources/market-research.html",
+      "title": "Market Research",
+      "score": 1.438,
+      "bm25": 17.95,
+      "coverage": 0.37
+    },
+    {
+      "chunkId": "665fe82e30590e6324e003b60b9bd5f44dcaef0a",
+      "url": "https://www.startupindia.gov.in/content/dam/invest-india/Templates/public/IMB/imb_decisions/23rd_imb_03_07_2018_MinutesoftheTwentyThirdInterMinisterialBoardofCertification.pdf",
+      "title": "IMB minutes",
+      "score": 1.067,
+      "bm25": 13.33,
+      "coverage": 0.12
+    },
+    {
+      "chunkId": "8402f3e8d4a4a918d78248f1928032b7dd9b8a2e",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ResearchAndInv.pdf",
+      "title": "ResearchAndInv",
+      "score": 1.058,
+      "bm25": 13.22,
+      "coverage": 0.28
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.02,
+      "bm25": 15.93,
+      "coverage": 0
+    },
+    {
+      "chunkId": "9817b2a264b7db55dcea7ba7971decfc7879e8dd",
+      "url": "https://www.gov.uk/guidance/apply-for-a-traditional-herbal-registration-thr",
+      "title": "Apply for a traditional herbal registration (THR)",
+      "score": 0.982,
+      "bm25": 15.34,
+      "coverage": 0.12
+    },
+    {
+      "chunkId": "9ab174fc2dc29d8d6b9934db52e324cc317f34ae",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/08/Ayurworld-May-June-2026.pdf",
+      "title": "Ayurworld May June 2026",
+      "score": 0.942,
+      "bm25": 16.92,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 0.917,
+      "bm25": 14.32,
+      "coverage": 0
+    },
+    {
+      "chunkId": "d4d49bed74285e0e3f306718d6da49d0cd047524",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19687194/",
+      "title": "The ayurveda education in India: how well are the graduates exposed to basic clinical skills?",
+      "score": 0.907,
+      "bm25": 15.51,
+      "coverage": 0
+    }
+  ]
+}

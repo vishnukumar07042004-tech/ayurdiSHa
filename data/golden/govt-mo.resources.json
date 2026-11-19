@@ -1,0 +1,103 @@
+{
+  "intentId": "govt-mo.resources",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "subject": "medicalofficer",
+  "ask": "resources",
+  "question": "Which books and study resources should I use for a government Ayurveda Medical Officer post?",
+  "stream": "govt-jobs",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.427Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.438,
+      "bm25": 26.89,
+      "coverage": 0.33
+    },
+    {
+      "chunkId": "dd82fae60b7defc7174b80598fcc9a5c89a45a38",
+      "url": "https://ccras.nic.in/library/",
+      "title": "Library - Central Council for Research in Ayurvedic Sciences",
+      "score": 1.04,
+      "bm25": 21.31,
+      "coverage": 0.62
+    },
+    {
+      "chunkId": "dd1bbe2461f956bf42664d800ef3d4dc7b99f079",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/09/20092024-CCRAS-Guidelines-for-Internship-Guideship-and-Short-term-training-exposure-visits.pdf",
+      "title": "20092024 CCRAS Guidelines for Internship Guideship and Short term training exposure visits",
+      "score": 1.001,
+      "bm25": 20.5,
+      "coverage": 0.26
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 0.988,
+      "bm25": 20.25,
+      "coverage": 0
+    },
+    {
+      "chunkId": "f0078d54b17d92fd4dbdaa2add34848049260765",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 0.981,
+      "bm25": 18.35,
+      "coverage": 0.46
+    },
+    {
+      "chunkId": "ad2ce5d5f7d0c4c9f21b28171da7caffe456548d",
+      "url": "https://rpsc.rajasthan.gov.in/Static/InformationForCandidates/FAQ.pdf",
+      "title": "Rajasthan Public Service Commission — FAQ",
+      "score": 0.979,
+      "bm25": 18.32,
+      "coverage": 0.37
+    },
+    {
+      "chunkId": "4d3fd0c6d5d8ffcfe8797c89b49957cb82fe95cb",
+      "url": "https://ayush.gov.in/assets/pdf/careers/Group-A-posts-comments-of-sttakeholders.pdf",
+      "title": "Group A posts comments of sttakeholders",
+      "score": 0.948,
+      "bm25": 17.73,
+      "coverage": 0.51
+    },
+    {
+      "chunkId": "05c5a4627996555bac0d1f997a831524efd88381",
+      "url": "https://ayush.gov.in/assets/pdf/careers/5-6_NCISM.pdf",
+      "title": "5 6 NCISM",
+      "score": 0.945,
+      "bm25": 17.69,
+      "coverage": 0.52
+    }
+  ]
+}

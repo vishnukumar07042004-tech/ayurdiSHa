@@ -1,0 +1,64 @@
+/* Question triage on the AI drafts desk (uses the .air tokens from ai-review.css). */
+.trg-chip--ok { background: var(--air-ok-soft); color: var(--air-ok); }
+.trg-chip--info { background: rgba(23, 63, 53, 0.08); color: var(--ui-green); }
+.trg-chip--warn { background: var(--air-warn-soft); color: var(--air-warn); }
+.trg-chip--bad { background: var(--air-bad-soft); color: var(--air-bad); }
+.trg-chip--urgent { background: var(--air-bad); color: #fff; font-weight: var(--ui-fw-medium); }
+.trg-chip--muted { background: var(--ui-surface); color: var(--ui-ink-3); }
+.trg-chip--outline { background: transparent; border: 1px dashed var(--air-warn); color: var(--air-warn); }
+
+.trg-filter { max-width: 200px; }
+
+.trg-panel {
+  margin: 0 0 var(--ui-space-4);
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--ui-hairline);
+  background: var(--ui-white);
+}
+.trg-panel--urgent { border-color: var(--air-bad); box-shadow: 0 0 0 3px var(--air-bad-soft); }
+.trg-head { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.trg-meta { margin-left: auto; font-size: 12px; color: var(--ui-ink-4); }
+.trg-reason { margin: 6px 0 0; font-size: 13.5px; color: var(--ui-ink-2); }
+.trg-line { display: flex; gap: 6px; align-items: baseline; margin: 6px 0 0; font-size: 13px; color: var(--ui-ink-3); }
+.trg-line svg { flex-shrink: 0; position: relative; top: 2px; }
+.trg-line--warn { color: var(--air-warn); }
+.trg-urgent { display: flex; gap: 8px; align-items: flex-start; margin-top: 10px; padding: 10px 12px; border-radius: 10px; background: var(--air-bad-soft); color: var(--air-bad); font-size: 13.5px; line-height: 1.45; }
+.trg-urgent svg { flex-shrink: 0; margin-top: 2px; }
+.trg-scripted { margin-top: 10px; padding: 10px 12px; border-radius: 10px; background: var(--ui-surface); font-size: 14px; }
+.trg-scripted summary { cursor: pointer; font-weight: var(--ui-fw-medium); font-size: 13px; color: var(--ui-ink-2); }
+.trg-scripted p { margin: 8px 0 0; white-space: pre-line; line-height: 1.55; color: var(--ui-ink); }
+.trg-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.trg-refile { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.trg-refile .air-select { flex: 1 1 200px; }
+
+/* Ask Desk hint (student side) */
+.trg-hint {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: -4px 0 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  background: rgba(196, 154, 82, 0.12);
+  color: #5A4320;
+}
+.trg-hint svg { flex-shrink: 0; margin-top: 2px; }
+.trg-hint p { margin: 0; }
+.trg-hint em { font-style: normal; color: #3F2F17; }
+.trg-hint--care { background: #FBECEC; color: #7A2424; }
+.trg-hint-btn {
+  margin-top: 6px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.trg-hint-btn:focus-visible { outline: 2px solid #C49A52; outline-offset: 2px; }

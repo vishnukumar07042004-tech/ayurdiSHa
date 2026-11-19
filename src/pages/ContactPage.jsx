@@ -10,7 +10,7 @@ const ROUTES = [
     to: "/#register",
     icon: UserPlus,
     title: "Register",
-    body: "Register with a real email and receive your issued WAC registration number.",
+    body: "Register with a real email and receive your pass — your WAC Delegate ID or an AYURDISHA pass number.",
     cta: "Register",
   },
   {
@@ -18,7 +18,7 @@ const ROUTES = [
     icon: MessageCircleQuestion,
     title: "Ask Desk",
     body: "File one career question. The desk routes it to the right mentor.",
-    cta: "Go to the Ask Desk",
+    cta: "Ask Desk",
   },
   {
     to: "/#track",
@@ -52,7 +52,7 @@ export default function ContactPage() {
           {
             icon: <MessageCircleQuestion size={22} strokeWidth={1.7} />,
             text: "Quickest route",
-            label: "Go to the Ask Desk",
+            label: "Ask Desk",
             to: { pathname: "/", hash: "#ask" },
           },
           {

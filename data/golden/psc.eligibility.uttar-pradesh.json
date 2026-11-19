@@ -1,0 +1,103 @@
+{
+  "intentId": "psc.eligibility.uttar-pradesh",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "subject": "psc",
+  "ask": "eligibility",
+  "question": "What is the eligibility for the Uttar Pradesh PSC Ayurveda Medical Officer exam?",
+  "stream": "govt-jobs",
+  "region": "uttar-pradesh",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.534Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.355,
+      "bm25": 23.67,
+      "coverage": 0.16
+    },
+    {
+      "chunkId": "a4fec7b5a45d591d559375fc9f1a6a8665b4ea9d",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.15,
+      "bm25": 25.11,
+      "coverage": 0.37
+    },
+    {
+      "chunkId": "a1f762e8a1629510b8bfbbf65818af093ff78603",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.144,
+      "bm25": 24.98,
+      "coverage": 0.37
+    },
+    {
+      "chunkId": "0ef2f2cdbefb1fa87d69e45d4b9c442d725ffdfa",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_denied.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.08,
+      "bm25": 23.58,
+      "coverage": 0.37
+    },
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.079,
+      "bm25": 18.84,
+      "coverage": 0.3
+    },
+    {
+      "chunkId": "edda68b3b78bf195db59780ae0ddce9bea92ea11",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/VacancyDepAdviserYN.pdf",
+      "title": "VacancyDepAdviserYN",
+      "score": 1.072,
+      "bm25": 18.72,
+      "coverage": 0.24
+    },
+    {
+      "chunkId": "5c12b8dfb3d4904410fa23b266d93b7342945c83",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/deptuadvisor_vacancy.pdf",
+      "title": "deptuadvisor vacancy",
+      "score": 1.062,
+      "bm25": 18.54,
+      "coverage": 0.24
+    },
+    {
+      "chunkId": "bbd6c937c6f79e3bb6a6efd792d06ba90253202d",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_denied.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.05,
+      "bm25": 22.93,
+      "coverage": 0.37
+    }
+  ]
+}

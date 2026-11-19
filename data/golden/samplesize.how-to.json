@@ -1,0 +1,103 @@
+{
+  "intentId": "samplesize.how-to",
+  "theme": "Research, Evidence & Publication",
+  "subtheme": "Biostatistics",
+  "subject": "samplesize",
+  "ask": "how-to",
+  "question": "How do I calculate the sample size for my clinical study?",
+  "stream": "research-phd",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:49.108Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "121e5327f16083fdcf3bedd710ce9318a0527419",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/07/CCRAS_Guideline-of-Clinical_Evaluation.pdf",
+      "title": "CCRS_Clinical _BOOK-6_945-CD MATTER.pdf",
+      "score": 1.313,
+      "bm25": 19.41,
+      "coverage": 1
+    },
+    {
+      "chunkId": "177a2b486cf4863b965a61edada7e93b299c87c4",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 1.136,
+      "bm25": 17.64,
+      "coverage": 0.47
+    },
+    {
+      "chunkId": "7ff198c5e0c3996e1078f0bcab7eecd8c8ebee46",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 1.121,
+      "bm25": 16.58,
+      "coverage": 0.47
+    },
+    {
+      "chunkId": "ab2d6a752d03d699998f5b778d1bf5c49fe3900d",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 1.037,
+      "bm25": 15.34,
+      "coverage": 0.56
+    },
+    {
+      "chunkId": "d133e51998a3aebe0932a0dfae51817048f279d5",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36936504/",
+      "title": "Importance of high-quality evidence regarding the use of Bacopa monnieri in dementia.",
+      "score": 1.025,
+      "bm25": 15.16,
+      "coverage": 0.56
+    },
+    {
+      "chunkId": "1e9d7e828ff2ebc5dc17ce094bb67086707238d9",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/07/CCRAS_Guideline-of-Clinical_Evaluation.pdf",
+      "title": "CCRS_Clinical _BOOK-6_945-CD MATTER.pdf",
+      "score": 0.979,
+      "bm25": 14.47,
+      "coverage": 0.56
+    },
+    {
+      "chunkId": "ebb48fd1d66f5e7618c76f92ca11b7669ddc5700",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27496580/",
+      "title": "Chyawanprash: A review of therapeutic benefits as in authoritative texts and documented clinical literature.",
+      "score": 0.921,
+      "bm25": 13.62,
+      "coverage": 0.56
+    },
+    {
+      "chunkId": "69371b0b04c5034e00d8d754211abd4877b4cd03",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/STG_Dermatological_Disorders_Ayurveda.pdf",
+      "title": "STG Dermatological Disorders Ayurveda",
+      "score": 0.858,
+      "bm25": 11.59,
+      "coverage": 0.08
+    }
+  ]
+}

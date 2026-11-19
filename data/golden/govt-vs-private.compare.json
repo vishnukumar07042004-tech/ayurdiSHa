@@ -1,0 +1,103 @@
+{
+  "intentId": "govt-vs-private.compare",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "subject": "government",
+  "ask": "compare",
+  "question": "Is a government job better than my own clinic for a BAMS doctor?",
+  "stream": "govt-jobs",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.453Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.339,
+      "bm25": 16.5,
+      "coverage": 0.08
+    },
+    {
+      "chunkId": "334a2ce05515b2eb004a56d941d3f125734df543",
+      "url": "https://ayush.gov.in/assets/pdf/nam/NAM_Guideline_English.pdf",
+      "title": "NAM Guideline English",
+      "score": 1.196,
+      "bm25": 14.74,
+      "coverage": 0.4
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.132,
+      "bm25": 17.44,
+      "coverage": 0.08
+    },
+    {
+      "chunkId": "dacdecb724d0992197116ae0b9d76e967813e0fc",
+      "url": "https://ayush.gov.in/assets/pdf/nam/NAM_Guideline_English.pdf",
+      "title": "NAM Guideline English",
+      "score": 1.111,
+      "bm25": 13.69,
+      "coverage": 0.4
+    },
+    {
+      "chunkId": "5e8046edfeff9b9e119821821bbeff49338c1426",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29526234/",
+      "title": "Awareness, practice and views about integrating AYUSH in allopathic curriculum of allopathic doctors and interns in a tertiary care teaching hospital in New Delhi, India.",
+      "score": 1.05,
+      "bm25": 17.72,
+      "coverage": 0
+    },
+    {
+      "chunkId": "6689d56615f380c4573828473ccb2e96f6152c19",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 1.044,
+      "bm25": 14.79,
+      "coverage": 0.28
+    },
+    {
+      "chunkId": "e6ccc3645d279eb9a59ab67779e573df6669dc83",
+      "url": "https://ccras.nic.in/directory/it-internship-program-at-ccras-headquarters-from-19th-june-2025/",
+      "title": "IT internship program at CCRAS Headquarters from 19th June 2025 - Central Council for Research in Ayurvedic Sciences",
+      "score": 1.04,
+      "bm25": 14.04,
+      "coverage": 0.2
+    },
+    {
+      "chunkId": "3f7aa42cf04a1b8ea381283bdcfad2ac9086bb3f",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN_UG_Guideline.pdf",
+      "title": "CGN UG Guideline",
+      "score": 1.028,
+      "bm25": 15.84,
+      "coverage": 0.08
+    }
+  ]
+}

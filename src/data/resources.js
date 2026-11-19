@@ -54,7 +54,7 @@ export function getAllResources() {
     podcasts.push({
       id: "talk-bams-orientation",
       type: "podcast",
-      title: "Navigating Ayurveda Career Pathways After BAMS",
+      title: "Navigating Ayurveda career pathways",
       category: "Podcast Talk",
       description: "An orientation podcast with veteran mentors discussing clinical practice, PG specialty selection, and research careers.",
       author: "AYURDISHA Meet the Mentors Session",

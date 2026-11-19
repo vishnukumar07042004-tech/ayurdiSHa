@@ -8,9 +8,9 @@
  */
 
 export const MENTORS_META = {
-  source: "WAC 2026 Tentative Mentors (slides 25–27)",
+  source: "WAC 2026 Tentative Mentors (slides 25–27); official AIIA faculty",
   extracted: true,
-  count: 23,
+  count: 26,
 };
 
 /**
@@ -21,6 +21,7 @@ export const MENTORS_META = {
  *   affiliation: string,
  *   expertise: string,
  *   bio: string,
+ *   area?: "academic" | "clinician",
  *   credentials?: string,
  *   experienceYears?: number,
  *   photo?: string,
@@ -36,10 +37,38 @@ const emptyProfile = () => ({
 });
 
 /**
- * Tentative mentor roster in slide order (deduplicated).
+ * Roster: official AIIA Director / Dean / Associate Dean first (senior placement),
+ * then the WAC 2026 tentative list in slide order (deduplicated).
  * @type {Mentor[]}
  */
 export const MENTORS = [
+  {
+    id: "m24",
+    name: "Prof. Vd. Pradeep Kumar Prajapati",
+    designation: "Director",
+    affiliation: "All India Institute of Ayurveda",
+    expertise: "",
+    bio: "",
+    area: "academic",
+  },
+  {
+    id: "m25",
+    name: "Prof. Dr. Sujata Kadam",
+    designation: "Dean",
+    affiliation: "All India Institute of Ayurveda Goa",
+    expertise: "",
+    bio: "",
+    area: "clinician",
+  },
+  {
+    id: "m26",
+    name: "Prof. Dr. Mohan Joshi",
+    designation: "Associate Dean and HOD, Department of Samhita and Siddhant",
+    affiliation: "All India Institute of Ayurveda Goa",
+    expertise: "education technologist",
+    bio: "",
+    area: "academic",
+  },
   {
     id: "m01",
     name: "Vd. Hiten Vaja",
@@ -265,11 +294,23 @@ function mentorPhotoKind(m) {
   return kind === "document" ? "document" : "portrait";
 }
 
-/** Circular avatar image; empty when the photo is a document/credential scan. */
+/** Illustrated hall portrait. A real face photo still wins; a document scan does not. */
+export function mentorIllustratedPortraitUrl(m) {
+  const id = String(m?.id || "").trim();
+  if (!/^m\d+$/.test(id)) return "";
+  // Under /assets so Vercel serves the file (SPA rewrites must not catch it).
+  return `/assets/mentors/portraits/${id}.webp`;
+}
+
+/**
+ * Face image for cards and avatars.
+ * A roster `photo` marked as a portrait is used as-is.
+ * Document scans stay off the card; the illustrated portrait fills that plate.
+ */
 export function mentorPortraitUrl(m) {
   const url = mentorPhotoUrl(m);
-  if (!url || mentorPhotoKind(m) === "document") return "";
-  return url;
+  if (url && mentorPhotoKind(m) !== "document") return url;
+  return mentorIllustratedPortraitUrl(m);
 }
 
 /** Credential/document figure for the profile page (not used as a face avatar). */

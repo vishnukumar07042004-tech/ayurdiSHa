@@ -1,0 +1,102 @@
+{
+  "intentId": "pg.how-to",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "subject": "pg",
+  "ask": "how-to",
+  "question": "How do I get admission to MD/MS Ayurveda?",
+  "stream": "pg-entrance",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "Ayush Admissions Central Counselling Committee (AACCC)",
+      "url": "https://aaccc.gov.in/"
+    },
+    {
+      "title": "Ministry of Ayush, Government of India — ic",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ic.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.396Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "ced167f0756b13afc6c64a860c0d135365bb1b59",
+      "url": "https://aaccc.gov.in/",
+      "title": "Ayush Admissions Central Counselling Committee (AACCC)",
+      "score": 1.438,
+      "bm25": 34.59,
+      "coverage": 1
+    },
+    {
+      "chunkId": "3f14558c4c61e7dd3adfe1ef407ea020eb03c3ec",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ic.pdf",
+      "title": "Ministry of Ayush, Government of India — ic",
+      "score": 0.948,
+      "bm25": 22.81,
+      "coverage": 1
+    },
+    {
+      "chunkId": "25533eaf4154293f34e6ddf1607fb09c0f7350c7",
+      "url": "https://ccras.nic.in/wp-content/uploads/2025/02/CCRAS-PROGRAMME-FOR-TRANING-OF-AYURVEDA-RESEARCH-METHODOLOGY-AND-STATISTICS-ARMS.pdf",
+      "title": "CCRAS PROGRAMME FOR TRANING OF AYURVEDA RESEARCH METHODOLOGY AND STATISTICS ARMS",
+      "score": 0.914,
+      "bm25": 30.11,
+      "coverage": 0.63
+    },
+    {
+      "chunkId": "8ca8571616adb1b3be056733e1e86c88b70ce2bf",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 0.865,
+      "bm25": 20.82,
+      "coverage": 0.35
+    },
+    {
+      "chunkId": "f30f33ff0cf8e89e62f7f3b48f8bcb67791b5aa9",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 0.802,
+      "bm25": 19.31,
+      "coverage": 0.72
+    },
+    {
+      "chunkId": "09ea88e4b4659c7bf3cdf196308a4ceb3db49349",
+      "url": "https://ayush.gov.in/assets/pdf/careers/CGN_UG_Guideline_Session_2025-26.pdf",
+      "title": "CGN UG Guideline Session 2025 26",
+      "score": 0.745,
+      "bm25": 22.41,
+      "coverage": 0.37
+    },
+    {
+      "chunkId": "319cc1b74f508f4beedb6ca8c7ebcf812f2f11c4",
+      "url": "https://ayush.gov.in/assets/pdf/whatsnew/Central_Government_Nomination_to_MD_Ayurveda.pdf",
+      "title": "Central Government Nomination to MD Ayurveda",
+      "score": 0.737,
+      "bm25": 22.18,
+      "coverage": 0.72
+    },
+    {
+      "chunkId": "a0a25696c2d8e8093ca0184ad7ac89a10555429d",
+      "url": "https://aaccc.gov.in/ug-counselling/",
+      "title": "UG Counseling",
+      "score": 0.735,
+      "bm25": 17.69,
+      "coverage": 0.37
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "intentId": "psc.syllabus.madhya-pradesh",
+  "theme": "Policy, Public Health & Global Agencies",
+  "subtheme": "Government service routes",
+  "subject": "psc",
+  "ask": "syllabus",
+  "question": "What is the syllabus and exam pattern of the Madhya Pradesh PSC Ayurveda Medical Officer exam?",
+  "stream": "govt-jobs",
+  "region": "madhya-pradesh",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.728Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.264,
+      "bm25": 21.93,
+      "coverage": 0.12
+    },
+    {
+      "chunkId": "ebc5190941166ca34ebb3f530dc7f1a9f5b3ab40",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.15,
+      "bm25": 24.93,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "3bbe961d4e8e670da1f4dc5e7ccc002a1386a6ed",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.127,
+      "bm25": 24.42,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "4801ee47f14744425dabeacdfdd0b395b77f4c12",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/acg.pdf",
+      "title": "Ministry of Ayush, Government of India — acg",
+      "score": 1.022,
+      "bm25": 17.73,
+      "coverage": 0.12
+    },
+    {
+      "chunkId": "7e7ce2a66cb298b2932adc2a3db5d686c1a62654",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_LOP.pdf",
+      "title": "Ayurveda LOP",
+      "score": 0.966,
+      "bm25": 20.94,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "c50e73f75882957c5f64566b6b1237174fbc4fa7",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_denied.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 0.947,
+      "bm25": 20.53,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "1f711f42f39e3cf1fefa3e692e9ea1b40ffbfba3",
+      "url": "https://ayush.gov.in/assets/pdf/careers/CGN_UG_Guideline_Session_2025-26.pdf",
+      "title": "CGN UG Guideline Session 2025 26",
+      "score": 0.939,
+      "bm25": 20.36,
+      "coverage": 0.24
+    },
+    {
+      "chunkId": "17faf02c65ba459498c90ca44c8dcd8c63c99986",
+      "url": "https://ayush.gov.in/assets/pdf/careers/pasighat-vacancy.pdf",
+      "title": "pasighat vacancy",
+      "score": 0.929,
+      "bm25": 16.11,
+      "coverage": 0.24
+    }
+  ]
+}

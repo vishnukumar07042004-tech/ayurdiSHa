@@ -1,0 +1,103 @@
+{
+  "intentId": "manufacturing.cost",
+  "theme": "Manufacturing, Quality & GMP",
+  "subtheme": "Production & scale-up",
+  "subject": "manufacturing",
+  "ask": "cost",
+  "question": "How much does an Ayurvedic medicine manufacturing unit cost?",
+  "stream": "industry-pharma",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.960Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "84accd5803f911d055eb62672f6297c4d85170be",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/aoushdhi.pdf",
+      "title": "aoushdhi",
+      "score": 1.306,
+      "bm25": 18.28,
+      "coverage": 0
+    },
+    {
+      "chunkId": "80ee066a5b8a320a5fd3d148db4ea5cbda69eb30",
+      "url": "https://ayurworld.org/wp-content/uploads/2025/12/Magazine-AW_Nov_Dec25.pdf",
+      "title": "Magazine AW Nov Dec25",
+      "score": 1.231,
+      "bm25": 19.83,
+      "coverage": 0.5
+    },
+    {
+      "chunkId": "f879e31d17ab37f6e3ad3f73c2483a63061c824a",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/Gazette_Notification_No._G.S.R._140(E)_dated_14th_February,_2025.pdf",
+      "title": "Gazette Notification No. G.S.R. 140(E) dated 14th February, 2025",
+      "score": 1.101,
+      "bm25": 15.41,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "0c25bbd9b19f1559015d14ea460ffde1de8b8fc8",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.06,
+      "bm25": 18.56,
+      "coverage": 0.48
+    },
+    {
+      "chunkId": "1397f7c2001269406e05db7a64a6545bf0a82e31",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/aoushdhi.pdf",
+      "title": "aoushdhi",
+      "score": 1.053,
+      "bm25": 14.75,
+      "coverage": 0.7
+    },
+    {
+      "chunkId": "fac50a6cff0fae6a9fd24425b81acdcb846a7076",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/BAMS-Guideline.pdf",
+      "title": "BAMS Guideline",
+      "score": 1.053,
+      "bm25": 18.43,
+      "coverage": 0.09
+    },
+    {
+      "chunkId": "8f9ff02b5f0ac8345a9956a6a5fbafdf29ada05b",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/ayurgyan/ayurgyan.pdf",
+      "title": "ayurgyan",
+      "score": 1.04,
+      "bm25": 14.57,
+      "coverage": 0.39
+    },
+    {
+      "chunkId": "52fe5a225264ba7a60aff4c61a25e5e34e1de08e",
+      "url": "https://ayush.gov.in/assets/pdf/schemes/Ayurswasthya.pdf",
+      "title": "Ayurswasthya",
+      "score": 1.037,
+      "bm25": 18.15,
+      "coverage": 0.48
+    }
+  ]
+}

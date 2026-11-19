@@ -1,0 +1,98 @@
+{
+ "seed": 2026,
+ "questions": 5620,
+ "intents": 368,
+ "generated": 5799,
+ "fromMergeBench": 177,
+ "mergeBenchUnmatched": 421,
+ "fromLlm": 0,
+ "llmUsage": null,
+ "dropped": {
+  "generic ask carries compare": 32,
+  "generic ask carries legal": 31,
+  "duplicate": 116
+ },
+ "clustering": {
+  "clusters": 1300,
+  "multiMember": 1141,
+  "singleIntentClusters": 978,
+  "purity": 0.857,
+  "intentsFolded": 3
+ },
+ "byLang": {
+  "en": 2302,
+  "hi": 1368,
+  "hinglish": 1950
+ },
+ "byStage": {
+  "practitioner": 2208,
+  "intern": 1703,
+  "final-year": 1018,
+  "1st-year": 93,
+  "pg-aspirant": 598
+ },
+ "byRegion": {
+  "australia": 99,
+  "canada": 99,
+  "eu": 114,
+  "gulf": 114,
+  "uk": 115,
+  "usa": 115,
+  "india": 4028,
+  "gujarat": 117,
+  "karnataka": 117,
+  "kerala": 117,
+  "madhya-pradesh": 117,
+  "maharashtra": 117,
+  "odisha": 117,
+  "rajasthan": 117,
+  "uttar-pradesh": 117
+ },
+ "byTheme": {
+  "Practice Abroad & Practitioner Mobility": 777,
+  "Brand Building & Communication": 195,
+  "Academics, Teaching & Higher Education": 1177,
+  "Clinical Practice & Integrative Care": 739,
+  "Research, Evidence & Publication": 427,
+  "Entrepreneurship & Start-ups": 168,
+  "Policy, Public Health & Global Agencies": 1469,
+  "Medical Value Travel & Wellness": 263,
+  "Export & Global Trade": 96,
+  "Manufacturing, Quality & GMP": 309
+ },
+ "intentsByStream": {
+  "pg-entrance": 53,
+  "clinical-practice": 32,
+  "govt-jobs": 76,
+  "practice-abroad": 22,
+  "internship-early-career": 15,
+  "abroad-gulf": 8,
+  "panchakarma-wellness": 26,
+  "research-phd": 35,
+  "abroad-uk-eu": 16,
+  "abroad-usa": 8,
+  "teaching-academia": 9,
+  "public-health-policy": 11,
+  "industry-pharma": 20,
+  "entrepreneurship": 13,
+  "digital-branding": 13,
+  "export-trade": 11
+ },
+ "folds": [
+  {
+   "into": "mba.which-one",
+   "merged": "mba.scope",
+   "coClustered": 6
+  },
+  {
+   "into": "patent.how-to",
+   "merged": "patent.possible",
+   "coClustered": 6
+  },
+  {
+   "into": "abroad.how-to",
+   "merged": "abroad.scope",
+   "coClustered": 12
+  }
+ ]
+}

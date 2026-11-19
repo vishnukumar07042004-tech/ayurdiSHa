@@ -7,3 +7,6 @@ dist
 serviceAccount.json
 serviceAccountKey.json
 .DS_Store
+data/kb/cache
+data/kb/manual
+.qa

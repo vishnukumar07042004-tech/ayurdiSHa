@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import {
-  Compass, Handshake, Layers, LockKeyhole, MessageCircleQuestion, Mic2, Sparkles, Tag, Ticket, Users,
+  Compass, Handshake, Layers, LockKeyhole, MessageCircleQuestion, Mic2, ShieldCheck, Sparkles, Tag, Ticket, Users,
 } from "lucide-react";
 import { setPageMeta } from "../siteMeta.js";
 import Breadcrumbs from "../components/Breadcrumbs.jsx";

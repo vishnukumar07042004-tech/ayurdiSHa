@@ -1,0 +1,103 @@
+{
+  "intentId": "aiapget-attempts.eligibility",
+  "theme": "Academics, Teaching & Higher Education",
+  "subtheme": "Choosing a PG branch",
+  "subject": "aiapget",
+  "ask": "eligibility",
+  "question": "How many attempts are allowed for AIAPGET and is there an age limit?",
+  "stream": "pg-entrance",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "url": ""
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.451Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft",
+    "insufficient-source"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "f339c0fa977417d9f3e9533b282bdc3b77ba046a",
+      "url": "https://aaccc.gov.in/ayush-admissions-central-counseling-committee-aaccc/",
+      "title": "AACCC",
+      "score": 1.438,
+      "bm25": 24.85,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "ced167f0756b13afc6c64a860c0d135365bb1b59",
+      "url": "https://aaccc.gov.in/",
+      "title": "Ayush Admissions Central Counselling Committee (AACCC)",
+      "score": 0.994,
+      "bm25": 17.18,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "f30f33ff0cf8e89e62f7f3b48f8bcb67791b5aa9",
+      "url": "https://ayush.gov.in/assets/pdf/aechives/CGN-PG-Guidlines_2023-24.pdf",
+      "title": "CGN PG Guidlines 2023 24",
+      "score": 0.896,
+      "bm25": 15.49,
+      "coverage": 0.31
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 0.853,
+      "bm25": 18.42,
+      "coverage": 0.14
+    },
+    {
+      "chunkId": "3c029ac1fcc30f59bab729951e0d27c1ac82dd06",
+      "url": "https://ayush.gov.in/assets/pdf/careers/English_Application_Form_04082026.pdf",
+      "title": "English Application Form 04082026",
+      "score": 0.782,
+      "bm25": 16.89,
+      "coverage": 0.22
+    },
+    {
+      "chunkId": "ad569dd2af74979f312a0769d3bce896c6834ad7",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40561743/",
+      "title": "Perceptions, knowledge, attitude, practices and barriers towards research among Ayurveda interns: A cross - sectional pilot study.",
+      "score": 0.768,
+      "bm25": 18.18,
+      "coverage": 0.35
+    },
+    {
+      "chunkId": "756e74dc139f7f1522dff32cf17c770001a278fa",
+      "url": "https://ayushportal.nic.in/pdf/CCIM_Telemedicine_Guidelines_08-04-2020.pdf",
+      "title": "CCIM Telemedicine Guidelines 08 04 2020",
+      "score": 0.698,
+      "bm25": 16.53,
+      "coverage": 0.36
+    },
+    {
+      "chunkId": "2902ae851f9c5966f86ada4a72ebecd85abe5265",
+      "url": "https://ayush.gov.in/assets/pdf/quality_standards/guduchi_Book-Dossier.pdf",
+      "title": "guduchi Book Dossier",
+      "score": 0.689,
+      "bm25": 11.91,
+      "coverage": 0.14
+    }
+  ]
+}

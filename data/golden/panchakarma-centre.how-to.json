@@ -1,0 +1,102 @@
+{
+  "intentId": "panchakarma-centre.how-to",
+  "theme": "Clinical Practice & Integrative Care",
+  "subtheme": "Panchakarma & therapy services",
+  "subject": "panchakarma",
+  "ask": "how-to",
+  "question": "How do I start a Panchakarma centre?",
+  "stream": "panchakarma-wellness",
+  "region": "india",
+  "answer": "",
+  "actions": [
+    "",
+    "",
+    ""
+  ],
+  "mistake": "",
+  "resources": [
+    {
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf"
+    },
+    {
+      "title": "Ayur World March April 2026",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf"
+    }
+  ],
+  "citations": [],
+  "status": "draft",
+  "createdBy": "ai",
+  "model": null,
+  "createdAt": "2026-10-28T09:52:48.436Z",
+  "reviewedBy": null,
+  "flags": [
+    "needs-draft"
+  ],
+  "retrieved": [
+    {
+      "chunkId": "0aabb9b08f85e97fef3416ddacafe8dafdc3f0d5",
+      "url": "https://ayush.gov.in/assets/pdf/education/Ayurveda_Permitted.pdf",
+      "title": "a7f4210a9623bf82a045c551d4ad1818e0d9879d8a5170dd20b2a3bed0426156.xlsx",
+      "score": 1.103,
+      "bm25": 16.79,
+      "coverage": 1
+    },
+    {
+      "chunkId": "bb7f912157dd59e82ecf5c4d5ed2edf43e5ba20a",
+      "url": "https://ayurworld.org/wp-content/uploads/2026/04/Ayur-World-March-April-2026.pdf",
+      "title": "Ayur World March April 2026",
+      "score": 1.096,
+      "bm25": 19.17,
+      "coverage": 0.63
+    },
+    {
+      "chunkId": "2651cb543ed0819760b58dbb8c9c4e126bbc99f0",
+      "url": "https://nabh.co/programmes/panchakarma-clinic-accreditation-programme/",
+      "title": "Panchkarma Clinic - NABH",
+      "score": 1.092,
+      "bm25": 16.61,
+      "coverage": 0.63
+    },
+    {
+      "chunkId": "9ecfa86d9398e1baec7f27819555c1db52378ef6",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36329771/",
+      "title": "Yoga and Integrative Healthcare: Lessons from the National Institute of Mental Health and Neurosciences (NIMHANS) in India.",
+      "score": 1.05,
+      "bm25": 21.87,
+      "coverage": 0.37
+    },
+    {
+      "chunkId": "eb56f0eaeb4beeaadfb6d9545b5a323c2c4139fb",
+      "url": "https://ism.kerala.gov.in/eng/index.php/programs/internship/regular",
+      "title": "Regular - Department of Indian Systems of Medicine",
+      "score": 1.04,
+      "bm25": 15.83,
+      "coverage": 0
+    },
+    {
+      "chunkId": "17faf02c65ba459498c90ca44c8dcd8c63c99986",
+      "url": "https://ayush.gov.in/assets/pdf/careers/pasighat-vacancy.pdf",
+      "title": "pasighat vacancy",
+      "score": 1.04,
+      "bm25": 15.83,
+      "coverage": 0.35
+    },
+    {
+      "chunkId": "d60ed09e14a533272a18c2af624fb8722bfb895b",
+      "url": "https://ccras.nic.in/wp-content/uploads/2024/07/CCRAS_Guideline-of-Clinical_Evaluation.pdf",
+      "title": "CCRS_Clinical _BOOK-6_945-CD MATTER.pdf",
+      "score": 1.038,
+      "bm25": 21.62,
+      "coverage": 0.72
+    },
+    {
+      "chunkId": "50131e4c199869e2fd9147a8a0a8e519c54bc720",
+      "url": "https://nabh.co/e-mitra-step-by-step-guide-for-entry-level-certification/",
+      "title": "E-Mitra Step-By-Step Guide for Entry Level Certification - National Accreditation Board for Hospitals and Healthcare Providers (NABH)",
+      "score": 1.032,
+      "bm25": 15.71,
+      "coverage": 0.37
+    }
+  ]
+}

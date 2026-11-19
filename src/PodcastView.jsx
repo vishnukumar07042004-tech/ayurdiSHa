@@ -148,7 +148,7 @@ function AddTalkForm({ onSaved }) {
       <label>
         Title
         <input className="aym-input" value={f.title} onChange={e => set("title", e.target.value)}
-          placeholder="After BAMS — a conversation from the hall" maxLength={160} required />
+          placeholder="Your next step — a conversation from the hall" maxLength={160} required />
       </label>
       <label>
         Mentor
@@ -187,13 +187,19 @@ export default function PodcastView({ staff, onAsk, onBack }) {
 
   const load = useCallback(async () => {
     try {
-      const r = await aymOp("podcastsList");
+      let r;
+      if (staff) r = await aymOp("podcastsList");
+      else {
+        const res = await fetch("/api/aym-store?op=podcastsList", { method: "GET" });
+        if (!res.ok) throw new Error(`Request failed (${res.status}).`);
+        r = await res.json();
+      }
       setTalks(mergePodcasts(PODCASTS, r));
     } catch {
       setTalks(PODCASTS.slice());
     }
     setLoading(false);
-  }, []);
+  }, [staff]);
 
   useEffect(() => { load(); }, [load]);
 
@@ -254,13 +260,13 @@ export default function PodcastView({ staff, onAsk, onBack }) {
         <div className="aym-eyebrow">Round table</div>
         <h2 className="aym-display">A conversation worth recording</h2>
         <p>
-          Optional zone. If your after-BAMS question would help a room of students — recognition abroad,
+          Optional zone. If your career question would help a room of students — recognition abroad,
           start-ups, public health — leave it here and we may take it to the round table.
         </p>
         <button type="button" className="aym-btn aym-btn-primary" onClick={() => onAsk({
           theme: "Brand Building & Communication",
           subtheme: "Scientific communication",
-          question: "What after-BAMS story would you tell a room of BAMS students — and what should they do in the next 90 days?",
+          question: "What career story would you tell a room of Ayurveda students — and what should they do in the next 90 days?",
         })}>
           <Mic size={16} /> Leave a podcast-worthy question
         </button>

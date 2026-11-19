@@ -10,6 +10,8 @@ export default defineConfig({
     strictPort: true,
   },
   build: {
+    // Hashed build output only; public/assets/* (unhashed images) must never land here (vercel.json marks it immutable).
+    assetsDir: "assets/app",
     rollupOptions: {
       output: {
         manualChunks(id) {
