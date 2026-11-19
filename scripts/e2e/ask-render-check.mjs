@@ -204,19 +204,64 @@ const root_ = createRoot(container, {
 });
 root_.render(createElement(AskView, { profile, preset: null, onGoRegister: () => {}, onSaved: (rec, p) => { saved = { rec, p }; } }));
 
-async function fillForm(question) {
-  await until(() => container.querySelector("textarea"));
-  setValue(fieldByLabel(container, "State or union territory"), "Outside India");
-  setValue(fieldByLabel(container, "Programme or stage"), "Changing careers");
-  setValue(fieldByLabel(container, "Have you registered for WAC 2026?"), "Yes");
-  setValue(fieldByLabel(container, "Will you attend in person"), "Not yet confirmed");
-  setValue(fieldByLabel(container, "Which theme is closest"), "Research, Evidence & Publication");
-  await sleep(30);
-  setValue(fieldByLabel(container, "Sub-area"), "Framing a research question");
-  setValue(fieldByLabel(container, "Ask one focused question"), question);
-  await sleep(30);
+function clickNext() {
+  const btn = [...container.querySelectorAll(".ask-sticky-nav button, button")].find(b => /^Next$/.test(b.textContent.trim()));
+  check(btn, "Next button");
+  btn.click();
 }
-const sendButton = () => [...container.querySelectorAll("button")].find(b => /Hand this to the Ask Desk|Sending/.test(b.textContent));
+function clickTrack(labelPart) {
+  const card = [...container.querySelectorAll(".aym-ask-track-card")].find(b => b.textContent.includes(labelPart));
+  check(card, `track card containing "${labelPart}"`);
+  card.click();
+}
+function findField(text) {
+  const label = [...container.querySelectorAll(".aym-field")].find(l => (l.querySelector("label")?.textContent || "").includes(text));
+  if (!label) return null;
+  return label.querySelector("select, textarea, input");
+}
+async function fillForm(question) {
+  await until(() => container.querySelector("textarea.ask-q-textarea, textarea"));
+  // Step 1 — Question
+  clickTrack("Research, Evidence & Publication");
+  await sleep(40);
+  const sub = await until(() => findField("Sub-area"));
+  check(sub, "Sub-area after track");
+  setValue(sub, "Framing a research question");
+  const qEl = await until(() => findField("One focused question") || findField("focused question"));
+  check(qEl, "question field");
+  setValue(qEl, question);
+  // Wait for React state to catch up before advancing (stepper validates from state).
+  check(await until(() => qEl.value === question && qEl.value.length >= 25), "question committed");
+  await sleep(80);
+  for (let attempt = 0; attempt < 5; attempt++) {
+    clickNext();
+    const stateEl = await until(() => findField("State or union territory"), 1500);
+    if (stateEl) break;
+    await sleep(100);
+  }
+  const stateEl = findField("State or union territory");
+  check(stateEl, `Who step state field (page: ${container.textContent.slice(0, 220)})`);
+  // Step 2 — Who
+  setValue(stateEl, "Outside India");
+  setValue(findField("Programme or stage"), "Changing careers");
+  setValue(findField("Have you registered for WAC 2026?"), "Yes");
+  setValue(findField("Will you attend in person"), "Not yet confirmed");
+  await sleep(80);
+  for (let attempt = 0; attempt < 5; attempt++) {
+    clickNext();
+    if (await until(() => [...container.querySelectorAll(".ui-check")].length >= 4, 1200)) break;
+    await sleep(80);
+  }
+  check([...container.querySelectorAll(".ui-check")].length >= 4, "Consent step");
+  // Step 3 — Consent (leave unticked)
+  for (let attempt = 0; attempt < 5; attempt++) {
+    clickNext();
+    if (await until(() => sendButton(), 1200)) break;
+    await sleep(80);
+  }
+  check(sendButton(), "Review step with submit");
+}
+const sendButton = () => [...container.querySelectorAll("button")].find(b => /Hand this to the Ask Desk|^Submit$|Sending/.test(b.textContent.trim()));
 const questionText = "How do I move from clinical practice into research methodology work in Ayurveda?";
 
 await step("Network failure: specific message, typed question kept, nothing saved", async () => {
@@ -225,12 +270,27 @@ await step("Network failure: specific message, typed question kept, nothing save
   sendButton().click();
   const notice = await until(() => [...container.querySelectorAll("[class*=notice], .aym-notice, [role=alert], [role=status]")].map(n => n.textContent).find(t => /couldn't reach the Ask Desk/i.test(t)));
   check(notice, `specific network message shown (got: ${container.textContent.slice(0, 300)})`);
-  eq(fieldByLabel(container, "Ask one focused question").value, questionText, "question still in the textarea");
+  // Stay on review or recover — typed question must still be in draft/session; reopen via Back to Question if needed
+  let qEl = container.querySelector("textarea.ask-q-textarea");
+  if (!qEl) {
+    // Navigate back to question step
+    for (let i = 0; i < 3; i++) {
+      const back = [...container.querySelectorAll("button")].find(b => /^Back$/.test(b.textContent.trim()));
+      if (back && !back.disabled) back.click();
+      await sleep(40);
+    }
+    qEl = await until(() => container.querySelector("textarea.ask-q-textarea"));
+  }
+  check(qEl && qEl.value === questionText, `question still in the textarea (got: ${qEl && qEl.value})`);
   check(!Object.keys(db()).some(k => k.startsWith("aym:q:")), "nothing saved");
 });
 
 let firstTicket = "";
 await step("Send → success screen with ticket (no React hook error), saved with stage / state / source", async () => {
+  // Ensure we are on review with filled form
+  if (![...container.querySelectorAll("button")].some(b => /Hand this to the Ask Desk|^Submit$/.test(b.textContent.trim()))) {
+    await fillForm(questionText);
+  }
   sendButton().click();
   const done = await until(() => /The Ask Desk has your question\./.test(container.textContent) || reactErrors.length);
   const stored = Object.keys(db()).filter(k => k.startsWith("aym:q:")).length;
@@ -248,7 +308,6 @@ await step("Send → success screen with ticket (no React hook error), saved wit
   check(saved && saved.rec.ticket === firstTicket, "onSaved called");
   return firstTicket;
 });
-
 await step("AI job queued by the submit", async () => {
   const id = Object.values(db()).find(v => v && v.ticket === firstTicket).id;
   const job = db()[`aym:ai:job:q_${id}`];
@@ -259,7 +318,7 @@ await step("Ask another question → form again (no hook error), new ticket on n
   const again = [...container.querySelectorAll("button")].find(b => /Ask another question/.test(b.textContent));
   check(again, "Ask another question button");
   again.click();
-  const back = await until(() => sendButton() || reactErrors.length);
+  const back = await until(() => container.querySelector("textarea.ask-q-textarea") || reactErrors.length);
   check(!reactErrors.length, `React error: ${reactErrors[0]}`);
   check(back, "form shown again");
   await fillForm("Which research skills should I build first if I want to join a CCRAS institute?");

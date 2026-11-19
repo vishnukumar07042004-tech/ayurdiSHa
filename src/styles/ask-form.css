@@ -1,0 +1,379 @@
+/* Ask Desk form page (#ask) — layout, side panel, sticky nav. Tokens only. */
+
+.aym-ui .ui-form.ui-form--ask,
+.ui-form.ui-form--ask {
+  max-width: min(1200px, 100%);
+  margin: 0 auto;
+  padding-bottom: 96px;
+}
+
+.ask-shell {
+  display: grid;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (min-width: 1100px) {
+  .ask-shell {
+    grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+    gap: 28px;
+  }
+  .ask-shell__main { min-width: 0; }
+  .ask-shell__side {
+    position: sticky;
+    top: calc(var(--ui-nav-h, 64px) + 16px);
+  }
+  .ask-side--mobile { display: none; }
+}
+
+@media (max-width: 1099.98px) {
+  .ask-shell__side--desktop { display: none; }
+}
+
+.ask-side {
+  padding: 20px 22px;
+  border: 1px solid var(--ui-hairline);
+  border-radius: var(--ui-radius-lg, 16px);
+  background: var(--ui-white);
+  box-shadow: var(--ui-shadow-1, none);
+}
+
+.ask-side__title {
+  margin: 0 0 14px;
+  font-size: var(--ui-fs-small);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ui-gold-ink);
+}
+
+.ask-side__honesty {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.ask-side__honesty li {
+  display: grid;
+  gap: 2px;
+}
+
+.ask-side__honesty strong {
+  font-size: 15px;
+  color: var(--ui-ink);
+}
+
+.ask-side__honesty span {
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--ui-ink-3);
+}
+
+.ask-side__tips {
+  margin: 0 0 16px;
+  padding-left: 1.1em;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ui-ink-2);
+}
+
+.ask-side__privacy {
+  margin: 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--ui-hairline);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ui-ink-3);
+}
+
+.ask-side__privacy a {
+  color: var(--ui-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.ask-side-collapse {
+  margin-bottom: 16px;
+  border: 1px solid var(--ui-hairline);
+  border-radius: var(--ui-radius-lg, 16px);
+  background: var(--ui-white);
+  overflow: hidden;
+}
+
+.ask-side-collapse > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 48px;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ui-ink);
+}
+
+.ask-side-collapse > summary::-webkit-details-marker { display: none; }
+
+.ask-side-collapse[open] > summary {
+  border-bottom: 1px solid var(--ui-hairline);
+}
+
+.ask-side-collapse .ask-side {
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Stepper */
+.ui-form--ask .ui-steps {
+  justify-content: flex-start;
+  gap: 8px 16px;
+  margin-bottom: 20px;
+}
+
+.ui-form--ask .ui-step.is-active .ui-step-num,
+.ui-form--ask .ui-step.is-done .ui-step-num {
+  background: var(--ui-green);
+  color: var(--ui-white);
+  box-shadow: none;
+}
+
+.ui-form--ask .ui-step.is-active .ui-step-label {
+  color: var(--ui-ink);
+  font-weight: 600;
+}
+
+.ui-form--ask .ui-step.is-done .ui-step-label {
+  color: var(--ui-ink-2);
+}
+
+/* Identity summary */
+.ask-id-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  border-radius: var(--ui-radius-md, 12px);
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-hairline);
+}
+
+.ask-id-summary__line {
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--ui-ink);
+  font-weight: 500;
+}
+
+.ask-id-summary__meta {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--ui-ink-3);
+}
+
+.ask-filled-notice {
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  border-radius: var(--ui-radius-md, 12px);
+  background: var(--ui-success-soft);
+  color: var(--ui-success);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Locked WAC ID — neutral, not yellow */
+.ui-form--ask .aym-input-issued[readonly],
+.ui-form--ask .ask-pass-input[readonly] {
+  background: var(--ui-surface);
+  border-color: var(--ui-hairline-strong);
+  color: var(--ui-ink);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.ask-pass-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.ask-pass-row .aym-input {
+  flex: 1 1 180px;
+  min-width: 0;
+}
+
+.ask-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 0 12px;
+  border-radius: var(--ui-radius-pill);
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-hairline-strong);
+  color: var(--ui-ink-2);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Question textarea */
+.ask-q-textarea {
+  min-height: 10.5rem;
+  resize: vertical;
+  line-height: 1.5;
+  field-sizing: content;
+}
+
+.ask-checklist {
+  margin: 0 0 20px;
+  padding: 14px 16px;
+  border-radius: var(--ui-radius-md, 12px);
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-hairline);
+}
+
+.ask-checklist__title {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ui-ink-2);
+}
+
+.ask-checklist ul {
+  margin: 0;
+  padding-left: 1.15em;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ui-ink-3);
+}
+
+.ask-match-hint {
+  margin: -8px 0 16px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--ui-ink-3);
+}
+
+/* Review */
+.ask-review-dl {
+  margin: 0 0 20px;
+  display: grid;
+  gap: 12px;
+}
+
+.ask-review-dl > div {
+  display: grid;
+  gap: 4px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--ui-hairline);
+}
+
+.ask-review-dl dt {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ui-ink-4);
+}
+
+.ask-review-dl dd {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ui-ink);
+}
+
+.ask-missing {
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border-radius: var(--ui-radius-md, 12px);
+  background: var(--ui-error-soft);
+  color: var(--ui-error);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.ask-missing ul {
+  margin: 8px 0 0;
+  padding-left: 1.15em;
+}
+
+/* Sticky mobile / tablet actions */
+.ask-sticky-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  display: flex;
+  gap: 10px;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+  background: color-mix(in srgb, var(--ui-canvas) 92%, transparent);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--ui-hairline);
+}
+
+.ask-sticky-nav .aym-btn {
+  flex: 1;
+  min-height: 48px;
+}
+
+@media (min-width: 1100px) {
+  .ask-sticky-nav { position: static; padding: 0; background: transparent; border: 0; backdrop-filter: none; margin-top: 8px; }
+  .ui-form--ask { padding-bottom: 32px; }
+}
+
+/* Confirmation extras */
+.ask-done-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+  justify-content: center;
+}
+
+.ask-live-errors[aria-live] {
+  outline: none;
+}
+
+/* Notice tones (Ask Desk Notice uses classes, not inline hex) */
+.ui-form--ask .aym-notice {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+.ui-form--ask .aym-notice--info {
+  background: var(--ui-surface);
+  color: var(--ui-ink-2);
+}
+.ui-form--ask .aym-notice--ok {
+  background: var(--ui-success-soft);
+  color: var(--ui-success);
+}
+.ui-form--ask .aym-notice--warn {
+  background: color-mix(in srgb, var(--ui-gold-light) 55%, var(--ui-white));
+  color: var(--ui-gold-ink);
+}
+.ui-form--ask .aym-notice--bad {
+  background: var(--ui-error-soft);
+  color: var(--ui-error);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ask-shell,
+  .ask-sticky-nav,
+  .aym-ask-track-card {
+    transition: none !important;
+  }
+}
