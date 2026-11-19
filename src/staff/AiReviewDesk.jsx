@@ -115,9 +115,16 @@ function Letter({ item, citeIndex, onCite }) {
   const actions = published ? published.actions : a.actions;
   const mistake = published ? published.mistake : a.mistake;
   const resources = published ? published.resources : a.resources;
+  const mustKnow = published ? published.mustKnow : a.mustKnow;
   return (
     <article className="air-letter" aria-label="Draft answer">
       <span className="air-letter-eyebrow">{published ? "What the student sees" : isMentorAssist(a) ? "The mentor’s answer · starting draft to complete" : "The mentor’s answer · draft"}</span>
+      {(mustKnow || []).filter(Boolean).length > 0 && (
+        <section className="air-extra air-extra--must">
+          <h4>Must know</h4>
+          <ul>{mustKnow.filter(Boolean).map((x, i) => <li key={i}><b>{stripMarks(x)}</b></li>)}</ul>
+        </section>
+      )}
       <AnswerWithCites text={body} citeIndex={citeIndex} onCite={onCite} />
       {(actions || []).filter(Boolean).length > 0 && (
         <section className="air-extra">
@@ -244,17 +251,17 @@ function EditPanel({ form, setForm, busy, onSave, onCancel }) {
         <textarea ref={first} rows={9} value={form.answer} onChange={e => f("answer", e.target.value)} />
         <small>{form.answer.trim().split(/\s+/).filter(Boolean).length} words · aim for 120–220</small>
       </label>
-      <div className="air-field-row">
+      <div className="air-field-stack">
         {["a1", "a2", "a3"].map((k, i) => (
           <label key={k} className="air-field">
             <span>Next step {i + 1}</span>
-            <input value={form[k]} onChange={e => f(k, e.target.value)} />
+            <textarea rows={2} className="air-input-wrap" value={form[k]} onChange={e => f(k, e.target.value)} />
           </label>
         ))}
       </div>
       <label className="air-field">
         <span>A mistake to avoid</span>
-        <input value={form.mistake} onChange={e => f("mistake", e.target.value)} />
+        <textarea rows={2} className="air-input-wrap" value={form.mistake} onChange={e => f("mistake", e.target.value)} />
       </label>
       <div className="air-field-row air-field-row--2">
         {[["r1t", "r1u"], ["r2t", "r2u"]].map(([t, u], i) => (
@@ -568,12 +575,17 @@ function JobProblems({ failed, retrying, deferred, busy, onRetry, onRetryDeferre
   );
 }
 
-function RiskBadge({ risk, confidence }) {
+function RiskBadge({ risk, confidence, riskReasons }) {
   const r = risk || "high";
+  const reasons = Array.isArray(riskReasons) ? riskReasons.filter(Boolean) : [];
+  const tip = reasons.length ? reasons.join(" · ") : (typeof confidence === "number" ? `Internal score ${Math.round(confidence * 100)}` : "");
+  const label = reasons[0]
+    ? `${r.charAt(0).toUpperCase() + r.slice(1)} risk · ${reasons[0]}`
+    : `${r.charAt(0).toUpperCase() + r.slice(1)} risk`;
   return (
-    <span className={`air-risk air-risk--${r}`}>
+    <span className={`air-risk air-risk--${r}`} title={tip || undefined}>
       <span className="air-risk-dot" aria-hidden="true" />
-      {r.charAt(0).toUpperCase() + r.slice(1)} risk{typeof confidence === "number" ? ` · ${Math.round(confidence * 100)}% confidence` : ""}
+      {label}
     </span>
   );
 }
@@ -739,7 +751,7 @@ function CompareSide({ id, v, active, primary, canApprove, canEdit, busy, onAppr
     <section id={`air-side-${id}`} className={`air-compare-side${active ? " is-on" : ""}${failed ? " is-failed" : ""}`} role="tabpanel" aria-label={`${label} draft`} data-provider={id}>
       <header className="air-compare-head">
         <h3>{SIDE_LABEL[id] || id}{primary && <em className="air-pilot">primary</em>}</h3>
-        {drafted && <RiskBadge risk={v.risk} confidence={v.confidence} />}
+        {drafted && <RiskBadge risk={v.risk} confidence={v.confidence} riskReasons={v.riskReasons} />}
       </header>
       {v && v.draftFallback && <p className="air-hint air-hint--warn"><AlertTriangle size={13} aria-hidden="true" /> GPT did not draft this one — Gemini wrote it (fallback).</p>}
       {v && v.legacyGpt && <p className="air-hint">GPT answer kept on the openai side — shown here on the Hybrid card.</p>}
@@ -1121,7 +1133,20 @@ export default function AiReviewDesk() {
 
   const approve = p => {
     const side = sideArg(p);
-    act("aiApprove", { mentorName, reviewer: mentorName || "staff", ...(side ? { provider: side } : {}) },
+    const draft = side ? (selected.aiDrafts && selected.aiDrafts[side]) : (selected.aiDraft || {});
+    const unsupported = (draft.claimChecks || []).filter(c => c && c.status === "unsupported").length;
+    if (unsupported > 0) {
+      const ok = window.confirm(
+        `This draft has ${unsupported} unsupported claim${unsupported === 1 ? "" : "s"}. Approve and send to the student anyway?`
+      );
+      if (!ok) return;
+    }
+    act("aiApprove", {
+      mentorName,
+      reviewer: mentorName || "staff",
+      ...(side ? { provider: side } : {}),
+      ...(unsupported ? { confirmUnsupported: true, reasonCode: "unsupported-confirmed" } : {}),
+    },
       side ? `Approved the ${SIDE_LABEL[side]} draft — the student can read it on Track now.` : "Approved — the student can read it on Track now.");
   };
   const startEdit = p => {
@@ -1487,7 +1512,7 @@ function Detail({
           {a.reusedFrom && <span className="air-chip">reused approved answer</span>}
           {compare && <span className="air-chip air-chip--compare">Compare · Hybrid vs Gemini only</span>}
         </div>
-        {s !== "blocked" && !compare && !overflow && <RiskBadge risk={a.risk} confidence={a.confidence} />}
+        {s !== "blocked" && !compare && !overflow && <RiskBadge risk={a.risk} confidence={a.confidence} riskReasons={a.riskReasons} />}
       </div>
 
       <blockquote className="air-question">
@@ -1501,6 +1526,17 @@ function Detail({
           </details>
         )}
       </blockquote>
+
+      {(a.triage && (a.triage.routingWhy || a.triage.routedTrack || a.triage.reason)) && (
+        <details className="air-routing-why" open={Boolean(a.triage.needsHumanTriage)}>
+          <summary>Why this route</summary>
+          <p>{a.triage.routingWhy || a.triage.reason}</p>
+          {(a.triage.routedTrack || a.triage.suggestedTheme) && (
+            <small>Track hint: {a.triage.routedTrack || a.triage.suggestedTheme}{a.triage.suggestedSubtheme ? ` · ${a.triage.suggestedSubtheme}` : ""}</small>
+          )}
+          {a.triage.category && <small> · Category: {a.triage.category}{a.triage.subtype ? `/${a.triage.subtype}` : ""}</small>}
+        </details>
+      )}
 
       {mode === "view" && <TriagePanel item={item} busy={busy} onAction={onTriageAction} />}
 

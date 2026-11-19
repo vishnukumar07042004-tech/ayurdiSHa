@@ -581,6 +581,7 @@ function ownLookupRecord(s, clusters) {
     individualActions: s.individualActions || [],
     individualMistake: s.individualMistake || "",
     individualResources: s.individualResources || [],
+    individualMustKnow: s.individualMustKnow || [],
     individualAiAssisted: Boolean(pickStoredAnswer(s) && s.individualAiAssisted),
     cluster: clusterStatusFor(s, clusters),
   };
@@ -3468,6 +3469,7 @@ function InsightsView({ subs, clusters, delegates = [], onSaveQuestion, onOpenAi
         actions: [draft.a1, draft.a2, draft.a3],
         mistake: draft.mistake || "",
         resources: [draft.r1, draft.r2],
+        mustKnow: Array.isArray(draft.mustKnow) ? draft.mustKnow : [],
       });
       if (onSaveQuestion) onSaveQuestion(r.question);
       setDraft(null);
@@ -3771,12 +3773,24 @@ function InsightsView({ subs, clusters, delegates = [], onSaveQuestion, onOpenAi
               <textarea className="aym-input" rows={5} value={draft.answer} onChange={e => setDraft({ ...draft, answer: e.target.value })}
                 placeholder="Write the guidance this mentee should see on Track my answer." />
             </Field>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-              <Field label="Action 1"><input className="aym-input" value={draft.a1} onChange={e => setDraft({ ...draft, a1: e.target.value })} /></Field>
-              <Field label="Action 2"><input className="aym-input" value={draft.a2} onChange={e => setDraft({ ...draft, a2: e.target.value })} /></Field>
+            {(Array.isArray(draft.mustKnow) ? draft.mustKnow : []).filter(Boolean).length > 0 && (
+              <div className="aym-must-know" style={{ margin: "0 0 12px", padding: "10px 12px", borderRadius: 10, background: "rgba(27,67,50,.06)", border: "1px solid rgba(27,67,50,.12)" }}>
+                <div className="aym-eyebrow" style={{ marginBottom: 6 }}>Must know</div>
+                <ul style={{ margin: 0, paddingLeft: 18, fontSize: 13.5, lineHeight: 1.45 }}>
+                  {(draft.mustKnow || []).filter(Boolean).map((m, i) => <li key={i}><b>{m}</b></li>)}
+                </ul>
+              </div>
+            )}
+            <div className="aym-answer-actions" style={{ display: "grid", gridTemplateColumns: "1fr", gap: 10 }}>
+              <Field label="Action 1"><textarea className="aym-input aym-input--wrap" rows={2} value={draft.a1} onChange={e => setDraft({ ...draft, a1: e.target.value })} /></Field>
+              <Field label="Action 2"><textarea className="aym-input aym-input--wrap" rows={2} value={draft.a2} onChange={e => setDraft({ ...draft, a2: e.target.value })} /></Field>
+              <Field label="Action 3"><textarea className="aym-input aym-input--wrap" rows={2} value={draft.a3} onChange={e => setDraft({ ...draft, a3: e.target.value })} /></Field>
             </div>
-            <Field label="Action 3"><input className="aym-input" value={draft.a3} onChange={e => setDraft({ ...draft, a3: e.target.value })} /></Field>
-            <Field label="Common mistake"><input className="aym-input" value={draft.mistake} onChange={e => setDraft({ ...draft, mistake: e.target.value })} /></Field>
+            <Field label="Common mistake"><textarea className="aym-input aym-input--wrap" rows={2} value={draft.mistake} onChange={e => setDraft({ ...draft, mistake: e.target.value })} /></Field>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 10, marginTop: 4 }}>
+              <Field label="Resource 1 (title or URL)"><input className="aym-input" value={draft.r1 || ""} onChange={e => setDraft({ ...draft, r1: e.target.value })} placeholder="Only real KB / learning allow-list links — never invent URLs" /></Field>
+              <Field label="Resource 2 (title or URL)"><input className="aym-input" value={draft.r2 || ""} onChange={e => setDraft({ ...draft, r2: e.target.value })} placeholder="Optional second resource" /></Field>
+            </div>
             <Field label="Mentor name / designation"><input className="aym-input" value={draft.mentorName} onChange={e => setDraft({ ...draft, mentorName: e.target.value })} /></Field>
             {draftErr && <Notice tone="bad">{draftErr}</Notice>}
             <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", marginTop: 8 }}>

@@ -5,7 +5,6 @@ import {
   Inbox, Users, MessageCircle, HelpCircle, Loader2,
 } from "lucide-react";
 import { Sprig } from "./components/editorial/Ornaments.jsx";
-import { DISHA_TRACK_NOTE } from "./content/glossary.js";
 import {
   getMentorByParam, mentorSlug, mentorNameParts, mentorInitials, mentorPortraitUrl,
   mentorPublicPath, mentorAffiliationSnippet, MENTORS,
@@ -155,13 +154,20 @@ function ResourceLine({ text }) {
   return text;
 }
 
-function AnswerExtras({ actions, mistake, resources }) {
+function AnswerExtras({ actions, mistake, resources, mustKnow }) {
   const acts = (actions || []).map(a => String(a || "").trim()).filter(Boolean);
-  const res = (resources || []).map(r => String(r || "").trim()).filter(Boolean);
+  const res = (resources || []).map(r => (typeof r === "string" ? r : (r && (r.title || r.url)) || "")).map(x => String(x || "").trim()).filter(Boolean);
   const note = String(mistake || "").trim();
-  if (!acts.length && !note && !res.length) return null;
+  const keys = (mustKnow || []).map(m => String(m || "").trim()).filter(Boolean);
+  if (!acts.length && !note && !res.length && !keys.length) return null;
   return (
     <div className="trk-extras">
+      {keys.length > 0 && (
+        <section className="trk-extra trk-extra--must">
+          <h4><CheckCircle2 size={15} aria-hidden="true" />Must know</h4>
+          <ul>{keys.map((m, i) => <li key={i}><b>{m}</b></li>)}</ul>
+        </section>
+      )}
       {acts.length > 0 && (
         <section className="trk-extra">
           <h4><CheckCircle2 size={15} aria-hidden="true" />Next steps</h4>
@@ -231,7 +237,7 @@ function AnswerCard({ kind, label, question, body, date, mentorName, extras, aiA
         <span className="trk-answer-eyebrow">The mentor’s answer</span>
         <RichAnswer text={body} />
         <AnswerExtras {...extras} />
-        {aiAssisted && <p className="trk-ai-note">{DISHA_TRACK_NOTE}</p>}
+        {/* Students see mentor attribution only — never AI disclosure (DISHA-V2). */}
       </div>
 
       <MentorCredit mentorName={mentorName} />
@@ -319,7 +325,7 @@ function ResultFor({ s, onAsk }) {
           body={personal}
           date={fmtDate(s.individualAt)}
           mentorName={s.individualMentor}
-          extras={{ actions: s.individualActions, mistake: s.individualMistake, resources: s.individualResources }}
+          extras={{ actions: s.individualActions, mistake: s.individualMistake, resources: s.individualResources, mustKnow: s.individualMustKnow }}
           aiAssisted={Boolean(s.individualAiAssisted)}
           onAsk={onAsk}
         />
@@ -331,7 +337,7 @@ function ResultFor({ s, onAsk }) {
           question={personal ? (c.composite || c.representative || "") : s.question}
           body={merged}
           mentorName={c.mentorName}
-          extras={{ actions: c.actions, mistake: c.mistake, resources: c.resources }}
+          extras={{ actions: c.actions, mistake: c.mistake, resources: c.resources, mustKnow: c.mustKnow }}
           aiAssisted={Boolean(c.aiAssisted)}
           onAsk={onAsk}
         />

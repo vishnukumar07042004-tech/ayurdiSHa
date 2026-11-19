@@ -447,6 +447,12 @@
 .air-field small { color: var(--ui-ink-4); }
 .air-field-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 .air-field-row--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.air-field-stack { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.air-input-wrap { width: 100%; min-height: 2.6em; resize: vertical; white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; }
+.air-routing-why { margin: 8px 0 12px; padding: 10px 12px; border-radius: 10px; background: rgba(15, 42, 31, 0.04); border: 1px solid rgba(15, 42, 31, 0.08); font-size: 13px; }
+.air-routing-why summary { cursor: pointer; font-weight: 600; }
+.air-routing-why p { margin: 6px 0 4px; line-height: 1.45; }
+.air-extra--must { background: rgba(27, 67, 50, 0.06); border-radius: 8px; padding: 8px 10px; }
 .air-field-pair { display: flex; flex-direction: column; gap: 6px; }
 @media (max-width: 720px) { .air-field-row, .air-field-row--2 { grid-template-columns: 1fr; } }
 .air-reject-title { font-weight: var(--ui-fw-medium); font-size: 14px; }
