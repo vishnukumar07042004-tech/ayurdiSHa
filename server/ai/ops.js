@@ -395,7 +395,11 @@ async function publish(store, d, fields, ctx, { aiAssisted = true } = {}) {
     rec.individualActions = fields.actions;
     rec.individualMistake = fields.mistake;
     rec.individualResources = fields.resources.map(resourceLine).filter(Boolean).slice(0, 2);
+    rec.individualMustKnow = Array.isArray(fields.mustKnow)
+      ? fields.mustKnow.map(x => String(x || "").trim()).filter(Boolean).slice(0, 4)
+      : ((d.aiDraft && d.aiDraft.mustKnow) || []).map(x => String(x || "").trim()).filter(Boolean).slice(0, 4);
     rec.individualAt = Date.now();
+    // Students must not see AI disclosure — keep flag for staff analytics only.
     rec.individualAiAssisted = aiAssisted;
     await store.set(K_Q + rec.id, rec);
     const notified = await ctx.notifyAnswerOnce(store, rec, { answer: fields.answer });

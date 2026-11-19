@@ -850,6 +850,7 @@ async function handleOpInner(req, res, msg, store, who) {
     rec.individualActions = Array.isArray(msg.actions) ? msg.actions.map(a => String(a || "").trim()).filter(Boolean).slice(0, 3) : [];
     rec.individualMistake = String(msg.mistake || "").trim();
     rec.individualResources = Array.isArray(msg.resources) ? msg.resources.map(a => String(a || "").trim()).filter(Boolean).slice(0, 2) : [];
+    rec.individualMustKnow = Array.isArray(msg.mustKnow) ? msg.mustKnow.map(a => String(a || "").trim()).filter(Boolean).slice(0, 4) : [];
     rec.individualAt = Date.now();
     await store.set(K_Q + id, rec);
     const notified = await notifyAnswerOnce(store, rec, { answer });

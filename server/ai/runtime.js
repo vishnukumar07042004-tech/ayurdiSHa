@@ -8,6 +8,7 @@
 import { FALLBACK_STREAMS } from "./classify.js";
 import { normalizeUsage } from "./usage.js";
 import { loadServerEnv } from "../env.js";
+import { noteGptCreditFailure, resolveGptDraftModel, gptDraftOnFallback } from "./gptCreditFallback.js";
 
 const NULL_PROVIDER = Object.freeze({
   isConfigured: () => false,
@@ -94,10 +95,15 @@ function hasJson(res) {
  * no JSON — or OpenAI is not configured — the same call is redrafted by Gemini and the result
  * carries `draftFallback` (+ the failed attempt's billed spend in `extraUsage`). A "deferred"
  * error or too little time left for a Gemini draft is re-thrown (the worker retries the job).
+ *
+ * Credit fallback: keep the quality GPT draft model until a 429 RESOURCE_EXHAUSTED / billing
+ * failure; then flip subsequent drafts to AI_GPT_CREDIT_FALLBACK_MODEL (cheap/free) while Gemini
+ * verify stays paid. Process-local latch via gptCreditFallback.js.
  */
 export function hybridProvider(gemini, gpt, { draftModel = HYBRID_DEFAULT_DRAFT_MODEL, fallbackDraftModel = "", gptTimeoutMs = 20000, minFallbackMs = HYBRID_MIN_FALLBACK_MS } = {}) {
   const gptOk = () => providerReady(gpt);
   const geminiOk = () => providerReady(gemini);
+  const activeDraftModel = () => resolveGptDraftModel(draftModel) || draftModel;
   return {
     id: "hybrid",
     hybrid: true,
@@ -116,20 +122,37 @@ export function hybridProvider(gemini, gpt, { draftModel = HYBRID_DEFAULT_DRAFT_
         if (!geminiOk()) return gpt.chat(args);
         return fallback("GPT (OpenAI) is not configured on the server");
       }
+      const model = args.model || activeDraftModel() || undefined;
       const now = Date.now();
       // Leave the Gemini fallback its minimum when the run's deadline allows it.
       const reserve = args.deadlineAt && args.deadlineAt - now - minFallbackMs >= 1000 ? minFallbackMs : 0;
       const until = Math.min(args.deadlineAt ? args.deadlineAt - reserve : Infinity, now + gptTimeoutMs);
       try {
         // Hard stop: a hung connection that ignores `deadlineAt` cannot eat the fallback's time.
-        const res = await raceUntil(gpt.chat({ ...args, model: args.model || draftModel || undefined, timeoutMs: Math.min(args.timeoutMs || gptTimeoutMs, gptTimeoutMs), deadlineAt: until }), until);
+        const res = await raceUntil(gpt.chat({ ...args, model, timeoutMs: Math.min(args.timeoutMs || gptTimeoutMs, gptTimeoutMs), deadlineAt: until }), until);
         if (args.json && !hasJson(res)) throw Object.assign(new Error("GPT returned no JSON"), { code: "bad_json", usage: res && res.usage, model: res && res.model });
+        if (gptDraftOnFallback() && res && typeof res === "object") {
+          res.gptCreditFallback = { active: true, model };
+        }
         return res;
       } catch (err) {
         if (err && err.code === "deferred") throw err;
+        const alreadyCheap = gptDraftOnFallback();
+        const flipped = noteGptCreditFailure(err);
+        // First credit/quota failure: retry once on the cheap GPT model before Gemini verify-path draft.
+        if (flipped && !alreadyCheap) {
+          try {
+            const cheap = resolveGptDraftModel(draftModel);
+            const res = await raceUntil(gpt.chat({ ...args, model: cheap, timeoutMs: Math.min(args.timeoutMs || gptTimeoutMs, gptTimeoutMs), deadlineAt: until }), until);
+            if (args.json && !hasJson(res)) throw Object.assign(new Error("GPT fallback returned no JSON"), { code: "bad_json", usage: res && res.usage, model: res && res.model });
+            return { ...res, gptCreditFallback: { active: true, model: cheap, reason: String((err && (err.code || err.message)) || "quota").slice(0, 120) } };
+          } catch (err2) {
+            err = err2;
+          }
+        }
         const left = args.deadlineAt ? args.deadlineAt - Date.now() : Infinity;
         if (!geminiOk() || left < minFallbackMs) throw err;
-        const billed = err && err.usage ? normalizeUsage({ provider: "openai", ...err.usage }, (err.usage && err.usage.model) || err.model || args.model || draftModel) : null;
+        const billed = err && err.usage ? normalizeUsage({ provider: "openai", ...err.usage }, (err.usage && err.usage.model) || err.model || model || draftModel) : null;
         return fallback(`GPT draft failed (${String((err && (err.code || err.message)) || "error").slice(0, 120)})`, billed);
       }
     },
@@ -137,7 +160,18 @@ export function hybridProvider(gemini, gpt, { draftModel = HYBRID_DEFAULT_DRAFT_
     providerInfo: () => {
       let g = null;
       try { g = typeof gemini.providerInfo === "function" ? gemini.providerInfo() : null; } catch { g = null; }
-      return { ...(g || {}), provider: "hybrid", label: "Hybrid (GPT draft + Gemini check)", configured: geminiOk() || gptOk(), draftModel, gptConfigured: gptOk(), fallbackDraftModel: fallbackDraftModel || (g && g.draftModel) || "" };
+      const dm = activeDraftModel();
+      return {
+        ...(g || {}),
+        provider: "hybrid",
+        label: "Hybrid (GPT draft + Gemini check)",
+        configured: geminiOk() || gptOk(),
+        draftModel: dm,
+        qualityDraftModel: draftModel,
+        gptCreditFallbackActive: gptDraftOnFallback(),
+        gptConfigured: gptOk(),
+        fallbackDraftModel: fallbackDraftModel || (g && g.draftModel) || "",
+      };
     },
     testConnection: () => (typeof gpt.testConnection === "function" ? gpt.testConnection() : null),
   };
