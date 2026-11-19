@@ -1,47 +1,76 @@
 /* ==========================================================================
-   Home — hero ("the doorway to the hall")
-   A full-width cinematic frame inset from the viewport edges: golden-hour
-   photo of the Meet the Mentors hall under a forest scrim, copy on the left.
-   Apple-grade restraint: one filled CTA (the gold Ask Desk pill), one outline
-   button, one "Learn more ›" link, no badges. Specs: docs/design/hero-and-slide-imagery.md,
-   docs/design/copy/ASK-CTA-AND-COPY-SPEC.md
+   Home — hero (full-bleed cinematic congress slider)
+   Spec: docs/design/home-hero-slider.md
+   Feel adapted from ayurworld.org (full-bleed auto-rotate, clear hierarchy);
+   AYURDISHA brand + Meet the Mentors copy; project imagery only.
    ========================================================================== */
 
 .hx {
   --hero-p: 0;
   --hero-damp: 1;
-  --hx-inset: clamp(10px, 1.2vw, 18px);
-  --hx-radius: clamp(20px, 2vw, 28px);
   --hx-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
   --hx-cream: #FCFBF7;
   --hx-gold: #E6CF9F;
   --hx-forest: #0B211C;
+  --hx-fade: 1.05s;
+  --hx-slide-ms: 7000ms;
   position: relative;
   margin-top: calc(var(--ui-nav-h) * -1);
-  padding: calc(var(--ui-nav-h) + var(--hx-inset)) var(--hx-inset) 0;
-  background: var(--ui-canvas);
+  background: var(--hx-forest);
 }
 
-.hx-frame {
+.hx:focus {
+  outline: none;
+}
+.hx:focus-visible {
+  outline: none;
+}
+.hx:focus-visible .hx-stage {
+  box-shadow: inset 0 0 0 3px var(--hx-gold);
+}
+
+.hx-stage {
   position: relative;
   isolation: isolate;
   display: flex;
   flex-direction: column;
-  min-height: clamp(600px, calc(100svh - var(--ui-nav-h) - var(--hx-inset) * 2), 900px);
-  border-radius: var(--hx-radius);
+  min-height: clamp(640px, 100svh, 980px);
   overflow: hidden;
-  background: var(--hx-forest);
   color: var(--hx-cream);
+  background: var(--hx-forest);
 }
 
-/* ---------- Media ---------- */
+/* ---------- Slides ---------- */
+.hx-slides {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hx-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--hx-fade) var(--hx-ease),
+    visibility 0s linear var(--hx-fade);
+  pointer-events: none;
+}
+.hx-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+  z-index: 1;
+  pointer-events: auto;
+}
+
 .hx-media {
   position: absolute;
   inset: 0;
-  z-index: -2;
   overflow: hidden;
-  scale: calc(1 + var(--hero-p) * 0.05);
-  transform-origin: 60% 40%;
+  scale: calc(1 + var(--hero-p) * 0.04);
+  transform-origin: 55% 40%;
 }
 .hx-media picture,
 .hx-media img {
@@ -51,46 +80,78 @@
 }
 .hx-media img {
   object-fit: cover;
-  object-position: 62% 50%;
+  object-position: var(--hx-pos, 50% 50%);
+  transform: scale(1.04);
+}
+
+.hx-slide.is-active .hx-media img {
   animation:
-    hx-settle 1.6s var(--hx-ease) both,
-    hx-drift 32s ease-in-out 1.6s infinite alternate;
+    hx-settle 1.5s var(--hx-ease) both,
+    hx-ken var(--hx-ms, 8800ms) ease-in-out 1.5s both;
 }
+
 @keyframes hx-settle {
-  from { transform: scale(1.04); opacity: 0.5; }
-  to { transform: scale(1); opacity: 1; }
+  from { transform: scale(1.08); opacity: 0.65; }
+  to { transform: scale(1.02); opacity: 1; }
 }
-@keyframes hx-drift {
-  from { transform: scale(1); }
-  to { transform: scale(1.035) translate3d(-0.8%, -0.4%, 0); }
+@keyframes hx-ken {
+  from { transform: scale(1.02) translate3d(0, 0, 0); }
+  to { transform: scale(1.08) translate3d(var(--hx-pan-x, 0), var(--hx-pan-y, 0), 0); }
 }
 
 .hx-scrim {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 2;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(11, 33, 28, 0.92) 0%, rgba(11, 33, 28, 0.8) 30%, rgba(11, 33, 28, 0.34) 54%, rgba(11, 33, 28, 0) 74%),
-    linear-gradient(0deg, rgba(11, 33, 28, 0.6) 0%, rgba(11, 33, 28, 0) 32%),
-    linear-gradient(180deg, rgba(11, 33, 28, 0.3) 0%, rgba(11, 33, 28, 0) 14%);
+    linear-gradient(90deg, rgba(11, 33, 28, 0.94) 0%, rgba(11, 33, 28, 0.82) 28%, rgba(11, 33, 28, 0.4) 52%, rgba(11, 33, 28, 0.12) 72%, rgba(11, 33, 28, 0.22) 100%),
+    linear-gradient(0deg, rgba(11, 33, 28, 0.72) 0%, rgba(11, 33, 28, 0.18) 28%, rgba(11, 33, 28, 0) 48%),
+    linear-gradient(180deg, rgba(11, 33, 28, 0.55) 0%, rgba(11, 33, 28, 0.12) 18%, rgba(11, 33, 28, 0) 36%);
 }
 
 /* ---------- Copy ---------- */
 .hx-inner {
   position: relative;
+  z-index: 3;
   flex: 1;
   display: flex;
   align-items: center;
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: clamp(40px, 6vh, 96px) clamp(28px, 5.5vw, 96px);
+  padding:
+    calc(var(--ui-nav-h) + clamp(28px, 5vh, 64px))
+    clamp(22px, 5.5vw, 96px)
+    clamp(72px, 10vh, 110px);
   box-sizing: border-box;
-  opacity: calc(1 - var(--hero-p) * 0.9);
-  translate: 0 calc(var(--hero-p) * -40px * var(--hero-damp));
+  opacity: calc(1 - var(--hero-p) * 0.85);
+  translate: 0 calc(var(--hero-p) * -36px * var(--hero-damp));
 }
-.hx-copy { max-width: 640px; }
+.hx-copy { max-width: 680px; }
+
+.hx-brand {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 16px;
+  margin: 0 0 clamp(14px, 2vh, 20px);
+}
+.hx-brand-word {
+  font-family: var(--ui-font-accent);
+  font-size: clamp(1.75rem, 1.2rem + 1.8vw, 2.75rem);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  color: var(--hx-cream);
+}
+.hx-brand-tag {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: rgba(252, 251, 247, 0.72);
+}
 
 .hx-eyebrow {
   display: flex;
@@ -100,11 +161,11 @@
   margin: 0 0 clamp(14px, 2vh, 20px);
   font-size: 15px;
   font-weight: 500;
-  line-height: 1.4;
+  line-height: 1.45;
   letter-spacing: -0.005em;
   color: var(--hx-gold);
 }
-.hx-eyebrow-sep { opacity: 0.6; }
+.hx-eyebrow-sep { opacity: 0.55; }
 
 .aym-ui .hx-title,
 .hx-title {
@@ -166,8 +227,7 @@
 }
 .aym-ui .hx-more:hover { color: #FFFFFF; }
 
-/* Ask Desk — the hero's one filled action: gold pill, one sheen on first load.
-   Spec: docs/design/copy/ASK-CTA-AND-COPY-SPEC.md §2.1 */
+/* Ask Desk — gold pill (spec: ASK-CTA-AND-COPY-SPEC.md §2.1) */
 .hx-ask {
   position: relative;
   isolation: isolate;
@@ -257,10 +317,108 @@
   100% { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 10px 30px -12px rgba(230, 207, 159, 0.55), 0 0 0 0 rgba(230, 207, 159, 0); }
 }
 
+/* ---------- Chrome (dots + pause) ---------- */
+.hx-chrome {
+  position: absolute;
+  z-index: 4;
+  left: 0;
+  right: 0;
+  bottom: clamp(18px, 3vh, 32px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 0 clamp(22px, 5.5vw, 96px);
+  pointer-events: none;
+}
+.hx-dots {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: auto;
+}
+.hx-dot {
+  position: relative;
+  width: 28px;
+  height: 4px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(252, 251, 247, 0.28);
+  cursor: pointer;
+  overflow: hidden;
+  transition: background 0.2s var(--hx-ease), width 0.2s var(--hx-ease);
+}
+.hx-dot.is-active {
+  width: 44px;
+  background: rgba(252, 251, 247, 0.22);
+}
+.hx-dot:hover { background: rgba(252, 251, 247, 0.45); }
+.hx-dot:focus-visible {
+  outline: 2px solid var(--hx-gold);
+  outline-offset: 3px;
+}
+.hx-dot-progress {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  background: var(--hx-gold);
+  border-radius: inherit;
+  animation: hx-dot-fill var(--hx-slide-ms) linear both;
+}
+.hx.is-playing:not(.is-held) .hx-dot-progress {
+  animation-play-state: running;
+}
+.hx.is-held .hx-dot-progress,
+.hx:not(.is-playing) .hx-dot-progress {
+  animation-play-state: paused;
+}
+@keyframes hx-dot-fill {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.hx-pause {
+  pointer-events: auto;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid rgba(252, 251, 247, 0.28);
+  border-radius: 999px;
+  background: rgba(11, 33, 28, 0.35);
+  color: rgba(252, 251, 247, 0.88);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: border-color 0.2s var(--hx-ease), background 0.2s var(--hx-ease);
+}
+.hx-pause:hover {
+  border-color: rgba(252, 251, 247, 0.5);
+  background: rgba(11, 33, 28, 0.55);
+}
+.hx-pause:focus-visible {
+  outline: 2px solid var(--hx-gold);
+  outline-offset: 3px;
+}
+
+.hx-live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ---------- Entrance ---------- */
 .hx-rise {
   animation: hx-rise 0.9s var(--hx-ease) both;
-  animation-delay: calc(120ms + var(--i, 0) * 90ms);
+  animation-delay: calc(100ms + var(--i, 0) * 80ms);
 }
 @keyframes hx-rise {
   from { opacity: 0; transform: translateY(12px); }
@@ -268,51 +426,66 @@
 }
 
 /* ---------- Breakpoints ---------- */
-
-/* Tablet + phone: the photo sits on top at its own ratio and dissolves into
-   forest; copy starts over its lower edge. */
 @media (max-width: 959px) {
-  .hx { --hx-media-h: calc((100vw - var(--hx-inset) * 2) * 0.5625); }
-  .hx-frame { min-height: 0; }
-  .hx-media { bottom: auto; height: var(--hx-media-h); }
-  .hx-media img { object-position: 60% 40%; }
+  .hx-stage { min-height: clamp(620px, 100svh, 900px); }
   .hx-scrim {
     background:
-      linear-gradient(180deg, rgba(11, 33, 28, 0.28) 0px, rgba(11, 33, 28, 0) calc(var(--hx-media-h) * 0.18), rgba(11, 33, 28, 0) calc(var(--hx-media-h) * 0.42), rgba(11, 33, 28, 0.78) calc(var(--hx-media-h) * 0.78), var(--hx-forest) calc(var(--hx-media-h) - 2px));
+      linear-gradient(180deg, rgba(11, 33, 28, 0.62) 0%, rgba(11, 33, 28, 0.28) 22%, rgba(11, 33, 28, 0.45) 48%, rgba(11, 33, 28, 0.88) 78%, rgba(11, 33, 28, 0.96) 100%),
+      linear-gradient(90deg, rgba(11, 33, 28, 0.55) 0%, rgba(11, 33, 28, 0.2) 55%, rgba(11, 33, 28, 0.35) 100%);
   }
-  .hx-inner { padding: calc(var(--hx-media-h) * 0.74) clamp(24px, 6vw, 56px) clamp(36px, 6vw, 56px); }
+  .hx-inner {
+    align-items: flex-end;
+    padding-bottom: clamp(88px, 14vh, 120px);
+  }
   .hx-copy { max-width: 600px; }
 }
 
 @media (max-width: 767px) {
-  .hx { --hx-inset: 10px; --hx-radius: 22px; --hx-media-h: min(108vw, 440px); }
-  .hx-media img { object-position: 58% 32%; }
-  .hx-scrim {
-    background:
-      linear-gradient(180deg, rgba(11, 33, 28, 0.28) 0px, rgba(11, 33, 28, 0) calc(var(--hx-media-h) * 0.16), rgba(11, 33, 28, 0) calc(var(--hx-media-h) * 0.34), rgba(11, 33, 28, 0.82) calc(var(--hx-media-h) * 0.68), var(--hx-forest) calc(var(--hx-media-h) - 2px));
+  .hx-stage { min-height: min(100svh, 820px); }
+  .hx-media img { object-position: var(--hx-pos, 58% 36%); }
+  .hx-inner {
+    padding:
+      calc(var(--ui-nav-h) + 20px)
+      22px
+      96px;
   }
-  .hx-inner { padding: calc(var(--hx-media-h) * 0.7) 22px 28px; }
+  .hx-brand { margin-bottom: 12px; gap: 6px 12px; }
+  .hx-brand-word { font-size: 1.65rem; letter-spacing: 0.07em; }
+  .hx-brand-tag { font-size: 13px; }
   .hx-eyebrow { font-size: 13px; margin-bottom: 12px; }
   .hx-eyebrow > span:first-child { flex-basis: 100%; }
   .hx-eyebrow > .hx-eyebrow-sep:nth-child(2) { display: none; }
-  .hx-title { font-size: clamp(2.5rem, 11.2vw, 3.25rem); line-height: 1.05; letter-spacing: -0.03em; }
+  .hx-title { font-size: clamp(2.4rem, 10.5vw, 3.15rem); line-height: 1.05; letter-spacing: -0.03em; }
   .hx-sub { margin-top: 14px; font-size: 17px; line-height: 1.47; }
   .hx-actions { gap: 16px 24px; margin-top: 24px; }
   .hx-ask { width: 100%; min-height: 56px; }
   .hx-ask-arrow { margin-left: auto; }
+  .hx-chrome { bottom: 16px; gap: 12px; }
 }
 
+/* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   .hx-media,
   .hx-inner { scale: none !important; translate: none !important; opacity: 1 !important; }
+  .hx-slide { transition: none !important; }
+  .hx-slide.is-active .hx-media img,
   .hx-media img,
   .hx-rise,
   .hx-ask,
-  .hx-ask::after { animation: none !important; }
+  .hx-ask::after,
+  .hx-dot-progress { animation: none !important; }
   .hx-ask::after { display: none; }
   .hx-ask,
   .hx-ask:hover,
   .hx-ask:active,
   .hx-ask-arrow,
   .hx-ask:hover .hx-ask-arrow { transition: none; transform: none; }
+  .hx-media img { transform: none; opacity: 1; }
+}
+
+.hx.is-reduced .hx-slide:not(.is-active) { display: none; }
+.hx.is-reduced .hx-slide.is-active .hx-media img {
+  animation: none;
+  transform: none;
+  opacity: 1;
 }

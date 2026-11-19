@@ -1,5 +1,12 @@
 # CHANGES
 
+## 2026-11-19 — Home hero cinematic slider
+
+- Redesigned home hero only to a full-bleed, auto-advancing cinematic slider (congress feel adapted from ayurworld.org — no copied logos/seals).
+- Brand `AYURDISHA` as hero-level signal; congress line includes 10–13 Dec 2026 / Janata Maidan / Bhubaneswar; same Ask Desk / Explore mentors / About CTAs.
+- Three project slides (hall, Bhubaneswar temple, WAC hall) with crossfade + Ken Burns–lite; pause on hover/focus; progress dots + keyboard ←/→; `prefers-reduced-motion` freezes on slide 1 with no autoplay.
+- Files: `src/pages/home/HomeHero.jsx`, `src/styles/home-hero.css`, `docs/design/home-hero-slider.md`. No Ask Desk / staff / API changes.
+
 ## 2026-11-19 — DISHA V2 Phase 1 (welcome-by-default)
 
 - Scope policy v2: rules catch spam/abuse/unsafe/medical; keyword OFF_TOPIC no longer declines normal language; scripted OFF_TOPIC/UNFOCUSED off by default (`AI_ALLOW_SCRIPTED_OFFTOPIC=false`).
