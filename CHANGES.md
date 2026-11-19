@@ -1,5 +1,12 @@
 # CHANGES
 
+## 2026-11-19 — Home hero slider motion + imagery (owner Mac feedback)
+
+- Shortened autoplay to **4s** with **750ms** crossfade; Ken Burns scale **1.06→1.15** + clearer pan so motion reads on Mac Safari/Chrome.
+- Removed Play/Pause chrome; minimal progress dots + keyboard ←→ only; hover/focus still pauses; reduced-motion = static slide 1.
+- Replaced weak `hall-wac` with four strongest frames: `home/hero-hall`, `slides/slide-hall`, `sections/bhubaneswar-temple`, `slides/slide-track`.
+- Spec: `docs/design/home-hero-slider.md`. Ask Desk untouched.
+
 ## 2026-11-19 — Home hero cinematic slider
 
 - Redesigned home hero only to a full-bleed, auto-advancing cinematic slider (congress feel adapted from ayurworld.org — no copied logos/seals).

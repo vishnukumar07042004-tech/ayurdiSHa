@@ -1,42 +1,48 @@
 # Home hero — cinematic congress slider
 
-Scope: `src/pages/home/HomeHero.jsx` + `src/styles/home-hero.css` only.
+Scope: `src/pages/home/HomeHero.jsx` + `src/styles/home-hero.css` only. Ask Desk unchanged.
 
-## Inspiration (ayurworld.org, studied 19 Nov 2026)
+Updated: 19 Nov 2026 (owner Mac / live feedback).
 
-- Full-bleed RevSlider: edge-to-edge photography, ~80–100vh.
-- Clear hierarchy: event identity → place/date → one message; breathing room in sky/negative space.
-- Motion: auto-advancing slides with soft crossfades; pause on interaction.
-- Credible congress presence via place (temple/city) + gathering imagery — **not** copied logos, seals, or WAC brand marks.
+## Problems (owner feedback)
 
-## AYURDISHA adaptation
+1. **Motion invisible on Mac** — Ken Burns pans (~1%) and long settle delay made motion feel broken or imperceptible; autoplay also stopped forever after any dot/keyboard press.
+2. **Gaps too long** — ~7s dwell meant users rarely saw a crossfade; motion never “arrived.”
+3. **Chrome clutter** — Pause/Play pill + chunky controls read as a segmented bar; wrong for a brand-first full-bleed hero.
+4. **Weak third slide** — `/assets/sections/hall-wac.webp` (~57KB, soft/small) undercut the cinematic set.
 
-One composition for the first viewport:
+## Image picks (audit of `public/assets/` home / hall / mentors / sections / slides)
 
-1. **Brand** — `AYURDISHA` as a hero-level wordmark (Cormorant accent).
-2. **Congress line** — 11th WAC · 10–13 Dec 2026 · Janata Maidan, Bhubaneswar (from `WAC` in `site.js`).
-3. **Headline** — Meet the minds shaping *Ayurveda.*
-4. **One support sentence** + **one CTA group** (Ask Desk / Explore mentors / About).
-5. **Dominant visual plane** — three full-bleed project images that crossfade:
+Chosen **4** strongest widescreen cinematic frames. No new seals/logos invented; project assets only.
 
-| # | Asset | Role |
+| # | Path | Role | Why |
+|---|---|---|---|
+| 1 | `/assets/home/hero-hall` (+ `-m` phone) | Meet Mentors (LCP) | 1920×1080 mentor + students at oak table, temple through arches; strongest people moment |
+| 2 | `/assets/slides/slide-hall` | Congress hall energy | 1920×1080 one-point hall, marigold pillars, mentors at tables; clear WAC scale |
+| 3 | `/assets/sections/bhubaneswar-temple` | Place / Bhubaneswar | Kalinga temple + tank + marigolds; host-city presence without fake marks |
+| 4 | `/assets/slides/slide-track` | Ayurveda threshold | 1920×1080 student at temple doorway; journey / invitation beat |
+
+**Rejected:** `hall-wac.webp` (too soft/small), square crops (`home-hero`, welcome feature squares), mentor portraits (not full-bleed cinematic).
+
+## Motion spec
+
+| Token | Value | Notes |
 |---|---|---|
-| 1 | `/assets/home/hero-hall` (+ `-m` phone) | Mentors in the hall (LCP) |
-| 2 | `/assets/sections/bhubaneswar-temple` | Place / Odisha presence |
-| 3 | `/assets/sections/hall-wac` | Congress gathering energy |
+| Autoplay dwell | **4000ms** | Target band 3.5–4.5s |
+| Crossfade | **750ms** | Opacity only; GPU-friendly |
+| Ken Burns | **scale 1.06 → 1.15** + pan **±2.4–3.2%** | Continuous over the dwell; no long pre-settle |
+| Pause | Hover / focus within hero | Autoplay resumes on leave/blur |
+| Keyboard | ← → | Advances without killing autoplay |
+| `prefers-reduced-motion: reduce` | Static **slide 1 only**, no autoplay, no Ken Burns, no entrance stagger | |
 
-No cards, no floating chips/badges on media, no government seals, no hard-coded production hostnames, no new network/Firestore on home load.
+Mac Safari/Chrome: `translate3d` + `scale` in one `transform`; `will-change: transform, opacity` on active media; remount/tick so CSS animations restart each advance.
 
-## Motion (2–3 intentional)
+## Control spec
 
-1. **Auto-advance** (~7s) with crossfade; pause while hovered, focused, or when a control is pressed.
-2. **Ken Burns–lite** slow scale/pan on the active slide only.
-3. **Progress dots** (and optional prev/next) with `aria-roledescription="carousel"`, keyboard ←/→, and a polite live region.
+- **Keep:** thin progress **dots** (active elongates + gold fill timed to dwell). Clickable; keyboard ←→.
+- **Remove:** Play/Pause button; any segmented / three-column chrome.
+- No cards, chips, badges, or floating seals on the media plane.
 
-`prefers-reduced-motion: reduce` → show slide 1 only, no autoplay, no Ken Burns, no entrance stagger.
+## Composition (unchanged hierarchy)
 
-## A11y / responsive
-
-- Section is a carousel; each slide is a group; inactive slides `aria-hidden` + `inert`.
-- Scrims keep cream text ≥ ~7:1 on forest-tinted media.
-- Mobile: full-bleed stack; Ask Desk CTA full-width; same hierarchy.
+Brand `AYURDISHA` → WAC line (edition · dates · venue/city) → headline → one support line → CTA group (Ask Desk / Explore mentors / About). Full-bleed, one composition, brand-first.
