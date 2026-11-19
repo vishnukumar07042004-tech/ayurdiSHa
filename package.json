@@ -14,6 +14,7 @@
     "qr": "node scripts/qr/make-qr.mjs",
     "eval:ai": "node tests/ai-eval/run-eval.mjs",
     "eval:ai:build": "node tests/ai-eval/build-set.mjs",
+    "eval:disha": "node scripts/ai/eval-disha.mjs",
     "ai:report": "node scripts/ai/report.mjs",
     "bench:merge": "node scripts/merge-benchmark.mjs",
     "bench:merge:data": "node scripts/build-merge-benchmark.mjs",

@@ -152,9 +152,10 @@ test("the AI assistant is named DISHA in staff labels and the Track note", async
   assert.equal(g.DISHA_DRAFTS, "DISHA drafts");
   assert.equal(g.DISHA_ROLE, "DISHA — AI mentor assistant");
   assert.equal(g.DISHA_TRACK_NOTE, "Prepared with DISHA, our AI assistant, and reviewed by WAC mentors.");
-  // The note still shows only on AI-assisted answers.
+  // DISHA-V2: students must not see AI disclosure — mentor attribution only.
   const track = readFileSync(join(ROOT, "src/TrackAnswer.jsx"), "utf8");
-  assert.match(track, /aiAssisted && <p className="trk-ai-note">\{DISHA_TRACK_NOTE\}<\/p>/);
+  assert.ok(!/trk-ai-note">\{DISHA_TRACK_NOTE\}/.test(track), "Track must not show DISHA_TRACK_NOTE to students");
+  assert.match(track, /mentor attribution only/i);
   const app = readFileSync(join(ROOT, "src/App.jsx"), "utf8");
   assert.match(app, /c\.aiAssisted && <span className="air-assisted-note">\{DISHA_TRACK_NOTE\}<\/span>/);
 });

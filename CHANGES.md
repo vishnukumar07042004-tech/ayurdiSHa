@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-11-19 — DISHA V2 Phase 1 (welcome-by-default)
+
+- Scope policy v2: rules catch spam/abuse/unsafe/medical; keyword OFF_TOPIC no longer declines normal language; scripted OFF_TOPIC/UNFOCUSED off by default (`AI_ALLOW_SCRIPTED_OFFTOPIC=false`).
+- Coding / app-from-zero stays ON_TOPIC; Tech track no longer falls through to Internship; track is a hint.
+- Answer writer: beginner-from-zero, `mustKnow` callouts, scrub false “links below”; resources only from allow-list.
+- Mentor Provide-answer modal: multi-line Action/Mistake fields + Resources; DISHA edit panel wraps next steps.
+- Risk badge uses explainable reasons; routing-why panel; confirm on unsupported claims.
+- Hybrid GPT credit fallback: quality draft until 429/billing, then `AI_GPT_CREDIT_FALLBACK_MODEL` + paid Gemini verify.
+- Flags: `AI_SCOPE_POLICY_VERSION`, `AI_COMPARE_SAMPLE_RATE`, `AI_KILL_SWITCH`, `PLAN_MODE`, GPT fallback envs.
+- Gold set + `npm run eval:disha`; docs `docs/ai/DISHA-V2.md`. Students: mentor attribution only (no AI disclosure on Track).
+
 ## 2026-11-19 — Phase A (security & quota, slice 1)
 
 - Empty intake deadlines + Janata Maidan venue; `PLAN_MODE=free` (Blaze later when funded).
